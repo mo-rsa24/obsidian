@@ -1,0 +1,14 @@
+# Obsidian
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.obsidian/plugins/*/data.json
+.trash/
+
+# Pandoc scratch
+.pandoc/
+
+# OS
+desktop.ini
+Thumbs.db
+.DS_Store
