@@ -12,3 +12,7 @@
 desktop.ini
 Thumbs.db
 .DS_Store
+
+# Windows NTFS download-provenance streams and editor backups: artifacts, not notes
+*:Zone.Identifier
+*.bak
