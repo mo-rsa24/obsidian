@@ -4,5 +4,6 @@
   ],
   "accentColor": "#f55cd4",
   "cssTheme": "Minimal",
-  "theme": "moonstone"
+  "theme": "moonstone",
+  "baseFontSize": 18
 }

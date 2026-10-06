@@ -1,0 +1,3 @@
+$ lsof -i :8000
+COMMAND    PID  USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
+python3 232663 molef    3u  IPv4 7743610      0t0  TCP *:8000 (LISTEN)

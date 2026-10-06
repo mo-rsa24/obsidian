@@ -1,0 +1,9 @@
+$ lsof -a -p 232663 -d 0-3
+COMMAND    PID  USER   FD   TYPE  DEVICE SIZE/OFF    NODE NAME
+python3 232663 molef    0u   CHR     1,3      0t0       3 /dev/null
+python3 232663 molef    1w   REG    8,32        0 3376024 <sandbox>/server.log
+python3 232663 molef    2w   REG    8,32        0 3376024 <sandbox>/server.log
+python3 232663 molef    3u  IPv4 7743610      0t0     TCP *:8000 (LISTEN)
+
+$ readlink /proc/232663/fd/3
+socket:[7743610]
