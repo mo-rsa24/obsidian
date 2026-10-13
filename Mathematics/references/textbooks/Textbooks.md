@@ -66,6 +66,16 @@ table on this page gives PDF pages.
 | gradient of a quadratic form | [matrix cookbook](linear-algebra/matrix-cookbook.pdf#page=11) | 11 |
 | conditional Gaussian; a linear combination of Gaussians, so variances add | [matrix cookbook](linear-algebra/matrix-cookbook.pdf#page=41) | 41 |
 | expectation of linear forms | [matrix cookbook](linear-algebra/matrix-cookbook.pdf#page=35) | 35 |
+| the Jacobian as the m by n matrix of first-order partial derivatives (Definition 5.6) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=156) | 156 |
+| gradients of matrices, and of vector-valued functions | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=155) | 155 |
+| sum rule and marginalisation; product rule and Bayes' theorem | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=190) | 190 |
+| the marginal likelihood (evidence) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=192) | 192 |
+| mean, expected value, variance | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=193) | 193 |
+| covariance (Definition 6.5) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=196) | 196 |
+| the Gaussian distribution | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=203) | 203 |
+| change of variables for densities | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=220) | 220 |
+| what a vector field is (Definition 15.1.1) | [calculus textbook](calculus/calculus-textbook.pdf#page=1109) | 1109 |
+| gradient fields: a field that is the gradient of a function | [calculus textbook](calculus/calculus-textbook.pdf#page=1111) | 1111 |
 
 ## general/
 
@@ -470,7 +480,8 @@ page minus 24.
 | 14.7 Change of Variables in Multiple Integrals; Jacobians | [1083](calculus/calculus-textbook.pdf#page=1083) |
 | 14.8 Centers of Gravity Using Multiple Integrals | [1095](calculus/calculus-textbook.pdf#page=1095) |
 | 15 Topics in Vector Calculus | [1108](calculus/calculus-textbook.pdf#page=1108) |
-| 15.1 Vector Fields | [1108](calculus/calculus-textbook.pdf#page=1108) |
+| 15.1 Vector Fields | [1109](calculus/calculus-textbook.pdf#page=1109) |
+| Gradient fields and conservative fields (15.1.3) | [1111](calculus/calculus-textbook.pdf#page=1111) |
 | 15.2 Line Integrals | [1118](calculus/calculus-textbook.pdf#page=1118) |
 | 15.3 Independence of Path; Conservative Vector Fields | [1135](calculus/calculus-textbook.pdf#page=1135) |
 | 15.4 Green's Theorem | [1146](calculus/calculus-textbook.pdf#page=1146) |
@@ -484,6 +495,155 @@ page minus 24.
 | C Solving Polynomial Equations | [1219](calculus/calculus-textbook.pdf#page=1219) |
 | D Selected Proofs | [1226](calculus/calculus-textbook.pdf#page=1226) |
 | Answers to Odd-Numbered Exercises | [1237](calculus/calculus-textbook.pdf#page=1237) |
+
+### Calculus handbook
+
+`calculus/calculus-handbook.pdf`, 242 pages. Earl, *Calculus Handbook*, version 5.6. A compact handbook for a
+first-year course: limits, differentiation and its rules, integration techniques, hyperbolic functions,
+definite and improper integrals, differential equations, vector calculus, series, and appendices of key
+definitions, theorems and formulas. The printed page number equals the PDF page number. The table is from
+the book's own contents pages.
+
+| Chapter or topic | PDF page |
+| --- | --- |
+| 1 Functions and Limits | [8](calculus/calculus-handbook.pdf#page=8) |
+| Functions | [8](calculus/calculus-handbook.pdf#page=8) |
+| Continuity Examples | [10](calculus/calculus-handbook.pdf#page=10) |
+| Limits | [11](calculus/calculus-handbook.pdf#page=11) |
+| Techniques for Finding Limits | [12](calculus/calculus-handbook.pdf#page=12) |
+| Indeterminate Forms | [14](calculus/calculus-handbook.pdf#page=14) |
+| When Limits Fail to Exist | [16](calculus/calculus-handbook.pdf#page=16) |
+| 2 Differentiation | [17](calculus/calculus-handbook.pdf#page=17) |
+| Definition, Basic Rules, Product Rule | [17](calculus/calculus-handbook.pdf#page=17) |
+| Quotient, Chain and Power Rules; Exponential and Logarithmic Functions | [18](calculus/calculus-handbook.pdf#page=18) |
+| Trigonometric and Inverse Trigonometric Functions | [19](calculus/calculus-handbook.pdf#page=19) |
+| Generalized Product Rule | [23](calculus/calculus-handbook.pdf#page=23) |
+| Inverse Function Rule | [25](calculus/calculus-handbook.pdf#page=25) |
+| Partial Differentiation | [26](calculus/calculus-handbook.pdf#page=26) |
+| Implicit Differentiation | [27](calculus/calculus-handbook.pdf#page=27) |
+| Logarithmic Differentiation | [30](calculus/calculus-handbook.pdf#page=30) |
+| 3 Applications of Derivatives | [31](calculus/calculus-handbook.pdf#page=31) |
+| Maxima and Minima (i.e., Extrema) | [31](calculus/calculus-handbook.pdf#page=31) |
+| Inflection Points | [33](calculus/calculus-handbook.pdf#page=33) |
+| Special Case: Extrema and Inflection Points of Polynomials | [34](calculus/calculus-handbook.pdf#page=34) |
+| Relationship Among f(x), f'(x) and f''(x) | [35](calculus/calculus-handbook.pdf#page=35) |
+| Curve Sketching | [39](calculus/calculus-handbook.pdf#page=39) |
+| Determining the Shape of a Curve Based On Its Derivatives | [44](calculus/calculus-handbook.pdf#page=44) |
+| Rolles's Theorem and the Mean Value Theorem (MVT) | [45](calculus/calculus-handbook.pdf#page=45) |
+| Related Rates | [46](calculus/calculus-handbook.pdf#page=46) |
+| Kinematics (Particle Motion) | [49](calculus/calculus-handbook.pdf#page=49) |
+| Differentials | [52](calculus/calculus-handbook.pdf#page=52) |
+| Curvature | [53](calculus/calculus-handbook.pdf#page=53) |
+| Newton's Method | [54](calculus/calculus-handbook.pdf#page=54) |
+| 4 Integration | [56](calculus/calculus-handbook.pdf#page=56) |
+| Indefinite Integration (Antiderivatives) | [56](calculus/calculus-handbook.pdf#page=56) |
+| Exponential and Logarithmic Functions | [57](calculus/calculus-handbook.pdf#page=57) |
+| Trigonometric Functions | [57](calculus/calculus-handbook.pdf#page=57) |
+| Inverse Trigonometric Functions | [60](calculus/calculus-handbook.pdf#page=60) |
+| Selecting the Right Function for an Intergral | [62](calculus/calculus-handbook.pdf#page=62) |
+| 5 Techniques of Integration | [63](calculus/calculus-handbook.pdf#page=63) |
+| u -Substitution | [63](calculus/calculus-handbook.pdf#page=63) |
+| Integration by Partial Fractions | [65](calculus/calculus-handbook.pdf#page=65) |
+| Integration by Parts | [68](calculus/calculus-handbook.pdf#page=68) |
+| Integration by Trigonometric Substitution | [72](calculus/calculus-handbook.pdf#page=72) |
+| Gamma Function | [74](calculus/calculus-handbook.pdf#page=74) |
+| Beta Function | [76](calculus/calculus-handbook.pdf#page=76) |
+| Impossible Integrals | [78](calculus/calculus-handbook.pdf#page=78) |
+| 6 Hyperbolic Functions | [79](calculus/calculus-handbook.pdf#page=79) |
+| Definitions | [79](calculus/calculus-handbook.pdf#page=79) |
+| Identities | [80](calculus/calculus-handbook.pdf#page=80) |
+| Relationship to Trigonometric Functions | [81](calculus/calculus-handbook.pdf#page=81) |
+| Inverse Hyperbolic Functions | [82](calculus/calculus-handbook.pdf#page=82) |
+| Graphs of Hyperbolic Functions and Their Inverses | [83](calculus/calculus-handbook.pdf#page=83) |
+| Derivatives | [84](calculus/calculus-handbook.pdf#page=84) |
+| Integrals | [85](calculus/calculus-handbook.pdf#page=85) |
+| 7 Definite Integrals | [87](calculus/calculus-handbook.pdf#page=87) |
+| Riemann Sums | [87](calculus/calculus-handbook.pdf#page=87) |
+| Rules of Definite Integration | [92](calculus/calculus-handbook.pdf#page=92) |
+| Fundamental Theorems of Calculus | [92](calculus/calculus-handbook.pdf#page=92) |
+| Properties of Definite Integrals | [94](calculus/calculus-handbook.pdf#page=94) |
+| Solving Definite Integrals with Directed Line Segments | [95](calculus/calculus-handbook.pdf#page=95) |
+| u -Subsitution | [96](calculus/calculus-handbook.pdf#page=96) |
+| Special Techniques for Evaluation | [98](calculus/calculus-handbook.pdf#page=98) |
+| Derivative of an Integral | [100](calculus/calculus-handbook.pdf#page=100) |
+| 8 Applications of Integration | [101](calculus/calculus-handbook.pdf#page=101) |
+| Area Under a Curve | [101](calculus/calculus-handbook.pdf#page=101) |
+| Area Between Curves | [102](calculus/calculus-handbook.pdf#page=102) |
+| Area in Polar Form | [103](calculus/calculus-handbook.pdf#page=103) |
+| Areas of Limacons | [105](calculus/calculus-handbook.pdf#page=105) |
+| Arc Length | [107](calculus/calculus-handbook.pdf#page=107) |
+| Comparison of Formulas for Rectangular, Polar and Parametric Forms | [110](calculus/calculus-handbook.pdf#page=110) |
+| Area of a Surface of Revolution | [111](calculus/calculus-handbook.pdf#page=111) |
+| Volumes of Solids of Revolution | [112](calculus/calculus-handbook.pdf#page=112) |
+| 9 Improper Integrals | [118](calculus/calculus-handbook.pdf#page=118) |
+| Definite Integrals with Infinite Limits of Integration | [118](calculus/calculus-handbook.pdf#page=118) |
+| Definite Integrals with Discontinuous Integrands | [119](calculus/calculus-handbook.pdf#page=119) |
+| 10 Differential Equations | [120](calculus/calculus-handbook.pdf#page=120) |
+| Definitions | [120](calculus/calculus-handbook.pdf#page=120) |
+| Separable First Order Differential Equations | [121](calculus/calculus-handbook.pdf#page=121) |
+| Slope Fields | [123](calculus/calculus-handbook.pdf#page=123) |
+| Logistic Function | [124](calculus/calculus-handbook.pdf#page=124) |
+| Numerical Methods | [125](calculus/calculus-handbook.pdf#page=125) |
+| 11 Vector Calculus | [129](calculus/calculus-handbook.pdf#page=129) |
+| Introduction | [129](calculus/calculus-handbook.pdf#page=129) |
+| Special Unit Vectors | [129](calculus/calculus-handbook.pdf#page=129) |
+| Vector Components | [129](calculus/calculus-handbook.pdf#page=129) |
+| Properties of Vectors | [130](calculus/calculus-handbook.pdf#page=130) |
+| Dot Product | [131](calculus/calculus-handbook.pdf#page=131) |
+| Cross Product | [132](calculus/calculus-handbook.pdf#page=132) |
+| Triple Products | [134](calculus/calculus-handbook.pdf#page=134) |
+| Kinematics (Particle Motion) | [135](calculus/calculus-handbook.pdf#page=135) |
+| Gradient | [136](calculus/calculus-handbook.pdf#page=136) |
+| Divergence | [137](calculus/calculus-handbook.pdf#page=137) |
+| Curl | [138](calculus/calculus-handbook.pdf#page=138) |
+| Laplacian | [139](calculus/calculus-handbook.pdf#page=139) |
+| 12 Sequences | [140](calculus/calculus-handbook.pdf#page=140) |
+| Definitions and Types of Sequences | [140](calculus/calculus-handbook.pdf#page=140) |
+| More Definitions and Theorems | [141](calculus/calculus-handbook.pdf#page=141) |
+| Limits (Convergence and Divergence) | [142](calculus/calculus-handbook.pdf#page=142) |
+| Basic Recursive Sequence Theory | [143](calculus/calculus-handbook.pdf#page=143) |
+| 13 Series | [147](calculus/calculus-handbook.pdf#page=147) |
+| Introduction | [147](calculus/calculus-handbook.pdf#page=147) |
+| Key Properties | [148](calculus/calculus-handbook.pdf#page=148) |
+| n-th Term Convergence Theorems | [148](calculus/calculus-handbook.pdf#page=148) |
+| Power Series | [148](calculus/calculus-handbook.pdf#page=148) |
+| Telescoping Series | [149](calculus/calculus-handbook.pdf#page=149) |
+| Geometric Series | [150](calculus/calculus-handbook.pdf#page=150) |
+| Estimating the Value of Series with Positive Terms | [151](calculus/calculus-handbook.pdf#page=151) |
+| Riemann Zeta Function (p -Series) | [152](calculus/calculus-handbook.pdf#page=152) |
+| Bernoulli Numbers | [156](calculus/calculus-handbook.pdf#page=156) |
+| Convergence Tests | [158](calculus/calculus-handbook.pdf#page=158) |
+| Alternating Series | [163](calculus/calculus-handbook.pdf#page=163) |
+| Radius and Interval of Convergence of Power Series | [165](calculus/calculus-handbook.pdf#page=165) |
+| Summary of Convergence/Divergence Tests | [168](calculus/calculus-handbook.pdf#page=168) |
+| 14 Taylor and MacLaurin Series | [169](calculus/calculus-handbook.pdf#page=169) |
+| Taylor Series | [169](calculus/calculus-handbook.pdf#page=169) |
+| MacLaurin Series | [169](calculus/calculus-handbook.pdf#page=169) |
+| LaGrange Remainder | [171](calculus/calculus-handbook.pdf#page=171) |
+| 15 Miscellaneous Cool Stuff | [172](calculus/calculus-handbook.pdf#page=172) |
+| e | [172](calculus/calculus-handbook.pdf#page=172) |
+| Derivation of Euler's Formula | [173](calculus/calculus-handbook.pdf#page=173) |
+| Logarithms of Negative Real Numbers and Complex Numbers | [175](calculus/calculus-handbook.pdf#page=175) |
+| What Is i | [176](calculus/calculus-handbook.pdf#page=176) |
+| z | [177](calculus/calculus-handbook.pdf#page=177) |
+| Derivatives of a Circle | [178](calculus/calculus-handbook.pdf#page=178) |
+| Derivatives of a Ellipse | [179](calculus/calculus-handbook.pdf#page=179) |
+| Derivatives of a Hyperbola | [180](calculus/calculus-handbook.pdf#page=180) |
+| 3 3 3 | [181](calculus/calculus-handbook.pdf#page=181) |
+| Inflection Points of the PDF of the Normal Distribution | [182](calculus/calculus-handbook.pdf#page=182) |
+| Appendix A: Key Definitions | [183](calculus/calculus-handbook.pdf#page=183) |
+| Appendix B: Key Theorems | [203](calculus/calculus-handbook.pdf#page=203) |
+| Appendix C: List of Key Derivatives and Integrals | [207](calculus/calculus-handbook.pdf#page=207) |
+| Appendix D: Key Functions and Their Derivatives | [214](calculus/calculus-handbook.pdf#page=214) |
+| Appendix E: Geometry and Trigonometry Formulas | [218](calculus/calculus-handbook.pdf#page=218) |
+| Appendix F: Polar and Parametric Equations | [223](calculus/calculus-handbook.pdf#page=223) |
+| Appendix G: Interesting Series | [234](calculus/calculus-handbook.pdf#page=234) |
+| Index | [235](calculus/calculus-handbook.pdf#page=235) |
+| Appendix A Key Definitions | [183](calculus/calculus-handbook.pdf#page=183) |
+| Appendix B Key Theorems | [203](calculus/calculus-handbook.pdf#page=203) |
+| Appendix C Key Derivatives and Integrals | [207](calculus/calculus-handbook.pdf#page=207) |
+| Appendix D Functions and Their Derivatives | [215](calculus/calculus-handbook.pdf#page=215) |
+| Appendix E Geometry and Trigonometry Formulas | [218](calculus/calculus-handbook.pdf#page=218) |
 
 ### Calculus practice problems
 
@@ -592,3 +752,101 @@ contents. The printed page number is the PDF page minus 1.
 | 6.4 Simple Linear Regression Analysis | [120](statistics/introduction-to-statistics.pdf#page=120) |
 | 6.7 The Least Squares Technique | [128](statistics/introduction-to-statistics.pdf#page=128) |
 | 6.9 Making Inferences about β0 and β1 | [133](statistics/introduction-to-statistics.pdf#page=133) |
+
+## machine-learning/
+
+### Mathematics for machine learning
+
+`machine-learning/mathematics-for-machine-learning.pdf`, 417 pages. Marc Peter Deisenroth, A. Aldo Faisal
+and Cheng Soon Ong, *Mathematics for Machine Learning*, draft of 15 October 2019, Cambridge University
+Press. Part I covers the foundations: linear algebra, analytic geometry, matrix decompositions, vector
+calculus, probability and distributions, continuous optimisation. Part II applies them to linear
+regression, dimensionality reduction, density estimation and classification. The printed page number is
+the PDF page minus 6. The table is from the PDF's own outline, with each section's page found from its
+heading in the text; Part II is listed down to the chapters and their first sections.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| 1 Introduction and Motivation | [17](machine-learning/mathematics-for-machine-learning.pdf#page=17) |
+| 1.1 Finding Words for Intuitions | [18](machine-learning/mathematics-for-machine-learning.pdf#page=18) |
+| 1.2 Two Ways to Read This Book | [19](machine-learning/mathematics-for-machine-learning.pdf#page=19) |
+| 1.3 Exercises and Feedback | [22](machine-learning/mathematics-for-machine-learning.pdf#page=22) |
+| 2 Linear Algebra | [23](machine-learning/mathematics-for-machine-learning.pdf#page=23) |
+| 2.1 Systems of Linear Equations | [25](machine-learning/mathematics-for-machine-learning.pdf#page=25) |
+| 2.2 Matrices | [28](machine-learning/mathematics-for-machine-learning.pdf#page=28) |
+| 2.3 Solving Systems of Linear Equations | [33](machine-learning/mathematics-for-machine-learning.pdf#page=33) |
+| 2.4 Vector Spaces | [41](machine-learning/mathematics-for-machine-learning.pdf#page=41) |
+| 2.5 Linear Independence | [46](machine-learning/mathematics-for-machine-learning.pdf#page=46) |
+| 2.6 Basis and Rank | [50](machine-learning/mathematics-for-machine-learning.pdf#page=50) |
+| 2.7 Linear Mappings | [54](machine-learning/mathematics-for-machine-learning.pdf#page=54) |
+| 2.8 Affine Spaces | [67](machine-learning/mathematics-for-machine-learning.pdf#page=67) |
+| 3 Analytic Geometry | [76](machine-learning/mathematics-for-machine-learning.pdf#page=76) |
+| 3.1 Norms | [77](machine-learning/mathematics-for-machine-learning.pdf#page=77) |
+| 3.2 Inner Products | [78](machine-learning/mathematics-for-machine-learning.pdf#page=78) |
+| 3.3 Lengths and Distances | [81](machine-learning/mathematics-for-machine-learning.pdf#page=81) |
+| 3.4 Angles and Orthogonality | [82](machine-learning/mathematics-for-machine-learning.pdf#page=82) |
+| 3.5 Orthonormal Basis | [84](machine-learning/mathematics-for-machine-learning.pdf#page=84) |
+| 3.6 Orthogonal Complement | [85](machine-learning/mathematics-for-machine-learning.pdf#page=85) |
+| 3.7 Inner Product of Functions | [86](machine-learning/mathematics-for-machine-learning.pdf#page=86) |
+| 3.8 Orthogonal Projections | [87](machine-learning/mathematics-for-machine-learning.pdf#page=87) |
+| 3.9 Rotations | [97](machine-learning/mathematics-for-machine-learning.pdf#page=97) |
+| 4 Matrix Decompositions | [104](machine-learning/mathematics-for-machine-learning.pdf#page=104) |
+| 4.1 Determinant and Trace | [105](machine-learning/mathematics-for-machine-learning.pdf#page=105) |
+| 4.2 Eigenvalues and Eigenvectors | [111](machine-learning/mathematics-for-machine-learning.pdf#page=111) |
+| 4.3 Cholesky Decomposition | [120](machine-learning/mathematics-for-machine-learning.pdf#page=120) |
+| 4.4 Eigendecomposition and Diagonalization | [121](machine-learning/mathematics-for-machine-learning.pdf#page=121) |
+| 4.5 Singular Value Decomposition | [125](machine-learning/mathematics-for-machine-learning.pdf#page=125) |
+| 4.6 Matrix Approximation | [135](machine-learning/mathematics-for-machine-learning.pdf#page=135) |
+| 4.7 Matrix Phylogeny | [140](machine-learning/mathematics-for-machine-learning.pdf#page=140) |
+| 5 Vector Calculus | [145](machine-learning/mathematics-for-machine-learning.pdf#page=145) |
+| 5.1 Differentiation of Univariate Functions | [147](machine-learning/mathematics-for-machine-learning.pdf#page=147) |
+| 5.2 Partial Differentiation and Gradients | [152](machine-learning/mathematics-for-machine-learning.pdf#page=152) |
+| 5.3 Gradients of Vector-Valued Functions | [155](machine-learning/mathematics-for-machine-learning.pdf#page=155) |
+| 5.4 Gradients of Matrices | [161](machine-learning/mathematics-for-machine-learning.pdf#page=161) |
+| 5.5 Useful Identities for Computing Gradients | [164](machine-learning/mathematics-for-machine-learning.pdf#page=164) |
+| 5.6 Backpropagation and Automatic Differentiation | [165](machine-learning/mathematics-for-machine-learning.pdf#page=165) |
+| 5.7 Higher-Order Derivatives | [170](machine-learning/mathematics-for-machine-learning.pdf#page=170) |
+| 5.8 Linearization and Multivariate Taylor Series | [171](machine-learning/mathematics-for-machine-learning.pdf#page=171) |
+| 6 Probability and Distributions | [178](machine-learning/mathematics-for-machine-learning.pdf#page=178) |
+| 6.1 Construction of a Probability Space | [178](machine-learning/mathematics-for-machine-learning.pdf#page=178) |
+| 6.2 Discrete and Continuous Probabilities | [184](machine-learning/mathematics-for-machine-learning.pdf#page=184) |
+| 6.3 Sum Rule, Product Rule, and Bayes’ Theorem | [189](machine-learning/mathematics-for-machine-learning.pdf#page=189) |
+| 6.4 Summary Statistics and Independence | [192](machine-learning/mathematics-for-machine-learning.pdf#page=192) |
+| 6.5 Gaussian Distribution | [203](machine-learning/mathematics-for-machine-learning.pdf#page=203) |
+| 6.6 Conjugacy and the Exponential Family | [211](machine-learning/mathematics-for-machine-learning.pdf#page=211) |
+| 6.7 Change of Variables/Inverse Transform | [220](machine-learning/mathematics-for-machine-learning.pdf#page=220) |
+| 7 Continuous Optimization | [231](machine-learning/mathematics-for-machine-learning.pdf#page=231) |
+| 7.1 Optimization Using Gradient Descent | [233](machine-learning/mathematics-for-machine-learning.pdf#page=233) |
+| 7.2 Constrained Optimization and Lagrange Multipliers | [239](machine-learning/mathematics-for-machine-learning.pdf#page=239) |
+| 7.3 Convex Optimization | [242](machine-learning/mathematics-for-machine-learning.pdf#page=242) |
+| 8 When Models Meet Data | [257](machine-learning/mathematics-for-machine-learning.pdf#page=257) |
+| 8.1 Data, Models, and Learning | [257](machine-learning/mathematics-for-machine-learning.pdf#page=257) |
+| 8.2 Empirical Risk Minimization | [264](machine-learning/mathematics-for-machine-learning.pdf#page=264) |
+| 8.3 Parameter Estimation | [271](machine-learning/mathematics-for-machine-learning.pdf#page=271) |
+| 8.4 Probabilistic Modeling and Inference | [278](machine-learning/mathematics-for-machine-learning.pdf#page=278) |
+| 8.5 Directed Graphical Models | [284](machine-learning/mathematics-for-machine-learning.pdf#page=284) |
+| 8.6 Model Selection | [289](machine-learning/mathematics-for-machine-learning.pdf#page=289) |
+| 9 Linear Regression | [295](machine-learning/mathematics-for-machine-learning.pdf#page=295) |
+| 9.1 Problem Formulation | [297](machine-learning/mathematics-for-machine-learning.pdf#page=297) |
+| 9.2 Parameter Estimation | [298](machine-learning/mathematics-for-machine-learning.pdf#page=298) |
+| 9.3 Bayesian Linear Regression | [309](machine-learning/mathematics-for-machine-learning.pdf#page=309) |
+| 9.4 Maximum Likelihood as Orthogonal Projection | [319](machine-learning/mathematics-for-machine-learning.pdf#page=319) |
+| 10 Dimensionality Reduction with Principal Component Analysis | [323](machine-learning/mathematics-for-machine-learning.pdf#page=323) |
+| 10.1 Problem Setting | [324](machine-learning/mathematics-for-machine-learning.pdf#page=324) |
+| 10.2 Maximum Variance Perspective | [326](machine-learning/mathematics-for-machine-learning.pdf#page=326) |
+| 10.3 Projection Perspective | [331](machine-learning/mathematics-for-machine-learning.pdf#page=331) |
+| 10.4 Eigenvector Computation and Low-Rank Approximations | [339](machine-learning/mathematics-for-machine-learning.pdf#page=339) |
+| 10.5 PCA in High Dimensions | [341](machine-learning/mathematics-for-machine-learning.pdf#page=341) |
+| 10.6 Key Steps of PCA in Practice | [342](machine-learning/mathematics-for-machine-learning.pdf#page=342) |
+| 10.7 Latent Variable Perspective | [345](machine-learning/mathematics-for-machine-learning.pdf#page=345) |
+| 11 Density Estimation with Gaussian Mixture Models | [354](machine-learning/mathematics-for-machine-learning.pdf#page=354) |
+| 11.1 Gaussian Mixture Model | [355](machine-learning/mathematics-for-machine-learning.pdf#page=355) |
+| 11.2 Parameter Learning via Maximum Likelihood | [356](machine-learning/mathematics-for-machine-learning.pdf#page=356) |
+| 11.3 EM Algorithm | [366](machine-learning/mathematics-for-machine-learning.pdf#page=366) |
+| 11.4 Latent-Variable Perspective | [369](machine-learning/mathematics-for-machine-learning.pdf#page=369) |
+| 12 Classification with Support Vector Machines | [376](machine-learning/mathematics-for-machine-learning.pdf#page=376) |
+| 12.1 Separating Hyperplanes | [378](machine-learning/mathematics-for-machine-learning.pdf#page=378) |
+| 12.2 Primal Support Vector Machine | [380](machine-learning/mathematics-for-machine-learning.pdf#page=380) |
+| 12.3 Dual Support Vector Machine | [389](machine-learning/mathematics-for-machine-learning.pdf#page=389) |
+| 12.4 Kernels | [394](machine-learning/mathematics-for-machine-learning.pdf#page=394) |
+| 12.5 Numerical Solution | [396](machine-learning/mathematics-for-machine-learning.pdf#page=396) |
