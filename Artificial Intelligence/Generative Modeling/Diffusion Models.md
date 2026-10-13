@@ -1,5 +1,5 @@
 ---
-aliases: [diffusion model, diffusion models, DDPM, denoising diffusion, forward process, forward diffusion, noising process, noising a cloud, closed-form forward process, q(x_t | x_0), "x_t = sqrt(abar) x_0 + sqrt(1 - abar) eps", alpha bar, abar, noise level, noise schedule level, composing diffusion models, composition of diffusion models, composition operator, composed distribution, compositional score, Definition 5.1, product of experts with a background, dividing out the background, background distribution, p_b, co-occurrence, hybrid, shared versus split, projective composition, the order of multiplying and noising, multiply then noise, noise each then multiply, noise-then-compose, compose-then-noise, score of a noised product, product of noised scores, sum of noised scores, summed score, summed scores, adding scores, why composition fails under reverse diffusion, reverse diffusion on a composed score, the sampler not the model, annealed MCMC, annealed Langevin, mixtures commute with noising, Reduce Reuse Recycle equation 11, Reduce Reuse Recycle equation 12]
+aliases: [diffusion model, diffusion models, DDPM, denoising diffusion, forward process, forward diffusion, noising process, noising a cloud, closed-form forward process, q(x_t | x_0), "x_t = sqrt(abar) x_0 + sqrt(1 - abar) eps", alpha bar, abar, noise level, noise schedule level, composing diffusion models, composition of diffusion models, composition operator, composed distribution, compositional score, Definition 5.1, product of experts with a background, dividing out the background, background distribution, p_b, co-occurrence, hybrid, shared versus split, projective composition, the order of multiplying and noising, multiply then noise, noise each then multiply, noise-then-compose, compose-then-noise, score of a noised product, product of noised scores, sum of noised scores, summed score, summed scores, adding scores, why composition fails under reverse diffusion, reverse diffusion on a composed score, the sampler not the model, annealed MCMC, annealed Langevin, Algorithm 1, Reduce Reuse Recycle Algorithm 1, annealed MCMC sampling, steps per level, route A, route B, more levels do not help, Reverse (equal steps), mixtures commute with noising, Reduce Reuse Recycle equation 11, Reduce Reuse Recycle equation 12, energy parameterisation, energy parameterization, energy-based parameterisation, energy-based parameterization, energy-based diffusion model, energy-parameterised diffusion model, scalar energy, potential function, noise-conditional potential function, f_theta, "eps = -sigma_t grad f", unnormalised log density, unnormalized log-likelihood, accept step, accept-reject step, Metropolis correction, Metropolis-corrected sampler, Metropolis-adjusted Langevin, MALA, unadjusted Langevin, ULA, unadjusted Langevin algorithm, U-HMC, unadjusted HMC, acceptance rate, acceptance rate as a dial, share accepted, step size and the accept step, Langevin step-size bias, stability limit, 2 / P, light tails, lighter-than-Gaussian tails, transient chain, Table 1 of Reduce Reuse Recycle, sampler ladder, log-likelihood of samples, mixture composition, mixture of diffusion models, ratio of normalisers, Reduce Reuse Recycle equation 5, product of experts, product as an intersection, intersection of distributions, product of experts as intersection, the product's peak is a compromise, compromise peak, partly like each concept, Reduce Reuse Recycle equation 8, composition operators, compositional operators, product mixture and negation, AND OR NOT composition, mixture as a union, union of distributions, Reduce Reuse Recycle equation 9, negation, negation composition, negative prompt as negation, "q0 / q1^alpha", Reduce Reuse Recycle equation 10, guidance as a product, classifier-free guidance as a product of experts, classifier guidance as a product, which operators need heights, score models cannot mix]
 sources:
   - "Ho, Jain, Abbeel, Denoising Diffusion Probabilistic Models, NeurIPS 2020: https://arxiv.org/abs/2006.11239"
   - "Bradley, Nakkiran, Berthelot, Thornton, Susskind, Mechanisms of Projective Composition of Diffusion Models, ICML 2025: https://arxiv.org/abs/2502.04549"
@@ -17,13 +17,17 @@ Artificial Intelligence, Generative Modeling. Needs: [[Multivariate Normal Distr
 > [!warning] Unfinished
 > - One picture is still to be drawn: the deep-dive sheet for [[#Composing models with a background]], prompt 6 in the vault's `.prompts/Diffusion Models.md`. Its last render put the marked points off the note's saved figure, and it is stuck after three revisions.
 > - Three pictures for [[#The order of multiplying and noising]] are waiting to be drawn: prompts 7, 8 and 9 in the same file.
-> - The quiz page covers the toy only; the paper's figures added under [[#Composing models with a background]] are not in it yet, and [[#The order of multiplying and noising]] is not in it at all.
-> - The reverse process and annealed Langevin are run in [[#Try the two orders yourself]] without sections of their own. The reverse process, the score and the training objective wait for a walk that reaches them.
+> - Three pictures for [[#The energy parameterisation]] are waiting to be drawn: prompts 10, 11 and 12 in the same file.
+> - One picture for [[#The product as an intersection]] is waiting to be drawn: prompt 13 in the same file.
+> - Three pictures for [[#Product, mixture and negation]] are waiting to be drawn: prompts 14, 15 and 16 in the same file.
+> - Two concept pictures are waiting to be drawn: [[#Annealed MCMC]], prompt 17, and [[#Step size and the accept step]], prompt 18, in the same file.
+> - The quiz page covers the toy only; the paper's figures and [[#The product as an intersection]] added under [[#Composing models with a background]] are not in it yet, and [[#The order of multiplying and noising]] with [[#Annealed MCMC]], [[#The energy parameterisation]] with [[#Step size and the accept step]], and [[#Product, mixture and negation]] are not in it at all.
+> - The reverse process is run in [[#Try the two orders yourself]] without a section of its own; it, the score and the training objective wait for a walk that reaches them.
 > - No project has applied this yet. Every run below is a sandbox run.
 >
-> Stated, not checked: 1 claim, marked where it sits.
+> Stated, not checked: 3 claims, marked where they sit.
 
-**A diffusion model learns to undo a fixed noising process, and two trained models can be combined by multiplying what each believes and dividing out what they share.** This note covers the noising, written as one jump from a clean point to any noise level, and the composition rule that the Mechanisms of Projective Composition paper names in its Definition 5.1, both worked on the same small two-dimensional Gaussian clouds. It then shows, on a one-dimensional pair, why adding two models' scores and running the usual reverse process misses the product, following Reduce, Reuse, Recycle. Every number can be checked by hand.
+**A diffusion model learns to undo a fixed noising process, and two trained models can be combined by multiplying what each believes and dividing out what they share.** This note covers the noising, written as one jump from a clean point to any noise level, and the composition rule that the Mechanisms of Projective Composition paper names in its Definition 5.1, both worked on the same small two-dimensional Gaussian clouds. It then shows, on a one-dimensional pair, why adding two models' scores and running the usual reverse process misses the product, and how annealed MCMC reaches the product with the same scores, and how a model that outputs one energy per input lets a sampler accept or reject each move, which holds the right width at any step size, and lets models be mixed, all following Reduce, Reuse, Recycle. Every number can be checked by hand.
 
 **Where you work.**
 
@@ -46,6 +50,8 @@ Both sections use the learner's `toy.py` and `samples.py`. Save them from [[Mult
 - [[#The forward process in one jump]]
 - [[#Composing models with a background]]
 - [[#The order of multiplying and noising]]
+- [[#The energy parameterisation]]
+- [[#Product, mixture and negation]]
 
 ## The forward process in one jump
 
@@ -185,7 +191,7 @@ From step 4:
 
 ### How the jump works
 
-One coordinate at a time, with $x_0 \sim \mathcal{N}(m, v)$ and $\varepsilon \sim \mathcal{N}(0, 1)$ independent of it:
+One coordinate at a time, with [a Gaussian](../../Mathematics/references/textbooks/linear-algebra/matrix-cookbook.pdf#page=40) $x_0 \sim \mathcal{N}(m, v)$ and $\varepsilon \sim \mathcal{N}(0, 1)$ independent of it:
 
 $$
 \begin{aligned}
@@ -216,6 +222,43 @@ The narrow axis has variance 1 at every level, because noise of variance 1 repla
 
 *The deep-dive sheet composing the form, the mechanism and the run.*
 
+### One small step, fifty of them, and one jump
+
+**Each small step shrinks the point by $\sqrt{1 - \beta_t}$ and adds noise of variance $\beta_t$, $q(x_t \mid x_{t-1}) = \mathcal{N}(\sqrt{1 - \beta_t}\,x_{t-1},\ \beta_t I)$, and chaining the steps up to level $t$ gives the one jump with $\bar\alpha_t = \prod_{s=1}^{t}(1 - \beta_s)$.** After enough steps $q(x_T)$ is close to $\mathcal{N}(0, I)$. *Cited:* Du et al., Reduce, Reuse, Recycle, section 2.1, paragraph 1 (`text/related_work.tex` lines 7 to 8).
+
+On the one-dimensional toy, expert a is $\mathcal{N}(-1, 0.5)$ and the cosine schedule has 100 levels (the schedule built in [[#Try the two orders yourself]]). Save this as `forward_chain.py`, with `betas` and `abar` from that schedule:
+
+```python
+rng = np.random.default_rng(0)
+x0 = -1.0 + np.sqrt(0.5) * rng.standard_normal((100_000, 1))
+xs = x0.copy()
+for t in range(1, 51):
+    xs = np.sqrt(1 - betas[t]) * xs + np.sqrt(betas[t]) * rng.standard_normal(xs.shape)
+jump = np.sqrt(abar[50]) * x0 + np.sqrt(1 - abar[50]) * rng.standard_normal(x0.shape)
+```
+
+It printed:
+
+```
+expert a after 50 small steps: mean -0.7026, variance 0.7518
+expert a after one jump to t = 50: mean -0.7024, variance 0.7445
+closed form at abar = 0.493844: mean -0.702740, variance 0.753078
+product of (1 - beta_s) for s = 1..50: 0.493844  (this is abar at t = 50)
+product of (1 - beta_s) for s = 1..T, as equation A2's text prints it: 2.43e-07  (the same for every t)
+```
+
+| # | Field | This run | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | 50 small steps, mean and variance | `-0.7026`, `0.7518` | the chain's cloud at level 50, from 100,000 points | shown |
+| 2 | one jump, mean and variance | `-0.7024`, `0.7445` | the same level reached in one line; within the run's three-standard-error tolerance of 0.0082 for the mean and 0.0101 for the variance of the chain | shown |
+| 3 | closed form at $\bar\alpha = 0.493844$ | `-0.702740`, `0.753078` | $\sqrt{\bar\alpha}\,(-1)$ and $0.493844 \times 0.5 + 1 - 0.493844$ | derived in [[#How the jump works]] |
+| 4 | product of $(1 - \beta_s)$ up to 50 | `0.493844` | the signal share left at level 50 | shown |
+| 5 | product of all 100 factors | `2.43e-07` | the signal share at level 100: nothing of the clean point is left, so $q(x_T)$ is $\mathcal{N}(0, I)$ to within that share | shown |
+
+Level 50 on this schedule leaves $\bar\alpha = 0.4938$, so the "half the signal left" level used in [[#The order of multiplying and noising]] ($\bar\alpha = 0.5$) sits at about level 50. *Inferred* from the 0.4938, not run at exactly 0.5 here; the exact-0.5 closed form is `-0.707107`, `0.750000`.
+
+*Backing for the run:* `checks/forward_chain.py` and `checks/step5_noise_levels.out` in the journey's `sources/reduce-reuse-recycle/`, seed 0, re-run in an empty folder with the prepared environment and the same output.
+
 ### Other ways to noise
 
 - **The step-by-step chain**, as in step 5, when the intermediate states matter, as in a sampler that walks back down. One jump is the shortcut when only the end state is needed.
@@ -229,7 +272,8 @@ Training a diffusion model needs pairs of clean and noised points at random leve
 
 **Taught in:**
 
-- the `drip-read` walk of [the Mechanisms of Projective Composition paper note](../../deep-learning/01-poe-derivation-foundations/papers/mechanisms-of-projective-composition/), step 3c, where the learner's `noised.py` printed level 0.5 as mean `[-1.41, -0]` and variance `[1, 2.51]`, within 0.05 of the closed form, with the closed-form print still owed
+- the `drip-read` walk of the Mechanisms of Projective Composition paper note, step 3c, where the learner's `noised.py` printed level 0.5 as mean `[-1.41, -0]` and variance `[1, 2.51]`, within 0.05 of the closed form, with the closed-form print still owed
+- the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, section 2.1 paragraph 1 (the paper note is not written yet; link it here when it is): the single-step transition, and the agreement of 50 small steps with one jump on the toy
 - the PoE derivation foundations journey's plan 09, `plans/09-the-forward-process.md`, task 1 at lines 138 to 168 (iterate the steps, then jump, and compare) and section 3 at lines 221 to 277 (derive the jump on paper)
 
 **Applied in:** nothing yet.
@@ -387,7 +431,7 @@ You should see `No such file or directory`, then `2`.
 
 ### How composition works
 
-Per coordinate, with precision $P = 1/v_1 + 1/v_2 - 1/v_b$ and $B = m_1/v_1 + m_2/v_2 - m_b/v_b$, the composed mean is $B/P$ and the variance $1/P$. The derivation, step by step, is [[Multivariate Normal Distribution#How the product works]]. The four halves of the toy:
+Per coordinate, with precision $P = 1/v_1 + 1/v_2 - 1/v_b$ and $B = m_1/v_1 + m_2/v_2 - m_b/v_b$, the composed mean is $B/P$ and the variance $1/P$. The derivation, step by step, is [[Multivariate Normal Distribution#How the product works]], and the formula in print is the [product of Gaussian densities](../../Mathematics/references/textbooks/linear-algebra/matrix-cookbook.pdf#page=42). The four halves of the toy:
 
 $$
 \begin{aligned}
@@ -452,6 +496,123 @@ Column (A) is the toy's split with the empty wall as background, and it holds up
 
 Figure 3's (A) against (B), with no trained model in the way. In each heatmap the columns are the eight coordinates; in the right-hand panels each row is one sample. On the left, the empty background lights columns 0, 2, 4 and 6 brightly in every row, and the Bayes composition lights them at about half strength. On the right, with a cluttered background, both light the same columns. The caption's target lists six entries where the panels have eight columns. *Shown:* read by eye from the panels.
 
+### The product as an intersection
+
+**Multiplying experts gives a density that is tall only where every expert is at least somewhat tall, which is why Du et al. call the product an "intersection"; its peak is a compromise between the experts, at a point where none of them is at its best.** *Cited:* Du et al., Reduce, Reuse, Recycle, section 3, paragraph 2 (`text/method.tex` lines 10 to 19): "Regions of high probability under $q^\text{prod}(x)$ will typically have high probability under *all* $q^i(x)$." The word "typically" matters, because the product's peak need not sit where any single expert peaks.
+
+**When to reach for it.** When a composed sample looks like neither concept in full. The product rewards points that are partly like each expert, so a sample that is half of each is what the product asks for. Co-occurrence, a dog and a cat both present, needs places where every expert is high at once. Where those places barely overlap, the product picks the point in between. *Derived* from the product's definition, and shown on numbers below.
+
+**Try it yourself.** The two experts are the pair in [[#The one-dimensional pair]], $a = \mathcal{N}(-1, 0.5)$ and $b = \mathcal{N}(1, 0.8)$, with a second pair of the same widths pulled apart to $\pm 4$.
+
+1. You need the prepared environment: `~/.vault-sandbox/bin/python -c "import numpy, matplotlib"` prints nothing when both are there. If it fails, [[Multivariate Normal Distribution#Try sampling yourself]] steps 1 and 2 say how to make it.
+2. Make an empty folder:
+
+   ```bash
+   mkdir -p ~/playground/sandbox/product-intersection && cd ~/playground/sandbox/product-intersection
+   ```
+
+3. Save this as `intersection.py`. For each pair it multiplies the experts point by point, divides by the area, finds the tallest point, and reads each expert's height there against that expert's own peak:
+
+   ```python
+   # Where a product of two experts is tall, and how tall each expert is there.
+   import numpy as np
+   import matplotlib
+   matplotlib.use("Agg")
+   import matplotlib.pyplot as plt
+
+   def gauss(x, m, v):
+       return np.exp(-(x - m) ** 2 / (2 * v)) / np.sqrt(2 * np.pi * v)
+
+   x = np.linspace(-8, 8, 1601)                     # grid spacing 0.01
+   dx = x[1] - x[0]
+   pairs = {"near": ((-1.0, 0.5), (1.0, 0.8)),      # the chunk's pair
+            "far":  ((-4.0, 0.5), (4.0, 0.8))}      # the same widths, pulled apart
+
+   fig, axes = plt.subplots(1, 2, figsize=(10, 3.6))
+   for ax, (name, ((ma, va), (mb, vb))) in zip(axes, pairs.items()):
+       qa, qb = gauss(x, ma, va), gauss(x, mb, vb)
+       raw = qa * qb
+       Z = raw.sum() * dx
+       prod = raw / Z
+       i = int(prod.argmax())
+       peak = (ma / va + mb / vb) / (1 / va + 1 / vb)   # precision-weighted mean
+       print(f"{name}: product peaks at x = {x[i]:.2f} (closed form {peak:.4f}), area before dividing Z = {Z:.3g}")
+       print(f"{name}: there, a is {qa[i]:.3g} against its own peak {qa.max():.3g}, {100 * qa[i] / qa.max():.3g}%")
+       print(f"{name}: there, b is {qb[i]:.3g} against its own peak {qb.max():.3g}, {100 * qb[i] / qb.max():.3g}%")
+       ax.plot(x, qa, color="tab:blue", label="expert a")
+       ax.plot(x, qb, color="tab:orange", label="expert b")
+       ax.plot(x, prod, color="tab:green", label="product, divided by Z")
+       ax.axvline(x[i], color="grey", lw=0.8, ls="--")
+       ax.set_xlim(-6, 6); ax.set_title(f"{name}: a = N({ma}, {va}), b = N({mb}, {vb})")
+       ax.set_xlabel("x"); ax.set_ylabel("height")
+   axes[0].legend(frameon=False)
+   fig.tight_layout()
+   fig.savefig("intersection.png", dpi=120)
+   ```
+
+4. Run it:
+
+   ```bash
+   ~/.vault-sandbox/bin/python intersection.py
+   ```
+
+   You should see:
+
+   ```
+   near: product peaks at x = -0.23 (closed form -0.2308), area before dividing Z = 0.0751
+   near: there, a is 0.312 against its own peak 0.564, 55.3%
+   near: there, b is 0.173 against its own peak 0.446, 38.8%
+   far: product peaks at x = -0.92 (closed form -0.9231), area before dividing Z = 7.14e-12
+   far: there, a is 4.28e-05 against its own peak 0.564, 0.00759%
+   far: there, b is 1.2e-07 against its own peak 0.446, 2.69e-05%
+   ```
+
+   ![The run's six lines, with the product's peak and each expert's share of its own peak marked 1 to 6|800](assets/intersection-heights-at-the-product-peak.png)
+
+   and the saved `intersection.png`:
+
+   ![Left, the near pair: the green product peaks at -0.23 between the blue and orange experts, where both are partly tall. Right, the far pair: the green product peaks at -0.92 in the gap, where both experts are flat|900](assets/intersection-the-product-peaks-between-the-experts.png)
+
+5. Clean up, and check the folder is gone:
+
+   ```bash
+   cd ~ && rm -r ~/playground/sandbox/product-intersection
+   ls ~/playground/sandbox/product-intersection; echo $?
+   ```
+
+   You should see `No such file or directory` and `2`.
+
+**Reading the intersection output.**
+
+| # | Field | Value | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | near, product peak | `-0.23` | between the experts' peaks at $-1$ and $1$, nearer $a$ because $a$ is narrower; the closed form agrees | derived below |
+| 2 | near, $a$ at the peak | `55.3%` | expert $a$ is at a little over half its own best | shown, derived below |
+| 3 | near, $b$ at the peak | `38.8%` | expert $b$ is at under two fifths of its own best. Neither is at its best; both are partly satisfied | shown, derived below |
+| 4 | far, product peak | `-0.92` | the same weighted average of $-4$ and $4$, in the gap between them. `Z = 7.14e-12` is the area the raw product had: almost nothing overlaps | derived below |
+| 5 | far, $a$ at the peak | `0.00759%` | expert $a$ gives this point almost no weight | shown |
+| 6 | far, $b$ at the peak | `2.69e-05%` | nor does expert $b$. After dividing by $Z$ the product is still a full-height bell, centred on a point neither expert believes in | shown |
+
+**How the intersection works.** The product's peak is the [[Multivariate Normal Distribution#How the product works|precision-weighted mean]] of the experts' means, worked there step by step:
+
+$$x^\star = \frac{m_a/v_a + m_b/v_b}{1/v_a + 1/v_b} = \frac{-2 + 1.25}{3.25} = -0.230769$$
+
+A Gaussian's height at $x$, as a share of its own peak, is $e^{-(x - m)^2 / (2v)}$, because the normalising constant cancels in the ratio:
+
+$$\frac{q_a(x^\star)}{q_a(m_a)} = e^{-(0.769231)^2 / 1.0} = e^{-0.591716} = 0.5534$$
+
+$$\frac{q_b(x^\star)}{q_b(m_b)} = e^{-(-1.230769)^2 / 1.6} = e^{-0.946746} = 0.3880$$
+
+*Derived.* These match fields 2 and 3. For the far pair, $x^\star = (-8 + 5)/3.25 = -0.923077$, and the shares are $e^{-9.467456} = 7.73 \times 10^{-5}$ and $e^{-15.147929} = 2.64 \times 10^{-7}$. The run reads them at the grid point $-0.92$, which gives the slightly different $7.59 \times 10^{-5}$ and $2.69 \times 10^{-7}$ of fields 5 and 6.
+
+Moving the experts apart never moves the peak away from the weighted average, and never shrinks the bell after dividing by $Z$. It only drives down how much either expert agrees with the peak. Du et al.'s appendix E shows the failure this leads to: "Our approach fails to generate products of distributions with no overlap". *Cited:* `text/appendix.tex` line 306. The walk reaches that figure at chunk 142.
+
+**Why the intersection matters.** This is the one-dimensional picture of a hybrid. The background-divided toy above lands on $-1.5$ in shared's left half for the same reason: a product lands on points that are partly like each concept. The plain product has no background to divide out, so it shows the compromise with nothing else in the way.
+
+*🖼️ Diagram wanted: the product as an intersection, two experts and their product with each expert's share at the product's peak. Prompt 13 in the vault's `.prompts/Diffusion Models.md`.*
+
+**Taught in:** the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, section 3, paragraph 2, chunk 34 (the product as an intersection, and the heights at its peak from the walk's answer key `checks/step6_product.out`). The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
+
 ### Why composition matters
 
 The rule produces co-occurrence exactly when each expert differs from the background only on its own pixels. When two experts compete for the same pixels, it produces a hybrid, and no sampler can fix that, because the hybrid is the target density itself. This is the reading the learner's PhD proposal tests against the paper.
@@ -478,22 +639,22 @@ The learner's [Gaussian Bowl Sketchpad](https://claude.ai/artifact/2TarMifiFoFyo
 
 **Taught in:**
 
-- the `drip-read` walk of [the Mechanisms of Projective Composition paper note](../../deep-learning/01-poe-derivation-foundations/papers/mechanisms-of-projective-composition/), step 3a: the overlap prediction, the learner's question about the role of the background and the difference between shared and split, the re-teach with two-pixel images, and the per-coordinate derivation traced on paper
+- the `drip-read` walk of the Mechanisms of Projective Composition paper note, step 3a: the overlap prediction, the learner's question about the role of the background and the difference between shared and split, the re-teach with two-pixel images, and the per-coordinate derivation traced on paper
 - the PoE derivation foundations journey's plan 13, `plans/13-poe-on-two-gaussians.md`, lines 173 to 182, which composes the same pair with the unconditional $\mathcal{N}(0, \operatorname{diag}(4, 4))$ as the background
 
 **Applied in:** nothing yet.
 
 ## The order of multiplying and noising
 
-Navigation: ⬅️ [[#Composing models with a background]] | 📋 [[#Table of contents|TOC]]
+Navigation: ⬅️ [[#Composing models with a background]] | 📋 [[#Table of contents|TOC]] | [[#The energy parameterisation]] ➡️
 
 **Multiplying two experts and then noising the product (equation 11 of Du et al.) gives a different curve from noising each expert and then multiplying (equation 12), at every noise level except none. Adding two diffusion models' scores gives the second curve, and the reverse process needs the first.** A mixture of two experts has no such problem: mixing then noising and noising then mixing give the same curve. *Cited:* Du et al., Reduce, Reuse, Recycle, section 4: "For $t>0$, this quantity is *not* equal to the sum of the scores of the two models".
 
 ### Words the two orders use
 
-**Score.** The slope of the log of a density, $\nabla_x \log q(x)$. A diffusion model's network estimates it at every noise level. For $\mathcal{N}(m, v)$ it is $-(x - m)/v$, because the log of the density is $-(x - m)^2 / (2v)$ plus a constant. *Derived.*
+**Score.** The slope of the log of a density, $\nabla_x \log q(x)$. A diffusion model's network estimates it at every noise level. For $\mathcal{N}(m, v)$ it is $-(x - m)/v$, because [the log](../../Mathematics/references/textbooks/algebra/algebra-handbook.pdf#page=110) of the density is $-(x - m)^2 / (2v)$ plus a constant. *Derived.*
 
-**Summed score.** Two models' scores added at the same point and the same level. The log of a product is the sum of the logs, so the summed score is the score of the product of the two *noised* experts. *Derived.*
+**Summed score.** Two models' scores added at the same point and the same level. The log of a product is the sum of the logs, so the summed score is the score of the product of the two *noised* experts. *Derived.* The product's missing area does not enter it: on this pair the clean product has area 0.075126, and dividing by that moves the log by a constant, which has slope 0. See [[Multivariate Normal Distribution#The area a product loses]].
 
 **Multiply, then noise**, equation 11. Multiply the clean experts, then push the product through the forward process to level $\bar\alpha$. This is the curve a model trained on the product's own data would learn, and the one the reverse process assumes it is walking down.
 
@@ -762,6 +923,123 @@ You should see:
 
 The same scores as step 5, a different sampler, and the cloud lands within 1.5% of the product's variance. It costs 1,010 score evaluations per point against the reverse process's 100.
 
+*More levels do not help.* Step 5 used 100 levels. If its 32% error came from steps that are too coarse, more levels would shrink it. Each reverse step on a Gaussian cloud is a linear map plus fresh noise, so the cloud's mean and variance can be followed exactly instead of sampled, and 10,000 levels cost nothing. Save this as `levels.py`:
+
+```python
+import numpy as np
+from experts import experts, noised
+
+
+def schedule(T):
+    """The cosine schedule of experts.py, with T levels in place of 100."""
+    u = np.arange(T + 1) / T
+    ac = np.cos((u + 0.008) / 1.008 * np.pi / 2) ** 2
+    ac = ac / ac[0]
+    betas = np.concatenate([[0.0], np.clip(1 - ac[1:] / ac[:-1], 0, 0.999)])
+    return betas, np.cumprod(1 - betas)
+
+
+def reverse_exact(T, which):
+    """The reverse process's mean and variance, followed exactly. The score is -P x + b at every level."""
+    betas, abars = schedule(T)
+    m, v = 0.0, 1.0                                         # start from pure noise
+    for t in range(T, 0, -1):
+        parts = [noised(mu, var, abars[t]) for mu, var in which]
+        P = sum(1 / vt for mt, vt in parts)                 # precisions add
+        b = sum(mt / vt for mt, vt in parts)
+        c = 1 - betas[t] * P                                # x + beta * score = c x + beta b
+        m = (c * m + betas[t] * b) / np.sqrt(1 - betas[t])
+        v = c ** 2 * v / (1 - betas[t]) + betas[t]
+    return m, v
+
+
+print("levels   summed score: mean, variance   expert a alone: mean, variance")
+for T in (10, 100, 1000, 10000):
+    ms, vs = reverse_exact(T, experts)
+    ma, va = reverse_exact(T, experts[:1])
+    print(f"{T:6d}   {ms:+.6f}  {vs:.6f}            {ma:+.6f}  {va:.6f}")
+print("targets: the product -0.230769  0.307692;  expert a -1.000000  0.500000")
+```
+
+```bash
+~/.vault-sandbox/bin/python levels.py
+```
+
+You should see:
+
+![With expert a alone the variance falls to 0.500043 at 10,000 levels; with the summed score it settles at 0.207390, far from the product's 0.307692|800](assets/two-orders-more-levels-do-not-help.png)
+
+On expert a alone the error shrinks as the levels grow, from 0.545 at 10 levels to 0.500043 at 10,000. On the summed score the variance settles at 0.2074 and stays there, 32.6% below the product. The loop is fine; the curves it follows are the wrong ones.
+
+*Route A and route B, level by level.* Step 7 printed both orders at five values of $\bar\alpha$. This prints them at the schedule's own levels, $t = 0$ clean to $t = 100$ noisiest, and finds where they differ most. Call equation 11's sequence route A and equation 12's route B. Save this as `route_b.py`:
+
+```python
+import numpy as np
+from experts import experts, noised, product, abars
+
+(ma, va), (mb, vb) = experts
+print("  t   abar     route A (eq 11): mean, variance   route B (eq 12): mean, variance")
+gaps = []
+for t in range(0, 101):
+    mA, vA = noised(*product(ma, va, mb, vb), abars[t])          # multiply, then noise
+    mB, vB = product(*noised(ma, va, abars[t]), *noised(mb, vb, abars[t]))   # noise each, then multiply
+    gaps.append((t, mA - mB, vA - vB))
+    if t % 25 == 0:
+        print(f"{t:3d}   {abars[t]:.4f}   {mA:+.4f}  {vA:.4f}                {mB:+.4f}  {vB:.4f}")
+t_m, g_m, _ = max(gaps, key=lambda g: abs(g[1]))
+t_v, _, g_v = max(gaps, key=lambda g: abs(g[2]))
+print(f"mean gap, A minus B, largest at t = {t_m}: {g_m:+.6f};  variance gap largest at t = {t_v}: {g_v:+.6f}")
+```
+
+```bash
+~/.vault-sandbox/bin/python route_b.py
+```
+
+You should see:
+
+![Route A's variance runs 0.3077 to 1.0000 and route B's 0.3077 to 0.5000; the mean gap peaks at t = 56 and the variance gap at t = 100|900](assets/two-orders-route-a-and-route-b-level-by-level.png)
+
+The two routes start as the same product at $t = 0$. Route B runs smoothly to $\mathcal{N}(0, 1/2)$, narrower than route A at every level past $t = 0$. The centres are furthest apart at $t = 56$, on the noisy side of the middle; a count that starts from the noisiest level puts the same peak at 44.
+
+*Steps per level against step size.* `annealed.py` took 10 steps of size 0.01 at each level. Followed exactly, the same way as `levels.py`, here is what changing each of those two numbers does. Save this as `steps_per_level.py`:
+
+```python
+import numpy as np
+from experts import experts, noised, T, abars
+
+
+def annealed_exact(n_steps, step):
+    """Annealed Langevin's mean and variance, followed exactly: every level, noisiest first."""
+    m, v = 0.0, 1.0
+    for t in range(T, -1, -1):
+        parts = [noised(mu, var, abars[t]) for mu, var in experts]
+        P = sum(1 / vt for mt, vt in parts)
+        b = sum(mt / vt for mt, vt in parts)
+        for i in range(n_steps):                            # x + step * (-P x + b) + sqrt(2 step) z
+            m = (1 - step * P) * m + step * b
+            v = (1 - step * P) ** 2 * v + 2 * step
+    return m, v
+
+
+for n, step in [(1, 0.01), (3, 0.01), (10, 0.01), (30, 0.01), (10, 0.001), (10, 0.03), (10, 0.1)]:
+    m, v = annealed_exact(n, step)
+    print(f"{n:2d} steps per level, step {step:<5}: mean {m:+.6f}, variance {v:.6f}")
+P = 1 / 0.5 + 1 / 0.8
+for step in (0.01, 0.03, 0.1):
+    print(f"where one level's chain settles at step {step:<4} with no noise: variance {1 / (P * (1 - step * P / 2)):.6f}")
+print("the product: mean -0.230769, variance 0.307692")
+```
+
+```bash
+~/.vault-sandbox/bin/python steps_per_level.py
+```
+
+You should see:
+
+![30 steps per level bring the mean to -0.230515 while the variance stays at 0.312800, beside 0.312775 where a chain at step 0.01 settles; step 0.1 ends at 0.367394|900](assets/two-orders-steps-per-level-against-step-size.png)
+
+More steps per level bring the mean onto the product's: $-0.148$ with one step, $-0.2305$ with 30. The variance stops falling at about 0.3128, where an unadjusted chain at step 0.01 settles on the clean product whatever the number of steps. The step size sets the width: 10 steps of 0.1 end at 0.367394, exactly that chain's settled width at step 0.1. A step of 0.001 is too short to travel, and the mean stays at $-0.147$.
+
 **9. Clean up, and prove it.**
 
 ```bash
@@ -800,6 +1078,31 @@ You should see `No such file or directory`, then `2`.
 | 2 | the product: variance | `0.3077` | the target, as `before.py` printed | shown |
 
 **From step 8, `mixture.py`:** field 1, `2.8e-16`, is floating-point rounding, so the mixture's two orders are the same curve. Field 2, `1.4e-01`, is the largest height difference between the product's two orders, both normalised to area 1.
+
+**From step 8, `levels.py`:**
+
+| # | Field | This run | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | summed score, 10,000 levels: variance | `0.207390` | however many levels, the reverse process on summed scores ends 32.6% below the product's 0.307692 | shown; the same figure as `checks/reverse_diffusion.out` |
+| 2 | expert a alone, 10,000 levels: variance | `0.500043` | the same loop on one model reaches that model, so the loop is sound | shown; the same figure as `checks/reverse_diffusion.out` |
+
+**From step 8, `route_b.py`:**
+
+| # | Field | This run | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | route A at $t = 50$: variance | `0.6581` | the curve the reverse process assumes at level 50, $\bar\alpha = 0.4938$ | derived below |
+| 2 | route B at $t = 50$: variance | `0.4103` | the curve the summed score belongs to at the same level, 0.248 narrower | derived below |
+| 3 | mean gap, largest | `t = 56: -0.101825` | route A's centre sits 0.10 further from 0 than route B's; nowhere are the centres further apart | shown; the same figure as `checks/route_b_path.out` |
+| 4 | variance gap, largest | `+0.500000` | at $t = 100$: $\mathcal{N}(0, 1)$ against $\mathcal{N}(0, 1/2)$ | derived below |
+
+**From step 8, `steps_per_level.py`:**
+
+| # | Field | This run | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | 30 steps per level: mean | `-0.230515` | within 0.0003 of the product's centre | shown; the same figure as `checks/annealed_mcmc.out` |
+| 2 | 30 steps per level: variance | `0.312800` | still 1.7% wide, as with 10 steps | shown |
+| 3 | where step 0.01 settles | `0.312775` | the width an unadjusted chain at step 0.01 keeps on the clean product, however many steps it takes | derived in [[#How the energy works]] |
+| 4 | 10 steps of 0.1: variance | `0.367394` | the same width an unadjusted chain at step 0.1 settles at, 19.4% wide | derived in [[#How the energy works]] |
 
 ### How the two orders work
 
@@ -865,6 +1168,30 @@ These print as the five rows of step 7. *Derived.*
 
 **Why the reverse process misses.** Each reverse step moves a cloud from level $t$ to level $t - 1$ of one forward-noising sequence. Equation 12's curves, taken level by level, are not such a sequence: the paper says they "smoothly interpolate between $q^{\text{prod}}(x)$ at $t=0$ and $\mathcal{N}(0, I/2)$ at $t=T$, though this sequence of distributions does not correspond to the distributions that result from the standard forward diffusion process". *Cited:* section 4, the paragraph after equation 12. On the pair the reverse process ends at variance 0.2102, too narrow. *Shown*, step 5. Equation 12's curves are narrower than equation 11's at every level below none, step 7. That the narrow curves are what make the samples narrow is the writer's reading of the two outputs together. *Stated.*
 
+**More levels do not close the gap.** Write the summed score at level $t$ as $-P_t x + b_t$, with $P_t$ the two noised experts' precisions added. One reverse step is then a linear map of $x$ plus fresh noise, and by the rule for [a linear combination of Gaussians](../../Mathematics/references/textbooks/linear-algebra/matrix-cookbook.pdf#page=41) the cloud's mean and variance move as
+
+$$
+\begin{aligned}
+x' &= \frac{x + \beta_t\,(-P_t x + b_t)}{\sqrt{1 - \beta_t}} + \sqrt{\beta_t}\, z = \frac{c_t\, x + \beta_t b_t}{\sqrt{1 - \beta_t}} + \sqrt{\beta_t}\, z, \qquad c_t = 1 - \beta_t P_t \\
+m' &= \frac{c_t\, m + \beta_t b_t}{\sqrt{1 - \beta_t}} \\
+v' &= \frac{c_t^2\, v}{1 - \beta_t} + \beta_t
+\end{aligned}
+$$
+
+*Derived.* Followed this way, expert a's own loop ends at 0.544959 with 10 levels and 0.500043 with 10,000: its error is the coarseness of the steps and it vanishes. The summed score's loop ends at 0.238425 with 10 levels and 0.207390 with 10,000: its error converges to a wrong width instead. *Shown*, step 8, `levels.py`. The paper's "Reverse (equal steps)" row, a model trained with enough extra levels that reverse diffusion costs as much as the MCMC samplers, makes the same point: "simply adding more time-steps does not solve compositional sampling". *Cited:* `text/results.tex` line 20.
+
+**Route A and route B, level by level.** Route A is equation 11's sequence and route B equation 12's. On the schedule's levels, with $\bar\alpha$ the share of signal left:
+
+| Level $t$ | $\bar\alpha$ | route A variance | route B variance |
+|---|---|---|---|
+| 0, clean | 1 | 0.308 | 0.308 |
+| 25 | 0.847 | 0.414 | 0.340 |
+| 50 | 0.494 | 0.658 | 0.410 |
+| 75 | 0.144 | 0.900 | 0.475 |
+| 100, noisiest | 0 | 1.000 | 0.500 |
+
+Each column comes from the two variance formulas above. Route B runs smoothly from the product to $\mathcal{N}(0, 1/2)$, and the summed score is its exact score at every level. So the summed score is the right score for a different sequence. The mean gap is largest at $t = 56$, $-0.102$, and the variance gap at the noisiest level, 0.5. *Shown*, step 8, `route_b.py`.
+
 **Why annealed Langevin reaches the product.** A Langevin chain that follows one score with small steps settles on the curve that score belongs to, whether or not that curve sits in a forward sequence. Annealed Langevin lets the cloud settle on equation 12's curve at each level, then moves to the next. At the last level, $\bar\alpha = 1$, equation 12's curve is the product. The remaining 1.7% matches the error the step size alone causes: ten times smaller steps at no noise bring a chain on this pair from 19.4% too wide to 1.7%. *Cited:* the journey's read-ahead, `read-ahead/00-abstract.md`, sentence 6, from `checks/langevin_chain.out`.
 
 **The sampler, or the model.** Steps 5 and 8 use the same exact scores. One sampler misses by 31.8% of the product's variance and the other lands within 1.7%, so on this pair the failure is the sampler's. The paper's abstract says "We conclude that the sampler (not the model) is responsible for this failure". Its body is more careful, in section 4.1: the results "further imply that the choice of sampler may be responsible for prior failures in compositional generation". *Cited:* `text/abstract.tex` line 2 and `text/method.tex` line 131 of the paper's source.
@@ -877,18 +1204,42 @@ The paper's Figure 2 shows the same two samplers on two-dimensional pairs:
 >
 > *Du, Durkan, Strudel, Tenenbaum, Dieleman, Fergus, Sohl-Dickstein, Doucet, Grathwohl, Reduce, Reuse, Recycle, ICML 2023, [arXiv 2302.11552](https://arxiv.org/abs/2302.11552), Figure 2. arXiv non-exclusive distribution licence; copied for study with citation.*
 
-The top row is this section's failure at full scale: the true product keeps the top and bottom blobs, reverse diffusion with summed scores leaves samples all round the ring, and HMC, another MCMC sampler, recovers the two blobs. *Shown* in the figure. The bottom row is a mixture, where the noising order does not matter, and reverse diffusion still smears it. A mixture's score needs each model's height as well as its slope, and the paper builds it from energy-parameterised models, assuming "this ratio [of normalizers] is 1". Why reverse diffusion fails there is not covered by this section. *Cited:* section 3, the mixture paragraph.
+The top row is this section's failure at full scale: the true product keeps the top and bottom blobs, reverse diffusion with summed scores leaves samples all round the ring, and HMC, another MCMC sampler, recovers the two blobs. *Shown* in the figure. The sampler kept the ring and lost the bar, one of the two experts.
+
+The walk redrew the top row with exact scores in place of trained networks, 5,000 samples per panel, counting a sample as on target when it lies within 0.1 of one of the two true blobs. The true product puts 96.8% there and reverse diffusion 55.6%. HMC with the settings the paper's appendix F prints reaches 69.0%, short of what the paper's panel shows; with 30 HMC steps per noise level it reaches 87.0%, and with 300 it reaches 91.5%, on 400 samples each. *Cited:* the journey's answer keys `checks/ring_times_bar.out` and `checks/ring_times_bar_more_steps.out`, three standard errors at most 2.1 points at 5,000 samples and 5.0 to 6.9 at 400. The same panels on the one-dimensional pair, 20,000 samples each: reverse diffusion ends at variance 0.2100 and annealed MCMC at 0.3076, against the product's 0.3077 (`checks/fig2_on_the_object.out`, tolerance 0.0092).
+
+The bottom row is a mixture, where the noising order does not matter (step 8 above: $2.8 \times 10^{-16}$), and reverse diffusion still smears it. With exact scores the mixture's noised curves are one forward sequence, so the plain reverse process would be the right sampler, and the bottom row's failure has to come from how the two trained models were combined. The paper gives no cause: its appendix C.3 lists "products, tempering, and guidance" as the operators that do not commute with noising and leaves the mixture out, while the caption says reverse diffusion "fails to sample from composed models" of both rows. *Derived* for the commuting; *cited* for the caption and C.3, as the journey's read-ahead quotes them at chunk 36. A mixture's score needs each model's height as well as its slope, and the paper builds it from energy-parameterised models, assuming "this ratio [of normalizers] is 1"; [[#How the energy works]] and [[#Product, mixture and negation]] work that out on this pair. No released code builds this row. *Cited:* section 3, the mixture paragraph.
 
 *🖼️ Diagram wanted: the mechanism, the blur passing through a mixture and not through a product. Prompt 8 in the vault's `.prompts/Diffusion Models.md`.*
 
 *🖼️ Diagram wanted: the deep-dive sheet composing the form, the mechanism and the run of `closed_form.py`. Prompt 9 in the same file.*
+
+### Annealed MCMC
+
+**Annealed MCMC, the paper's Algorithm 1, takes a few MCMC steps at every noise level from the noisiest to the clean one, each aimed at that level's composed curve, and carries the cloud down to the next level unchanged.** With summed scores the curve at each level is route B, and route B ends at the product, so the cloud ends there too. *Cited:* section 4.1, Algorithm 1, `text/method.tex` lines 99 and 107 to 121 of the paper's source.
+
+```text
+x ~ p_T                                   start from pure noise
+for t = T, T-1, ..., 0:                   every level, noisiest first
+    repeat N times:  x ~ k_t( . | x)      an MCMC kernel aimed at level t's composed curve
+    carry x to level t - 1 unchanged
+return x
+unadjusted Langevin kernel:  k_t: x + eta * s(x, t) + sqrt(2 eta) z,  s = the summed score
+cost: N x (T + 1) score evaluations per sample; 10 x 101 = 1,010 against the reverse process's 100
+```
+
+*🖼️ Diagram wanted: the concept, route A and route B bells at five levels with the chain settling on route B at each. Prompt 17 in the vault's `.prompts/Diffusion Models.md`.*
+
+**What each setting controls.** The number of steps per level sets how close the mean gets: $-0.148$ with one step of 0.01 per level, $-0.2286$ with 10, $-0.2305$ with 30, against the product's $-0.2308$. The step size sets the final width: 0.3128 at step 0.01, 0.3235 at 0.03, 0.3674 at 0.1, each the width an unadjusted chain at that step keeps on the clean product, derived in [[#How the energy works]]. More steps per level do not shrink it. A step too small for the steps given, 0.001 with 10 per level, never travels and ends at mean $-0.147$. *Shown*, step 8, `steps_per_level.py`.
+
+**Score models allow only unadjusted kernels.** With the standard noise-predicting network there is no energy, so no Metropolis correction: the paper uses ULA, unadjusted Langevin, and U-HMC, unadjusted Hamiltonian Monte Carlo. ULA at one level is the reverse step "repeatedly running the diffusion reverse process at the same noise level with composed score functions". *Cited:* `text/method.tex` line 127. An accept step removes the width error at any step size; see [[#Step size and the accept step]].
 
 ### Other ways to get the noised product
 
 - **Train one model on the product's own data.** Its score is equation 11's directly, and the plain reverse process works. It needs samples of the composition, which composing two models is meant to avoid. Nothing in the authors' 2D notebook computes equation 11: it would need a model trained on the product itself. *Cited:* the journey's read-ahead, `read-ahead/00-abstract.md`, sentence 5, which read all 47 cells of `notebooks/simple_distributions.ipynb`.
 - **Repeat the reverse step at the same level.** Running the reverse process several times at one noise level with the summed score is a form of the Langevin sampler. *Cited:* section 4.1, paragraph 2.
 - **Continuous-time samplers run across time** have the same problem as the reverse process, because they too move along the sequence of levels rather than sampling each level's curve. *Cited:* section 4.1, paragraph 3.
-- **Metropolis-corrected samplers**, MALA and HMC with an accept-or-reject test, which need each model's energy and not only its score. *Cited:* the abstract, sentence 7. Not taught in this walk yet.
+- **Metropolis-corrected samplers**, MALA and HMC with an accept-or-reject test, which need each model's energy and not only its score. *Cited:* the abstract, sentence 7. Run on this pair in [[#The energy parameterisation]].
 
 ### Why the two orders matter
 
@@ -900,8 +1251,991 @@ Products are not the only casualty. The paper's appendix C finds "that products,
 
 **Taught in:**
 
-- the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, abstract sentences 5 and 6. The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
+- the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, abstract sentences 5 and 6, and section 3, paragraph 1 (products lose their area, mixtures keep it, and the score ignores the area). The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
+- the same walk, section 4, chunks 45 to 51: reverse diffusion on exact summed scores misses the product at any number of levels, equations 11 and 12 as route A and route B level by level, Algorithm 1 and what its steps per level and step size each control, and why only unadjusted samplers are open to a score model. Paper note at the same path, still to be written.
+- the same journey's plan 24, `plans/24-what-is-annealed.md`, line 21 (which axis annealed MCMC moves along: the noise level, separated from temperature and guidance scale)
 - the sampler correctors for composition journey's plan 14, `plans/14-the-two-gaussian-toy.md`, line 262 (compare the two orders at $\bar\alpha_t = 0.5$ on this pair), and plan 15, `plans/15-the-two-gaps.md`, lines 36 to 44 and 201 to 205 (the gap in mean and the gap in variance, derived in closed form)
+
+**Applied in:** nothing yet.
+
+## The energy parameterisation
+
+Navigation: ⬅️ [[#The order of multiplying and noising]] | 📋 [[#Table of contents|TOC]] | [[#Product, mixture and negation]] ➡️
+
+**An energy-parameterised diffusion model outputs one number per input, $f_\theta(x_t, t)$, and its noise prediction is that number's slope times minus the noise scale, $\epsilon_\theta = -\sigma_t \nabla_x f_\theta$. The number is the log of the noised density's height with its normaliser dropped, and two things need it that a score alone does not carry: the weights of a mixture, and the accept test of a Metropolis-corrected sampler.** *Cited:* Du et al., Reduce, Reuse, Recycle, section 2.3, equation 5 ("we have replaced $\epsilon_\theta(x, t)$ with $-\sigma_t \nabla_x f_\theta(x + \sigma_t \epsilon)$"), and section 4.2, paragraphs 1 and 2.
+
+### Words the energy uses
+
+**Energy $f$.** One number per input: the log of a density's height, up to a constant nobody knows. Du et al. write $e^{f} \propto q$, so $f$ is highest at the mode. A physicist's energy is $-f$, lowest at the mode, and the paper's own appendix D uses that sign, with $\epsilon = +\nabla f$. Check the sign before using a formula from either place. *Cited:* the journey's answer key `checks/energy_parameterisations.out`, last four lines.
+
+**Noise scale $\sigma_t$.** The noise's standard deviation at level $t$: $\sqrt{1 - \bar\alpha}$ in [[#The forward process in one jump]]. Section 2.3 writes $\epsilon_\theta = -\nabla_x f_\theta$ in its sentence 5, with $\sigma_t$ folded into $f$; its equation 5 keeps $\sigma_t$ visible, and so does this note. *Cited:* section 2.3, sentences 3 and 5.
+
+**Score.** As in [[#Words the two orders use]]: $\nabla_x \log q_t(x)$. With an energy model, the score is $\nabla_x f_\theta$ and nothing else.
+
+**Accept step**, or Metropolis correction. Propose a move, keep it with a probability computed from the target's height at both ends, and otherwise stay where you were. **MALA**, the Metropolis-adjusted Langevin algorithm, is a Langevin step used as the proposal with an accept step after it. *Cited:* section 2.2, paragraph 3, sentences 5 and 6.
+
+### When to reach for the energy
+
+When composing models needs more than adding slopes. A mixture ("a cat or a dog") weights each model by how tall it is at the point, and a score carries no height; the paper's section 3 ends by saying the standard parameterisation supports "product and negation composition, but not mixture composition". And when a Langevin sampler at an affordable step size settles on the wrong width: an accept step removes that error, and the accept step compares heights. Without the energy, the only fix for the second problem is a smaller step, paid for in steps. *Cited:* section 3, last sentence, and section 4.2, paragraph 2.
+
+The cost is one backward pass through the network for every noise prediction, because $\epsilon$ is now a gradient. For plain unconditional generation the paper prefers the score form for that reason. *Cited:* section 4.2, paragraph 3.
+
+### The form of the energy parameterisation
+
+```text
+network:         f_theta(x_t, t)                      one number per input
+noise estimate:  eps_theta(x_t, t) = -sigma_t * grad_x f_theta(x_t, t)       section 2.3, equation 5
+score:           grad_x log q_t(x_t) = grad_x f_theta = -eps_theta / sigma_t
+product:         f = f_1 + f_2                         the scores add, as in the two-orders section
+mixture slope:   w_1(x) grad f_1 + w_2(x) grad f_2,    w_i(x) = q_i(x) / (q_1(x) + q_2(x)),  q_i = e^(f_i) / Z_i
+accept test:     keep x_hat with probability  min(1, e^(f(x_hat) - f(x)) * k(x | x_hat) / k(x_hat | x))      section 2.2
+the paper's f:   f_theta(x, t) = -||s_theta(x, t)||^2, with s_theta an ordinary vector-output network       section 4.2
+```
+
+The mixture line needs each $Z_i$, or at least their ratio. The accept line does not, because both heights belong to the same target and its $Z$ cancels.
+
+*🖼️ Diagram wanted: the form, one network giving one number whose slope is the noise estimate and whose height feeds the mixture weights and the accept test. Prompt 10 in the vault's `.prompts/Diffusion Models.md`.*
+
+### Try the energy yourself
+
+**1. What you need.** Python with NumPy, through the prepared environment:
+
+```bash
+~/.vault-sandbox/bin/python -c "import numpy; print(numpy.__version__)"
+```
+
+You should see a version number. This run printed `2.4.6`.
+
+**2. When it is missing.** [[Multivariate Normal Distribution#Try sampling yourself]] steps 1 and 2 say how to make the environment, or how to use `uv run` instead.
+
+**3. Make something to act on.** A new empty folder, and the same two experts as [[#The one-dimensional pair]], each now written as an energy beside its score. The product's energy is the two energies added, so its score is the summed score.
+
+```bash
+mkdir -p ~/playground/sandbox/energy-parameterisation && cd ~/playground/sandbox/energy-parameterisation
+```
+
+Save this as `experts.py`:
+
+```python
+import numpy as np
+
+experts = [(-1.0, 0.5), (1.0, 0.8)]          # (mean, variance) of expert a and expert b
+
+
+def noised(m, v, abar):
+    """A Gaussian N(m, v) after the forward jump to level abar."""
+    return np.sqrt(abar) * m, abar * v + 1 - abar
+
+
+def expert_energy(x, m, v, abar=1.0):
+    """f for one model: the log of its noised height, normaliser dropped. One number per point."""
+    mt, vt = noised(m, v, abar)
+    return (-(x - mt) ** 2 / (2 * vt)).sum(-1)
+
+
+def expert_score(x, m, v, abar=1.0):
+    """The gradient of expert_energy, written out. One number per coordinate."""
+    mt, vt = noised(m, v, abar)
+    return -(x - mt) / vt
+
+
+def energy(x, abar=1.0):
+    """The product's f: the two models' f added."""
+    return sum(expert_energy(x, m, v, abar) for m, v in experts)
+
+
+def summed_score(x, abar=1.0):
+    """The product's score: the two models' scores added."""
+    return sum(expert_score(x, m, v, abar) for m, v in experts)
+```
+
+**4. Look at it before.** Expert a at half the signal, on three points. Save this as `before.py`:
+
+```python
+import numpy as np
+from experts import experts, expert_energy, expert_score
+
+m, v = experts[0]                                  # expert a
+abar = 0.5                                         # half the signal left
+sigma = np.sqrt(1 - abar)                          # the noise scale at this level
+x = np.array([[1.5], [0.0], [-1.0]])               # three points, one coordinate each
+h = 1e-5
+f = expert_energy(x, m, v, abar)
+s = expert_score(x, m, v, abar)
+slope = (expert_energy(x + h, m, v, abar) - expert_energy(x - h, m, v, abar)) / (2 * h)
+print("f, one number per point:           ", f.round(6), "shape", f.shape)
+print("score, one number per coordinate:  ", s.ravel().round(6), "shape", s.shape)
+print("slope of f, difference quotient:   ", slope.round(6))
+print("noise estimate eps = -sigma grad f:", (-sigma * slope).round(6))
+```
+
+```bash
+~/.vault-sandbox/bin/python before.py
+```
+
+You should see:
+
+![The energy gives one number per point, shape (3,); the score one per coordinate, shape (3, 1); the slope of f matches the score; eps at 1.5 is 2.08088|800](assets/energy-one-number-per-point-and-its-slope.png)
+
+The slope of $f$, measured by nudging $x$, equals the score to six decimals, and minus $\sigma_t$ times it is the noise a network would predict. The energy's shape is `(3,)` where the score's is `(3, 1)`: one number per point against one per coordinate. For a 3 by 64 by 64 image the score has 12,288 numbers and the energy still has one.
+
+**5. The failure: Langevin without an accept step.** A hundred thousand chains take 400 Langevin steps of size 0.1 on the product with no noise, using the summed score alone. Save this as `langevin.py`; it reads the step size from the command line:
+
+```python
+import sys
+import numpy as np
+from experts import summed_score
+
+step = float(sys.argv[1])                          # step size, sigma_L^2 / 2 in equation 4
+rng = np.random.default_rng(0)
+x = rng.standard_normal((100_000, 1))
+for k in range(400):
+    x = x + step * summed_score(x) + np.sqrt(2 * step) * rng.standard_normal(x.shape)
+P = 1 / 0.5 + 1 / 0.8                              # the product's precision, 3.25
+print(f"Langevin, no accept step, step {step}: mean {x.mean():.4f}, variance {x.var():.4f}")
+print(f"where this step size settles:         variance {1 / (P * (1 - step * P / 2)):.4f}")
+print(f"the product:                          mean -0.2308, variance {1 / P:.4f}")
+```
+
+```bash
+~/.vault-sandbox/bin/python langevin.py 0.1
+```
+
+You should see:
+
+![Langevin without an accept step at step 0.1 ends at variance 0.3671, where the closed form says 0.3674, against the product's 0.3077|800](assets/energy-langevin-without-the-accept-step.png)
+
+The chains settle 19.4% wider than the product. More steps will not help: 0.3674 is where this step size settles, derived in [[#How the energy works]].
+
+**6. The technique: add the accept step.** The same proposals, each kept or rejected by comparing the product's energy at both ends. Save this as `mala.py`:
+
+```python
+import numpy as np
+from experts import energy, summed_score
+
+step = 0.1
+
+
+def log_k(x_to, x_from):
+    """Log of the Langevin move's probability from x_from to x_to, up to a constant."""
+    return (-(x_to - x_from - step * summed_score(x_from)) ** 2).sum(-1) / (4 * step)
+
+
+if __name__ == "__main__":
+    rng = np.random.default_rng(0)
+    x = rng.standard_normal((100_000, 1))
+    rates = []
+    for k in range(400):
+        prop = x + step * summed_score(x) + np.sqrt(2 * step) * rng.standard_normal(x.shape)
+        log_a = energy(prop) - energy(x) + log_k(x, prop) - log_k(prop, x)
+        accept = np.log(rng.random(len(x))) < log_a            # accept with probability min(1, e^log_a)
+        x = np.where(accept[:, None], prop, x)
+        rates.append(accept.mean())
+    print(f"Langevin with the accept step, step {step}: mean {x.mean():.4f}, variance {x.var():.4f}")
+    print(f"share of proposals accepted, last 100 steps:  {np.mean(rates[-100:]):.4f}")
+    print(f"the product:                                  mean -0.2308, variance 0.3077")
+```
+
+```bash
+~/.vault-sandbox/bin/python mala.py
+```
+
+You should see:
+
+![Langevin with the accept step at step 0.1 ends at variance 0.3071 against the product's 0.3077, with 95.8% of proposals accepted|800](assets/energy-langevin-with-the-accept-step.png)
+
+The same step size now lands within 0.0006 of the product's variance, inside the 0.0041 that sampling 100,000 chains allows. The line `log_a = energy(prop) - energy(x) + ...` is the only place the energy is used, and it is the line two score models could not write.
+
+**7. Another way to get the same answer: a smaller step, with no accept step.** Run step 5 again with a step ten times smaller:
+
+```bash
+~/.vault-sandbox/bin/python langevin.py 0.01
+```
+
+You should see:
+
+![Langevin without an accept step at step 0.01 ends at variance 0.3134, where the closed form says 0.3128, against the product's 0.3077|800](assets/energy-langevin-with-a-ten-times-smaller-step.png)
+
+The error falls from 19.4% to 1.7%, and never to zero. Each step moves a tenth as far, so the chain needs about ten times as many steps to travel the same distance: an offset from the centre shrinks by a factor $e$ in about $1/(\text{step} \times 3.25)$ steps, 3.1 steps at 0.1 and 30.8 at 0.01. *Derived* in [[#How the energy works]].
+
+**8. More worked examples on the same setup.**
+
+*One proposal, by hand.* Fix the noise draw at 0.5 and trace one MALA step from $x = 1.5$, so every number can be checked on paper. Save this as `one_proposal.py`:
+
+```python
+import numpy as np
+from mala import energy, summed_score, log_k, step
+
+x = np.array([[1.5]])
+z = 0.5                                                        # the noise draw, fixed for the hand check
+prop = x + step * summed_score(x) + np.sqrt(2 * step) * z
+d_f = energy(prop) - energy(x)
+d_k = log_k(x, prop) - log_k(prop, x)
+print(f"summed score at 1.5: {summed_score(x)[0, 0]:.6f}, proposal: {prop[0, 0]:.6f}")
+print(f"f(proposal) - f(x): {d_f[0]:.6f}")
+print(f"log k(x | proposal) - log k(proposal | x): {d_k[0]:.6f}")
+print(f"accept probability: min(1, exp({(d_f + d_k)[0]:.6f})) = {min(1.0, float(np.exp((d_f + d_k)[0]))):.6f}")
+```
+
+```bash
+~/.vault-sandbox/bin/python one_proposal.py
+```
+
+You should see:
+
+![One proposal from 1.5 lands at 1.161107; the height rises by 1.719645, the move's asymmetry costs 1.440203, and the proposal is kept with probability 1|600](assets/energy-one-proposal-by-hand.png)
+
+*A mixture needs the heights.* The slope of $\tfrac12 q_a + \tfrac12 q_b$ at 0, between the experts, three ways. Save this as `mixture.py`:
+
+```python
+import numpy as np
+from experts import experts, expert_energy, expert_score
+
+x = np.array([[0.0]])                                          # between the two experts
+f = np.array([expert_energy(x, m, v) for m, v in experts])[:, 0]
+log_z = np.array([0.5 * np.log(2 * np.pi * v) for m, v in experts])
+s = np.array([expert_score(x, m, v) for m, v in experts])[:, 0, 0]
+print(f"slopes at 0: expert a {s[0]:.6f}, expert b {s[1]:.6f}")
+for name, log_h in [("from f, normalisers dropped", f), ("from f - log Z, true heights", f - log_z)]:
+    share = np.exp(log_h) / np.exp(log_h).sum()
+    print(f"{name:29s} shares {share.round(6)}  mixture slope {(share * s).sum():.6f}")
+print(f"{'fixed weights of one half':29s} shares [0.5 0.5]  mixture slope {s.mean():.6f}")
+mix = lambda z: sum(np.exp(expert_energy(z, m, v)) / np.sqrt(2 * np.pi * v) for m, v in experts)
+h = 1e-5
+print(f"slope of the true mixture's log, difference quotient: {((np.log(mix(x + h)) - np.log(mix(x - h))) / (2 * h))[0]:.6f}")
+```
+
+```bash
+~/.vault-sandbox/bin/python mixture.py
+```
+
+You should see:
+
+![The mixture's slope at 0 is -0.261437 from the true heights and by difference quotient; dropping the normalisers gives -0.073834 and fixed half weights give -0.375000|800](assets/energy-a-mixture-needs-the-heights.png)
+
+Only the true heights give the true slope. The two slopes are fixed numbers, -2 and 1.25; what changes the answer is how much weight each gets, and the weight is a height.
+
+*Step size, with and without the accept step.* Steps 5 and 6 at six step sizes, 200 steps each, on the clean product. Save this as `step_sizes.py`:
+
+```python
+import numpy as np
+from experts import energy, summed_score
+
+P = 1 / 0.5 + 1 / 0.8                                       # the product's precision, 3.25
+print(f"unadjusted Langevin is stable only below step 2 / P = {2 / P:.6f}")
+
+
+def run(step, accept_step, n_steps=200):
+    rng = np.random.default_rng(0)
+    x = rng.standard_normal((100_000, 1))
+    log_k = lambda to, fr: (-(to - fr - step * summed_score(fr)) ** 2).sum(-1) / (4 * step)
+    kept = []
+    with np.errstate(over="ignore", invalid="ignore"):
+        for k in range(n_steps):
+            prop = x + step * summed_score(x) + np.sqrt(2 * step) * rng.standard_normal(x.shape)
+            if not accept_step:
+                x = prop
+                continue
+            log_a = energy(prop) - energy(x) + log_k(x, prop) - log_k(prop, x)
+            accept = np.log(rng.random(len(x))) < log_a
+            x = np.where(accept[:, None], prop, x)
+            kept.append(accept.mean())
+    return x.var(), np.mean(kept[-100:]) if kept else None
+
+
+print("step   no accept step: variance (closed form)   with the accept step: variance, share accepted")
+for step in (0.01, 0.3, 0.5, 0.6, 0.7, 0.8):
+    v_ula, _ = run(step, False)
+    v_mala, rate = run(step, True)
+    closed = 1 / (P * (1 - step * P / 2)) if step < 2 / P else float("inf")
+    print(f"{step:4.2f}   {v_ula:12.4g} ({closed:.4f})              {v_mala:.4f}, {rate:.4f}")
+print("the product: variance 0.3077")
+```
+
+```bash
+~/.vault-sandbox/bin/python step_sizes.py
+```
+
+You should see:
+
+![Unadjusted Langevin follows the closed form to step 0.5, reaches 12.4 at 0.6 and runs away past 0.615; with the accept step every row stays near 0.308, and the share accepted falls from 0.9987 to 0.3779|900](assets/energy-step-size-and-the-accept-step.png)
+
+Without the accept step the width follows the closed form up to step 0.6 and runs away beyond 0.615. With it, every row ends within 0.0022 of the product's 0.3077, inside the sampling tolerance of 0.0041, and the only thing the step size changes is how many proposals are kept.
+
+*Light tails.* A target whose tails fall faster than a Gaussian's, $q(x) \propto e^{-x^4/4}$, with score $-x^3$. Save this as `light_tails.py`:
+
+```python
+import numpy as np
+
+# target proportional to exp(-x^4 / 4): its score is -x^3, and its tails fall faster than a Gaussian's
+print("one step with no noise from x = 5 at step 0.1, x - 0.1 x^3:", 5 - 0.1 * 5 ** 3)
+for step in (0.01, 0.1, 0.3, 0.5):
+    rng = np.random.default_rng(0)
+    x = rng.standard_normal(100_000)
+    with np.errstate(over="ignore", invalid="ignore"):
+        for k in range(1000):
+            x = x - step * x ** 3 + np.sqrt(2 * step) * rng.standard_normal(x.shape)
+    gone = ~np.isfinite(x) | (np.abs(x) > 1e6)
+    print(f"unadjusted, step {step}: {gone.sum()} of 100000 chains gone after 1000 steps")
+rng = np.random.default_rng(0)
+x = start = rng.standard_normal(100_000)
+step, moved = 0.5, np.zeros(100_000, dtype=int)
+log_k = lambda to, fr: -(to - fr + step * fr ** 3) ** 2 / (4 * step)
+for k in range(200):
+    prop = x - step * x ** 3 + np.sqrt(2 * step) * rng.standard_normal(x.shape)
+    accept = np.log(rng.random(x.shape)) < -prop ** 4 / 4 + x ** 4 / 4 + log_k(x, prop) - log_k(prop, x)
+    x = np.where(accept, prop, x)
+    moved += accept
+print(f"with the accept step, step 0.5, 200 steps: {(np.abs(x) > 1e6).sum()} chains gone, variance {x.var():.4f}")
+print(f"  {(moved == 0).sum()} chains never moved; the ones that moved have variance {x[moved > 0].var():.4f}")
+g = np.linspace(-6, 6, 120001)
+p = np.exp(-g ** 4 / 4)
+print(f"the target's own variance: {(g ** 2 * p).sum() / p.sum():.4f}")
+```
+
+```bash
+~/.vault-sandbox/bin/python light_tails.py
+```
+
+You should see:
+
+![Unadjusted at step 0.3, 99003 of 100000 chains fly off; with the accept step at 0.5 none do, 1317 never move, and the overall variance is 0.7771 against the target's 0.6760|800](assets/energy-light-tails-without-and-with-the-accept-step.png)
+
+Unadjusted Langevin loses one chain in 100,000 at step 0.1 and 99,003 at step 0.3. With the accept step at 0.5 none fly off. 1,317 chains had every proposal rejected in 200 steps and sit where they started, which leaves the overall variance at 0.7771. Their starting points all lie between 2.41 and 4.73 from 0 (`checks/ula_light_tails.out`, the same seed). The chains that moved have 0.6804 against the target's 0.6760.
+
+*Table 1 on the pair.* The paper's Table 1 compares samplers by a log-likelihood column, LL, and a variance column. This runs its samplers on the pair with exact scores, every row seeded the same, through Algorithm 1 with 10 Langevin steps or 3 HMC steps of 3 leapfrog steps per level, the counts of the paper's appendix F. MALA's step 0.6 and HMC's 1.05 are fixed across levels and chosen so that about 63% and 74% of proposals are accepted on average (`checks/sampler_ladder.out`), near the 60% and 70% that appendix B.3 aims for; the paper instead scales each level's step with $\beta_t$. LL here is the mean log height of the samples under the true product; Var gap is the size of the difference between the samples' variance and the product's. Save this as `ladder.py`:
+
+```python
+import numpy as np
+from experts import energy, summed_score
+
+T = 100                                                     # the cosine schedule of the two-orders section
+u = np.arange(T + 1) / T
+ac = np.cos((u + 0.008) / 1.008 * np.pi / 2) ** 2
+ac = ac / ac[0]
+betas = np.concatenate([[0.0], np.clip(1 - ac[1:] / ac[:-1], 0, 0.999)])
+abars = np.cumprod(1 - betas)
+VP = 1 / (1 / 0.5 + 1 / 0.8)                               # the product: precisions add
+MP = VP * (-1 / 0.5 + 1 / 0.8)
+
+
+def reverse(rng):
+    x = rng.standard_normal((100_000, 1))
+    for t in range(T, 0, -1):
+        x = (x + betas[t] * summed_score(x, abars[t])) / np.sqrt(1 - betas[t]) + np.sqrt(betas[t]) * rng.standard_normal(x.shape)
+    return x
+
+
+def langevin(x, ab, step, rng, adjust):
+    prop = x + step * summed_score(x, ab) + np.sqrt(2 * step) * rng.standard_normal(x.shape)
+    if not adjust:
+        return prop
+    log_k = lambda to, fr: (-(to - fr - step * summed_score(fr, ab)) ** 2).sum(-1) / (4 * step)
+    log_a = energy(prop, ab) - energy(x, ab) + log_k(x, prop) - log_k(prop, x)
+    return np.where((np.log(rng.random(len(x))) < log_a)[:, None], prop, x)
+
+
+def hmc(x, ab, eps, rng, adjust):
+    p = rng.standard_normal(x.shape)
+    xn, pn = x, p
+    for i in range(3):                                      # 3 leapfrog steps
+        pn = pn + 0.5 * eps * summed_score(xn, ab)
+        xn = xn + eps * pn
+        pn = pn + 0.5 * eps * summed_score(xn, ab)
+    log_a = energy(xn, ab) - (pn ** 2).sum(-1) / 2 - energy(x, ab) + (p ** 2).sum(-1) / 2
+    keep = (np.log(rng.random(len(x))) < log_a) | (not adjust)
+    return np.where(keep[:, None], xn, x)
+
+
+def annealed(kernel, n_steps, rng):
+    """Algorithm 1: every level from noisiest to clean, n_steps of the kernel, the cloud carried down."""
+    x = rng.standard_normal((100_000, 1))
+    for t in range(T, -1, -1):
+        for i in range(n_steps):
+            x = kernel(x, abars[t], rng)
+    return x
+
+
+rows = [
+    ("Reverse", reverse),
+    ("ULA, step 0.01", lambda r: annealed(lambda x, ab, g: langevin(x, ab, 0.01, g, False), 10, r)),
+    ("ULA, MALA's step 0.6", lambda r: annealed(lambda x, ab, g: langevin(x, ab, 0.6, g, False), 10, r)),
+    ("MALA, step 0.6", lambda r: annealed(lambda x, ab, g: langevin(x, ab, 0.6, g, True), 10, r)),
+    ("U-HMC, HMC's step 1.05", lambda r: annealed(lambda x, ab, g: hmc(x, ab, 1.05, g, False), 3, r)),
+    ("HMC, step 1.05", lambda r: annealed(lambda x, ab, g: hmc(x, ab, 1.05, g, True), 3, r)),
+]
+print("sampler                  variance   LL (higher is better)   Var gap (lower is better)")
+for name, run in rows:
+    x = run(np.random.default_rng(0))
+    ll = np.mean(-0.5 * np.log(2 * np.pi * VP) - (x - MP) ** 2 / (2 * VP))
+    print(f"{name:24s} {x.var():8.4f}   {ll:8.4f}                {abs(x.var() - VP):.4f}")
+print(f"the true product's own LL: {-0.5 * np.log(2 * np.pi * np.e * VP):.4f}")
+```
+
+```bash
+~/.vault-sandbox/bin/python ladder.py
+```
+
+You should see:
+
+![Reverse scores LL -0.6802, above the true product's own -0.8296; ULA at MALA's step 0.6 ends at variance 12.1045; MALA's variance gap is 0.0001|900](assets/energy-table-1-on-the-pair.png)
+
+By the variance gap the adjusted samplers win: MALA 0.0001, HMC 0.0012, against ULA at a small step 0.0047 and the reverse process 0.0974. By LL the reverse process looks best of all, which is wrong; [[#Step size and the accept step]] works out why.
+
+**9. Clean up, and prove it.**
+
+```bash
+cd ~ && rm -r ~/playground/sandbox/energy-parameterisation
+ls ~/playground/sandbox/energy-parameterisation; echo $?
+```
+
+You should see `No such file or directory`, then `2`.
+
+### Reading the energy output
+
+**From step 4, `before.py`:**
+
+| # | Field | This run | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | f, and its shape | `[-3.247547 -0.333333 -0.057191] shape (3,)` | one energy per point. At 1.5: $-(1.5 + 0.707107)^2 / (2 \times 0.75) = -3.247547$ | derived below |
+| 2 | the score's shape | `shape (3, 1)` | one slope per coordinate of each point | shown |
+| 3 | slope of f | `[-2.942809 -0.942809  0.390524]` | equals the score line above it: the score is the energy's gradient | shown |
+| 4 | eps at 1.5 | `2.08088` | $-0.707107 \times (-2.942809) = 2.080880$. Positive: a point to the right of the data most likely got there by positive noise | derived below |
+
+**From steps 5, 6 and 7, `langevin.py` and `mala.py`:**
+
+| # | Field | This run | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | no accept step, step 0.1: variance | `0.3671` | 19.3% wider than the product; the closed form, 0.3674, is 19.4% | shown; the plan 36 reference reading is the same, mean -0.2323 and variance 0.3671 |
+| 2 | where step 0.1 settles | `0.3674` | $1 / (3.25 \times (1 - 0.1 \times 3.25 / 2)) = 1 / 2.721875 = 0.367394$ | derived below |
+| 3 | with the accept step: variance | `0.3071` | within 0.0006 of the product, inside the sampling tolerance of 0.0041 (three standard errors) | shown; matches `checks/mala_step.out` |
+| 4 | share accepted | `0.9582` | about 95,820 of 100,000 proposals kept per step; the rest stay put | shown |
+| 5 | no accept step, step 0.01: variance | `0.3134` | the closed form says 0.3128, 1.7% wide; the sampled value is within one standard error, 0.0014, of it | derived below |
+
+**From step 8, `one_proposal.py`:**
+
+| # | Field | This run | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | proposal | `1.161107` | $1.5 + 0.1 \times (-5.625) + \sqrt{0.2} \times 0.5$ | derived below |
+| 2 | height change | `1.719645` | the proposal sits higher on the product than the start | derived below |
+| 3 | asymmetry of the move | `-1.440203` | moving back from 1.161107 to 1.5 is less likely than moving forward | derived below |
+| 4 | accept probability | `1.000000` | $e^{0.279442} = 1.32$ is above 1, so the move is always kept | derived below |
+
+**From step 8, `mixture.py`:**
+
+| # | Field | This run | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | normalisers dropped | `-0.073834` | weights from $e^{f}$ alone give expert a a share of 0.407 instead of 0.465 | derived below |
+| 2 | true heights | `-0.261437` | the true mixture's slope | derived below |
+| 3 | fixed half weights | `-0.375000` | the average of -2 and 1.25; a fixed weighting of scores cannot follow the shares as they change along the axis | derived below |
+| 4 | difference quotient | `-0.261437` | measured on the mixture's own log; agrees with field 2 | shown |
+
+**From step 8, `step_sizes.py`:**
+
+| # | Field | This run | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | the stability limit | `0.615385` | $2 / P = 2 / 3.25$: below it an unadjusted chain settles, above it it runs away | derived below |
+| 2 | no accept step, step 0.6: variance | `12.4` | the closed form says 12.3077, forty times the product's width, just under the limit | derived below |
+| 3 | no accept step, step 0.7: variance | `5.185e+42` | past the limit every step multiplies the spread; after 200 steps it is astronomical | derived below |
+| 4 | with the accept step, step 0.8: variance | `0.3082` | still the product's width, at a step past the limit | shown; `checks/mala_step.out` has 0.3088 after 50 steps |
+| 5 | with the accept step, step 0.8: share accepted | `0.3779` | 38% of proposals kept; the step size now trades only how fast chains move | shown; `checks/mala_step.out` has 0.3782 |
+
+**From step 8, `light_tails.py`:**
+
+| # | Field | This run | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | unadjusted, step 0.3: chains gone | `99003` | 99% of chains past $10^6$ from 0 or overflowed after 1,000 steps | shown; the same figure as `checks/ula_light_tails.out` |
+| 2 | with the accept step, step 0.5 | `0 chains gone` | every proposal that lands far out is rejected, because the target's height there is tiny | derived below |
+| 3 | chains that never moved | `1317` | started far enough out that every proposal overshot and was rejected; they still carry their starting points | shown |
+| 4 | the target's own variance | `0.6760` | a sum of $x^2 e^{-x^4/4}$ over a fine axis; the moving chains' 0.6804 is near it | shown |
+
+**From step 8, `ladder.py`:**
+
+| # | Field | This run | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | Reverse: LL | `-0.6802` | higher than the true product's own LL, field 2, for a cloud 32% too narrow | derived below |
+| 2 | the true product's own LL | `-0.8296` | $-\tfrac12 \log(2\pi e \times 0.307692)$: the LL of perfect samples | derived below |
+| 3 | ULA at MALA's step 0.6: variance | `12.1045` | an unadjusted chain at the adjusted sampler's step size, just under the 0.615 limit at the clean level | shown; the same figure as `checks/sampler_ladder.out` |
+| 4 | MALA: Var gap | `0.0001` | the accept step holds the width at a step 60 times larger than ULA's 0.01 | shown |
+
+### How the energy works
+
+**The noise estimate is the energy's slope times $-\sigma_t$.** A trained noise predictor gives the score as $-\epsilon_\theta / \sigma_t$ (section 2.3, sentence 4). Define the score as the gradient of one scalar and solve for $\epsilon$:
+
+$$
+\begin{aligned}
+\nabla_x \log q_t(x) &\approx -\frac{\epsilon_\theta(x, t)}{\sigma_t} \\
+\nabla_x \log q_t(x) &= \nabla_x f_\theta(x, t) \\
+\epsilon_\theta(x, t) &= -\sigma_t\, \nabla_x f_\theta(x, t)
+\end{aligned}
+$$
+
+At expert a with half the signal left, $\mathcal{N}(-0.707107, 0.75)$ and $\sigma_t = \sqrt{0.5} = 0.707107$, at $x = 1.5$:
+
+$$
+\begin{aligned}
+f &= -\frac{(1.5 + 0.707107)^2}{2 \times 0.75} = -\frac{4.871320}{1.5} = -3.247547 \\
+\nabla f &= -\frac{1.5 + 0.707107}{0.75} = -2.942809 \\
+\epsilon &= -0.707107 \times (-2.942809) = 2.080880
+\end{aligned}
+$$
+
+*Derived.* Step 4 printed the same three numbers.
+
+**The accept test needs heights, and not their normaliser.** Write the target as $q(x) = e^{f(x)} / Z$. By the [exponent rules](../../Mathematics/references/textbooks/algebra/algebra-handbook.pdf#page=109), dividing two powers of $e$ subtracts their exponents. The test compares the target at the proposal with the target at the start:
+
+$$
+\frac{q(\hat x)}{q(x)} = \frac{e^{f(\hat x)} / Z}{e^{f(x)} / Z} = e^{f(\hat x) - f(x)}
+$$
+
+$Z$ cancels because both heights belong to the same target, which is why an unnormalised $f$ is enough. *Derived.* Plan 13 of the journey works the same cancellation by hand.
+
+The worked proposal, with the product's energy $f(x) = -(x + 1)^2 / 1 - (x - 1)^2 / 1.6$ and step 0.1:
+
+$$
+\begin{aligned}
+\text{summed score at } 1.5 &= -\frac{2.5}{0.5} - \frac{0.5}{0.8} = -5 - 0.625 = -5.625 \\
+\hat x &= 1.5 + 0.1 \times (-5.625) + \sqrt{0.2} \times 0.5 = 1.5 - 0.5625 + 0.223607 = 1.161107 \\
+f(1.5) &= -6.25 - 0.15625 = -6.40625 \\
+f(1.161107) &= -\frac{2.161107^2}{1} - \frac{0.161107^2}{1.6} = -4.670383 - 0.016222 = -4.686605 \\
+f(\hat x) - f(x) &= -4.686605 + 6.40625 = 1.719645
+\end{aligned}
+$$
+
+The move's own probability is a Gaussian centred one Langevin step ahead, with $\log k(\text{to} \mid \text{from}) = -(\text{to} - \text{from} - 0.1\, s(\text{from}))^2 / 0.4$:
+
+$$
+\begin{aligned}
+s(1.161107) &= -\frac{2.161107}{0.5} - \frac{0.161107}{0.8} = -4.322214 - 0.201384 = -4.523598 \\
+\log k(x \mid \hat x) &= -\frac{(1.5 - 1.161107 + 0.452360)^2}{0.4} = -\frac{0.791253^2}{0.4} = -1.565203 \\
+\log k(\hat x \mid x) &= -\frac{(1.161107 - 1.5 + 0.5625)^2}{0.4} = -\frac{0.223607^2}{0.4} = -0.125000 \\
+\log a &= 1.719645 + (-1.565203 + 0.125000) = 1.719645 - 1.440203 = 0.279442
+\end{aligned}
+$$
+
+$e^{0.279442} = 1.32$, so the accept probability is $\min(1, 1.32) = 1$. *Derived.* Step 8 printed each line.
+
+**Why a score alone cannot supply the height change.** The height change between two points is the integral of the slope along a path between them. A score model would need many evaluations along that path for every proposal, and a network that outputs a vector is not guaranteed to be the slope of any one function. When it is not, different paths give different answers: in the journey's check, a rotating field gives $+3.141593$ along a path over the top and $-3.141593$ along one underneath, between the same two points, so no single height difference exists for an accept test to use. A network that outputs $f$ is the slope of one function by construction. *Cited:* the journey's answer key `checks/curl_field.out`. One dimension cannot show this, because every one-dimensional field is a slope; it needs two.
+
+**Why the accept step makes any step size exact.** Write $a(x \to \hat x) = \min\left(1, \frac{q(\hat x)\, k(x \mid \hat x)}{q(x)\, k(\hat x \mid x)}\right)$. Then the flow from $x$ to $\hat x$ is
+
+$$
+q(x)\, k(\hat x \mid x)\, a(x \to \hat x) = \min\big(q(x)\, k(\hat x \mid x),\ q(\hat x)\, k(x \mid \hat x)\big)
+$$
+
+which is the same expression with $x$ and $\hat x$ swapped, so the flow back equals the flow forward and $q$ is left unchanged by every step, whatever its size. *Derived.* The step size changes only how many proposals are kept: 95.8% at 0.1 here.
+
+**Why the unadjusted chain settles too wide.** On a Gaussian with precision $P$ and centre $\mu$, one Langevin step is $x' = x - \eta P (x - \mu) + \sqrt{2\eta}\, z$. Its variance at rest $V$ satisfies
+
+$$
+\begin{aligned}
+V &= (1 - \eta P)^2\, V + 2\eta \\
+V &= \frac{2\eta}{1 - (1 - \eta P)^2} = \frac{2\eta}{2\eta P - \eta^2 P^2} = \frac{1}{P\,(1 - \eta P / 2)}
+\end{aligned}
+$$
+
+With $P = 3.25$: $\eta = 0.1$ gives $1 / 2.721875 = 0.367394$, and $\eta = 0.01$ gives $1 / 3.197188 = 0.312775$. Only $\eta \to 0$ reaches $1/P = 0.307692$. An offset from $\mu$ shrinks by the factor $1 - \eta P$ per step, 0.675 at 0.1 and 0.9675 at 0.01, so it falls by $e$ in about $1/(\eta P)$ steps: 3.1 and 30.8. *Derived.*
+
+**Why a mixture needs the heights.** The log of a sum does not split the way the log of a product does:
+
+$$
+\begin{aligned}
+\nabla \log\big(\tfrac12 q_a + \tfrac12 q_b\big) &= \frac{\tfrac12 q_a \nabla \log q_a + \tfrac12 q_b \nabla \log q_b}{\tfrac12 q_a + \tfrac12 q_b} \\
+&= w_a\, \nabla \log q_a + w_b\, \nabla \log q_b, \qquad w_a = \frac{q_a}{q_a + q_b}
+\end{aligned}
+$$
+
+At $x = 0$ the heights are $q_a = 0.207554$ and $q_b = 0.238743$, so $w_a = 0.465058$ and the slope is $0.465058 \times (-2) + 0.534942 \times 1.25 = -0.930116 + 0.668678 = -0.261437$ (to rounding). With the normalisers dropped, the weights come from $e^{-1} = 0.367879$ and $e^{-0.625} = 0.535261$, so $w_a = 0.407333$ and the slope is $-0.073834$. *Derived.* The two experts' normalisers differ by $\sqrt{0.8 / 0.5} = 1.264911$; the paper builds its mixtures assuming "this ratio [of normalizers] is 1". *Cited:* section 3, the mixture paragraph. On this pair that assumption moves expert a's share at 0 from 0.465 to 0.407.
+
+### Step size and the accept step
+
+**An unadjusted Langevin chain on a Gaussian of precision $P$ settles at variance $1 / (P(1 - \eta P/2))$ and runs away once its step $\eta$ passes $2/P$. A Metropolis accept step holds the target's width at any step, and turns the share of proposals accepted into the dial for choosing the step.** The settled variance is derived in [[#How the energy works]].
+
+*🖼️ Diagram wanted: the concept, settled variance against step size with and without the accept step, and the share accepted above. Prompt 18 in the vault's `.prompts/Diffusion Models.md`.*
+
+**The stability limit.** One unadjusted step multiplies an offset from the centre by $1 - \eta P$. The offset shrinks only while that factor is between $-1$ and $1$:
+
+$$
+\begin{aligned}
+|1 - \eta P| < 1 \quad &\Longleftrightarrow \quad 0 < \eta < \frac{2}{P} \\
+\frac{2}{P} = \frac{2}{3.25} &= 0.615385 \\
+\eta = 0.6: \quad \frac{1}{3.25\,(1 - 0.6 \times 3.25 / 2)} &= \frac{1}{3.25 \times 0.025} = 12.3077
+\end{aligned}
+$$
+
+*Derived.* Step 8's `step_sizes.py` printed 12.4 at 0.6 and $5.2 \times 10^{42}$ at 0.7. With the accept step the variance stayed between 0.3055 and 0.3084 from step 0.01 to 0.8. *Shown.*
+
+**Light tails break unadjusted Langevin at every step size.** On $q \propto e^{-x^4/4}$ one step without noise is $x \mapsto x - \eta x^3 = x(1 - \eta x^2)$. It overshoots further each time once $|1 - \eta x^2| > 1$, that is once $|x| > \sqrt{2/\eta}$, which is $\sqrt{20} = 4.4721$ at step 0.1. From 5: $5 - 0.1 \times 125 = -7.5$, then 34.69, then $-4139$. *Derived*, with the sequence from `checks/ula_light_tails.out`. A Gaussian's pull grows like $x$, so one small step is safe everywhere; this pull grows like $x^3$, so every step size has a distance past which chains are lost, and the noise eventually carries some chain there: 1 in 100,000 at step 0.1. *Shown*, step 8. The paper names this case: "targets with lighter-than-Gaussian tails where the ULA chain is transient". *Cited:* `text/method.tex` line 142. The accept step rejects a proposal that lands where the target's height is tiny, so no chain leaves; the cost is chains that start far out and stay stuck, 1,317 of 100,000 at step 0.5.
+
+**The share accepted is a dial.** On the clean product:
+
+| Step size | Share accepted | Variance with the accept step |
+|---|---|---|
+| 0.01 | 99.9% | 0.3055 |
+| 0.3 | 79% | 0.3081 |
+| 0.5 | 60% | 0.3084 |
+| 0.8 | 38% | 0.3082 |
+
+The width is right on every row; only the share changes, and it falls as the step grows. A sampler can therefore raise its step until the share reaches a target. The paper does this, choosing the multiplier of $\beta_t$ in each level's step "so that the average acceptance rate of MALA and HMC samplers across timesteps is approximately 60% and 70% respectively". *Cited:* `text/appendix.tex` line 154. An unadjusted sampler has no such reading, because it accepts every proposal.
+
+**Table 1 on the pair, and where its LL column misleads.** The paper's Table 1 scores samplers on its 2D toys by LL, the "log-likelihood of generated samples under composed distribution", and Var, a difference of variances. For the energy model's product it gives Var 0.064 for reverse diffusion, 0.027 for ULA, 0.022 for U-HMC, 0.013 for MALA and 0.009 for HMC, and LL $-6.03$ for reverse diffusion against 2.73 for MALA. *Cited:* `table/toy2d.tex` and `text/results.tex` line 17. The ladder in step 8 agrees on Var: reverse diffusion worst, the unadjusted samplers next, the two adjusted ones best, with MALA and HMC in the opposite order. On LL it disagrees: reverse diffusion scores highest. The mean log height under the product of samples with mean $m$ and variance $v$ is
+
+$$
+\begin{aligned}
+\text{LL} &= -\tfrac12 \log(2\pi V_P) - \frac{v + (m - M_P)^2}{2 V_P} \\
+\text{reverse, } m = -0.1567,\ v = 0.2102: \quad \text{LL} &= -0.329611 - \frac{0.2102 + 0.005486}{0.615385} = -0.329611 - 0.350490 = -0.680101 \\
+\text{the product itself, } v = V_P,\ m = M_P: \quad \text{LL} &= -0.329611 - \tfrac12 = -0.829611
+\end{aligned}
+$$
+
+with $M_P = -0.230769$ and $V_P = 0.307692$. *Derived*, using [the log](../../Mathematics/references/textbooks/algebra/algebra-handbook.pdf#page=110) of the Gaussian density; the printed $-0.6802$ differs in the last place because $m$ and $v$ are rounded here. LL rises as $v$ falls, so a cloud squeezed onto the product's peak beats samples of the product itself. On the paper's toys reverse diffusion leaves samples where the product has almost no height, as on the ring in Figure 2, and LL punishes that; on the pair its error is a squeeze, and LL rewards it. *Stated*: the paper does not say why its reverse row scores low. LL ranks samplers only beside a measure of width, as Table 1 sets it beside Var.
+
+**The paper's step-size claim does not hold on the pair.** Appendix B.3 says that for the unadjusted variants "we set step sizes to be the same as adjusted samplers, and found limited gains when step sizes were specifically tuned towards the un-adjusted samplers". *Cited:* `text/appendix.tex` line 154. On the pair, at the adjusted samplers' steps, ULA ends at variance 12.1 and U-HMC at 2.96; ULA at its own step of 0.01 ends within 0.0047. Retuning is the whole difference here. *Shown*, step 8, `ladder.py`. Whether the paper's image models behave like the pair is not tested here.
+
+### Other ways to get heights
+
+- **The score parameterisation**, the ordinary $\epsilon_\theta$ network. One forward pass per noise estimate and no backward pass. It supports products and negation, has no mixtures, and allows only unadjusted samplers. *Cited:* section 3, last sentence; section 4.2, paragraphs 2 and 3.
+- **A smaller step with no accept step**, as in step 7: the error falls with the step and the cost rises with it. *Shown.*
+- **Other energy forms.** Appendix D compares a denoising-autoencoder form $-\tfrac12\|x - s_\theta\|^2$, an L2 form $-\tfrac12\|s_\theta\|^2$ and an inner-product form $x \cdot s_\theta$. Section 4.2 chooses $-\|s_\theta\|^2$, and appendix D gives stability under sampling as the reason: the L2 and autoencoder forms can never exceed 0, while the inner-product form has no ceiling. By Table A1's FID the inner-product form scored 90.9 against 91.5, lower being better. The gradient appendix D prints for the autoencoder form has the opposite sign of a measured difference quotient. The authors' 2D notebook uses a third form, `((score - x) ** 2).sum(-1)`, the autoencoder form without its one half (cell 5, line 14), while their PyTorch reimplementation uses `0.5 * (unet_out ** 2)` (`composable_diffusion/unet.py` line 1401). *Cited:* the journey's read-ahead, `read-ahead/04-scaling-compositional-generation.md`, chunk 57, and `checks/energy_parameterisations.out`.
+- **HMC**, Hamiltonian Monte Carlo, another Metropolis-corrected sampler, which adds a momentum to each chain and uses the same kind of accept test. The paper's best compositional results come from MALA and HMC. *Cited:* section 4.2, paragraph 5. Not run here.
+
+### Why the energy matters
+
+[[#The order of multiplying and noising]] shows that reverse diffusion on summed scores misses the product, and that a sampler which settles at each noise level reaches it. The energy is what makes that per-level sampler exact at a step size worth paying for: on this pair, step 0.1 without the accept step settles 19.4% too wide, and with it lands within 0.2%. The acceptance rate is also a dial the sampler can read: the paper tunes its step sizes automatically from it, which unadjusted samplers cannot do. *Cited:* section 4.2, paragraph 5.
+
+It does not explain when, during a run, summed scores go wrong. That is the two-orders section's question; the energy is the corrector run once the error is known to exist.
+
+### The energy taught in, applied in
+
+**Taught in:**
+
+- the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, abstract sentences 2 and 7. The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
+- the same walk, section 4, chunks 50 and 52 to 58: only unadjusted samplers for a score model, Table 1 run on the pair and its LL column, the energy written as minus the gradient of a scalar, the stability limit $2/P$, light tails, and the share accepted as the dial for the step. Paper note at the same path, still to be written.
+- the same journey's plan 21, `plans/21-langevin-dynamics.md`, line 143 and lines 215 to 226 (the stability limit 0.615385 and the settled widths at steps 0.1 and 0.01)
+- the sampler correctors for composition journey's plans 33 to 36: `plans/33-a-mixture-needs-heights.md`, line 21 (a separate unknown constant per expert changes the mixture's shares); `plans/34-a-scalar-energy-whose-gradient-is-the-score.md`, lines 21 to 23 (a field with and without a height behind it, and the paper's two sign conventions); `plans/35-an-energy-from-an-ordinary-network.md`, line 23 (the appendix D forms and the autoencoder form's sign slip); `plans/36-the-accept-step-needs-the-height.md`, line 21 and line 280 (unadjusted Langevin against MALA on this pair)
+- the same journey's plan 13, `plans/13-why-unnormalised-is-enough.md`, lines 133 to 144 (the normaliser cancelling in the acceptance ratio)
+
+**Applied in:** nothing yet.
+
+## Product, mixture and negation
+
+Navigation: ⬅️ [[#The energy parameterisation]] | 📋 [[#Table of contents|TOC]]
+
+**Section 3 of Du et al. names three ways to combine models: the product (equation 8), high only where every expert is high; the mixture (equation 9), high wherever any expert is high; and negation (equation 10), high where one expert is high and another is not. The product and negation are built from scores alone. The mixture needs each model's height, so a model that only outputs scores can multiply and negate but cannot mix.** *Cited:* Du et al., Reduce, Reuse, Recycle, section 3 (`text/method.tex` lines 10 to 54): "with the standard $\epsilon_\theta(x, t)$-parameterization we can, in theory, utilize product and negation composition, but *not* mixture composition."
+
+### Words the three operators use
+
+**Product**, $q^\text{prod}(x) = \frac{1}{Z}\prod_i q^i(x)$ with $Z = \int \prod_i q^i(x)\,dx$. The paper calls it an "intersection". Its peak is a compromise between the experts: [[#The product as an intersection]].
+
+**Mixture**, $q^\text{mix}(x) = \frac{1}{N}\sum_i q^i(x)$. The paper calls it a "union". It needs no $Z$, because averaging densities keeps area 1 ([[Multivariate Normal Distribution#The area a product loses]]).
+
+**Negation**, $q^\text{neg}(x) \propto q^0(x) / q^1(x)^\alpha$. The power $\alpha$ sets how hard $q^1$ is pushed away; the paper's experiments use $\alpha = 0.5$. The paragraph names the two densities $p_0$ and $p_1$ and the equation writes $q^0$ and $q^1$; they are the same two.
+
+**Guidance as a product.** Classifier and classifier-free guidance multiply two experts: one for how likely $x$ is at all, one for how likely the label $y$ is given $x$. Their product is proportional to $p(x \mid y)$ by Bayes' rule. *Cited:* section 3, paragraph 3: "The approaches to guidance discussed in Section 2 define product models with only two experts."
+
+### When to reach for the three operators
+
+When a prompt holds AND, OR and NOT, as in Figure 6 below. AND is a product, OR a mixture, NOT a negation, and they nest. Before running one on a diffusion model, ask which operator each word needs. AND and NOT are scores added and subtracted, which any diffusion model supports. OR is not, and adding or averaging scores in its place samples a different distribution from the one asked for, as step 5 shows. *Derived* below.
+
+### The form of the three operators
+
+```text
+product   q_prod = (1/Z) * q_1 * q_2         score: s_1 + s_2                     slopes only
+mixture   q_mix  = (q_1 + q_2) / 2           score: w_1 s_1 + w_2 s_2,            needs heights
+                                             w_i = q_i / (q_1 + q_2)
+negation  q_neg  ~ q_0 / q_1^alpha           score: s_0 - alpha * s_1             slopes only
+          a density only while  1/v_0 - alpha / v_1 > 0   (Gaussians; the precisions)
+guidance  p(x | y) ~ p(x) * p(y | x)         score: s_x + s_(y|x)                 a product of two experts
+```
+
+*🖼️ Diagram wanted: the form, the three operators as three cards, each with two expert bells and the result bell, and what each needs (slopes or heights). Prompt 14 in the vault's `.prompts/Diffusion Models.md`.*
+
+### Try the three operators yourself
+
+**1. What you need.** Python with NumPy, through the prepared environment:
+
+```bash
+~/.vault-sandbox/bin/python -c "import numpy; print(numpy.__version__)"
+```
+
+You should see a version number. This run printed `2.4.6`.
+
+**2. When it is missing.** [[Multivariate Normal Distribution#Try sampling yourself]] steps 1 and 2 say how to make the environment, or how to use `uv run` instead.
+
+**3. Make something to act on.** A new empty folder, and the pair of [[#The one-dimensional pair]] with the pieces every script uses: the density on an axis, its moments, the forward jump, the score, and `power`, which combines two Gaussians raised to any powers ([[Multivariate Normal Distribution#Powers of Gaussians]]).
+
+```bash
+mkdir -p ~/playground/sandbox/three-operators && cd ~/playground/sandbox/three-operators
+```
+
+Save this as `experts.py`:
+
+```python
+import numpy as np
+
+experts = [(-1.0, 0.5), (1.0, 0.8)]          # (mean, variance) of expert a and expert b
+x = np.linspace(-8, 8, 1601)                  # the axis, spacing 0.01
+dx = x[1] - x[0]
+
+
+def gauss(z, m, v):
+    return np.exp(-(z - m) ** 2 / (2 * v)) / np.sqrt(2 * np.pi * v)
+
+
+def moments(p):
+    """Area, mean and variance of heights p on the axis."""
+    area = p.sum() * dx
+    mean = (x * p).sum() * dx / area
+    return area, mean, ((x - mean) ** 2 * p).sum() * dx / area
+
+
+def noised(m, v, abar):
+    """A Gaussian N(m, v) after the forward jump to level abar."""
+    return np.sqrt(abar) * m, abar * v + 1 - abar
+
+
+def score(z, m, v, abar=1.0):
+    mt, vt = noised(m, v, abar)
+    return -(z - mt) / vt
+
+
+def power(m1, v1, w1, m2, v2, w2):
+    """q1^w1 * q2^w2 for two Gaussians, renormalised: (mean, variance, precision)."""
+    P = w1 / v1 + w2 / v2
+    if P <= 0:
+        return float("nan"), float("nan"), P
+    return (w1 * m1 / v1 + w2 * m2 / v2) / P, 1 / P, P
+```
+
+**4. Look at it before: the product, and guidance as a product.** Save this as `product.py`:
+
+```python
+from experts import experts, x, dx, gauss, moments, noised, score, power
+
+(ma, va), (mb, vb) = experts
+qa, qb = gauss(x, ma, va), gauss(x, mb, vb)
+Z = (qa * qb).sum() * dx                                      # equation 8's Z
+i = 800                                                       # x[800] is 0
+print(f"equation 8 at x = 0: q_a {qa[i]:.6f} times q_b {qb[i]:.6f} = {qa[i] * qb[i]:.6f}; over Z = {Z:.6f}: {qa[i] * qb[i] / Z:.6f}")
+area, m, v = moments(qa * qb / Z)
+print(f"the product: area {area:.6f}, mean {m:.6f}, variance {v:.6f}; the experts' variances {va} and {vb}")
+mp, vp, _ = power(ma, va, 1, mb, vb, 1)
+for abar in (1.0, 0.5):
+    summed = score(1.5, ma, va, abar) + score(1.5, mb, vb, abar)
+    print(f"guidance at x = 1.5, abar {abar}: scores added {summed:.6f}, the noised product's own slope {score(1.5, mp, vp, abar):.6f}")
+```
+
+```bash
+~/.vault-sandbox/bin/python product.py
+```
+
+You should see:
+
+![Equation 8 at 0 gives 0.049552 over Z = 0.075126, which is 0.659582; the product's variance is 0.307692; the added scores equal the product's slope with no noise, -5.625, and differ with half the signal left, -3.823802 against -2.543685|900](assets/three-operators-the-product-and-guidance.png)
+
+The product is narrower than both experts, 0.308 against 0.5 and 0.8: it is stricter than either alone. With no noise, guidance's added scores are exactly the product's slope. With half the signal left they are not, which is [[#The order of multiplying and noising]] again, because guidance is a product.
+
+**5. The failure, and the technique: a mixture's slope.** Save this as `mixture.py`:
+
+```python
+import numpy as np
+from experts import experts, x, dx, gauss, moments, score
+
+(ma, va), (mb, vb) = experts
+qa, qb = gauss(x, ma, va), gauss(x, mb, vb)
+area, m, v = moments(0.5 * qa + 0.5 * qb)                     # equation 9 with N = 2
+print(f"the mixture: area {area:.6f}, mean {m:+.6f}, variance {v:.6f}")
+ha, hb = gauss(0.0, ma, va), gauss(0.0, mb, vb)
+sa, sb = score(0.0, ma, va), score(0.0, mb, vb)
+wa = ha / (ha + hb)
+print(f"at x = 0: heights {ha:.6f} and {hb:.6f}, shares {wa:.6f} and {1 - wa:.6f}")
+print(f"at x = 0: slopes {sa:.6f} and {sb:.6f}")
+print(f"  weighted by the shares (the true mixture): {wa * sa + (1 - wa) * sb:.6f}")
+print(f"  added, as a product would:                 {sa + sb:.6f}")
+print(f"  averaged with fixed halves:                {(sa + sb) / 2:.6f}")
+for c in (2.0, 0.5):
+    area, m, v = moments(qa + c * qb)                         # expert b's height off by a factor c
+    print(f"expert b's height off by a factor {c}: mean {m:+.6f}, variance {v:.6f}")
+```
+
+```bash
+~/.vault-sandbox/bin/python mixture.py
+```
+
+You should see:
+
+![The mixture has area 1 and variance 1.65; at 0 the shares are 0.465 and 0.535 and the true slope is -0.261437, against -0.75 for added scores and -0.375 for averaged ones; with expert b's height doubled the mean moves to +0.333|850](assets/three-operators-the-mixture-and-its-slope.png)
+
+The mixture is wider than both experts, 1.65 against 0.5 and 0.8, where the product was narrower. Two ways of building it from scores alone both miss its slope: adding gives the product's $-0.75$, and fixed halves give $-0.375$. Only the shares, which come from the heights, give $-0.261$. And a height known only up to a factor is not enough: doubling expert b's height moves the mixture's centre from 0 to 0.333.
+
+**6. The technique for negation.** Save this as `negation.py`:
+
+```python
+from experts import experts, x, gauss, moments, noised, score, power
+
+(ma, va), (mb, vb) = experts
+alpha = 0.5
+area, m, v = moments(gauss(x, ma, va) / gauss(x, mb, vb) ** alpha)   # equation 10 on the axis
+mc, vc, P = power(ma, va, 1, mb, vb, -alpha)
+print(f"a over b^{alpha}: on the axis mean {m:.6f}, variance {v:.6f}; closed form mean {mc:.6f}, variance {vc:.6f}, precision {P:.6f}")
+print(f"slope at 1.5: score a - {alpha} score b = {score(1.5, ma, va) - alpha * score(1.5, mb, vb):.6f}; closed form {-(1.5 - mc) / vc:.6f}")
+for name, args in [("b over a^0.5", (mb, vb, 1, ma, va, -0.5)), ("b over a", (mb, vb, 1, ma, va, -1.0)),
+                   ("notebook, a^1.3 / b^0.3", (ma, va, 1.3, mb, vb, -0.3))]:
+    mm, vv, PP = power(*args)
+    print(f"{name:24s} precision {PP:+.6f}  mean {mm:.6f}  variance {vv:.6f}")
+m1, v1 = noised(mc, vc, 0.5)
+m2, v2, _ = power(*noised(ma, va, 0.5), 1, *noised(mb, vb, 0.5), -alpha)
+print(f"abar 0.5: negate then noise variance {v1:.6f}; noise then negate variance {v2:.6f}")
+```
+
+```bash
+~/.vault-sandbox/bin/python negation.py
+```
+
+You should see:
+
+![a over the square root of b has mean -1.909 and variance 0.727 with precision 1.375; its slope at 1.5 is -4.6875 from scores alone; b over a has precision -0.75; the notebook's weights give variance 0.449; with half the signal left, negate then noise gives 0.864 and noise then negate 1.286|1000](assets/three-operators-negation.png)
+
+Dividing by $\sqrt{b}$ moves expert a from $-1$ to $-1.909$, away from b, and widens it from 0.5 to 0.727. Its slope is expert a's score minus half of b's, so scores suffice. Swap the roles and divide b by all of a, and the precision is $-0.75$: the result grows without limit and is no density. With noise, the order matters the other way round from the product: noising first makes the negation too wide, 1.286 against 0.864, where it made the product too narrow.
+
+**7. Another way to get the same answer.** Each script checks itself: `product.py` measures the product on the axis and `power` gives it in closed form; `negation.py` prints the axis and the closed form side by side and they agree to six places; `mixture.py`'s share-weighted slope matches the difference quotient of the mixture's own log in [[#Try the energy yourself]] step 8.
+
+**8. More worked examples on the same setup.** *The paper's code, checked against its equations.* The authors' notebook builds negation in cell 8, line 15, as `1.3 * unorm_1 - 0.3 * unorm_2`, which is $q_a^{1.3} / q_b^{0.3}$. No $\alpha$ in equation 10 gives that. The fourth line of step 6 prints what it does on the pair: mean $-1.337$, variance $0.449$, against equation 10's $-1.909$ and $0.727$. The mixture in cell 7, lines 13 to 19, is `-jax.scipy.special.logsumexp(-concat_energy*3.5, -1)`, which raises each density to the power 3.5 before mixing; equation 9 has no such power. *Cited:* the journey's read-ahead, `read-ahead/03-compositional-generation-beyond-guidance.md`, chunks 38 and 40, quoting `notebooks/simple_distributions.ipynb`.
+
+**9. Clean up, and prove it.**
+
+```bash
+cd ~ && rm -r ~/playground/sandbox/three-operators
+ls ~/playground/sandbox/three-operators; echo $?
+```
+
+You should see `No such file or directory`, then `2`.
+
+### Reading the three-operators output
+
+**From step 4, `product.py`:**
+
+| # | Field | This run | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | raw product at 0 | `0.049552` | $0.207554 \times 0.238743$: the two heights multiplied, before equation 8 divides | derived below |
+| 2 | over $Z$ | `0.659582` | the product's true height at 0, once divided by its area 0.075126 | derived below |
+| 3 | variance | `0.307692` | narrower than both experts: precisions add | derived below |
+| 4 | guidance, no noise | `-5.625000` both | the added scores are the product's own slope | derived below |
+| 5 | guidance, half the signal: added | `-3.823802` | equation 12's slope, the curve summed scores give | derived in [[#How the two orders work]] |
+| 6 | the noised product's slope | `-2.543685` | equation 11's slope, the curve the reverse process needs | derived in [[#How the two orders work]] |
+
+**From step 5, `mixture.py`:**
+
+| # | Field | This run | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | area | `1.000000` | a mixture keeps area 1, with no $Z$ | derived below |
+| 2 | variance | `1.650000` | wider than both experts | derived below |
+| 3 | shares at 0 | `0.465058`, `0.534942` | each expert's height over the two heights added | derived in [[#How the energy works]] |
+| 4 | the true slope | `-0.261437` | shares times slopes, added | derived in [[#How the energy works]] |
+| 5 | scores added | `-0.750000` | the product's slope: an AND where an OR was asked for | derived below |
+| 6 | scores averaged | `-0.375000` | fixed halves; wrong wherever the heights differ | derived below |
+| 7 | height off by 2 | `+0.333333` | the centre moves toward the expert whose height was overstated | derived below |
+
+**From step 6, `negation.py`:**
+
+| # | Field | This run | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | $a / b^{0.5}$ | mean `-1.909091`, variance `0.727273` | moved away from b and widened; the axis and the closed form agree | derived below |
+| 2 | its precision | `1.375000` | $2 - 0.5 \times 1.25$, positive, so a density | derived below |
+| 3 | slope at 1.5 | `-4.687500` | $-5 - 0.5 \times (-0.625)$: scores alone | derived below |
+| 4 | $b / a^{0.5}$ | precision `+0.25`, mean `9` | a density, but centred past the end of the axis at 8 | derived below |
+| 5 | $b / a$ | precision `-0.75` | not a density; `nan` is the script refusing to divide | derived below |
+| 6 | the notebook's weights | variance `0.449438` | what cell 8 actually samples on this pair | derived below |
+| 7, 8 | the two orders at $\bar\alpha = 0.5$ | `0.863636`, `1.285714` | negate then noise against noise then negate: noising first is 49% too wide | derived below |
+
+### How the three operators work
+
+**Equation 8 at one point.** The heights at 0 are $q_a(0) = e^{-1}/\sqrt{\pi} = 0.207554$ and $q_b(0) = e^{-0.625}/\sqrt{1.6\pi} = 0.238743$:
+
+$$
+\begin{aligned}
+q_a(0)\,q_b(0) &= 0.207554 \times 0.238743 = 0.049552 \\
+Z &= \mathcal{N}(-1;\ 1,\ 1.3) = 0.075126 \\
+q^\text{prod}(0) &= 0.049552 / 0.075126 = 0.659582
+\end{aligned}
+$$
+
+*Derived;* $Z$ is worked in [[Multivariate Normal Distribution#The area a product loses]].
+
+**Why guidance's scores add.** The log of a product is the sum of the logs ([log rules](../../Mathematics/references/textbooks/algebra/algebra-handbook.pdf#page=110)), and $\log p(y)$ does not depend on $x$:
+
+$$
+\begin{aligned}
+p(x \mid y) &= \frac{p(x)\, p(y \mid x)}{p(y)} \\
+\nabla_x \log p(x \mid y) &= \nabla_x \log p(x) + \nabla_x \log p(y \mid x) - 0
+\end{aligned}
+$$
+
+On the pair, with expert a as $p(x)$ and expert b's shape as $p(y \mid x)$, at 1.5: $-\frac{2.5}{0.5} - \frac{0.5}{0.8} = -5 - 0.625 = -5.625$, and the product $\mathcal{N}(-0.230769, 0.307692)$ has slope $-\frac{1.730769}{0.307692} = -5.625$. *Derived.* That reading of the two experts is the walk's, from the sentence quoted under [[#Words the three operators use]].
+
+**Why guidance shares the two-orders gap.** A guided sampler adds the two models' scores at each noise level, which is equation 12's curve, while the reverse process needs equation 11's. The gap in variance is 0 with no noise, 0.2448 at half the signal and 0.5 at pure noise ([[#Try the two orders yourself]] step 7), so it is largest at the noisiest steps. *Derived* from those rows. How large it is for a trained text-to-image model is not measured here.
+
+**The mixture's moments.** Each expert contributes its own variance plus its mean squared, weighted by its share:
+
+$$
+\begin{aligned}
+\text{mean} &= \tfrac12(-1) + \tfrac12(1) = 0 \\
+\text{variance} &= \tfrac12(0.5 + 1) + \tfrac12(0.8 + 1) - 0^2 = 1.65
+\end{aligned}
+$$
+
+If expert b's height is overstated by a factor 2, the shares become $\tfrac13$ and $\tfrac23$:
+
+$$
+\begin{aligned}
+\text{mean} &= \tfrac13(-1) + \tfrac23(1) = 0.333333 \\
+\text{variance} &= \tfrac13(1.5) + \tfrac23(1.8) - 0.333333^2 = 1.7 - 0.111111 = 1.588889
+\end{aligned}
+$$
+
+*Derived.* This is the paper's "a different unknown ratio of normalizers would correspond to a weighted mixture", on numbers. *Cited:* section 3, the mixture paragraph.
+
+**Why no fixed rule on scores builds a mixture.** The mixture's slope is $w_a s_a + w_b s_b$ with $w_a = q_a / (q_a + q_b)$ ([[#How the energy works]]). The shares change along the axis: expert a's is 0.939 at $-1$, 0.465 at 0 and 0.023 at 1 (`checks/mixture_score.out`). Adding scores fixes both weights at 1 and averaging fixes them at $\tfrac12$, and neither follows the shares. *Derived.*
+
+**Negation as a power.** Raising a Gaussian to the power $w$ multiplies its precision by $w$ ([[Multivariate Normal Distribution#Powers of Gaussians]]), so with $\alpha = 0.5$:
+
+$$
+\begin{aligned}
+P &= \frac{1}{0.5} - 0.5 \times \frac{1}{0.8} = 2 - 0.625 = 1.375, \qquad \text{variance } \frac{1}{1.375} = 0.727273 \\
+\text{mean} &= \frac{-1/0.5 - 0.5 \times 1/0.8}{1.375} = \frac{-2.625}{1.375} = -1.909091 \\
+\text{slope at } 1.5 &= -\frac{2.5}{0.5} - 0.5 \times \left(-\frac{0.5}{0.8}\right) = -5 + 0.3125 = -4.6875
+\end{aligned}
+$$
+
+The result is a density only while $P > 0$, so the expert being pushed away must be broad enough, with $\alpha / v_1 < 1 / v_0$. Here $0.625 < 2$. For $b / a$, $1.25 - 2 = -0.75$. *Derived.*
+
+**The two orders for negation.** At $\bar\alpha = 0.5$, negate then noise is $0.5 \times 0.727273 + 0.5 = 0.863636$. Noise each first, $a \to \mathcal{N}(-0.707107, 0.75)$ and $b \to \mathcal{N}(0.707107, 0.9)$, then negate: $P = \frac{1}{0.75} - \frac{0.5}{0.9} = 1.333333 - 0.555556 = 0.777778$, variance $1.285714$. Subtracting a noised precision removes less than subtracting a clean one, so the result is wider. *Derived.*
+
+### Other ways to combine models
+
+- **Background-divided composition**, $p_1 p_2 / p_b$, which is a product with one negation at power 1. [[#Composing models with a background]] works it on two-pixel scenes.
+- **Guidance scale**, $\nabla \log p(x) + \lambda \nabla \log p(y \mid x)$, which is the product $p(x)\, p(y \mid x)^\lambda$: $\lambda = 2$ on the pair gives mean 0.111 and variance 0.222. *Cited:* `checks/guidance_on_the_object.out`.
+- **A mixture from energy models.** [[#The energy parameterisation]] gives each model a height, which is what the mixture's shares need. The paper assumes the ratio of the normalisers is 1; step 5 shows what a factor of 2 does.
+
+### Why the three operators matter
+
+Which operator a prompt asks for decides whether a score model can serve it at all. AND and NOT can, OR cannot. "A cat or a dog" from a mixture gives one or the other per image, never both in one image, while "a cat and a dog" from a product gives whatever lies in both experts' high regions. If the cat expert is high only on images that are entirely cat, that shared region holds only blends, which is the hybrid of [[#Why composition matters]]. *Stated:* the link between what an expert's high region contains and a hybrid is the writer's reading of the two sections together.
+
+![The paper's Figure 6: five columns of two generated horses, labelled "A horse", then AND "Grass plains", AND "A sandy beach", AND ("A sandy beach" OR "Grass plains"), and that AND NOT "Sunny"|900](references/three-operators-paper-figure-6-horses.png)
+
+> **Figure 6.** Energy based parameterization enables high-resolution compositional text-to-image synthesis.
+>
+> *Du, Durkan, Strudel, Tenenbaum, Dieleman, Fergus, Sohl-Dickstein, Doucet, Grathwohl, Reduce, Reuse, Recycle, ICML 2023, [arXiv 2302.11552](https://arxiv.org/abs/2302.11552), Figure 6. arXiv non-exclusive distribution licence; copied for study with citation.*
+
+The labels use all three operators nested: AND a product, OR a mixture, NOT a negation. Column 4's two images each show one place, sand or grass, as a mixture should. In column 5 the bottom horse stands under an overcast sky; the top image's sky is pale blue with no sun in view. The figure has no column sampled without composition, and no model or code was released, so none of it can be rerun. *Shown*, read by eye from the image; *cited* for the release, the journey's read-ahead, chunk 42.
+
+*🖼️ Diagram wanted: the mechanism, slopes adding for the product and negation and height-weighted for the mixture. Prompt 15 in the same file.*
+
+*🖼️ Diagram wanted: the deep-dive sheet composing the form, the mechanism and the three runs. Prompt 16 in the same file.*
+
+### The three operators taught in, applied in
+
+**Taught in:** the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, section 3, chunks 35 to 43 (equations 8, 9 and 10, guidance as a product, Figures 2 and 6, and the two notebook slips), with numbers from the walk's answer keys `checks/step6_product.out`, `guidance_on_the_object.out`, `mixture_score.out` and `negation.out`. The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
 
 **Applied in:** nothing yet.
 
@@ -919,5 +2253,11 @@ Products are not the only casualty. The paper's appendix C finds "that products,
 > The five output pictures were rendered from the captured text by a script in DejaVu Sans Mono, never drawn, and each was opened before filing. The paper's Figure 2 is the authors' `fig/comp_fig4.pdf` from the arXiv source package, converted to PNG at 150 dpi with `pdftoppm` and opened before filing; its caption is the LaTeX caption from `text/method.tex` lines 36 to 43 with markup removed. Quotations from the paper are from its source: `text/abstract.tex` line 2, `text/method.tex` lines 31 to 131, `text/appendix.tex` line 232. The figure numbers and equation numbers 11 and 12 are as the journey's read-ahead reads them from `2302.11552.pdf`.
 >
 > The re-teach in the walk described expert 2 in shared as an object in the left half only. It also narrows the right half, from variance 4 to 1, and the table and derivation here carry that.
+>
+> The runs in [[#The energy parameterisation]] were made by the writer in a third empty folder, `~/playground/sandbox/energy-parameterisation`, on the same PC and environment (Python 3.11.13, NumPy 2.4.6, Matplotlib 3.11.2), on 2026-10-13; the folder was removed afterwards and the clean-up check returned 2. The scripts are shortened from the journey's answer keys `checks/mala_step.py`, `checks/mixture_score.py` and `checks/energy_parameterisations.py`, and every shared number matched those keys' outputs to the digits shown: MALA variance 0.3071 and share accepted 0.9582 with seed 0; the hand proposal 1.161107, 1.719645, -1.440203 and 0.279442; the mixture shares 0.465058 and 0.534942 and slope -0.261437. The unadjusted run at step 0.1, mean -0.2323 and variance 0.3671, matches plan 36's reference reading. The run at step 0.01 and the normalisers-dropped mixture line are new to this note and were checked against the derivations in [[#How the energy works]]. The six output pictures were rendered from the captured text by a script in DejaVu Sans Mono, never drawn, and each was opened before filing. Quotations from Du et al. are as the journey's read-ahead quotes them from the paper's source: `text/related_work.tex` lines 57 to 65 and 89 to 100 (sections 2.2 and 2.3), `text/method.tex` lines 140 to 156 (section 4.2).
+>
+> The run in [[#The product as an intersection]] was made by the writer in a fourth empty folder, `~/playground/sandbox/product-intersection`, on the same PC and environment, on 2026-10-13; the folder was removed afterwards and the clean-up check returned 2. Its near-pair numbers match the walk's answer key `checks/step6_product.py` and `checks/step6_product.out` in the journey's `sources/reduce-reuse-recycle/`: peak at -0.23, expert a at 0.311840 of 0.564190 and expert b at 0.173266 of 0.446031. The far pair is new to this note and was checked against the derivation in the same subsection. `intersection.png` is the script's own saved figure, opened before filing; the terminal picture was rendered from the captured text by a script in DejaVu Sans Mono, never drawn, and opened before filing. The quotations are from `text/method.tex` lines 10 to 19 and `text/appendix.tex` line 306 of the arXiv source package.
+>
+> The runs in [[#Product, mixture and negation]] were made by the writer in a fifth empty folder, `~/playground/sandbox/three-operators`, on the same PC and environment (Python 3.11.13, NumPy 2.4.6), on 2026-10-13; the folder was removed afterwards and the clean-up check returned 2. The scripts are shortened from the walk's answer keys `checks/step6_product.py`, `guidance_on_the_object.py`, `mixture_score.py` and `negation.py` in the journey's `sources/reduce-reuse-recycle/`. All four keys were re-run in the same folder and their output matched the saved `.out` files byte for byte, and every number the three scripts print matched them to the digits shown. The three output pictures were rendered from the captured text by a script in DejaVu Sans Mono, never drawn, and each was opened before filing. The Figure 2 redraw numbers (96.8%, 55.6%, 69.0%, 87.0%, 91.5%, 0.2100, 0.3076) are quoted from `checks/ring_times_bar.out`, `ring_times_bar_more_steps.out` and `fig2_on_the_object.out`, not re-run here. The paper's Figure 6 is the authors' `fig/horse5.pdf` from the arXiv source package, converted to PNG at 110 dpi with `pdftoppm` and opened before filing; its caption is the LaTeX caption in `figText/text2im.tex` lines 1 to 7 with markup removed. The notebook lines were opened in the playground's reference copy of the authors' repository, `notebooks/simple_distributions.ipynb`, counting cells from 0: the factor 3.5 is on line 17 of cell 7, inside the method the read-ahead cites as lines 13 to 19, and `1.3 * unorm_1 - 0.3 * unorm_2` is line 15 of cell 8. Quotations from section 3 are from `text/method.tex` lines 10 to 54, read in the staged source.
 >
 > References, each answering 200 on 2026-10-04: [Ho et al. on arXiv](https://arxiv.org/abs/2006.11239), [Bradley et al. on arXiv](https://arxiv.org/abs/2502.04549), [Du et al. on arXiv](https://arxiv.org/abs/2302.11552) (checked 2026-10-09), [Product of experts](https://en.wikipedia.org/wiki/Product_of_experts) on Wikipedia, CC BY-SA 4.0. Definition 5.1 and Definition 5.2 were read in the walk's read-ahead, `read-ahead/05-simple-construction.md`, which quotes the paper's source `src/composition.tex` lines 33 to 46. The sketchpad link is the learner's own private artifact and was not fetched. No tldr-pages entry covers this.

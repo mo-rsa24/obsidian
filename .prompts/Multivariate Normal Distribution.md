@@ -1,6 +1,6 @@
 # Multivariate Normal Distribution: illustrated map
 
-The drawn pictures for the vault note [[Multivariate Normal Distribution]], sections [[Multivariate Normal Distribution#Diagonal covariance]], [[Multivariate Normal Distribution#Sampling a diagonal Gaussian]] and [[Multivariate Normal Distribution#Products and quotients of diagonal Gaussians]]. `9 prompts · 7 rendered · 2 stuck · 0 waiting`
+The drawn pictures for the vault note [[Multivariate Normal Distribution]], sections [[Multivariate Normal Distribution#Diagonal covariance]], [[Multivariate Normal Distribution#Sampling a diagonal Gaussian]] and [[Multivariate Normal Distribution#Products and quotients of diagonal Gaussians]]. `11 prompts · 6 rendered · 2 stuck · 3 waiting`
 
 ## Table of contents
 
@@ -23,6 +23,8 @@ The drawn pictures for the vault note [[Multivariate Normal Distribution]], sect
 - [Prompt 6 (Subject): Precisions, the form](#prompt-6-subject-precisions-the-form)
 - [Prompt 7 (Subject): Precisions, the mechanism](#prompt-7-subject-precisions-the-mechanism)
 - [Prompt 8 (Subject capstone): Precisions, the deep-dive sheet](#prompt-8-subject-capstone-precisions-the-deep-dive-sheet)
+- [Prompt 9 (Subject): The area a product loses](#prompt-9-subject-the-area-a-product-loses)
+- [Prompt 10 (Subject): Powers of Gaussians](#prompt-10-subject-powers-of-gaussians)
 - [Process lane](#process-lane)
 
 ## Abstraction chain
@@ -402,9 +404,9 @@ Faithfulness note: The green parabola's vertex is at -1.5 and its curvature equa
 
 ### Prompt 8 (Subject capstone): Precisions, the deep-dive sheet
 
-Navigation: ⬅️ [Prompt 7 (Subject): Precisions, the mechanism](#prompt-7-subject-precisions-the-mechanism) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
+Navigation: ⬅️ [Prompt 7 (Subject): Precisions, the mechanism](#prompt-7-subject-precisions-the-mechanism) | 📋 [TOC](#table-of-contents) | [Prompt 9 (Subject): The area a product loses](#prompt-9-subject-the-area-a-product-loses) ➡️
 
-[planned] 🖼️ rendered 2026-10-04 products-deep-dive-sheet.webp
+[planned] ⏳ not rendered
 Save as: `../Mathematics/Statistics/Distributions/assets/products-deep-dive-sheet.webp`
 
 Visual thesis: The composed precision, the weighted sum, the mean and the variance come from adding and subtracting, and the run shows the background moving split to (-2, 2) and shared to (-1.5, 0).
@@ -423,21 +425,93 @@ below, rather than from an imposed convention.
 
 Production: Use a deterministic figure script. A tall sheet of exactly four panes stacked vertically, each the full width, designed for reading at 800 px wide; add height rather than shrinking text, with output and field text at least 20 px at that width. The first two panes are compact reminders of the form and the mechanism, not full copies. The run pane is the focal pane. Field cards run 1 to N in one column in the same order as the markers, each starting with its red number, and are matched to the output by number alone: no leader lines between panes.
 
-Scene: Pane 1, The form: a compact reminder of prompt 6, the four precision bars and the green dot at -1.5. Pane 2, The mechanism: a compact reminder of prompt 7, the three parabolas and the green sum with its vertex at -1.5. Pane 3, The run: five lines of monospace output, exactly: $ ~/.vault-sandbox/bin/python compose.py | split  p1 p2 / p_b  P [1.0, 1.0]  B [-2.0, 2.0]  mean [-2.0, 2.0]  var [1.0, 1.0] | split  p1 p2        P [1.25, 1.25]  B [-2.0, 2.0]  mean [-1.6, 1.6]  var [0.8, 0.8] | shared p1 p2 / p_b  P [1.0, 1.0]  B [-1.5, 0.0]  mean [-1.5, 0.0]  var [1.0, 1.0] | shared p1 p2        P [1.25, 1.25]  B [-1.5, 0.0]  mean [-1.2, 0.0]  var [0.8, 0.8] (the | marks a new line and is not printed; keep the runs of spaces). Red markers: 1 over P [1.0, 1.0], 2 over B [-2.0, 2.0], 3 over mean [-2.0, 2.0], 4 over var [1.0, 1.0], all on the first output line; 5 over mean [-1.6, 1.6] on the second; 6 over mean [-1.5, 0.0] on the third. Pane 4, Reading it: six cards in order.
+Scene: Pane 1, The form: a compact reminder of prompt 6, the four precision bars and the green dot at -1.5. Pane 2, The mechanism: a compact reminder of prompt 7, the three parabolas and the green sum with its vertex at -1.5, each labelled directly on its curve with prompt 7's words: blue "log p1, curvature 1", orange "log p2, curvature 0.25", grey, opening upward, "- log p_b, curvature -0.25", green "sum: curvature 1, vertex at -1.5". The grey curve is minus the background's log, so its curvature is negative. No legend in this pane or anywhere on the sheet: every colour is named by the label on its own curve or bar, and the form pane's bars carry their values as labels, as in prompt 6. Pane 3, The run: five lines of monospace output, exactly: $ ~/.vault-sandbox/bin/python compose.py | split  p1 p2 / p_b  P [1.0, 1.0]  B [-2.0, 2.0]  mean [-2.0, 2.0]  var [1.0, 1.0] | split  p1 p2        P [1.25, 1.25]  B [-2.0, 2.0]  mean [-1.6, 1.6]  var [0.8, 0.8] | shared p1 p2 / p_b  P [1.0, 1.0]  B [-1.5, 0.0]  mean [-1.5, 0.0]  var [1.0, 1.0] | shared p1 p2        P [1.25, 1.25]  B [-1.5, 0.0]  mean [-1.2, 0.0]  var [0.8, 0.8] (the | marks a new line and is not printed; keep the runs of spaces). Red markers: 1 over P [1.0, 1.0], 2 over B [-2.0, 2.0], 3 over mean [-2.0, 2.0], 4 over var [1.0, 1.0], all on the first output line; 5 over mean [-1.6, 1.6] on the second; 6 over mean [-1.5, 0.0] on the third. Pane 4, Reading it: six cards in order.
 
 Cast: the reminder bars and parabolas, the output block, six numbered field cards.
 
 Flows: none between panes.
 
-Text in the image, spelled exactly: "The form", "The mechanism", "The run", "Reading it", "P = 1", "mean = B / P = -1.5", "sum: curvature 1, vertex at -1.5", "$ ~/.vault-sandbox/bin/python compose.py", "1 P: the composed precision of each coordinate", "2 B: each mean times its precision, background taken away", "3 mean = B / P: each half takes its own expert's value", "4 var = 1 / P: as narrow as the narrow expert", "5 no background: the same B over P = 1.25, pulled toward 0", "6 shared: -1.5, a value neither expert put there".
+Text in the image, spelled exactly: "The form", "The mechanism", "The run", "Reading it", "P = 1", "mean = B / P = -1.5", "log p1, curvature 1", "log p2, curvature 0.25", "- log p_b, curvature -0.25", "sum: curvature 1, vertex at -1.5", "$ ~/.vault-sandbox/bin/python compose.py", "1 P: the composed precision of each coordinate", "2 B: each mean times its precision, background taken away", "3 mean = B / P: each half takes its own expert's value", "4 var = 1 / P: as narrow as the narrow expert", "5 no background: the same B over P = 1.25, pulled toward 0", "6 shared: -1.5, a value neither expert put there".
 
-Exclusions: no fifth pane, no leader lines between panes, no altered output text, no wrapped output line that loses its spacing. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+Exclusions: no fifth pane, no leader lines between panes, no altered output text, no wrapped output line that loses its spacing, no legend panel or colour key, no positive curvature written on the grey curve. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
 ```
 
-Faithfulness note: The four output lines match the note's captured run character for character, runs of spaces included; markers 1 to 6 sit over the same fields as the note's rendered output picture; four panes only. Every label in the image, exactly: "The form", "The mechanism", "The run", "Reading it", "P = 1", "mean = B / P = -1.5", "sum: curvature 1, vertex at -1.5", "$ ~/.vault-sandbox/bin/python compose.py", "1 P: the composed precision of each coordinate", "2 B: each mean times its precision, background taken away", "3 mean = B / P: each half takes its own expert's value", "4 var = 1 / P: as narrow as the narrow expert", "5 no background: the same B over P = 1.25, pulled toward 0", "6 shared: -1.5, a value neither expert put there".
+Faithfulness note: The four output lines match the note's captured run character for character, runs of spaces included; markers 1 to 6 sit over the same fields as the note's rendered output picture; four panes only; no legend anywhere; the grey curve in pane 2 opens upward and is labelled with curvature -0.25, the sign the previous render dropped. Every label in the image, exactly: "The form", "The mechanism", "The run", "Reading it", "P = 1", "mean = B / P = -1.5", "log p1, curvature 1", "log p2, curvature 0.25", "- log p_b, curvature -0.25", "sum: curvature 1, vertex at -1.5", "$ ~/.vault-sandbox/bin/python compose.py", "1 P: the composed precision of each coordinate", "2 B: each mean times its precision, background taken away", "3 mean = B / P: each half takes its own expert's value", "4 var = 1 / P: as narrow as the narrow expert", "5 no background: the same B over P = 1.25, pulled toward 0", "6 shared: -1.5, a value neither expert put there".
+
+### Prompt 9 (Subject): The area a product loses
+
+Navigation: ⬅️ [Prompt 8 (Subject capstone): Precisions, the deep-dive sheet](#prompt-8-subject-capstone-precisions-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 10 (Subject): Powers of Gaussians](#prompt-10-subject-powers-of-gaussians) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Mathematics/Statistics/Distributions/assets/products-the-area-a-product-loses.webp`
+
+Visual thesis: Multiplying two densities point by point leaves a small bump whose area is 0.075126, and dividing by that area lifts its log by a constant, so the slope of the log, the score, stays the same.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for every curve and all typography, from these exact densities: expert a is a Gaussian with mean -1 and variance 0.5, expert b a Gaussian with mean 1 and variance 0.8, the product is their heights multiplied point by point, and the normalised product is that divided by 0.075126 (a Gaussian with mean -0.230769 and variance 0.307692). Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no legend.
+
+Scene: Two panels side by side, the same x axis from -3 to 3. Left panel, titled "heights": a blue bell for expert a, peak 0.564 at x = -1, labelled "expert a, area 1"; an orange bell for expert b, peak 0.446 at x = 1, labelled "expert b, area 1"; a small solid green bump, their product, peak 0.054 at x = -0.23, filled with light green and labelled "a times b, area 0.075126"; a dashed green bell, the product divided by 0.075126, peak 0.719 at x = -0.23, labelled "divided by 0.075126: area 1". The vertical axis is labelled "height". Right panel, titled "log heights": the log of the solid green bump and the log of the dashed green bell, two downward parabolas of identical shape, one exactly 2.588582 above the other; a double-headed vertical arrow between them at x = 1.5 labelled "gap log Z = -2.588582, the same everywhere"; at x = 0 a short straight tangent line on each parabola, both with slope -0.75, labelled once "same slope at x = 0: -0.75". The vertical axis is labelled "log height".
+
+Cast: the two experts, the product bump, the normalised product, the two log parabolas, the gap arrow, the two tangents.
+
+Flows: none.
+
+Text in the image, spelled exactly: "heights", "log heights", "height", "log height", "x", "expert a, area 1", "expert b, area 1", "a times b, area 0.075126", "divided by 0.075126: area 1", "gap log Z = -2.588582, the same everywhere", "same slope at x = 0: -0.75".
+
+Exclusions: no legend panel, no third panel, no numbers other than those listed, no mixture curve. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: The solid green bump peaks near 0.054 and is about one tenth the height of the dashed green bell, which peaks near 0.719, both at x = -0.23; the two right-panel parabolas have the same shape and differ by a constant vertical shift; both tangents at x = 0 are parallel. Every label in the image, exactly: "heights", "log heights", "height", "log height", "x", "expert a, area 1", "expert b, area 1", "a times b, area 0.075126", "divided by 0.075126: area 1", "gap log Z = -2.588582, the same everywhere", "same slope at x = 0: -0.75".
+
+### Prompt 10 (Subject): Powers of Gaussians
+
+Navigation: ⬅️ [Prompt 9 (Subject): The area a product loses](#prompt-9-subject-the-area-a-product-loses) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Mathematics/Statistics/Distributions/assets/products-powers-of-gaussians.webp`
+
+Visual thesis: Raising each Gaussian to a power scales its precision bar by that power before the bars are added, and when a negative power takes the total below zero the result is no longer a bell.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for every curve and all typography, from these exact densities: expert a is a Gaussian with mean -1 and variance 0.5, expert b a Gaussian with mean 1 and variance 0.8. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no legend.
+
+Scene: Four rows, titled "product, w_b = 1", "guidance, w_b = 2", "negation, w_b = -0.5" and "not a density, w_a = -1". Each row has on the left two precision bars: a blue bar for expert a labelled "precision 2 times w_a" and an orange bar for expert b labelled "precision 1.25 times w_b", each bar's length scaled by its row's power (a negative power draws the bar pointing left of zero), joined into one total bar labelled with the row's precision: "precision 3.25", "precision 4.5", "precision 1.375", "precision -0.75". On the right of each row, the resulting curve on an x axis from -4 to 10: a green bell at mean -0.23 for the product, a green bell at 0.11 for guidance, a pink bell at -1.91 for negation, and for the last row a grey upward-opening curve that rises toward both edges with no peak. Thin "expert a" (blue, mean -1) and "expert b" (orange, mean 1) bells are drawn faintly in the first row only.
+
+Cast: four rows, eight scaled precision bars, four total bars, four result curves.
+
+Flows: none.
+
+Text in the image, spelled exactly: "product, w_b = 1", "guidance, w_b = 2", "negation, w_b = -0.5", "not a density, w_a = -1", "expert a", "expert b", "precision 3.25", "precision 4.5", "precision 1.375", "precision -0.75", "precision 2 times w_a", "precision 1.25 times w_b".
+
+Exclusions: no mixture, no noise levels, no numbers other than those listed. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: Bar lengths are to scale: the blue bar is 2 units with power 1, the orange bar 1.25 units in row 1, 2.5 in row 2 and -0.625 pointing left in row 3; row 4's blue bar is -2 pointing left; the last row's curve opens upward and has no peak; the negation bell sits left of where expert a would be. Every label in the image, exactly: "product, w_b = 1", "guidance, w_b = 2", "negation, w_b = -0.5", "not a density, w_a = -1", "expert a", "expert b", "precision 3.25", "precision 4.5", "precision 1.375", "precision -0.75", "precision 2 times w_a", "precision 1.25 times w_b".
 
 ## Process lane
 
-Navigation: ⬅️ [Prompt 8 (Subject capstone): Precisions, the deep-dive sheet](#prompt-8-subject-capstone-precisions-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents)
+Navigation: ⬅️ [Prompt 10 (Subject): Powers of Gaussians](#prompt-10-subject-powers-of-gaussians) | 📋 [TOC](#table-of-contents)
 
 None. A vault note's section has no plan tree to draw over it.
