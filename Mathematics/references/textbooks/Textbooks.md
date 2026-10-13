@@ -467,7 +467,7 @@ page minus 24.
 | 14.4 Surface Area; Parametric Surfaces | [1050](calculus/calculus-textbook.pdf#page=1050) |
 | 14.5 Triple Integrals | [1063](calculus/calculus-textbook.pdf#page=1063) |
 | 14.6 Triple Integrals in Cylindrical and Spherical Coordinates | [1072](calculus/calculus-textbook.pdf#page=1072) |
-| 14.7 Change of Variables in Multiple Integrals; Jacobians | [1082](calculus/calculus-textbook.pdf#page=1082) |
+| 14.7 Change of Variables in Multiple Integrals; Jacobians | [1083](calculus/calculus-textbook.pdf#page=1083) |
 | 14.8 Centers of Gravity Using Multiple Integrals | [1095](calculus/calculus-textbook.pdf#page=1095) |
 | 15 Topics in Vector Calculus | [1108](calculus/calculus-textbook.pdf#page=1108) |
 | 15.1 Vector Fields | [1108](calculus/calculus-textbook.pdf#page=1108) |
