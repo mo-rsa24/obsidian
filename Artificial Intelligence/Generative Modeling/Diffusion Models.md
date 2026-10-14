@@ -1,10 +1,15 @@
 ---
-aliases: [diffusion model, diffusion models, DDPM, denoising diffusion, forward process, forward diffusion, noising process, noising a cloud, closed-form forward process, q(x_t | x_0), "x_t = sqrt(abar) x_0 + sqrt(1 - abar) eps", alpha bar, abar, noise level, noise schedule level, composing diffusion models, composition of diffusion models, composition operator, composed distribution, compositional score, Definition 5.1, product of experts with a background, dividing out the background, background distribution, p_b, co-occurrence, hybrid, shared versus split, projective composition, the order of multiplying and noising, multiply then noise, noise each then multiply, noise-then-compose, compose-then-noise, score of a noised product, product of noised scores, sum of noised scores, summed score, summed scores, adding scores, why composition fails under reverse diffusion, reverse diffusion on a composed score, the sampler not the model, annealed MCMC, annealed Langevin, Algorithm 1, Reduce Reuse Recycle Algorithm 1, annealed MCMC sampling, steps per level, route A, route B, more levels do not help, Reverse (equal steps), mixtures commute with noising, Reduce Reuse Recycle equation 11, Reduce Reuse Recycle equation 12, energy parameterisation, energy parameterization, energy-based parameterisation, energy-based parameterization, energy-based diffusion model, energy-parameterised diffusion model, scalar energy, potential function, noise-conditional potential function, f_theta, "eps = -sigma_t grad f", unnormalised log density, unnormalized log-likelihood, accept step, accept-reject step, Metropolis correction, Metropolis-corrected sampler, Metropolis-adjusted Langevin, MALA, unadjusted Langevin, ULA, unadjusted Langevin algorithm, U-HMC, unadjusted HMC, acceptance rate, acceptance rate as a dial, share accepted, step size and the accept step, Langevin step-size bias, stability limit, 2 / P, light tails, lighter-than-Gaussian tails, transient chain, Table 1 of Reduce Reuse Recycle, sampler ladder, log-likelihood of samples, mixture composition, mixture of diffusion models, ratio of normalisers, Reduce Reuse Recycle equation 5, product of experts, product as an intersection, intersection of distributions, product of experts as intersection, the product's peak is a compromise, compromise peak, partly like each concept, Reduce Reuse Recycle equation 8, composition operators, compositional operators, product mixture and negation, AND OR NOT composition, mixture as a union, union of distributions, Reduce Reuse Recycle equation 9, negation, negation composition, negative prompt as negation, "q0 / q1^alpha", Reduce Reuse Recycle equation 10, guidance as a product, classifier-free guidance as a product of experts, classifier guidance as a product, which operators need heights, score models cannot mix]
+aliases: [diffusion model, diffusion models, DDPM, denoising diffusion, forward process, forward diffusion, noising process, noising a cloud, closed-form forward process, q(x_t | x_0), "x_t = sqrt(abar) x_0 + sqrt(1 - abar) eps", alpha bar, abar, noise level, noise schedule level, composing diffusion models, composition of diffusion models, composition operator, composed distribution, compositional score, Definition 5.1, product of experts with a background, dividing out the background, background distribution, p_b, co-occurrence, hybrid, shared versus split, projective composition, the order of multiplying and noising, multiply then noise, noise each then multiply, noise-then-compose, compose-then-noise, score of a noised product, product of noised scores, sum of noised scores, summed score, summed scores, adding scores, why composition fails under reverse diffusion, reverse diffusion on a composed score, the sampler not the model, annealed MCMC, annealed Langevin, Algorithm 1, Reduce Reuse Recycle Algorithm 1, annealed MCMC sampling, steps per level, route A, route B, more levels do not help, Reverse (equal steps), mixtures commute with noising, Reduce Reuse Recycle equation 11, Reduce Reuse Recycle equation 12, energy parameterisation, energy parameterization, energy-based parameterisation, energy-based parameterization, energy-based diffusion model, energy-parameterised diffusion model, scalar energy, potential function, noise-conditional potential function, f_theta, "eps = -sigma_t grad f", unnormalised log density, unnormalized log-likelihood, accept step, accept-reject step, Metropolis correction, Metropolis-corrected sampler, Metropolis-adjusted Langevin, MALA, unadjusted Langevin, ULA, unadjusted Langevin algorithm, U-HMC, unadjusted HMC, acceptance rate, acceptance rate as a dial, share accepted, step size and the accept step, Langevin step-size bias, stability limit, 2 / P, light tails, lighter-than-Gaussian tails, transient chain, Table 1 of Reduce Reuse Recycle, sampler ladder, log-likelihood of samples, mixture composition, mixture of diffusion models, ratio of normalisers, Reduce Reuse Recycle equation 5, product of experts, product as an intersection, intersection of distributions, product of experts as intersection, the product's peak is a compromise, compromise peak, partly like each concept, Reduce Reuse Recycle equation 8, composition operators, compositional operators, product mixture and negation, AND OR NOT composition, mixture as a union, union of distributions, Reduce Reuse Recycle equation 9, negation, negation composition, negative prompt as negation, "q0 / q1^alpha", Reduce Reuse Recycle equation 10, guidance as a product, classifier-free guidance as a product of experts, classifier guidance as a product, which operators need heights, score models cannot mix, kinds of composition, types of composition, composition taxonomy, co-occurrence intersection interaction, intersection composition, interaction composition, interaction term, contention, chimera, concept bleeding, attribute leakage, catastrophic neglect, attribute binding, region-restricted product, product over a partition, product over the same variables, conditional independence of labels, wet dog, what an expert learns, an expert trained on A data learns concept A, a density expert learns its training set's density, labels in the DDPM loss, the loss never reads the label, hidden B, label noise in composition, contains A versus exactly A, conditioning scheme, multi-label conditioning, classifier guidance with missing labels, positive-unlabelled data]
 sources:
   - "Ho, Jain, Abbeel, Denoising Diffusion Probabilistic Models, NeurIPS 2020: https://arxiv.org/abs/2006.11239"
   - "Bradley, Nakkiran, Berthelot, Thornton, Susskind, Mechanisms of Projective Composition of Diffusion Models, ICML 2025: https://arxiv.org/abs/2502.04549"
   - "Du, Durkan, Strudel, Tenenbaum, Dieleman, Fergus, Sohl-Dickstein, Doucet, Grathwohl, Reduce, Reuse, Recycle: Compositional Generation with Energy-Based Diffusion Models and MCMC, ICML 2023: https://arxiv.org/abs/2302.11552"
   - "Wikipedia, Product of experts: https://en.wikipedia.org/wiki/Product_of_experts, read 2026-10-04, CC BY-SA 4.0"
+  - "Hinton, Training Products of Experts by Minimizing Contrastive Divergence, Neural Computation 14(8), 1771 to 1800, 2002: https://doi.org/10.1162/089976602760128018"
+  - "Liu, Li, Du, Torralba, Tenenbaum, Compositional Visual Generation with Composable Diffusion Models, ECCV 2022: https://arxiv.org/abs/2206.01714"
+  - "Chefer, Alaluf, Vinker, Wolf, Cohen-Or, Attend-and-Excite: Attention-Based Semantic Guidance for Text-to-Image Diffusion Models, SIGGRAPH 2023: https://arxiv.org/abs/2301.13826"
+  - "Bar-Tal, Yariv, Lipman, Dekel, MultiDiffusion: Fusing Diffusion Paths for Controlled Image Generation, ICML 2023: https://arxiv.org/abs/2302.08113"
+  - "Geirhos, Jacobsen, Michaelis, Zemel, Brendel, Bethge, Wichmann, Shortcut Learning in Deep Neural Networks, Nature Machine Intelligence 2020: https://arxiv.org/abs/2004.07780"
 ---
 
 # Diffusion Models
@@ -23,11 +28,14 @@ Artificial Intelligence, Generative Modeling. Needs: [[Multivariate Normal Distr
 > - Two concept pictures are waiting to be drawn: [[#Annealed MCMC]], prompt 17, and [[#Step size and the accept step]], prompt 18, in the same file.
 > - The quiz page covers the toy only; the paper's figures and [[#The product as an intersection]] added under [[#Composing models with a background]] are not in it yet, and [[#The order of multiplying and noising]] with [[#Annealed MCMC]], [[#The energy parameterisation]] with [[#Step size and the accept step]], and [[#Product, mixture and negation]] are not in it at all.
 > - The reverse process is run in [[#Try the two orders yourself]] without a section of its own; it, the score and the training objective wait for a walk that reaches them.
-> - No project has applied this yet. Every run below is a sandbox run.
+> - [[#What an expert learns from its training set]] has not been run: this machine (the cluster) has no prepared environment `~/.vault-sandbox/bin/python`. Make it with `uv venv ~/.vault-sandbox` then `uv pip install --python ~/.vault-sandbox/bin/python pandas numpy scipy matplotlib statsmodels openpyxl`, run `labels.py`, and file its real output and output picture in place of the hand-worked lines.
+> - Three pictures for [[#What an expert learns from its training set]] are waiting to be drawn: prompts 19, 20 and 21 in the same file. One concept picture for [[#Kinds of composition]] is waiting: prompt 22.
+> - The quiz page does not cover [[#Kinds of composition]] or [[#What an expert learns from its training set]].
+> - Every run below is a sandbox run. The overlap-dial idea in the reduce-reuse-recycle repository applies [[#Kinds of composition]] and [[#What an expert learns from its training set]], in words only.
 >
-> Stated, not checked: 3 claims, marked where they sit.
+> Stated, not checked: 7 claims, marked where they sit.
 
-**A diffusion model learns to undo a fixed noising process, and two trained models can be combined by multiplying what each believes and dividing out what they share.** This note covers the noising, written as one jump from a clean point to any noise level, and the composition rule that the Mechanisms of Projective Composition paper names in its Definition 5.1, both worked on the same small two-dimensional Gaussian clouds. It then shows, on a one-dimensional pair, why adding two models' scores and running the usual reverse process misses the product, and how annealed MCMC reaches the product with the same scores, and how a model that outputs one energy per input lets a sampler accept or reject each move, which holds the right width at any step size, and lets models be mixed, all following Reduce, Reuse, Recycle. Every number can be checked by hand.
+**A diffusion model learns to undo a fixed noising process, and two trained models can be combined by multiplying what each believes and dividing out what they share.** This note covers the noising, written as one jump from a clean point to any noise level, and the composition rule that the Mechanisms of Projective Composition paper names in its Definition 5.1, both worked on the same small two-dimensional Gaussian clouds. It then shows, on a one-dimensional pair, why adding two models' scores and running the usual reverse process misses the product, and how annealed MCMC reaches the product with the same scores, and how a model that outputs one energy per input lets a sampler accept or reject each move, which holds the right width at any step size, and lets models be mixed, all following Reduce, Reuse, Recycle. It names the kinds of composition by which pixels each expert scores, and ends with what an expert learns from labelled data. Every number can be checked by hand.
 
 **Where you work.**
 
@@ -52,6 +60,7 @@ Both sections use the learner's `toy.py` and `samples.py`. Save them from [[Mult
 - [[#The order of multiplying and noising]]
 - [[#The energy parameterisation]]
 - [[#Product, mixture and negation]]
+- [[#What an expert learns from its training set]]
 
 ## The forward process in one jump
 
@@ -635,14 +644,51 @@ A way to tell shared from split before sampling. Each concept's direction away f
 
 The learner's [Gaussian Bowl Sketchpad](https://claude.ai/artifact/2TarMifiFoFyoB23eQFR64) shows one Gaussian's density as a surface. A page for this composition, with the wall, the two experts and the composed cloud, is being built in the journey's `artifacts/scenes/mechanisms-of-projective-composition/` and is not published yet.
 
+### Kinds of composition
+
+**"Composition" names at least three different operations, told apart by which variables each expert scores. Co-occurrence is a product over disjoint regions plus a layout. Intersection is a product over the same variables, which is what a product of experts computes. Interaction is the product plus a term that vanishes when the two labels are [conditionally independent](../../Mathematics/references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=201) given the image.** The operators are *derived* below. The three names are the walk's working names; the field's words for each are in the table.
+
+**When to reach for it.** Before composing two concepts, ask which kind the pair is. A chest drain beside a pneumothorax edge is mostly different pixels, so it is co-occurrence. A shape that is both square-ish and circle-ish is one object scored by both experts, so it is intersection. A wet dog in the rain, or the lung pattern of tuberculosis with silicosis, is a change neither concept shows alone, so it is interaction. Each kind needs different training data and fails differently, and the plain product serves only intersection as written.
+
+| Kind | What it is | The operator | What it needs from training data | How it fails | The field's words |
+|---|---|---|---|---|---|
+| co-occurrence | two concepts, each whole, each in its own region: a cat beside a dog | $p(\text{layout})\;p_A(x_S \mid \text{layout})\;p_B(x_{S'} \mid \text{layout})$, with $S$ and $S'$ disjoint sets of pixels | each concept alone, at many positions, over varied backgrounds; never the two together | **contention**: both experts score the same pixels, so the product lands on a chimera, the hybrid of the shared case above | Bradley et al.'s co-occurrence and projective composition (*cited*, above); catastrophic neglect when one subject vanishes and failed attribute binding (Chefer et al. 2023, *cited*); concept bleeding and attribute leakage (*stated*: common usage, no single source checked); region-restricted products in MultiDiffusion (Bar-Tal et al. 2023, *cited*) |
+| intersection | one thing that satisfies both concepts on the same pixels | $p_A(x)\,p_B(x)$ | each expert must already give the overlap some density; a product intersects supports and creates none | **empty intersection**: the supports barely meet, so the product peaks in a gap neither expert believes in, the far pair of [[#The product as an intersection]] | product of experts (Hinton 2002, *cited*); Du et al.'s "intersection" (*cited*, above); Composable Diffusion's AND (Liu et al. 2022, *cited*) |
+| interaction | the concepts change each other: rain and a dog give a wet dog | the Bayes composition plus $\log \dfrac{p(A, B \mid x)}{p(A \mid x)\,p(B \mid x)}$ | joint samples showing the change, in whichever model carries it (see below) | **missing interaction**: a dry dog standing in rain | no single name found (*stated*) |
+
+The split and shared toy above is co-occurrence done two ways: split gives each expert its own pixel, which is the operator in the first row, and shared makes both experts score $x_0$, which is contention. The ring-times-bar of Du et al.'s Figure 2, under [[#Product, mixture and negation]], is an intersection toy: both experts score both coordinates.
+
+**How the interaction term arises.** Write each conditional with [Bayes' rule](../../Mathematics/references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=105), then divide:
+
+$$
+\begin{aligned}
+p(x \mid A, B) &= \frac{p(A, B \mid x)\,p(x)}{p(A, B)} \\
+\frac{p(x \mid A)\,p(x \mid B)}{p(x)} &= \frac{p(A \mid x)\,p(x)}{p(A)} \cdot \frac{p(B \mid x)\,p(x)}{p(B)} \cdot \frac{1}{p(x)} = \frac{p(A \mid x)\,p(B \mid x)\,p(x)}{p(A)\,p(B)} \\
+\frac{p(x \mid A, B)}{p(x \mid A)\,p(x \mid B)/p(x)} &= \frac{p(A, B \mid x)}{p(A \mid x)\,p(B \mid x)} \cdot \frac{p(A)\,p(B)}{p(A, B)}
+\end{aligned}
+$$
+
+Taking [logs](../../Mathematics/references/textbooks/algebra/algebra-handbook.pdf#page=110) turns the products into sums:
+
+$$
+\log p(x \mid A, B) = \log p(x \mid A) + \log p(x \mid B) - \log p(x) + \log \frac{p(A, B \mid x)}{p(A \mid x)\,p(B \mid x)} + \log \frac{p(A)\,p(B)}{p(A, B)}
+$$
+
+*Derived.* The last term holds no $x$, so its gradient is zero and the score form is exact without it: $\nabla \log p(x \mid A, B) = s(x \mid A) + s(x \mid B) - s(x) + \nabla \log \frac{p(A, B \mid x)}{p(A \mid x)\,p(B \mid x)}$. The interaction term is zero at every $x$ exactly when $p(A, B \mid x) = p(A \mid x)\,p(B \mid x)$ for every $x$, which is Definition 6.11 on the linked page. Composable Diffusion's AND is the first three terms. *Derived.*
+
+**Where a wet dog has to come from.** When each label is fixed by the image, so $p(A \mid x)$ and $p(B \mid x)$ are each 0 or 1, the joint label is fixed too, $p(A, B \mid x) = p(A \mid x)\,p(B \mid x)$, and the interaction term is zero everywhere. The Bayes composition is then exactly $p(x)$ restricted to images that are both A and B, so wet dogs appear only if $p(x)$, the unconditional model, saw wet dogs. A plain product $p_A\,p_B$ has no $p(x)$ in it, so it can produce a wet dog only if expert A's or expert B's own training images held some. *Derived* from the identity above.
+
+*🖼️ Diagram wanted: the kinds of composition as three cards, each showing which pixels each expert scores and its failure. Prompt 22 in the vault's `.prompts/Diffusion Models.md`.*
+
 ### Composition taught in, applied in
 
 **Taught in:**
 
 - the `drip-read` walk of the Mechanisms of Projective Composition paper note, step 3a: the overlap prediction, the learner's question about the role of the background and the difference between shared and split, the re-teach with two-pixel images, and the per-coordinate derivation traced on paper
 - the PoE derivation foundations journey's plan 13, `plans/13-poe-on-two-gaussians.md`, lines 173 to 182, which composes the same pair with the unconditional $\mathcal{N}(0, \operatorname{diag}(4, 4))$ as the background
+- the `drip-idea` walk of the overlap dial in the reduce-reuse-recycle research repository, claim 1, round 2 (`artifacts/ideas/poe-overlap-dial/IDEA_MAP.md`): the learner's correction that composition is several operations, and the names co-occurrence, intersection, interaction and contention, for [[#Kinds of composition]]
 
-**Applied in:** nothing yet.
+**Applied in:** the overlap-dial idea in the reduce-reuse-recycle research repository, which asks how often a product of two 2D experts lands in the A-and-B region as the share of A-and-B points in each expert's training set is turned up from 0%. Its two-axis quadrant setup (A is $x_1 < 0$, B is $x_2 > 0$) is a co-occurrence toy, and the ring-times-bar it reuses is an intersection toy.
 
 ## The order of multiplying and noising
 
@@ -1919,7 +1965,7 @@ It does not explain when, during a run, summed scores go wrong. That is the two-
 
 ## Product, mixture and negation
 
-Navigation: ⬅️ [[#The energy parameterisation]] | 📋 [[#Table of contents|TOC]]
+Navigation: ⬅️ [[#The energy parameterisation]] | 📋 [[#Table of contents|TOC]] | [[#What an expert learns from its training set]] ➡️
 
 **Section 3 of Du et al. names three ways to combine models: the product (equation 8), high only where every expert is high; the mixture (equation 9), high wherever any expert is high; and negation (equation 10), high where one expert is high and another is not. The product and negation are built from scores alone. The mixture needs each model's height, so a model that only outputs scores can multiply and negate but cannot mix.** *Cited:* Du et al., Reduce, Reuse, Recycle, section 3 (`text/method.tex` lines 10 to 54): "with the standard $\epsilon_\theta(x, t)$-parameterization we can, in theory, utilize product and negation composition, but *not* mixture composition."
 
@@ -2239,6 +2285,147 @@ The labels use all three operators nested: AND a product, OR a mixture, NOT a ne
 
 **Applied in:** nothing yet.
 
+## What an expert learns from its training set
+
+Navigation: ⬅️ [[#Product, mixture and negation]] | 📋 [[#Table of contents|TOC]]
+
+**A diffusion expert trained with the noise-prediction loss learns the density of the points it is shown and never reads their labels. Labels change what is learned only in a part that reads them: a conditional model's rule for which samples train which condition, and a classifier used for guidance.** "An expert trained on A data learns the concept A" is true only in the first sense: it learns its training set, including whatever B points are hidden in it. *Derived* below from the loss, whose arguments hold no label.
+
+### Words this section uses
+
+**Hidden B.** A point that has property B but whose label does not say so. In the toy below, B is $x_2 > 0$ and the point $(-0.5, 0.5)$ is labelled only "A".
+
+**"Contains A" and "exactly A".** Two rules for training a conditional model on points that carry several labels. Under "contains A", every point whose label set includes A trains the condition A. Under "exactly A", only points labelled A alone train it, and a point labelled {A, B} trains a separate condition.
+
+**Guidance.** Adding a second score to steer sampling, here $\nabla \log p(B \mid x)$ from a classifier. [[#Product, mixture and negation]] shows it is a product of two experts.
+
+### When to reach for it
+
+When a plan says an expert "learns concept A", or proposes relabelling data to change what a composition produces. Ask which part of the system reads the label. If nothing does, relabelling changes nothing and only adding or removing points moves the expert. If a classifier reads it, a missing label teaches the classifier the wrong answer in exactly the region the composition is meant to reach.
+
+### The form
+
+```text
+loss(theta) = mean over x0, t, eps of  || eps - eps_theta( sqrt(abar_t) * x0 + sqrt(1 - abar_t) * eps, t ) ||^2
+                                          arguments: the point x0, the level t, the noise eps; no label
+condition A trains on  { x0 : "A" in labels(x0) }        "contains A": every A-and-B point stays
+                   or  { x0 : labels(x0) == {"A"} }      "exactly A": labelled A-and-B points leave
+classifier p(B | x)  ->  share of training points near x labelled B        what cross-entropy fits
+guided score  =  grad log p(x | A)  +  w * grad log p(B | x)                points toward B as labelled
+```
+
+*🖼️ Diagram wanted: the form, one training set flowing into three readers (the loss, the conditioning rule, the classifier) with the label reaching only the last two. Prompt 19 in the vault's `.prompts/Diffusion Models.md`.*
+
+### Try it yourself
+
+> [!warning] Not run on this machine
+> The cluster has no prepared environment, so nothing below has been run. The expected lines are worked by hand under [[#How the expert's training set works]], and the next machine with `~/.vault-sandbox/bin/python` runs it and files the real output.
+
+1. You need the prepared environment: `~/.vault-sandbox/bin/python -c "import numpy"` prints nothing when it is there.
+2. If it is missing, make it once: `uv venv ~/.vault-sandbox` then `uv pip install --python ~/.vault-sandbox/bin/python pandas numpy scipy matplotlib statsmodels openpyxl`.
+3. Make an empty folder:
+
+   ```bash
+   mkdir -p ~/playground/sandbox/expert-and-labels && cd ~/playground/sandbox/expert-and-labels
+   ```
+
+4. Save this as `labels.py`. The three points are all A ($x_1 < 0$), and the third is also B ($x_2 > 0$). Set 1 labels it "A" only; set 2 labels it "A,B". The script computes expert A's loss and gradient for a small linear noise predictor, which set of points each conditioning rule hands to condition A, and what a classifier fit to the labels says about the top-left quadrant:
+
+   ```python
+   # What expert A learns under two labellings of the same three points.
+   import numpy as np
+
+   points = np.array([[-0.5, -0.5], [-0.6, -0.4], [-0.5, 0.5]])   # every point has x1 < 0, so all are A
+   sets = {"set 1": ["A", "A", "A"],         # the third point also has x2 > 0 (B), unlabelled
+           "set 2": ["A", "A", "A,B"]}       # the same points, the third labelled with both
+
+   rng = np.random.default_rng(0)
+   W = rng.standard_normal((2, 2))            # a linear noise predictor, eps_hat = x_t @ W
+   abar = rng.uniform(0.1, 0.9, size=3)       # one noise level per point
+   eps = rng.standard_normal((3, 2))          # one noise draw per point, shared by both sets
+
+   def ddpm_loss_and_grad(x0):                # the label is not an argument
+       xt = np.sqrt(abar)[:, None] * x0 + np.sqrt(1 - abar)[:, None] * eps
+       r = xt @ W - eps
+       return (r ** 2).sum(axis=1).mean(), 2 * xt.T @ r / len(x0)
+
+   top_left = (points[:, 0] < 0) & (points[:, 1] > 0)    # the A-and-B quadrant
+   results = {}
+   for name, labels in sets.items():
+       tags = [set(l.split(",")) for l in labels]
+       contains = np.array(["A" in t for t in tags])
+       exactly = np.array([t == {"A"} for t in tags])
+       is_B = np.array(["B" in t for t in tags])
+       results[name] = ddpm_loss_and_grad(points)
+       print(f"{name}: share of condition A in A and B {top_left[contains].mean():.3f} (contains A), "
+             f"{top_left[exactly].mean():.3f} (exactly A); classifier p(B | top-left) {is_B[top_left].mean():.3f}")
+
+   (l1, g1), (l2, g2) = results["set 1"], results["set 2"]
+   print(f"expert A: same loss {l1 == l2}, same gradient {np.array_equal(g1, g2)}")
+   ```
+
+5. Run it:
+
+   ```bash
+   ~/.vault-sandbox/bin/python labels.py
+   ```
+
+   You should see, by the hand working below (not yet run):
+
+   ```
+   set 1: share of condition A in A and B 0.333 (contains A), 0.333 (exactly A); classifier p(B | top-left) 0.000
+   set 2: share of condition A in A and B 0.333 (contains A), 0.000 (exactly A); classifier p(B | top-left) 1.000
+   expert A: same loss True, same gradient True
+   ```
+
+6. Clean up, and check the folder is gone:
+
+   ```bash
+   cd ~ && rm -r ~/playground/sandbox/expert-and-labels
+   ls ~/playground/sandbox/expert-and-labels; echo $?
+   ```
+
+   You should see `No such file or directory` and `2`.
+
+### Reading the labels output
+
+| # | Field | Expected value | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | share of condition A in A and B, contains A | `0.333` in both sets | one of the three points condition A trains on sits in the top-left quadrant, whatever its label says | derived below |
+| 2 | the same, exactly A | `0.333` in set 1, `0.000` in set 2 | under "exactly A", honest labelling removes the A-and-B point from condition A, so $p(x \mid A)$ loses its mass there | derived below |
+| 3 | classifier $p(B \mid \text{top-left})$ | `0.000` in set 1, `1.000` in set 2 | a classifier fit to set 1 learns that the top-left point is not B, which is the labels' mistake | derived below |
+| 4 | expert A, same loss and same gradient | `True`, `True` | the unconditional expert sees identical numbers under both labellings, so training follows the same path | derived below |
+
+### How the expert's training set works
+
+1. **The loss holds no label.** The simplified DDPM loss is $L(\theta) = \mathbb{E}_{x_0, t, \varepsilon}\,\lVert \varepsilon - \varepsilon_\theta(\sqrt{\bar\alpha_t}\,x_0 + \sqrt{1 - \bar\alpha_t}\,\varepsilon,\ t) \rVert^2$. *Cited:* Ho et al., equation (14). Two training sets with the same points and different labels give the same $L$ and the same $\nabla_\theta L$ at every $\theta$, so gradient descent from the same start and seed follows the same path. *Derived.* This is field 4.
+2. **What the loss fits.** Its minimiser predicts the noise that the noised training density's score implies, so a trained expert matches the training set's density smoothed by the noise. *Cited:* Ho et al., section 3.2, on the link to denoising score matching. In the toy, one point of three sits in the top-left quadrant, so an expert that fits the set well puts roughly a third of its mass there. *Stated:* how close a trained network comes to that third depends on its capacity and training, which is not measured here.
+3. **The conditioning rule decides which points train condition A.** Under "contains A" all three points train it, and the top-left share is $1/3 = 0.333$ in both sets. Under "exactly A", set 2's third point is labelled {A, B} and trains another condition, so condition A trains on the two points at $(-0.5, -0.5)$ and $(-0.6, -0.4)$, neither in the top-left, and the share is $0/2 = 0$. The composed score $s(x \mid A) + s(x \mid B) - s(x)$ targets $p(x \mid A)\,p(x \mid B)/p(x)$, a product, and [[#The product as an intersection]] shows a product puts mass only where each factor has some. With $p(x \mid A)$ near zero on the top-left, the composition has little to find there. *Derived.* These are fields 1 and 2.
+4. **A classifier learns the labels' share.** Over $n$ training points in a small region, $n_B$ of them labelled B, cross-entropy is $-[\,n_B \log q + (n - n_B) \log(1 - q)\,]$ for a predicted $q = p(B \mid x)$. Its derivative, $-n_B/q + (n - n_B)/(1 - q)$, is zero at $q = n_B / n$. *Derived.* In the top-left, $n = 1$: set 1 has $n_B = 0$, so $q = 0$, and set 2 has $n_B = 1$, so $q = 1$. This is field 3.
+5. **Guidance then pushes away.** With $p(B \mid x)$ near 0 in the top-left and near 1 where labelled B points sit, $\nabla_x \log p(B \mid x)$ points out of the top-left toward those points, so the guided score $s(x \mid A) + w\,\nabla_x \log p(B \mid x)$ steers samples away from A-and-B. *Derived* from step 4; a trained classifier's exact gradient is not computed here.
+
+The walk called step 5 a shortcut. Shortcut learning names a decision rule that does well on the training benchmark and fails to transfer, such as a classifier leaning on a feature that travels with the label. *Cited:* Geirhos et al. 2020, abstract. Here the classifier learns the labels' own mistake, which the field calls label noise, or positive-unlabelled data when only some positives carry the label. *Stated:* those two names are the writer's, not checked against a source.
+
+*🖼️ Diagram wanted: the mechanism, the three points in their quadrants under set 1 and set 2, with what each reader learns. Prompt 20 in the same file.*
+
+### Other ways to keep labels from steering the result
+
+- **One unconditional expert per concept**, each trained on its own subset. Nothing reads a label, so relabelling is a no-op and only the subset's points matter. This is what the field calls a product of experts.
+- **A conditional model with "contains A" labels**, so every point with A in its label set trains condition A, and an A-and-B point keeps its mass in $p(x \mid A)$.
+- **Classifier-free guidance** in place of a separate classifier. It still reads labels, through the condition, so the rule above still applies.
+
+### Why the training set matters
+
+The repaired claim: **a density expert learns its training set's density, and labels matter only where something reads them.** Before blaming a composition for missing the A-and-B region, count the A-and-B points each factor was trained on under the conditioning rule actually in use, and check whether a classifier in the loop was trained on labels that miss B.
+
+*🖼️ Diagram wanted: the deep-dive sheet composing the form, the mechanism and the expected output. Prompt 21 in the same file.*
+
+### The training set taught in, applied in
+
+**Taught in:** the `drip-idea` walk of the overlap dial in the reduce-reuse-recycle research repository, claim 1 ("an expert trained on A data learns the concept A"), round 2, the `example` and `break` controls (`artifacts/ideas/poe-overlap-dial/IDEA_MAP.md`).
+
+**Applied in:** the same idea, which turns the share of A-and-B points in each expert's training set from 0% to 100% and counts how often the product lands in A-and-B. The repair says that dial moves the experts' mass and the labels do not, unless a conditioning rule or a classifier reads them.
+
 > [!note]- How this was checked
 > Every output above was run by the writer in an empty folder, `~/playground/sandbox/gaussian-clouds`, on the PC: Ubuntu under WSL2, through the prepared environment `~/.vault-sandbox/bin/python` (Python 3.11.13, NumPy 2.4.6, Matplotlib 3.11.2), on 2026-10-04. The folder was removed afterwards and the clean-up check returned 2.
 >
@@ -2259,5 +2446,7 @@ The labels use all three operators nested: AND a product, OR a mixture, NOT a ne
 > The run in [[#The product as an intersection]] was made by the writer in a fourth empty folder, `~/playground/sandbox/product-intersection`, on the same PC and environment, on 2026-10-13; the folder was removed afterwards and the clean-up check returned 2. Its near-pair numbers match the walk's answer key `checks/step6_product.py` and `checks/step6_product.out` in the journey's `sources/reduce-reuse-recycle/`: peak at -0.23, expert a at 0.311840 of 0.564190 and expert b at 0.173266 of 0.446031. The far pair is new to this note and was checked against the derivation in the same subsection. `intersection.png` is the script's own saved figure, opened before filing; the terminal picture was rendered from the captured text by a script in DejaVu Sans Mono, never drawn, and opened before filing. The quotations are from `text/method.tex` lines 10 to 19 and `text/appendix.tex` line 306 of the arXiv source package.
 >
 > The runs in [[#Product, mixture and negation]] were made by the writer in a fifth empty folder, `~/playground/sandbox/three-operators`, on the same PC and environment (Python 3.11.13, NumPy 2.4.6), on 2026-10-13; the folder was removed afterwards and the clean-up check returned 2. The scripts are shortened from the walk's answer keys `checks/step6_product.py`, `guidance_on_the_object.py`, `mixture_score.py` and `negation.py` in the journey's `sources/reduce-reuse-recycle/`. All four keys were re-run in the same folder and their output matched the saved `.out` files byte for byte, and every number the three scripts print matched them to the digits shown. The three output pictures were rendered from the captured text by a script in DejaVu Sans Mono, never drawn, and each was opened before filing. The Figure 2 redraw numbers (96.8%, 55.6%, 69.0%, 87.0%, 91.5%, 0.2100, 0.3076) are quoted from `checks/ring_times_bar.out`, `ring_times_bar_more_steps.out` and `fig2_on_the_object.out`, not re-run here. The paper's Figure 6 is the authors' `fig/horse5.pdf` from the arXiv source package, converted to PNG at 110 dpi with `pdftoppm` and opened before filing; its caption is the LaTeX caption in `figText/text2im.tex` lines 1 to 7 with markup removed. The notebook lines were opened in the playground's reference copy of the authors' repository, `notebooks/simple_distributions.ipynb`, counting cells from 0: the factor 3.5 is on line 17 of cell 7, inside the method the read-ahead cites as lines 13 to 19, and `1.3 * unorm_1 - 0.3 * unorm_2` is line 15 of cell 8. Quotations from section 3 are from `text/method.tex` lines 10 to 54, read in the staged source.
+>
+> [[#Kinds of composition]] and [[#What an expert learns from its training set]] were written on 2026-10-14 on the cluster (mscluster, Linux), from one turn of the overlap-dial `drip-idea` walk. Nothing in them was run: the cluster has no `~/.vault-sandbox`, so `labels.py` and its expected output are worked by hand in [[#How the expert's training set works]], and the section stays in the unfinished box until a machine with the environment runs it. The identity for the interaction term is derived in the note; the walk's own draft, `composition-terms.md` in the research repository, writes it without the constant $\log \frac{p(A)\,p(B)}{p(A, B)}$, which changes the density and not the score. The textbook pages were opened before linking: Bayes' theorem on page 105 of the probability book (Theorem 2.7), conditional independence on page 201 of Mathematics for Machine Learning (Definition 6.11), log rules on page 110 of the algebra handbook. The arXiv abstracts of Liu et al., Chefer et al., Bar-Tal et al. and Geirhos et al. were fetched on 2026-10-14, and the quoted phrases ("catastrophic neglect", attribute binding, the definition of shortcuts) are from them; Hinton 2002's DOI resolved to Neural Computation 14(8), pages 1771 to 1800. Ho et al.'s equation (14) and section 3.2 are cited from the paper as already listed, not re-read in this session. No old LibreOffice note was read: `/mnt/c/Users/molef/LibreOffice/Learning/` does not exist on the cluster.
 >
 > References, each answering 200 on 2026-10-04: [Ho et al. on arXiv](https://arxiv.org/abs/2006.11239), [Bradley et al. on arXiv](https://arxiv.org/abs/2502.04549), [Du et al. on arXiv](https://arxiv.org/abs/2302.11552) (checked 2026-10-09), [Product of experts](https://en.wikipedia.org/wiki/Product_of_experts) on Wikipedia, CC BY-SA 4.0. Definition 5.1 and Definition 5.2 were read in the walk's read-ahead, `read-ahead/05-simple-construction.md`, which quotes the paper's source `src/composition.tex` lines 33 to 46. The sketchpad link is the learner's own private artifact and was not fetched. No tldr-pages entry covers this.

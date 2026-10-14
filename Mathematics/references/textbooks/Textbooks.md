@@ -87,6 +87,7 @@ table on this page gives PDF pages.
 | covariance: why joint expectation is E[XY], through the angle between two vectors (intuition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=274) | 274 |
 | conditional probability: the definition P[A|B] = P[A ∩ B] / P[B], with intuition | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=97) | 97 |
 | Bayes' rule: the theorem with proof, plus the law of total probability | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=105) | 105 |
+| conditional independence (Definition 6.11) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=201) | 201 |
 | Bayes' rule: worked examples (winning a match against three player types, a noisy channel) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=107) | 107 |
 | the Gaussian distribution: the density and its two parameters, mean and variance | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=227) | 227 |
 | the Gaussian distribution: plots of how μ and σ move and widen the curve (intuition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=228) | 228 |

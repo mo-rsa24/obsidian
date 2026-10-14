@@ -1,6 +1,6 @@
 # Diffusion Models: illustrated map
 
-The drawn pictures for the vault note [[Diffusion Models]], sections [[Diffusion Models#The forward process in one jump]], [[Diffusion Models#Composing models with a background]], [[Diffusion Models#The order of multiplying and noising]] and [[Diffusion Models#The energy parameterisation]], with one concept picture for [[Diffusion Models#The product as an intersection]], [[Diffusion Models#Product, mixture and negation]], with one concept picture each for [[Diffusion Models#Annealed MCMC]] and [[Diffusion Models#Step size and the accept step]]. `18 prompts · 5 rendered · 1 stuck · 12 waiting`
+The drawn pictures for the vault note [[Diffusion Models]], sections [[Diffusion Models#The forward process in one jump]], [[Diffusion Models#Composing models with a background]], [[Diffusion Models#The order of multiplying and noising]] and [[Diffusion Models#The energy parameterisation]], with one concept picture for [[Diffusion Models#The product as an intersection]], [[Diffusion Models#Product, mixture and negation]], with one concept picture each for [[Diffusion Models#Annealed MCMC]] and [[Diffusion Models#Step size and the accept step]], [[Diffusion Models#What an expert learns from its training set]], and one concept picture for [[Diffusion Models#Kinds of composition]]. `22 prompts · 5 rendered · 1 stuck · 16 waiting`
 
 ## Table of contents
 
@@ -36,6 +36,12 @@ The drawn pictures for the vault note [[Diffusion Models]], sections [[Diffusion
 - [Subject lane: Annealed MCMC and the step size](#subject-lane-annealed-mcmc-and-the-step-size)
 - [Prompt 17 (Subject concept): Annealed MCMC](#prompt-17-subject-concept-annealed-mcmc)
 - [Prompt 18 (Subject concept): The step size and the accept step](#prompt-18-subject-concept-the-step-size-and-the-accept-step)
+- [Subject lane: What an expert learns from its training set](#subject-lane-what-an-expert-learns-from-its-training-set)
+- [Prompt 19 (Subject): The training set, the form](#prompt-19-subject-the-training-set-the-form)
+- [Prompt 20 (Subject): The training set, the mechanism](#prompt-20-subject-the-training-set-the-mechanism)
+- [Prompt 21 (Subject capstone): The training set, the deep-dive sheet](#prompt-21-subject-capstone-the-training-set-the-deep-dive-sheet)
+- [Subject lane: Kinds of composition](#subject-lane-kinds-of-composition)
+- [Prompt 22 (Subject concept): Kinds of composition](#prompt-22-subject-concept-kinds-of-composition)
 - [Process lane](#process-lane)
 
 ## Abstraction chain
@@ -737,7 +743,7 @@ Faithfulness note: Route A is dashed green and always the wider of the two bells
 
 ### Prompt 18 (Subject concept): The step size and the accept step
 
-Navigation: ⬅️ [Prompt 17 (Subject concept): Annealed MCMC](#prompt-17-subject-concept-annealed-mcmc) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
+Navigation: ⬅️ [Prompt 17 (Subject concept): Annealed MCMC](#prompt-17-subject-concept-annealed-mcmc) | 📋 [TOC](#table-of-contents) | [Subject lane: What an expert learns from its training set](#subject-lane-what-an-expert-learns-from-its-training-set) ➡️
 
 [planned] ⏳ not rendered
 Save as: `../Artificial Intelligence/Generative Modeling/assets/step-size-and-the-accept-step-the-concept.webp`
@@ -771,8 +777,164 @@ Exclusions: no second panel, no light-tailed target, no time axis, no numbers ot
 
 Faithfulness note: The grey curve passes through the three labelled points to scale and leaves the top of the plot before the red line, never crossing it; the six green dots sit on the green product line, including the three to the right of the red line; the gold tags fall from left to right and each sits directly above its green dot. Every label in the image, exactly: "step size", "settled variance", "no accept step", "with the accept step", "the product: 0.308", "0.367 at 0.1", "0.600 at 0.3", "1.641 at 0.5", "2 / P = 0.615", "blows up past here", "share accepted", "99.9%", "79%", "60%", "51%", "44%", "38%".
 
+## Subject lane: What an expert learns from its training set
+
+Navigation: ⬅️ [Prompt 18 (Subject concept): The step size and the accept step](#prompt-18-subject-concept-the-step-size-and-the-accept-step) | 📋 [TOC](#table-of-contents) | [Prompt 19 (Subject): The training set, the form](#prompt-19-subject-the-training-set-the-form) ➡️
+
+Three pictures for [[Diffusion Models#What an expert learns from its training set]]. Lane colours: blue the A points and expert A, orange a B label, green the A-and-B quadrant, gold a label tag, grey the loss (which reads no label), purple the classifier. Red only for the numbered markers on the deep-dive sheet.
+
+### Prompt 19 (Subject): The training set, the form
+
+Navigation: ⬅️ [Subject lane: What an expert learns from its training set](#subject-lane-what-an-expert-learns-from-its-training-set) | 📋 [TOC](#table-of-contents) | [Prompt 20 (Subject): The training set, the mechanism](#prompt-20-subject-the-training-set-the-mechanism) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Artificial Intelligence/Generative Modeling/assets/expert-and-labels-the-form.webp`
+
+Visual thesis: One training set feeds three readers; the loss reads only the points, while the conditioning rule and the classifier also read the gold label tags, so only they can be changed by relabelling.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for any plot, curve, cloud or grid, and for all typography. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: One rounded card on the left titled "one training set": three rows, each a small blue dot labelled "x0" beside a gold tag labelled "label". Three arrows leave the card to three reader cards stacked on the right. Top, a grey card titled "the loss" with the subtitle "never reads the label": its arrow starts at the blue dots only, and a short gold arrow stops at a small grey barrier before reaching it; its output is a blue card "expert A". Middle, a purple-bordered card titled "the conditioning rule" with two small switch options "contains A" and "exactly A": its arrow carries both dots and tags; its output is a blue card "condition A". Bottom, a purple card titled "the classifier" reading "p(B | x)": its arrow carries both dots and tags; its output is an orange arrow labelled "guidance toward B".
+
+Cast: the training-set card, three reader cards, three output cards, one barrier.
+
+Flows: dots and tags flow left to right into the readers; the gold tag stops at the barrier before the loss.
+
+Text in the image, spelled exactly: "one training set", "x0", "label", "the loss", "never reads the label", "the conditioning rule", "contains A", "exactly A", "the classifier", "p(B | x)", "expert A", "condition A", "guidance toward B".
+
+Exclusions: no network diagram, no equation, no fourth reader, no numbers. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: The gold label tag reaches the conditioning rule and the classifier and is visibly stopped before the loss; the loss's input arrow carries only the blue dots. Every label in the image, exactly: "one training set", "x0", "label", "the loss", "never reads the label", "the conditioning rule", "contains A", "exactly A", "the classifier", "p(B | x)", "expert A", "condition A", "guidance toward B".
+
+### Prompt 20 (Subject): The training set, the mechanism
+
+Navigation: ⬅️ [Prompt 19 (Subject): The training set, the form](#prompt-19-subject-the-training-set-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 21 (Subject capstone): The training set, the deep-dive sheet](#prompt-21-subject-capstone-the-training-set-the-deep-dive-sheet) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Artificial Intelligence/Generative Modeling/assets/expert-and-labels-the-mechanism.webp`
+
+Visual thesis: The same three points under two labellings give the same expert A, but under "exactly A" honest labelling removes the A-and-B point from condition A, and the classifier learns 0 or 1 for B in the top-left from the labels alone.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for any plot, curve, cloud or grid, and for all typography. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: Two columns of cards, left titled "set 1", right titled "set 2". Each column opens with one square plot, drawn to scale by script, x from -1 to 1 and y from -1 to 1, with the vertical line x = 0 and the horizontal line y = 0; the left half is lightly tinted blue and labelled "x1 < 0: A", the top half lightly tinted orange and labelled "x2 > 0: B", and the top-left quadrant where both overlap tinted green and labelled "A and B". Three blue dots at (-0.5, -0.5), (-0.6, -0.4) and (-0.5, 0.5), each with a gold tag: in set 1 all three read "A"; in set 2 the first two read "A" and the top-left one reads "A,B". Under each plot three small result cards in a column: a grey card "expert A: identical" (same in both columns); a purple-bordered card, in set 1 "exactly A: 1 of 3 in A and B" and in set 2 "exactly A: 0 of 2 in A and B" with the top-left dot greyed out; a purple card, in set 1 "classifier: p(B) = 0" with a small orange arrow leaving the green quadrant labelled "pushed away", and in set 2 "classifier: p(B) = 1" with no arrow.
+
+Cast: two quadrant plots, six labelled dots, six result cards, one arrow.
+
+Flows: one orange arrow in set 1 pointing out of the green quadrant.
+
+Text in the image, spelled exactly: "set 1", "set 2", "A", "A,B", "x1 < 0: A", "x2 > 0: B", "A and B", "expert A: identical", "exactly A: 1 of 3 in A and B", "exactly A: 0 of 2 in A and B", "classifier: p(B) = 0", "classifier: p(B) = 1", "pushed away".
+
+Exclusions: no curves, no network, no third set, no numbers other than those listed. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: The dots sit at their coordinates to scale; only the top-left dot sits in the green quadrant; the two plots are identical except the tag on that dot; the "expert A: identical" cards are the same in both columns; the pushed-away arrow appears only in set 1. Every label in the image, exactly: "set 1", "set 2", "A", "A,B", "x1 < 0: A", "x2 > 0: B", "A and B", "expert A: identical", "exactly A: 1 of 3 in A and B", "exactly A: 0 of 2 in A and B", "classifier: p(B) = 0", "classifier: p(B) = 1", "pushed away".
+
+### Prompt 21 (Subject capstone): The training set, the deep-dive sheet
+
+Navigation: ⬅️ [Prompt 20 (Subject): The training set, the mechanism](#prompt-20-subject-the-training-set-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: Kinds of composition](#subject-lane-kinds-of-composition) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Artificial Intelligence/Generative Modeling/assets/expert-and-labels-the-deep-dive.webp`
+
+Visual thesis: The form, the mechanism and the run on one sheet: one training set, three readers, and the four expected fields that show only the readers of labels change.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for any plot, curve, cloud or grid, and for all typography. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: Three panes left to right titled "the form", "the mechanism" and "the run". The form pane is prompt 19's picture reduced: the training-set card and its three readers. The mechanism pane is prompt 20's two quadrant plots side by side, reduced. The run pane is a light terminal card holding the three expected output lines of the note's labels.py, with red numbered markers "1", "2", "3", "4" over, in order, the contains-A share "0.333", the exactly-A share "0.000" in set 2, the classifier value "1.000" in set 2, and "True" on the last line. A footer strip across all three panes in bold: "a density expert learns its training set's density", and under it "labels matter only where something reads them".
+
+Cast: three panes, the reduced form and mechanism, one terminal card, four red markers, one footer.
+
+Flows: none beyond those inside the reduced panes.
+
+Text in the image, spelled exactly: "the form", "the mechanism", "the run", "1", "2", "3", "4", "0.333", "0.000", "1.000", "True", "a density expert learns its training set's density", "labels matter only where something reads them".
+
+Exclusions: no new data, no fifth marker, no numbers other than those listed and those in the reduced panes. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: The four markers sit on the values the note's reading table numbers 1 to 4, in that order; the reduced panes keep prompt 19's barrier before the loss and prompt 20's single green quadrant. Every label in the image, exactly: "the form", "the mechanism", "the run", "1", "2", "3", "4", "0.333", "0.000", "1.000", "True", "a density expert learns its training set's density", "labels matter only where something reads them".
+
+## Subject lane: Kinds of composition
+
+Navigation: ⬅️ [Prompt 21 (Subject capstone): The training set, the deep-dive sheet](#prompt-21-subject-capstone-the-training-set-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 22 (Subject concept): Kinds of composition](#prompt-22-subject-concept-kinds-of-composition) ➡️
+
+One concept picture for [[Diffusion Models#Kinds of composition]], a subsection of the composition section, whose form, mechanism and deep-dive sheet are prompts 4 to 6. Colours as in the composition lane: blue expert A, orange expert B, green the composed result; red only on the one card failure that is a chimera, as for a hybrid.
+
+### Prompt 22 (Subject concept): Kinds of composition
+
+Navigation: ⬅️ [Subject lane: Kinds of composition](#subject-lane-kinds-of-composition) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Artificial Intelligence/Generative Modeling/assets/kinds-of-composition-the-concept.webp`
+
+Visual thesis: Three kinds of composition differ in which pixels each expert scores: separate pixels for co-occurrence, the same pixels for intersection, and the same pixels plus a change neither expert holds for interaction; each fails its own way.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for any plot, curve, cloud or grid, and for all typography. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: Three tall cards side by side titled "co-occurrence", "intersection" and "interaction". Each card has three rows. Row one, an example drawn as a small real scene: "cat beside dog" (a cat on the left and a dog on the right of one frame), "square and circle" (one rounded-square shape), "rain + dog = wet dog" (a dripping dog under rain). Row two, a pixel grid of 4 by 4 squares showing which pixels each expert scores: in co-occurrence the left two columns are blue labelled "expert A scores" and "left pixels", the right two orange labelled "expert B scores" and "right pixels"; in intersection and interaction every square is striped blue and orange and labelled "all pixels"; under each grid its operator in plain words: "product over a partition, plus a layout", "product over the same variables", "product plus the interaction term". Row three, the failure, in a small card: co-occurrence has a red-bordered card "contention: a chimera" showing a fused cat-dog; intersection has a grey card "empty intersection" showing two bells that do not meet; interaction has a grey card "missing interaction: a dry dog in rain" showing a dry dog under rain.
+
+Cast: three kind cards, three example scenes, three pixel grids, three failure cards.
+
+Flows: none.
+
+Text in the image, spelled exactly: "co-occurrence", "intersection", "interaction", "expert A scores", "expert B scores", "left pixels", "right pixels", "all pixels", "contention: a chimera", "empty intersection", "missing interaction: a dry dog in rain", "product over a partition, plus a layout", "product over the same variables", "product plus the interaction term", "cat beside dog", "square and circle", "rain + dog = wet dog".
+
+Exclusions: no equations, no fourth kind, no numbers. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: Only the co-occurrence grid is split into blue and orange halves; the other two grids are fully striped; only the contention card is red-bordered; the interaction failure shows a dry dog, not a wet one. Every label in the image, exactly: "co-occurrence", "intersection", "interaction", "expert A scores", "expert B scores", "left pixels", "right pixels", "all pixels", "contention: a chimera", "empty intersection", "missing interaction: a dry dog in rain", "product over a partition, plus a layout", "product over the same variables", "product plus the interaction term", "cat beside dog", "square and circle", "rain + dog = wet dog".
+
 ## Process lane
 
-Navigation: ⬅️ [Prompt 18 (Subject concept): The step size and the accept step](#prompt-18-subject-concept-the-step-size-and-the-accept-step) | 📋 [TOC](#table-of-contents)
+Navigation: ⬅️ [Prompt 22 (Subject concept): Kinds of composition](#prompt-22-subject-concept-kinds-of-composition) | 📋 [TOC](#table-of-contents)
 
 None. A vault note's section has no plan tree to draw over it.
