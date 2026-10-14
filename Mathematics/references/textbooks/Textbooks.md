@@ -124,6 +124,63 @@ table on this page gives PDF pages.
 | KL divergence: definition for densities (equation C.28) | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=474) | 474 |
 | cross-entropy: H(P, Q) = H(P) + D_KL(P‖Q), equation 3.51 | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=91) | 91 |
 | cross-entropy loss: fitting a model by minimising the distance to the empirical distribution, equal to negative log-likelihood (section 5.7) | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=85) | 85 |
+| the score function s(x) = ∇ₓ log p(x) as a direction field, with the Gaussian worked example s(x) = −(x − µ)/σ² and the multivariate −Σ⁻¹(x − µ) (section 6.1.1, definition and worked example) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=114) | 114 |
+| the score field drawn as arrows for a two-component Gaussian mixture, Figure 6.1 (section 6.1.1, intuition) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=115) | 115 |
+| Langevin dynamics: the SDE dXₜ = ∇ log p*(Xₜ) dt + √2 dWₜ and its discrete update xₖ₊₁ = xₖ + ε∇ log p*(xₖ) + √(2ε) ξₖ, drift for exploitation and noise against collapse (section 6.1.2, definition) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=116) | 116 |
+| Langevin dynamics as a sampler: with target N(0, I) it reduces to an Ornstein-Uhlenbeck process, and the target density is stationary (section 6.1.2 to 6.1.3, worked example) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=117) | 117 |
+| the Fokker-Planck stationary solution: substitute p = p* into ∂ₜp = −∇·(p∇log p*) + Δp, use p*∇log p* = ∇p*, and the two terms cancel to 0 (section 6.1.3, derivation, key step the identity p∇log p = ∇p) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=118) | 118 |
+| Fisher divergence: J(θ) = E over p_data of ‖sθ(x) − s_data(x)‖², the objective score matching rewrites (section 6.2, definition) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=119) | 119 |
+| explicit and implicit score matching, 1D: the cross term E[sθ s_data] rewritten by integration by parts to −E[∂ₓ sθ], boundary term dropped (section 6.2.2, derivation, key step the vanishing boundary term) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=121) | 121 |
+| score matching in d dimensions: the divergence replaces the derivative and the divergence theorem gives L_SM = E[½‖sθ‖² + ∇·sθ] (section 6.2.3, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=122) | 122 |
+| integration by parts: the one-dimensional identity ∫u v′ dx = [uv] − ∫u′v dx stated and then applied to the score-matching cross term (section 6.2.2, definition in a box, with the application on PDF page 121) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=120) | 120 |
+| the smoothed score under Gaussian corruption: s_σ(x̃) = (E[x | x̃] − x̃)/σ², derived through Bayes' rule and the Gaussian log-density, which is Tweedie's formula for Gaussian noise though the book never names it (section 6.3.1, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=124) | 124 |
+| denoising score matching: the least-squares regression identity f* = E[Y | U], then L_DSM = E‖sθ(x̃) + ε/σ²‖², so regression on a known corruption recovers the noisy score (section 6.3.3, derivation, key step the conditional-mean identity) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=126) | 126 |
+| multi-scale denoising score matching: the DSM loss averaged over noise levels σ₁ > … > σ_K, with a noise-conditional score sθ(x̃, σₖ) (section 6.4.1, definition) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=129) | 129 |
+| annealed Langevin dynamics: Langevin updates run at each noise level from large σ to small σ, from x ~ N(0, σ₁²I) (section 6.4.2, definition) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=130) | 130 |
+| the forward SDE dXₜ = f(Xₜ, t) dt + g(t) dWₜ and its marginal densities pₜ, with the Fokker-Planck equation they obey (section 6.4.3, definition) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=131) | 131 |
+| the reverse-time SDE: dXₜ = [f − g(t)²∇log pₜ] dt + g(t) dW̄ₜ, stated under regularity conditions and not derived, with the score as the added correction (section 6.4.4, definition, and Figure 6.4 on PDF page 133) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=132) | 132 |
+| noise prediction as a score: ∇ log q(xₜ | x₀) = −ε/√(1 − ᾱₜ), so a network that predicts ε predicts the conditional score (section 6.5.1, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=134) | 134 |
+| Brownian motion (the Wiener process): the three defining properties W₀ = 0, independent increments, Wₜ₊Δₜ − Wₜ ~ N(0, Δₜ) (section 5.1.3, definition) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=95) | 95 |
+| Brownian motion: E[Wₜ] = 0 and Var(Wₜ) = t by summing n independent Gaussian increments, and the √Δt scaling of a step (section 5.1.3, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=96) | 96 |
+| the Ornstein-Uhlenbeck process dXₜ = −αXₜ dt + σ dWₜ, its drift-plus-noise update and the explicit solution Xₜ = X₀e^(−αt) + σ∫e^(−α(t−s))dWₛ (section 5.1.4, definition; the stochastic integral is written but not defined) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=97) | 97 |
+| stochastic differential equations: dXₜ = f dt + σ dWₜ as the particle-level form of a drift plus noise, in the chapter's summary diagram (section 5.1, intuition; the general g(t) form is on PDF page 131) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=91) | 91 |
+| deterministic density evolution, finite time: p₀(x₀)dx₀ = pₜ(xₜ)dxₜ gives pₜ(xₜ) = p₀(x₀)·|dxₜ/dx₀|⁻¹, and in d dimensions the Jacobian determinant (section 5.2.1, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=99) | 99 |
+| the continuity (Liouville) equation in one dimension: ∂ₜp = −∂ₓ(pf), from probability inflow minus outflow across a small interval (section 5.2.2, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=101) | 101 |
+| density change along a trajectory: d/dt log p(x(t), t) = −∂ₓf, by the chain rule and the transport terms cancelling (section 5.2.3, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=102) | 102 |
+| the multidimensional continuity equation ∂ₜp = −∇·(pv), with det(I + A dt) = 1 + tr(A)dt giving the divergence as the rate of volume change (section 5.2.4, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=104) | 104 |
+| the multidimensional continuity equation, final step: expand p(x + v dt, t + dt) to first order and take dt → 0 to reach ∂ₜp + ∇·(pv) = 0 (section 5.2.4, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=105) | 105 |
+| the Fokker-Planck equation, derivation: write p(x, t + Δt) as an expectation over the Gaussian increment, Taylor-expand p(x − η), E[η] = 0 and E[η²] = σ²Δt leave ∂ₜp = (σ²/2)∂ₓₓp (section 5.3.1 to 5.3.2, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=107) | 107 |
+| the Fokker-Planck equation, one dimension with drift: ∂ₜp = −∂ₓ(fp) + (σ²/2)∂ₓₓp, the Liouville transport term plus diffusion (section 5.3.2, derivation, continued on PDF page 108) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=108) | 108 |
+| the Fokker-Planck equation in d dimensions: ∂ₜp = −∇·(pv) + (σ²/2)Δp with the Laplacian (section 5.3.3, definition), and drift against diffusion drawn for the OU process in Figure 5.3 (PDF page 109) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=109) | 109 |
+| energy-based models: the energy Eθ(x), the Boltzmann form pθ(x) = exp(−Eθ(x))/Zθ and the partition function Zθ = ∫exp(−Eθ(x))dx (section 8.3.2, definition) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=173) | 173 |
+| energy-based models, maximum likelihood: ∇θ log Zθ = −E over pθ of ∇θEθ, giving the data term minus model term contrastive gradient (section 8.3.4, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=176) | 176 |
+| why the score ignores the partition function: ∇ₓ log pθ = −∇ₓEθ − ∇ₓ log Zθ and ∇ₓ log Zθ = 0 since Zθ does not depend on x (section 8.4.2, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=179) | 179 |
+| score matching for an energy-based model: J_SM = E[½‖∇ₓEθ‖² − ∇²ₓEθ], which avoids the partition function (section 8.4.3, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=180) | 180 |
+| the ELBO from Jensen's inequality: rewrite p(x) = E_Q[p(x, z)/Q(z)], then log E ≥ E log gives L(Q, θ; x) = E_Q[log p(x, z)] − E_Q[log Q(z)] (section 2.4.2, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=46) | 46 |
+| when the ELBO is tight: equality holds exactly when Q(z) = p(z | x) (section 2.4.3, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=47) | 47 |
+| the VAE ELBO in three equivalent forms, including log p(x) − KL(q ‖ posterior) and reconstruction minus KL to the prior (section 3.2.2, derivation, continued on PDF pages 62 and 63) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=61) | 61 |
+| the DDPM forward process: q(xₜ | xₜ₋₁) = N(√(1 − βₜ) xₜ₋₁, βₜI), and by recursion and summing Gaussians xₜ = √ᾱₜ x₀ + √(1 − ᾱₜ) ε (section 4.1.1, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=70) | 70 |
+| the DDPM forward process summarised: αₜ, ᾱₜ, the closed form q(xₜ | x₀) and the Markov factorisation (section 4.1.2, summary box) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=73) | 73 |
+| the DDPM reverse process: the learned Markov chain pθ(xₜ₋₁ | xₜ) from p(x_T) = N(0, I), and why the true reverse step is intractable (sections 4.2.1 to 4.2.2, definition) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=74) | 74 |
+| the diffusion ELBO: the forward process q(x₁:T | x₀) plays the role of Q(z), and the negative ELBO splits into prior-matching, step-wise KL and reconstruction terms (sections 4.2.3 and 4.3.3, derivation, with the split on PDF page 81) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=75) | 75 |
+| the true reverse posterior of DDPM: q(xₜ₋₁ | xₜ, x₀) is Gaussian with mean µ̃ₜ and variance β̃ₜ = (1 − ᾱₜ₋₁)βₜ/(1 − ᾱₜ), by completing the square (section 4.4.1, derivation, algebra in Appendix B on PDF page 189) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=83) | 83 |
+| the DDPM training objective: the KL between equal-variance Gaussians reduces to ‖µ̃ₜ − µθ‖², hence to ‖ε − εθ(xₜ, t)‖² and L_simple (section 4.4.3, derivation, key step the shared variance) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=86) | 86 |
+| the DDPM training and sampling loop: sample t and ε, form xₜ, regress ε; sample from x_T ~ N(0, I) back to x₀ (section 4.4.4, worked algorithm) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=87) | 87 |
+| completing the square for Gaussians: −½xᵀAx + bᵀx = −½(x − A⁻¹b)ᵀA(x − A⁻¹b) + ½bᵀA⁻¹b, applied to the PPCA posterior (Appendix A, derivation) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=185) | 185 |
+| how to read an algorithm block: Algorithm 7.2, Newton's method for one variable, with its Objective, Input, Output, Initialization and Repeat-Until parts, and Example 7.3 set up on it (worked algorithm) | [optimization: principles and algorithms](optimization/optimization-principles-and-algorithms.pdf#page=203) | 203 |
+| an algorithm block run one iteration per row: Table 7.1, Example 7.3's iterates xₖ, F(xₖ) and F′(xₖ) (worked example; Example 7.5 on PDF page 206 runs the same block and diverges) | [optimization: principles and algorithms](optimization/optimization-principles-and-algorithms.pdf#page=204) | 204 |
+| gradient descent: ϕ ← ϕ − α ∂L/∂ϕ, α as the learning rate, line search, and the gradient zero at a minimum (section 6.1, definition) | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=92) | 92 |
+| steepest descent xₖ₊₁ = xₖ − αₖ∇f(xₖ) with the step chosen by exact line search, run by hand on ½x₁² + 9/2 x₂² in Example 11.1 (section 11.1, worked example; the zigzag is Figure 11.1 on PDF page 265) | [optimization: principles and algorithms](optimization/optimization-principles-and-algorithms.pdf#page=264) | 264 |
+| the negative gradient points directly downhill: the method of steepest descent (section 4.3, intuition) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=101) | 101 |
+| −∇f is the steepest descent direction (Corollary 2.13, with numbers in Example 2.14) | [optimization: principles and algorithms](optimization/optimization-principles-and-algorithms.pdf#page=53) | 53 |
+| the Hessian matrix written out, always symmetric and the Jacobian of the gradient, and Theorem 2.21: a positive semidefinite Hessian means convex (definition and theorem) | [optimization: principles and algorithms](optimization/optimization-principles-and-algorithms.pdf#page=58) | 58 |
+| a local minimum of a convex function is global, and a strictly convex function has only one (Theorem 5.9) | [optimization: principles and algorithms](optimization/optimization-principles-and-algorithms.pdf#page=140) | 140 |
+| a convex set (Definition B.2) | [optimization: principles and algorithms](optimization/optimization-principles-and-algorithms.pdf#page=707) | 707 |
+| critical points in one variable: a relative extremum on an open interval sits where the derivative is zero (Theorem 4.2.2) | [calculus textbook](calculus/calculus-textbook.pdf#page=269) | 269 |
+| Euler's method for an ODE, derived from the tangent line | [calculus textbook](calculus/calculus-textbook.pdf#page=605) | 605 |
+| the reparameterization trick: z = mu + Sigma^(1/2) eps, so the gradient passes the sampling (section 17.7) | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=352) | 352 |
+| an eigenvalue and its eigenvector (Definition 1), with Theorem 5.1.1 and worked examples on the next page | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=305) | 305 |
+| a real symmetric matrix has real eigenvalues and orthogonal eigenvectors (Theorem 7.2.2) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=425) | 425 |
 
 ## general/
 
@@ -1671,6 +1728,167 @@ page minus 14 from chapter 1 on; the front matter is numbered in roman.
 | Bibliography | [476](machine-learning/understanding-deep-learning.pdf#page=476) |
 | Index | [527](machine-learning/understanding-deep-learning.pdf#page=527) |
 
+### The little book of generative AI foundations
+
+`machine-learning/the-little-book-of-generative-ai-foundations.pdf`, 195 pages. Tianhua Chen, University of Huddersfield, *The Little Book of Generative AI Foundations: An
+Intuitive Mathematical Primer*, arXiv 2605.29713 version 2 (cs.LG), preprint of 8 September 2026. A
+preprint primer that derives the mathematics of the main generative-model families step by step. It runs
+from PCA and autoencoders through probabilistic PCA, the evidence lower bound and EM, the variational
+autoencoder and DDPM, then the calculus of continuous-time generative modelling (Brownian motion, the
+Ornstein-Uhlenbeck process, the Liouville and Fokker-Planck equations), score matching, Langevin dynamics
+and the reverse-time SDE, normalising flows, autoregressive models, GANs and energy-based models. The
+appendices work Gaussian algebra (completing the square) and the DDPM reverse posterior. The equations
+are not numbered, so a row below names the section a derivation sits in. It has no Itô lemma, no probability
+flow ODE, no Tweedie's formula and no classifier-free guidance. Was `2605.29713v2.pdf`. The table is from the
+PDF's own outline plus the contents pages, every section and subsection, with each page found from its
+heading in the text. The printed page number is the PDF page minus 7 for chapters 1 to 8, the closing
+remarks and the appendices (printed page 1 is PDF page 8; printed 3 is PDF 10, printed 106 is PDF 113); the
+preface is numbered in roman, with i on PDF page 2.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| Preface | [2](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=2) |
+| 1 Linear Algebra Foundations: From PCA to Autoencoders | [8](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=8) |
+| 1.1 Matrices as Linear Transformations: Basis Directions, Projections, and Composition | [10](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=10) |
+| 1.1.1 Matrices as Transformations of Basis Directions | [10](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=10) |
+| 1.1.2 Two Views of Matrix Multiplication | [12](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=12) |
+| 1.2 Eigenvectors, Eigenvalues, and a Matrix’s Natural Coordinate System | [14](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=14) |
+| 1.3 Principal Component Analysis via Variance Maximisation | [16](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=16) |
+| 1.3.1 Formulating PCA | [16](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=16) |
+| 1.3.2 Solving the PCA optimisation problem | [18](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=18) |
+| 1.3.3 PCA for dimensionality reduction | [19](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=19) |
+| 1.4 PCA as a Change of Basis: Similarity Transformations and SVD | [20](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=20) |
+| 1.4.1 Trace, similarity transformations, and variance preservation | [21](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=21) |
+| 1.4.2 PCA as a similarity transformation | [22](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=22) |
+| 1.4.3 From eigen-decomposition to singular value decomposition | [24](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=24) |
+| 1.5 From PCA to Autoencoders: Reconstruction, Subspaces, and Manifolds | [25](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=25) |
+| 1.5.1 From variance maximisation to reconstruction | [26](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=26) |
+| 1.5.2 When does a linear autoencoder recover PCA? | [28](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=28) |
+| 1.5.3 From linear subspaces to nonlinear manifolds | [30](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=30) |
+| Summary and References (chapter 1) | [32](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=32) |
+| 2 Probabilistic PCA: A Bridge to Latent-Variable Generative Modelling | [34](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=34) |
+| 2.1 Formulation of Probabilistic PCA | [35](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=35) |
+| 2.2 Why PPCA Is Analytically Tractable | [38](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=38) |
+| 2.2.1 From Likelihood to Marginalisation | [38](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=38) |
+| 2.2.2 Deriving and Interpreting the Marginal Distribution | [40](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=40) |
+| 2.3 Learning PPCA: Three Optimisation Perspectives | [42](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=42) |
+| 2.3.1 Direct analytic maximum likelihood | [43](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=43) |
+| 2.3.2 Gradient-based optimisation | [43](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=43) |
+| 2.3.3 Expectation–Maximisation (EM) | [44](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=44) |
+| 2.4 Jensen’s Inequality and the Evidence Lower Bound | [45](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=45) |
+| 2.4.1 From Marginal Likelihood to Jensen’s Inequality | [45](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=45) |
+| 2.4.2 Deriving the Evidence Lower Bound | [46](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=46) |
+| 2.4.3 When does the bound become exact? | [47](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=47) |
+| 2.5 Expectation–Maximisation: Maximising the Lower Bound | [48](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=48) |
+| 2.5.1 The two EM steps | [48](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=48) |
+| 2.5.2 Applying EM to PPCA | [50](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=50) |
+| 2.5.3 From PPCA to Regularised Latent Representations | [52](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=52) |
+| Summary and References (chapter 2) | [52](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=52) |
+| 3 The Variational Autoencoder: From Probabilistic Latent Variables to Variational Inference | [54](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=54) |
+| 3.1 From Autoencoder to Variational Autoencoder | [55](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=55) |
+| 3.1.1 Making the encoder probabilistic | [56](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=56) |
+| 3.1.2 Making the decoder probabilistic | [58](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=58) |
+| 3.1.3 Prior and Learning Difficulty | [59](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=59) |
+| 3.2 From Intractable Likelihood to the ELBO | [60](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=60) |
+| 3.2.1 Introducing the variational posterior | [60](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=60) |
+| 3.2.2 Three Equivalent Forms of the ELBO | [61](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=61) |
+| 3.3 Learning the Variational Autoencoder: Reparameterisation and Optimisation | [64](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=64) |
+| Summary and References (chapter 3) | [67](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=67) |
+| 4 Denoising Diffusion Probabilistic Models | [68](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=68) |
+| 4.1 The Forward Diffusion Process: From Data to Noise | [70](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=70) |
+| 4.1.1 Gaussian Noising and the Closed-Form Forward Process | [70](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=70) |
+| 4.1.2 The forward chain and the Markov assumption | [72](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=72) |
+| 4.2 The Reverse Process and the ELBO Formulation | [73](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=73) |
+| 4.2.1 The learned reverse chain | [74](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=74) |
+| 4.2.2 Why the reverse process is difficult | [74](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=74) |
+| 4.2.3 The Diffusion ELBO | [75](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=75) |
+| 4.3 From the Diffusion ELBO to a Step-wise Objective | [77](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=77) |
+| 4.3.1 Expanding the Diffusion ELBO | [77](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=77) |
+| 4.3.2 Rewriting the ELBO with Bayes’ rule | [79](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=79) |
+| 4.3.3 From the global ELBO to local learning terms | [80](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=80) |
+| 4.4 From the True Reverse Posterior to DDPM Learning | [82](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=82) |
+| 4.4.1 The true reverse posterior from known forward quantities | [83](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=83) |
+| 4.4.2 Reparameterising the posterior through the noise variable | [84](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=84) |
+| 4.4.3 Parameterising the learned reverse process and deriving the practical DDPM objective | [85](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=85) |
+| 4.4.4 How training and sampling work | [87](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=87) |
+| Summary and References (chapter 4) | [88](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=88) |
+| 5 Calculus Foundations for Continuous Time Generative Modelling | [89](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=89) |
+| 5.1 From Discrete Updates to Continuous Motion | [91](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=91) |
+| 5.1.1 Basic Language for Continuous-Time Motion | [91](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=91) |
+| 5.1.2 Deterministic Contraction | [92](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=92) |
+| 5.1.3 Brownian Motion | [95](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=95) |
+| 5.1.4 The Ornstein–Uhlenbeck Process | [96](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=96) |
+| 5.2 Deterministic Density Evolution | [98](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=98) |
+| 5.2.1 Finite-Time Density Transformation | [99](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=99) |
+| 5.2.2 Infinitesimal Density Evolution in One Dimension: The Liouville Equation | [100](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=100) |
+| 5.2.3 Density Change Along a Trajectory | [102](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=102) |
+| 5.2.4 Divergence and the Multidimensional Liouville Equation | [103](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=103) |
+| 5.3 Stochastic Density Evolution and the Fokker–Planck Equation | [106](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=106) |
+| 5.3.1 Pure Brownian Diffusion as Gaussian Smoothing | [106](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=106) |
+| 5.3.2 From Brownian Diffusion to the Fokker–Planck Equation | [107](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=107) |
+| 5.3.3 Multidimensional Form and Interpretation | [109](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=109) |
+| Summary and References (chapter 5) | [110](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=110) |
+| 6 Score-Based Generative Modelling and Continuous-Time Diffusion | [111](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=111) |
+| 6.1 From the Score Function to Langevin Sampling | [113](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=113) |
+| 6.1.1 The Score Function as a Probabilistic Drift Field | [114](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=114) |
+| 6.1.2 Langevin Dynamics: Score Plus Noise | [115](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=115) |
+| 6.1.3 Target and Stationary Distributions | [117](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=117) |
+| 6.2 Learning the Score: Fisher Divergence and Score Matching | [119](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=119) |
+| 6.2.1 Expanding the Fisher Divergence | [119](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=119) |
+| 6.2.2 The One-Dimensional Case | [120](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=120) |
+| 6.2.3 Extension to Multiple Dimensions | [121](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=121) |
+| 6.3 Stabilising Learning: Denoising Score Matching via Corruption | [123](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=123) |
+| 6.3.1 Gaussian Corruption and Smoothed Scores | [123](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=123) |
+| 6.3.2 The Intractability of the Noisy Score | [125](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=125) |
+| 6.3.3 Denoising Score Matching as Regression | [125](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=125) |
+| 6.4 From Multi-Scale Score Learning to Continuous-Time Diffusion | [128](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=128) |
+| 6.4.1 Multi-Scale Denoising Score Matching | [128](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=128) |
+| 6.4.2 Annealed Langevin Dynamics | [130](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=130) |
+| 6.4.3 From Discrete Noise Levels to a Continuous Diffusion Process | [131](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=131) |
+| 6.4.4 Reverse-Time Dynamics and the Role of the Score | [132](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=132) |
+| 6.5 Discrete Diffusion Models Through the Score-Based Lens | [134](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=134) |
+| 6.5.1 Noise Prediction and Conditional Scores | [134](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=134) |
+| 6.5.2 A Unified View of Score-Based Diffusion | [135](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=135) |
+| Summary and References (chapter 6) | [136](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=136) |
+| 7 Exact Density Models: Normalising Flows and Autoregressive Factorisations | [138](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=138) |
+| 7.1 Normalising Flows: Exact Density via Invertible Transformations | [140](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=140) |
+| 7.1.1 Revisiting the Change-of-Variables Formula | [140](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=140) |
+| 7.1.2 Planar Flows | [143](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=143) |
+| 7.2 Normalising Flows in Practice: Coupling Layers and Composition | [147](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=147) |
+| 7.2.1 Affine Coupling Layers and Triangular Jacobians | [147](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=147) |
+| 7.2.2 Stacking Flows: Likelihood Evaluation and Sampling | [150](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=150) |
+| 7.3 Autoregressive Factorisation as a Generative Model | [152](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=152) |
+| 7.3.1 The Chain Rule as an Exact Density Model | [153](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=153) |
+| 7.3.2 Conditional Parameterisation and Generation | [154](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=154) |
+| 7.3.3 Parallel Training, Sequential Sampling, and Masking | [156](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=156) |
+| Summary and References (chapter 7) | [157](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=157) |
+| 8 Beyond Likelihoods: Generative Adversarial Networks and Energy-Based Models | [159](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=159) |
+| 8.1 Generative Adversarial Networks: Learning by Comparison | [161](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=161) |
+| 8.1.1 The Generator as an Implicit Sampling Mechanism | [161](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=161) |
+| 8.1.2 The Discriminator and the Adversarial Game | [162](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=162) |
+| 8.1.3 The Optimal Discriminator | [163](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=163) |
+| 8.1.4 From the Optimal Discriminator to Jensen–Shannon Divergence | [165](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=165) |
+| 8.2 Geometric Optimisation and Wasserstein GANs | [166](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=166) |
+| 8.2.1 Generator Optimisation and the Non-Saturating Loss | [167](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=167) |
+| 8.2.2 From Overlap to Wasserstein Geometry | [168](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=168) |
+| 8.2.3 The Wasserstein GAN Objective | [170](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=170) |
+| 8.2.4 Enforcing the Lipschitz Constraint | [171](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=171) |
+| 8.3 Energy-Based Models: Foundations and Learning | [172](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=172) |
+| 8.3.1 Energy as a Modelling Primitive | [173](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=173) |
+| 8.3.2 From Energies to Unnormalised Distributions | [173](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=173) |
+| 8.3.3 Learning Energy Landscapes | [175](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=175) |
+| 8.3.4 Maximum Likelihood and the Contrastive Gradient | [175](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=175) |
+| 8.4 Energy Gradients, Score Fields, and Diffusion | [177](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=177) |
+| 8.4.1 Sampling as Energy-Guided Dynamics | [178](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=178) |
+| 8.4.2 Energy Gradients and Scores | [178](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=178) |
+| 8.4.3 Score Matching as Energy-Gradient Learning | [179](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=179) |
+| 8.4.4 Diffusion as Multi-Scale Energy-Gradient Learning | [180](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=180) |
+| Summary and References (chapter 8) | [182](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=182) |
+| Closing Remarks | [183](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=183) |
+| Appendix A: Gaussian Algebra and Completing the Square | [185](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=185) |
+| Appendix B: Diffusion Reverse-Posterior Derivations | [189](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=189) |
+| References | [193](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=193) |
+
 ## computer-vision/
 
 ### Computer vision textbook
@@ -1858,3 +2076,262 @@ section's page from the printed contents. The printed page number is the PDF pag
 | Appendix A Notation | [601](computer-vision/computer-vision-textbook.pdf#page=601) |
 | Appendix B Optimization | [603](computer-vision/computer-vision-textbook.pdf#page=603) |
 | Appendix C Linear algebra | [615](computer-vision/computer-vision-textbook.pdf#page=615) |
+
+## optimization/
+
+### Optimization: principles and algorithms
+
+`optimization/optimization-principles-and-algorithms.pdf`, 738 pages. Michel Bierlaire, *Optimization:
+Principles and Algorithms*, EPFL Press, second edition, 2018. A published textbook that starts from
+writing a problem down (objective function, constraints, minima), works through gradients, Hessians,
+convexity and optimality conditions, then teaches the algorithms that solve them: Newton's method,
+quasi-Newton, conjugate gradient, steepest descent with line search, trust regions, BFGS, Gauss-Newton,
+simplex, interior points, SQP, network flows and discrete optimization. Was
+`OptimizationPrinciplesAlgorithms2018.pdf`. The table is from the PDF's own outline, parts, chapters and
+their first-level sections. The printed page number is the PDF page minus 18 from chapter 1 on.
+
+**Why it is on the shelf: it teaches how to read pseudocode.** Every algorithm is a numbered block with
+the same parts (`Objective`, `Input`, `Output`, `Initialization`, `Repeat … Until`), placed after the
+definition it implements and followed by worked examples that run it iteration by iteration with real
+numbers. Newton's method for one variable is the clearest instance: the linear model it is built on is
+Definition 7.2 ([201](optimization/optimization-principles-and-algorithms.pdf#page=201)), the block is Algorithm 7.2 ([203](optimization/optimization-principles-and-algorithms.pdf#page=203)), and Examples 7.3, 7.4 and 7.5 ([203](optimization/optimization-principles-and-algorithms.pdf#page=203), [204](optimization/optimization-principles-and-algorithms.pdf#page=204),
+[206](optimization/optimization-principles-and-algorithms.pdf#page=206)) run it from fixed starting points, the last one diverging. The same pairing holds for conjugate
+gradient (Algorithm 9.2 and Example 9.8, both [248](optimization/optimization-principles-and-algorithms.pdf#page=248)) and for line search (Examples 11.3 and 11.4 at [273](optimization/optimization-principles-and-algorithms.pdf#page=273)
+and [278](optimization/optimization-principles-and-algorithms.pdf#page=278) run Algorithms 11.3 and 11.4). The definitions used most by generative-model papers are early:
+gradient [50](optimization/optimization-principles-and-algorithms.pdf#page=50), directional derivative and descent direction [51](optimization/optimization-principles-and-algorithms.pdf#page=51), Hessian [57](optimization/optimization-principles-and-algorithms.pdf#page=57), convex function [48](optimization/optimization-principles-and-algorithms.pdf#page=48),
+conditioning [63](optimization/optimization-principles-and-algorithms.pdf#page=63), and the necessary optimality conditions [133](optimization/optimization-principles-and-algorithms.pdf#page=133).
+
+| Chapter or section | PDF page |
+| --- | --- |
+| I Formulation and analysis of the problem | [19](optimization/optimization-principles-and-algorithms.pdf#page=19) |
+| 1 Formulation | [23](optimization/optimization-principles-and-algorithms.pdf#page=23) |
+| 1.1 Modeling | [23](optimization/optimization-principles-and-algorithms.pdf#page=23) |
+| 1.2 Problem transformations | [34](optimization/optimization-principles-and-algorithms.pdf#page=34) |
+| 1.3 Hypotheses | [38](optimization/optimization-principles-and-algorithms.pdf#page=38) |
+| 1.4 Problem definition | [39](optimization/optimization-principles-and-algorithms.pdf#page=39) |
+| 1.5 Exercises | [44](optimization/optimization-principles-and-algorithms.pdf#page=44) |
+| 2 Objective function | [47](optimization/optimization-principles-and-algorithms.pdf#page=47) |
+| 2.1 Convexity and concavity | [47](optimization/optimization-principles-and-algorithms.pdf#page=47) |
+| 2.2 Differentiability: the first order | [49](optimization/optimization-principles-and-algorithms.pdf#page=49) |
+| 2.3 Differentiability: the second order | [57](optimization/optimization-principles-and-algorithms.pdf#page=57) |
+| 2.4 Linearity and non linearity | [60](optimization/optimization-principles-and-algorithms.pdf#page=60) |
+| 2.5 Conditioning and preconditioning | [63](optimization/optimization-principles-and-algorithms.pdf#page=63) |
+| 2.6 Exercises | [68](optimization/optimization-principles-and-algorithms.pdf#page=68) |
+| 3 Constraints | [69](optimization/optimization-principles-and-algorithms.pdf#page=69) |
+| 3.1 Active constraints | [70](optimization/optimization-principles-and-algorithms.pdf#page=70) |
+| 3.2 Linear independence of the constraints | [74](optimization/optimization-principles-and-algorithms.pdf#page=74) |
+| 3.3 Feasible directions | [78](optimization/optimization-principles-and-algorithms.pdf#page=78) |
+| 3.4 Elimination of constraints | [93](optimization/optimization-principles-and-algorithms.pdf#page=93) |
+| 3.5 Linear constraints | [96](optimization/optimization-principles-and-algorithms.pdf#page=96) |
+| 3.6 Exercises | [109](optimization/optimization-principles-and-algorithms.pdf#page=109) |
+| 4 Introduction to duality | [111](optimization/optimization-principles-and-algorithms.pdf#page=111) |
+| 4.1 Constraint relaxation | [111](optimization/optimization-principles-and-algorithms.pdf#page=111) |
+| 4.2 Duality in linear optimization | [120](optimization/optimization-principles-and-algorithms.pdf#page=120) |
+| 4.3 Exercises | [126](optimization/optimization-principles-and-algorithms.pdf#page=126) |
+| II Optimality conditions | [129](optimization/optimization-principles-and-algorithms.pdf#page=129) |
+| 5 Unconstrained optimization | [133](optimization/optimization-principles-and-algorithms.pdf#page=133) |
+| 5.1 Necessary optimality conditions | [133](optimization/optimization-principles-and-algorithms.pdf#page=133) |
+| 5.2 Sufficient optimality conditions | [138](optimization/optimization-principles-and-algorithms.pdf#page=138) |
+| 5.3 Exercises | [143](optimization/optimization-principles-and-algorithms.pdf#page=143) |
+| 6 Constrained optimization | [145](optimization/optimization-principles-and-algorithms.pdf#page=145) |
+| 6.1 Convex constraints | [146](optimization/optimization-principles-and-algorithms.pdf#page=146) |
+| 6.2 Lagrange multipliers: necessary conditions | [151](optimization/optimization-principles-and-algorithms.pdf#page=151) |
+| 6.3 Lagrange multipliers: sufficient conditions | [170](optimization/optimization-principles-and-algorithms.pdf#page=170) |
+| 6.4 Sensitivity analysis | [177](optimization/optimization-principles-and-algorithms.pdf#page=177) |
+| 6.5 Linear optimization | [183](optimization/optimization-principles-and-algorithms.pdf#page=183) |
+| 6.6 Quadratic optimization | [189](optimization/optimization-principles-and-algorithms.pdf#page=189) |
+| 6.7 Exercises | [192](optimization/optimization-principles-and-algorithms.pdf#page=192) |
+| III Solving equations | [195](optimization/optimization-principles-and-algorithms.pdf#page=195) |
+| 7 Newton's method | [199](optimization/optimization-principles-and-algorithms.pdf#page=199) |
+| 7.1 Equation with one unknown | [199](optimization/optimization-principles-and-algorithms.pdf#page=199) |
+| 7.2 Systems of equations with multiple unknowns | [210](optimization/optimization-principles-and-algorithms.pdf#page=210) |
+| 7.3 Project | [216](optimization/optimization-principles-and-algorithms.pdf#page=216) |
+| 8 Quasi-Newton methods | [219](optimization/optimization-principles-and-algorithms.pdf#page=219) |
+| 8.1 Equation with one unknown | [219](optimization/optimization-principles-and-algorithms.pdf#page=219) |
+| 8.2 Systems of equations with multiple unknowns | [226](optimization/optimization-principles-and-algorithms.pdf#page=226) |
+| 8.3 Project | [234](optimization/optimization-principles-and-algorithms.pdf#page=234) |
+| IV Unconstrained optimization | [235](optimization/optimization-principles-and-algorithms.pdf#page=235) |
+| 9 Quadratic problems | [239](optimization/optimization-principles-and-algorithms.pdf#page=239) |
+| 9.1 Direct solution | [239](optimization/optimization-principles-and-algorithms.pdf#page=239) |
+| 9.2 Conjugate gradient method | [240](optimization/optimization-principles-and-algorithms.pdf#page=240) |
+| 9.3 Project | [250](optimization/optimization-principles-and-algorithms.pdf#page=250) |
+| 10 Newton's local method | [253](optimization/optimization-principles-and-algorithms.pdf#page=253) |
+| 10.1 Solving the necessary optimality conditions | [253](optimization/optimization-principles-and-algorithms.pdf#page=253) |
+| 10.2 Geometric interpretation | [254](optimization/optimization-principles-and-algorithms.pdf#page=254) |
+| 10.3 Exercises | [262](optimization/optimization-principles-and-algorithms.pdf#page=262) |
+| 11 Descent methods and line search | [263](optimization/optimization-principles-and-algorithms.pdf#page=263) |
+| 11.1 Preconditioned steepest descent | [264](optimization/optimization-principles-and-algorithms.pdf#page=264) |
+| 11.2 Exact line search | [269](optimization/optimization-principles-and-algorithms.pdf#page=269) |
+| 11.3 Inexact line search | [281](optimization/optimization-principles-and-algorithms.pdf#page=281) |
+| 11.4 Steepest descent method | [295](optimization/optimization-principles-and-algorithms.pdf#page=295) |
+| 11.5 Newton method with line search | [295](optimization/optimization-principles-and-algorithms.pdf#page=295) |
+| 11.6 The Rosenbrock problem | [299](optimization/optimization-principles-and-algorithms.pdf#page=299) |
+| 11.7 Convergence | [302](optimization/optimization-principles-and-algorithms.pdf#page=302) |
+| 11.8 Project | [306](optimization/optimization-principles-and-algorithms.pdf#page=306) |
+| 12 Trust region | [309](optimization/optimization-principles-and-algorithms.pdf#page=309) |
+| 12.1 Solving the trust region subproblem | [312](optimization/optimization-principles-and-algorithms.pdf#page=312) |
+| 12.2 Calculation of the radius of the trust region | [318](optimization/optimization-principles-and-algorithms.pdf#page=318) |
+| 12.3 The Rosenbrock problem | [326](optimization/optimization-principles-and-algorithms.pdf#page=326) |
+| 12.4 Project | [327](optimization/optimization-principles-and-algorithms.pdf#page=327) |
+| 13 Quasi-Newton methods | [329](optimization/optimization-principles-and-algorithms.pdf#page=329) |
+| 13.1 BFGS | [329](optimization/optimization-principles-and-algorithms.pdf#page=329) |
+| 13.2 Symmetric update of rank 1 (SR1) | [335](optimization/optimization-principles-and-algorithms.pdf#page=335) |
+| 13.3 The Rosenbrock problem | [338](optimization/optimization-principles-and-algorithms.pdf#page=338) |
+| 13.4 Comments | [338](optimization/optimization-principles-and-algorithms.pdf#page=338) |
+| 13.5 Project | [344](optimization/optimization-principles-and-algorithms.pdf#page=344) |
+| 14 Least squares problem | [347](optimization/optimization-principles-and-algorithms.pdf#page=347) |
+| 14.1 The Gauss-Newton method | [352](optimization/optimization-principles-and-algorithms.pdf#page=352) |
+| 14.2 Kalman filter | [355](optimization/optimization-principles-and-algorithms.pdf#page=355) |
+| 14.3 Orthogonal regression | [359](optimization/optimization-principles-and-algorithms.pdf#page=359) |
+| 14.4 Project | [361](optimization/optimization-principles-and-algorithms.pdf#page=361) |
+| 15 Direct search methods | [365](optimization/optimization-principles-and-algorithms.pdf#page=365) |
+| 15.1 Nelder-Mead | [366](optimization/optimization-principles-and-algorithms.pdf#page=366) |
+| 15.2 Torczon's multi-directional search | [372](optimization/optimization-principles-and-algorithms.pdf#page=372) |
+| 15.3 Project | [375](optimization/optimization-principles-and-algorithms.pdf#page=375) |
+| V Constrained optimization | [377](optimization/optimization-principles-and-algorithms.pdf#page=377) |
+| 16 The simplex method | [381](optimization/optimization-principles-and-algorithms.pdf#page=381) |
+| 16.1 The simplex algorithm | [381](optimization/optimization-principles-and-algorithms.pdf#page=381) |
+| 16.2 The simplex tableau | [394](optimization/optimization-principles-and-algorithms.pdf#page=394) |
+| 16.3 The initial tableau | [403](optimization/optimization-principles-and-algorithms.pdf#page=403) |
+| 16.4 The revised simplex algorithm | [412](optimization/optimization-principles-and-algorithms.pdf#page=412) |
+| 16.5 Exercises | [413](optimization/optimization-principles-and-algorithms.pdf#page=413) |
+| 16.6 Project | [414](optimization/optimization-principles-and-algorithms.pdf#page=414) |
+| 17 Newton's method for constrained optimization | [417](optimization/optimization-principles-and-algorithms.pdf#page=417) |
+| 17.1 Projected gradient method | [417](optimization/optimization-principles-and-algorithms.pdf#page=417) |
+| 17.2 Preconditioned projected gradient | [423](optimization/optimization-principles-and-algorithms.pdf#page=423) |
+| 17.3 Dikin's method | [425](optimization/optimization-principles-and-algorithms.pdf#page=425) |
+| 17.4 Project | [430](optimization/optimization-principles-and-algorithms.pdf#page=430) |
+| 18 Interior point methods | [433](optimization/optimization-principles-and-algorithms.pdf#page=433) |
+| 18.1 Barrier methods | [433](optimization/optimization-principles-and-algorithms.pdf#page=433) |
+| 18.2 Linear optimization | [440](optimization/optimization-principles-and-algorithms.pdf#page=440) |
+| 18.3 Project | [461](optimization/optimization-principles-and-algorithms.pdf#page=461) |
+| 19 Augmented Lagrangian method | [463](optimization/optimization-principles-and-algorithms.pdf#page=463) |
+| 19.1 Lagrangian penalty | [465](optimization/optimization-principles-and-algorithms.pdf#page=465) |
+| 19.2 Quadratic penalty | [467](optimization/optimization-principles-and-algorithms.pdf#page=467) |
+| 19.3 Double penalty | [468](optimization/optimization-principles-and-algorithms.pdf#page=468) |
+| 19.4 Project | [478](optimization/optimization-principles-and-algorithms.pdf#page=478) |
+| 20 Sequential quadratic programming | [481](optimization/optimization-principles-and-algorithms.pdf#page=481) |
+| 20.1 Local sequential quadratic programming | [482](optimization/optimization-principles-and-algorithms.pdf#page=482) |
+| 20.2 Globally convergent algorithm | [489](optimization/optimization-principles-and-algorithms.pdf#page=489) |
+| 20.3 Project | [502](optimization/optimization-principles-and-algorithms.pdf#page=502) |
+| VI Networks | [505](optimization/optimization-principles-and-algorithms.pdf#page=505) |
+| 21 Introduction and definitions | [509](optimization/optimization-principles-and-algorithms.pdf#page=509) |
+| 21.1 Graphs | [510](optimization/optimization-principles-and-algorithms.pdf#page=510) |
+| 21.2 Cuts | [512](optimization/optimization-principles-and-algorithms.pdf#page=512) |
+| 21.3 Paths | [513](optimization/optimization-principles-and-algorithms.pdf#page=513) |
+| 21.4 Trees | [516](optimization/optimization-principles-and-algorithms.pdf#page=516) |
+| 21.5 Networks | [519](optimization/optimization-principles-and-algorithms.pdf#page=519) |
+| 21.6 Flow decomposition | [528](optimization/optimization-principles-and-algorithms.pdf#page=528) |
+| 21.7 Minimum spanning trees | [538](optimization/optimization-principles-and-algorithms.pdf#page=538) |
+| 21.8 Exercises | [542](optimization/optimization-principles-and-algorithms.pdf#page=542) |
+| 22 The transhipment problem | [547](optimization/optimization-principles-and-algorithms.pdf#page=547) |
+| 22.1 Formulation | [547](optimization/optimization-principles-and-algorithms.pdf#page=547) |
+| 22.2 Optimality conditions | [553](optimization/optimization-principles-and-algorithms.pdf#page=553) |
+| 22.3 Total unimodularity | [554](optimization/optimization-principles-and-algorithms.pdf#page=554) |
+| 22.4 Modeling | [557](optimization/optimization-principles-and-algorithms.pdf#page=557) |
+| 22.5 Exercises | [567](optimization/optimization-principles-and-algorithms.pdf#page=567) |
+| 23 Shortest path | [569](optimization/optimization-principles-and-algorithms.pdf#page=569) |
+| 23.1 Properties | [570](optimization/optimization-principles-and-algorithms.pdf#page=570) |
+| 23.2 The shortest path algorithm | [576](optimization/optimization-principles-and-algorithms.pdf#page=576) |
+| 23.3 Dijkstra's algorithm | [584](optimization/optimization-principles-and-algorithms.pdf#page=584) |
+| 23.4 The longest path problem | [589](optimization/optimization-principles-and-algorithms.pdf#page=589) |
+| 23.5 Exercises | [592](optimization/optimization-principles-and-algorithms.pdf#page=592) |
+| 24 Maximum flow | [595](optimization/optimization-principles-and-algorithms.pdf#page=595) |
+| 24.1 The Ford-Fulkerson algorithm | [595](optimization/optimization-principles-and-algorithms.pdf#page=595) |
+| 24.2 The minimum cut problem | [601](optimization/optimization-principles-and-algorithms.pdf#page=601) |
+| 24.3 Exercises | [606](optimization/optimization-principles-and-algorithms.pdf#page=606) |
+| VII Discrete optimization | [609](optimization/optimization-principles-and-algorithms.pdf#page=609) |
+| 25 Introduction to discrete optimization | [613](optimization/optimization-principles-and-algorithms.pdf#page=613) |
+| 25.1 Modeling | [613](optimization/optimization-principles-and-algorithms.pdf#page=613) |
+| 25.2 Classical problems | [625](optimization/optimization-principles-and-algorithms.pdf#page=625) |
+| 25.3 The curse of dimensionality | [632](optimization/optimization-principles-and-algorithms.pdf#page=632) |
+| 25.4 Relaxation | [634](optimization/optimization-principles-and-algorithms.pdf#page=634) |
+| 25.5 Exercises | [637](optimization/optimization-principles-and-algorithms.pdf#page=637) |
+| 26 Exact methods for discrete optimization | [643](optimization/optimization-principles-and-algorithms.pdf#page=643) |
+| 26.1 Branch and bound | [644](optimization/optimization-principles-and-algorithms.pdf#page=644) |
+| 26.2 Cutting planes | [655](optimization/optimization-principles-and-algorithms.pdf#page=655) |
+| 26.3 Exercises | [662](optimization/optimization-principles-and-algorithms.pdf#page=662) |
+| 26.4 Project | [663](optimization/optimization-principles-and-algorithms.pdf#page=663) |
+| 27 Heuristics | [665](optimization/optimization-principles-and-algorithms.pdf#page=665) |
+| 27.1 Greedy heuristics | [666](optimization/optimization-principles-and-algorithms.pdf#page=666) |
+| 27.2 Neighborhood and local search | [674](optimization/optimization-principles-and-algorithms.pdf#page=674) |
+| 27.3 Variable neighborhood search | [687](optimization/optimization-principles-and-algorithms.pdf#page=687) |
+| 27.4 Simulated annealing | [692](optimization/optimization-principles-and-algorithms.pdf#page=692) |
+| 27.5 Conclusion | [700](optimization/optimization-principles-and-algorithms.pdf#page=700) |
+| 27.6 Project | [700](optimization/optimization-principles-and-algorithms.pdf#page=700) |
+| VIII Appendices | [703](optimization/optimization-principles-and-algorithms.pdf#page=703) |
+| Notations | [705](optimization/optimization-principles-and-algorithms.pdf#page=705) |
+| Definitions | [707](optimization/optimization-principles-and-algorithms.pdf#page=707) |
+| Theorems | [713](optimization/optimization-principles-and-algorithms.pdf#page=713) |
+| Projects | [717](optimization/optimization-principles-and-algorithms.pdf#page=717) |
+| References | [720](optimization/optimization-principles-and-algorithms.pdf#page=720) |
+| Bibliography | [721](optimization/optimization-principles-and-algorithms.pdf#page=721) |
+| Index | [730](optimization/optimization-principles-and-algorithms.pdf#page=730) |
+
+**Algorithms.** Each block starts on the page given; its worked examples follow within a few pages.
+
+| Algorithm | PDF page |
+| --- | --- |
+| Algorithm 7.1 Machine epsilon | [202](optimization/optimization-principles-and-algorithms.pdf#page=202) |
+| Algorithm 7.2 Newton’s method: one variable | [203](optimization/optimization-principles-and-algorithms.pdf#page=203) |
+| Algorithm 7.3 Newton’s method: n variables | [212](optimization/optimization-principles-and-algorithms.pdf#page=212) |
+| Algorithm 8.1 Finite difference Newton’s method: one variable | [221](optimization/optimization-principles-and-algorithms.pdf#page=221) |
+| Algorithm 8.2 Secant method: one variable | [224](optimization/optimization-principles-and-algorithms.pdf#page=224) |
+| Algorithm 8.3 Finite difference Newton’s method: n variables | [226](optimization/optimization-principles-and-algorithms.pdf#page=226) |
+| Algorithm 8.4 Secant method: n variables | [232](optimization/optimization-principles-and-algorithms.pdf#page=232) |
+| Algorithm 9.1 Quadratic problems: direct solution | [240](optimization/optimization-principles-and-algorithms.pdf#page=240) |
+| Algorithm 9.2 Conjugate gradient method | [248](optimization/optimization-principles-and-algorithms.pdf#page=248) |
+| Algorithm 10.1 Newton’s local method | [254](optimization/optimization-principles-and-algorithms.pdf#page=254) |
+| Algorithm 10.2 Newton’s local method by quadratic modeling | [257](optimization/optimization-principles-and-algorithms.pdf#page=257) |
+| Algorithm 11.1 Preconditioned steepest descent method | [269](optimization/optimization-principles-and-algorithms.pdf#page=269) |
+| Algorithm 11.2 Initialization of the exact line search | [270](optimization/optimization-principles-and-algorithms.pdf#page=270) |
+| Algorithm 11.3 Exact line search: quadratic interpolation | [272](optimization/optimization-principles-and-algorithms.pdf#page=272) |
+| Algorithm 11.4 Exact line search: golden section | [278](optimization/optimization-principles-and-algorithms.pdf#page=278) |
+| Algorithm 11.5 Line search | [292](optimization/optimization-principles-and-algorithms.pdf#page=292) |
+| Algorithm 11.6 Steepest descent method | [295](optimization/optimization-principles-and-algorithms.pdf#page=295) |
+| Algorithm 11.7 Modified Cholesky factorization | [296](optimization/optimization-principles-and-algorithms.pdf#page=296) |
+| Algorithm 11.8 Newton algorithm with line search | [297](optimization/optimization-principles-and-algorithms.pdf#page=297) |
+| Algorithm 12.1 Intersection with the trust region | [316](optimization/optimization-principles-and-algorithms.pdf#page=316) |
+| Algorithm 12.2 Dogleg method | [317](optimization/optimization-principles-and-algorithms.pdf#page=317) |
+| Algorithm 12.3 Steihaug-Toint truncated conjugate gradient method | [318](optimization/optimization-principles-and-algorithms.pdf#page=318) |
+| Algorithm 12.4 Newton’s method with trust region | [320](optimization/optimization-principles-and-algorithms.pdf#page=320) |
+| Algorithm 13.1 Quasi-Newton BFGS method | [334](optimization/optimization-principles-and-algorithms.pdf#page=334) |
+| Algorithm 13.2 Quasi-Newton SR1 method | [337](optimization/optimization-principles-and-algorithms.pdf#page=337) |
+| Algorithm 14.1 Gauss-Newton method | [353](optimization/optimization-principles-and-algorithms.pdf#page=353) |
+| Algorithm 14.2 The Kalman filter method | [357](optimization/optimization-principles-and-algorithms.pdf#page=357) |
+| Algorithm 14.3 The Kalman filter method in real time | [360](optimization/optimization-principles-and-algorithms.pdf#page=360) |
+| Algorithm 15.1 Nelder-Mead | [367](optimization/optimization-principles-and-algorithms.pdf#page=367) |
+| Algorithm 15.2 Torczon’s multi-directional method | [373](optimization/optimization-principles-and-algorithms.pdf#page=373) |
+| Algorithm 16.1 Vertex enumeration | [386](optimization/optimization-principles-and-algorithms.pdf#page=386) |
+| Algorithm 16.2 Simplex method | [389](optimization/optimization-principles-and-algorithms.pdf#page=389) |
+| Algorithm 16.3 Tableau pivoting | [399](optimization/optimization-principles-and-algorithms.pdf#page=399) |
+| Algorithm 16.4 Simplex algorithm | [401](optimization/optimization-principles-and-algorithms.pdf#page=401) |
+| Algorithm 16.5 Simplex algorithm in two phases | [409](optimization/optimization-principles-and-algorithms.pdf#page=409) |
+| Algorithm 17.1 Projected gradient method | [419](optimization/optimization-principles-and-algorithms.pdf#page=419) |
+| Algorithm 17.2 Preconditioned projected gradient method | [425](optimization/optimization-principles-and-algorithms.pdf#page=425) |
+| Algorithm 17.3 Dikin’s method | [427](optimization/optimization-principles-and-algorithms.pdf#page=427) |
+| Algorithm 18.1 Generic interior points algorithm | [448](optimization/optimization-principles-and-algorithms.pdf#page=448) |
+| Algorithm 18.2 Interior point algorithm with restricted steps | [454](optimization/optimization-principles-and-algorithms.pdf#page=454) |
+| Algorithm 18.3 Predictor-corrector interior point algorithm | [455](optimization/optimization-principles-and-algorithms.pdf#page=455) |
+| Algorithm 18.4 Long step interior point algorithm | [458](optimization/optimization-principles-and-algorithms.pdf#page=458) |
+| Algorithm 19.1 Augmented Lagrangian algorithm | [472](optimization/optimization-principles-and-algorithms.pdf#page=472) |
+| Algorithm 20.1 Local SQP algorithm | [484](optimization/optimization-principles-and-algorithms.pdf#page=484) |
+| Algorithm 20.2 Globalized SQP algorithm | [498](optimization/optimization-principles-and-algorithms.pdf#page=498) |
+| Algorithm 21.1 Generation of a simple cycle ﬂow from a circulation | [530](optimization/optimization-principles-and-algorithms.pdf#page=530) |
+| Algorithm 21.2 Circulation decomposition | [534](optimization/optimization-principles-and-algorithms.pdf#page=534) |
+| Algorithm 21.3 Flow decomposition | [535](optimization/optimization-principles-and-algorithms.pdf#page=535) |
+| Algorithm 21.4 Jarnik-Prim algorithm for minimum spanning tree | [541](optimization/optimization-principles-and-algorithms.pdf#page=541) |
+| Algorithm 23.1 The shortest path algorithm | [578](optimization/optimization-principles-and-algorithms.pdf#page=578) |
+| Algorithm 23.2 Dijkstra’s algorithm | [587](optimization/optimization-principles-and-algorithms.pdf#page=587) |
+| Algorithm 24.1 Generation of an unsaturated path | [598](optimization/optimization-principles-and-algorithms.pdf#page=598) |
+| Algorithm 24.2 Ford-Fulkerson algorithm | [599](optimization/optimization-principles-and-algorithms.pdf#page=599) |
+| Algorithm 26.1 Branch and bound | [647](optimization/optimization-principles-and-algorithms.pdf#page=647) |
+| Algorithm 26.2 Branch and bound for integer optimization | [652](optimization/optimization-principles-and-algorithms.pdf#page=652) |
+| Algorithm 26.3 Gomory cuts for integer linear optimization | [661](optimization/optimization-principles-and-algorithms.pdf#page=661) |
+| Algorithm 27.1 Nearest neighbor greedy algorithm | [667](optimization/optimization-principles-and-algorithms.pdf#page=667) |
+| Algorithm 27.2 Insertion greedy algorithm | [671](optimization/optimization-principles-and-algorithms.pdf#page=671) |
+| Algorithm 27.3 Local search | [675](optimization/optimization-principles-and-algorithms.pdf#page=675) |
+| Algorithm 27.4 Local search: a variant | [677](optimization/optimization-principles-and-algorithms.pdf#page=677) |
+| Algorithm 27.5 Neighborhood of size k for the knapsack problem | [681](optimization/optimization-principles-and-algorithms.pdf#page=681) |
+| Algorithm 27.6 Variable Neighborhood Search | [687](optimization/optimization-principles-and-algorithms.pdf#page=687) |
+| Algorithm 27.7 Simulated annealing | [694](optimization/optimization-principles-and-algorithms.pdf#page=694) |
