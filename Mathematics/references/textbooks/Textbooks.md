@@ -76,6 +76,54 @@ table on this page gives PDF pages.
 | change of variables for densities | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=220) | 220 |
 | what a vector field is (Definition 15.1.1) | [calculus textbook](calculus/calculus-textbook.pdf#page=1109) | 1109 |
 | gradient fields: a field that is the gradient of a function | [calculus textbook](calculus/calculus-textbook.pdf#page=1111) | 1111 |
+| expectation (discrete): the definition, why it is the dataset average, with figure (intuition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=141) | 141 |
+| expectation (continuous): the integral definition with uniform and exponential worked examples | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=196) | 196 |
+| conditional expectation: the definition for discrete and continuous variables | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=291) | 291 |
+| conditional expectation: law of total expectation, with proof | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=292) | 292 |
+| conditional expectation: E[X] = E[E[X|Y]] with a worked two-class example | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=293) | 293 |
+| variance (continuous): the definition and the E[X²] − μ² shortcut, with proof | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=200) | 200 |
+| variance: worked example for the uniform distribution | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=201) | 201 |
+| covariance: the definition, and Cov(X, Y) = E[XY] − E[X]E[Y] with proof | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=278) | 278 |
+| covariance: why joint expectation is E[XY], through the angle between two vectors (intuition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=274) | 274 |
+| conditional probability: the definition P[A|B] = P[A ∩ B] / P[B], with intuition | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=97) | 97 |
+| Bayes' rule: the theorem with proof, plus the law of total probability | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=105) | 105 |
+| Bayes' rule: worked examples (winning a match against three player types, a noisy channel) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=107) | 107 |
+| the Gaussian distribution: the density and its two parameters, mean and variance | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=227) | 227 |
+| the Gaussian distribution: plots of how μ and σ move and widen the curve (intuition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=228) | 228 |
+| the multivariate Gaussian: the d-dimensional density with Σ⁻¹ (definition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=306) | 306 |
+| the multivariate Gaussian: its mean vector and covariance matrix, the diagonal case | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=307) | 307 |
+| hypothesis testing: null and alternative hypotheses, the courtroom picture (intuition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=582) | 582 |
+| hypothesis testing: a worked die example with an estimator | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=583) | 583 |
+| hypothesis testing: the p-value, with a worked number | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=588) | 588 |
+| maximum likelihood estimation: the likelihood function from the joint density (intuition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=484) | 484 |
+| maximum likelihood estimation: the i.i.d. likelihood and log-likelihood | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=486) | 486 |
+| maximum likelihood estimation: the ML estimate, with a Bernoulli worked example | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=489) | 489 |
+| law of large numbers: the sample average and its mean | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=367) | 367 |
+| law of large numbers: the weak law, with proof by Chebyshev | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=370) | 370 |
+| central limit theorem: the dice picture and what the theorem says (intuition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=382) | 382 |
+| central limit theorem: the theorem statement (Theorem 6.19) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=388) | 388 |
+| joint distribution: the joint PMF, with figure | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=262) | 262 |
+| marginal distribution: the marginal PMF and PDF by summing or integrating out one variable | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=266) | 266 |
+| conditional distribution: the conditional PMF p(x|y) = p(x, y) / p(y) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=283) | 283 |
+| backpropagation: the chain rule over a computational graph, then the algorithm (sections 6.5.1 to 6.5.4) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=220) | 220 |
+| backpropagation: the algorithm for a fully-connected net (Algorithm 6.2 on PDF page 226, forward and backward passes 6.3 and 6.4 on 228 and 229) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=226) | 226 |
+| backpropagation worked on a small network, then the algorithm and its summary (section 7.4; summary on page 120) | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=117) | 117 |
+| the score and score matching: what the score is and why matching it avoids the partition function (section 18.4 starts here) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=633) | 633 |
+| denoising score matching: fitting the score of a noise-corrupted data distribution (section 18.5) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=635) | 635 |
+| energy-based models: p̃(x) = exp(−E(x)), equation 16.7 | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=585) | 585 |
+| Markov chain Monte Carlo: why a Markov chain is used to sample from p_model (section 17.3) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=611) | 611 |
+| Metropolis-Hastings: named in a single sentence as an alternative to Gibbs sampling, with no derivation | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=615) | 615 |
+| diffusion models: the overview and what the encoder and decoder do (chapter 18) | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=362) | 362 |
+| diffusion models: the forward process that adds noise (section 18.2) | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=363) | 363 |
+| diffusion models: the reverse process, starting from Bayes' rule on the forward step (section 18.3) | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=369) | 369 |
+| diffusion models: training and the loss (section 18.4) | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=370) | 370 |
+| the Gaussian, univariate: the density and its mean and variance (section 3.9.3) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=79) | 79 |
+| the Gaussian, univariate: the density with parameters µ and σ² (equation C.21) | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=470) | 470 |
+| the multivariate Gaussian: spherical, diagonal and full covariance, drawn as contours | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=471) | 471 |
+| KL divergence: definition and non-negativity (equation 3.50) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=90) | 90 |
+| KL divergence: definition for densities (equation C.28) | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=474) | 474 |
+| cross-entropy: H(P, Q) = H(P) + D_KL(P‖Q), equation 3.51 | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=91) | 91 |
+| cross-entropy loss: fitting a model by minimising the distance to the empirical distribution, equal to negative log-likelihood (section 5.7) | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=85) | 85 |
 
 ## general/
 
@@ -753,6 +801,86 @@ contents. The printed page number is the PDF page minus 1.
 | 6.7 The Least Squares Technique | [128](statistics/introduction-to-statistics.pdf#page=128) |
 | 6.9 Making Inferences about β0 and β1 | [133](statistics/introduction-to-statistics.pdf#page=133) |
 
+### Introduction to probability for data science
+
+`statistics/introduction-to-probability-for-data-science.pdf`, 709 pages. Stanley H. Chan, *Introduction to Probability for Data Science*, Michigan Publishing,
+2021 (Purdue University; free electronic edition, first edition). A first course in probability written
+for data science: each idea comes with a figure, a plain-words summary box ("What is conditional
+expectation?") and a worked example, and the proofs are kept short. Chapters 1 to 5 build probability,
+random variables and joint distributions; 6 to 9 cover sample statistics, the law of large numbers and
+the central limit theorem, regression, maximum-likelihood and MAP estimation, confidence intervals and
+hypothesis tests; 10 is random processes. Was `Introduction to Probability for Data Science (Stanley
+Chan) (Z-Library).pdf`. The embedded outline lists sections without numbers; the numbers below follow
+the printed contents. The printed page number is the PDF page minus 16.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| 1 Mathematical Background | [17](statistics/introduction-to-probability-for-data-science.pdf#page=17) |
+| 1.1 Infinite Series | [18](statistics/introduction-to-probability-for-data-science.pdf#page=18) |
+| 1.2 Approximation | [26](statistics/introduction-to-probability-for-data-science.pdf#page=26) |
+| 1.3 Integration | [31](statistics/introduction-to-probability-for-data-science.pdf#page=31) |
+| 1.4 Linear Algebra | [36](statistics/introduction-to-probability-for-data-science.pdf#page=36) |
+| 1.5 Basic Combinatorics | [47](statistics/introduction-to-probability-for-data-science.pdf#page=47) |
+| 2 Probability | [59](statistics/introduction-to-probability-for-data-science.pdf#page=59) |
+| 2.1 Set Theory | [60](statistics/introduction-to-probability-for-data-science.pdf#page=60) |
+| 2.2 Probability Space | [74](statistics/introduction-to-probability-for-data-science.pdf#page=74) |
+| 2.3 Axioms of Probability | [90](statistics/introduction-to-probability-for-data-science.pdf#page=90) |
+| 2.4 Conditional Probability | [96](statistics/introduction-to-probability-for-data-science.pdf#page=96) |
+| 3 Discrete Random Variables | [119](statistics/introduction-to-probability-for-data-science.pdf#page=119) |
+| 3.1 Random Variables | [121](statistics/introduction-to-probability-for-data-science.pdf#page=121) |
+| 3.2 Probability Mass Function | [126](statistics/introduction-to-probability-for-data-science.pdf#page=126) |
+| 3.3 Cumulative Distribution Functions (Discrete) | [137](statistics/introduction-to-probability-for-data-science.pdf#page=137) |
+| 3.4 Expectation | [141](statistics/introduction-to-probability-for-data-science.pdf#page=141) |
+| 3.5 Common Discrete Random Variables | [152](statistics/introduction-to-probability-for-data-science.pdf#page=152) |
+| 4 Continuous Random Variables | [187](statistics/introduction-to-probability-for-data-science.pdf#page=187) |
+| 4.1 Probability Density Function | [188](statistics/introduction-to-probability-for-data-science.pdf#page=188) |
+| 4.2 Expectation, Moment, and Variance | [196](statistics/introduction-to-probability-for-data-science.pdf#page=196) |
+| 4.3 Cumulative Distribution Function | [201](statistics/introduction-to-probability-for-data-science.pdf#page=201) |
+| 4.4 Median, Mode, and Mean | [212](statistics/introduction-to-probability-for-data-science.pdf#page=212) |
+| 4.5 Uniform and Exponential Random Variables | [217](statistics/introduction-to-probability-for-data-science.pdf#page=217) |
+| 4.6 Gaussian Random Variables | [227](statistics/introduction-to-probability-for-data-science.pdf#page=227) |
+| 4.7 Functions of Random Variables | [239](statistics/introduction-to-probability-for-data-science.pdf#page=239) |
+| 4.8 Generating Random Numbers | [245](statistics/introduction-to-probability-for-data-science.pdf#page=245) |
+| 5 Joint Distributions | [257](statistics/introduction-to-probability-for-data-science.pdf#page=257) |
+| 5.1 Joint PMF and Joint PDF | [260](statistics/introduction-to-probability-for-data-science.pdf#page=260) |
+| 5.2 Joint Expectation | [273](statistics/introduction-to-probability-for-data-science.pdf#page=273) |
+| 5.3 Conditional PMF and PDF | [282](statistics/introduction-to-probability-for-data-science.pdf#page=282) |
+| 5.4 Conditional Expectation | [291](statistics/introduction-to-probability-for-data-science.pdf#page=291) |
+| 5.5 Sum of Two Random Variables | [296](statistics/introduction-to-probability-for-data-science.pdf#page=296) |
+| 5.6 Random Vectors and Covariance Matrices | [302](statistics/introduction-to-probability-for-data-science.pdf#page=302) |
+| 5.7 Transformation of Multidimensional Gaussians | [309](statistics/introduction-to-probability-for-data-science.pdf#page=309) |
+| 5.8 Principal-Component Analysis | [319](statistics/introduction-to-probability-for-data-science.pdf#page=319) |
+| 6 Sample Statistics | [335](statistics/introduction-to-probability-for-data-science.pdf#page=335) |
+| 6.1 Moment-Generating and Characteristic Functions | [340](statistics/introduction-to-probability-for-data-science.pdf#page=340) |
+| 6.2 Probability Inequalities | [349](statistics/introduction-to-probability-for-data-science.pdf#page=349) |
+| 6.3 Law of Large Numbers | [367](statistics/introduction-to-probability-for-data-science.pdf#page=367) |
+| 6.4 Central Limit Theorem | [382](statistics/introduction-to-probability-for-data-science.pdf#page=382) |
+| 7 Regression | [405](statistics/introduction-to-probability-for-data-science.pdf#page=405) |
+| 7.1 Principles of Regression | [410](statistics/introduction-to-probability-for-data-science.pdf#page=410) |
+| 7.2 Overfitting | [434](statistics/introduction-to-probability-for-data-science.pdf#page=434) |
+| 7.3 Bias and Variance Trade-Off | [445](statistics/introduction-to-probability-for-data-science.pdf#page=445) |
+| 7.4 Regularization | [456](statistics/introduction-to-probability-for-data-science.pdf#page=456) |
+| 8 Estimation | [481](statistics/introduction-to-probability-for-data-science.pdf#page=481) |
+| 8.1 Maximum-Likelihood Estimation | [484](statistics/introduction-to-probability-for-data-science.pdf#page=484) |
+| 8.2 Properties of ML Estimates | [507](statistics/introduction-to-probability-for-data-science.pdf#page=507) |
+| 8.3 Maximum A Posteriori Estimation | [518](statistics/introduction-to-probability-for-data-science.pdf#page=518) |
+| 8.4 Minimum Mean-Square Estimation | [536](statistics/introduction-to-probability-for-data-science.pdf#page=536) |
+| 9 Confidence and Hypothesis | [557](statistics/introduction-to-probability-for-data-science.pdf#page=557) |
+| 9.1 Confidence Interval | [559](statistics/introduction-to-probability-for-data-science.pdf#page=559) |
+| 9.2 Bootstrapping | [575](statistics/introduction-to-probability-for-data-science.pdf#page=575) |
+| 9.3 Hypothesis Testing | [582](statistics/introduction-to-probability-for-data-science.pdf#page=582) |
+| 9.4 Neyman-Pearson Test | [593](statistics/introduction-to-probability-for-data-science.pdf#page=593) |
+| 9.5 ROC and Precision-Recall Curve | [605](statistics/introduction-to-probability-for-data-science.pdf#page=605) |
+| 10 Random Processes | [627](statistics/introduction-to-probability-for-data-science.pdf#page=627) |
+| 10.1 Basic Concepts | [628](statistics/introduction-to-probability-for-data-science.pdf#page=628) |
+| 10.2 Mean and Correlation Functions | [634](statistics/introduction-to-probability-for-data-science.pdf#page=634) |
+| 10.3 Wide-Sense Stationary Processes | [646](statistics/introduction-to-probability-for-data-science.pdf#page=646) |
+| 10.4 Power Spectral Density | [652](statistics/introduction-to-probability-for-data-science.pdf#page=652) |
+| 10.5 WSS Process through LTI Systems | [659](statistics/introduction-to-probability-for-data-science.pdf#page=659) |
+| 10.6 Optimal Linear Filter | [669](statistics/introduction-to-probability-for-data-science.pdf#page=669) |
+| Appendix to chapter 10 | [686](statistics/introduction-to-probability-for-data-science.pdf#page=686) |
+| Appendix | [697](statistics/introduction-to-probability-for-data-science.pdf#page=697) |
+
 ## machine-learning/
 
 ### Mathematics for machine learning
@@ -850,3 +978,883 @@ heading in the text; Part II is listed down to the chapters and their first sect
 | 12.3 Dual Support Vector Machine | [389](machine-learning/mathematics-for-machine-learning.pdf#page=389) |
 | 12.4 Kernels | [394](machine-learning/mathematics-for-machine-learning.pdf#page=394) |
 | 12.5 Numerical Solution | [396](machine-learning/mathematics-for-machine-learning.pdf#page=396) |
+
+### Pattern recognition and machine learning
+
+`machine-learning/pattern-recognition-and-machine-learning.pdf`, 749 pages. Christopher M. Bishop, *Pattern Recognition and Machine Learning*, Springer, 2006
+(first edition, Information Science and Statistics series). A Bayesian treatment of machine learning:
+probability distributions (chapter 2 holds the Gaussian in full, with conditionals, marginals and Bayes'
+theorem for Gaussians), linear models, neural networks, kernels, graphical models, EM, variational
+inference, sampling, latent-variable models and sequential data. Was `Pattern Recogniton And Machine
+Learning.pdf`. The embedded outline has chapters only; the section rows come from the printed contents
+and each page is the printed page plus 19, so the printed page number is the PDF page minus 19. Appendix
+rows are the outline's own pages.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| 1 Introduction | [20](machine-learning/pattern-recognition-and-machine-learning.pdf#page=20) |
+| 1.1 Example: Polynomial Curve Fitting | [23](machine-learning/pattern-recognition-and-machine-learning.pdf#page=23) |
+| 1.2 Probability Theory | [31](machine-learning/pattern-recognition-and-machine-learning.pdf#page=31) |
+| 1.3 Model Selection | [51](machine-learning/pattern-recognition-and-machine-learning.pdf#page=51) |
+| 1.4 The Curse of Dimensionality | [52](machine-learning/pattern-recognition-and-machine-learning.pdf#page=52) |
+| 1.5 Decision Theory | [57](machine-learning/pattern-recognition-and-machine-learning.pdf#page=57) |
+| 1.6 Information Theory | [67](machine-learning/pattern-recognition-and-machine-learning.pdf#page=67) |
+| 2 Probability Distributions | [86](machine-learning/pattern-recognition-and-machine-learning.pdf#page=86) |
+| 2.1 Binary Variables | [87](machine-learning/pattern-recognition-and-machine-learning.pdf#page=87) |
+| 2.2 Multinomial Variables | [93](machine-learning/pattern-recognition-and-machine-learning.pdf#page=93) |
+| 2.3 The Gaussian Distribution | [97](machine-learning/pattern-recognition-and-machine-learning.pdf#page=97) |
+| 2.4 The Exponential Family | [132](machine-learning/pattern-recognition-and-machine-learning.pdf#page=132) |
+| 2.5 Nonparametric Methods | [139](machine-learning/pattern-recognition-and-machine-learning.pdf#page=139) |
+| 3 Linear Models for Regression | [156](machine-learning/pattern-recognition-and-machine-learning.pdf#page=156) |
+| 3.1 Linear Basis Function Models | [157](machine-learning/pattern-recognition-and-machine-learning.pdf#page=157) |
+| 3.2 The Bias-Variance Decomposition | [166](machine-learning/pattern-recognition-and-machine-learning.pdf#page=166) |
+| 3.3 Bayesian Linear Regression | [171](machine-learning/pattern-recognition-and-machine-learning.pdf#page=171) |
+| 3.4 Bayesian Model Comparison | [180](machine-learning/pattern-recognition-and-machine-learning.pdf#page=180) |
+| 3.5 The Evidence Approximation | [184](machine-learning/pattern-recognition-and-machine-learning.pdf#page=184) |
+| 3.6 Limitations of Fixed Basis Functions | [191](machine-learning/pattern-recognition-and-machine-learning.pdf#page=191) |
+| 4 Linear Models for Classification | [198](machine-learning/pattern-recognition-and-machine-learning.pdf#page=198) |
+| 4.1 Discriminant Functions | [200](machine-learning/pattern-recognition-and-machine-learning.pdf#page=200) |
+| 4.2 Probabilistic Generative Models | [215](machine-learning/pattern-recognition-and-machine-learning.pdf#page=215) |
+| 4.3 Probabilistic Discriminative Models | [222](machine-learning/pattern-recognition-and-machine-learning.pdf#page=222) |
+| 4.4 The Laplace Approximation | [232](machine-learning/pattern-recognition-and-machine-learning.pdf#page=232) |
+| 4.5 Bayesian Logistic Regression | [236](machine-learning/pattern-recognition-and-machine-learning.pdf#page=236) |
+| 5 Neural Networks | [244](machine-learning/pattern-recognition-and-machine-learning.pdf#page=244) |
+| 5.1 Feed-forward Network Functions | [246](machine-learning/pattern-recognition-and-machine-learning.pdf#page=246) |
+| 5.2 Network Training | [251](machine-learning/pattern-recognition-and-machine-learning.pdf#page=251) |
+| 5.3 Error Backpropagation | [260](machine-learning/pattern-recognition-and-machine-learning.pdf#page=260) |
+| 5.4 The Hessian Matrix | [268](machine-learning/pattern-recognition-and-machine-learning.pdf#page=268) |
+| 5.5 Regularization in Neural Networks | [275](machine-learning/pattern-recognition-and-machine-learning.pdf#page=275) |
+| 5.6 Mixture Density Networks | [291](machine-learning/pattern-recognition-and-machine-learning.pdf#page=291) |
+| 5.7 Bayesian Neural Networks | [296](machine-learning/pattern-recognition-and-machine-learning.pdf#page=296) |
+| 6 Kernel Methods | [310](machine-learning/pattern-recognition-and-machine-learning.pdf#page=310) |
+| 6.1 Dual Representations | [312](machine-learning/pattern-recognition-and-machine-learning.pdf#page=312) |
+| 6.2 Constructing Kernels | [313](machine-learning/pattern-recognition-and-machine-learning.pdf#page=313) |
+| 6.3 Radial Basis Function Networks | [318](machine-learning/pattern-recognition-and-machine-learning.pdf#page=318) |
+| 6.4 Gaussian Processes | [322](machine-learning/pattern-recognition-and-machine-learning.pdf#page=322) |
+| 7 Sparse Kernel Machines | [344](machine-learning/pattern-recognition-and-machine-learning.pdf#page=344) |
+| 7.1 Maximum Margin Classifiers | [345](machine-learning/pattern-recognition-and-machine-learning.pdf#page=345) |
+| 7.2 Relevance Vector Machines | [364](machine-learning/pattern-recognition-and-machine-learning.pdf#page=364) |
+| 8 Graphical Models | [378](machine-learning/pattern-recognition-and-machine-learning.pdf#page=378) |
+| 8.1 Bayesian Networks | [379](machine-learning/pattern-recognition-and-machine-learning.pdf#page=379) |
+| 8.2 Conditional Independence | [391](machine-learning/pattern-recognition-and-machine-learning.pdf#page=391) |
+| 8.3 Markov Random Fields | [402](machine-learning/pattern-recognition-and-machine-learning.pdf#page=402) |
+| 8.4 Inference in Graphical Models | [412](machine-learning/pattern-recognition-and-machine-learning.pdf#page=412) |
+| 9 Mixture Models and EM | [442](machine-learning/pattern-recognition-and-machine-learning.pdf#page=442) |
+| 9.1 K-means Clustering | [443](machine-learning/pattern-recognition-and-machine-learning.pdf#page=443) |
+| 9.2 Mixtures of Gaussians | [449](machine-learning/pattern-recognition-and-machine-learning.pdf#page=449) |
+| 9.3 An Alternative View of EM | [458](machine-learning/pattern-recognition-and-machine-learning.pdf#page=458) |
+| 9.4 The EM Algorithm in General | [469](machine-learning/pattern-recognition-and-machine-learning.pdf#page=469) |
+| 10.1 Variational Inference | [481](machine-learning/pattern-recognition-and-machine-learning.pdf#page=481) |
+| 10.2 Illustration: Variational Mixture of Gaussians | [493](machine-learning/pattern-recognition-and-machine-learning.pdf#page=493) |
+| 10.3 Variational Linear Regression | [505](machine-learning/pattern-recognition-and-machine-learning.pdf#page=505) |
+| 10.4 Exponential Family Distributions | [509](machine-learning/pattern-recognition-and-machine-learning.pdf#page=509) |
+| 10.5 Local Variational Methods | [512](machine-learning/pattern-recognition-and-machine-learning.pdf#page=512) |
+| 10.6 Variational Logistic Regression | [517](machine-learning/pattern-recognition-and-machine-learning.pdf#page=517) |
+| 10.7 Expectation Propagation | [524](machine-learning/pattern-recognition-and-machine-learning.pdf#page=524) |
+| 11.1 Basic Sampling Algorithms | [545](machine-learning/pattern-recognition-and-machine-learning.pdf#page=545) |
+| 11.2 Markov Chain Monte Carlo | [556](machine-learning/pattern-recognition-and-machine-learning.pdf#page=556) |
+| 11.3 Gibbs Sampling | [561](machine-learning/pattern-recognition-and-machine-learning.pdf#page=561) |
+| 11.4 Slice Sampling | [565](machine-learning/pattern-recognition-and-machine-learning.pdf#page=565) |
+| 11.5 The Hybrid Monte Carlo Algorithm | [567](machine-learning/pattern-recognition-and-machine-learning.pdf#page=567) |
+| 11.6 Estimating the Partition Function | [573](machine-learning/pattern-recognition-and-machine-learning.pdf#page=573) |
+| 12.1 Principal Component Analysis | [580](machine-learning/pattern-recognition-and-machine-learning.pdf#page=580) |
+| 12.2 Probabilistic PCA | [589](machine-learning/pattern-recognition-and-machine-learning.pdf#page=589) |
+| 12.3 Kernel PCA | [605](machine-learning/pattern-recognition-and-machine-learning.pdf#page=605) |
+| 12.4 Nonlinear Latent Variable Models | [610](machine-learning/pattern-recognition-and-machine-learning.pdf#page=610) |
+| 13.1 Markov Models | [626](machine-learning/pattern-recognition-and-machine-learning.pdf#page=626) |
+| 13.2 Hidden Markov Models | [629](machine-learning/pattern-recognition-and-machine-learning.pdf#page=629) |
+| 13.3 Linear Dynamical Systems | [654](machine-learning/pattern-recognition-and-machine-learning.pdf#page=654) |
+| 14.1 Bayesian Model Averaging | [673](machine-learning/pattern-recognition-and-machine-learning.pdf#page=673) |
+| 14.2 Committees | [674](machine-learning/pattern-recognition-and-machine-learning.pdf#page=674) |
+| 14.3 Boosting | [676](machine-learning/pattern-recognition-and-machine-learning.pdf#page=676) |
+| 14.4 Tree-based Models | [682](machine-learning/pattern-recognition-and-machine-learning.pdf#page=682) |
+| 14.5 Conditional Mixture Models | [685](machine-learning/pattern-recognition-and-machine-learning.pdf#page=685) |
+| Appendix A Data Sets | [692](machine-learning/pattern-recognition-and-machine-learning.pdf#page=692) |
+| Appendix B Probability Distributions | [699](machine-learning/pattern-recognition-and-machine-learning.pdf#page=699) |
+| Appendix C Properties of Matrices | [708](machine-learning/pattern-recognition-and-machine-learning.pdf#page=708) |
+| Appendix D Calculus of Variations | [715](machine-learning/pattern-recognition-and-machine-learning.pdf#page=715) |
+| Appendix E Lagrange Multipliers | [718](machine-learning/pattern-recognition-and-machine-learning.pdf#page=718) |
+| References | [722](machine-learning/pattern-recognition-and-machine-learning.pdf#page=722) |
+| Index | [740](machine-learning/pattern-recognition-and-machine-learning.pdf#page=740) |
+
+### Probabilistic machine learning: an introduction
+
+`machine-learning/probabilistic-machine-learning-an-introduction.pdf`, 863 pages. Kevin P. Murphy, *Probabilistic Machine Learning: An Introduction*, MIT Press,
+copyright 2021, published 2022 (the first of two volumes; the second is *Probabilistic Machine Learning:
+Advanced Topics*, which is not on the shelf). The book builds machine learning from probability: Part I
+covers probability, statistics, decision theory, information theory, linear algebra and optimisation;
+Part II linear models; Part III neural networks; Part IV nonparametric models; Part V dimensionality
+reduction, clustering and more. Sections marked with a star are optional. Was `Probabilistic Machine
+Learning.pdf`. The table is from the PDF's own outline, with sections numbered in the printed order; the
+printed page number is the PDF page minus 28. The notation appendix is listed as one row.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| Preface | [27](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=27) |
+| 1 Introduction | [29](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=29) |
+| 1.1 What is machine learning? | [29](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=29) |
+| 1.2 Supervised learning | [29](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=29) |
+| 1.3 Unsupervised learning | [41](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=41) |
+| 1.4 Reinforcement learning | [44](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=44) |
+| 1.5 Data | [46](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=46) |
+| 1.6 Discussion | [53](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=53) |
+| Part: I Foundations | [57](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=57) |
+| 2 Probability: univariate models | [59](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=59) |
+| 2.1 Introduction | [59](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=59) |
+| 2.2 Random variables | [61](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=61) |
+| 2.3 Bayes' rule | [69](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=69) |
+| 2.4 Bernoulli and binomial distributions | [73](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=73) |
+| 2.5 Categorical and multinomial distributions | [77](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=77) |
+| 2.6 Univariate Gaussian (normal) distribution | [81](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=81) |
+| 2.7 Some other common univariate distributions * | [85](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=85) |
+| 2.8 Transformations of random variables * | [90](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=90) |
+| 2.9 Exercises | [97](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=97) |
+| 3 Probability: multivariate models | [101](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=101) |
+| 3.1 Joint distributions for multiple random variables | [101](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=101) |
+| 3.2 The multivariate Gaussian (normal) distribution | [104](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=104) |
+| 3.3 Linear Gaussian systems * | [109](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=109) |
+| 3.4 Mixture models | [112](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=112) |
+| 3.5 Probabilistic graphical models * | [118](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=118) |
+| 3.6 Exercises | [125](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=125) |
+| 4 Statistics | [127](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=127) |
+| 4.1 Introduction | [127](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=127) |
+| 4.2 Maximum likelihood estimation (MLE) | [127](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=127) |
+| 4.3 Empirical risk minimization (ERM) | [135](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=135) |
+| 4.4 Other estimation methods * | [136](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=136) |
+| 4.5 Regularization | [140](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=140) |
+| 4.6 Bayesian statistics * | [149](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=149) |
+| 4.7 Frequentist statistics * | [174](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=174) |
+| 4.8 Exercises | [182](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=182) |
+| 5 Decision theory | [187](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=187) |
+| 5.1 Bayesian decision theory | [187](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=187) |
+| 5.2 A/B testing * | [199](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=199) |
+| 5.3 Bandit problems * | [204](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=204) |
+| 5.4 Bayesian hypothesis testing | [212](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=212) |
+| 5.5 Frequentist decision theory | [220](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=220) |
+| 5.6 Empirical risk minimization | [224](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=224) |
+| 5.7 Frequentist hypothesis testing * | [229](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=229) |
+| 5.8 Exercises | [234](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=234) |
+| 6 Information theory | [237](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=237) |
+| 6.1 Entropy | [237](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=237) |
+| 6.2 Relative entropy (KL divergence) * | [243](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=243) |
+| 6.3 Mutual information * | [247](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=247) |
+| 6.4 Exercises | [256](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=256) |
+| 7 Linear algebra | [259](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=259) |
+| 7.1 Introduction | [259](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=259) |
+| 7.2 Matrix multiplication | [272](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=272) |
+| 7.3 Matrix inversion | [279](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=279) |
+| 7.4 Eigenvalue decomposition (EVD) | [282](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=282) |
+| 7.5 Singular value decomposition (SVD) | [287](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=287) |
+| 7.6 Other matrix decompositions * | [292](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=292) |
+| 7.7 Solving systems of linear equations * | [294](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=294) |
+| 7.8 Matrix calculus | [297](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=297) |
+| 7.9 Exercises | [305](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=305) |
+| 8 Optimization | [307](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=307) |
+| 8.1 Introduction | [307](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=307) |
+| 8.2 First-order methods | [314](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=314) |
+| 8.3 Second-order methods | [320](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=320) |
+| 8.4 Stochastic gradient descent | [327](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=327) |
+| 8.5 Constrained optimization | [335](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=335) |
+| 8.6 Proximal gradient method * | [342](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=342) |
+| 8.7 Bound optimization * | [345](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=345) |
+| 8.8 Blackbox and derivative free optimization | [356](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=356) |
+| 8.9 Exercises | [358](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=358) |
+| Part: II Linear models | [359](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=359) |
+| 9 Linear discriminant analysis | [361](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=361) |
+| 9.1 Introduction | [361](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=361) |
+| 9.2 Gaussian discriminant analysis | [361](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=361) |
+| 9.3 Naive Bayes classifiers | [370](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=370) |
+| 9.4 Generative vs discriminative classifiers | [374](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=374) |
+| 9.5 Exercises | [376](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=376) |
+| 10 Logistic regression | [377](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=377) |
+| 10.1 Introduction | [377](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=377) |
+| 10.2 Binary logistic regression | [377](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=377) |
+| 10.3 Multinomial logistic regression | [388](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=388) |
+| 10.4 Robust logistic regression * | [397](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=397) |
+| 10.5 Bayesian logistic regression * | [400](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=400) |
+| 10.6 Exercises | [404](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=404) |
+| 11 Linear regression | [407](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=407) |
+| 11.1 Introduction | [407](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=407) |
+| 11.2 Standard linear regression | [407](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=407) |
+| 11.3 Ridge regression | [417](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=417) |
+| 11.4 Robust linear regression * | [421](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=421) |
+| 11.5 Lasso regression | [425](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=425) |
+| 11.6 Bayesian linear regression * | [437](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=437) |
+| 11.7 Exercises | [444](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=444) |
+| 12 Generalized linear models * | [447](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=447) |
+| 12.1 Introduction | [447](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=447) |
+| 12.2 The exponential family | [447](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=447) |
+| 12.3 Generalized linear models (GLMs) | [456](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=456) |
+| 12.4 Probit regression | [460](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=460) |
+| Part: III Deep neural networks | [465](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=465) |
+| 13 Neural networks for unstructured data | [467](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=467) |
+| 13.1 Introduction | [467](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=467) |
+| 13.2 Multilayer perceptrons (MLPs) | [468](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=468) |
+| 13.3 Backpropagation | [479](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=479) |
+| 13.4 Training neural networks | [492](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=492) |
+| 13.5 Regularization | [500](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=500) |
+| 13.6 Other kinds of feedforward networks | [505](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=505) |
+| 13.7 Exercises | [510](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=510) |
+| 14 Neural networks for images | [511](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=511) |
+| 14.1 Introduction | [511](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=511) |
+| 14.2 Common layers | [512](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=512) |
+| 14.3 Common architectures for image classification | [523](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=523) |
+| 14.4 Other forms of convolution * | [528](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=528) |
+| 14.5 Solving other discriminative vision tasks with CNNs | [531](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=531) |
+| 14.6 Generating images by inverting CNNs * | [535](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=535) |
+| 14.7 Adversarial Examples * | [542](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=542) |
+| 15 Neural networks for sequences | [551](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=551) |
+| 15.1 Introduction | [551](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=551) |
+| 15.2 Recurrent neural networks (RNNs) | [551](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=551) |
+| 15.3 1d CNNs | [564](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=564) |
+| 15.4 Attention | [566](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=566) |
+| 15.5 Transformers | [574](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=574) |
+| 15.6 Efficient transformers * | [580](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=580) |
+| 15.7 Language models and unsupervised representation learning | [584](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=584) |
+| Part: IV Nonparametric models | [591](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=591) |
+| 16 Exemplar-based methods | [593](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=593) |
+| 16.1 K nearest neighbor (KNN) classification | [593](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=593) |
+| 16.2 Learning distance metrics | [597](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=597) |
+| 16.3 Kernel density estimation (KDE) | [605](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=605) |
+| 17 Kernel methods | [613](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=613) |
+| 17.1 Inferring functions from data | [613](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=613) |
+| 17.2 Mercer kernels | [616](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=616) |
+| 17.3 Gaussian processes | [622](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=622) |
+| 17.4 Scaling GPs to large datasets | [630](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=630) |
+| 17.5 Support vector machines (SVMs) | [633](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=633) |
+| 17.6 Sparse vector machines | [646](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=646) |
+| 17.7 Optimizing in function space * | [649](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=649) |
+| 17.8 Exercises | [653](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=653) |
+| 18 Trees, forests, bagging and boosting | [655](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=655) |
+| 18.1 Classification and regression trees (CART) | [655](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=655) |
+| 18.2 Ensemble learning | [660](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=660) |
+| 18.3 Bagging | [661](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=661) |
+| 18.4 Random forests | [662](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=662) |
+| 18.5 Boosting | [663](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=663) |
+| 18.6 Interpreting tree ensembles | [672](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=672) |
+| Part: V Beyond supervised learning | [675](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=675) |
+| 19 Learning with fewer labeled examples | [677](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=677) |
+| 19.1 Data augmentation | [677](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=677) |
+| 19.2 Transfer learning | [678](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=678) |
+| 19.3 Semi-supervised learning | [684](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=684) |
+| 19.4 Active learning | [696](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=696) |
+| 19.5 Meta-learning * | [698](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=698) |
+| 19.6 Few-shot learning * | [699](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=699) |
+| 19.7 Exercises | [701](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=701) |
+| 20 Dimensionality reduction | [703](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=703) |
+| 20.1 Principal components analysis (PCA) | [703](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=703) |
+| 20.2 Factor analysis * | [712](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=712) |
+| 20.3 Autoencoders | [725](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=725) |
+| 20.4 Manifold learning * | [734](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=734) |
+| 20.5 Word embeddings | [751](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=751) |
+| 20.6 Exercises | [758](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=758) |
+| 21 Clustering | [761](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=761) |
+| 21.1 Introduction | [761](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=761) |
+| 21.2 Hierarchical agglomerative clustering | [763](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=763) |
+| 21.3 K means clustering | [767](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=767) |
+| 21.4 Clustering using mixture models | [775](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=775) |
+| 21.5 Spectral clustering * | [780](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=780) |
+| 21.6 Biclustering * | [783](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=783) |
+| 22 Recommender systems | [787](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=787) |
+| 22.1 Explicit feedback | [787](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=787) |
+| 22.2 Implicit feedback | [792](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=792) |
+| 22.3 Leveraging side information | [795](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=795) |
+| 22.4 Exploration-exploitation tradeoff | [796](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=796) |
+| 23 Graph embeddings * | [799](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=799) |
+| 23.1 Introduction | [799](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=799) |
+| 23.2 Graph Embedding as an Encoder/Decoder Problem | [800](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=800) |
+| 23.3 Shallow graph embeddings | [802](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=802) |
+| 23.4 Graph Neural Networks | [807](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=807) |
+| 23.5 Deep graph embeddings | [811](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=811) |
+| 23.6 Applications | [815](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=815) |
+| Part: VI Appendix | [821](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=821) |
+| Notation | [823](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=823) |
+| Bibliography | [831](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=831) |
+
+### Deep learning textbook
+
+`machine-learning/deep-learning-textbook.pdf`, 801 pages. Ian Goodfellow, Yoshua Bengio and Aaron
+Courville, *Deep Learning*, MIT Press, 2016 (the draft released on the book's website). A published
+textbook in three parts: the applied maths a deep network rests on (linear algebra, probability and
+information theory, numerical optimisation), modern practice (feedforward networks and back-propagation,
+regularisation, optimisation, convolutional and recurrent nets), and research topics (autoencoders,
+structured probabilistic models, Monte Carlo methods, score matching, approximate inference, Boltzmann
+machines and other generative models). It predates diffusion models and does not cover them. Was
+`Deep Learning.pdf`. No embedded outline; this table is from the printed contents, and each page was
+checked against the heading printed on it. The printed page number is the PDF page minus 16, except the
+Index, which starts at PDF page 794.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| 1 Introduction | [17](machine-learning/deep-learning-textbook.pdf#page=17) |
+| 1.1 Who Should Read This Book? | [24](machine-learning/deep-learning-textbook.pdf#page=24) |
+| 1.2 Historical Trends in Deep Learning | [27](machine-learning/deep-learning-textbook.pdf#page=27) |
+| Part I: Applied Math and Machine Learning Basics | [45](machine-learning/deep-learning-textbook.pdf#page=45) |
+| 2 Linear Algebra | [47](machine-learning/deep-learning-textbook.pdf#page=47) |
+| 2.1 Scalars, Vectors, Matrices and Tensors | [47](machine-learning/deep-learning-textbook.pdf#page=47) |
+| 2.2 Multiplying Matrices and Vectors | [50](machine-learning/deep-learning-textbook.pdf#page=50) |
+| 2.3 Identity and Inverse Matrices | [52](machine-learning/deep-learning-textbook.pdf#page=52) |
+| 2.4 Linear Dependence and Span | [53](machine-learning/deep-learning-textbook.pdf#page=53) |
+| 2.5 Norms | [55](machine-learning/deep-learning-textbook.pdf#page=55) |
+| 2.6 Special Kinds of Matrices and Vectors | [56](machine-learning/deep-learning-textbook.pdf#page=56) |
+| 2.7 Eigendecomposition | [58](machine-learning/deep-learning-textbook.pdf#page=58) |
+| 2.8 Singular Value Decomposition | [60](machine-learning/deep-learning-textbook.pdf#page=60) |
+| 2.9 The Moore-Penrose Pseudoinverse | [61](machine-learning/deep-learning-textbook.pdf#page=61) |
+| 2.10 The Trace Operator | [62](machine-learning/deep-learning-textbook.pdf#page=62) |
+| 2.11 The Determinant | [63](machine-learning/deep-learning-textbook.pdf#page=63) |
+| 2.12 Example: Principal Components Analysis | [64](machine-learning/deep-learning-textbook.pdf#page=64) |
+| 3 Probability and Information Theory | [69](machine-learning/deep-learning-textbook.pdf#page=69) |
+| 3.1 Why Probability? | [70](machine-learning/deep-learning-textbook.pdf#page=70) |
+| 3.2 Random Variables | [72](machine-learning/deep-learning-textbook.pdf#page=72) |
+| 3.3 Probability Distributions | [72](machine-learning/deep-learning-textbook.pdf#page=72) |
+| 3.4 Marginal Probability | [74](machine-learning/deep-learning-textbook.pdf#page=74) |
+| 3.5 Conditional Probability | [75](machine-learning/deep-learning-textbook.pdf#page=75) |
+| 3.6 The Chain Rule of Conditional Probabilities | [75](machine-learning/deep-learning-textbook.pdf#page=75) |
+| 3.7 Independence and Conditional Independence | [76](machine-learning/deep-learning-textbook.pdf#page=76) |
+| 3.8 Expectation, Variance and Covariance | [76](machine-learning/deep-learning-textbook.pdf#page=76) |
+| 3.9 Common Probability Distributions | [78](machine-learning/deep-learning-textbook.pdf#page=78) |
+| 3.10 Useful Properties of Common Functions | [83](machine-learning/deep-learning-textbook.pdf#page=83) |
+| 3.11 Bayes’ Rule | [86](machine-learning/deep-learning-textbook.pdf#page=86) |
+| 3.12 Technical Details of Continuous Variables | [87](machine-learning/deep-learning-textbook.pdf#page=87) |
+| 3.13 Information Theory | [89](machine-learning/deep-learning-textbook.pdf#page=89) |
+| 3.14 Structured Probabilistic Models | [91](machine-learning/deep-learning-textbook.pdf#page=91) |
+| 4 Numerical Computation | [96](machine-learning/deep-learning-textbook.pdf#page=96) |
+| 4.1 Overﬂow and Underﬂow | [96](machine-learning/deep-learning-textbook.pdf#page=96) |
+| 4.2 Poor Conditioning | [98](machine-learning/deep-learning-textbook.pdf#page=98) |
+| 4.3 Gradient-Based Optimization | [98](machine-learning/deep-learning-textbook.pdf#page=98) |
+| 4.4 Constrained Optimization | [109](machine-learning/deep-learning-textbook.pdf#page=109) |
+| 4.5 Example: Linear Least Squares | [112](machine-learning/deep-learning-textbook.pdf#page=112) |
+| 5 Machine Learning Basics | [114](machine-learning/deep-learning-textbook.pdf#page=114) |
+| 5.1 Learning Algorithms | [115](machine-learning/deep-learning-textbook.pdf#page=115) |
+| 5.2 Capacity, Overﬁtting and Underﬁtting | [126](machine-learning/deep-learning-textbook.pdf#page=126) |
+| 5.3 Hyperparameters and Validation Sets | [136](machine-learning/deep-learning-textbook.pdf#page=136) |
+| 5.4 Estimators, Bias and Variance | [138](machine-learning/deep-learning-textbook.pdf#page=138) |
+| 5.5 Maximum Likelihood Estimation | [147](machine-learning/deep-learning-textbook.pdf#page=147) |
+| 5.6 Bayesian Statistics | [151](machine-learning/deep-learning-textbook.pdf#page=151) |
+| 5.7 Supervised Learning Algorithms | [156](machine-learning/deep-learning-textbook.pdf#page=156) |
+| 5.8 Unsupervised Learning Algorithms | [162](machine-learning/deep-learning-textbook.pdf#page=162) |
+| 5.9 Stochastic Gradient Descent | [167](machine-learning/deep-learning-textbook.pdf#page=167) |
+| 5.10 Building a Machine Learning Algorithm | [169](machine-learning/deep-learning-textbook.pdf#page=169) |
+| 5.11 Challenges Motivating Deep Learning | [171](machine-learning/deep-learning-textbook.pdf#page=171) |
+| Part II: Deep Networks: Modern Practices | [182](machine-learning/deep-learning-textbook.pdf#page=182) |
+| 6 Deep Feedforward Networks | [184](machine-learning/deep-learning-textbook.pdf#page=184) |
+| 6.1 Example: Learning XOR | [187](machine-learning/deep-learning-textbook.pdf#page=187) |
+| 6.2 Gradient-Based Learning | [193](machine-learning/deep-learning-textbook.pdf#page=193) |
+| 6.3 Hidden Units | [207](machine-learning/deep-learning-textbook.pdf#page=207) |
+| 6.4 Architecture Design | [213](machine-learning/deep-learning-textbook.pdf#page=213) |
+| 6.5 Back-Propagation and Other Diﬀerentiation Algorithms | [220](machine-learning/deep-learning-textbook.pdf#page=220) |
+| 6.6 Historical Notes | [240](machine-learning/deep-learning-textbook.pdf#page=240) |
+| 7 Regularization for Deep Learning | [244](machine-learning/deep-learning-textbook.pdf#page=244) |
+| 7.1 Parameter Norm Penalties | [246](machine-learning/deep-learning-textbook.pdf#page=246) |
+| 7.2 Norm Penalties as Constrained Optimization | [253](machine-learning/deep-learning-textbook.pdf#page=253) |
+| 7.3 Regularization and Under-Constrained Problems | [255](machine-learning/deep-learning-textbook.pdf#page=255) |
+| 7.4 Dataset Augmentation | [256](machine-learning/deep-learning-textbook.pdf#page=256) |
+| 7.5 Noise Robustness | [258](machine-learning/deep-learning-textbook.pdf#page=258) |
+| 7.6 Semi-Supervised Learning | [259](machine-learning/deep-learning-textbook.pdf#page=259) |
+| 7.7 Multi-Task Learning | [260](machine-learning/deep-learning-textbook.pdf#page=260) |
+| 7.8 Early Stopping | [262](machine-learning/deep-learning-textbook.pdf#page=262) |
+| 7.9 Parameter Tying and Parameter Sharing | [269](machine-learning/deep-learning-textbook.pdf#page=269) |
+| 7.10 Sparse Representations | [270](machine-learning/deep-learning-textbook.pdf#page=270) |
+| 7.11 Bagging and Other Ensemble Methods | [272](machine-learning/deep-learning-textbook.pdf#page=272) |
+| 7.12 Dropout | [274](machine-learning/deep-learning-textbook.pdf#page=274) |
+| 7.13 Adversarial Training | [284](machine-learning/deep-learning-textbook.pdf#page=284) |
+| 7.14 Tangent Distance, Tangent Prop, and Manifold Tangent Classiﬁer | [286](machine-learning/deep-learning-textbook.pdf#page=286) |
+| 8 Optimization for Training Deep Models | [290](machine-learning/deep-learning-textbook.pdf#page=290) |
+| 8.1 How Learning Diﬀers from Pure Optimization | [291](machine-learning/deep-learning-textbook.pdf#page=291) |
+| 8.2 Challenges in Neural Network Optimization | [298](machine-learning/deep-learning-textbook.pdf#page=298) |
+| 8.3 Basic Algorithms | [310](machine-learning/deep-learning-textbook.pdf#page=310) |
+| 8.4 Parameter Initialization Strategies | [317](machine-learning/deep-learning-textbook.pdf#page=317) |
+| 8.5 Algorithms with Adaptive Learning Rates | [322](machine-learning/deep-learning-textbook.pdf#page=322) |
+| 8.6 Approximate Second-Order Methods | [326](machine-learning/deep-learning-textbook.pdf#page=326) |
+| 8.7 Optimization Strategies and Meta-Algorithms | [333](machine-learning/deep-learning-textbook.pdf#page=333) |
+| 9 Convolutional Networks | [346](machine-learning/deep-learning-textbook.pdf#page=346) |
+| 9.1 The Convolution Operation | [347](machine-learning/deep-learning-textbook.pdf#page=347) |
+| 9.2 Motivation | [351](machine-learning/deep-learning-textbook.pdf#page=351) |
+| 9.3 Pooling | [355](machine-learning/deep-learning-textbook.pdf#page=355) |
+| 9.4 Convolution and Pooling as an Inﬁnitely Strong Prior | [361](machine-learning/deep-learning-textbook.pdf#page=361) |
+| 9.5 Variants of the Basic Convolution Function | [363](machine-learning/deep-learning-textbook.pdf#page=363) |
+| 9.6 Structured Outputs | [374](machine-learning/deep-learning-textbook.pdf#page=374) |
+| 9.7 Data Types | [376](machine-learning/deep-learning-textbook.pdf#page=376) |
+| 9.8 Eﬃcient Convolution Algorithms | [378](machine-learning/deep-learning-textbook.pdf#page=378) |
+| 9.9 Random or Unsupervised Features | [379](machine-learning/deep-learning-textbook.pdf#page=379) |
+| 9.10 The Neuroscientiﬁc Basis for Convolutional Networks | [380](machine-learning/deep-learning-textbook.pdf#page=380) |
+| 9.11 Convolutional Networks and the History of Deep Learning | [387](machine-learning/deep-learning-textbook.pdf#page=387) |
+| 10 Sequence Modeling: Recurrent and Recursive Nets | [389](machine-learning/deep-learning-textbook.pdf#page=389) |
+| 10.1 Unfolding Computational Graphs | [391](machine-learning/deep-learning-textbook.pdf#page=391) |
+| 10.2 Recurrent Neural Networks | [394](machine-learning/deep-learning-textbook.pdf#page=394) |
+| 10.3 Bidirectional RNNs | [410](machine-learning/deep-learning-textbook.pdf#page=410) |
+| 10.4 Encoder-Decoder Sequence-to-Sequence Architectures | [412](machine-learning/deep-learning-textbook.pdf#page=412) |
+| 10.5 Deep Recurrent Networks | [414](machine-learning/deep-learning-textbook.pdf#page=414) |
+| 10.6 Recursive Neural Networks | [416](machine-learning/deep-learning-textbook.pdf#page=416) |
+| 10.7 The Challenge of Long-Term Dependencies | [417](machine-learning/deep-learning-textbook.pdf#page=417) |
+| 10.8 Echo State Networks | [420](machine-learning/deep-learning-textbook.pdf#page=420) |
+| 10.9 Leaky Units and Other Strategies for Multiple Time Scales | [422](machine-learning/deep-learning-textbook.pdf#page=422) |
+| 10.10 The Long Short-Term Memory and Other Gated RNNs | [424](machine-learning/deep-learning-textbook.pdf#page=424) |
+| 10.11 Optimization for Long-Term Dependencies | [429](machine-learning/deep-learning-textbook.pdf#page=429) |
+| 10.12 Explicit Memory | [432](machine-learning/deep-learning-textbook.pdf#page=432) |
+| 11 Practical Methodology | [437](machine-learning/deep-learning-textbook.pdf#page=437) |
+| 11.1 Performance Metrics | [438](machine-learning/deep-learning-textbook.pdf#page=438) |
+| 11.2 Default Baseline Models | [441](machine-learning/deep-learning-textbook.pdf#page=441) |
+| 11.3 Determining Whether to Gather More Data | [442](machine-learning/deep-learning-textbook.pdf#page=442) |
+| 11.4 Selecting Hyperparameters | [443](machine-learning/deep-learning-textbook.pdf#page=443) |
+| 11.5 Debugging Strategies | [452](machine-learning/deep-learning-textbook.pdf#page=452) |
+| 11.6 Example: Multi-Digit Number Recognition | [456](machine-learning/deep-learning-textbook.pdf#page=456) |
+| 12 Applications | [459](machine-learning/deep-learning-textbook.pdf#page=459) |
+| 12.1 Large-Scale Deep Learning | [459](machine-learning/deep-learning-textbook.pdf#page=459) |
+| 12.2 Computer Vision | [468](machine-learning/deep-learning-textbook.pdf#page=468) |
+| 12.3 Speech Recognition | [474](machine-learning/deep-learning-textbook.pdf#page=474) |
+| 12.4 Natural Language Processing | [477](machine-learning/deep-learning-textbook.pdf#page=477) |
+| 12.5 Other Applications | [494](machine-learning/deep-learning-textbook.pdf#page=494) |
+| Part III: Deep Learning Research | [502](machine-learning/deep-learning-textbook.pdf#page=502) |
+| 13 Linear Factor Models | [505](machine-learning/deep-learning-textbook.pdf#page=505) |
+| 13.1 Probabilistic PCA and Factor Analysis | [506](machine-learning/deep-learning-textbook.pdf#page=506) |
+| 13.2 Independent Component Analysis (ICA) | [507](machine-learning/deep-learning-textbook.pdf#page=507) |
+| 13.3 Slow Feature Analysis | [509](machine-learning/deep-learning-textbook.pdf#page=509) |
+| 13.4 Sparse Coding | [512](machine-learning/deep-learning-textbook.pdf#page=512) |
+| 13.5 Manifold Interpretation of PCA | [515](machine-learning/deep-learning-textbook.pdf#page=515) |
+| 14 Autoencoders | [518](machine-learning/deep-learning-textbook.pdf#page=518) |
+| 14.1 Undercomplete Autoencoders | [519](machine-learning/deep-learning-textbook.pdf#page=519) |
+| 14.2 Regularized Autoencoders | [520](machine-learning/deep-learning-textbook.pdf#page=520) |
+| 14.3 Representational Power, Layer Size and Depth | [524](machine-learning/deep-learning-textbook.pdf#page=524) |
+| 14.4 Stochastic Encoders and Decoders | [525](machine-learning/deep-learning-textbook.pdf#page=525) |
+| 14.5 Denoising Autoencoders | [526](machine-learning/deep-learning-textbook.pdf#page=526) |
+| 14.6 Learning Manifolds with Autoencoders | [531](machine-learning/deep-learning-textbook.pdf#page=531) |
+| 14.7 Contractive Autoencoders | [537](machine-learning/deep-learning-textbook.pdf#page=537) |
+| 14.8 Predictive Sparse Decomposition | [539](machine-learning/deep-learning-textbook.pdf#page=539) |
+| 14.9 Applications of Autoencoders | [540](machine-learning/deep-learning-textbook.pdf#page=540) |
+| 15 Representation Learning | [542](machine-learning/deep-learning-textbook.pdf#page=542) |
+| 15.1 Greedy Layer-Wise Unsupervised Pretraining | [544](machine-learning/deep-learning-textbook.pdf#page=544) |
+| 15.2 Transfer Learning and Domain Adaptation | [552](machine-learning/deep-learning-textbook.pdf#page=552) |
+| 15.3 Semi-Supervised Disentangling of Causal Factors | [557](machine-learning/deep-learning-textbook.pdf#page=557) |
+| 15.4 Distributed Representation | [562](machine-learning/deep-learning-textbook.pdf#page=562) |
+| 15.5 Exponential Gains from Depth | [569](machine-learning/deep-learning-textbook.pdf#page=569) |
+| 15.6 Providing Clues to Discover Underlying Causes | [570](machine-learning/deep-learning-textbook.pdf#page=570) |
+| 16 Structured Probabilistic Models for Deep Learning | [574](machine-learning/deep-learning-textbook.pdf#page=574) |
+| 16.1 The Challenge of Unstructured Modeling | [575](machine-learning/deep-learning-textbook.pdf#page=575) |
+| 16.2 Using Graphs to Describe Model Structure | [579](machine-learning/deep-learning-textbook.pdf#page=579) |
+| 16.3 Sampling from Graphical Models | [596](machine-learning/deep-learning-textbook.pdf#page=596) |
+| 16.4 Advantages of Structured Modeling | [598](machine-learning/deep-learning-textbook.pdf#page=598) |
+| 16.5 Learning about Dependencies | [598](machine-learning/deep-learning-textbook.pdf#page=598) |
+| 16.6 Inference and Approximate Inference | [600](machine-learning/deep-learning-textbook.pdf#page=600) |
+| 16.7 The Deep Learning Approach to Structured Probabilistic Models | [601](machine-learning/deep-learning-textbook.pdf#page=601) |
+| 17 Monte Carlo Methods | [606](machine-learning/deep-learning-textbook.pdf#page=606) |
+| 17.1 Sampling and Monte Carlo Methods | [606](machine-learning/deep-learning-textbook.pdf#page=606) |
+| 17.2 Importance Sampling | [608](machine-learning/deep-learning-textbook.pdf#page=608) |
+| 17.3 Markov Chain Monte Carlo Methods | [611](machine-learning/deep-learning-textbook.pdf#page=611) |
+| 17.4 Gibbs Sampling | [615](machine-learning/deep-learning-textbook.pdf#page=615) |
+| 17.5 The Challenge of Mixing between Separated Modes | [615](machine-learning/deep-learning-textbook.pdf#page=615) |
+| 18 Confronting the Partition Function | [621](machine-learning/deep-learning-textbook.pdf#page=621) |
+| 18.1 The Log-Likelihood Gradient | [622](machine-learning/deep-learning-textbook.pdf#page=622) |
+| 18.2 Stochastic Maximum Likelihood and Contrastive Divergence | [623](machine-learning/deep-learning-textbook.pdf#page=623) |
+| 18.3 Pseudolikelihood | [631](machine-learning/deep-learning-textbook.pdf#page=631) |
+| 18.4 Score Matching and Ratio Matching | [633](machine-learning/deep-learning-textbook.pdf#page=633) |
+| 18.5 Denoising Score Matching | [635](machine-learning/deep-learning-textbook.pdf#page=635) |
+| 18.6 Noise-Contrastive Estimation | [636](machine-learning/deep-learning-textbook.pdf#page=636) |
+| 18.7 Estimating the Partition Function | [639](machine-learning/deep-learning-textbook.pdf#page=639) |
+| 19 Approximate Inference | [647](machine-learning/deep-learning-textbook.pdf#page=647) |
+| 19.1 Inference as Optimization | [649](machine-learning/deep-learning-textbook.pdf#page=649) |
+| 19.2 Expectation Maximization | [650](machine-learning/deep-learning-textbook.pdf#page=650) |
+| 19.3 MAP Inference and Sparse Coding | [651](machine-learning/deep-learning-textbook.pdf#page=651) |
+| 19.4 Variational Inference and Learning | [654](machine-learning/deep-learning-textbook.pdf#page=654) |
+| 19.5 Learned Approximate Inference | [667](machine-learning/deep-learning-textbook.pdf#page=667) |
+| 20 Deep Generative Models | [670](machine-learning/deep-learning-textbook.pdf#page=670) |
+| 20.1 Boltzmann Machines | [670](machine-learning/deep-learning-textbook.pdf#page=670) |
+| 20.2 Restricted Boltzmann Machines | [672](machine-learning/deep-learning-textbook.pdf#page=672) |
+| 20.3 Deep Belief Networks | [676](machine-learning/deep-learning-textbook.pdf#page=676) |
+| 20.4 Deep Boltzmann Machines | [679](machine-learning/deep-learning-textbook.pdf#page=679) |
+| 20.5 Boltzmann Machines for Real-Valued Data | [692](machine-learning/deep-learning-textbook.pdf#page=692) |
+| 20.6 Convolutional Boltzmann Machines | [699](machine-learning/deep-learning-textbook.pdf#page=699) |
+| 20.7 Boltzmann Machines for Structured or Sequential Outputs | [701](machine-learning/deep-learning-textbook.pdf#page=701) |
+| 20.8 Other Boltzmann Machines | [702](machine-learning/deep-learning-textbook.pdf#page=702) |
+| 20.9 Back-Propagation through Random Operations | [703](machine-learning/deep-learning-textbook.pdf#page=703) |
+| 20.10 Directed Generative Nets | [708](machine-learning/deep-learning-textbook.pdf#page=708) |
+| 20.11 Drawing Samples from Autoencoders | [727](machine-learning/deep-learning-textbook.pdf#page=727) |
+| 20.12 Generative Stochastic Networks | [730](machine-learning/deep-learning-textbook.pdf#page=730) |
+| 20.13 Other Generation Schemes | [732](machine-learning/deep-learning-textbook.pdf#page=732) |
+| 20.14 Evaluating Generative Models | [733](machine-learning/deep-learning-textbook.pdf#page=733) |
+| 20.15 Conclusion | [736](machine-learning/deep-learning-textbook.pdf#page=736) |
+| Bibliography | [737](machine-learning/deep-learning-textbook.pdf#page=737) |
+| Index | [794](machine-learning/deep-learning-textbook.pdf#page=794) |
+
+### Understanding deep learning
+
+`machine-learning/understanding-deep-learning.pdf`, 541 pages. Simon J. D. Prince, *Understanding Deep
+Learning*, MIT Press, December 2023; this file is the author's open copy dated 3 April 2024. A published
+textbook that builds up from linear regression and shallow networks through loss functions, gradients and
+backpropagation, convolutional nets, residual nets and transformers, to generative models (GANs,
+normalizing flows, variational autoencoders, diffusion models), reinforcement learning, and why deep
+learning works. Appendix C covers the probability it uses. Was `Underestand Deep Learning.pdf`. The table
+is from the PDF's own outline, chapters and their first-level sections. The printed page number is the PDF
+page minus 14 from chapter 1 on; the front matter is numbered in roman.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| Preface | [5](machine-learning/understanding-deep-learning.pdf#page=5) |
+| Acknowledgements | [11](machine-learning/understanding-deep-learning.pdf#page=11) |
+| 1 Introduction | [15](machine-learning/understanding-deep-learning.pdf#page=15) |
+| 1.1 Supervised learning | [15](machine-learning/understanding-deep-learning.pdf#page=15) |
+| 1.2 Unsupervised learning | [21](machine-learning/understanding-deep-learning.pdf#page=21) |
+| 1.3 Reinforcement learning | [25](machine-learning/understanding-deep-learning.pdf#page=25) |
+| 1.4 Ethics | [26](machine-learning/understanding-deep-learning.pdf#page=26) |
+| 1.5 Structure of book | [29](machine-learning/understanding-deep-learning.pdf#page=29) |
+| 1.6 Other books | [29](machine-learning/understanding-deep-learning.pdf#page=29) |
+| 1.7 How to read this book | [30](machine-learning/understanding-deep-learning.pdf#page=30) |
+| 2 Supervised learning | [31](machine-learning/understanding-deep-learning.pdf#page=31) |
+| 2.1 Supervised learning overview | [31](machine-learning/understanding-deep-learning.pdf#page=31) |
+| 2.2 Linear regression example | [32](machine-learning/understanding-deep-learning.pdf#page=32) |
+| 2.3 Summary | [36](machine-learning/understanding-deep-learning.pdf#page=36) |
+| 3 Shallow neural networks | [39](machine-learning/understanding-deep-learning.pdf#page=39) |
+| 3.1 Neural network example | [39](machine-learning/understanding-deep-learning.pdf#page=39) |
+| 3.2 Universal approximation theorem | [43](machine-learning/understanding-deep-learning.pdf#page=43) |
+| 3.3 Multivariate inputs and outputs | [44](machine-learning/understanding-deep-learning.pdf#page=44) |
+| 3.4 Shallow neural networks: general case | [47](machine-learning/understanding-deep-learning.pdf#page=47) |
+| 3.5 Terminology | [49](machine-learning/understanding-deep-learning.pdf#page=49) |
+| 3.6 Summary | [50](machine-learning/understanding-deep-learning.pdf#page=50) |
+| 4 Deep neural networks | [55](machine-learning/understanding-deep-learning.pdf#page=55) |
+| 4.1 Composing neural networks | [55](machine-learning/understanding-deep-learning.pdf#page=55) |
+| 4.2 From composing networks to deep networks | [57](machine-learning/understanding-deep-learning.pdf#page=57) |
+| 4.3 Deep neural networks | [59](machine-learning/understanding-deep-learning.pdf#page=59) |
+| 4.4 Matrix notation | [62](machine-learning/understanding-deep-learning.pdf#page=62) |
+| 4.5 Shallow vs. deep neural networks | [63](machine-learning/understanding-deep-learning.pdf#page=63) |
+| 4.6 Summary | [66](machine-learning/understanding-deep-learning.pdf#page=66) |
+| 5 Loss functions | [70](machine-learning/understanding-deep-learning.pdf#page=70) |
+| 5.1 Maximum likelihood | [70](machine-learning/understanding-deep-learning.pdf#page=70) |
+| 5.2 Recipe for constructing loss functions | [74](machine-learning/understanding-deep-learning.pdf#page=74) |
+| 5.3 Example 1: univariate regression | [75](machine-learning/understanding-deep-learning.pdf#page=75) |
+| 5.4 Example 2: binary classification | [78](machine-learning/understanding-deep-learning.pdf#page=78) |
+| 5.5 Example 3: multiclass classification | [81](machine-learning/understanding-deep-learning.pdf#page=81) |
+| 5.6 Multiple outputs | [83](machine-learning/understanding-deep-learning.pdf#page=83) |
+| 5.7 Cross-entropy loss | [85](machine-learning/understanding-deep-learning.pdf#page=85) |
+| 5.8 Summary | [86](machine-learning/understanding-deep-learning.pdf#page=86) |
+| 6 Fitting models | [91](machine-learning/understanding-deep-learning.pdf#page=91) |
+| 6.1 Gradient descent | [91](machine-learning/understanding-deep-learning.pdf#page=91) |
+| 6.2 Stochastic gradient descent | [97](machine-learning/understanding-deep-learning.pdf#page=97) |
+| 6.3 Momentum | [100](machine-learning/understanding-deep-learning.pdf#page=100) |
+| 6.4 Adam | [102](machine-learning/understanding-deep-learning.pdf#page=102) |
+| 6.5 Training algorithm hyperparameters | [105](machine-learning/understanding-deep-learning.pdf#page=105) |
+| 6.6 Summary | [105](machine-learning/understanding-deep-learning.pdf#page=105) |
+| 7 Gradients and initialization | [110](machine-learning/understanding-deep-learning.pdf#page=110) |
+| 7.1 Problem definitions | [110](machine-learning/understanding-deep-learning.pdf#page=110) |
+| 7.2 Computing derivatives | [111](machine-learning/understanding-deep-learning.pdf#page=111) |
+| 7.3 Toy example | [114](machine-learning/understanding-deep-learning.pdf#page=114) |
+| 7.4 Backpropagation algorithm | [117](machine-learning/understanding-deep-learning.pdf#page=117) |
+| 7.5 Parameter initialization | [121](machine-learning/understanding-deep-learning.pdf#page=121) |
+| 7.6 Example training code | [125](machine-learning/understanding-deep-learning.pdf#page=125) |
+| 7.7 Summary | [125](machine-learning/understanding-deep-learning.pdf#page=125) |
+| 8 Measuring performance | [132](machine-learning/understanding-deep-learning.pdf#page=132) |
+| 8.1 Training a simple model | [132](machine-learning/understanding-deep-learning.pdf#page=132) |
+| 8.2 Sources of error | [134](machine-learning/understanding-deep-learning.pdf#page=134) |
+| 8.3 Reducing error | [138](machine-learning/understanding-deep-learning.pdf#page=138) |
+| 8.4 Double descent | [141](machine-learning/understanding-deep-learning.pdf#page=141) |
+| 8.5 Choosing hyperparameters | [146](machine-learning/understanding-deep-learning.pdf#page=146) |
+| 8.6 Summary | [147](machine-learning/understanding-deep-learning.pdf#page=147) |
+| 9 Regularization | [152](machine-learning/understanding-deep-learning.pdf#page=152) |
+| 9.1 Explicit regularization | [152](machine-learning/understanding-deep-learning.pdf#page=152) |
+| 9.2 Implicit regularization | [155](machine-learning/understanding-deep-learning.pdf#page=155) |
+| 9.3 Heuristics to improve performance | [158](machine-learning/understanding-deep-learning.pdf#page=158) |
+| 9.4 Summary | [168](machine-learning/understanding-deep-learning.pdf#page=168) |
+| 10 Convolutional networks | [175](machine-learning/understanding-deep-learning.pdf#page=175) |
+| 10.1 Invariance and equivariance | [175](machine-learning/understanding-deep-learning.pdf#page=175) |
+| 10.2 Convolutional networks for 1D inputs | [177](machine-learning/understanding-deep-learning.pdf#page=177) |
+| 10.3 Convolutional networks for 2D inputs | [184](machine-learning/understanding-deep-learning.pdf#page=184) |
+| 10.4 Downsampling and upsampling | [185](machine-learning/understanding-deep-learning.pdf#page=185) |
+| 10.5 Applications | [188](machine-learning/understanding-deep-learning.pdf#page=188) |
+| 10.6 Summary | [193](machine-learning/understanding-deep-learning.pdf#page=193) |
+| 11 Residual networks | [200](machine-learning/understanding-deep-learning.pdf#page=200) |
+| 11.1 Sequential processing | [200](machine-learning/understanding-deep-learning.pdf#page=200) |
+| 11.2 Residual connections and residual blocks | [203](machine-learning/understanding-deep-learning.pdf#page=203) |
+| 11.3 Exploding gradients in residual networks | [206](machine-learning/understanding-deep-learning.pdf#page=206) |
+| 11.4 Batch normalization | [206](machine-learning/understanding-deep-learning.pdf#page=206) |
+| 11.5 Common residual architectures | [209](machine-learning/understanding-deep-learning.pdf#page=209) |
+| 11.6 Why do nets with residual connections perform so well? | [213](machine-learning/understanding-deep-learning.pdf#page=213) |
+| 11.7 Summary | [213](machine-learning/understanding-deep-learning.pdf#page=213) |
+| 12 Transformers | [221](machine-learning/understanding-deep-learning.pdf#page=221) |
+| 12.1 Processing text data | [221](machine-learning/understanding-deep-learning.pdf#page=221) |
+| 12.2 Dot-product self-attention | [222](machine-learning/understanding-deep-learning.pdf#page=222) |
+| 12.3 Extensions to dot-product self-attention | [227](machine-learning/understanding-deep-learning.pdf#page=227) |
+| 12.4 Transformer layers | [229](machine-learning/understanding-deep-learning.pdf#page=229) |
+| 12.5 Transformers for natural language processing | [230](machine-learning/understanding-deep-learning.pdf#page=230) |
+| 12.6 Encoder model example: BERT | [233](machine-learning/understanding-deep-learning.pdf#page=233) |
+| 12.7 Decoder model example: GPT3 | [236](machine-learning/understanding-deep-learning.pdf#page=236) |
+| 12.8 Encoder-decoder model example: machine translation | [240](machine-learning/understanding-deep-learning.pdf#page=240) |
+| 12.9 Transformers for long sequences | [241](machine-learning/understanding-deep-learning.pdf#page=241) |
+| 12.10 Transformers for images | [242](machine-learning/understanding-deep-learning.pdf#page=242) |
+| 12.11 Summary | [246](machine-learning/understanding-deep-learning.pdf#page=246) |
+| 13 Graph neural networks | [254](machine-learning/understanding-deep-learning.pdf#page=254) |
+| 13.1 What is a graph? | [254](machine-learning/understanding-deep-learning.pdf#page=254) |
+| 13.2 Graph representation | [257](machine-learning/understanding-deep-learning.pdf#page=257) |
+| 13.3 Graph neural networks, tasks, and loss functions | [259](machine-learning/understanding-deep-learning.pdf#page=259) |
+| 13.4 Graph convolutional networks | [262](machine-learning/understanding-deep-learning.pdf#page=262) |
+| 13.5 Example: graph classification | [265](machine-learning/understanding-deep-learning.pdf#page=265) |
+| 13.6 Inductive vs. transductive models | [266](machine-learning/understanding-deep-learning.pdf#page=266) |
+| 13.7 Example: node classification | [267](machine-learning/understanding-deep-learning.pdf#page=267) |
+| 13.8 Layers for graph convolutional networks | [270](machine-learning/understanding-deep-learning.pdf#page=270) |
+| 13.9 Edge graphs | [274](machine-learning/understanding-deep-learning.pdf#page=274) |
+| 13.10 Summary | [275](machine-learning/understanding-deep-learning.pdf#page=275) |
+| 14 Unsupervised learning | [282](machine-learning/understanding-deep-learning.pdf#page=282) |
+| 14.1 Taxonomy of unsupervised learning models | [282](machine-learning/understanding-deep-learning.pdf#page=282) |
+| 14.2 What makes a good generative model? | [283](machine-learning/understanding-deep-learning.pdf#page=283) |
+| 14.3 Quantifying performance | [285](machine-learning/understanding-deep-learning.pdf#page=285) |
+| 14.4 Summary | [287](machine-learning/understanding-deep-learning.pdf#page=287) |
+| 15 Generative Adversarial Networks | [289](machine-learning/understanding-deep-learning.pdf#page=289) |
+| 15.1 Discrimination as a signal | [289](machine-learning/understanding-deep-learning.pdf#page=289) |
+| 15.2 Improving stability | [294](machine-learning/understanding-deep-learning.pdf#page=294) |
+| 15.3 Progressive growing, minibatch discrimination, and truncation | [300](machine-learning/understanding-deep-learning.pdf#page=300) |
+| 15.4 Conditional generation | [302](machine-learning/understanding-deep-learning.pdf#page=302) |
+| 15.5 Image translation | [304](machine-learning/understanding-deep-learning.pdf#page=304) |
+| 15.6 StyleGAN | [309](machine-learning/understanding-deep-learning.pdf#page=309) |
+| 15.7 Summary | [311](machine-learning/understanding-deep-learning.pdf#page=311) |
+| 16 Normalizing flows | [317](machine-learning/understanding-deep-learning.pdf#page=317) |
+| 16.1 1D example | [317](machine-learning/understanding-deep-learning.pdf#page=317) |
+| 16.2 General case | [320](machine-learning/understanding-deep-learning.pdf#page=320) |
+| 16.3 Invertible network layers | [322](machine-learning/understanding-deep-learning.pdf#page=322) |
+| 16.4 Multi-scale flows | [330](machine-learning/understanding-deep-learning.pdf#page=330) |
+| 16.5 Applications | [331](machine-learning/understanding-deep-learning.pdf#page=331) |
+| 16.6 Summary | [334](machine-learning/understanding-deep-learning.pdf#page=334) |
+| 17 Variational autoencoders | [340](machine-learning/understanding-deep-learning.pdf#page=340) |
+| 17.1 Latent variable models | [340](machine-learning/understanding-deep-learning.pdf#page=340) |
+| 17.2 Nonlinear latent variable model | [341](machine-learning/understanding-deep-learning.pdf#page=341) |
+| 17.3 Training | [344](machine-learning/understanding-deep-learning.pdf#page=344) |
+| 17.4 ELBO properties | [347](machine-learning/understanding-deep-learning.pdf#page=347) |
+| 17.5 Variational approximation | [349](machine-learning/understanding-deep-learning.pdf#page=349) |
+| 17.6 The variational autoencoder | [349](machine-learning/understanding-deep-learning.pdf#page=349) |
+| 17.7 The reparameterization trick | [352](machine-learning/understanding-deep-learning.pdf#page=352) |
+| 17.8 Applications | [353](machine-learning/understanding-deep-learning.pdf#page=353) |
+| 17.9 Summary | [356](machine-learning/understanding-deep-learning.pdf#page=356) |
+| 18 Diffusion models | [362](machine-learning/understanding-deep-learning.pdf#page=362) |
+| 18.1 Overview | [362](machine-learning/understanding-deep-learning.pdf#page=362) |
+| 18.2 Encoder (forward process) | [363](machine-learning/understanding-deep-learning.pdf#page=363) |
+| 18.3 Decoder model (reverse process) | [369](machine-learning/understanding-deep-learning.pdf#page=369) |
+| 18.4 Training | [370](machine-learning/understanding-deep-learning.pdf#page=370) |
+| 18.5 Reparameterization of loss function | [374](machine-learning/understanding-deep-learning.pdf#page=374) |
+| 18.6 Implementation | [376](machine-learning/understanding-deep-learning.pdf#page=376) |
+| 18.7 Summary | [381](machine-learning/understanding-deep-learning.pdf#page=381) |
+| 19 Reinforcement learning | [387](machine-learning/understanding-deep-learning.pdf#page=387) |
+| 19.1 Markov decision processes, returns, and policies | [387](machine-learning/understanding-deep-learning.pdf#page=387) |
+| 19.2 Expected return | [391](machine-learning/understanding-deep-learning.pdf#page=391) |
+| 19.3 Tabular reinforcement learning | [395](machine-learning/understanding-deep-learning.pdf#page=395) |
+| 19.4 Fitted Q-learning | [399](machine-learning/understanding-deep-learning.pdf#page=399) |
+| 19.5 Policy gradient methods | [402](machine-learning/understanding-deep-learning.pdf#page=402) |
+| 19.6 Actor-critic methods | [407](machine-learning/understanding-deep-learning.pdf#page=407) |
+| 19.7 Offline reinforcement learning | [408](machine-learning/understanding-deep-learning.pdf#page=408) |
+| 19.8 Summary | [409](machine-learning/understanding-deep-learning.pdf#page=409) |
+| 20 Why does deep learning work? | [415](machine-learning/understanding-deep-learning.pdf#page=415) |
+| 20.1 The case against deep learning | [415](machine-learning/understanding-deep-learning.pdf#page=415) |
+| 20.2 Factors that influence fitting performance | [416](machine-learning/understanding-deep-learning.pdf#page=416) |
+| 20.3 Properties of loss functions | [420](machine-learning/understanding-deep-learning.pdf#page=420) |
+| 20.4 Factors that determine generalization | [424](machine-learning/understanding-deep-learning.pdf#page=424) |
+| 20.5 Do we need so many parameters? | [428](machine-learning/understanding-deep-learning.pdf#page=428) |
+| 20.6 Do networks have to be deep? | [431](machine-learning/understanding-deep-learning.pdf#page=431) |
+| 20.7 Summary | [432](machine-learning/understanding-deep-learning.pdf#page=432) |
+| 21 Deep learning and ethics | [434](machine-learning/understanding-deep-learning.pdf#page=434) |
+| 21.1 Value alignment | [434](machine-learning/understanding-deep-learning.pdf#page=434) |
+| 21.2 Intentional misuse | [440](machine-learning/understanding-deep-learning.pdf#page=440) |
+| 21.3 Other social, ethical, and professional issues | [442](machine-learning/understanding-deep-learning.pdf#page=442) |
+| 21.4 Case study | [444](machine-learning/understanding-deep-learning.pdf#page=444) |
+| 21.5 The value-free ideal of science | [445](machine-learning/understanding-deep-learning.pdf#page=445) |
+| 21.6 Responsible AI research as a collective action problem | [446](machine-learning/understanding-deep-learning.pdf#page=446) |
+| 21.7 Ways forward | [447](machine-learning/understanding-deep-learning.pdf#page=447) |
+| 21.8 Summary | [448](machine-learning/understanding-deep-learning.pdf#page=448) |
+| Appendix A: Notation | [450](machine-learning/understanding-deep-learning.pdf#page=450) |
+| Appendix B: Mathematics | [453](machine-learning/understanding-deep-learning.pdf#page=453) |
+| Functions | [453](machine-learning/understanding-deep-learning.pdf#page=453) |
+| Binomial coefficients | [455](machine-learning/understanding-deep-learning.pdf#page=455) |
+| Vector, matrices, and tensors | [456](machine-learning/understanding-deep-learning.pdf#page=456) |
+| Special types of matrix | [459](machine-learning/understanding-deep-learning.pdf#page=459) |
+| Matrix calculus | [461](machine-learning/understanding-deep-learning.pdf#page=461) |
+| Appendix C: Probability | [462](machine-learning/understanding-deep-learning.pdf#page=462) |
+| Random variables and probability distributions | [462](machine-learning/understanding-deep-learning.pdf#page=462) |
+| Expectation | [466](machine-learning/understanding-deep-learning.pdf#page=466) |
+| Normal probability distribution | [470](machine-learning/understanding-deep-learning.pdf#page=470) |
+| Sampling | [473](machine-learning/understanding-deep-learning.pdf#page=473) |
+| Distances between probability distributions | [473](machine-learning/understanding-deep-learning.pdf#page=473) |
+| Bibliography | [476](machine-learning/understanding-deep-learning.pdf#page=476) |
+| Index | [527](machine-learning/understanding-deep-learning.pdf#page=527) |
+
+## computer-vision/
+
+### Computer vision textbook
+
+`computer-vision/computer-vision-textbook.pdf`, 667 pages. Simon J. D. Prince, *Computer Vision: Models,
+Learning, and Inference*, Cambridge University Press, 2012; this file is the author's draft of 7 July
+2012. A published textbook that treats vision as probabilistic modelling: probability and the normal
+distribution, learning and inference, regression and classification, graphical models, image
+preprocessing, camera geometry, and models for shape, identity, tracking and visual words. Was
+`Computer Vision.pdf`. The table is from the PDF's own outline for the parts and chapters, with each
+section's page from the printed contents. The printed page number is the PDF page minus 2.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| 1 Introduction | [17](computer-vision/computer-vision-textbook.pdf#page=17) |
+| Part I: Probability | [23](computer-vision/computer-vision-textbook.pdf#page=23) |
+| 2 Introduction to probability | [27](computer-vision/computer-vision-textbook.pdf#page=27) |
+| 2.1 Random variables | [27](computer-vision/computer-vision-textbook.pdf#page=27) |
+| 2.2 Joint probability | [28](computer-vision/computer-vision-textbook.pdf#page=28) |
+| 2.3 Marginalization | [29](computer-vision/computer-vision-textbook.pdf#page=29) |
+| 2.4 Conditional probability | [30](computer-vision/computer-vision-textbook.pdf#page=30) |
+| 2.5 Bayes’ rule | [32](computer-vision/computer-vision-textbook.pdf#page=32) |
+| 2.6 Independence | [33](computer-vision/computer-vision-textbook.pdf#page=33) |
+| 2.7 Expectation | [33](computer-vision/computer-vision-textbook.pdf#page=33) |
+| 3 Common probability distributions | [37](computer-vision/computer-vision-textbook.pdf#page=37) |
+| 3.1 Bernoulli distribution | [38](computer-vision/computer-vision-textbook.pdf#page=38) |
+| 3.2 Beta distribution | [39](computer-vision/computer-vision-textbook.pdf#page=39) |
+| 3.3 Categorical distribution | [40](computer-vision/computer-vision-textbook.pdf#page=40) |
+| 3.4 Dirichlet distribution | [41](computer-vision/computer-vision-textbook.pdf#page=41) |
+| 3.5 Univariate normal distribution | [42](computer-vision/computer-vision-textbook.pdf#page=42) |
+| 3.6 Normal-scaled inverse gamma distribution | [42](computer-vision/computer-vision-textbook.pdf#page=42) |
+| 3.7 Multivariate normal distribution | [43](computer-vision/computer-vision-textbook.pdf#page=43) |
+| 3.8 Normal inverse Wishart distribution | [44](computer-vision/computer-vision-textbook.pdf#page=44) |
+| 3.9 Conjugacy | [44](computer-vision/computer-vision-textbook.pdf#page=44) |
+| 4 Fitting probability models | [51](computer-vision/computer-vision-textbook.pdf#page=51) |
+| 4.1 Maximum likelihood | [51](computer-vision/computer-vision-textbook.pdf#page=51) |
+| 4.2 Maximum a posteriori | [52](computer-vision/computer-vision-textbook.pdf#page=52) |
+| 4.3 The Bayesian approach | [52](computer-vision/computer-vision-textbook.pdf#page=52) |
+| 4.4 Worked example 1: univariate normal | [53](computer-vision/computer-vision-textbook.pdf#page=53) |
+| 4.5 Worked example 2: categorical distribution | [62](computer-vision/computer-vision-textbook.pdf#page=62) |
+| 5 The normal distribution | [71](computer-vision/computer-vision-textbook.pdf#page=71) |
+| 5.1 Types of covariance matrix | [71](computer-vision/computer-vision-textbook.pdf#page=71) |
+| 5.2 Decomposition of covariance | [73](computer-vision/computer-vision-textbook.pdf#page=73) |
+| 5.3 Linear transformations of variables | [74](computer-vision/computer-vision-textbook.pdf#page=74) |
+| 5.4 Marginal distributions | [74](computer-vision/computer-vision-textbook.pdf#page=74) |
+| 5.5 Conditional distributions | [75](computer-vision/computer-vision-textbook.pdf#page=75) |
+| 5.6 Product of two normals | [76](computer-vision/computer-vision-textbook.pdf#page=76) |
+| 5.7 Change of variable | [77](computer-vision/computer-vision-textbook.pdf#page=77) |
+| Part II: Machine learning for machine vision | [81](computer-vision/computer-vision-textbook.pdf#page=81) |
+| 6 Learning and inference in vision | [85](computer-vision/computer-vision-textbook.pdf#page=85) |
+| 6.1 Computer vision problems | [85](computer-vision/computer-vision-textbook.pdf#page=85) |
+| 6.2 Types of model | [86](computer-vision/computer-vision-textbook.pdf#page=86) |
+| 6.3 Example 1: regression | [87](computer-vision/computer-vision-textbook.pdf#page=87) |
+| 6.4 Example 2: binary classification | [90](computer-vision/computer-vision-textbook.pdf#page=90) |
+| 6.5 Which type of model should we use? | [93](computer-vision/computer-vision-textbook.pdf#page=93) |
+| 6.6 Applications | [95](computer-vision/computer-vision-textbook.pdf#page=95) |
+| 7 Modeling complex data densities | [103](computer-vision/computer-vision-textbook.pdf#page=103) |
+| 7.1 Normal classification model | [103](computer-vision/computer-vision-textbook.pdf#page=103) |
+| 7.2 Hidden variables | [107](computer-vision/computer-vision-textbook.pdf#page=107) |
+| 7.3 Expectation maximization | [108](computer-vision/computer-vision-textbook.pdf#page=108) |
+| 7.4 Mixture of Gaussians | [110](computer-vision/computer-vision-textbook.pdf#page=110) |
+| 7.5 The t-distribution | [117](computer-vision/computer-vision-textbook.pdf#page=117) |
+| 7.6 Factor analysis | [122](computer-vision/computer-vision-textbook.pdf#page=122) |
+| 7.7 Combining models | [128](computer-vision/computer-vision-textbook.pdf#page=128) |
+| 7.8 Expectation maximization in detail | [129](computer-vision/computer-vision-textbook.pdf#page=129) |
+| 7.9 Applications | [134](computer-vision/computer-vision-textbook.pdf#page=134) |
+| 8 Regression models | [145](computer-vision/computer-vision-textbook.pdf#page=145) |
+| 8.1 Linear regression | [145](computer-vision/computer-vision-textbook.pdf#page=145) |
+| 8.2 Bayesian linear regression | [149](computer-vision/computer-vision-textbook.pdf#page=149) |
+| 8.3 Non-linear regression | [152](computer-vision/computer-vision-textbook.pdf#page=152) |
+| 8.4 Kernels and the kernel trick | [157](computer-vision/computer-vision-textbook.pdf#page=157) |
+| 8.5 Gaussian process regression | [158](computer-vision/computer-vision-textbook.pdf#page=158) |
+| 8.6 Sparse linear regression | [159](computer-vision/computer-vision-textbook.pdf#page=159) |
+| 8.7 Dual linear regression | [163](computer-vision/computer-vision-textbook.pdf#page=163) |
+| 8.8 Relevance vector regression | [165](computer-vision/computer-vision-textbook.pdf#page=165) |
+| 8.9 Regression to multivariate data | [167](computer-vision/computer-vision-textbook.pdf#page=167) |
+| 8.10 Applications | [167](computer-vision/computer-vision-textbook.pdf#page=167) |
+| 9 Classification models | [173](computer-vision/computer-vision-textbook.pdf#page=173) |
+| 9.1 Logistic regression | [173](computer-vision/computer-vision-textbook.pdf#page=173) |
+| 9.2 Bayesian logistic regression | [178](computer-vision/computer-vision-textbook.pdf#page=178) |
+| 9.3 Non-linear logistic regression | [183](computer-vision/computer-vision-textbook.pdf#page=183) |
+| 9.4 Dual logistic regression | [185](computer-vision/computer-vision-textbook.pdf#page=185) |
+| 9.5 Kernel logistic regression | [187](computer-vision/computer-vision-textbook.pdf#page=187) |
+| 9.6 Relevance vector classification | [188](computer-vision/computer-vision-textbook.pdf#page=188) |
+| 9.7 Incremental fitting and boosting | [192](computer-vision/computer-vision-textbook.pdf#page=192) |
+| 9.8 Classification trees | [196](computer-vision/computer-vision-textbook.pdf#page=196) |
+| 9.9 Multi-class logistic regression | [199](computer-vision/computer-vision-textbook.pdf#page=199) |
+| 9.10 Random trees, forests, and ferns | [200](computer-vision/computer-vision-textbook.pdf#page=200) |
+| 9.11 Relation to non-probabilistic models | [202](computer-vision/computer-vision-textbook.pdf#page=202) |
+| 9.12 Applications | [203](computer-vision/computer-vision-textbook.pdf#page=203) |
+| Part III: Connecting local models | [215](computer-vision/computer-vision-textbook.pdf#page=215) |
+| 10 Graphical models | [219](computer-vision/computer-vision-textbook.pdf#page=219) |
+| 10.1 Conditional independence | [219](computer-vision/computer-vision-textbook.pdf#page=219) |
+| 10.2 Directed graphical models | [221](computer-vision/computer-vision-textbook.pdf#page=221) |
+| 10.3 Undirected graphical models | [225](computer-vision/computer-vision-textbook.pdf#page=225) |
+| 10.4 Comparing directed and undirected graphical models | [227](computer-vision/computer-vision-textbook.pdf#page=227) |
+| 10.5 Graphical models in computer vision | [229](computer-vision/computer-vision-textbook.pdf#page=229) |
+| 10.6 Inference in models with many unknowns | [231](computer-vision/computer-vision-textbook.pdf#page=231) |
+| 10.7 Drawing samples | [233](computer-vision/computer-vision-textbook.pdf#page=233) |
+| 10.8 Learning | [235](computer-vision/computer-vision-textbook.pdf#page=235) |
+| 11 Models for chains and trees | [245](computer-vision/computer-vision-textbook.pdf#page=245) |
+| 11.1 Models for chains | [246](computer-vision/computer-vision-textbook.pdf#page=246) |
+| 11.2 MAP inference for chains | [248](computer-vision/computer-vision-textbook.pdf#page=248) |
+| 11.3 MAP inference for trees | [253](computer-vision/computer-vision-textbook.pdf#page=253) |
+| 11.4 Marginal posterior inference for chains | [256](computer-vision/computer-vision-textbook.pdf#page=256) |
+| 11.5 Marginal posterior inference for trees | [264](computer-vision/computer-vision-textbook.pdf#page=264) |
+| 11.6 Learning in chains and trees | [264](computer-vision/computer-vision-textbook.pdf#page=264) |
+| 11.7 Beyond chains and trees | [265](computer-vision/computer-vision-textbook.pdf#page=265) |
+| 11.8 Applications | [268](computer-vision/computer-vision-textbook.pdf#page=268) |
+| 12 Models for grids | [281](computer-vision/computer-vision-textbook.pdf#page=281) |
+| 12.1 Markov random fields | [282](computer-vision/computer-vision-textbook.pdf#page=282) |
+| 12.2 MAP inference for binary pairwise MRFs | [286](computer-vision/computer-vision-textbook.pdf#page=286) |
+| 12.3 MAP inference for multi-label pairwise MRFs | [295](computer-vision/computer-vision-textbook.pdf#page=295) |
+| 12.4 Multi-label MRFs with non-convex potentials | [298](computer-vision/computer-vision-textbook.pdf#page=298) |
+| 12.5 Conditional random fields | [302](computer-vision/computer-vision-textbook.pdf#page=302) |
+| 12.6 Higher order models | [305](computer-vision/computer-vision-textbook.pdf#page=305) |
+| 12.7 Directed models for grids | [306](computer-vision/computer-vision-textbook.pdf#page=306) |
+| 12.8 Applications | [306](computer-vision/computer-vision-textbook.pdf#page=306) |
+| Part IV: Preprocessing | [323](computer-vision/computer-vision-textbook.pdf#page=323) |
+| 13 Image preprocessing and feature extraction | [327](computer-vision/computer-vision-textbook.pdf#page=327) |
+| 13.1 Per-pixel transformations | [327](computer-vision/computer-vision-textbook.pdf#page=327) |
+| 13.2 Edges, corners, and interest points | [338](computer-vision/computer-vision-textbook.pdf#page=338) |
+| 13.3 Descriptors | [343](computer-vision/computer-vision-textbook.pdf#page=343) |
+| 13.4 Dimensionality reduction | [347](computer-vision/computer-vision-textbook.pdf#page=347) |
+| Part V: Models for geometry | [357](computer-vision/computer-vision-textbook.pdf#page=357) |
+| 14 The pinhole camera | [361](computer-vision/computer-vision-textbook.pdf#page=361) |
+| 14.1 The pinhole camera | [361](computer-vision/computer-vision-textbook.pdf#page=361) |
+| 14.2 Three geometric problems | [369](computer-vision/computer-vision-textbook.pdf#page=369) |
+| 14.3 Homogeneous coordinates | [373](computer-vision/computer-vision-textbook.pdf#page=373) |
+| 14.4 Learning extrinsic parameters | [375](computer-vision/computer-vision-textbook.pdf#page=375) |
+| 14.5 Learning intrinsic parameters | [377](computer-vision/computer-vision-textbook.pdf#page=377) |
+| 14.6 Inferring 3D world points | [378](computer-vision/computer-vision-textbook.pdf#page=378) |
+| 14.7 Applications | [380](computer-vision/computer-vision-textbook.pdf#page=380) |
+| 15 Models for transformations | [391](computer-vision/computer-vision-textbook.pdf#page=391) |
+| 15.1 2D transformation models | [391](computer-vision/computer-vision-textbook.pdf#page=391) |
+| 15.2 Learning in transformation models | [398](computer-vision/computer-vision-textbook.pdf#page=398) |
+| 15.3 Inference in transformation models | [403](computer-vision/computer-vision-textbook.pdf#page=403) |
+| 15.4 Three geometric problems for planes | [404](computer-vision/computer-vision-textbook.pdf#page=404) |
+| 15.5 Transformations between images | [409](computer-vision/computer-vision-textbook.pdf#page=409) |
+| 15.6 Robust learning of transformations | [412](computer-vision/computer-vision-textbook.pdf#page=412) |
+| 15.7 Applications | [417](computer-vision/computer-vision-textbook.pdf#page=417) |
+| 16 Multiple cameras | [425](computer-vision/computer-vision-textbook.pdf#page=425) |
+| 16.1 Two-view geometry | [426](computer-vision/computer-vision-textbook.pdf#page=426) |
+| 16.2 The essential matrix | [429](computer-vision/computer-vision-textbook.pdf#page=429) |
+| 16.3 The fundamental matrix | [434](computer-vision/computer-vision-textbook.pdf#page=434) |
+| 16.4 Two-view reconstruction pipeline | [437](computer-vision/computer-vision-textbook.pdf#page=437) |
+| 16.5 Rectification | [441](computer-vision/computer-vision-textbook.pdf#page=441) |
+| 16.6 Multi-view reconstruction | [445](computer-vision/computer-vision-textbook.pdf#page=445) |
+| 16.7 Applications | [449](computer-vision/computer-vision-textbook.pdf#page=449) |
+| Part VI: Models for vision | [459](computer-vision/computer-vision-textbook.pdf#page=459) |
+| 17 Models for shape | [463](computer-vision/computer-vision-textbook.pdf#page=463) |
+| 17.1 Shape and its representation | [464](computer-vision/computer-vision-textbook.pdf#page=464) |
+| 17.2 Snakes | [465](computer-vision/computer-vision-textbook.pdf#page=465) |
+| 17.3 Shape templates | [470](computer-vision/computer-vision-textbook.pdf#page=470) |
+| 17.4 Statistical shape models | [473](computer-vision/computer-vision-textbook.pdf#page=473) |
+| 17.5 Subspace shape models | [477](computer-vision/computer-vision-textbook.pdf#page=477) |
+| 17.6 Three-dimensional shape models | [484](computer-vision/computer-vision-textbook.pdf#page=484) |
+| 17.7 Statistical models for shape and appearance | [484](computer-vision/computer-vision-textbook.pdf#page=484) |
+| 17.8 Non-Gaussian statistical shape models | [489](computer-vision/computer-vision-textbook.pdf#page=489) |
+| 17.9 Articulated models | [494](computer-vision/computer-vision-textbook.pdf#page=494) |
+| 17.10 Applications | [495](computer-vision/computer-vision-textbook.pdf#page=495) |
+| 18 Models for style and identity | [505](computer-vision/computer-vision-textbook.pdf#page=505) |
+| 18.1 Subspace identity model | [508](computer-vision/computer-vision-textbook.pdf#page=508) |
+| 18.2 Probabilistic linear discriminant analysis | [516](computer-vision/computer-vision-textbook.pdf#page=516) |
+| 18.3 Non-linear identity models | [519](computer-vision/computer-vision-textbook.pdf#page=519) |
+| 18.4 Asymmetric bilinear models | [520](computer-vision/computer-vision-textbook.pdf#page=520) |
+| 18.5 Symmetric bilinear and multilinear models | [526](computer-vision/computer-vision-textbook.pdf#page=526) |
+| 18.6 Applications | [530](computer-vision/computer-vision-textbook.pdf#page=530) |
+| 19 Temporal models | [539](computer-vision/computer-vision-textbook.pdf#page=539) |
+| 19.1 Temporal estimation framework | [539](computer-vision/computer-vision-textbook.pdf#page=539) |
+| 19.2 Kalman filter | [542](computer-vision/computer-vision-textbook.pdf#page=542) |
+| 19.3 Extended Kalman filter | [552](computer-vision/computer-vision-textbook.pdf#page=552) |
+| 19.4 Unscented Kalman filter | [556](computer-vision/computer-vision-textbook.pdf#page=556) |
+| 19.5 Particle filtering | [560](computer-vision/computer-vision-textbook.pdf#page=560) |
+| 19.6 Applications | [565](computer-vision/computer-vision-textbook.pdf#page=565) |
+| 20 Models for visual words | [573](computer-vision/computer-vision-textbook.pdf#page=573) |
+| 20.1 Images as collections of visual words | [573](computer-vision/computer-vision-textbook.pdf#page=573) |
+| 20.2 Bag of words | [575](computer-vision/computer-vision-textbook.pdf#page=575) |
+| 20.3 Latent Dirichlet allocation | [578](computer-vision/computer-vision-textbook.pdf#page=578) |
+| 20.4 Single author-topic model | [584](computer-vision/computer-vision-textbook.pdf#page=584) |
+| 20.5 Constellation models | [587](computer-vision/computer-vision-textbook.pdf#page=587) |
+| 20.6 Scene models | [592](computer-vision/computer-vision-textbook.pdf#page=592) |
+| 20.7 Applications | [592](computer-vision/computer-vision-textbook.pdf#page=592) |
+| Part VII: Appendices | [599](computer-vision/computer-vision-textbook.pdf#page=599) |
+| Appendix A Notation | [601](computer-vision/computer-vision-textbook.pdf#page=601) |
+| Appendix B Optimization | [603](computer-vision/computer-vision-textbook.pdf#page=603) |
+| Appendix C Linear algebra | [615](computer-vision/computer-vision-textbook.pdf#page=615) |

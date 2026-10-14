@@ -16,3 +16,7 @@ Thumbs.db
 # Windows NTFS download-provenance streams and editor backups: artifacts, not notes
 *:Zone.Identifier
 *.bak
+
+# Textbooks over GitHub's size limits: kept local, moved between machines outside git
+Mathematics/references/textbooks/computer-vision/computer-vision-textbook.pdf
+Mathematics/references/textbooks/machine-learning/probabilistic-machine-learning-an-introduction.pdf
