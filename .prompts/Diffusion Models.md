@@ -1,6 +1,6 @@
 # Diffusion Models: illustrated map
 
-The drawn pictures for the vault note [[Diffusion Models]], sections [[Diffusion Models#The forward process in one jump]], [[Diffusion Models#Composing models with a background]], [[Diffusion Models#The order of multiplying and noising]] and [[Diffusion Models#The energy parameterisation]], with one concept picture for [[Diffusion Models#The product as an intersection]], [[Diffusion Models#Product, mixture and negation]], with one concept picture each for [[Diffusion Models#Annealed MCMC]] and [[Diffusion Models#Step size and the accept step]], [[Diffusion Models#What an expert learns from its training set]], and one concept picture for [[Diffusion Models#Kinds of composition]]. `22 prompts · 5 rendered · 1 stuck · 16 waiting`
+The drawn pictures for the vault note [[Diffusion Models]], sections [[Diffusion Models#The forward process in one jump]], [[Diffusion Models#Composing models with a background]], [[Diffusion Models#The order of multiplying and noising]] and [[Diffusion Models#The energy parameterisation]], with one concept picture for [[Diffusion Models#The product as an intersection]], [[Diffusion Models#Product, mixture and negation]], with one concept picture each for [[Diffusion Models#Annealed MCMC]] and [[Diffusion Models#Step size and the accept step]], [[Diffusion Models#What an expert learns from its training set]], one concept picture for [[Diffusion Models#Kinds of composition]], and one concept picture for [[Diffusion Models#When neither training set holds A and B]]. `23 prompts · 5 rendered · 1 stuck · 17 waiting`
 
 ## Table of contents
 
@@ -42,6 +42,8 @@ The drawn pictures for the vault note [[Diffusion Models]], sections [[Diffusion
 - [Prompt 21 (Subject capstone): The training set, the deep-dive sheet](#prompt-21-subject-capstone-the-training-set-the-deep-dive-sheet)
 - [Subject lane: Kinds of composition](#subject-lane-kinds-of-composition)
 - [Prompt 22 (Subject concept): Kinds of composition](#prompt-22-subject-concept-kinds-of-composition)
+- [Subject lane: When neither training set holds A and B](#subject-lane-when-neither-training-set-holds-a-and-b)
+- [Prompt 23 (Subject concept): The product's support](#prompt-23-subject-concept-the-products-support)
 - [Process lane](#process-lane)
 
 ## Abstraction chain
@@ -899,7 +901,7 @@ One concept picture for [[Diffusion Models#Kinds of composition]], a subsection 
 
 ### Prompt 22 (Subject concept): Kinds of composition
 
-Navigation: ⬅️ [Subject lane: Kinds of composition](#subject-lane-kinds-of-composition) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
+Navigation: ⬅️ [Subject lane: Kinds of composition](#subject-lane-kinds-of-composition) | 📋 [TOC](#table-of-contents) | [Subject lane: When neither training set holds A and B](#subject-lane-when-neither-training-set-holds-a-and-b) ➡️
 
 [planned] ⏳ not rendered
 Save as: `../Artificial Intelligence/Generative Modeling/assets/kinds-of-composition-the-concept.webp`
@@ -933,8 +935,50 @@ Exclusions: no equations, no fourth kind, no numbers. no duplicated components, 
 
 Faithfulness note: Only the co-occurrence grid is split into blue and orange halves; the other two grids are fully striped; only the contention card is red-bordered; the interaction failure shows a dry dog, not a wet one. Every label in the image, exactly: "co-occurrence", "intersection", "interaction", "expert A scores", "expert B scores", "left pixels", "right pixels", "all pixels", "contention: a chimera", "empty intersection", "missing interaction: a dry dog in rain", "product over a partition, plus a layout", "product over the same variables", "product plus the interaction term", "cat beside dog", "square and circle", "rain + dog = wet dog".
 
+## Subject lane: When neither training set holds A and B
+
+Navigation: ⬅️ [Prompt 22 (Subject concept): Kinds of composition](#prompt-22-subject-concept-kinds-of-composition) | 📋 [TOC](#table-of-contents) | [Prompt 23 (Subject concept): The product's support](#prompt-23-subject-concept-the-products-support) ➡️
+
+One concept picture for [[Diffusion Models#When neither training set holds A and B]], a subsection of the training-set section, whose form, mechanism and deep-dive sheet are prompts 19 to 21. Colours as in the composition lane: blue expert A, orange expert B, green the composed result; red only on the empty A-and-B region of the right panel, where the product cannot go.
+
+### Prompt 23 (Subject concept): The product's support
+
+Navigation: ⬅️ [Subject lane: When neither training set holds A and B](#subject-lane-when-neither-training-set-holds-a-and-b) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Artificial Intelligence/Generative Modeling/assets/support-the-concept.webp`
+
+Visual thesis: A product of two experts lives only where both experts have density, so when neither training set holds A and B the product cannot land there and slides to the nearest edge of the two supports instead.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for any plot, curve, cloud or grid, and for all typography. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: Two square panels side by side, each a 2D plot from -1 to 1 on both axes, with the same drawing in each. In each panel, expert A is a ring of small blue blobs on a circle of radius 0.5 centred at the origin, and expert B is a tall thin orange rectangle centred on the vertical axis, 0.4 wide and 2 tall. Left panel, titled "overlap kept": the ring has 8 blobs, evenly spaced, including one at the top (0, 0.5) and one at the bottom (0, -0.5); those two blobs sit inside the orange bar, and each is overdrawn in green and labelled "product"; a small bracket around them reads "A and B"; under the panel, "Z = 0.313". Right panel, titled "overlap removed": the ring has 6 blobs, the top and bottom ones missing, and the orange bar has a gap cut out of it around y = 0.5 and around y = -0.5; the two empty spots where the blobs were are outlined in red dashed circles labelled "A and B"; a small green smudge sits on the bar's left and right edges at y about 0.35 and -0.35, next to the diagonal blue blobs, labelled "the product moves to the bar's edge"; under the panel, "Z = 0.00000016". Across the top of both panels, one banner: "product = 0 wherever either expert = 0". Under the right panel's title, a small grey caption: "no A and B in either training set". Label the ring "expert A: ring" and the bar "expert B: bar" in each panel.
+
+Cast: two plot panels, one blue ring per panel, one orange bar per panel, green product marks, two red dashed empty regions in the right panel, one banner.
+
+Flows: none.
+
+Text in the image, spelled exactly: "overlap kept", "overlap removed", "expert A: ring", "expert B: bar", "product", "A and B", "no A and B in either training set", "product = 0 wherever either expert = 0", "the product moves to the bar's edge", "Z = 0.313", "Z = 0.00000016".
+
+Exclusions: no axes tick labels beyond -1, 0 and 1, no equations other than the banner, no third panel, no green anywhere in the right panel's red dashed circles. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: The left ring has 8 blobs and the right ring 6, missing exactly the top and bottom ones; the bar in the right panel has two gaps, at y about plus and minus 0.5; green appears inside the bar at the top and bottom blobs on the left, and only at the bar's side edges on the right, never inside the red dashed circles. Every label in the image, exactly: "overlap kept", "overlap removed", "expert A: ring", "expert B: bar", "product", "A and B", "no A and B in either training set", "product = 0 wherever either expert = 0", "the product moves to the bar's edge", "Z = 0.313", "Z = 0.00000016".
+
 ## Process lane
 
-Navigation: ⬅️ [Prompt 22 (Subject concept): Kinds of composition](#prompt-22-subject-concept-kinds-of-composition) | 📋 [TOC](#table-of-contents)
+Navigation: ⬅️ [Prompt 23 (Subject concept): The product's support](#prompt-23-subject-concept-the-products-support) | 📋 [TOC](#table-of-contents)
 
 None. A vault note's section has no plan tree to draw over it.
