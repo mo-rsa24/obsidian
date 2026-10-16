@@ -182,6 +182,11 @@ table on this page gives PDF pages.
 | the reparameterization trick: z = mu + Sigma^(1/2) eps, so the gradient passes the sampling (section 17.7) | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=352) | 352 |
 | an eigenvalue and its eigenvector (Definition 1), with Theorem 5.1.1 and worked examples on the next page | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=305) | 305 |
 | a real symmetric matrix has real eigenvalues and orthogonal eigenvectors (Theorem 7.2.2) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=425) | 425 |
+| the improper integral over the whole line, (-inf, +inf), as two one-sided limits split at a point (Definition 7.8.3) | [calculus textbook](calculus/calculus-textbook.pdf#page=574) | 574 |
+| the fundamental theorem of calculus, part 1: evaluate a definite integral with any antiderivative (Theorem 5.6.1) | [calculus textbook](calculus/calculus-textbook.pdf#page=387) | 387 |
+| the quotient rule (Theorem 2.4.2) | [calculus textbook](calculus/calculus-textbook.pdf#page=189) | 189 |
+| elementary functions: what counts as one | [calculus textbook](calculus/calculus-textbook.pdf#page=427) | 427 |
+| the integral of e^(-t^2) has no elementary form, and the error function it defines | [calculus textbook](calculus/calculus-textbook.pdf#page=428) | 428 |
 
 ## general/
 
