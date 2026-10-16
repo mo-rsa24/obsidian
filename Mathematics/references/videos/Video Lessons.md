@@ -66,7 +66,7 @@ Leonard has no video on a density integrating to 1 or on the Gaussian integral i
 
 ## Integration by parts
 
-<!-- video-table: integration-by-parts rev=1 -->
+<!-- video-table: integration-by-parts rev=2 -->
 Professor Leonard on integration by parts, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
@@ -75,9 +75,9 @@ Professor Leonard on integration by parts, in the order to watch:
 | 2 | Choosing u and v, then x eˣ worked through | Worked example | [Calculus 2, 7.1, 8:27 to 17:00](https://www.youtube.com/watch?v=EOwjiFpDY_s&t=507s) |
 | 3 | ln x from 1 to e, with the uv term evaluated at the bounds | Worked example | [Calculus 2, 7.1, 58:45 to 1:05:30](https://www.youtube.com/watch?v=EOwjiFpDY_s&t=3525s) |
 | 4 | Parts twice, until the integral comes back and can be solved for | Worked example | [Calculus 2, 7.1, 46:00 to 50:00](https://www.youtube.com/watch?v=EOwjiFpDY_s&t=2760s) |
-| 5 | The uv term vanishing at infinity: x eˣ from −∞ to 0. This is the "p s vanishes at infinity" step | Worked example | [Calculus 2, 7.6, 1:00:00 to 1:17:00](https://www.youtube.com/watch?v=g-M8FHslgdk&t=3600s) |
+| 5 | The uv term vanishing at infinity: x eˣ from −∞ to 0. This is the boundary assumption in integration by parts | Worked example | [Calculus 2, 7.6, 1:00:00 to 1:17:00](https://www.youtube.com/watch?v=g-M8FHslgdk&t=3600s) |
 
-These are single-variable. The step above applies the same idea in each coordinate with the others held fixed, which Leonard does not cover. Timestamps are good to about 30 seconds.
+These are single-variable. The score-matching derivation applies the same idea in each coordinate with the others held fixed, which Leonard does not cover. Timestamps are good to about 30 seconds.
 <!-- /video-table -->
 
 ## Double integrals and iterated integrals
