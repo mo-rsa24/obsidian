@@ -17,7 +17,7 @@ sources:
 Artificial Intelligence, Generative Modeling. Needs: [[Multivariate Normal Distribution#Sampling a diagonal Gaussian]] for drawing a cloud, [[Multivariate Normal Distribution#Products and quotients of diagonal Gaussians]] for the arithmetic of composing, and [[NumPy#Broadcasting]] for noising many levels in one line.
 
 > [!question] Test yourself
-> [The diffusion models quiz](https://claude.ai/artifact/MyTdAaVfZW3wiqhbLKg4wu) covers [[#The forward process in one jump]] and [[#Composing models with a background]], including the paper's figures, in 22 questions. Your attempts are saved on the page.
+> [The diffusion models quiz](https://claude.ai/artifact/MyTdAaVfZW3wiqhbLKg4wu) covers [[#The forward process in one jump]], [[#Composing models with a background]] with the paper's figures, [[#Kinds of composition]], [[#What an expert learns from its training set]] and [[#When neither training set holds A and B]], in 41 questions. Your attempts are saved on the page.
 
 > [!warning] Unfinished
 > - One picture is still to be drawn: the deep-dive sheet for [[#Composing models with a background]], prompt 6 in the vault's `.prompts/Diffusion Models.md`. Its last render put the marked points off the note's saved figure, and it is stuck after three revisions.
@@ -619,7 +619,9 @@ Moving the experts apart never moves the peak away from the weighted average, an
 
 **Why the intersection matters.** This is the one-dimensional picture of a hybrid. The background-divided toy above lands on $-1.5$ in shared's left half for the same reason: a product lands on points that are partly like each concept. The plain product has no background to divide out, so it shows the compromise with nothing else in the way.
 
-*🖼️ Diagram wanted: the product as an intersection, two experts and their product with each expert's share at the product's peak. Prompt 13 in the vault's `.prompts/Diffusion Models.md`.*
+![The product as an intersection, two experts and their product with each expert's share at the product's peak|800](assets/intersection-the-concept.webp)
+
+*The product as an intersection, two experts and their product with each expert's share at the product's peak.*
 
 **Taught in:** the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, section 3, paragraph 2, chunk 34 (the product as an intersection, and the heights at its peak from the walk's answer key `checks/step6_product.out`). The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
 
@@ -679,7 +681,9 @@ $$
 
 **Where a wet dog has to come from.** When each label is fixed by the image, so $p(A \mid x)$ and $p(B \mid x)$ are each 0 or 1, the joint label is fixed too, $p(A, B \mid x) = p(A \mid x)\,p(B \mid x)$, and the interaction term is zero everywhere. The Bayes composition is then exactly $p(x)$ restricted to images that are both A and B, so wet dogs appear only if $p(x)$, the unconditional model, saw wet dogs. A plain product $p_A\,p_B$ has no $p(x)$ in it, so it can produce a wet dog only if expert A's or expert B's own training images held some. *Derived* from the identity above.
 
-*🖼️ Diagram wanted: the kinds of composition as three cards, each showing which pixels each expert scores and its failure. Prompt 22 in the vault's `.prompts/Diffusion Models.md`.*
+![The kinds of composition as three cards, each showing which pixels each expert scores and its failure|800](assets/kinds-of-composition-the-concept.webp)
+
+*The kinds of composition as three cards, each showing which pixels each expert scores and its failure.*
 
 ### Composition taught in, applied in
 
@@ -735,7 +739,9 @@ score of eq 12:                      s1(x_t, abar) + s2(x_t, abar), the summed s
 equal at abar = 1 for a product; equal at every abar for a mixture (q1 + q2) / 2
 ```
 
-*🖼️ Diagram wanted: the form, the clean experts multiplied then noised in green against noised then multiplied in purple. Prompt 7 in the vault's `.prompts/Diffusion Models.md`.*
+![The clean experts multiplied then noised in green against noised then multiplied in purple|800](assets/two-orders-the-form.webp)
+
+*The form, the clean experts multiplied then noised in green against noised then multiplied in purple.*
 
 ### Try the two orders yourself
 
@@ -1257,9 +1263,13 @@ The walk redrew the top row with exact scores in place of trained networks, 5,00
 
 The bottom row is a mixture, where the noising order does not matter (step 8 above: $2.8 \times 10^{-16}$), and reverse diffusion still smears it. With exact scores the mixture's noised curves are one forward sequence, so the plain reverse process would be the right sampler, and the bottom row's failure has to come from how the two trained models were combined. The paper gives no cause: its appendix C.3 lists "products, tempering, and guidance" as the operators that do not commute with noising and leaves the mixture out, while the caption says reverse diffusion "fails to sample from composed models" of both rows. *Derived* for the commuting; *cited* for the caption and C.3, as the journey's read-ahead quotes them at chunk 36. A mixture's score needs each model's height as well as its slope, and the paper builds it from energy-parameterised models, assuming "this ratio [of normalizers] is 1"; [[#How the energy works]] and [[#Product, mixture and negation]] work that out on this pair. No released code builds this row. *Cited:* section 3, the mixture paragraph.
 
-*🖼️ Diagram wanted: the mechanism, the blur passing through a mixture and not through a product. Prompt 8 in the vault's `.prompts/Diffusion Models.md`.*
+![The blur passing through a mixture and not through a product|800](assets/two-orders-the-mechanism.webp)
 
-*🖼️ Diagram wanted: the deep-dive sheet composing the form, the mechanism and the run of `closed_form.py`. Prompt 9 in the same file.*
+*The mechanism, the blur passing through a mixture and not through a product.*
+
+![The deep-dive sheet composing the form, the mechanism and the run of closed_form.py|800](assets/two-orders-deep-dive-sheet.webp)
+
+*The deep-dive sheet composing the form, the mechanism and the run of `closed_form.py`.*
 
 ### Annealed MCMC
 
@@ -1341,7 +1351,9 @@ the paper's f:   f_theta(x, t) = -||s_theta(x, t)||^2, with s_theta an ordinary 
 
 The mixture line needs each $Z_i$, or at least their ratio. The accept line does not, because both heights belong to the same target and its $Z$ cancels.
 
-*🖼️ Diagram wanted: the form, one network giving one number whose slope is the noise estimate and whose height feeds the mixture weights and the accept test. Prompt 10 in the vault's `.prompts/Diffusion Models.md`.*
+![One network giving one number whose slope is the noise estimate and whose height feeds the mixture weights and the accept test|800](assets/energy-the-form.webp)
+
+*The form, one network giving one number whose slope is the noise estimate and whose height feeds the mixture weights and the accept test.*
 
 ### Try the energy yourself
 
@@ -1898,7 +1910,9 @@ At $x = 0$ the heights are $q_a = 0.207554$ and $q_b = 0.238743$, so $w_a = 0.46
 
 **An unadjusted Langevin chain on a Gaussian of precision $P$ settles at variance $1 / (P(1 - \eta P/2))$ and runs away once its step $\eta$ passes $2/P$. A Metropolis accept step holds the target's width at any step, and turns the share of proposals accepted into the dial for choosing the step.** The settled variance is derived in [[#How the energy works]].
 
-*🖼️ Diagram wanted: the concept, settled variance against step size with and without the accept step, and the share accepted above. Prompt 18 in the vault's `.prompts/Diffusion Models.md`.*
+![Settled variance against step size with and without the accept step, and the share accepted above|800](assets/step-size-and-the-accept-step-the-concept.webp)
+
+*The concept, settled variance against step size with and without the accept step, and the share accepted above.*
 
 **The stability limit.** One unadjusted step multiplies an offset from the centre by $1 - \eta P$. The offset shrinks only while that factor is between $-1$ and $1$:
 
@@ -1995,7 +2009,9 @@ negation  q_neg  ~ q_0 / q_1^alpha           score: s_0 - alpha * s_1           
 guidance  p(x | y) ~ p(x) * p(y | x)         score: s_x + s_(y|x)                 a product of two experts
 ```
 
-*🖼️ Diagram wanted: the form, the three operators as three cards, each with two expert bells and the result bell, and what each needs (slopes or heights). Prompt 14 in the vault's `.prompts/Diffusion Models.md`.*
+![The three operators as three cards, each with two expert bells and the result bell, and what each needs (slopes or heights)|800](assets/three-operators-the-form.webp)
+
+*The form, the three operators as three cards, each with two expert bells and the result bell, and what each needs (slopes or heights).*
 
 ### Try the three operators yourself
 
@@ -2278,7 +2294,9 @@ The labels use all three operators nested: AND a product, OR a mixture, NOT a ne
 
 *🖼️ Diagram wanted: the mechanism, slopes adding for the product and negation and height-weighted for the mixture. Prompt 15 in the same file.*
 
-*🖼️ Diagram wanted: the deep-dive sheet composing the form, the mechanism and the three runs. Prompt 16 in the same file.*
+![The deep-dive sheet composing the form, the mechanism and the three runs|800](assets/three-operators-deep-dive-sheet.webp)
+
+*The deep-dive sheet composing the form, the mechanism and the three runs.*
 
 ### The three operators taught in, applied in
 
@@ -2315,7 +2333,9 @@ classifier p(B | x)  ->  share of training points near x labelled B        what 
 guided score  =  grad log p(x | A)  +  w * grad log p(B | x)                points toward B as labelled
 ```
 
-*🖼️ Diagram wanted: the form, one training set flowing into three readers (the loss, the conditioning rule, the classifier) with the label reaching only the last two. Prompt 19 in the vault's `.prompts/Diffusion Models.md`.*
+![One training set flowing into three readers (the loss, the conditioning rule, the classifier) with the label reaching only the last two|800](assets/expert-and-labels-the-form.webp)
+
+*The form, one training set flowing into three readers (the loss, the conditioning rule, the classifier) with the label reaching only the last two.*
 
 ### Try it yourself
 
@@ -2407,7 +2427,9 @@ guided score  =  grad log p(x | A)  +  w * grad log p(B | x)                poin
 
 The walk called step 5 a shortcut. Shortcut learning names a decision rule that does well on the training benchmark and fails to transfer, such as a classifier leaning on a feature that travels with the label. *Cited:* Geirhos et al. 2020, abstract. Here the classifier learns the labels' own mistake, which the field calls label noise, or positive-unlabelled data when only some positives carry the label. *Stated:* those two names are the writer's, not checked against a source.
 
-*🖼️ Diagram wanted: the mechanism, the three points in their quadrants under set 1 and set 2, with what each reader learns. Prompt 20 in the same file.*
+![The three points in their quadrants under set 1 and set 2, with what each reader learns|800](assets/expert-and-labels-the-mechanism.webp)
+
+*The mechanism, the three points in their quadrants under set 1 and set 2, with what each reader learns.*
 
 ### Other ways to keep labels from steering the result
 
@@ -2419,7 +2441,9 @@ The walk called step 5 a shortcut. Shortcut learning names a decision rule that 
 
 The repaired claim: **a density expert learns its training set's density, and labels matter only where something reads them.** Before blaming a composition for missing the A-and-B region, count the A-and-B points each factor was trained on under the conditioning rule actually in use, and check whether a classifier in the loop was trained on labels that miss B.
 
-*🖼️ Diagram wanted: the deep-dive sheet composing the form, the mechanism and the expected output. Prompt 21 in the same file.*
+![The deep-dive sheet composing the form, the mechanism and the expected output|800](assets/expert-and-labels-the-deep-dive.webp)
+
+*The deep-dive sheet composing the form, the mechanism and the expected output.*
 
 ### When neither training set holds A and B
 
@@ -2542,7 +2566,9 @@ A trained expert matches its training set smoothed by the noise, as step 2 of [[
 2. **The pair with the overlap removed.** The nearest kept modes sit at $x_1 = \pm 0.5 \cos 45^\circ = \pm 0.3536$, which is $0.1536 = 5.12$ widths outside the bar's edge at 0.2. The share of such a Gaussian that crosses the edge is $\Phi(-5.12) = 1.54 \times 10^{-7}$. Four such modes, each of weight $1/6$, with 0.939 of each inside the kept band $|x_2| < 0.4$, under a bar of height $1/(0.4 \times 1.6)$, give $Z = 4 \times \tfrac16 \times 1.54 \times 10^{-7} \times 0.939 / 0.64 = 1.51 \times 10^{-7}$. *Derived.* The run's `1.6e-07` in field 3 is 6% higher because the grid's spacing of 0.005 is coarse against a tail this steep.
 3. **What the rule leaves to smoothing.** The product is zero wherever either factor is zero, so all of field 6's mass comes from the smoothing tails, and those tails are thickest where the two supports are nearest each other. That is the bar's edge beside the 45-degree modes, and the missing combination is not there. *Shown* in fields 5 to 7.
 
-*🖼️ Diagram wanted: the product's support as the intersection of supports, the ring-times-bar with and without the overlap. Prompt 23 in the vault's `.prompts/Diffusion Models.md`.*
+![The product's support as the intersection of supports, the ring-times-bar with and without the overlap|800](assets/support-the-concept.webp)
+
+*The product's support as the intersection of supports, the ring-times-bar with and without the overlap.*
 
 **Three ways round it, strongest first.**
 
