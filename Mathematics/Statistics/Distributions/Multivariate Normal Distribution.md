@@ -1,5 +1,5 @@
 ---
-aliases: [multivariate normal, multivariate Gaussian, Gaussian, normal distribution in d dimensions, diagonal Gaussian, diagonal covariance, axis-aligned Gaussian, independent coordinates Gaussian, "(mean, variance) pair", per-coordinate variance, sampling a Gaussian, sample a diagonal Gaussian, drawing samples from a Gaussian, "mu + sqrt(var) * eps", shift and scale a standard normal, product of Gaussians, product of Gaussian densities, precisions add, precision-weighted mean, quotient of Gaussians, dividing out a Gaussian, precision subtraction, negative precision, overlap of two Gaussians, area under a product of densities, area a product loses, normalising constant of a product, normalizing constant of a product, normaliser of a product, normalizer of a product, product of densities is unnormalised, product of densities is unnormalized, Gaussian overlap identity, integral of a product of Gaussians, product of Gaussian densities normaliser, area under a mixture, mixture keeps area 1, score ignores the normaliser, score is unaffected by a constant normaliser, normaliser has no slope, missing normaliser, missing area, powers of Gaussians, power of a Gaussian, Gaussian raised to a power, power combination of Gaussians, weighted product of Gaussians, tempered Gaussian, positive-precision condition, positive precision condition, negation of Gaussians, "q_a / q_b^alpha", guidance scale on Gaussians]
+aliases: [multivariate normal, multivariate Gaussian, Gaussian, normal distribution in d dimensions, diagonal Gaussian, diagonal covariance, axis-aligned Gaussian, independent coordinates Gaussian, "(mean, variance) pair", per-coordinate variance, sampling a Gaussian, sample a diagonal Gaussian, drawing samples from a Gaussian, "mu + sqrt(var) * eps", shift and scale a standard normal, product of Gaussians, product of Gaussian densities, precisions add, precision-weighted mean, quotient of Gaussians, dividing out a Gaussian, precision subtraction, negative precision, overlap of two Gaussians, area under a product of densities, area a product loses, normalising constant of a product, normalizing constant of a product, normaliser of a product, normalizer of a product, product of densities is unnormalised, product of densities is unnormalized, Gaussian overlap identity, integral of a product of Gaussians, product of Gaussian densities normaliser, area under a mixture, mixture keeps area 1, score ignores the normaliser, score is unaffected by a constant normaliser, normaliser has no slope, missing normaliser, missing area, powers of Gaussians, power of a Gaussian, Gaussian raised to a power, power combination of Gaussians, weighted product of Gaussians, tempered Gaussian, powered Gaussian, one Gaussian to a power, "sigma^2 / beta", variance over beta, positive-precision condition, positive precision condition, negation of Gaussians, "q_a / q_b^alpha", guidance scale on Gaussians, product of Gaussian mixtures, product of two Gaussian mixtures, product of mixtures, mixture times mixture, component pair weights, pairwise component weights, "w_ij", "N(mu_i; nu_j, S_i + L_j)"]
 sources:
   - "Wikipedia, Multivariate normal distribution: https://en.wikipedia.org/wiki/Multivariate_normal_distribution, read 2026-10-04, CC BY-SA 4.0"
   - "Wikipedia, Normal distribution: https://en.wikipedia.org/wiki/Normal_distribution, read 2026-10-04, CC BY-SA 4.0"
@@ -23,7 +23,8 @@ Mathematics, Statistics, Distributions. Needs: the one-dimensional normal densit
 > - The deep-dive sheet for [[#Products and quotients of diagonal Gaussians]] is being redrawn: its mechanism pane labelled the background's curve with curvature 0.25 where the maths has -0.25, in a side legend. The current picture stays until prompt 8 renders again.
 > - One picture for [[#The area a product loses]] is waiting to be drawn: prompt 9 in the same file.
 > - One picture for [[#Powers of Gaussians]] is waiting to be drawn: prompt 10 in the same file.
-> - The quiz page covers [[#Diagonal covariance]] only. The two newer sections, [[#The area a product loses]] and [[#Powers of Gaussians]] are owed to it.
+> - One picture for [[#Products of Gaussian mixtures]] is waiting to be drawn: prompt 11 in the same file.
+> - The quiz page covers [[#Diagonal covariance]] only. The three newer sections, [[#The area a product loses]], [[#Powers of Gaussians]] and [[#Products of Gaussian mixtures]], are owed to it.
 > - Only the diagonal case has a section yet. A full covariance, with the coordinates correlated, waits for a walk that uses one.
 >
 > Stated, not checked: 1 claim, marked where it sits.
@@ -757,7 +758,7 @@ and for split, $\mathcal{N}(-2; 0, 5)\,\mathcal{N}(0; 2, 5) = 0.11959^2 = 0.0143
 
 ### The area a product loses
 
-Textbook: [[matrix-cookbook.pdf#page=42|Matrix Cookbook, section 8.1.8, p. 42]]
+Textbook: [Matrix Cookbook, section 8.1.8, p. 42](../../references/textbooks/linear-algebra/matrix-cookbook.pdf#page=42)
 
 **Two densities multiplied point by point no longer have area 1. The area left is $\mathcal{N}(m_1; m_2, v_1 + v_2)$, and averaging the two instead keeps area 1. Dividing the product by its area moves its log by a constant, so the slope of the log, the score, does not change.** For expert a, $\mathcal{N}(-1, 0.5)$, and expert b, $\mathcal{N}(1, 0.8)$, the product's area is 0.075126 and the mixture's is 1.000000.
 
@@ -1019,13 +1020,72 @@ $$
 
 *Derived.* The score of the result is $w_a s_a + w_b s_b$, each expert's score scaled by its power, which is why a diffusion sampler can apply any of these with scores alone. Which composition each power stands for is worked in [[Diffusion Models#Product, mixture and negation]].
 
+**One Gaussian to a power.** With a single expert the rule reads: $\mathcal{N}(\mu, \sigma^2)$ raised to $\beta > 0$ and normalised is $\mathcal{N}(\mu, \sigma^2 / \beta)$, the same mean with the precision multiplied by $\beta$. Moving $\beta$ into the denominator of the exponent shows it in one line:
+
+$$
+\left(e^{-\frac{(x - \mu)^2}{2\sigma^2}}\right)^\beta = e^{-\frac{\beta (x - \mu)^2}{2\sigma^2}} = e^{-\frac{(x - \mu)^2}{2\,(\sigma^2 / \beta)}}
+$$
+
+$\mathcal{N}(3, 4)$ at $\beta = 2$ is $\mathcal{N}(3, 2)$, and expert a, $\mathcal{N}(-1, 0.5)$, at $\beta = 0.25$ is $\mathcal{N}(-1, 2)$. The score gives an independent check, because the score of a powered density is $\beta$ times the old score ([[Diffusion Models#The tempered density and its score]]): at $x = 5$, $2 \times \left(-(5 - 3)/4\right) = -1.0$ and the score of $\mathcal{N}(3, 2)$ is $-(5 - 3)/2 = -1.0$; at $x = 0$, $0.25 \times \left(-(0 + 1)/0.5\right) = -0.5$ and the score of $\mathcal{N}(-1, 2)$ is $-(0 + 1)/2 = -0.5$. *Derived.* At $\beta = 0$ the variance $\sigma^2 / \beta$ has no value and the powered height is 1 everywhere, which has no normaliser; that section works it.
+
 *🖼️ Diagram wanted: the form, each expert's precision bar scaled by its power and added, with the bell it gives in four rows from the product to a total below zero. Prompt 10 in the vault's `.prompts/Multivariate Normal Distribution.md`.*
 
 **Why this matters.** A negative prompt or a divided-out background can quietly produce something that is not a distribution. The check costs one subtraction: the kept expert's precision has to exceed the divided one's precision times its power. A pushed-away expert narrower than that makes the sampler chase a log height that grows toward the edges, as row 6 does.
 
-**Taught in:** the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, section 3, chunks 37, 40 and 41 (guidance as a product, equation 10 and its positive-precision condition, the notebook's weights), from the walk's answer keys `checks/negation.out` and `checks/guidance_on_the_object.out`. The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
+**Taught in:** the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, section 3, chunks 37, 40 and 41 (guidance as a product, equation 10 and its positive-precision condition, the notebook's weights), from the walk's answer keys `checks/negation.out` and `checks/guidance_on_the_object.out`. One Gaussian to a power: piece 2 of the `drip --math` walk of the sampler correctors for composition journey's plan 24, `plans/24-what-is-annealed.md`, lines 129 to 150, in `drips/24-what-is-annealed/`. The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
 
 **Applied in:** nothing yet.
+
+### Products of Gaussian mixtures
+
+Textbook: [Matrix Cookbook, section 8.1.8, p. 42](../../references/textbooks/linear-algebra/matrix-cookbook.pdf#page=42)
+
+**The product of two Gaussian mixtures is again a Gaussian mixture, with one component for every pair of components: pair $(i, j)$ has the mean and covariance of the plain product of its two Gaussians, and the weight $w_{ij} \propto \pi_i\,\rho_j\,\mathcal{N}(\mu_i; \nu_j, \Sigma_i + \Lambda_j)$.** That last factor is the pair's area, $Z$ of [[#The area a product loses]], so a pair whose two components barely overlap gets almost no weight. *Derived* below.
+
+**When to reach for it.** When the experts being multiplied are mixtures, such as an animal that can sit in either half of the frame, or any expert noised from a mixture by the forward process, which noises each component on its own and so returns a mixture. Each pair is a closed-form product, so the composed density is exact in any number of dimensions, with no grid. The count of components is the product of the two counts: 2 by 2 gives 4.
+
+**The form.**
+
+```text
+p_A = sum_i pi_i  N(mu_i, S_i)        p_B = sum_j rho_j N(nu_j, L_j)
+p_A p_B = sum_ij  pi_i rho_j Z_ij  N(mu_ij, S_ij)
+S_ij  = (S_i^-1 + L_j^-1)^-1                  the pair's covariance, precisions added
+mu_ij = S_ij (S_i^-1 mu_i + L_j^-1 nu_j)       the pair's precision-weighted mean
+Z_ij  = N(mu_i; nu_j, S_i + L_j)              the pair's area, how much the two components overlap
+w_ij  = pi_i rho_j Z_ij / (sum over all pairs of the same)
+```
+
+> 🖼️ **Picture on its way**: two two-component mixtures multiplied into a 2 by 2 grid of component pairs, each cell holding the pair's product tile and its weight, the overlapping pairs heavy and the clashing pairs at weight 0. <!-- slot: assets/products-of-gaussian-mixtures.webp · prompt: .prompts/Multivariate Normal Distribution.md#prompt-11-subject-products-of-gaussian-mixtures -->
+
+**How the mixture product works.** Multiply the two sums term by term, the way $(a_1 + a_2)(b_1 + b_2) = a_1 b_1 + a_1 b_2 + a_2 b_1 + a_2 b_2$:
+
+$$
+p_A(x)\,p_B(x) = \Big(\sum_i \pi_i\,\mathcal{N}(x; \mu_i, \Sigma_i)\Big)\Big(\sum_j \rho_j\,\mathcal{N}(x; \nu_j, \Lambda_j)\Big) = \sum_{i,j} \pi_i\,\rho_j\,\mathcal{N}(x; \mu_i, \Sigma_i)\,\mathcal{N}(x; \nu_j, \Lambda_j)
+$$
+
+Each term is the product of two Gaussians, which the Cookbook's equation (371) on the `Textbook:` page turns into $Z_{ij}\,\mathcal{N}(x; \mu_{ij}, \Sigma_{ij})$, with $Z_{ij} = \mathcal{N}(\mu_i; \nu_j, \Sigma_i + \Lambda_j)$. For diagonal covariances this is [[#How the product works]] and [[#The area a product loses]] on every coordinate. So
+
+$$
+p_A(x)\,p_B(x) = \sum_{i,j} \underbrace{\pi_i\,\rho_j\,Z_{ij}}_{\text{unnormalised weight}}\ \mathcal{N}(x; \mu_{ij}, \Sigma_{ij}),
+$$
+
+and dividing by the sum of the unnormalised weights gives weights that add to 1. *Derived.* With diagonal covariances in $d$ dimensions, $Z_{ij}$ is a product of $d$ one-dimensional overlaps, so [its log](../../references/textbooks/algebra/algebra-handbook.pdf#page=110) is a sum of $d$ terms, and the weights are computed from logs to keep them from rounding to 0.
+
+**The worked numbers, on the parts world.** Setting (c) of [[Diffusion Models#Mosaic, blend or two animals from one product]] has 16 coordinates. The cat expert is a [mixture](../../references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=355) of two placements with $\pi_1 = \pi_2 = 0.5$: mean $+1$ and variance 0.01 on the left 8 coordinates with mean 0 and variance 1 on the right 8, or the mirror image. The dog expert is the same with $-1$. A side-by-side pair puts a sure value against a loose 0 on every coordinate, each overlap $\mathcal{N}(1; 0, 1.01)$:
+
+$$
+\log(\pi_i \rho_j Z_{ij}) = \log 0.25 + 16 \left( -\tfrac12 \log(2\pi \cdot 1.01) - \frac{1}{2 \cdot 1.01} \right) = -1.386294 + 16 \cdot (-1.418963) = -24.089706
+$$
+
+A same-half pair puts $+1$ against $-1$, both sure, on 8 coordinates, and loose against loose on the other 8:
+
+$$
+\log(\pi_i \rho_j Z_{ij}) = \log 0.25 + 8 \log \mathcal{N}(1; -1, 0.02) + 8 \log \mathcal{N}(0; 0, 2) = -1.386294 + 8 \cdot (-98.962927) + 8 \cdot (-1.265512) = -803.213807
+$$
+
+The two side-by-side pairs hold weight 0.5 each and the two same-half pairs $e^{-779}$ of that, which prints as 0. *Derived*, and *shown* by `parts_world.py` and by a grid that uses no formula, both in [[Diffusion Models#Mosaic, blend or two animals from one product]].
+
+**Why this matters.** The overlap $Z_{ij}$ that a single product throws away as a constant ([[#The area a product loses]]) comes back as the thing that picks between components once the experts are mixtures. A product of mixtures keeps the pairs that agree and drops the pairs that clash, which is how a product of two placement-varied experts puts two animals side by side and rules out both in one half.
 
 ### Other ways to compose
 
@@ -1064,6 +1124,7 @@ At coordinate 0 only $p_0$ has mean 1. The other three experts have mean 0 there
 - the `drip-read` walk of [the Mechanisms of Projective Composition paper note](../../../deep-learning/01-poe-derivation-foundations/papers/mechanisms-of-projective-composition/), step 3a, the overlap prediction and the re-teach that followed it, where the learner traced the per-coordinate derivation above on paper
 - the PoE derivation foundations journey's plan 13, `plans/13-poe-on-two-gaussians.md`, lines 150 to 152 (the precision-sum formula), 173 to 182 (the wide and the narrow background) and 277 to 294 (the product on paper), with its textbook chapter `textbook/10-completing-the-square.md`, sections 10.1 and 10.2
 - the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, section 3, paragraph 2, chunk 34: the product of $\mathcal{N}(-1, 0.5)$ and $\mathcal{N}(1, 0.8)$ peaks at the precision-weighted mean $-0.23$, where the experts stand at 55% and 39% of their own peaks. Worked in [[Diffusion Models#The product as an intersection]]. The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
+- the `drip-idea` walk of the overlap dial in the reduce-reuse-recycle research repository, claim 9, the `example 9` control (`artifacts/ideas/poe-overlap-dial/IDEA_MAP.md` line 93, and `example-9-parts-world/example-9-parts-world.tex` beside it, equations 1 to 3): the one-pair identity with its overlap $Z$, and the product of two mixtures, for [[#Products of Gaussian mixtures]]
 
 **Applied in:** nothing yet.
 
@@ -1083,5 +1144,9 @@ At coordinate 0 only $p_0$ has mean 1. The other three experts have mean 0 there
 > Every output in [[#The area a product loses]] was run by the writer in an empty folder, `~/playground/sandbox/product-area`, on the PC: Ubuntu under WSL2, through the prepared environment `~/.vault-sandbox/bin/python` (Python 3.11.13, NumPy 2.4.6), on 2026-10-13. Its area 0.075126 and mixture area 1.000000 match the walk's answer keys `checks/step6_product.out` and `checks/mixture_score.out` in the journey's `sources/reduce-reuse-recycle/`; both keys were re-run in the same folder and their output matched the saved files byte for byte. The worked numbers in the derivation were computed in the same environment. The folder was removed afterwards and the clean-up check returned 2. The terminal picture was rendered from the captured text by a script in DejaVu Sans Mono. The quotation from Du et al. was read in the journey's staged arXiv source, `paper/source/text/method.tex`, line 6, and the Matrix Cookbook's equation (371) on PDF page 42 of the shelf copy.
 >
 > Every output in [[#Powers of Gaussians]] was run by the writer in an empty folder, `~/playground/sandbox/gaussian-powers`, on the PC: Ubuntu under WSL2, through the prepared environment `~/.vault-sandbox/bin/python` (Python 3.11.13, NumPy 2.4.6), on 2026-10-13. The folder was removed afterwards and the clean-up check returned 2. Rows 1 to 4 and 6 match the walk's answer keys `checks/negation.out` and `checks/guidance_on_the_object.out` in the journey's `sources/reduce-reuse-recycle/`, both re-run in a sandbox the same day with output identical to the saved files; row 5's grid reading is new to this note and is explained by the closed form beside it. The terminal picture was rendered from the captured text by a script in DejaVu Sans Mono and opened before filing.
+>
+> The paragraph "One Gaussian to a power" in [[#Powers of Gaussians]] was added on 2026-10-17 on the cluster (mscluster, Linux) from piece 2 of the plan 24 walk. It runs nothing; its four scores were computed by the writer with `awk` and match the walk's numbers.
+>
+> [[#Products of Gaussian mixtures]] was added on 2026-10-17 on the cluster (mscluster, Linux), from the `example 9` turn of the overlap-dial `drip-idea` walk. It runs nothing of its own: its worked numbers are the parts world's setting (c), whose run and grid check are in [[Diffusion Models#Mosaic, blend or two animals from one product]] and were made there through the system `python3` in place of the prepared environment. Every number in the derivation was recomputed by the writer in Python and matches the run's `-24.089705618427917` and `-803.213807592922` to the six decimals shown. The Matrix Cookbook's page 42 (section 8.1.8, equation 371, "the product is not normalized as a density of x") and Mathematics for Machine Learning's page 355 (section 11.1, equation 11.1) were opened with PyMuPDF before linking, and the algebra handbook's page 110 (the log of a product) the same way.
 >
 > References: [Multivariate normal distribution](https://en.wikipedia.org/wiki/Multivariate_normal_distribution), [Normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) and [Variance](https://en.wikipedia.org/wiki/Variance) on Wikipedia, CC BY-SA 4.0; [Generator.normal](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.normal.html) and [scipy.stats.multivariate_normal](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.multivariate_normal.html), BSD 3-Clause; and [the paper on arXiv](https://arxiv.org/abs/2502.04549). Each answered 200 on 2026-10-04. [Du et al. on arXiv](https://arxiv.org/abs/2302.11552) and [the Matrix Cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf) each answered 200 on 2026-10-13. No tldr-pages entry covers this. The sketchpad link is the learner's own private artifact and was not fetched.

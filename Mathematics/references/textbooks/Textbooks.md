@@ -187,6 +187,10 @@ table on this page gives PDF pages.
 | the quotient rule (Theorem 2.4.2) | [calculus textbook](calculus/calculus-textbook.pdf#page=189) | 189 |
 | elementary functions: what counts as one | [calculus textbook](calculus/calculus-textbook.pdf#page=427) | 427 |
 | the integral of e^(-t^2) has no elementary form, and the error function it defines | [calculus textbook](calculus/calculus-textbook.pdf#page=428) | 428 |
+| the difference quotient (f(x + h) - f(x)) / h and the derivative as its limit (Definition 2.2.1) | [calculus textbook](calculus/calculus-textbook.pdf#page=167) | 167 |
+| the derivative of a constant function is 0, by (c - c) / h = 0 (Theorem 2.3.1) | [calculus textbook](calculus/calculus-textbook.pdf#page=179) | 179 |
+| the variable of integration in a definite integral is a dummy variable and plays no role in the result | [calculus textbook](calculus/calculus-textbook.pdf#page=392) | 392 |
+| the derivative of ln x is 1 / x, from the difference quotient (section 3.2) | [calculus textbook](calculus/calculus-textbook.pdf#page=216) | 216 |
 
 ## general/
 
