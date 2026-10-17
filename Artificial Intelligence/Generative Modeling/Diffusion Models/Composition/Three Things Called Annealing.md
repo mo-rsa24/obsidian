@@ -144,154 +144,9 @@ Navigation: ⬅️ [[#The form of the three knobs]] | 📋 [[#Table of contents|
    ```
 
 6. Another way to the temperature rows, by hand: by the [exponent rules](../../../../Mathematics/references/textbooks/algebra/algebra-handbook.pdf#page=109), $(e^{a})^\beta = e^{\beta a}$, so $\beta = 2$ at $x = 2$ is $e^{-4} = 0.018316$ and $\beta = 0.5$ at $x = 2$ is $e^{-1} = 0.367879$.
-7. More worked examples in the same folder, for [[The Tempered Density And Its Score]]. Save this as `tempered.py`. It checks the temperature score two ways, measures $Z_\beta$ with rectangles against $\sqrt{2\pi/\beta}$, shows the area at $\beta = 0$ growing with the range, and bends from a base toward $p$:
-
-   ```python
-   # The tempered density pi_beta = p^beta / Z_beta: its score, a powered Gaussian, and Z_beta toward beta = 0.
-   import math
-
-
-   def score(x, mean, var):                      # slope of the log of N(mean, var) at x
-       return -(x - mean) / var
-
-
-   print("temperature score: beta times the score of p")
-   for (mean, var), beta, x in [((3, 4), 2, 5), ((-1, 0.5), 0.25, 0)]:
-       print(f"  N({mean}, {var}) at x = {x}, beta {beta}: beta * score {beta * score(x, mean, var):+.6f}, "
-             f"score of N({mean}, {var / beta:g}) {score(x, mean, var / beta):+.6f}")
-
-   print("Z_beta for exp(-x^2/2): a rectangle sum against sqrt(2 pi / beta)")
-   for beta in (1, 0.01):
-       half = 12 / math.sqrt(beta)               # 12 standard deviations of the powered bell on each side
-       dx = half / 6000
-       area = sum(math.exp(-beta * (k * dx) ** 2 / 2) for k in range(-6000, 6001)) * dx
-       print(f"  beta {beta}: sum {area:.6f}, closed form {math.sqrt(2 * math.pi / beta):.6f}, variance {1 / beta:g}")
-
-   print("beta = 0: every height is 1, so the area is the width of the range")
-   for half in (10, 100, 1000):
-       print(f"  from -{half} to {half}: area {2 * half * math.exp(-0 * half ** 2 / 2):g}")
-
-   print("bent from a base N(0, 1) toward p = N(3, 4): base^(1 - beta) * p^beta")
-   for beta in (0, 0.5, 1):
-       P = (1 - beta) / 1 + beta / 4             # each precision times its power, added
-       print(f"  beta {beta}: mean {(beta * 3 / 4) / P:.6f}, variance {1 / P:.6f}")
-   ```
-
-   Run it with `~/.vault-sandbox/bin/python tempered.py`. You should see, by the hand working in [[The Tempered Density And Its Score]] (not yet run):
-
-   ```
-   temperature score: beta times the score of p
-     N(3, 4) at x = 5, beta 2: beta * score -1.000000, score of N(3, 2) -1.000000
-     N(-1, 0.5) at x = 0, beta 0.25: beta * score -0.500000, score of N(-1, 2) -0.500000
-   Z_beta for exp(-x^2/2): a rectangle sum against sqrt(2 pi / beta)
-     beta 1: sum 2.506628, closed form 2.506628, variance 1
-     beta 0.01: sum 25.066283, closed form 25.066283, variance 100
-   beta = 0: every height is 1, so the area is the width of the range
-     from -10 to 10: area 20
-     from -100 to 100: area 200
-     from -1000 to 1000: area 2000
-   bent from a base N(0, 1) toward p = N(3, 4): base^(1 - beta) * p^beta
-     beta 0: mean 0.000000, variance 1.000000
-     beta 0.5: mean 0.600000, variance 1.600000
-     beta 1: mean 3.000000, variance 4.000000
-   ```
-
-8. More worked examples in the same folder, for [[The Log Of A Power And Of A Quotient]]. Save this as `logs.py`. It works each log by the rules and directly, on the $\mathcal{N}(3, 4)$ height at $x = 7$ with its normaliser $\sqrt{8\pi/\beta}$, on the guidance heights, and on a two-dimensional height:
-
-   ```python
-   # The log of a power and of a quotient, checked on the N(3, 4) height at x = 7.
-   import math
-
-   h7 = math.exp(-(7 - 3) ** 2 / 8)
-   print(f"h(7) {h7:.6f}, log {math.log(h7):.6f}")
-   for beta in (2, 0.5):
-       Z = math.sqrt(8 * math.pi / beta)
-       print(f"beta {beta}: h^beta {h7 ** beta:.6f}, log {math.log(h7 ** beta):.6f}, Z {Z:.6f}, log Z {math.log(Z):.6f}")
-       print(f"  pi {h7 ** beta / Z:.6f}, by the rules {beta * math.log(h7) - math.log(Z):.6f}, directly {math.log(h7 ** beta / Z):.6f}")
-   print(f"guidance: 2 log 0.4 - log 0.1 {2 * math.log(0.4) - math.log(0.1):.6f}, log 1.6 {math.log(1.6):.6f}")
-   h12 = math.exp(-(1 ** 2 + 2 ** 2) / 2)
-   print(f"2D at (1, 2): h {h12:.6f}, h^2 {h12 ** 2:.6f}, log h^2 {math.log(h12 ** 2):.6f}, score at beta 2 ({2 * -1}, {2 * -2})")
-   ```
-
-   Run it with `~/.vault-sandbox/bin/python logs.py`. You should see, by the working in [[The Log Of A Power And Of A Quotient]] (not yet run through the prepared environment):
-
-   ```
-   h(7) 0.135335, log -2.000000
-   beta 2: h^beta 0.018316, log -4.000000, Z 3.544908, log Z 1.265512
-     pi 0.005167, by the rules -5.265512, directly -5.265512
-   beta 0.5: h^beta 0.367879, log -1.000000, Z 7.089815, log Z 1.958659
-     pi 0.051888, by the rules -2.958659, directly -2.958659
-   guidance: 2 log 0.4 - log 0.1 0.470004, log 1.6 0.470004
-   2D at (1, 2): h 0.082085, h^2 0.006738, log h^2 -5.000000, score at beta 2 (-2, -4)
-   ```
-
-9. More worked examples in the same folder, for [[Why The Normaliser Has No Slope In X]]. Save this as `zslope.py`. It takes the slope of $\log \pi_2$ at $x = 5$ by a difference quotient with and without $\log Z_2$, computes the two-dimensional $Z_2$ by rectangles at three points that the sum never uses, and takes the slope of $\log Z_\beta$ along $\beta$:
-
-   ```python
-   # Z_beta has no slope in x and a real slope in beta, on the N(3, 4) height and a 2D height.
-   import math
-
-
-   def log_Z(beta):                                  # log of sqrt(8 pi / beta), the area under the N(3, 4) height to the power beta
-       return 0.5 * (math.log(8 * math.pi) - math.log(beta))
-
-
-   def log_pi2(x):                                   # log pi_2(x) = 2 log h(x) - log Z_2
-       return -(x - 3) ** 2 / 4 - log_Z(2)
-
-
-   print("slope in x at x = 5, beta = 2: (value at 5 + step - value at 5) / step")
-   for step in (0.01, 0.001):
-       a, b = log_pi2(5), log_pi2(5 + step)
-       a0, b0 = -(5 - 3) ** 2 / 4, -(5 + step - 3) ** 2 / 4
-       print(f"  step {step:<6}  log pi     {a:.6f}  {b:.6f}  quotient {(b - a) / step:.6f}")
-       print(f"               without Z  {a0:.6f}  {b0:.6f}  quotient {(b0 - a0) / step:.6f}")
-       print(f"               log Z_2     {log_Z(2):.6f}   {log_Z(2):.6f}  quotient  {(log_Z(2) - log_Z(2)) / step:.6f}")
-   print(f"  exact beta * score at 5: {2 * (-(5 - 3) / 4):.6f}")
-
-   print("2D: Z_2 for exp(-(x1^2 + x2^2)/2) at three points, a rectangle sum against 2 pi / beta")
-   dx, n = 0.01, 600                                 # squares of side 0.01 from -6 to 6 in each coordinate
-
-
-   def Z2_at(x1, x2):                                # the sum runs over u; x1 and x2 are taken and never used
-       row = [math.exp(-2 * (k * dx) ** 2 / 2) for k in range(-n, n + 1)]
-       return sum(row) ** 2 * dx * dx                # the powered height splits into one factor per coordinate
-
-
-   for point in ((0, 0), (1, 2), (-3, 0.5)):
-       Z = Z2_at(*point)
-       print(f"  at {point}: Z_2 {Z:.6f}, log Z_2 {math.log(Z):.6f}")
-   print(f"  closed form 2 pi / 2 = {2 * math.pi / 2:.6f}, log {math.log(math.pi):.6f}")
-
-   print("slope in beta at beta = 2")
-   for step in (0.01, 0.001):
-       print(f"  step {step:<6}  log Z  {log_Z(2):.6f}  {log_Z(2 + step):.6f}  quotient {(log_Z(2 + step) - log_Z(2)) / step:.6f}")
-   print(f"  exact -1 / (2 beta): {-1 / (2 * 2):.6f}")
-   ```
-
-   Run it with `~/.vault-sandbox/bin/python zslope.py`. This output is from the system `python3`, standard library only:
-
-   ```
-   slope in x at x = 5, beta = 2: (value at 5 + step - value at 5) / step
-     step 0.01    log pi     -2.265512  -2.275537  quotient -1.002500
-                  without Z  -1.000000  -1.010025  quotient -1.002500
-                  log Z_2     1.265512   1.265512  quotient  0.000000
-     step 0.001   log pi     -2.265512  -2.266512  quotient -1.000250
-                  without Z  -1.000000  -1.001000  quotient -1.000250
-                  log Z_2     1.265512   1.265512  quotient  0.000000
-     exact beta * score at 5: -1.000000
-   2D: Z_2 for exp(-(x1^2 + x2^2)/2) at three points, a rectangle sum against 2 pi / beta
-     at (0, 0): Z_2 3.141593, log Z_2 1.144730
-     at (1, 2): Z_2 3.141593, log Z_2 1.144730
-     at (-3, 0.5): Z_2 3.141593, log Z_2 1.144730
-     closed form 2 pi / 2 = 3.141593, log 1.144730
-   slope in beta at beta = 2
-     step 0.01    log Z  1.265512  1.263018  quotient -0.249377
-     step 0.001   log Z  1.265512  1.265262  quotient -0.249938
-     exact -1 / (2 beta): -0.250000
-   ```
-
-   ![The run of zslope.py, with the fields read in rows 22 to 30 of the table below marked on it|900](assets/normaliser-has-no-slope-in-x.png)
+7. More worked examples in the same folder are in [[The Tempered Density And Its Score#Try it yourself]], with their output read field by field.
+8. More worked examples in the same folder are in [[The Log Of A Power And Of A Quotient#Try it yourself]], with their output read field by field.
+9. More worked examples in the same folder are in [[Why The Normaliser Has No Slope In X#Try it yourself]], with their output read field by field.
 
 10. Clean up, and check the folder is gone:
 
@@ -303,6 +158,7 @@ Navigation: ⬅️ [[#The form of the three knobs]] | 📋 [[#Table of contents|
    You should see `No such file or directory` and `2`.
 
 ## Reading the three-knobs output
+
 
 Navigation: ⬅️ [[#Try the three knobs yourself]] | 📋 [[#Table of contents|TOC]] | [[#How the three knobs work]] ➡️
 
@@ -317,27 +173,6 @@ Navigation: ⬅️ [[#Try the three knobs yourself]] | 📋 [[#Table of contents
 | 7 | `scale 2`, `x1` | `1.600000` | where $p(x \mid c)$ is 4 times $p(x)$, scale 2 lifts the conditional height 0.4 by that factor 4 | derived below |
 | 8 | `scale 2`, `x2` | `0.025000` | where $p(x \mid c)$ is a quarter of $p(x)$, the conditional height 0.1 is cut to a quarter | derived below |
 | 9 | the mix-up rows | `0.160000` against `1.600000`; `0.010000` against `0.025000` | squaring $p(x \mid c)$ makes x1 16 times x2; guidance at scale 2 makes it 64 times, because it also divides by $p(x)$ | derived below |
-| 10 | `tempered.py`, the `N(3, 4)` row | `-1.000000` twice | the tempered score at $x = 5$ two ways: $2 \times (-0.5)$, and the slope of $\mathcal{N}(3, 2)$ itself | derived in [[The Tempered Density And Its Score]] |
-| 11 | the `N(-1, 0.5)` row | `-0.500000` twice | expert a at $\beta = 0.25$ is $\mathcal{N}(-1, 2)$; both routes give $-0.5$ | derived there |
-| 12 | `sum` against `closed form` | `2.506628`, `25.066283` | the area under $e^{-\beta x^2/2}$ by rectangles matches $\sqrt{2\pi/\beta}$; a hundredth of the $\beta$ gives $\sqrt{100} = 10$ times the area | derived there |
-| 13 | `variance` | `1`, `100` | $1/\beta$: the bell at $\beta = 0.01$ is 100 times wider in variance | derived there |
-| 14 | the `beta = 0` rows | `20`, `200`, `2000` | the area is the width of the range and has no limit, so $p^0$ has no normaliser | derived there |
-| 15 | the bent rows | means `0`, `0.6`, `3`; variances `1`, `1.6`, `4` | $\beta = 0$ is the base, $\beta = 1$ is $p$, and every step between is a proper Gaussian | derived there |
-| 16 | `logs.py`, `h(7)` and its `log` | `0.135335`, `-2.000000` | the $\mathcal{N}(3, 4)$ height four units from its centre is $e^{-2}$ | derived in [[The Log Of A Power And Of A Quotient]] |
-| 17 | `log` at `beta 2` and `beta 0.5` | `-4.000000`, `-1.000000` | $\beta$ times $-2$: the log of a power is the power times the log | derived there |
-| 18 | `log Z` | `1.265512`, `1.958659` | the logs of $\sqrt{4\pi}$ and $\sqrt{16\pi}$, the areas under $h^2$ and $h^{0.5}$ | derived there |
-| 19 | `by the rules` against `directly` | `-5.265512` twice, `-2.958659` twice | $\beta \log h - \log Z$ equals the log of the normalised height: the quotient rule | derived there |
-| 20 | the `guidance` row | `0.470004` twice | both rules in one line, on the guidance heights at scale 2 | derived there |
-| 21 | the `2D` row | `-5.000000`; score `(-2, -4)` | the power doubles the log in two dimensions too, and the score is $\beta$ times $(-x_1, -x_2)$ | derived there |
-| 22 | `zslope.py`, `step 0.01`, `log pi` quotient | `-1.002500` | the slope of $\log \pi_2$ at $x = 5$ by one step of 0.01: $\log \pi_2(5) = -2.265512$, $\log \pi_2(5.01) = -2.275537$, difference $-0.010025$ | shown; derived in [[Why The Normaliser Has No Slope In X]] |
-| 23 | the `without Z` quotient | `-1.002500` | the same quotient with $\log Z_2$ left out: the constant sits in both values and cancels in the difference | shown; derived there |
-| 24 | the `log Z_2` quotient | `0.000000` | $(c - c)/\delta$: the difference quotient of a constant is 0 at every step | shown; derived there |
-| 25 | the `step 0.001` quotient | `-1.000250` | a step ten times smaller cuts the miss from 0.0025 to 0.00025: the miss is the step divided by 4 | shown; derived there |
-| 26 | `exact beta * score at 5` | `-1.000000` | $2 \times (-(5 - 3)/4)$, the slope both quotients approach | derived there |
-| 27 | `log Z_2` at three points | `1.144730` three times | the rectangle sum runs over $u$ and is handed the point without using it, so the value is the same everywhere and its gradient is $(0, 0)$ | shown; derived there |
-| 28 | `closed form` | `3.141593` | $2\pi/\beta$ at $\beta = 2$ is $\pi$, matching the rectangle sum | derived there |
-| 29 | `slope in beta`, `step 0.01` | `-0.249377` | $\log Z_\beta$ does change with $\beta$: from 1.265512 at $\beta = 2$ to 1.263018 at 2.01 | shown; derived there |
-| 30 | `exact -1 / (2 beta)` | `-0.250000` | the exact slope of $\log Z_\beta$ in $\beta$ at $\beta = 2$ | derived there |
 
 ## How the three knobs work
 

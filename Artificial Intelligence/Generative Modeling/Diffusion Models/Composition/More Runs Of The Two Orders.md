@@ -104,6 +104,22 @@ You should see:
 
 The same scores as [[The Order Of Multiplying And Noising#Try the two orders yourself|step 5]], a different sampler, and the cloud lands within 1.5% of the product's variance. It costs 1,010 score evaluations per point against the reverse process's 100.
 
+### Why annealed Langevin reaches the product
+
+[A Langevin chain](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=64) that follows one score with small steps settles on the curve that score belongs to, whether or not that curve sits in a forward sequence. Annealed Langevin<sub>[1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=86 "volume L3, stochastic processes, p. 86"), [2](../../../../Mathematics/references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=130 "the little book of generative AI foundations p. 130")</sub> lets the cloud settle on equation 12's curve at each level, then moves to the next. At the last level, $\bar\alpha = 1$, equation 12's curve is the product. The remaining 1.7% matches the error the step size alone causes: ten times smaller steps at no noise bring a chain on this pair from 19.4% too wide to 1.7%. *Cited:* the journey's read-ahead, `read-ahead/00-abstract.md`, sentence 6, from `checks/langevin_chain.out`.
+
+<!-- video-table: annealed-langevin rev=1 -->
+Stanford CS236 on why Langevin sampling is annealed across noise levels, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Where plain Langevin sampling fails | Intuition | [Stanford CS236, lecture 14, 5:44 to 9:13](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=344s) |
+| 2 | What adding noise does for the score and for sampling | Intuition | [Stanford CS236, lecture 14, 9:13 to 19:08](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=553s) |
+| 3 | Sampling across many noise scales, noisiest first | Intuition | [Stanford CS236, lecture 14, 23:54 to 28:43](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=1434s) |
+
+CS236 anneals one model's score; it does not anneal a sum of two models' scores, which is what composition samples. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
 ## More levels do not help
 
 Navigation: ⬅️ [[#A sampler that reaches the product with the same summed score]] | 📋 [[#Table of contents|TOC]] | [[#Route A and route B, level by level]] ➡️
@@ -163,6 +179,20 @@ On expert a alone the error shrinks as the levels grow, from 0.545 at 10 levels 
 | 1 | summed score, 10,000 levels: variance | `0.207390` | however many levels, the reverse process on summed scores ends 32.6% below the product's 0.307692 | shown; the same figure as `checks/reverse_diffusion.out` |
 | 2 | expert a alone, 10,000 levels: variance | `0.500043` | the same loop on one model reaches that model, so the loop is sound | shown; the same figure as `checks/reverse_diffusion.out` |
 
+### More levels do not close the gap
+
+Write the summed score at level $t$ as $-P_t x + b_t$, with $P_t$ the two noised experts' precisions added. One reverse step is then a linear map of $x$ plus fresh noise, and by the rule for [a linear combination of Gaussians](../../../../Mathematics/references/textbooks/linear-algebra/matrix-cookbook.pdf#page=41) the cloud's mean and variance move as
+
+$$
+\begin{aligned}
+x' &= \frac{x + \beta_t\,(-P_t x + b_t)}{\sqrt{1 - \beta_t}} + \sqrt{\beta_t}\, z = \frac{c_t\, x + \beta_t b_t}{\sqrt{1 - \beta_t}} + \sqrt{\beta_t}\, z, \qquad c_t = 1 - \beta_t P_t \\
+m' &= \frac{c_t\, m + \beta_t b_t}{\sqrt{1 - \beta_t}} \\
+v' &= \frac{c_t^2\, v}{1 - \beta_t} + \beta_t
+\end{aligned}
+$$
+
+*Derived.* Followed this way, expert a's own loop ends at 0.544959 with 10 levels and 0.500043 with 10,000: its error is the coarseness of the steps and it vanishes. The summed score's loop ends at 0.238425 with 10 levels and 0.207390 with 10,000: its error converges to a wrong width instead. *Shown* in [[More Runs Of The Two Orders#More levels do not help]], `levels.py`. The paper's "Reverse (equal steps)" row, a model trained with enough extra levels that reverse diffusion costs as much as the MCMC samplers, makes the same point: "simply adding more time-steps does not solve compositional sampling". *Cited:* `text/results.tex` line 20.
+
 ## Route A and route B, level by level
 
 Navigation: ⬅️ [[#More levels do not help]] | 📋 [[#Table of contents|TOC]] | [[#Steps per level against step size]] ➡️
@@ -205,6 +235,20 @@ The two routes start as the same product at $t = 0$. Route B runs smoothly to $\
 | 2 | route B at $t = 50$: variance | `0.4103` | the curve the summed score belongs to at the same level, 0.248 narrower | derived below |
 | 3 | mean gap, largest | `t = 56: -0.101825` | route A's centre sits 0.10 further from 0 than route B's; nowhere are the centres further apart | shown; the same figure as `checks/route_b_path.out` |
 | 4 | variance gap, largest | `+0.500000` | at $t = 100$: $\mathcal{N}(0, 1)$ against $\mathcal{N}(0, 1/2)$ | derived below |
+
+### The two routes, derived
+
+Route A is equation 11's sequence and route B equation 12's. On the schedule's levels, with $\bar\alpha$ the share of signal left:
+
+| Level $t$ | $\bar\alpha$ | route A variance | route B variance |
+|---|---|---|---|
+| 0, clean | 1 | 0.308 | 0.308 |
+| 25 | 0.847 | 0.414 | 0.340 |
+| 50 | 0.494 | 0.658 | 0.410 |
+| 75 | 0.144 | 0.900 | 0.475 |
+| 100, noisiest | 0 | 1.000 | 0.500 |
+
+Each column comes from the two variance formulas in [[The Order Of Multiplying And Noising#How the two orders work]]. Route B runs smoothly from the product to $\mathcal{N}(0, 1/2)$, and the summed score is its exact score at every level. So the summed score is the right score for a different sequence. The mean gap is largest at $t = 56$, $-0.102$, and the variance gap at the noisiest level, 0.5. *Shown* in [[More Runs Of The Two Orders#Route A and route B, level by level]], `route_b.py`.
 
 ## Steps per level against step size
 

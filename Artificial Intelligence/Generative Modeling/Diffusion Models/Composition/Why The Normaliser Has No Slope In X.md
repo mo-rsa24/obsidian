@@ -90,5 +90,95 @@ $$
 
 *🖼️ Diagram wanted: the concept, $\log \pi_2$ and $\log \pi_2 + \log Z_2$ as two parallel curves with the same secant from $x = 5$ to $x = 5.01$, a flat line for $\log Z_2$ with slope 0, and beside it $\log Z_\beta$ against $\beta$ falling with slope $-0.25$ at $\beta = 2$. Prompt 31 in the same file.*
 
+## Try it yourself
+
+In the folder that steps 1 to 3 of [[Three Things Called Annealing#Try the three knobs yourself]] make, with the same prepared environment, and cleaned up by its last step.
+
+Save this as `zslope.py`. It takes the slope of $\log \pi_2$ at $x = 5$ by a difference quotient with and without $\log Z_2$, computes the two-dimensional $Z_2$ by rectangles at three points that the sum never uses, and takes the slope of $\log Z_\beta$ along $\beta$:
+
+```python
+# Z_beta has no slope in x and a real slope in beta, on the N(3, 4) height and a 2D height.
+import math
+
+
+def log_Z(beta):                                  # log of sqrt(8 pi / beta), the area under the N(3, 4) height to the power beta
+    return 0.5 * (math.log(8 * math.pi) - math.log(beta))
+
+
+def log_pi2(x):                                   # log pi_2(x) = 2 log h(x) - log Z_2
+    return -(x - 3) ** 2 / 4 - log_Z(2)
+
+
+print("slope in x at x = 5, beta = 2: (value at 5 + step - value at 5) / step")
+for step in (0.01, 0.001):
+    a, b = log_pi2(5), log_pi2(5 + step)
+    a0, b0 = -(5 - 3) ** 2 / 4, -(5 + step - 3) ** 2 / 4
+    print(f"  step {step:<6}  log pi     {a:.6f}  {b:.6f}  quotient {(b - a) / step:.6f}")
+    print(f"               without Z  {a0:.6f}  {b0:.6f}  quotient {(b0 - a0) / step:.6f}")
+    print(f"               log Z_2     {log_Z(2):.6f}   {log_Z(2):.6f}  quotient  {(log_Z(2) - log_Z(2)) / step:.6f}")
+print(f"  exact beta * score at 5: {2 * (-(5 - 3) / 4):.6f}")
+
+print("2D: Z_2 for exp(-(x1^2 + x2^2)/2) at three points, a rectangle sum against 2 pi / beta")
+dx, n = 0.01, 600                                 # squares of side 0.01 from -6 to 6 in each coordinate
+
+
+def Z2_at(x1, x2):                                # the sum runs over u; x1 and x2 are taken and never used
+    row = [math.exp(-2 * (k * dx) ** 2 / 2) for k in range(-n, n + 1)]
+    return sum(row) ** 2 * dx * dx                # the powered height splits into one factor per coordinate
+
+
+for point in ((0, 0), (1, 2), (-3, 0.5)):
+    Z = Z2_at(*point)
+    print(f"  at {point}: Z_2 {Z:.6f}, log Z_2 {math.log(Z):.6f}")
+print(f"  closed form 2 pi / 2 = {2 * math.pi / 2:.6f}, log {math.log(math.pi):.6f}")
+
+print("slope in beta at beta = 2")
+for step in (0.01, 0.001):
+    print(f"  step {step:<6}  log Z  {log_Z(2):.6f}  {log_Z(2 + step):.6f}  quotient {(log_Z(2 + step) - log_Z(2)) / step:.6f}")
+print(f"  exact -1 / (2 beta): {-1 / (2 * 2):.6f}")
+```
+
+Run it with `~/.vault-sandbox/bin/python zslope.py`. This output is from the system `python3`, standard library only:
+
+```
+slope in x at x = 5, beta = 2: (value at 5 + step - value at 5) / step
+  step 0.01    log pi     -2.265512  -2.275537  quotient -1.002500
+               without Z  -1.000000  -1.010025  quotient -1.002500
+               log Z_2     1.265512   1.265512  quotient  0.000000
+  step 0.001   log pi     -2.265512  -2.266512  quotient -1.000250
+               without Z  -1.000000  -1.001000  quotient -1.000250
+               log Z_2     1.265512   1.265512  quotient  0.000000
+  exact beta * score at 5: -1.000000
+2D: Z_2 for exp(-(x1^2 + x2^2)/2) at three points, a rectangle sum against 2 pi / beta
+  at (0, 0): Z_2 3.141593, log Z_2 1.144730
+  at (1, 2): Z_2 3.141593, log Z_2 1.144730
+  at (-3, 0.5): Z_2 3.141593, log Z_2 1.144730
+  closed form 2 pi / 2 = 3.141593, log 1.144730
+slope in beta at beta = 2
+  step 0.01    log Z  1.265512  1.263018  quotient -0.249377
+  step 0.001   log Z  1.265512  1.265262  quotient -0.249938
+  exact -1 / (2 beta): -0.250000
+```
+
+![The run of zslope.py, with the fields read in rows 1 to 9 of the table below marked on it|900](assets/normaliser-has-no-slope-in-x.png)
+
+
+## Reading the output
+
+Every field the run prints, read in order.
+
+| # | Field | Expected value | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | `zslope.py`, `step 0.01`, `log pi` quotient | `-1.002500` | the slope of $\log \pi_2$ at $x = 5$ by one step of 0.01: $\log \pi_2(5) = -2.265512$, $\log \pi_2(5.01) = -2.275537$, difference $-0.010025$ | shown; derived in [[Why The Normaliser Has No Slope In X]] |
+| 2 | the `without Z` quotient | `-1.002500` | the same quotient with $\log Z_2$ left out: the constant sits in both values and cancels in the difference | shown; derived there |
+| 3 | the `log Z_2` quotient | `0.000000` | $(c - c)/\delta$: the difference quotient of a constant is 0 at every step | shown; derived there |
+| 4 | the `step 0.001` quotient | `-1.000250` | a step ten times smaller cuts the miss from 0.0025 to 0.00025: the miss is the step divided by 4 | shown; derived there |
+| 5 | `exact beta * score at 5` | `-1.000000` | $2 \times (-(5 - 3)/4)$, the slope both quotients approach | derived there |
+| 6 | `log Z_2` at three points | `1.144730` three times | the rectangle sum runs over $u$ and is handed the point without using it, so the value is the same everywhere and its gradient is $(0, 0)$ | shown; derived there |
+| 7 | `closed form` | `3.141593` | $2\pi/\beta$ at $\beta = 2$ is $\pi$, matching the rectangle sum | derived there |
+| 8 | `slope in beta`, `step 0.01` | `-0.249377` | $\log Z_\beta$ does change with $\beta$: from 1.265512 at $\beta = 2$ to 1.263018 at 2.01 | shown; derived there |
+| 9 | `exact -1 / (2 beta)` | `-0.250000` | the exact slope of $\log Z_\beta$ in $\beta$ at $\beta = 2$ | derived there |
+
+
 > [!note]- How this was checked
 > This note was added on 2026-10-17 on the cluster (mscluster, Linux), from piece 2.2 of the same walk, "why Z_beta has zero slope". The cluster still has no `~/.vault-sandbox`, so `zslope.py` was run by the writer with the system `python3` (Python 3.12.10, standard library only) in the empty folder `~/playground/sandbox/z-slope`, which is not inside any repository. It ran in 0.02 seconds; the folder was removed afterwards and the clean-up check returned 2. The script and the output on the page were compared with the files that ran, by script, and both are identical. Every number matched the walk's to the digits it gave: $-2.265512$, $-2.275537$, $-1.0025$, $-1.00025$, $\pi = 3.141593$, $\log \pi = 1.144730$, $\log Z_{2.01} = 1.263018$ and the quotient $-0.2494$ (the run prints $-0.249377$). The output picture was rendered from the captured text by a script in DejaVu Sans Mono with the system `python3` and Matplotlib 3.11.2, never drawn, and opened before filing. The four calculus textbook pages were opened before linking, by reading each page's text stream with a short standard-library script, since the cluster has no PDF reader: page 167 holds Definition 2.2.1 with "the difference quotient", page 179 holds Theorem 2.3.1, "The derivative of a constant function is 0", proved by $(c - c)/h$, page 392 holds "the variable of integration in a definite integral plays no role in the end result, it is often referred to as a dummy variable", and page 216 opens section 3.2, the derivative of $\ln x$. Each got a row in the shelf index's "Pages looked up most". The exponent-rules and log-rules links reuse pages 109 and 110, which this note already links. The standard normal at $\beta = 0.5$ and $\beta = 2$ and the product's powered variances are left out on purpose: the walk holds those answers back for the learner's own check.

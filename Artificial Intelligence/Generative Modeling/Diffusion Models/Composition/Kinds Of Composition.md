@@ -19,7 +19,7 @@ Artificial Intelligence, Generative Modeling, Diffusion Models, Composition. Nee
 > [The diffusion models quiz](https://claude.ai/artifact/MyTdAaVfZW3wiqhbLKg4wu) covers this note, with the rest of the [[Diffusion Models]] folder. Your attempts are saved on the page.
 
 > [!warning] Unfinished
-> - Prompt 33, the mechanism for [[#Mosaic, blend or two animals from one product]], was being rendered on mscluster when this note was merged (Codex session 01a14a04), in the vault's `.prompts/Diffusion Models.md`; place it under its slot when it lands.
+> - Prompt 33, the mechanism for [[#Mosaic, blend or two animals from one product]], is stuck after three revisions and waits for a word from the learner: its right number line is not drawn to scale, so the green dot reads about 0.68 where it must be 0.693 and the purple dot about 0.21 where it must be 0.233. The last attempt is `~/.cache/codex-drop/obsidian/parts-world-the-mechanism.png` on mscluster; the prompt is in the vault's `.prompts/Diffusion Models.md`.
 > - The overlap-dial idea in the reduce-reuse-recycle repository applies this note in words only.
 
 **"Composition" names at least three different operations, told apart by which variables each expert scores. Co-occurrence is a product over disjoint regions plus a layout. Intersection is a product over the same variables, which is what a product of experts computes. Interaction is the product plus a term that vanishes when the two labels are [conditionally independent](../../../../Mathematics/references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=201) given the image.** The operators are *derived* below. The three names are the walk's working names; the field's words for each are in the table.

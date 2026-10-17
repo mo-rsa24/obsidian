@@ -375,43 +375,7 @@ These print as the five rows of step 7. *Derived.*
 
 **Why the reverse process misses.** Each reverse step moves a cloud from level $t$ to level $t - 1$ of one forward-noising sequence. Equation 12's curves, taken level by level, are not such a sequence: the paper says they "smoothly interpolate between $q^{\text{prod}}(x)$ at $t=0$ and $\mathcal{N}(0, I/2)$ at $t=T$, though this sequence of distributions does not correspond to the distributions that result from the standard forward diffusion process". *Cited:* section 4, the paragraph after equation 12. On the pair the reverse process ends at variance 0.2102, too narrow. *Shown*, step 5. Equation 12's curves are narrower than equation 11's at every level below none, step 7. That the narrow curves are what make the samples narrow is the writer's reading of the two outputs together. *Stated.*
 
-**More levels do not close the gap.** Write the summed score at level $t$ as $-P_t x + b_t$, with $P_t$ the two noised experts' precisions added. One reverse step is then a linear map of $x$ plus fresh noise, and by the rule for [a linear combination of Gaussians](../../../../Mathematics/references/textbooks/linear-algebra/matrix-cookbook.pdf#page=41) the cloud's mean and variance move as
-
-$$
-\begin{aligned}
-x' &= \frac{x + \beta_t\,(-P_t x + b_t)}{\sqrt{1 - \beta_t}} + \sqrt{\beta_t}\, z = \frac{c_t\, x + \beta_t b_t}{\sqrt{1 - \beta_t}} + \sqrt{\beta_t}\, z, \qquad c_t = 1 - \beta_t P_t \\
-m' &= \frac{c_t\, m + \beta_t b_t}{\sqrt{1 - \beta_t}} \\
-v' &= \frac{c_t^2\, v}{1 - \beta_t} + \beta_t
-\end{aligned}
-$$
-
-*Derived.* Followed this way, expert a's own loop ends at 0.544959 with 10 levels and 0.500043 with 10,000: its error is the coarseness of the steps and it vanishes. The summed score's loop ends at 0.238425 with 10 levels and 0.207390 with 10,000: its error converges to a wrong width instead. *Shown* in [[More Runs Of The Two Orders#More levels do not help]], `levels.py`. The paper's "Reverse (equal steps)" row, a model trained with enough extra levels that reverse diffusion costs as much as the MCMC samplers, makes the same point: "simply adding more time-steps does not solve compositional sampling". *Cited:* `text/results.tex` line 20.
-
-**Route A and route B, level by level.** Route A is equation 11's sequence and route B equation 12's. On the schedule's levels, with $\bar\alpha$ the share of signal left:
-
-| Level $t$ | $\bar\alpha$ | route A variance | route B variance |
-|---|---|---|---|
-| 0, clean | 1 | 0.308 | 0.308 |
-| 25 | 0.847 | 0.414 | 0.340 |
-| 50 | 0.494 | 0.658 | 0.410 |
-| 75 | 0.144 | 0.900 | 0.475 |
-| 100, noisiest | 0 | 1.000 | 0.500 |
-
-Each column comes from the two variance formulas above. Route B runs smoothly from the product to $\mathcal{N}(0, 1/2)$, and the summed score is its exact score at every level. So the summed score is the right score for a different sequence. The mean gap is largest at $t = 56$, $-0.102$, and the variance gap at the noisiest level, 0.5. *Shown* in [[More Runs Of The Two Orders#Route A and route B, level by level]], `route_b.py`.
-
-**Why annealed Langevin reaches the product.** [A Langevin chain](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=64) that follows one score with small steps settles on the curve that score belongs to, whether or not that curve sits in a forward sequence. Annealed Langevin<sub>[1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=86 "volume L3, stochastic processes, p. 86"), [2](../../../../Mathematics/references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=130 "the little book of generative AI foundations p. 130")</sub> lets the cloud settle on equation 12's curve at each level, then moves to the next. At the last level, $\bar\alpha = 1$, equation 12's curve is the product. The remaining 1.7% matches the error the step size alone causes: ten times smaller steps at no noise bring a chain on this pair from 19.4% too wide to 1.7%. *Cited:* the journey's read-ahead, `read-ahead/00-abstract.md`, sentence 6, from `checks/langevin_chain.out`.
-
-<!-- video-table: annealed-langevin rev=1 -->
-Stanford CS236 on why Langevin sampling is annealed across noise levels, in the order to watch:
-
-| Order | What it covers | Kind | Watch |
-|---|---|---|---|
-| 1 | Where plain Langevin sampling fails | Intuition | [Stanford CS236, lecture 14, 5:44 to 9:13](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=344s) |
-| 2 | What adding noise does for the score and for sampling | Intuition | [Stanford CS236, lecture 14, 9:13 to 19:08](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=553s) |
-| 3 | Sampling across many noise scales, noisiest first | Intuition | [Stanford CS236, lecture 14, 23:54 to 28:43](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=1434s) |
-
-CS236 anneals one model's score; it does not anneal a sum of two models' scores, which is what composition samples. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
-<!-- /video-table -->
+**More levels do not close the gap, the two routes level by level, and why annealed Langevin reaches the product** are each derived beside their run in [[More Runs Of The Two Orders]]: [[More Runs Of The Two Orders#More levels do not close the gap|more levels]], [[More Runs Of The Two Orders#The two routes, derived|the two routes]] and [[More Runs Of The Two Orders#Why annealed Langevin reaches the product|annealed Langevin]].
 
 **The sampler, or the model.** Step 5 and [[More Runs Of The Two Orders#A sampler that reaches the product with the same summed score|the annealed run]] use the same exact scores. One sampler misses by 31.8% of the product's variance and the other lands within 1.7%, so on this pair the failure is the sampler's. The paper's abstract says "We conclude that the sampler (not the model) is responsible for this failure". Its body is more careful, in section 4.1: the results "further imply that the choice of sampler may be responsible for prior failures in compositional generation". *Cited:* `text/abstract.tex` line 2 and `text/method.tex` line 131 of the paper's source.
 

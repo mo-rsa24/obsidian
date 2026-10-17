@@ -14,9 +14,6 @@ Mathematics, Statistics, Distributions, Multivariate Normal Distribution. Needs:
 > [!question] Test yourself
 > [The diagonal Gaussian quiz](https://claude.ai/artifact/Vmd1FBg7oWwZq1onu9Jofa) covers this note, with the rest of the [[Multivariate Normal Distribution]] folder. Your attempts are saved on the page.
 
-> [!warning] Unfinished
-> - Prompt 8, the deep-dive sheet, was being redrawn on mscluster when this note was merged (Codex session 01a149ff); the current picture stays until it lands, in the vault's `.prompts/Multivariate Normal Distribution.md`.
-> - Prompt 11, the picture for [[#Products of Gaussian mixtures]], is waiting to be drawn, in the vault's `.prompts/Multivariate Normal Distribution.md`.
 
 **Multiplying two Gaussian densities adds their precisions, one over each variance, and dividing by a third subtracts its precision, so $p_1 p_2 / p_b$ is again a Gaussian.** Per coordinate, its precision is $P = 1/v_1 + 1/v_2 - 1/v_b$, its variance is $1/P$, and its mean is $B/P$ with $B = m_1/v_1 + m_2/v_2 - m_b/v_b$. The result is a density only while $P > 0$.
 

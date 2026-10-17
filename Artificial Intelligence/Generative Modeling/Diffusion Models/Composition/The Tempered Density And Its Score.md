@@ -99,5 +99,76 @@ $$
 
 *🖼️ Diagram wanted: the concept, $\mathcal{N}(3, 4)$ and $\mathcal{N}(3, 2)$ on one axis with their score arrows at $x = 5$, the bells of $e^{-\beta x^2/2}$ flattening toward the flat line at $\beta = 0$, and the bent path from the base to $p$. Prompt 27 in the same file.*
 
+## Try it yourself
+
+In the folder that steps 1 to 3 of [[Three Things Called Annealing#Try the three knobs yourself]] make, with the same prepared environment, and cleaned up by its last step.
+
+Save this as `tempered.py`. It checks the temperature score two ways, measures $Z_\beta$ with rectangles against $\sqrt{2\pi/\beta}$, shows the area at $\beta = 0$ growing with the range, and bends from a base toward $p$:
+
+```python
+# The tempered density pi_beta = p^beta / Z_beta: its score, a powered Gaussian, and Z_beta toward beta = 0.
+import math
+
+
+def score(x, mean, var):                      # slope of the log of N(mean, var) at x
+    return -(x - mean) / var
+
+
+print("temperature score: beta times the score of p")
+for (mean, var), beta, x in [((3, 4), 2, 5), ((-1, 0.5), 0.25, 0)]:
+    print(f"  N({mean}, {var}) at x = {x}, beta {beta}: beta * score {beta * score(x, mean, var):+.6f}, "
+          f"score of N({mean}, {var / beta:g}) {score(x, mean, var / beta):+.6f}")
+
+print("Z_beta for exp(-x^2/2): a rectangle sum against sqrt(2 pi / beta)")
+for beta in (1, 0.01):
+    half = 12 / math.sqrt(beta)               # 12 standard deviations of the powered bell on each side
+    dx = half / 6000
+    area = sum(math.exp(-beta * (k * dx) ** 2 / 2) for k in range(-6000, 6001)) * dx
+    print(f"  beta {beta}: sum {area:.6f}, closed form {math.sqrt(2 * math.pi / beta):.6f}, variance {1 / beta:g}")
+
+print("beta = 0: every height is 1, so the area is the width of the range")
+for half in (10, 100, 1000):
+    print(f"  from -{half} to {half}: area {2 * half * math.exp(-0 * half ** 2 / 2):g}")
+
+print("bent from a base N(0, 1) toward p = N(3, 4): base^(1 - beta) * p^beta")
+for beta in (0, 0.5, 1):
+    P = (1 - beta) / 1 + beta / 4             # each precision times its power, added
+    print(f"  beta {beta}: mean {(beta * 3 / 4) / P:.6f}, variance {1 / P:.6f}")
+```
+
+Run it with `~/.vault-sandbox/bin/python tempered.py`. You should see, by the hand working in [[The Tempered Density And Its Score]] (not yet run):
+
+```
+temperature score: beta times the score of p
+  N(3, 4) at x = 5, beta 2: beta * score -1.000000, score of N(3, 2) -1.000000
+  N(-1, 0.5) at x = 0, beta 0.25: beta * score -0.500000, score of N(-1, 2) -0.500000
+Z_beta for exp(-x^2/2): a rectangle sum against sqrt(2 pi / beta)
+  beta 1: sum 2.506628, closed form 2.506628, variance 1
+  beta 0.01: sum 25.066283, closed form 25.066283, variance 100
+beta = 0: every height is 1, so the area is the width of the range
+  from -10 to 10: area 20
+  from -100 to 100: area 200
+  from -1000 to 1000: area 2000
+bent from a base N(0, 1) toward p = N(3, 4): base^(1 - beta) * p^beta
+  beta 0: mean 0.000000, variance 1.000000
+  beta 0.5: mean 0.600000, variance 1.600000
+  beta 1: mean 3.000000, variance 4.000000
+```
+
+
+## Reading the output
+
+Every field the run prints, read in order.
+
+| # | Field | Expected value | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | `tempered.py`, the `N(3, 4)` row | `-1.000000` twice | the tempered score at $x = 5$ two ways: $2 \times (-0.5)$, and the slope of $\mathcal{N}(3, 2)$ itself | derived in [[The Tempered Density And Its Score]] |
+| 2 | the `N(-1, 0.5)` row | `-0.500000` twice | expert a at $\beta = 0.25$ is $\mathcal{N}(-1, 2)$; both routes give $-0.5$ | derived there |
+| 3 | `sum` against `closed form` | `2.506628`, `25.066283` | the area under $e^{-\beta x^2/2}$ by rectangles matches $\sqrt{2\pi/\beta}$; a hundredth of the $\beta$ gives $\sqrt{100} = 10$ times the area | derived there |
+| 4 | `variance` | `1`, `100` | $1/\beta$: the bell at $\beta = 0.01$ is 100 times wider in variance | derived there |
+| 5 | the `beta = 0` rows | `20`, `200`, `2000` | the area is the width of the range and has no limit, so $p^0$ has no normaliser | derived there |
+| 6 | the bent rows | means `0`, `0.6`, `3`; variances `1`, `1.6`, `4` | $\beta = 0$ is the base, $\beta = 1$ is $p$, and every step between is a proper Gaussian | derived there |
+
+
 > [!note]- How this was checked
 > This note was added on 2026-10-17 on the cluster, from piece 2 of the same walk. Nothing in it was run, for the same reason, so `tempered.py` and its expected output are worked by hand; the next machine with the prepared environment runs it and replaces the expected lines. Every printed number, including both rectangle sums, was computed by the writer with `awk` running the same loops in double precision, and each matched the walk's numbers to the digits shown. The base-and-$p$ example at $\beta = 0.5$ is new to this note. The standard normal at $\beta = 0.5$ and $\beta = 2$ is left out on purpose: the walk holds those answers back for the learner's own check. The textbook links are the shelf index's rows for log rules (algebra handbook page 110), the score with its Gaussian example (the little book of generative AI foundations, page 114) and why the score ignores the partition function (the same book, page 179); the cluster has no PDF reader, so none was reopened. The Gaussian integral formula $\int e^{-a(x+b)^2}\,dx = \sqrt{\pi / a}$ was read on Wikipedia's Gaussian integral page, section "The integral of a Gaussian function", on 2026-10-17. Neal's paper was fetched from arXiv, but without a PDF reader only its first page could be read, so the quotation is from the abstract and the bent form's attribution stays stated.

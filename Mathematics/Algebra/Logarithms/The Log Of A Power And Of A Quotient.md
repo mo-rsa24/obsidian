@@ -90,5 +90,53 @@ $\log Z_\beta$ adds the same number at every point, so its slope is 0 in both co
 
 *🖼️ Diagram wanted: the concept, the log heights of $\mathcal{N}(3, 4)$ at $\beta = 1$ and $\beta = 2$, and then minus $\log Z_2$, on one axis, with the value at $x = 7$ going $-2 \to -4 \to -5.265512$ and a slope that the shift leaves unchanged. Prompt 28 in the same file.*
 
+## Try it yourself
+
+In the folder that steps 1 to 3 of [[Three Things Called Annealing#Try the three knobs yourself]] make, with the same prepared environment, and cleaned up by its last step.
+
+Save this as `logs.py`. It works each log by the rules and directly, on the $\mathcal{N}(3, 4)$ height at $x = 7$ with its normaliser $\sqrt{8\pi/\beta}$, on the guidance heights, and on a two-dimensional height:
+
+```python
+# The log of a power and of a quotient, checked on the N(3, 4) height at x = 7.
+import math
+
+h7 = math.exp(-(7 - 3) ** 2 / 8)
+print(f"h(7) {h7:.6f}, log {math.log(h7):.6f}")
+for beta in (2, 0.5):
+    Z = math.sqrt(8 * math.pi / beta)
+    print(f"beta {beta}: h^beta {h7 ** beta:.6f}, log {math.log(h7 ** beta):.6f}, Z {Z:.6f}, log Z {math.log(Z):.6f}")
+    print(f"  pi {h7 ** beta / Z:.6f}, by the rules {beta * math.log(h7) - math.log(Z):.6f}, directly {math.log(h7 ** beta / Z):.6f}")
+print(f"guidance: 2 log 0.4 - log 0.1 {2 * math.log(0.4) - math.log(0.1):.6f}, log 1.6 {math.log(1.6):.6f}")
+h12 = math.exp(-(1 ** 2 + 2 ** 2) / 2)
+print(f"2D at (1, 2): h {h12:.6f}, h^2 {h12 ** 2:.6f}, log h^2 {math.log(h12 ** 2):.6f}, score at beta 2 ({2 * -1}, {2 * -2})")
+```
+
+Run it with `~/.vault-sandbox/bin/python logs.py`. You should see, by the working in [[The Log Of A Power And Of A Quotient]] (not yet run through the prepared environment):
+
+```
+h(7) 0.135335, log -2.000000
+beta 2: h^beta 0.018316, log -4.000000, Z 3.544908, log Z 1.265512
+  pi 0.005167, by the rules -5.265512, directly -5.265512
+beta 0.5: h^beta 0.367879, log -1.000000, Z 7.089815, log Z 1.958659
+  pi 0.051888, by the rules -2.958659, directly -2.958659
+guidance: 2 log 0.4 - log 0.1 0.470004, log 1.6 0.470004
+2D at (1, 2): h 0.082085, h^2 0.006738, log h^2 -5.000000, score at beta 2 (-2, -4)
+```
+
+
+## Reading the output
+
+Every field the run prints, read in order.
+
+| # | Field | Expected value | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | `logs.py`, `h(7)` and its `log` | `0.135335`, `-2.000000` | the $\mathcal{N}(3, 4)$ height four units from its centre is $e^{-2}$ | derived in [[The Log Of A Power And Of A Quotient]] |
+| 2 | `log` at `beta 2` and `beta 0.5` | `-4.000000`, `-1.000000` | $\beta$ times $-2$: the log of a power is the power times the log | derived there |
+| 3 | `log Z` | `1.265512`, `1.958659` | the logs of $\sqrt{4\pi}$ and $\sqrt{16\pi}$, the areas under $h^2$ and $h^{0.5}$ | derived there |
+| 4 | `by the rules` against `directly` | `-5.265512` twice, `-2.958659` twice | $\beta \log h - \log Z$ equals the log of the normalised height: the quotient rule | derived there |
+| 5 | the `guidance` row | `0.470004` twice | both rules in one line, on the guidance heights at scale 2 | derived there |
+| 6 | the `2D` row | `-5.000000`; score `(-2, -4)` | the power doubles the log in two dimensions too, and the score is $\beta$ times $(-x_1, -x_2)$ | derived there |
+
+
 > [!note]- How this was checked
 > This note was added on 2026-10-17 on the cluster, from piece 2.1 of the same walk, "the log of a power and of a quotient", and its example. The cluster still has no `~/.vault-sandbox`, so `logs.py` is filed as not run through the prepared environment. Its expected output is the output of the same lines run by the writer with the system `python3` (standard library only) in an empty scratch folder that was removed afterwards, the clean-up check returning 2; every number matched the walk's to the digits shown. The two areas were also checked with a rectangle sum of 120,001 rectangles of width 0.001 from $x = -60$ to $60$: 3.544908 at $\beta = 2$ and 7.089815 at $\beta = 0.5$, matching $\sqrt{8\pi/\beta}$, and the two-dimensional score $(-2, -4)$ with a central difference. The algebra handbook's page 110 was opened by decompressing its text stream with Python's standard library, since the cluster has no PDF reader: it prints "Page 110 of 187" and lists the log of a product, of a quotient and of a power, and the log of 1, in the words quoted. The exponent-rules link reuses page 109, which this note already links. The standard normal at $\beta = 0.5$ and $\beta = 2$ and the product's powered variances are left out on purpose: the walk holds those answers back for the learner's own check.
