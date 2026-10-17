@@ -19,7 +19,7 @@ Up: [[Generative Modeling]]
 Artificial Intelligence, Generative Modeling. Needs: [[Sampling A Diagonal Gaussian]] for drawing a cloud, [[Products And Quotients Of Diagonal Gaussians]] for the arithmetic of composing, and [[Broadcasting]] for noising many levels in one line.
 
 > [!question] Test yourself
-> [The diffusion models quiz](https://claude.ai/artifact/MyTdAaVfZW3wiqhbLKg4wu) covers [[The Forward Process]], [[Composing Models With A Background]] with the paper's figures, [[Kinds Of Composition]], [[What An Expert Learns From Its Training Set]] and [[When Neither Training Set Holds A And B]] with its four-quadrant answer key, and [[Three Things Called Annealing]] apart from [[The Tempered Density And Its Score]], in 81 questions. Your attempts are saved on the page.
+> [The diffusion models quiz](https://claude.ai/artifact/MyTdAaVfZW3wiqhbLKg4wu) covers [[The Forward Process]], [[Composing Models With A Background]] with the paper's figures, [[Kinds Of Composition]] with its parts world, [[What An Expert Learns From Its Training Set]] and [[When Neither Training Set Holds A And B]] with its four-quadrant answer key, and [[Three Things Called Annealing]] apart from [[The Tempered Density And Its Score]], in 91 questions. Your attempts are saved on the page.
 
 Each note below lists its own missing pictures and runs at its top.
 

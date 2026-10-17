@@ -1,6 +1,6 @@
 # Diffusion Models: illustrated map
 
-The drawn pictures for the notes in the vault's [[Diffusion Models]] folder and its two [[Markov Chain Monte Carlo]] notes: [[The Forward Process]], [[Composing Models With A Background]], [[The Order Of Multiplying And Noising]] and [[The Energy Parameterisation]], with one concept picture for [[The Product As An Intersection]], [[Product, Mixture And Negation]], with one concept picture each for [[Annealed MCMC]] and [[Step Size And The Accept Step]], [[What An Expert Learns From Its Training Set]], one concept picture for [[Kinds Of Composition]], and one concept picture for [[When Neither Training Set Holds A And B]]. `23 prompts · 20 rendered · 3 stuck · 0 waiting`
+The drawn pictures for the notes in the vault's [[Diffusion Models]] folder and its two [[Markov Chain Monte Carlo]] notes: [[The Forward Process]], [[Composing Models With A Background]], [[The Order Of Multiplying And Noising]] and [[The Energy Parameterisation]], with one concept picture for [[The Product As An Intersection]], [[Product, Mixture And Negation]], with one concept picture each for [[Annealed MCMC]] and [[Step Size And The Accept Step]], [[What An Expert Learns From Its Training Set]], one concept picture for [[Kinds Of Composition]], and one concept picture for [[When Neither Training Set Holds A And B]]. `33 prompts · 25 rendered · 8 stuck · 0 rendering · 0 waiting`
 
 ## Table of contents
 
@@ -1336,7 +1336,7 @@ Faithfulness note: Row (a)'s cat is crisp only on the head and its dog crisp onl
 
 Navigation: ⬅️ [Prompt 32 (Subject concept): Mosaic, blend or two animals](#prompt-32-subject-concept-mosaic-blend-or-two-animals) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
 
-[planned] ⚙️ rendering 01a14a04-b4d4-7880-aa81-de20040f4c89
+[planned] ⚠️ stuck: pixel check, right number line not linear after 3 revisions (0 to cat 0.707 is 307 px, 0 to dog -0.707 is 252 px, so the green dot reads about 0.68 where it must be 0.693 and the purple dot about 0.21 where it must be 0.233); last attempt also lifts the purple dot off the line onto a raised bracket with a second green dot, and draws the right bars 1.91 to 1 not 1.98; left line, left bars, opacity and every label correct; first attempt came back transparent (RGBA) and was regenerated opaque; one revision call went to the krea tool and was cancelled, then retried; last attempt ~/.cache/codex-drop/obsidian/parts-world-the-mechanism.png
 Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/parts-world-the-mechanism.webp`
 
 Visual thesis: Noising shrinks the cat's precision lead on a head pixel from 100 to 1 down to 1.98 to 1, so summed scores put the head at 0.233 where the correct noised target is 0.693.

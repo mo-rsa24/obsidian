@@ -1,6 +1,6 @@
 # Multivariate Normal Distribution: illustrated map
 
-The drawn pictures for the notes in the vault's [[Multivariate Normal Distribution]] folder, sections [[Diagonal Covariance]], [[Sampling A Diagonal Gaussian]] and [[Products And Quotients Of Diagonal Gaussians]]. `11 prompts · 6 rendered · 2 stuck · 3 waiting`
+The drawn pictures for the notes in the vault's [[Multivariate Normal Distribution]] folder, sections [[Diagonal Covariance]], [[Sampling A Diagonal Gaussian]] and [[Products And Quotients Of Diagonal Gaussians]]. `12 prompts · 8 rendered · 4 stuck · 0 rendering · 0 waiting`
 
 ## Table of contents
 
@@ -408,7 +408,7 @@ Faithfulness note: The green parabola's vertex is at -1.5 and its curvature equa
 
 Navigation: ⬅️ [Prompt 7 (Subject): Precisions, the mechanism](#prompt-7-subject-precisions-the-mechanism) | 📋 [TOC](#table-of-contents) | [Prompt 9 (Subject): The area a product loses](#prompt-9-subject-the-area-a-product-loses) ➡️
 
-[planned] ⚙️ rendering 01a149ff-cfb0-7973-8b76-dd53da89fb85
+[planned] 🖼️ rendered 2026-10-17 products-deep-dive-sheet.webp
 Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/products-deep-dive-sheet.webp`
 
 Visual thesis: The composed precision, the weighted sum, the mean and the variance come from adding and subtracting, and the run shows the background moving split to (-2, 2) and shared to (-1.5, 0).
@@ -438,13 +438,13 @@ Text in the image, spelled exactly: "The form", "The mechanism", "The run", "Rea
 Exclusions: no fifth pane, no leader lines between panes, no altered output text, no wrapped output line that loses its spacing, no legend panel or colour key, no positive curvature written on the grey curve. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
 ```
 
-Faithfulness note: The four output lines match the note's captured run character for character, runs of spaces included; markers 1 to 6 sit over the same fields as the note's rendered output picture; four panes only; no legend anywhere; the grey curve in pane 2 opens upward and is labelled with curvature -0.25, the sign the previous render dropped. Every label in the image, exactly: "The form", "The mechanism", "The run", "Reading it", "P = 1", "mean = B / P = -1.5", "log p1, curvature 1", "log p2, curvature 0.25", "- log p_b, curvature -0.25", "sum: curvature 1, vertex at -1.5", "$ ~/.vault-sandbox/bin/python compose.py", "1 P: the composed precision of each coordinate", "2 B: each mean times its precision, background taken away", "3 mean = B / P: each half takes its own expert's value", "4 var = 1 / P: as narrow as the narrow expert", "5 no background: the same B over P = 1.25, pulled toward 0", "6 shared: -1.5, a value neither expert put there".
+Faithfulness note: The four output lines match the note's captured run character for character, runs of spaces included; markers 1 to 6 sit over the same fields as the note's rendered output picture; four panes only; no legend anywhere; the grey curve in pane 2 opens upward and is labelled with curvature -0.25, minus sign included. Every label in the image, exactly: "The form", "The mechanism", "The run", "Reading it", "P = 1", "mean = B / P = -1.5", "log p1, curvature 1", "log p2, curvature 0.25", "- log p_b, curvature -0.25", "sum: curvature 1, vertex at -1.5", "$ ~/.vault-sandbox/bin/python compose.py", "1 P: the composed precision of each coordinate", "2 B: each mean times its precision, background taken away", "3 mean = B / P: each half takes its own expert's value", "4 var = 1 / P: as narrow as the narrow expert", "5 no background: the same B over P = 1.25, pulled toward 0", "6 shared: -1.5, a value neither expert put there".
 
 ### Prompt 9 (Subject): The area a product loses
 
 Navigation: ⬅️ [Prompt 8 (Subject capstone): Precisions, the deep-dive sheet](#prompt-8-subject-capstone-precisions-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 10 (Subject): Powers of Gaussians](#prompt-10-subject-powers-of-gaussians) ➡️
 
-[planned] ⏳ not rendered
+[planned] ⚠️ stuck: pixel check after 3 revisions, the right panel's tangents sit at the parabolas' peak (x about -0.30 on the -3 to 3 axis) where the note puts them at x = 0, so a sloped tangent is drawn at a vertex, and the solid bump peaks at 0.066 on the dashed bell's scale where the note says near 0.054 (0.092 of the dashed bell's height, about one tenth); the constant gap (234 to 238 px at every x), expert b to expert a 0.778 against 0.791, the dashed bell 1.31 times expert a against 1.275, parallel tangents and every label correct; last attempt ~/.cache/codex-drop/obsidian/products-the-area-a-product-loses.png
 Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/products-the-area-a-product-loses.webp`
 
 Visual thesis: Multiplying two densities point by point leaves a small bump whose area is 0.075126, and dividing by that area lifts its log by a constant, so the slope of the log, the score, stays the same.
@@ -480,7 +480,7 @@ Faithfulness note: The solid green bump peaks near 0.054 and is about one tenth 
 
 Navigation: ⬅️ [Prompt 9 (Subject): The area a product loses](#prompt-9-subject-the-area-a-product-loses) | 📋 [TOC](#table-of-contents) | [Subject lane: Products of Gaussian mixtures](#subject-lane-products-of-gaussian-mixtures) ➡️
 
-[planned] ⏳ not rendered
+[planned] ⚠️ stuck: pixel check after 3 revisions, bars not to one scale (the blue 2-unit bar is 215, 215, 181 and 120 px in the four rows) and row 1's bells off their means on the -4 to 10 axis (expert a near -0.36 where it must be -1, the product near 0.57 where it must be -0.23, expert b near 1.95 where it must be 1); guidance near 0.27 and negation near -1.95, left of expert a, the row 4 curve opening upward with no peak, opacity and every label correct; two attempts came back semi-transparent (RGBA) and the last is opaque; last attempt ~/.cache/codex-drop/obsidian/products-powers-of-gaussians.png
 Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/products-powers-of-gaussians.webp`
 
 Visual thesis: Raising each Gaussian to a power scales its precision bar by that power before the bars are added, and when a negative power takes the total below zero the result is no longer a bell.
@@ -522,7 +522,7 @@ One picture for [[Products And Quotients Of Diagonal Gaussians#Products of Gauss
 
 Navigation: ⬅️ [Subject lane: Products of Gaussian mixtures](#subject-lane-products-of-gaussian-mixtures) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
 
-[planned] ⏳ not rendered
+[planned] 🖼️ rendered 2026-10-17 products-of-gaussian-mixtures.webp
 Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/products-of-gaussian-mixtures.webp`
 
 Visual thesis: Multiplying two two-component mixtures gives one component per pair, four in all, and each pair's weight is how much its two components overlap, so the two pairs that agree keep all the weight and the two that clash keep none.

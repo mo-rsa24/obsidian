@@ -17,7 +17,7 @@ Up: [[Distributions]]
 Mathematics, Statistics, Distributions. Needs: the one-dimensional normal density, which the learner's [Gaussian Bowl Sketchpad](https://claude.ai/artifact/2TarMifiFoFyoB23eQFR64) lets you drag by its mean and variance.
 
 > [!question] Test yourself
-> [The diagonal Gaussian quiz](https://claude.ai/artifact/Vmd1FBg7oWwZq1onu9Jofa) covers [[Diagonal Covariance]], [[Sampling A Diagonal Gaussian]] and [[Products And Quotients Of Diagonal Gaussians]], including the paper's Figure 12, in 28 questions. Your attempts are saved on the page.
+> [The diagonal Gaussian quiz](https://claude.ai/artifact/Vmd1FBg7oWwZq1onu9Jofa) covers [[Diagonal Covariance]], [[Sampling A Diagonal Gaussian]] and [[Products And Quotients Of Diagonal Gaussians]], including the paper's Figure 12 and products of Gaussian mixtures, in 36 questions. Your attempts are saved on the page.
 
 > [!warning] Unfinished
 > - Only the diagonal case has a note yet. A full covariance, with the coordinates correlated, waits for a walk that uses one.

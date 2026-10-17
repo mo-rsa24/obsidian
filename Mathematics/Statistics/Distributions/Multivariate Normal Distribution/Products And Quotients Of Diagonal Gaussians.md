@@ -312,7 +312,43 @@ Textbook: [Matrix Cookbook, section 8.1.8, p. 42](../../../references/textbooks/
 
 **The product of two Gaussian mixtures is again a Gaussian mixture, with one component for every pair of components: pair $(i, j)$ has the mean and covariance of the plain product of its two Gaussians, and the weight $w_{ij} \propto \pi_i\,\rho_j\,\mathcal{N}(\mu_i; \nu_j, \Sigma_i + \Lambda_j)$.** That last factor is the pair's area, $Z$ of [[The Area A Product Loses]], so a pair whose two components barely overlap gets almost no weight. *Derived* below.
 
+<!-- video-table: gaussian-mixture rev=1 -->
+ritvikmath on the Gaussian mixture model, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Each class is its own Gaussian with a mean and a covariance, and π is the share of the data in each class | Intuition | [ritvikmath, Gaussian Mixture Model, 0:31 to 3:33](https://www.youtube.com/watch?v=EWd1xRkyEog&t=31s) |
+| 2 | The density of one fish: π for tuna times the tuna Gaussian, plus π for salmon times the salmon Gaussian, because the fish came from one or the other | Worked example | [ritvikmath, Gaussian Mixture Model, 3:36 to 6:23](https://www.youtube.com/watch?v=EWd1xRkyEog&t=216s) |
+| 3 | The same sum written for K components | Intuition | [ritvikmath, Gaussian Mixture Model, 7:58 to 8:43](https://www.youtube.com/watch?v=EWd1xRkyEog&t=478s) |
+
+He goes on to fit the mixture with the EM algorithm, which composing experts does not need, and he never multiplies or noises a mixture. Times are read from automatic captions and good to about 30 seconds.
+<!-- /video-table -->
+
+<!-- video-table: product-of-two-mixtures rev=1 -->
+Chalmers' multiple object tracking course, from the open web, on multiplying a Gaussian mixture by a second factor, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Every pair of an old component and a measurement hypothesis becomes one new component, weighted by the old weight times an integral and normalised over all pairs | Intuition, open web | [Chalmers, Gaussian Sum Filtering: Prediction and Update, 2:38 to 3:38](https://www.youtube.com/watch?v=G_X_dMZUkdI&t=158s) |
+| 2 | With Gaussian factors the integral is the predicted likelihood, which is the pair's overlap, and each new component's mean and covariance come from a Kalman update | Intuition, open web | [Chalmers, Gaussian Sum Filtering: Prediction and Update, 4:20 to 5:15](https://www.youtube.com/watch?v=G_X_dMZUkdI&t=260s) |
+| 3 | Two components and two hypotheses give four numbered components | Worked example, open web | [Chalmers, Gaussian Sum Filtering: Prediction and Update, 6:05 to 7:04](https://www.youtube.com/watch?v=G_X_dMZUkdI&t=365s) |
+
+No listed creator multiplies two mixtures. The second factor in this lecture is a measurement model with a detection probability and clutter rather than a second expert, so read each measurement hypothesis as one component of the second mixture; the Kalman update is the product of the pair's two Gaussians. Times are read from automatic captions and good to about 30 seconds.
+<!-- /video-table -->
+
 **When to reach for it.** When the experts being multiplied are mixtures, such as an animal that can sit in either half of the frame, or any expert noised from a mixture by the forward process, which noises each component on its own and so returns a mixture. Each pair is a closed-form product, so the composed density is exact in any number of dimensions, with no grid. The count of components is the product of the two counts: 2 by 2 gives 4.
+
+<!-- video-table: forward-process rev=1 -->
+Stanford CS236, then Vizuara, on the forward process, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The noising process that turns data into noise | Intuition | [Stanford CS236, lecture 16, 12:22 to 16:23](https://www.youtube.com/watch?v=VsllsC2JMGY&t=742s) |
+| 2 | Many small noising steps combined into one transition to any noise level | Proof | [Stanford CS236, lecture 16, 16:23 to 19:05](https://www.youtube.com/watch?v=VsllsC2JMGY&t=983s) |
+| 3 | Why each step scales the mean down as well as adding noise | Intuition | [Vizuara, Principles of Diffusion Models, lecture 3, 33:51 to 42:46](https://www.youtube.com/watch?v=Dx-1agEjlJs&t=2031s) |
+
+Vizuara is added for row 3, which no CS236 chapter covers; neither noises a two-dimensional Gaussian cloud and checks the closed form. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
 
 **The form.**
 
@@ -325,7 +361,9 @@ Z_ij  = N(mu_i; nu_j, S_i + L_j)              the pair's area, how much the two 
 w_ij  = pi_i rho_j Z_ij / (sum over all pairs of the same)
 ```
 
-> 🖼️ **Picture on its way**: two two-component mixtures multiplied into a 2 by 2 grid of component pairs, each cell holding the pair's product tile and its weight, the overlapping pairs heavy and the clashing pairs at weight 0. <!-- slot: assets/products-of-gaussian-mixtures.webp · prompt: .prompts/Multivariate Normal Distribution.md#prompt-11-subject-products-of-gaussian-mixtures -->
+![A 2 by 2 grid multiplying the cat mixture (cat left, cat right, 0.5 each) by the dog mixture (dog left, dog right, 0.5 each): the two pairs in opposite halves keep weight 0.50 at log w = -24.1, the two pairs in the same half get weight 0.00 at log w = -803.2|720](assets/products-of-gaussian-mixtures.webp)
+
+*Each cell is one pair of components. The pairs that put the cat and the dog in opposite halves overlap and share all the weight; the pairs that put both in one half are about 779 nats lower in log w and keep none.*
 
 **How the mixture product works.** Multiply the two sums term by term, the way $(a_1 + a_2)(b_1 + b_2) = a_1 b_1 + a_1 b_2 + a_2 b_1 + a_2 b_2$:
 
