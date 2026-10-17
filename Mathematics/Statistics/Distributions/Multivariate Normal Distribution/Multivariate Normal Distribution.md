@@ -21,8 +21,6 @@ Mathematics, Statistics, Distributions. Needs: the one-dimensional normal densit
 
 > [!warning] Unfinished
 > - Only the diagonal case has a note yet. A full covariance, with the coordinates correlated, waits for a walk that uses one.
->
-> Each note below lists its own missing pictures and runs at its top.
 
 **A multivariate normal is a bell over many coordinates at once, set by a mean vector $\mu$ and [a covariance matrix](../../../references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=196) $\Sigma$.** In $d$ dimensions its density at a point $x$ is
 

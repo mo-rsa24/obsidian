@@ -9,7 +9,7 @@ Up: [[Markov Chain Monte Carlo]] · [[Step Size And The Accept Step]] ➡️
 Mathematics, Statistics, Markov Chain Monte Carlo. Needs: [[The Order Of Multiplying And Noising]], whose route B this sampler follows.
 
 > [!warning] Unfinished
-> - One concept picture is waiting to be drawn: prompt 17 in the vault's `.prompts/Diffusion Models.md`.
+> - Prompt 17, the concept picture, is stuck after three revisions and waits for a word from the learner (route A and route B bells not to scale), in the vault's `.prompts/Diffusion Models.md`.
 
 Textbook: [Volume L3, section 11, annealed Langevin worked by hand, p. 85](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=85)
 
@@ -51,6 +51,8 @@ Following the score uphill with noise added, in the order to watch:
 
 Start and end times are chapter boundaries from each video; what is said inside was judged from the chapter titles and not read from captions.
 <!-- /video-table -->
+
+**What is annealed here is the noise level.** Algorithm 1 holds the temperature and the guidance scale fixed and walks only $\bar\alpha_t$; [[Three Things Called Annealing]] separates the three numbers that are each called annealed.
 
 > [!note]- How this was checked
 > The shared setup and sources are in the box at the end of [[Diffusion Models]].

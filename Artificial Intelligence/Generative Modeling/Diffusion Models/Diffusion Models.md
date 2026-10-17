@@ -19,11 +19,11 @@ Up: [[Generative Modeling]]
 Artificial Intelligence, Generative Modeling. Needs: [[Sampling A Diagonal Gaussian]] for drawing a cloud, [[Products And Quotients Of Diagonal Gaussians]] for the arithmetic of composing, and [[Broadcasting]] for noising many levels in one line.
 
 > [!question] Test yourself
-> [The diffusion models quiz](https://claude.ai/artifact/MyTdAaVfZW3wiqhbLKg4wu) covers [[The Forward Process]], [[Composing Models With A Background]] with the paper's figures, [[Kinds Of Composition]], [[What An Expert Learns From Its Training Set]] and [[When Neither Training Set Holds A And B]], in 41 questions. Your attempts are saved on the page.
+> [The diffusion models quiz](https://claude.ai/artifact/MyTdAaVfZW3wiqhbLKg4wu) covers [[The Forward Process]], [[Composing Models With A Background]] with the paper's figures, [[Kinds Of Composition]], [[What An Expert Learns From Its Training Set]] and [[When Neither Training Set Holds A And B]] with its four-quadrant answer key, and [[Three Things Called Annealing]] apart from [[The Tempered Density And Its Score]], in 81 questions. Your attempts are saved on the page.
 
 Each note below lists its own missing pictures and runs at its top.
 
-**A diffusion model learns to undo a fixed noising process, and two trained models can be combined by multiplying what each believes and dividing out what they share.** The notes here start with the noising, written as one jump from a clean point to any noise level, and then take composition apart: the rule for combining two models, the samplers that reach their product, and what each model learns from its training set. All of it is worked on small Gaussian clouds, and every number can be checked by hand.
+**A diffusion model learns to undo a fixed noising process, and two trained models can be combined by multiplying what each believes and dividing out what they share.** The notes here start with the noising, written as one jump from a clean point to any noise level, and then take composition apart: the rule for combining two models, the samplers that reach their product, what each model learns from its training set, and the three numbers this literature calls annealed: the temperature, the noise level and the guidance scale. All of it is worked on small Gaussian clouds and a 16-pixel cat-dog toy, and every number can be checked by hand.
 
 <!-- video-table: forward-process rev=1 -->
 Stanford CS236, then Vizuara, on the forward process, in the order to watch:
@@ -59,7 +59,7 @@ Both sections use the learner's `toy.py` and `samples.py`. Save them from [[Samp
 Read them in this order.
 
 - [[The Forward Process]]: noising a clean point to any noise level in one step, and why that matches fifty small steps.
-- [[Composition]]: combining trained models by multiplying what each believes, in eight notes from the rule to what each expert learns.
+- [[Composition]]: combining trained models by multiplying what each believes, in notes from the rule to what each expert learns and what annealing moves.
 
 The samplers composition borrows are taught under Mathematics, in [[Markov Chain Monte Carlo]].
 

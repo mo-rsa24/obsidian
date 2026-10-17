@@ -14,7 +14,6 @@ Artificial Intelligence, Generative Modeling, Diffusion Models, Composition. Nee
 > [The diffusion models quiz](https://claude.ai/artifact/MyTdAaVfZW3wiqhbLKg4wu) covers the [[Diffusion Models]] folder. This note's sections are not in it yet.
 
 > [!warning] Unfinished
-> - Three pictures are waiting to be drawn: prompts 7, 8 and 9 in the vault's `.prompts/Diffusion Models.md`.
 > - The reverse process is run in [[#Try the two orders yourself]] without a note of its own; it, the score and the training objective wait for a walk that reaches them.
 >
 > Stated, not checked: 1 claim, marked where it sits.

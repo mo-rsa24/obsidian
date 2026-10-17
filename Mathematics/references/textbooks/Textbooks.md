@@ -195,6 +195,10 @@ table on this page gives PDF pages.
 | a linear transformation of a Gaussian: Y = aX + b for a standard Gaussian X, with its CDF and density (follow-up in section 4.7, density on PDF page 242) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=241) | 241 |
 | the variance of a sample average: Var of the mean of N i.i.d. draws is σ²/N (section 6.3) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=368) | 368 |
 | broadcasting: adding a vector to every row of a matrix by implicit copying (end of section 2.1) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=50) | 50 |
+| the difference quotient (f(x + h) - f(x)) / h and the derivative as its limit (Definition 2.2.1) | [calculus textbook](calculus/calculus-textbook.pdf#page=167) | 167 |
+| the derivative of a constant function is 0, by (c - c) / h = 0 (Theorem 2.3.1) | [calculus textbook](calculus/calculus-textbook.pdf#page=179) | 179 |
+| the variable of integration in a definite integral is a dummy variable and plays no role in the result | [calculus textbook](calculus/calculus-textbook.pdf#page=392) | 392 |
+| the derivative of ln x is 1 / x, from the difference quotient (section 3.2) | [calculus textbook](calculus/calculus-textbook.pdf#page=216) | 216 |
 
 ## general/
 

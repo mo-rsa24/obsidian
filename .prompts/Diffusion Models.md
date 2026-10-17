@@ -44,6 +44,16 @@ The drawn pictures for the notes in the vault's [[Diffusion Models]] folder and 
 - [Prompt 22 (Subject concept): Kinds of composition](#prompt-22-subject-concept-kinds-of-composition)
 - [Subject lane: When neither training set holds A and B](#subject-lane-when-neither-training-set-holds-a-and-b)
 - [Prompt 23 (Subject concept): The product's support](#prompt-23-subject-concept-the-products-support)
+- [Subject lane: Three things called annealing](#subject-lane-three-things-called-annealing)
+- [Prompt 24 (Subject): The three knobs, the form](#prompt-24-subject-the-three-knobs-the-form)
+- [Prompt 25 (Subject): The three knobs, the mechanism](#prompt-25-subject-the-three-knobs-the-mechanism)
+- [Prompt 26 (Subject capstone): The three knobs, the deep-dive sheet](#prompt-26-subject-capstone-the-three-knobs-the-deep-dive-sheet)
+- [Prompt 27 (Subject concept): The tempered density and its score](#prompt-27-subject-concept-the-tempered-density-and-its-score)
+- [Prompt 28 (Subject concept): The log of a power and of a quotient](#prompt-28-subject-concept-the-log-of-a-power-and-of-a-quotient)
+- [Prompt 31 (Subject concept): Why the normaliser has no slope in x](#prompt-31-subject-concept-why-the-normaliser-has-no-slope-in-x)
+- [Subject lane: The four-quadrant answer key](#subject-lane-the-four-quadrant-answer-key)
+- [Prompt 29 (Subject concept): The four quadrants as chest films](#prompt-29-subject-concept-the-four-quadrants-as-chest-films)
+- [Prompt 30 (Subject): The answer key, where each product lands](#prompt-30-subject-the-answer-key-where-each-product-lands)
 - [Process lane](#process-lane)
 
 ## Abstraction chain
@@ -68,7 +78,7 @@ None. The wall, the ball and the cube in the composition form are generic object
 
 Navigation: ⬅️ [Reference images](#reference-images) | 📋 [TOC](#table-of-contents) | [Glyph vocabulary](#glyph-vocabulary) ➡️
 
-In the forward-process lane, blue is clean data, grey is noise and purple is the noised cloud. In the composition lane, blue is expert 1, orange is expert 2, grey is the background or wall, green is the composition with the background divided out, and purple is the plain product. In the two-orders lane, blue is expert a, orange is expert b, green is multiply-then-noise (the curve a reverse process needs), and purple is noise-each-then-multiply (the curve summed scores give). In the three-operators lane, green is the product, violet the mixture and pink the negation, with blue, orange, teal and gold as in the energy lane. In the energy lane, gold is the energy (one number, a height), teal is a slope (the score and the noise estimate), blue is expert a, orange is expert b, green is the product's own curve or a kept move, and grey is a chain that settled too wide or a stay. Red: numbered output markers, and the one card that holds a hybrid.
+In the forward-process lane, blue is clean data, grey is noise and purple is the noised cloud. In the composition lane, blue is expert 1, orange is expert 2, grey is the background or wall, green is the composition with the background divided out, and purple is the plain product. In the two-orders lane, blue is expert a, orange is expert b, green is multiply-then-noise (the curve a reverse process needs), and purple is noise-each-then-multiply (the curve summed scores give). In the three-operators lane, green is the product, violet the mixture and pink the negation, with blue, orange, teal and gold as in the energy lane. In the three-knobs lane, blue is the starting density, amber a tempered curve, purple the noised samples, teal the conditional density and green the guided result. In the energy lane, gold is the energy (one number, a height), teal is a slope (the score and the noise estimate), blue is expert a, orange is expert b, green is the product's own curve or a kept move, and grey is a chain that settled too wide or a stay. Red: numbered output markers, and the one card that holds a hybrid.
 
 ## Glyph vocabulary
 
@@ -943,7 +953,7 @@ One concept picture for [[When Neither Training Set Holds A And B]], a subsectio
 
 ### Prompt 23 (Subject concept): The product's support
 
-Navigation: ⬅️ [Subject lane: When neither training set holds A and B](#subject-lane-when-neither-training-set-holds-a-and-b) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
+Navigation: ⬅️ [Subject lane: When neither training set holds A and B](#subject-lane-when-neither-training-set-holds-a-and-b) | 📋 [TOC](#table-of-contents) | [Subject lane: Three things called annealing](#subject-lane-three-things-called-annealing) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 support-the-concept.webp
 Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/support-the-concept.webp`
@@ -977,8 +987,308 @@ Exclusions: no axes tick labels beyond -1, 0 and 1, no equations other than the 
 
 Faithfulness note: The left ring has 8 blobs and the right ring 6, missing exactly the top and bottom ones; the bar in the right panel has two gaps, at y about plus and minus 0.5; green appears inside the bar at the top and bottom blobs on the left, and only at the bar's side edges on the right, never inside the red dashed circles. Every label in the image, exactly: "overlap kept", "overlap removed", "expert A: ring", "expert B: bar", "product", "A and B", "no A and B in either training set", "product = 0 wherever either expert = 0", "the product moves to the bar's edge", "Z = 0.313", "Z = 0.00000016".
 
+## Subject lane: Three things called annealing
+
+Navigation: ⬅️ [Prompt 23 (Subject concept): The product's support](#prompt-23-subject-concept-the-products-support) | 📋 [TOC](#table-of-contents) | [Prompt 24 (Subject): The three knobs, the form](#prompt-24-subject-the-three-knobs-the-form) ➡️
+
+The form, the mechanism and the deep-dive sheet for [[Three Things Called Annealing]], and the concept picture for [[The Tempered Density And Its Score]]. Colours for this lane: blue is the starting density p, amber a tempered curve, purple the noised samples (as in the forward-process lane), teal the conditional density p(x | c), green the guided result. Red only for the deep-dive sheet's numbered markers.
+
+### Prompt 24 (Subject): The three knobs, the form
+
+Navigation: ⬅️ [Subject lane: Three things called annealing](#subject-lane-three-things-called-annealing) | 📋 [TOC](#table-of-contents) | [Prompt 25 (Subject): The three knobs, the mechanism](#prompt-25-subject-the-three-knobs-the-mechanism) ➡️
+
+[planned] 🖼️ rendered 2026-10-17 three-knobs-the-form.webp
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/three-knobs-the-form.webp`
+
+Visual thesis: Three different numbers are each called annealed, and each acts on something different: temperature on heights, the noise level on samples, the guidance scale on heights of two densities weighed against each other.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for any plot, curve, cloud or grid, and for all typography. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: Three rounded cards side by side, titled "temperature", "noise level" and "guidance scale". Each card has a slider across its top showing its one moving number: the temperature slider is labelled "beta" with ticks "0.5", "1", "2"; the noise-level slider is labelled "abar_t" with ends "0 noisiest" and "1 clean"; the guidance slider is labelled "scale" with ticks "0", "1", "2". Under each slider, a tag saying what the knob acts on: "acts on heights" on the temperature card, "acts on samples" on the noise-level card, "acts on heights of two densities" on the guidance card. Under the tag, the card's one line of form in monospace: "pi_beta(x) ~ p(x)^beta" on the temperature card, "x_t = sqrt(abar_t) x_0 + sqrt(1 - abar_t) eps" on the noise-level card, "p(x | c)^scale * p(x)^(1 - scale)" on the guidance card. Under the form, a small sketch: on the temperature card, a blue bell with a taller narrower amber bell and a lower wider amber bell drawn over it, all three peaked at the same point; on the noise-level card, a row of blue dots with short arrows each pointing toward the centre and ending at purple dots; on the guidance card, a blue bell and a teal bell side by side and a green bell leaning further toward the teal one than the teal one sits. Across the top of all three cards, one banner: "annealed = some index moves; ask which".
+
+Cast: three cards, three sliders, three tags, three form lines, three sketches, one banner.
+
+Flows: none beyond the short arrows on the noise-level card.
+
+Text in the image, spelled exactly: "annealed = some index moves; ask which", "temperature", "noise level", "guidance scale", "beta", "0.5", "1", "2", "abar_t", "0 noisiest", "1 clean", "scale", "0", "acts on heights", "acts on samples", "acts on heights of two densities", "pi_beta(x) ~ p(x)^beta", "x_t = sqrt(abar_t) x_0 + sqrt(1 - abar_t) eps", "p(x | c)^scale * p(x)^(1 - scale)".
+
+Exclusions: no scores or gradients, no numbers other than the slider ticks, no fourth card. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: All three temperature bells peak at the same x; only the noise-level card has arrows, and they move dots, never a curve; the green guided bell sits further toward the teal side than the teal bell itself. Every label in the image, exactly: "annealed = some index moves; ask which", "temperature", "noise level", "guidance scale", "beta", "0.5", "1", "2", "abar_t", "0 noisiest", "1 clean", "scale", "0", "acts on heights", "acts on samples", "acts on heights of two densities", "pi_beta(x) ~ p(x)^beta", "x_t = sqrt(abar_t) x_0 + sqrt(1 - abar_t) eps", "p(x | c)^scale * p(x)^(1 - scale)".
+
+### Prompt 25 (Subject): The three knobs, the mechanism
+
+Navigation: ⬅️ [Prompt 24 (Subject): The three knobs, the form](#prompt-24-subject-the-three-knobs-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 26 (Subject capstone): The three knobs, the deep-dive sheet](#prompt-26-subject-capstone-the-three-knobs-the-deep-dive-sheet) ➡️
+
+[planned] ⚠️ stuck: pixel and text check after 3 revisions (label "x_0 = 2" drawn as "x₀0 = 2"; beta = 2 curve at 0.27 at x = -1 where it must be 0.368, so its left half is narrower than its right; panel 2 number line unevenly spaced, 217 px per unit from -1 to 1 and 229.5 from 1 to 3, putting the blue dot near 2.2); shared peak, curve widths, the repeated 0.367879, dot order in panel 2 and the log bars in panel 3 correct; last attempt ~/.cache/codex-drop/obsidian/three-knobs-the-mechanism.png
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/three-knobs-the-mechanism.webp`
+
+Visual thesis: On the same numbers, temperature rescales heights about a fixed peak, the noise level moves one sample from 2 to 1.767767, and guidance at scale 2 lifts a height 4-fold where the condition is likelier and cuts one to a quarter where it is not.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for any plot, curve, cloud or grid, and for all typography. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: Three panels stacked top to bottom, each full width. Panel 1, titled "temperature: heights raised to beta": a plot from x = -3 to 3 with three unnormalised curves of height exp(-beta x^2 / 2), all with height 1 at x = 0: blue for beta = 1, a narrower amber curve for beta = 2, a wider amber curve for beta = 0.5. Vertical dotted lines at x = 1 and x = 2 with the heights marked as dots on each curve and labelled "0.606531", "0.367879", "0.778801" at x = 1 and "0.135335", "0.018316", "0.367879" at x = 2. A label at the shared peak: "peak stays at 0: 1^beta = 1". Curves labelled "beta = 1", "beta = 2", "beta = 0.5" directly. Panel 2, titled "noise level: one sample moves": a number line from -1 to 3. A blue dot at 2 labelled "x_0 = 2". An arrow toward 0 ending at a hollow mark at 1.414214 labelled "pull: sqrt(0.5) x 2 = 1.414214". A short arrow to the right from there ending at a purple dot at 1.767767 labelled "x_t = 1.767767", with the short arrow labelled "jitter: sqrt(0.5) x 0.5 = 0.353553". Panel 3, titled "guidance: two points at scale 0, 1, 2": two small bar groups side by side labelled "x1: p(x|c) = 0.4, p(x) = 0.1" and "x2: p(x|c) = 0.1, p(x) = 0.4". Each group has three bars labelled "scale 0", "scale 1", "scale 2" on a log height axis, with values written on the bars: x1 "0.1", "0.4", "1.6"; x2 "0.4", "0.1", "0.025". The scale-0 bars blue, scale-1 bars teal, scale-2 bars green. Under x1, "ratio 4: lifted 4-fold"; under x2, "ratio 0.25: cut to a quarter".
+
+Cast: three panels; three curves; one number line with two arrows; six bars.
+
+Flows: the two arrows in panel 2 only.
+
+Text in the image, spelled exactly: "temperature: heights raised to beta", "beta = 1", "beta = 2", "beta = 0.5", "0.606531", "0.367879", "0.778801", "0.135335", "0.018316", "peak stays at 0: 1^beta = 1", "noise level: one sample moves", "x_0 = 2", "pull: sqrt(0.5) x 2 = 1.414214", "jitter: sqrt(0.5) x 0.5 = 0.353553", "x_t = 1.767767", "guidance: two points at scale 0, 1, 2", "x1: p(x|c) = 0.4, p(x) = 0.1", "x2: p(x|c) = 0.1, p(x) = 0.4", "scale 0", "scale 1", "scale 2", "0.1", "0.4", "1.6", "0.025", "ratio 4: lifted 4-fold", "ratio 0.25: cut to a quarter".
+
+Exclusions: no normalised densities, no scores, no other sample points, no linear height axis in panel 3. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: Every curve in panel 1 has height exactly 1 at x = 0; the beta = 0.5 curve is the widest and the beta = 2 curve the narrowest; 0.367879 appears twice, at x = 1 on beta = 2 and at x = 2 on beta = 0.5. In panel 2 the purple dot sits at 1.767767, between the hollow mark at 1.414214 and the blue dot at 2. In panel 3 the bars are on a log axis, so 0.025 is short but visible. Every label in the image, exactly: "temperature: heights raised to beta", "beta = 1", "beta = 2", "beta = 0.5", "0.606531", "0.367879", "0.778801", "0.135335", "0.018316", "peak stays at 0: 1^beta = 1", "noise level: one sample moves", "x_0 = 2", "pull: sqrt(0.5) x 2 = 1.414214", "jitter: sqrt(0.5) x 0.5 = 0.353553", "x_t = 1.767767", "guidance: two points at scale 0, 1, 2", "x1: p(x|c) = 0.4, p(x) = 0.1", "x2: p(x|c) = 0.1, p(x) = 0.4", "scale 0", "scale 1", "scale 2", "0.1", "0.4", "1.6", "0.025", "ratio 4: lifted 4-fold", "ratio 0.25: cut to a quarter".
+
+### Prompt 26 (Subject capstone): The three knobs, the deep-dive sheet
+
+Navigation: ⬅️ [Prompt 25 (Subject): The three knobs, the mechanism](#prompt-25-subject-the-three-knobs-the-mechanism) | 📋 [TOC](#table-of-contents) | [Prompt 27 (Subject concept): The tempered density and its score](#prompt-27-subject-concept-the-tempered-density-and-its-score) ➡️
+
+[planned] 🖼️ rendered 2026-10-17 three-knobs-deep-dive-sheet.webp
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/three-knobs-deep-dive-sheet.webp`
+
+Visual thesis: The three knobs, their numbers, and the expected output of knobs.py read field by field, with the mix-up row showing guidance at scale 2 is not temperature 2.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script. A tall sheet of exactly four panes stacked vertically, each the full width, designed for reading at 800 px wide; add height rather than shrinking text, with output and field text at least 20 px at that width. The first two panes are compact reminders of the form and the mechanism, not full copies. The run pane is the focal pane. Field cards run 1 to N in one column in the same order as the markers, each starting with its red number, and are matched to the output by number alone: no leader lines between panes.
+
+Scene: Pane 1, The form: a compact reminder of prompt 24, the three cards with their sliders and tags. Pane 2, The mechanism: a compact reminder of prompt 25, the three curves about one peak, the sample moving from 2 to 1.767767, and the two bar groups. Pane 3, The run: a grey tag at its top reading "expected, worked by hand; not yet run", then the command and the output in monospace, exactly as listed under Text, with red numbered markers 1 to 9 beside the lines: 1 at the "beta 1.0" line, 2 at the "beta 2.0" line, 3 at the "beta 0.5" line, 4 at the first height column, 5 and 6 at the noise-level line, 7 and 8 at the "scale 2" line, 9 at the two mix-up lines. Pane 4, Reading it: nine field cards in one column, each starting with its red number.
+
+Cast: the reminders, the output block, nine numbered field cards.
+
+Flows: none between panes.
+
+Text in the image, spelled exactly: "The form", "The mechanism", "The run", "Reading it", "expected, worked by hand; not yet run", "$ ~/.vault-sandbox/bin/python knobs.py", "temperature: heights of exp(-x^2/2) raised to beta, at x = 0, 1, 2", "beta 1.0: 1.000000 0.606531 0.135335   h(2)/h(0) 0.135335", "beta 2.0: 1.000000 0.367879 0.018316   h(2)/h(0) 0.018316", "beta 0.5: 1.000000 0.778801 0.367879   h(2)/h(0) 0.367879", "noise level: one sample moved by the forward process", "sqrt(abar) 0.707107, pull 1.414214, jitter 0.353553, x_t 1.767767", "guidance: heights p(x|c)^scale * p(x)^(1 - scale)", "scale 0: x1 0.100000, x2 0.400000", "scale 1: x1 0.400000, x2 0.100000", "scale 2: x1 1.600000, x2 0.025000", "the mix-up: guidance scale 2 read as temperature 2 on p(x|c)", "x1: p(x|c)^2 0.160000, guided 1.600000", "x2: p(x|c)^2 0.010000, guided 0.025000", "1 beta = 1 changes nothing", "2 0.135335 squared: sharper", "3 square root of 0.135335: flatter", "4 the peak stays at 1", "5 the sample pulled toward 0", "6 noise added: the sample moved from 2", "7 lifted 4-fold where p(x|c) is 4 times p(x)", "8 cut to a quarter where it is a quarter", "9 ratio 16 if squared, 64 if guided: guidance also divides by p(x)".
+
+Exclusions: no output lines other than those listed, no plots in pane 3. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: The run pane carries the grey "expected, worked by hand; not yet run" tag until a real run of knobs.py replaces the expected lines; markers 1 to 9 are red and in the order listed, and each field card's number matches its marker. Every label in the image, exactly: "The form", "The mechanism", "The run", "Reading it", "expected, worked by hand; not yet run", "$ ~/.vault-sandbox/bin/python knobs.py", "temperature: heights of exp(-x^2/2) raised to beta, at x = 0, 1, 2", "beta 1.0: 1.000000 0.606531 0.135335   h(2)/h(0) 0.135335", "beta 2.0: 1.000000 0.367879 0.018316   h(2)/h(0) 0.018316", "beta 0.5: 1.000000 0.778801 0.367879   h(2)/h(0) 0.367879", "noise level: one sample moved by the forward process", "sqrt(abar) 0.707107, pull 1.414214, jitter 0.353553, x_t 1.767767", "guidance: heights p(x|c)^scale * p(x)^(1 - scale)", "scale 0: x1 0.100000, x2 0.400000", "scale 1: x1 0.400000, x2 0.100000", "scale 2: x1 1.600000, x2 0.025000", "the mix-up: guidance scale 2 read as temperature 2 on p(x|c)", "x1: p(x|c)^2 0.160000, guided 1.600000", "x2: p(x|c)^2 0.010000, guided 0.025000", "1 beta = 1 changes nothing", "2 0.135335 squared: sharper", "3 square root of 0.135335: flatter", "4 the peak stays at 1", "5 the sample pulled toward 0", "6 noise added: the sample moved from 2", "7 lifted 4-fold where p(x|c) is 4 times p(x)", "8 cut to a quarter where it is a quarter", "9 ratio 16 if squared, 64 if guided: guidance also divides by p(x)".
+
+### Prompt 27 (Subject concept): The tempered density and its score
+
+Navigation: ⬅️ [Prompt 26 (Subject capstone): The three knobs, the deep-dive sheet](#prompt-26-subject-capstone-the-three-knobs-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 28 (Subject concept): The log of a power and of a quotient](#prompt-28-subject-concept-the-log-of-a-power-and-of-a-quotient) ➡️
+
+[planned] ⚠️ stuck: pixel check, panel 3 bells off-centre after 3 revisions (amber beta = 0.5 peak at x = 1.02 where it must be 0.6, blue p at 3.20 not 3, grey base at -0.08 not 0); panel 1 arrows 1.06 and 0.54 x-units (ratio 1.96), the x = 5 line at 5.06, panel 2 half-height spans ±1.49 and ±14.4 (ratio 9.7), width order in panel 3 and every label correct; last attempt ~/.cache/codex-drop/obsidian/drain-b/tempered-density-the-concept.png
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/tempered-density-the-concept.webp`
+
+Visual thesis: Tempering multiplies the score by beta and never needs the area, a powered Gaussian keeps its mean and divides its variance by beta, and at beta = 0 the flat height has no area, so a schedule starts above 0 or bends from a base.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for every curve, arrow length and all typography, with curves drawn from the exact Gaussian formulas. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: A title banner across the top: "the tempered density and its score". Three panels stacked top to bottom, each full width. Panel 1, titled "score of pi_beta = beta x score of p": a plot from x = -3 to 9 with two normalised curves, blue N(3, 4) labelled "N(3, 4)" and a narrower, taller amber N(3, 2) labelled "N(3, 2) = N(3, 4) at beta = 2", both peaked at x = 3. A vertical dotted line at x = 5 labelled "x = 5". On the blue curve at x = 5, a blue arrow pointing left with length proportional to 0.5, labelled "score -0.5"; on the amber curve at x = 5, an amber arrow pointing left exactly twice as long, labelled "score -1.0 = 2 x (-0.5)". Panel 2, titled "Z_beta = sqrt(2 pi / beta)": unnormalised height curves exp(-beta x^2 / 2) from x = -30 to 30, each with its area shaded lightly in the same colour: a blue bell labelled "beta = 1: Z = 2.506628", a very wide, low-curved amber bell labelled "beta = 0.01: Z = 25.066283", and a grey flat line at height 1 running off both edges with arrowheads at both ends, labelled "beta = 0: height 1 everywhere, area infinite". All three reach height 1 at x = 0. Panel 3, titled "base^(1 - beta) * p^beta": three normalised bells on one axis from x = -4 to 9: a grey bell labelled "beta = 0: base N(0, 1)" centred at 0, an amber bell labelled "beta = 0.5: N(0.6, 1.6)" centred at 0.6, a blue bell labelled "beta = 1: p = N(3, 4)" centred at 3. Thin arrows from the grey bell's peak to the amber bell's peak and from the amber to the blue show the path.
+
+Cast: three panels; two curves and two arrows in panel 1; two bells and one flat line in panel 2; three bells and two arrows in panel 3.
+
+Flows: the two score arrows in panel 1 and the two path arrows in panel 3 only.
+
+Text in the image, spelled exactly: "the tempered density and its score", "score of pi_beta = beta x score of p", "N(3, 4)", "N(3, 2) = N(3, 4) at beta = 2", "x = 5", "score -0.5", "score -1.0 = 2 x (-0.5)", "Z_beta = sqrt(2 pi / beta)", "beta = 1: Z = 2.506628", "beta = 0.01: Z = 25.066283", "beta = 0: height 1 everywhere, area infinite", "base^(1 - beta) * p^beta", "beta = 0: base N(0, 1)", "beta = 0.5: N(0.6, 1.6)", "beta = 1: p = N(3, 4)".
+
+Exclusions: no standard normal at any power other than 1, 0.01 and 0, no noise-level or guidance content, no other numbers. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: In panel 1 both curves peak at x = 3 and the amber score arrow is exactly twice the blue one's length, both pointing left toward 3. In panel 2 every curve has height exactly 1 at x = 0, the beta = 0.01 curve is about ten times wider than the beta = 1 bell, and the beta = 0 line is flat and runs off both edges. In panel 3 the amber bell sits at 0.6, between 0 and 3, and is wider than the base and narrower than p. Every label in the image, exactly: "the tempered density and its score", "score of pi_beta = beta x score of p", "N(3, 4)", "N(3, 2) = N(3, 4) at beta = 2", "x = 5", "score -0.5", "score -1.0 = 2 x (-0.5)", "Z_beta = sqrt(2 pi / beta)", "beta = 1: Z = 2.506628", "beta = 0.01: Z = 25.066283", "beta = 0: height 1 everywhere, area infinite", "base^(1 - beta) * p^beta", "beta = 0: base N(0, 1)", "beta = 0.5: N(0.6, 1.6)", "beta = 1: p = N(3, 4)".
+
+### Prompt 28 (Subject concept): The log of a power and of a quotient
+
+Navigation: ⬅️ [Prompt 27 (Subject concept): The tempered density and its score](#prompt-27-subject-concept-the-tempered-density-and-its-score) | 📋 [TOC](#table-of-contents) | [Prompt 31 (Subject concept): Why the normaliser has no slope in x](#prompt-31-subject-concept-why-the-normaliser-has-no-slope-in-x) ➡️
+
+[planned] ⚠️ stuck: pixel check, tangent segments at x = 5 not parallel after 3 revisions (amber slope -1.05, green -1.16 in axis units, 2.5 degrees apart in the picture) and x ticks unevenly spaced (122 to 145 px per unit); the three curves within 0.15 of their formulas, amber-to-green gap 1.19 to 1.32 against 1.265512, dots at -2, -4 and about -5.3 on x = 7, and every label correct; last attempt ~/.cache/codex-drop/obsidian/drain-b/log-of-a-power-and-a-quotient-the-concept.png
+Save as: `../Mathematics/Algebra/Logarithms/assets/log-of-a-power-and-a-quotient-the-concept.webp`
+
+Visual thesis: Taking the log turns the power beta into a multiplier that stretches every log height, and the division by Z_beta into one subtraction that slides every log height down by the same amount, so the slope keeps beta and loses Z.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for every curve, point and arrow, with each curve drawn from its exact formula. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: A title banner across the top: "the log of a power and of a quotient". Below it, one plot with x from -1 to 9 and a vertical axis from -8 to 0.5, showing three downward parabolas, all peaked at x = 3. A blue curve, y = -(x - 3)^2 / 8, labelled "log h(x), beta = 1". An amber curve, y = -(x - 3)^2 / 4, labelled "2 log h(x), beta = 2". A green curve, y = -(x - 3)^2 / 4 - 1.265512, labelled "2 log h(x) - log Z_2". A vertical dotted line at x = 7 labelled "x = 7". On that line, three dots: blue at -2 labelled "-2", amber at -4 labelled "-4 = 2 x (-2)", green at -5.265512 labelled "-5.265512 = -4 - 1.265512". A downward arrow from the blue dot to the amber dot labelled "times beta: every log doubles", and a short downward arrow from the amber dot to the green dot labelled "minus log Z_2 = 1.265512: every log slides down by one number". At x = 5, short tangent segments drawn on the amber curve and on the green curve, exactly parallel, joined by a small bracket labelled "same slope". Two rounded rule cards side by side under the plot: an amber-bordered card reading "log(a^b) = b log a" and a green-bordered card reading "log(a / b) = log a - log b".
+
+Cast: one plot with three curves, three dots, two arrows, two tangent segments; two rule cards.
+
+Flows: the two downward arrows on the line x = 7 only.
+
+Text in the image, spelled exactly: "the log of a power and of a quotient", "log h(x), beta = 1", "2 log h(x), beta = 2", "2 log h(x) - log Z_2", "x = 7", "-2", "-4 = 2 x (-2)", "-5.265512 = -4 - 1.265512", "times beta: every log doubles", "minus log Z_2 = 1.265512: every log slides down by one number", "same slope", "log(a^b) = b log a", "log(a / b) = log a - log b".
+
+Exclusions: no standard normal at any power, no variances, no noise-level or guidance content, no other numbers. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: All three curves peak at x = 3; the amber curve is exactly twice as deep as the blue at every x, and the green curve is the amber curve moved down by exactly 1.265512 everywhere, so the gap between amber and green is the same at x = 0, 3 and 7. The three dots on x = 7 sit at -2, -4 and -5.265512. The two tangent segments at x = 5 are parallel. Every label in the image, exactly: "the log of a power and of a quotient", "log h(x), beta = 1", "2 log h(x), beta = 2", "2 log h(x) - log Z_2", "x = 7", "-2", "-4 = 2 x (-2)", "-5.265512 = -4 - 1.265512", "times beta: every log doubles", "minus log Z_2 = 1.265512: every log slides down by one number", "same slope", "log(a^b) = b log a", "log(a / b) = log a - log b".
+
+### Prompt 31 (Subject concept): Why the normaliser has no slope in x
+
+Navigation: ⬅️ [Prompt 28 (Subject concept): The log of a power and of a quotient](#prompt-28-subject-concept-the-log-of-a-power-and-of-a-quotient) | 📋 [TOC](#table-of-contents) | [Subject lane: The four-quadrant answer key](#subject-lane-the-four-quadrant-answer-key) ➡️
+
+[planned] ⚠️ stuck: pixel check, left-panel curves not one shift apart after 3 revisions (green brackets at x = 3, 5, 7 measure 1.28, 0.98 and 0.98 where all must be 1.265512; grey curve at -2.63 at x = 6 and -4.48 at x = 7 where it must be -2.25 and -4; blue dot at y = -2.36 not -2.266) and the right-panel dot and tangent sit off the curve (curve about 1.23 at beta = 2 against the dot at 1.2655, tangent slope about -0.20 not -0.25); first attempt came back semi-transparent (RGBA, alpha about 253) and was regenerated opaque; title, panel titles, every label, the flat green line at 1.265512 and the curve's other points within 0.04 correct; last attempt ~/.cache/codex-drop/obsidian/drain-c/normaliser-has-no-slope-in-x-the-concept.png
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/normaliser-has-no-slope-in-x-the-concept.webp`
+
+Visual thesis: log Z_2 is one flat number with slope 0 in x, so log pi_2 with it and without it are the same curve slid down, with the same slope everywhere; along beta, log Z_beta is a falling curve with slope -0.25 at beta = 2.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for every curve, bracket, point and line, with each curve drawn from its exact formula and both axes evenly ticked. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: A title banner across the top: "why the normaliser has no slope in x". Two panels side by side. Left panel, titled "in x: Z is one number": x from 2 to 7.5, vertical axis from -7 to 2, ticks every 1 on both axes. A grey downward parabola, y = -(x - 3)^2 / 4, labelled "without Z: -(x - 3)^2 / 4". A blue downward parabola, y = -(x - 3)^2 / 4 - 1.265512, labelled "log pi_2(x)". Both peak at x = 3. Three small vertical green brackets between the grey and blue curves, at x = 3, x = 5 and x = 7, each labelled "1.265512". A green horizontal line at y = 1.265512 across the whole panel, labelled "log Z_2 = 1.265512, slope 0". A dot on the blue curve at x = 5, y = -2.265512, labelled "slope -1.0 on both curves". Right panel, titled "in beta: Z moves": beta from 0.5 to 4, vertical axis from 0.8 to 2.0, ticks every 0.5 on beta and every 0.2 on the vertical axis. A purple falling curve, y = 0.5 * (ln(8 pi) - ln(beta)), labelled "log Z_beta". A dot at beta = 2, y = 1.265512, labelled "beta = 2: 1.265512". A purple straight tangent line through that dot with slope -0.25, about 1 unit of beta long, labelled "slope -1 / (2 beta) = -0.25".
+
+Cast: two panels; two parabolas, three brackets, one flat line and one dot on the left; one curve, one dot and one tangent line on the right.
+
+Flows: none.
+
+Text in the image, spelled exactly: "why the normaliser has no slope in x", "in x: Z is one number", "without Z: -(x - 3)^2 / 4", "log pi_2(x)", "1.265512", "log Z_2 = 1.265512, slope 0", "slope -1.0 on both curves", "in beta: Z moves", "log Z_beta", "beta = 2: 1.265512", "slope -1 / (2 beta) = -0.25".
+
+Exclusions: no standard normal at any power, no variances, no product of experts, no noise-level or guidance content, no other numbers. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: In the left panel both parabolas peak at x = 3, the blue one sits exactly 1.265512 below the grey one at every x, so the three green brackets at x = 3, 5 and 7 are the same length, and the green line at y = 1.265512 is perfectly flat. The dot sits on the blue curve at x = 5, y = -2.265512. In the right panel the curve passes through (0.5, 1.958659), (2, 1.265512) and (4, 0.919), falling and flattening, and the tangent at beta = 2 has slope -0.25 in axis units. Both axes are evenly ticked. Every label in the image, exactly: "why the normaliser has no slope in x", "in x: Z is one number", "without Z: -(x - 3)^2 / 4", "log pi_2(x)", "1.265512", "log Z_2 = 1.265512, slope 0", "slope -1.0 on both curves", "in beta: Z moves", "log Z_beta", "beta = 2: 1.265512", "slope -1 / (2 beta) = -0.25".
+
+## Subject lane: The four-quadrant answer key
+
+Navigation: ⬅️ [Prompt 31 (Subject concept): Why the normaliser has no slope in x](#prompt-31-subject-concept-why-the-normaliser-has-no-slope-in-x) | 📋 [TOC](#table-of-contents) | [Prompt 29 (Subject concept): The four quadrants as chest films](#prompt-29-subject-concept-the-four-quadrants-as-chest-films) ➡️
+
+A concept picture and a mechanism for [[When Neither Training Set Holds A And B#The four-quadrant answer key]], a section of [[When Neither Training Set Holds A And B]], whose concept picture is prompt 23. Colours as in the composition lane: blue expert A, orange expert B, green the composed result, grey the blobs as outlines. Red only on the top-right quadrant, the film missing from both training sets.
+
+### Prompt 29 (Subject concept): The four quadrants as chest films
+
+Navigation: ⬅️ [Subject lane: The four-quadrant answer key](#subject-lane-the-four-quadrant-answer-key) | 📋 [TOC](#table-of-contents) | [Prompt 30 (Subject): The answer key, where each product lands](#prompt-30-subject-the-answer-key-where-each-product-lands) ➡️
+
+[planned] 🖼️ rendered 2026-10-17 support-quadrants-as-chest-films.webp
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/support-quadrants-as-chest-films.webp`
+
+Visual thesis: Two yes-or-no properties cut the plane into four quadrants, each quadrant is one kind of chest film, and the top-right one, a pneumothorax with no drain in yet, is the film neither expert trained on.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for the axes, the blobs and all typography. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: One square 2D plot, both axes from -1 to 1, crossing at the origin, which splits it into four quadrants. The horizontal axis is labelled at its right end "x1 > 0: pneumothorax"; the vertical axis is labelled at its top end "x2 > 0: no chest drain". In each quadrant, centred at (plus or minus 0.5, plus or minus 0.5), sits a rounded card holding a small simplified frontal chest X-ray in greyscale, with a two-line label under it. Top-right card: one lung partly collapsed, shown as a dark rim with no lung markings along that side of the chest, and no tube; label "A and B" over "pneumothorax, no drain"; the card has a red dashed border and a small red tag above it reading "in neither training set". Bottom-right card: the same partly collapsed lung, with a thin chest drain tube entering through the side of the chest wall into that side; label "A, not B" over "pneumothorax, drain in"; blue border, with a small blue tag "expert A trains here". Top-left card: both lungs fully expanded, no tube; label "B, not A" over "no pneumothorax, no drain"; orange border, with a small orange tag "expert B trains here". Bottom-left card: both lungs fully expanded, with a chest drain tube on one side; label "neither" over "drain, no pneumothorax"; grey border.
+
+Cast: one plot, two labelled axes, four chest-film cards, three tags.
+
+Flows: none.
+
+Text in the image, spelled exactly: "x1 > 0: pneumothorax", "x2 > 0: no chest drain", "A and B", "pneumothorax, no drain", "in neither training set", "A, not B", "pneumothorax, drain in", "expert A trains here", "B, not A", "no pneumothorax, no drain", "expert B trains here", "neither", "drain, no pneumothorax".
+
+Exclusions: no numbers other than the axis ends -1, 0 and 1, no green, no arrows, no product or composition drawn, no patient names, no hospital marks or real radiograph identifiers. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: The two right-hand films show the collapsed lung and the two left-hand films do not; the two bottom films show a drain tube and the two top films do not. Only the top-right card is red and dashed; bottom-right is blue, top-left orange, bottom-left grey. The axis labels sit at the positive ends, so "pneumothorax" points right and "no chest drain" points up. Every label in the image, exactly: "x1 > 0: pneumothorax", "x2 > 0: no chest drain", "A and B", "pneumothorax, no drain", "in neither training set", "A, not B", "pneumothorax, drain in", "expert A trains here", "B, not A", "no pneumothorax, no drain", "expert B trains here", "neither", "drain, no pneumothorax".
+
+### Prompt 30 (Subject): The answer key, where each product lands
+
+Navigation: ⬅️ [Prompt 29 (Subject concept): The four quadrants as chest films](#prompt-29-subject-concept-the-four-quadrants-as-chest-films) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
+
+[planned] 🖼️ rendered 2026-10-17 support-where-each-product-lands.webp
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/support-where-each-product-lands.webp`
+
+Visual thesis: Where the composed density lands depends on how the experts were built: a fine-tuned pair splits it over each expert's own film, a pair trained from scratch blends it at the origin where there is no film, and one conditional model or a pair of own-part experts puts it on the missing top-right film.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for every panel, blob, dot and number, with each green dot's area proportional to the share written beside it. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text: put three panels in the top row and two in the bottom row. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: A banner across the top: "where the composed density lands". Below it, five small square panels with the same base drawing: thin grey axes from -1 to 1 crossing at the origin, and four grey circle outlines of radius 0.45 centred at (0.5, 0.5), (0.5, -0.5), (-0.5, 0.5) and (-0.5, -0.5); the top-right outline is red and dashed. Green filled dots show where the composed density sits, each with its share written beside it in dark text. Panel 1, titled "fine-tune step 0": four equal green dots, one at each blob centre, each labelled "0.25". Panel 2, titled "fine-tuned, 10% left over": large green dots at (0.5, -0.5) and (-0.5, 0.5), each labelled "0.44", and small green dots at (0.5, 0.5) and (-0.5, -0.5), each labelled "0.06". Panel 3, titled "trained from scratch": one green dot at the origin labelled "0.99", outside every circle, with a small grey caption beside it "a blend, no film"; nothing on any circle. Panel 4, titled "one conditional model, 1 film in 20 is A and B": one large green dot filling the top-right circle, labelled "0.99". Panel 5, titled "own-part experts, no A and B film": one large green dot filling the top-right circle, labelled "0.99". A small red tag on the top-right circle in panel 1 only: "A and B: pneumothorax, no drain".
+
+Cast: five plot panels, twenty grey or red circle outlines, eleven green dots, one banner, one tag.
+
+Flows: none.
+
+Text in the image, spelled exactly: "where the composed density lands", "fine-tune step 0", "fine-tuned, 10% left over", "trained from scratch", "one conditional model, 1 film in 20 is A and B", "own-part experts, no A and B film", "0.25", "0.44", "0.06", "0.99", "a blend, no film", "A and B: pneumothorax, no drain".
+
+Exclusions: no formulas, no axis tick labels beyond -1, 0 and 1, no chest X-ray images, no arrows, no green outside the five panels, no sixth panel. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: Panel 1 has four equal dots; panel 2 has two large dots on bottom-right and top-left and two small ones on top-right and bottom-left, with areas in the ratio 0.44 to 0.06; panel 3's single dot sits at the origin and touches no circle; panels 4 and 5 each have one dot inside the top-right circle and nothing elsewhere. The top-right circle is red and dashed in all five panels. Every label in the image, exactly: "where the composed density lands", "fine-tune step 0", "fine-tuned, 10% left over", "trained from scratch", "one conditional model, 1 film in 20 is A and B", "own-part experts, no A and B film", "0.25", "0.44", "0.06", "0.99", "a blend, no film", "A and B: pneumothorax, no drain".
+
 ## Process lane
 
-Navigation: ⬅️ [Prompt 23 (Subject concept): The product's support](#prompt-23-subject-concept-the-products-support) | 📋 [TOC](#table-of-contents)
+Navigation: ⬅️ [Prompt 30 (Subject): The answer key, where each product lands](#prompt-30-subject-the-answer-key-where-each-product-lands) | 📋 [TOC](#table-of-contents)
 
 None. A vault note's section has no plan tree to draw over it.

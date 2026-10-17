@@ -14,7 +14,7 @@ Artificial Intelligence, Generative Modeling, Diffusion Models, Composition. Nee
 > [The diffusion models quiz](https://claude.ai/artifact/MyTdAaVfZW3wiqhbLKg4wu) covers the [[Diffusion Models]] folder. This note's sections are not in it yet.
 
 > [!warning] Unfinished
-> - Three pictures are waiting to be drawn: prompts 10, 11 and 12 in the vault's `.prompts/Diffusion Models.md`.
+> - Prompts 11 and 12, the mechanism and the deep-dive sheet, are rendered (`assets/energy-the-mechanism.webp`, `assets/energy-deep-dive-sheet.webp`) but not yet placed in the note, in the vault's `.prompts/Diffusion Models.md`.
 
 **An energy-parameterised diffusion model outputs one number per input, $f_\theta(x_t, t)$, and its noise prediction is that number's slope times minus the noise scale, $\epsilon_\theta = -\sigma_t \nabla_x f_\theta$. The number is the log of the noised density's height with its [normaliser](../../../../Mathematics/references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=173) dropped, and two things need it that a score alone does not carry: the weights of a mixture, and the accept test of a [Metropolis-corrected sampler](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=98).** *Cited:* Du et al., Reduce, Reuse, Recycle, section 2.3, equation 5 ("we have replaced $\epsilon_\theta(x, t)$ with $-\sigma_t \nabla_x f_\theta(x + \sigma_t \epsilon)$"), and section 4.2, paragraphs 1 and 2.
 

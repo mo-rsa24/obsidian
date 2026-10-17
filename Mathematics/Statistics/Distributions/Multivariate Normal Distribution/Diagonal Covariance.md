@@ -14,7 +14,6 @@ Mathematics, Statistics, Distributions, Multivariate Normal Distribution. Needs:
 > [The diagonal Gaussian quiz](https://claude.ai/artifact/Vmd1FBg7oWwZq1onu9Jofa) covers this note, with the rest of the [[Multivariate Normal Distribution]] folder. Your attempts are saved on the page.
 
 > [!warning] Unfinished
-> - Three pictures are being redrawn: the form labelled a drawn length as a variance, the mechanism changed the mean without saying so, and the deep-dive sheet called the squared distance a distance. The current pictures stay until the new ones land. Their prompts are in the vault's `.prompts/Multivariate Normal Distribution.md`.
 >
 > Stated, not checked: 1 claim, marked where it sits.
 

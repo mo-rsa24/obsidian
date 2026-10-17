@@ -14,7 +14,7 @@ Artificial Intelligence, Generative Modeling, Diffusion Models. Needs: [[The For
 
 - [[Composing Models With A Background]]: the composition rule of Definition 5.1, multiplying experts and dividing out the background they share, on two-pixel and two-dimensional clouds.
 - [[The Product As An Intersection]]: why the product is tall only where every expert is somewhat tall, and why its peak is a compromise none of them would pick.
-- [[Kinds Of Composition]]: co-occurrence, intersection and interaction, told apart by which variables each expert scores.
+- [[Kinds Of Composition]]: co-occurrence, intersection and interaction, told apart by which variables each expert scores, and how one product of a cat and a dog expert gives a mosaic, a blend or two animals.
 
 ## Sampling the product
 
@@ -27,8 +27,14 @@ Artificial Intelligence, Generative Modeling, Diffusion Models. Needs: [[The For
 ## What the experts learn
 
 - [[What An Expert Learns From Its Training Set]]: an expert learns the density of what it is shown; labels matter only where a conditioning rule or a classifier reads them.
-- [[When Neither Training Set Holds A And B]]: a product reaches a combination neither training set holds only where each expert has density there.
+- [[When Neither Training Set Holds A And B]]: a product reaches a combination neither training set holds only where each expert has density there, with a four-quadrant answer key.
+
+## Three things called annealing
+
+- [[Three Things Called Annealing]]: the temperature, the noise level and the guidance scale, the three numbers this literature calls annealed, told apart on one toy.
+- [[The Tempered Density And Its Score]]: a density raised to a power and normalised, and why its score is the old score scaled by the power.
+- [[Why The Normaliser Has No Slope In X]]: the normaliser depends on the power and not on the point, so it drops out of the score.
 
 ## The samplers it borrows
 
-- [[Annealed MCMC]] and [[Step Size And The Accept Step]], in [[Markov Chain Monte Carlo]] under Mathematics.
+- [[Annealed MCMC]] and [[Step Size And The Accept Step]], in [[Markov Chain Monte Carlo]] under Mathematics, and [[The Log Of A Power And Of A Quotient]], under Mathematics, Algebra.

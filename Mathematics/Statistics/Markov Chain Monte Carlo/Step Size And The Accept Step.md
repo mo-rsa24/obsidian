@@ -9,7 +9,6 @@ Up: [[Markov Chain Monte Carlo]] · ⬅️ [[Annealed MCMC]]
 Mathematics, Statistics, Markov Chain Monte Carlo. Needs: [[Multivariate Normal Distribution]] for a Gaussian's precision.
 
 > [!warning] Unfinished
-> - One concept picture is waiting to be drawn: prompt 18 in the vault's `.prompts/Diffusion Models.md`.
 >
 > Stated, not checked: 1 claim, marked where it sits.
 

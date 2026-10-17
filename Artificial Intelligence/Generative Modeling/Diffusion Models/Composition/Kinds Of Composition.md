@@ -1,5 +1,5 @@
 ---
-aliases: [kinds of composition, types of composition, composition taxonomy, intersection composition, interaction composition, interaction term, co-occurrence intersection interaction, contention, chimera, concept bleeding, attribute leakage, catastrophic neglect, attribute binding, product over the same variables, region-restricted product, product over a partition, wet dog]
+aliases: [kinds of composition, types of composition, composition taxonomy, intersection composition, interaction composition, interaction term, co-occurrence intersection interaction, contention, chimera, concept bleeding, attribute leakage, catastrophic neglect, attribute binding, product over the same variables, region-restricted product, product over a partition, wet dog, parts world, 16-pixel parts world, sixteen-pixel parts world, cat-dog parts world, 4x4 parts world, example 9, mosaic, mosaic chimera, cat head on a dog body, midpoint blend, blend chimera, cat-dog chimera, cat-dog hybrid, exact cat-dog toy, mosaic blend or two animals, where each expert is sure, complementary consistency, the surer expert wins the pixel]
 sources:
   - "Bradley, Nakkiran, Berthelot, Thornton, Susskind, Mechanisms of Projective Composition of Diffusion Models, ICML 2025: https://arxiv.org/abs/2502.04549"
   - "Du, Durkan, Strudel, Tenenbaum, Dieleman, Fergus, Sohl-Dickstein, Doucet, Grathwohl, Reduce, Reuse, Recycle: Compositional Generation with Energy-Based Diffusion Models and MCMC, ICML 2023: https://arxiv.org/abs/2302.11552"
@@ -19,7 +19,7 @@ Artificial Intelligence, Generative Modeling, Diffusion Models, Composition. Nee
 > [The diffusion models quiz](https://claude.ai/artifact/MyTdAaVfZW3wiqhbLKg4wu) covers this note, with the rest of the [[Diffusion Models]] folder. Your attempts are saved on the page.
 
 > [!warning] Unfinished
-> - One concept picture is waiting to be drawn: prompt 22 in the vault's `.prompts/Diffusion Models.md`.
+> - The concept picture and the mechanism for [[#Mosaic, blend or two animals from one product]] have no prompt yet in the vault's `.prompts/Diffusion Models.md`.
 > - The overlap-dial idea in the reduce-reuse-recycle repository applies this note in words only.
 
 **"Composition" names at least three different operations, told apart by which variables each expert scores. Co-occurrence is a product over disjoint regions plus a layout. Intersection is a product over the same variables, which is what a product of experts computes. Interaction is the product plus a term that vanishes when the two labels are [conditionally independent](../../../../Mathematics/references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=201) given the image.** The operators are *derived* below. The three names are the walk's working names; the field's words for each are in the table.
@@ -69,5 +69,246 @@ Both work with events, not densities, so neither divides a conditional density b
 
 *The kinds of composition as three cards, each showing which pixels each expert scores and its failure.*
 
+## Mosaic, blend or two animals from one product
+
+**The parts world**, also the 16-pixel parts world or the cat-dog parts world, **is a toy where every sample is 16 numbers drawn as a 4 by 4 tile and every expert is a diagonal Gaussian or a mixture of them, so the product of a cat expert and a dog expert is exact. The same product gives a mosaic (a cat head on a dog body), a midpoint blend, or two animals side by side, depending only on which pixels each expert is sure about.** On each pixel the product's mean is the [[Products And Quotients Of Diagonal Gaussians#How the product works|precision-weighted mean]], so the expert with the smaller variance there wins that pixel. *Shown* in the run below and *derived* under "How the parts world works".
+
+**When to reach for it.** When a two-dimensional toy has to stand in for an image chimera. A 2D toy holds one number per slot, so the only chimera it can show is a midpoint, as in the shared case of [[Composing Models With A Background#The two-pixel picture]]. Image chimeras are mostly mosaics, where some parts follow the cat and others the dog. *Stated:* the walk's reading of chimera images, not checked against a source. The parts world gives a mosaic, a blend and co-occurrence as exact targets, with no grid and no sampler, so a sampler run on these experts can be scored against them.
+
+**The world.** Pixels 0 to 7 are the top two rows, the head, and pixels 8 to 15 the bottom two rows, the body. The left half is the left two columns. The cat expert's mean is $+1$ on every pixel it is sure of and the dog's is $-1$. Sure means variance 0.01, and loose means variance 1.
+
+| Setting | Cat expert | Dog expert | Training data that would give it |
+|---|---|---|---|
+| (a) | mean $+1$; variance 0.01 on the head, 1 on the body | mean $-1$; variance 1 on the head, 0.01 on the body | cats whose heads all look alike and whose bodies vary; dogs the other way round |
+| (b) | mean $+1$, variance 0.01 on every pixel | mean $-1$, variance 0.01 on every pixel | every cat image alike, every dog image alike |
+| (c) | a [mixture](../../../../Mathematics/references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=355) with weight 0.5 each: $+1$ and sure on the left half with mean 0 and loose on the right, or the mirror image | the same with $-1$ | each animal photographed in either half of the frame |
+
+**The form.**
+
+```text
+one pair:  N(x; mu_a, S_a) N(x; mu_b, S_b) = Z N(x; mu, S)
+           S  = (S_a^-1 + S_b^-1)^-1               precisions add, pixel by pixel
+           mu = S (S_a^-1 mu_a + S_b^-1 mu_b)      the precision-weighted mean, pixel by pixel
+           Z  = N(mu_a; mu_b, S_a + S_b)           how much the two experts overlap
+mixtures:  (sum_i pi_i N(mu_i, S_i)) (sum_j rho_j N(nu_j, L_j))  is proportional to  sum_ij w_ij N(x; mu_ij, S_ij)
+           w_ij is proportional to pi_i rho_j N(mu_i; nu_j, S_i + L_j)
+```
+
+Both lines are derived in [[Products And Quotients Of Diagonal Gaussians#Products of Gaussian mixtures]].
+
+![Six 4 by 4 tiles: the cat all blue, the dog all red, (a) blue top half over red bottom half, (b) all grey, and (c) two tiles, blue left with red right and red left with blue right, each at weight 0.50|900](assets/parts-world-mosaic-blend-two-animals.png)
+
+*Each tile is one image: blue is the cat value $+1$, red the dog value $-1$, grey 0. The first two tiles are the experts' means. The next four are the exact product's means: (a) a cat head on a dog body, (b) all grey, and the two heaviest components of (c), each at weight 0.50.*
+
+> 🖼️ **Picture on its way**: the three settings as real animals, each expert sharp where it is sure and blurred where it is loose, beside the product each setting gives. <!-- slot: assets/parts-world-the-concept.webp · prompt: .prompts/Diffusion Models.md#prompt-32-subject-concept-mosaic-blend-or-two-animals -->
+
+**Try it yourself.**
+
+> [!warning] Not run through the prepared environment
+> The cluster has no `~/.vault-sandbox`. The writer ran these steps as written with the system Python in its place, and the run's `numbers.json` matched the overlap-dial walk's own byte for byte. The next machine with the prepared environment runs them as written.
+
+1. You need the prepared environment with NumPy, SciPy and Matplotlib: `~/.vault-sandbox/bin/python -c "import numpy, scipy, matplotlib"` prints nothing when it is there.
+2. If it is missing, make it once: `uv venv ~/.vault-sandbox` then `uv pip install --python ~/.vault-sandbox/bin/python pandas numpy scipy matplotlib statsmodels openpyxl`.
+3. Make an empty folder and copy in the script, about 60 lines, which sits beside this note as `sandbox/parts_world.py`:
+
+   ```bash
+   mkdir -p ~/playground/sandbox/parts-world && cd ~/playground/sandbox/parts-world
+   cp ~/Obsidian/"Artificial Intelligence/Generative Modeling/sandbox/parts_world.py" .
+   ls
+   ```
+
+   You should see only `parts_world.py`. Its `gauss_product` is the one-pair line of the form, its `mixture_product` multiplies every pair of components and normalises the weights, and the four blocks after them build settings (a), (b), (c) and the noised setting (d) of "How the parts world works".
+
+4. Run it. It takes a few seconds, most of them importing SciPy:
+
+   ```bash
+   ~/.vault-sandbox/bin/python parts_world.py
+   ```
+
+   It prints the numbers below, saves them as `numbers.json`, and saves the tile picture above as `parts-world-tiles.png`:
+
+   ![The run's printed numbers, with the twelve fields read below marked 1 to 12|700](assets/parts-world-the-run.png)
+
+   > [!example]- The printed text
+   > ```
+   > {
+   >  "a": {
+   >   "head_mean": 0.9801980198019802,
+   >   "body_mean": -0.9801980198019802,
+   >   "logZ": -46.46578749493179
+   >  },
+   >  "b": {
+   >   "mean": 0.0,
+   >   "product_sd": 0.07071067811865475,
+   >   "logZ": -1583.40683248785,
+   >   "sds_from_each_expert": 10.0
+   >  },
+   >  "c": {
+   >   "cat-left x dog-left": {
+   >    "weight": 0.0,
+   >    "logw_unnorm": -803.213807592922
+   >   },
+   >   "cat-left x dog-right": {
+   >    "weight": 0.5,
+   >    "logw_unnorm": -24.089705618427917
+   >   },
+   >   "cat-right x dog-left": {
+   >    "weight": 0.5,
+   >    "logw_unnorm": -24.089705618427917
+   >   },
+   >   "cat-right x dog-right": {
+   >    "weight": 0.0,
+   >    "logw_unnorm": -803.213807592922
+   >   }
+   >  },
+   >  "d": {
+   >   "abar": 0.5,
+   >   "head_mean_product_of_noised": 0.23257000444341597,
+   >   "head_mean_noised_product": 0.6931046667076061
+   >  }
+   > }
+   > ```
+
+5. Another way, with no formula. Save this as `grid_check.py`. For each kind of pixel it multiplies the two experts' bells on a grid of 120,001 points, reads the product's mean, and adds up the log of each pixel's area over the 16 pixels:
+
+   ```python
+   # The parts world with no closed form: each pixel's product on a grid, its mean, and the log of its area.
+   import numpy as np
+
+   x = np.linspace(-6, 6, 120001)                       # grid spacing 0.0001
+   dx = x[1] - x[0]
+
+   def bell(m, v):
+       return np.exp(-(x - m) ** 2 / (2 * v)) / np.sqrt(2 * np.pi * v)
+
+   def pixel(m1, v1, m2, v2):
+       """One pixel of a product of two experts: the mean of the product and the log of its area."""
+       prod = bell(m1, v1) * bell(m2, v2)
+       area = prod.sum() * dx
+       return (x * prod).sum() * dx / area, np.log(area)
+
+   # (a) cat tight on the 8 head pixels, dog tight on the 8 body pixels
+   head_mean, head_log = pixel(1, 0.01, -1, 1.0)
+   body_mean, body_log = pixel(1, 1.0, -1, 0.01)
+   print(f"(a) head pixel {head_mean:+.4f}  body pixel {body_mean:+.4f}  log Z {8 * head_log + 8 * body_log:.1f}")
+
+   # (b) both tight on all 16 pixels
+   mean_b, log_b = pixel(1, 0.01, -1, 0.01)
+   print(f"(b) every pixel {mean_b:+.4f}  log Z {16 * log_b:.1f}")
+
+   # (c) four pairs of placements; each placement has weight 0.5, so each pair starts at log 0.25
+   tight_cat, tight_dog, loose = (1, 0.01), (-1, 0.01), (0, 1.0)
+   same_half = 8 * pixel(*tight_cat, *tight_dog)[1] + 8 * pixel(*loose, *loose)[1]
+   side_by_side = 8 * pixel(*tight_cat, *loose)[1] + 8 * pixel(*loose, *tight_dog)[1]
+   logw = np.log(0.25) + np.array([same_half, side_by_side, side_by_side, same_half])
+   w = np.exp(logw - logw.max()); w /= w.sum()
+   for name, lw, wi in zip(["cat-left x dog-left", "cat-left x dog-right", "cat-right x dog-left", "cat-right x dog-right"], logw, w):
+       print(f"(c) {name:21s} log w {lw:7.1f}  weight {wi:.2f}")
+   ```
+
+   ```bash
+   ~/.vault-sandbox/bin/python grid_check.py
+   ```
+
+   ![The grid check's six lines: head pixel +0.9802, body pixel -0.9802, log Z -46.5 and -1583.4, and the four pairs at log w -803.2 and -24.1 with weights 0.00 and 0.50, marked 1 to 8|700](assets/parts-world-the-grid-check.png)
+
+   ```
+   (a) head pixel +0.9802  body pixel -0.9802  log Z -46.5
+   (b) every pixel -0.0000  log Z -1583.4
+   (c) cat-left x dog-left   log w  -803.2  weight 0.00
+   (c) cat-left x dog-right  log w   -24.1  weight 0.50
+   (c) cat-right x dog-left  log w   -24.1  weight 0.50
+   (c) cat-right x dog-right log w  -803.2  weight 0.00
+   ```
+
+   Every number agrees with step 4 to the digits shown. `-0.0000` is a tiny negative number left by the grid's rounding, where the closed form gives exactly 0.
+
+6. Clean up, and prove it:
+
+   ```bash
+   cd ~ && rm -r ~/playground/sandbox/parts-world
+   ls ~/playground/sandbox/parts-world; echo $?
+   ```
+
+   You should see `No such file or directory`, then `2`.
+
+**Reading the parts-world output.** The fields of step 4; step 5's marks 1 to 8 are the same numbers rounded.
+
+| # | Field | This run | How to read it | Backing |
+|---|---|---|---|---|
+| 1 | a, `head_mean` | `0.9801980198019802` | every head pixel follows the cat, at $99/101$ | derived below |
+| 2 | a, `body_mean` | `-0.9801980198019802` | every body pixel follows the dog: the mosaic | derived below |
+| 3 | a, `logZ` | `-46.46578749493179` | the log of $Z$, how much the two experts overlap, summed over 16 pixels | derived below |
+| 4 | b, `mean` | `0.0` | every pixel grey, neither cat nor dog: the blend | derived below |
+| 5 | b, `product_sd` | `0.07071067811865475` | the blend is narrow, because two precisions of 100 add to 200 | derived below |
+| 6 | b, `logZ` | `-1583.40683248785` | 1536.9 lower than (a): the blend's experts overlap $e^{-1536.9}$ times as much | derived below |
+| 7 | b, `sds_from_each_expert` | `10.0` | the blend sits 10 of each expert's standard deviations (0.1) from that expert's mean on every pixel, so neither expert would ever draw an image near it | derived below |
+| 8 | c, cat-left x dog-left, `logw_unnorm` | `-803.213807592922` | both animals in the left half: the two sure halves disagree, so this pair barely overlaps. The cat-right x dog-right pair prints the same | derived below |
+| 9 | c, cat-left x dog-right, `weight` | `0.5` | after normalising, the two side-by-side pairs hold all the weight, 0.5 each, and the same-half pairs print `0.0` | derived below |
+| 10 | c, cat-left x dog-right, `logw_unnorm` | `-24.089705618427917` | each sure half meets the other expert's loose half, so the pair overlaps well: 779.1 above the same-half pairs | derived below |
+| 11 | d, `head_mean_product_of_noised` | `0.23257000444341597` | at $\bar\alpha = 0.5$, where summed scores put a head pixel | derived below |
+| 12 | d, `head_mean_noised_product` | `0.6931046667076061` | where the correct target at that level puts it | derived below |
+
+**How the parts world works.** Each setting is the identity of the form, applied one pixel at a time, because every covariance is diagonal. Per pixel the precision is one over the variance: 100 for a sure pixel, 1 for a loose one.
+
+Setting (a), a head pixel and a body pixel:
+
+$$
+\mu_\text{head} = \frac{100 \cdot (+1) + 1 \cdot (-1)}{100 + 1} = \frac{99}{101} = 0.980198, \qquad
+\mu_\text{body} = \frac{1 \cdot (+1) + 100 \cdot (-1)}{1 + 100} = -0.980198
+$$
+
+with variance $1/101 = 0.0099$ on every pixel. Each pixel's overlap is $Z = \mathcal{N}(1; -1, 1.01)$, and [the log of a product](../../../../Mathematics/references/textbooks/algebra/algebra-handbook.pdf#page=110) is the sum of the logs, so over 16 pixels
+
+$$
+\log Z = 16 \left( -\tfrac12 \log(2\pi \cdot 1.01) - \frac{(1 - (-1))^2}{2 \cdot 1.01} \right) = 16\,(-0.923914 - 1.980198) = 16 \cdot (-2.904112) = -46.465787
+$$
+
+Setting (b), every pixel alike:
+
+$$
+\mu = \frac{100 \cdot (+1) + 100 \cdot (-1)}{200} = 0, \qquad \sigma = \sqrt{1/200} = 0.070711, \qquad \frac{1 - 0}{\sqrt{0.01}} = 10
+$$
+
+$$
+\log Z = 16 \left( -\tfrac12 \log(2\pi \cdot 0.02) - \frac{4}{0.04} \right) = 16\,(1.037073 - 100) = 16 \cdot (-98.962927) = -1583.406832
+$$
+
+The product is well defined and narrow, and it sits 10 standard deviations from each expert on every pixel, where each expert's height is $e^{-50}$ of its own peak. This is the midpoint chimera of [[Composing Models With A Background#The two-pixel picture]]'s shared case, and the empty intersection of the far pair in [[The Product As An Intersection]], in sixteen dimensions.
+
+Setting (c), the four pairs of placements. Each pair starts at $\log(0.5 \cdot 0.5) = -1.386294$ and adds its per-pixel overlaps. A side-by-side pair, such as cat left and dog right, puts a sure $\pm 1$ against a loose 0 on every pixel:
+
+$$
+\log w = -1.386294 + 16 \left( -\tfrac12 \log(2\pi \cdot 1.01) - \frac{1}{2 \cdot 1.01} \right) = -1.386294 + 16\,(-1.418963) = -24.089706
+$$
+
+A same-half pair puts sure $+1$ against sure $-1$ on 8 pixels and loose 0 against loose 0 on the other 8:
+
+$$
+\log w = -1.386294 + 8\,(-98.962927) + 8 \left( -\tfrac12 \log(4\pi) \right) = -1.386294 - 791.703416 - 10.124097 = -803.213807
+$$
+
+The gap is $779.124$, so a same-half pair carries $e^{-779}$ of a side-by-side pair's weight, and normalising gives $0, 0.5, 0.5, 0$. A side-by-side component's mean is $100/101 = 0.990$ on its cat half and $-0.990$ on its dog half, the two animals in the tiles. *Derived.* The weights come from the same $Z$ that measured (b)'s blend. The operator did not change: the training data showed each animal in more than one place, which gave the product a pair of components where the two animals do not compete for pixels.
+
+Setting (d), setting (a) halfway through reverse diffusion. [[The Forward Process]] turns $\mathcal{N}(\mu, v)$ into $\mathcal{N}(\sqrt{\bar\alpha}\,\mu,\ \bar\alpha v + 1 - \bar\alpha)$, because [variances add](../../../../Mathematics/references/textbooks/linear-algebra/matrix-cookbook.pdf#page=41) when independent noise is added. At $\bar\alpha = 0.5$ a head pixel's cat becomes $\mathcal{N}(0.707107, 0.505)$ and its dog $\mathcal{N}(-0.707107, 1.0)$, so the cat's precision lead falls from $100 : 1$ to $1.980 : 1$. The product of the noised experts, which is what summed scores follow ([[The Order Of Multiplying And Noising]], equation 12), puts the head at
+
+$$
+\frac{1.980198 \cdot 0.707107 + 1 \cdot (-0.707107)}{1.980198 + 1} = 0.232570,
+$$
+
+while the noised product, the target the reverse process needs at this level (equation 11), puts it at $\sqrt{0.5} \cdot 0.980198 = 0.693105$. *Derived*, and the run's fields 11 and 12 agree. Halfway through sampling, summed scores put the head pixel 0.46 below the correct target, two thirds of the way from it to the grey blend's 0. How much of the mosaic a full reverse run keeps at $\bar\alpha = 1$ is not computed here. [[Annealed MCMC]] targets each level's noised product directly, which is the sampler-side repair. *Cited:* Du et al., section 4, equations 11 and 12.
+
+> 🖼️ **Picture on its way**: one head pixel's two precision bars, 100 against 1 on clean data and 1.98 against 1 at noise level 0.5, with the head's value on a number line from -1 to 1 at 0.980, 0.693 and 0.233. <!-- slot: assets/parts-world-the-mechanism.webp · prompt: .prompts/Diffusion Models.md#prompt-33-subject-the-parts-world-the-mechanism -->
+
+**Other ways to make a chimera exact.**
+
+- **The two-pixel picture**, [[Composing Models With A Background#The two-pixel picture]]: two numbers per sample, so a chimera can only be a midpoint, and a mosaic has nowhere to sit.
+- **The four-quadrant answer key**, [[When Neither Training Set Holds A And B#The four-quadrant answer key]]: exact shares on a 2D grid, for asking where the product's mass goes rather than what one sample looks like.
+- **Trained experts on real images**: the real case, with no exact target to score a sampler against.
+
+**Why the parts world matters.** Whether a cat-dog product gives a mosaic, a blend or two animals is fixed by where each expert's training data was consistent, before any sampler runs. In (a) both experts score all 16 pixels, with no partition in the operator, and the product is still a mosaic: an expert that is loose on a part leaves that part to the other, the way this note's co-occurrence row needs. The blend in (b) is what a product gives when both experts are sure everywhere, and its $\log Z$ of $-1583.4$ says so before anyone looks at a sample. Setting (d) shows that a sampler following summed scores can still drag a correct mosaic toward the blend along the way.
+
 > [!note]- How this was checked
 > Kinds Of Composition and [[What An Expert Learns From Its Training Set]] were written on 2026-10-14 on the cluster (mscluster, Linux), from one turn of the overlap-dial `drip-idea` walk. Nothing in them was run: the cluster has no `~/.vault-sandbox`, so `labels.py` and its expected output are worked by hand in [[What An Expert Learns From Its Training Set#How the expert's training set works]], and the section stays in the unfinished box until a machine with the environment runs it. The identity for the interaction term is derived in the note; the walk's own draft, `composition-terms.md` in the research repository, writes it without the constant $\log \frac{p(A)\,p(B)}{p(A, B)}$, which changes the density and not the score. The textbook pages were opened before linking: Bayes' theorem on page 105 of the probability book (Theorem 2.7), conditional independence on page 201 of Mathematics for Machine Learning (Definition 6.11), log rules on page 110 of the algebra handbook. The arXiv abstracts of Liu et al., Chefer et al., Bar-Tal et al. and Geirhos et al. were fetched on 2026-10-14, and the quoted phrases ("catastrophic neglect", attribute binding, the definition of shortcuts) are from them; Hinton 2002's DOI resolved to Neural Computation 14(8), pages 1771 to 1800. Ho et al.'s equation (14) and section 3.2 are cited from the paper as already listed, not re-read in this session. No old LibreOffice note was read: `/mnt/c/Users/molef/LibreOffice/Learning/` does not exist on the cluster.
+>
+> [[#Mosaic, blend or two animals from one product]] was added on 2026-10-17 on the cluster (mscluster, Linux), from the `example 9` turn of the overlap-dial `drip-idea` walk. `sandbox/parts_world.py` beside this note is the walk's `parts_world.py`, byte for byte (`cmp`), the script that wrote the walk's `numbers.json` with `/home-mscluster/mmolefe/miniforge3/envs/co3/bin/python`. The cluster has no `~/.vault-sandbox`, so the writer ran steps 3 to 6 as written with the system `python3` (Python 3.12.10, NumPy 2.4.3, SciPy 1.17.1, Matplotlib 3.10.8) in place of `~/.vault-sandbox/bin/python`, in the empty folder `~/playground/sandbox/parts-world`, which is not inside any repository. `parts_world.py` ran in 14.0 seconds and `grid_check.py` in 0.14 seconds. The run's `numbers.json` and `parts-world-tiles.png` were identical to the walk's files (`cmp`), and the clean-up check returned 2. The printed text and `grid_check.py` on the page were compared with the files that ran, by script, and match. Every derived number was recomputed by the writer in Python: the per-pixel logs $-2.904112$, $-98.962927$, $-1.418963$ and $-1.265512$, the gap $779.124$, the noised precision $1.980198$ and the head means $0.232570$ and $0.693105$. The tile picture is the script's own saved figure, and the two terminal pictures were rendered from the captured text by a script in DejaVu Sans Mono with the system `python3` and Matplotlib, never drawn; all three were opened before filing. The textbook pages were opened before linking, with PyMuPDF: Mathematics for Machine Learning page 355 (section 11.1, the mixture model, equation 11.1), the Matrix Cookbook page 41 (section 8.1.4, a linear combination of Gaussians, equation 355) and the algebra handbook page 110 (the log of a product is the sum of the logs). No old LibreOffice note was read: `/mnt/c/Users/molef/LibreOffice/Learning/` does not exist on the cluster.

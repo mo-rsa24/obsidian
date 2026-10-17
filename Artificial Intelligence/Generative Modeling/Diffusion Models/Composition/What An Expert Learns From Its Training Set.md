@@ -15,8 +15,6 @@ Artificial Intelligence, Generative Modeling, Diffusion Models, Composition. Nee
 > [The diffusion models quiz](https://claude.ai/artifact/MyTdAaVfZW3wiqhbLKg4wu) covers this note, with the rest of the [[Diffusion Models]] folder. Your attempts are saved on the page.
 
 > [!warning] Unfinished
-> - This note has not been run: the cluster, where it was written, has no prepared environment `~/.vault-sandbox/bin/python`. Make it with `uv venv ~/.vault-sandbox` then `uv pip install --python ~/.vault-sandbox/bin/python pandas numpy scipy matplotlib statsmodels openpyxl`, run `labels.py`, and file its real output and output picture in place of the hand-worked lines.
-> - Three pictures are waiting to be drawn: prompts 19, 20 and 21 in the vault's `.prompts/Diffusion Models.md`.
 > - The overlap-dial idea and the idea of when a product reaches A and B, both in the reduce-reuse-recycle repository, apply this note in words only.
 >
 > Stated, not checked: 2 claims, marked where they sit.
@@ -216,11 +214,12 @@ Navigation: ⬅️ [[When Neither Training Set Holds A And B]] | 📋 [[#Table o
 
 - the `drip-idea` walk of the overlap dial in the reduce-reuse-recycle research repository, claim 1 ("an expert trained on A data learns the concept A"), round 2, the `example` and `break` controls (`artifacts/ideas/poe-overlap-dial/IDEA_MAP.md`)
 - the `drip-idea` walk of when a product reaches A and B, in the same repository, claim 2 ("a product can put samples in A∩B that neither training set contains"), the `back 2` control (`artifacts/ideas/when-poe-reaches-a-and-b/IDEA_MAP.md`), for [[When Neither Training Set Holds A And B]]
+- the same walk, claim 2's children 2a (support kept from pretraining) and 2b (an expert that factorises over parts), with the run in `artifacts/ideas/when-poe-reaches-a-and-b/runs/answer-key-quadrants/`, for [[When Neither Training Set Holds A And B#The four-quadrant answer key]]
 
 **Applied in:**
 
 - the overlap-dial idea, which turns the share of A-and-B points in each expert's training set from 0% to 100% and counts how often the product lands in A-and-B. The repair says that dial moves the experts' mass and the labels do not, unless a conditioning rule or a classifier reads them.
-- the idea of when a product reaches A and B, which asks whether two diffusion experts can generate chest X-rays with a pneumothorax and no drain when neither training set holds one. The support rule marks that claim wrong as stated: in 2D both of the learner's questions (does a product make A-and-B from hidden overlap, does stripping the overlap stop it) come out yes before training. The open choice is between pretrained support, an expert that factorises over parts, and keeping the 2D curve only for calibrating samplers.
+- the idea of when a product reaches A and B, which asks whether two diffusion experts can generate chest X-rays with a pneumothorax and no drain when neither training set holds one. The support rule marks that claim wrong as stated: in 2D both of the learner's questions (does a product make A-and-B from hidden overlap, does stripping the overlap stop it) come out yes before training. The open choice is between pretrained support, an expert that factorises over parts, and keeping the 2D curve only for calibrating samplers. The four-quadrant answer key narrows it: two separately fine-tuned experts give a quarter of the product in A-and-B at the start of fine-tuning and less after, one conditional model with "contains" labels gives `0.989` if one film in 20 (or fewer) is a pneumothorax with no drain, and an expert built to model only its own part gives it with no such film.
 
 > [!note]- How this was checked
 > The shared setup and sources are in the box at the end of [[Diffusion Models]].

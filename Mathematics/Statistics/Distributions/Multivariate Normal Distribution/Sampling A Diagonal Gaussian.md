@@ -15,7 +15,8 @@ Mathematics, Statistics, Distributions, Multivariate Normal Distribution. Needs:
 > [The diagonal Gaussian quiz](https://claude.ai/artifact/Vmd1FBg7oWwZq1onu9Jofa) covers this note, with the rest of the [[Multivariate Normal Distribution]] folder. Your attempts are saved on the page.
 
 > [!warning] Unfinished
-> - Two pictures are stuck after three revisions: the form (prompt 3) and the deep-dive sheet (prompt 5), in the vault's `.prompts/Multivariate Normal Distribution.md`.
+> - Prompt 3, the form, is stuck after three revisions and waits for a word from the learner (panel 3 cloud is 2.6 times taller than wide (note says 2) and centred near x1 = -2.7,), in the vault's `.prompts/Multivariate Normal Distribution.md`.
+> - Prompt 5, the deep-dive sheet, is stuck after three revisions and waits for a word from the learner (pane 1 moved cloud is 1.7x the grey cloud's width and 1.74x taller than wide (should match width, 2x tall); labels N(0,1), N(-2,1), N(0,4) lack the spaces; run pane and cards correct; last attempt ~/.cache/codex-drop/obsidian/mvn-samp-sheet.png), in the vault's `.prompts/Multivariate Normal Distribution.md`.
 
 **To draw $n$ points from $\mathcal{N}(\mu, \operatorname{diag}(\sigma^2))$, draw $n$ standard-normal points and compute `mu + np.sqrt(var) * eps`: the mean moves every point, and the square root of each variance stretches its own axis.** One line does it for all $n$ points at once, because `mu` and `var` of shape `(2,)` are reused for every row of the `(n, 2)` matrix of draws. That reuse is [[Broadcasting]].
 

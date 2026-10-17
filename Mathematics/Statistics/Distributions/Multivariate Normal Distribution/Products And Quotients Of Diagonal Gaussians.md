@@ -1,5 +1,5 @@
 ---
-aliases: [product of Gaussians, product of Gaussian densities, precisions add, precision-weighted mean, quotient of Gaussians, dividing out a Gaussian, precision subtraction, negative precision]
+aliases: [product of Gaussians, product of Gaussian densities, precisions add, precision-weighted mean, quotient of Gaussians, dividing out a Gaussian, precision subtraction, negative precision, product of Gaussian mixtures, product of two Gaussian mixtures, product of mixtures, mixture times mixture]
 sources:
   - "Bradley, Nakkiran, Berthelot, Thornton, Susskind, Mechanisms of Projective Composition of Diffusion Models, ICML 2025: https://arxiv.org/abs/2502.04549"
   - "Du, Durkan, Strudel, Tenenbaum, Dieleman, Fergus, Sohl-Dickstein, Doucet, Grathwohl, Reduce, Reuse, Recycle: Compositional Generation with Energy-Based Diffusion Models and MCMC, ICML 2023: https://arxiv.org/abs/2302.11552"
@@ -15,7 +15,8 @@ Mathematics, Statistics, Distributions, Multivariate Normal Distribution. Needs:
 > [The diagonal Gaussian quiz](https://claude.ai/artifact/Vmd1FBg7oWwZq1onu9Jofa) covers this note, with the rest of the [[Multivariate Normal Distribution]] folder. Your attempts are saved on the page.
 
 > [!warning] Unfinished
-> - The deep-dive sheet is being redrawn: its mechanism pane labelled the background's curve with curvature 0.25 where the maths has -0.25, in a side legend. The current picture stays until prompt 8 in the vault's `.prompts/Multivariate Normal Distribution.md` renders again.
+> - Prompt 8, the deep-dive sheet, is being redrawn; the current picture stays until it renders, in the vault's `.prompts/Multivariate Normal Distribution.md`.
+> - The picture for [[#Products of Gaussian mixtures]] has no prompt yet in the vault's `.prompts/Multivariate Normal Distribution.md`.
 
 **Multiplying two Gaussian densities adds their precisions, one over each variance, and dividing by a third subtracts its precision, so $p_1 p_2 / p_b$ is again a Gaussian.** Per coordinate, its precision is $P = 1/v_1 + 1/v_2 - 1/v_b$, its variance is $1/P$, and its mean is $B/P$ with $B = m_1/v_1 + m_2/v_2 - m_b/v_b$. The result is a density only while $P > 0$.
 
@@ -304,6 +305,58 @@ Navigation: ⬅️ [[The Area A Product Loses]] | 📋 [[#Table of contents|TOC]
 
 **Raising a Gaussian density to a power $w$ multiplies its precision by $w$, so $q_a^{w_a} q_b^{w_b}$ is a Gaussian with precision $P = w_a / v_a + w_b / v_b$ and mean $(w_a m_a / v_a + w_b m_b / v_b) / P$, provided $P > 0$.** Taught in full in [[Powers Of Gaussians]].
 
+
+## Products of Gaussian mixtures
+
+Textbook: [Matrix Cookbook, section 8.1.8, p. 42](../../../references/textbooks/linear-algebra/matrix-cookbook.pdf#page=42)
+
+**The product of two Gaussian mixtures is again a Gaussian mixture, with one component for every pair of components: pair $(i, j)$ has the mean and covariance of the plain product of its two Gaussians, and the weight $w_{ij} \propto \pi_i\,\rho_j\,\mathcal{N}(\mu_i; \nu_j, \Sigma_i + \Lambda_j)$.** That last factor is the pair's area, $Z$ of [[The Area A Product Loses]], so a pair whose two components barely overlap gets almost no weight. *Derived* below.
+
+**When to reach for it.** When the experts being multiplied are mixtures, such as an animal that can sit in either half of the frame, or any expert noised from a mixture by the forward process, which noises each component on its own and so returns a mixture. Each pair is a closed-form product, so the composed density is exact in any number of dimensions, with no grid. The count of components is the product of the two counts: 2 by 2 gives 4.
+
+**The form.**
+
+```text
+p_A = sum_i pi_i  N(mu_i, S_i)        p_B = sum_j rho_j N(nu_j, L_j)
+p_A p_B = sum_ij  pi_i rho_j Z_ij  N(mu_ij, S_ij)
+S_ij  = (S_i^-1 + L_j^-1)^-1                  the pair's covariance, precisions added
+mu_ij = S_ij (S_i^-1 mu_i + L_j^-1 nu_j)       the pair's precision-weighted mean
+Z_ij  = N(mu_i; nu_j, S_i + L_j)              the pair's area, how much the two components overlap
+w_ij  = pi_i rho_j Z_ij / (sum over all pairs of the same)
+```
+
+> 🖼️ **Picture on its way**: two two-component mixtures multiplied into a 2 by 2 grid of component pairs, each cell holding the pair's product tile and its weight, the overlapping pairs heavy and the clashing pairs at weight 0. <!-- slot: assets/products-of-gaussian-mixtures.webp · prompt: .prompts/Multivariate Normal Distribution.md#prompt-11-subject-products-of-gaussian-mixtures -->
+
+**How the mixture product works.** Multiply the two sums term by term, the way $(a_1 + a_2)(b_1 + b_2) = a_1 b_1 + a_1 b_2 + a_2 b_1 + a_2 b_2$:
+
+$$
+p_A(x)\,p_B(x) = \Big(\sum_i \pi_i\,\mathcal{N}(x; \mu_i, \Sigma_i)\Big)\Big(\sum_j \rho_j\,\mathcal{N}(x; \nu_j, \Lambda_j)\Big) = \sum_{i,j} \pi_i\,\rho_j\,\mathcal{N}(x; \mu_i, \Sigma_i)\,\mathcal{N}(x; \nu_j, \Lambda_j)
+$$
+
+Each term is the product of two Gaussians, which the Cookbook's equation (371) on the `Textbook:` page turns into $Z_{ij}\,\mathcal{N}(x; \mu_{ij}, \Sigma_{ij})$, with $Z_{ij} = \mathcal{N}(\mu_i; \nu_j, \Sigma_i + \Lambda_j)$. For diagonal covariances this is [[#How the product works]] and [[The Area A Product Loses]] on every coordinate. So
+
+$$
+p_A(x)\,p_B(x) = \sum_{i,j} \underbrace{\pi_i\,\rho_j\,Z_{ij}}_{\text{unnormalised weight}}\ \mathcal{N}(x; \mu_{ij}, \Sigma_{ij}),
+$$
+
+and dividing by the sum of the unnormalised weights gives weights that add to 1. *Derived.* With diagonal covariances in $d$ dimensions, $Z_{ij}$ is a product of $d$ one-dimensional overlaps, so [its log](../../../references/textbooks/algebra/algebra-handbook.pdf#page=110) is a sum of $d$ terms, and the weights are computed from logs to keep them from rounding to 0.
+
+**The worked numbers, on the parts world.** Setting (c) of [[Kinds Of Composition#Mosaic, blend or two animals from one product]] has 16 coordinates. The cat expert is a [mixture](../../../references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=355) of two placements with $\pi_1 = \pi_2 = 0.5$: mean $+1$ and variance 0.01 on the left 8 coordinates with mean 0 and variance 1 on the right 8, or the mirror image. The dog expert is the same with $-1$. A side-by-side pair puts a sure value against a loose 0 on every coordinate, each overlap $\mathcal{N}(1; 0, 1.01)$:
+
+$$
+\log(\pi_i \rho_j Z_{ij}) = \log 0.25 + 16 \left( -\tfrac12 \log(2\pi \cdot 1.01) - \frac{1}{2 \cdot 1.01} \right) = -1.386294 + 16 \cdot (-1.418963) = -24.089706
+$$
+
+A same-half pair puts $+1$ against $-1$, both sure, on 8 coordinates, and loose against loose on the other 8:
+
+$$
+\log(\pi_i \rho_j Z_{ij}) = \log 0.25 + 8 \log \mathcal{N}(1; -1, 0.02) + 8 \log \mathcal{N}(0; 0, 2) = -1.386294 + 8 \cdot (-98.962927) + 8 \cdot (-1.265512) = -803.213807
+$$
+
+The two side-by-side pairs hold weight 0.5 each and the two same-half pairs $e^{-779}$ of that, which prints as 0. *Derived*, and *shown* by `parts_world.py` and by a grid that uses no formula, both in [[Kinds Of Composition#Mosaic, blend or two animals from one product]].
+
+**Why this matters.** The overlap $Z_{ij}$ that a single product throws away as a constant ([[The Area A Product Loses]]) comes back as the thing that picks between components once the experts are mixtures. A product of mixtures keeps the pairs that agree and drops the pairs that clash, which is how a product of two placement-varied experts puts two animals side by side and rules out both in one half.
+
 ## Other ways to compose
 
 Navigation: ⬅️ [[Powers Of Gaussians]] | 📋 [[#Table of contents|TOC]] | [[#Why precisions matter]] ➡️
@@ -347,8 +400,11 @@ Navigation: ⬅️ [[#Why precisions matter]] | 📋 [[#Table of contents|TOC]]
 - the `drip-read` walk of [the Mechanisms of Projective Composition paper note](../../../../deep-learning/01-poe-derivation-foundations/papers/mechanisms-of-projective-composition), step 3a, the overlap prediction and the re-teach that followed it, where the learner traced the per-coordinate derivation above on paper
 - the PoE derivation foundations journey's [plan 13](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/13-poe-on-two-gaussians.md), lines 150 to 152 (the precision-sum formula), 173 to 182 (the wide and the narrow background) and 277 to 294 (the product on paper), with its textbook chapter [textbook chapter 10](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/textbook/10-completing-the-square.md), sections 10.1 and 10.2
 - the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, section 3, paragraph 2, chunk 34: the product of $\mathcal{N}(-1, 0.5)$ and $\mathcal{N}(1, 0.8)$ peaks at the precision-weighted mean $-0.23$, where the experts stand at 55% and 39% of their own peaks. Worked in [[The Product As An Intersection]]. The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
+- the `drip-idea` walk of the overlap dial in the reduce-reuse-recycle research repository, claim 9, the `example 9` control (`artifacts/ideas/poe-overlap-dial/IDEA_MAP.md` line 93, and `example-9-parts-world/example-9-parts-world.tex` beside it, equations 1 to 3): the one-pair identity with its overlap $Z$, and the product of two mixtures, for [[#Products of Gaussian mixtures]]
 
 **Applied in:** nothing yet.
 
 > [!note]- How this was checked
 > Every output in [[Sampling A Diagonal Gaussian]] and this note was run by the writer in an empty folder, `~/playground/sandbox/gaussian-clouds`, on the PC: Ubuntu under WSL2, through the prepared environment `~/.vault-sandbox/bin/python` (Python 3.11.13, NumPy 2.4.6, SciPy 1.17.1, Matplotlib 3.11.2), on 2026-10-04. `samples.py` was also run through `uv run --no-project --with numpy python` (uv 0.8.13) and printed the same three lines. The folder was removed afterwards and the clean-up check returned 2.
+>
+> [[#Products of Gaussian mixtures]] was added on 2026-10-17 on the cluster (mscluster, Linux), from the `example 9` turn of the overlap-dial `drip-idea` walk. It runs nothing of its own: its worked numbers are the parts world's setting (c), whose run and grid check are in [[Kinds Of Composition#Mosaic, blend or two animals from one product]] and were made there through the system `python3` in place of the prepared environment. Every number in the derivation was recomputed by the writer in Python and matches the run's `-24.089705618427917` and `-803.213807592922` to the six decimals shown. The Matrix Cookbook's page 42 (section 8.1.8, equation 371, "the product is not normalized as a density of x") and Mathematics for Machine Learning's page 355 (section 11.1, equation 11.1) were opened with PyMuPDF before linking, and the algebra handbook's page 110 (the log of a product) the same way.

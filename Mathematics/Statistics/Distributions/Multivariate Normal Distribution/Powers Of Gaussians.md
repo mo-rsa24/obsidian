@@ -1,5 +1,5 @@
 ---
-aliases: [powers of Gaussians, power of a Gaussian, Gaussian raised to a power, power combination of Gaussians, weighted product of Gaussians, tempered Gaussian, positive-precision condition, positive precision condition, negation of Gaussians, q_a / q_b^alpha, guidance scale on Gaussians]
+aliases: [powers of Gaussians, power of a Gaussian, Gaussian raised to a power, power combination of Gaussians, weighted product of Gaussians, tempered Gaussian, positive-precision condition, positive precision condition, negation of Gaussians, q_a / q_b^alpha, guidance scale on Gaussians, powered Gaussian, one Gaussian to a power, sigma^2 / beta, variance over beta, component pair weights, pairwise component weights, w_ij, "N(mu_i; nu_j, S_i + L_j)"]
 sources:
   - "Du, Durkan, Strudel, Tenenbaum, Dieleman, Fergus, Sohl-Dickstein, Doucet, Grathwohl, Reduce, Reuse, Recycle: Compositional Generation with Energy-Based Diffusion Models and MCMC, ICML 2023: https://arxiv.org/abs/2302.11552"
 ---
@@ -14,7 +14,7 @@ Mathematics, Statistics, Distributions, Multivariate Normal Distribution. Needs:
 > [The diagonal Gaussian quiz](https://claude.ai/artifact/Vmd1FBg7oWwZq1onu9Jofa) covers the [[Multivariate Normal Distribution]] folder. This note's sections are not in it yet.
 
 > [!warning] Unfinished
-> - One picture is waiting to be drawn: prompt 10 in the vault's `.prompts/Multivariate Normal Distribution.md`.
+> - Prompt 10, the concept picture, is waiting to be drawn, in the vault's `.prompts/Multivariate Normal Distribution.md`.
 
 **Raising a Gaussian density to a power $w$ multiplies its precision by $w$, so $q_a^{w_a} q_b^{w_b}$ is a Gaussian with precision $P = w_a / v_a + w_b / v_b$ and mean $(w_a m_a / v_a + w_b m_b / v_b) / P$, provided $P > 0$.** A product is $w_a = w_b = 1$, guidance at scale $\lambda$ is $w_b = \lambda$, and Du et al.'s negation $q_a / q_b^\alpha$ is $w_b = -\alpha$. A negative power subtracts precision, so the result stays a density only while the expert being divided out is broad enough: $\alpha / v_b < 1 / v_a$. *Derived* below.
 
@@ -115,13 +115,23 @@ $$
 
 *Derived.* The score of the result is $w_a s_a + w_b s_b$, each expert's score scaled by its power, which is why a diffusion sampler can apply any of these with scores alone. Which composition each power stands for is worked in [[Product, Mixture And Negation]].
 
+**One Gaussian to a power.** With a single expert the rule reads: $\mathcal{N}(\mu, \sigma^2)$ raised to $\beta > 0$ and normalised is $\mathcal{N}(\mu, \sigma^2 / \beta)$, the same mean with the precision multiplied by $\beta$. Moving $\beta$ into the denominator of the exponent shows it in one line:
+
+$$
+\left(e^{-\frac{(x - \mu)^2}{2\sigma^2}}\right)^\beta = e^{-\frac{\beta (x - \mu)^2}{2\sigma^2}} = e^{-\frac{(x - \mu)^2}{2\,(\sigma^2 / \beta)}}
+$$
+
+$\mathcal{N}(3, 4)$ at $\beta = 2$ is $\mathcal{N}(3, 2)$, and expert a, $\mathcal{N}(-1, 0.5)$, at $\beta = 0.25$ is $\mathcal{N}(-1, 2)$. The score gives an independent check, because the score of a powered density is $\beta$ times the old score ([[The Tempered Density And Its Score]]): at $x = 5$, $2 \times \left(-(5 - 3)/4\right) = -1.0$ and the score of $\mathcal{N}(3, 2)$ is $-(5 - 3)/2 = -1.0$; at $x = 0$, $0.25 \times \left(-(0 + 1)/0.5\right) = -0.5$ and the score of $\mathcal{N}(-1, 2)$ is $-(0 + 1)/2 = -0.5$. *Derived.* At $\beta = 0$ the variance $\sigma^2 / \beta$ has no value and the powered height is 1 everywhere, which has no normaliser; that section works it.
+
 *🖼️ Diagram wanted: the form, each expert's precision bar scaled by its power and added, with the bell it gives in four rows from the product to a total below zero. Prompt 10 in the vault's `.prompts/Multivariate Normal Distribution.md`.*
 
 **Why this matters.** A negative prompt or a divided-out background can quietly produce something that is not a distribution. The check costs one subtraction: the kept expert's precision has to exceed the divided one's precision times its power. A pushed-away expert narrower than that makes the sampler chase a log height that grows toward the edges, as row 6 does.
 
-**Taught in:** the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, section 3, chunks 37, 40 and 41 (guidance as a product, equation 10 and its positive-precision condition, the notebook's weights), from the walk's answer keys `checks/negation.out` and `checks/guidance_on_the_object.out`. The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
+**Taught in:** the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, section 3, chunks 37, 40 and 41 (guidance as a product, equation 10 and its positive-precision condition, the notebook's weights), from the walk's answer keys `checks/negation.out` and `checks/guidance_on_the_object.out`. One Gaussian to a power: piece 2 of the `drip --math` walk of the sampler correctors for composition journey's plan 24, `plans/24-what-is-annealed.md`, lines 129 to 150, in `drips/24-what-is-annealed/`. The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
 
 **Applied in:** nothing yet.
 
 > [!note]- How this was checked
 > Every output in this note was run by the writer in an empty folder, `~/playground/sandbox/gaussian-powers`, on the PC: Ubuntu under WSL2, through the prepared environment `~/.vault-sandbox/bin/python` (Python 3.11.13, NumPy 2.4.6), on 2026-10-13. The folder was removed afterwards and the clean-up check returned 2. Rows 1 to 4 and 6 match the walk's answer keys `checks/negation.out` and `checks/guidance_on_the_object.out` in the journey's `sources/reduce-reuse-recycle/`, both re-run in a sandbox the same day with output identical to the saved files; row 5's grid reading is new to this note and is explained by the closed form beside it. The terminal picture was rendered from the captured text by a script in DejaVu Sans Mono and opened before filing.
+>
+> The paragraph "One Gaussian to a power" in this note was added on 2026-10-17 on the cluster (mscluster, Linux) from piece 2 of the plan 24 walk. It runs nothing; its four scores were computed by the writer with `awk` and match the walk's numbers.

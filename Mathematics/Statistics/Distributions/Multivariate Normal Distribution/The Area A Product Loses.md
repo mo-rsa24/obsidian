@@ -15,7 +15,7 @@ Mathematics, Statistics, Distributions, Multivariate Normal Distribution. Needs:
 > [The diagonal Gaussian quiz](https://claude.ai/artifact/Vmd1FBg7oWwZq1onu9Jofa) covers the [[Multivariate Normal Distribution]] folder. This note's sections are not in it yet.
 
 > [!warning] Unfinished
-> - One picture is waiting to be drawn: prompt 9 in the vault's `.prompts/Multivariate Normal Distribution.md`.
+> - Prompt 9, the concept picture, is waiting to be drawn, in the vault's `.prompts/Multivariate Normal Distribution.md`.
 
 Textbook: [Matrix Cookbook, section 8.1.8, p. 42](../../../references/textbooks/linear-algebra/matrix-cookbook.pdf#page=42)
 
