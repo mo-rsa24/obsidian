@@ -19,7 +19,7 @@ Artificial Intelligence, Generative Modeling, Diffusion Models, Composition. Nee
 > [The diffusion models quiz](https://claude.ai/artifact/MyTdAaVfZW3wiqhbLKg4wu) covers this note, with the rest of the [[Diffusion Models]] folder. Your attempts are saved on the page.
 
 > [!warning] Unfinished
-> - The concept picture and the mechanism for [[#Mosaic, blend or two animals from one product]] have no prompt yet in the vault's `.prompts/Diffusion Models.md`.
+> - Prompt 33, the mechanism for [[#Mosaic, blend or two animals from one product]], was being rendered on mscluster when this note was merged (Codex session 01a14a04), in the vault's `.prompts/Diffusion Models.md`; place it under its slot when it lands.
 > - The overlap-dial idea in the reduce-reuse-recycle repository applies this note in words only.
 
 **"Composition" names at least three different operations, told apart by which variables each expert scores. Co-occurrence is a product over disjoint regions plus a layout. Intersection is a product over the same variables, which is what a product of experts computes. Interaction is the product plus a term that vanishes when the two labels are [conditionally independent](../../../../Mathematics/references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=201) given the image.** The operators are *derived* below. The three names are the walk's working names; the field's words for each are in the table.
@@ -100,7 +100,9 @@ Both lines are derived in [[Products And Quotients Of Diagonal Gaussians#Product
 
 *Each tile is one image: blue is the cat value $+1$, red the dog value $-1$, grey 0. The first two tiles are the experts' means. The next four are the exact product's means: (a) a cat head on a dog body, (b) all grey, and the two heaviest components of (c), each at weight 0.50.*
 
-> 🖼️ **Picture on its way**: the three settings as real animals, each expert sharp where it is sure and blurred where it is loose, beside the product each setting gives. <!-- slot: assets/parts-world-the-concept.webp · prompt: .prompts/Diffusion Models.md#prompt-32-subject-concept-mosaic-blend-or-two-animals -->
+![Three rows of a cat expert times a dog expert: a cat-head-on-dog-body mosaic when each is sure of a different part, a grey smudge in a red card when both are sure of everything, and two animals side by side at weight 0.50 when each animal sits in either half|720](assets/parts-world-the-concept.webp)
+
+*Sharp means sure. Each product keeps the sharp part from whichever expert is sure of it: the mosaic costs log Z = -46.5, the blend log Z = -1583.4, and in row (c) the frames that put both animals in one half get weight 0.00.*
 
 **Try it yourself.**
 
