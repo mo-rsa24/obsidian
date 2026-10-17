@@ -19,7 +19,9 @@ Artificial Intelligence, Generative Modeling, Diffusion Models. Needs: [[The For
 ## Sampling the product
 
 - [[The Order Of Multiplying And Noising]]: why adding two models' scores and running the reverse process misses the product at every noise level, and what reaches it.
+- [[More Runs Of The Two Orders]]: five more runs on the same two experts: a mixture's order, annealed Langevin, more levels, the two routes level by level, and steps per level against step size.
 - [[The Energy Parameterisation]]: a model that outputs one height per input, so a sampler can accept or reject each move and models can be mixed.
+- [[More Runs Of The Energy Parameterisation]]: five more runs on the energy: one accept step by hand, a mixture's heights, step sizes, light tails, and the paper's Table 1 on the pair.
 - [[Product, Mixture And Negation]]: the product (AND), mixture (OR) and negation (NOT), and why a score-only model can do the first and last but not the mixture.
 
 ## What the experts learn

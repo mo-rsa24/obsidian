@@ -6,7 +6,7 @@ sources:
 
 # Product, Mixture And Negation
 
-Up: [[Composition]] · ⬅️ [[The Energy Parameterisation]] · [[What An Expert Learns From Its Training Set]] ➡️
+Up: [[Composition]] · ⬅️ [[More Runs Of The Energy Parameterisation]] · [[What An Expert Learns From Its Training Set]] ➡️
 
 Artificial Intelligence, Generative Modeling, Diffusion Models, Composition. Needs: [[The Energy Parameterisation]] for the heights a mixture needs.
 
