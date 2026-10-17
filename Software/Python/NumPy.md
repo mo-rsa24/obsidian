@@ -264,7 +264,7 @@ Navigation: ⬅️ [[#Arrays versus Python lists]] | 📋 [[#Table of contents|T
 
 ### When to reach for broadcasting
 
-When one small set of numbers applies to every row of a big array: a mean and a standard deviation applied to $n$ random points, as in [[Multivariate Normal Distribution#Sampling a diagonal Gaussian]], or several noise levels applied to one whole cloud, as in [[Diffusion Models#The forward process in one jump]]. Without it you write a loop over rows or levels. When the shapes do not line up, NumPy stops with a `ValueError` that names both shapes, and the fix is to give the small array length-1 axes in the right places.
+When one small set of numbers applies to every row of a big array: a mean and a standard deviation applied to $n$ random points, as in [[Multivariate Normal Distribution#Sampling a diagonal Gaussian]], or several noise levels applied to one whole cloud, as in [[The Forward Process]]. Without it you write a loop over rows or levels. When the shapes do not line up, NumPy stops with a `ValueError` that names both shapes, and the fix is to give the small array length-1 axes in the right places.
 
 ### The form of a broadcast
 

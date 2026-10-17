@@ -507,7 +507,7 @@ So 4.02 sits about one standard error from 4, which is ordinary, and the walk's 
 
 ### Why sampling matters
 
-Every later step of the walk starts from a cloud: noising it in [[Diffusion Models#The forward process in one jump]], and composing it with others in [[Diffusion Models#Composing models with a background]]. A sampler whose measured numbers you have checked is one you can trust when a later number looks wrong.
+Every later step of the walk starts from a cloud: noising it in [[The Forward Process]], and composing it with others in [[Composing Models With A Background]]. A sampler whose measured numbers you have checked is one you can trust when a later number looks wrong.
 
 ### Sampling taught in, applied in
 
@@ -526,7 +526,7 @@ Navigation: ⬅️ [[#Sampling a diagonal Gaussian]] | 📋 [[#Table of contents
 
 ### When to reach for precisions
 
-When densities are multiplied: composing experts as a product, dividing out a shared background as in [[Diffusion Models#Composing models with a background]], or a prior times a likelihood. Without the formula you multiply the densities on a grid and search for the peak, which works in one or two dimensions and gives no rule to reason with. Step 6 below does it that way, as a check.
+When densities are multiplied: composing experts as a product, dividing out a shared background as in [[Composing Models With A Background]], or a prior times a likelihood. Without the formula you multiply the densities on a grid and search for the peak, which works in one or two dimensions and gives no rule to reason with. Step 6 below does it that way, as a check.
 
 ### The form of a composed Gaussian
 
@@ -572,7 +572,7 @@ shared: overlap centre [-1.2, 0.0], overlap amount 0.0064
 split: overlap centre [-1.6, 1.6], overlap amount 0.0143
 ```
 
-Neither overlap is centred on the origin, and the split pair overlaps more than twice as much as the shared pair. What these two points mean for composition, and why the background changes them, is in [[Diffusion Models#Composing models with a background]].
+Neither overlap is centred on the origin, and the split pair overlaps more than twice as much as the shared pair. What these two points mean for composition, and why the background changes them, is in [[Composing Models With A Background]].
 
 **4. The failure: a background narrower than the experts.** Save this as `narrow.py`. It composes one coordinate with a background of variance 0.5, narrower than both experts:
 
@@ -907,9 +907,9 @@ $\log Z$ is one number, the same at every $x$, and a constant has slope 0. *Deri
 
 *🖼️ Diagram wanted: the two experts, their product as a small bump of area 0.075126 and the same bump rescaled to area 1, beside the two log curves, parallel, with the same slope at 0. Prompt 9 in the vault's `.prompts/Multivariate Normal Distribution.md`.*
 
-**Other ways.** The ratio of two densities, such as dividing out a background, loses its area the same way, and can lose it entirely: step 4 of [[#Try composing yourself]] gives a quotient with no finite area at all. A mixture keeps its area but needs each expert's true height to weight its score, which [[Diffusion Models#How the energy works]] works out on this same pair.
+**Other ways.** The ratio of two densities, such as dividing out a background, loses its area the same way, and can lose it entirely: step 4 of [[#Try composing yourself]] gives a quotient with no finite area at all. A mixture keeps its area but needs each expert's true height to weight its score, which [[The Energy Parameterisation#How the energy works]] works out on this same pair.
 
-**Why this matters.** Adding two diffusion models' scores gives exactly the score of their normalised product on clean data, whatever the product's area, because the area only moves the log by a constant. So when summed scores give wrong samples, as in [[Diffusion Models#The order of multiplying and noising]], the missing area is not the cause. That section shows what is: noising the product and multiplying the noised experts give different curves. *Derived* above for the clean case; the noised case is *shown* there.
+**Why this matters.** Adding two diffusion models' scores gives exactly the score of their normalised product on clean data, whatever the product's area, because the area only moves the log by a constant. So when summed scores give wrong samples, as in [[The Order Of Multiplying And Noising]], the missing area is not the cause. That section shows what is: noising the product and multiplying the noised experts give different curves. *Derived* above for the clean case; the noised case is *shown* there.
 
 **Taught in:**
 
@@ -1017,7 +1017,7 @@ w_a = -1:&\quad P = -2 + 1.25 = -0.75
 \end{aligned}
 $$
 
-*Derived.* The score of the result is $w_a s_a + w_b s_b$, each expert's score scaled by its power, which is why a diffusion sampler can apply any of these with scores alone. Which composition each power stands for is worked in [[Diffusion Models#Product, mixture and negation]].
+*Derived.* The score of the result is $w_a s_a + w_b s_b$, each expert's score scaled by its power, which is why a diffusion sampler can apply any of these with scores alone. Which composition each power stands for is worked in [[Product, Mixture And Negation]].
 
 *🖼️ Diagram wanted: the form, each expert's precision bar scaled by its power and added, with the bell it gives in four rows from the product to a total below zero. Prompt 10 in the vault's `.prompts/Multivariate Normal Distribution.md`.*
 
@@ -1031,7 +1031,7 @@ $$
 
 - **On a grid**, as in step 6, when the densities are not Gaussian. It costs one evaluation per grid point per coordinate and gives numbers, not a formula.
 - **With full covariances**, when coordinates are correlated: the precision matrices add and subtract the same way, $\Lambda = \Sigma_1^{-1} + \Sigma_2^{-1} - \Sigma_b^{-1}$, and the mean is $\Lambda^{-1}(\Sigma_1^{-1}\mu_1 + \Sigma_2^{-1}\mu_2 - \Sigma_b^{-1}\mu_b)$, valid while every eigenvalue of $\Lambda$ is above 0. *Cited:* plan 13, lines 67 to 69 and 173 to 182.
-- **Through scores**, the gradients of the logs, which add and subtract with no normalising constant at all. This is how a diffusion model composes: see [[Diffusion Models#Composing models with a background]].
+- **Through scores**, the gradients of the logs, which add and subtract with no normalising constant at all. This is how a diffusion model composes: see [[Composing Models With A Background]].
 
 ### Why precisions matter
 
@@ -1063,7 +1063,7 @@ At coordinate 0 only $p_0$ has mean 1. The other three experts have mean 0 there
 
 - the `drip-read` walk of [the Mechanisms of Projective Composition paper note](../../../deep-learning/01-poe-derivation-foundations/papers/mechanisms-of-projective-composition/), step 3a, the overlap prediction and the re-teach that followed it, where the learner traced the per-coordinate derivation above on paper
 - the PoE derivation foundations journey's plan 13, `plans/13-poe-on-two-gaussians.md`, lines 150 to 152 (the precision-sum formula), 173 to 182 (the wide and the narrow background) and 277 to 294 (the product on paper), with its textbook chapter `textbook/10-completing-the-square.md`, sections 10.1 and 10.2
-- the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, section 3, paragraph 2, chunk 34: the product of $\mathcal{N}(-1, 0.5)$ and $\mathcal{N}(1, 0.8)$ peaks at the precision-weighted mean $-0.23$, where the experts stand at 55% and 39% of their own peaks. Worked in [[Diffusion Models#The product as an intersection]]. The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
+- the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, section 3, paragraph 2, chunk 34: the product of $\mathcal{N}(-1, 0.5)$ and $\mathcal{N}(1, 0.8)$ peaks at the precision-weighted mean $-0.23$, where the experts stand at 55% and 39% of their own peaks. Worked in [[The Product As An Intersection]]. The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
 
 **Applied in:** nothing yet.
 

@@ -1,6 +1,6 @@
 # Diffusion Models: illustrated map
 
-The drawn pictures for the vault note [[Diffusion Models]], sections [[Diffusion Models#The forward process in one jump]], [[Diffusion Models#Composing models with a background]], [[Diffusion Models#The order of multiplying and noising]] and [[Diffusion Models#The energy parameterisation]], with one concept picture for [[Diffusion Models#The product as an intersection]], [[Diffusion Models#Product, mixture and negation]], with one concept picture each for [[Diffusion Models#Annealed MCMC]] and [[Diffusion Models#Step size and the accept step]], [[Diffusion Models#What an expert learns from its training set]], one concept picture for [[Diffusion Models#Kinds of composition]], and one concept picture for [[Diffusion Models#When neither training set holds A and B]]. `23 prompts · 20 rendered · 3 stuck · 0 waiting`
+The drawn pictures for the notes in the vault's [[Diffusion Models]] folder and its two [[Markov Chain Monte Carlo]] notes: [[The Forward Process]], [[Composing Models With A Background]], [[The Order Of Multiplying And Noising]] and [[The Energy Parameterisation]], with one concept picture for [[The Product As An Intersection]], [[Product, Mixture And Negation]], with one concept picture each for [[Annealed MCMC]] and [[Step Size And The Accept Step]], [[What An Expert Learns From Its Training Set]], one concept picture for [[Kinds Of Composition]], and one concept picture for [[When Neither Training Set Holds A And B]]. `23 prompts · 20 rendered · 3 stuck · 0 waiting`
 
 ## Table of contents
 
@@ -93,14 +93,14 @@ Numbered markers only on the deep-dive sheets' run panes, matching the numbered 
 
 Navigation: ⬅️ [Devices in play](#devices-in-play) | 📋 [TOC](#table-of-contents) | [Prompt 1 (Subject): The jump, the form](#prompt-1-subject-the-jump-the-form) ➡️
 
-The form, the mechanism and the deep-dive sheet for [[Diffusion Models#The forward process in one jump]].
+The form, the mechanism and the deep-dive sheet for [[The Forward Process]].
 
 ### Prompt 1 (Subject): The jump, the form
 
 Navigation: ⬅️ [Subject lane: The forward process in one jump](#subject-lane-the-forward-process-in-one-jump) | 📋 [TOC](#table-of-contents) | [Prompt 2 (Subject): The jump, the mechanism](#prompt-2-subject-the-jump-the-mechanism) ➡️
 
 [planned] 🖼️ rendered 2026-10-04 forward-process-the-form.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/forward-process-the-form.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-process-the-form.webp`
 
 Visual thesis: The noised cloud is the clean cloud scaled by the square root of abar plus fresh noise scaled by the square root of one minus abar.
 
@@ -136,7 +136,7 @@ Faithfulness note: The purple cloud is centred at (-1.41, 0), with variance 1 al
 Navigation: ⬅️ [Prompt 1 (Subject): The jump, the form](#prompt-1-subject-the-jump-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 3 (Subject capstone): The jump, the deep-dive sheet](#prompt-3-subject-capstone-the-jump-the-deep-dive-sheet) ➡️
 
 [planned] 🖼️ rendered 2026-10-05 forward-process-the-mechanism.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/forward-process-the-mechanism.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-process-the-mechanism.webp`
 
 Visual thesis: As abar falls, the cloud's centre slides toward 0 by the square root of abar and each axis's variance heads toward 1.
 
@@ -172,7 +172,7 @@ Faithfulness note: The contours' centres and variances match the listed values; 
 Navigation: ⬅️ [Prompt 2 (Subject): The jump, the mechanism](#prompt-2-subject-the-jump-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: Composing models with a background](#subject-lane-composing-models-with-a-background) ➡️
 
 [planned] 🖼️ rendered 2026-10-05 forward-process-deep-dive-sheet.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/forward-process-deep-dive-sheet.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-process-deep-dive-sheet.webp`
 
 Visual thesis: The jump mixes clean data and noise by square-root weights, and the run's measured means and variances match the closed form at every level.
 
@@ -207,14 +207,14 @@ Faithfulness note: The output lines match the note's captured run character for 
 
 Navigation: ⬅️ [Prompt 3 (Subject capstone): The jump, the deep-dive sheet](#prompt-3-subject-capstone-the-jump-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 4 (Subject): Composition, the form](#prompt-4-subject-composition-the-form) ➡️
 
-The form, the mechanism and the deep-dive sheet for [[Diffusion Models#Composing models with a background]].
+The form, the mechanism and the deep-dive sheet for [[Composing Models With A Background]].
 
 ### Prompt 4 (Subject): Composition, the form
 
 Navigation: ⬅️ [Subject lane: Composing models with a background](#subject-lane-composing-models-with-a-background) | 📋 [TOC](#table-of-contents) | [Prompt 5 (Subject): Composition, the mechanism](#prompt-5-subject-composition-the-mechanism) ➡️
 
 [planned] 🖼️ rendered 2026-10-05 composition-the-form.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/composition-the-form.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/composition-the-form.webp`
 
 Visual thesis: A two-pixel scene is a wall split into a left half and a right half; each expert puts an object in one half and repeats the wall elsewhere; the rule multiplies the experts and divides out the wall once.
 
@@ -250,7 +250,7 @@ Faithfulness note: In split the composed wall holds both objects, one per half; 
 Navigation: ⬅️ [Prompt 4 (Subject): Composition, the form](#prompt-4-subject-composition-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 6 (Subject capstone): Composition, the deep-dive sheet](#prompt-6-subject-capstone-composition-the-deep-dive-sheet) ➡️
 
 [planned] 🖼️ rendered 2026-10-05 composition-the-mechanism.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/composition-the-mechanism.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/composition-the-mechanism.webp`
 
 Visual thesis: In every half where an expert equals the wall, its precision cancels the wall's and the other expert decides alone; in shared's left half neither cancels, so the two pull against each other and land on -1.5.
 
@@ -321,14 +321,14 @@ Faithfulness note: The four marked positions match the note's saved figure, comp
 
 Navigation: ⬅️ [Prompt 6 (Subject capstone): Composition, the deep-dive sheet](#prompt-6-subject-capstone-composition-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 7 (Subject): The two orders, the form](#prompt-7-subject-the-two-orders-the-form) ➡️
 
-The form, the mechanism and the deep-dive sheet for [[Diffusion Models#The order of multiplying and noising]].
+The form, the mechanism and the deep-dive sheet for [[The Order Of Multiplying And Noising]].
 
 ### Prompt 7 (Subject): The two orders, the form
 
 Navigation: ⬅️ [Subject lane: The order of multiplying and noising](#subject-lane-the-order-of-multiplying-and-noising) | 📋 [TOC](#table-of-contents) | [Prompt 8 (Subject): The two orders, the mechanism](#prompt-8-subject-the-two-orders-the-mechanism) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 two-orders-the-form.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/two-orders-the-form.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/two-orders-the-form.webp`
 
 Visual thesis: Multiplying the two experts and then noising (equation 11) gives a wider curve than noising each expert and then multiplying (equation 12), and adding the two models' scores gives only the second.
 
@@ -364,7 +364,7 @@ Faithfulness note: The upper row multiplies first and ends in green with varianc
 Navigation: ⬅️ [Prompt 7 (Subject): The two orders, the form](#prompt-7-subject-the-two-orders-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 9 (Subject capstone): The two orders, the deep-dive sheet](#prompt-9-subject-capstone-the-two-orders-the-deep-dive-sheet) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 two-orders-the-mechanism.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/two-orders-the-mechanism.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/two-orders-the-mechanism.webp`
 
 Visual thesis: Noising blurs every point of a density with the same kernel, a blur passes through a sum but not through a product, so a mixture comes out the same in either order and a product does not.
 
@@ -400,7 +400,7 @@ Faithfulness note: In the mixture row the two noised curves coincide; in the pro
 Navigation: ⬅️ [Prompt 8 (Subject): The two orders, the mechanism](#prompt-8-subject-the-two-orders-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: The energy parameterisation](#subject-lane-the-energy-parameterisation) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 two-orders-deep-dive-sheet.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/two-orders-deep-dive-sheet.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/two-orders-deep-dive-sheet.webp`
 
 Visual thesis: The two orders agree with no noise and part as noise grows, until the noised product is N(0, 1) while the summed-score curve is N(0, 1/2).
 
@@ -435,14 +435,14 @@ Faithfulness note: The output lines match the note's captured run of closed_form
 
 Navigation: ⬅️ [Prompt 9 (Subject capstone): The two orders, the deep-dive sheet](#prompt-9-subject-capstone-the-two-orders-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 10 (Subject): The energy, the form](#prompt-10-subject-the-energy-the-form) ➡️
 
-The form, the mechanism and the deep-dive sheet for [[Diffusion Models#The energy parameterisation]].
+The form, the mechanism and the deep-dive sheet for [[The Energy Parameterisation]].
 
 ### Prompt 10 (Subject): The energy, the form
 
 Navigation: ⬅️ [Subject lane: The energy parameterisation](#subject-lane-the-energy-parameterisation) | 📋 [TOC](#table-of-contents) | [Prompt 11 (Subject): The energy, the mechanism](#prompt-11-subject-the-energy-the-mechanism) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 energy-the-form.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/energy-the-form.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/energy-the-form.webp`
 
 Visual thesis: An energy-parameterised network outputs one number per input; its slope, times minus the noise scale, is the usual noise estimate, and its height is what mixture weights and the accept test need.
 
@@ -478,7 +478,7 @@ Faithfulness note: The energy is a single gold number, never a vector; both teal
 Navigation: ⬅️ [Prompt 10 (Subject): The energy, the form](#prompt-10-subject-the-energy-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 12 (Subject capstone): The energy, the deep-dive sheet](#prompt-12-subject-capstone-the-energy-the-deep-dive-sheet) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 energy-the-mechanism.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/energy-the-mechanism.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/energy-the-mechanism.webp`
 
 Visual thesis: The accept test compares the energy at the proposal with the energy at the start, the normaliser cancels, and with the test a step size that left Langevin 19% too wide lands on the product.
 
@@ -514,7 +514,7 @@ Faithfulness note: The upper curve is the energy f, a parabola opening downward,
 Navigation: ⬅️ [Prompt 11 (Subject): The energy, the mechanism](#prompt-11-subject-the-energy-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: The product as an intersection](#subject-lane-the-product-as-an-intersection) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 energy-deep-dive-sheet.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/energy-deep-dive-sheet.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/energy-deep-dive-sheet.webp`
 
 Visual thesis: One accept-step proposal, worked by hand, reads as the energy's height change plus the move's asymmetry, and its sign decides whether the move is kept.
 
@@ -549,14 +549,14 @@ Faithfulness note: The output lines match the note's captured run of one_proposa
 
 Navigation: ⬅️ [Prompt 12 (Subject capstone): The energy, the deep-dive sheet](#prompt-12-subject-capstone-the-energy-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 13 (Subject concept): The product as an intersection](#prompt-13-subject-concept-the-product-as-an-intersection) ➡️
 
-One concept picture for [[Diffusion Models#The product as an intersection]], a subsection of the composition section, whose form, mechanism and deep-dive sheet are prompts 4 to 6.
+One concept picture for [[The Product As An Intersection]], a subsection of the composition section, whose form, mechanism and deep-dive sheet are prompts 4 to 6.
 
 ### Prompt 13 (Subject concept): The product as an intersection
 
 Navigation: ⬅️ [Subject lane: The product as an intersection](#subject-lane-the-product-as-an-intersection) | 📋 [TOC](#table-of-contents) | [Subject lane: Product, mixture and negation](#subject-lane-product-mixture-and-negation) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 intersection-the-concept.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/intersection-the-concept.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/intersection-the-concept.webp`
 
 Visual thesis: A product of two experts peaks where both are partly tall, never where either is at its best, and when the experts do not overlap it peaks in a gap that neither believes in.
 
@@ -591,14 +591,14 @@ Faithfulness note: On the left the green peak sits between the blue and orange p
 
 Navigation: ⬅️ [Prompt 13 (Subject concept): The product as an intersection](#prompt-13-subject-concept-the-product-as-an-intersection) | 📋 [TOC](#table-of-contents) | [Prompt 14 (Subject): The three operators, the form](#prompt-14-subject-the-three-operators-the-form) ➡️
 
-The form, the mechanism and the deep-dive sheet for [[Diffusion Models#Product, mixture and negation]]. Lane colours: blue expert a, orange expert b, green the product, violet the mixture, pink the negation, teal a slope, gold a height or share.
+The form, the mechanism and the deep-dive sheet for [[Product, Mixture And Negation]]. Lane colours: blue expert a, orange expert b, green the product, violet the mixture, pink the negation, teal a slope, gold a height or share.
 
 ### Prompt 14 (Subject): The three operators, the form
 
 Navigation: ⬅️ [Subject lane: Product, mixture and negation](#subject-lane-product-mixture-and-negation) | 📋 [TOC](#table-of-contents) | [Prompt 15 (Subject): The three operators, the mechanism](#prompt-15-subject-the-three-operators-the-mechanism) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 three-operators-the-form.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/three-operators-the-form.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/three-operators-the-form.webp`
 
 Visual thesis: Three operators combine the same two experts: the product is narrower than both, the mixture wider than both, negation moves away from the pushed expert and widens; only the mixture needs heights.
 
@@ -670,7 +670,7 @@ Faithfulness note: Arrow lengths are to scale: the product's green arrow is thre
 Navigation: ⬅️ [Prompt 15 (Subject): The three operators, the mechanism](#prompt-15-subject-the-three-operators-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: Annealed MCMC and the step size](#subject-lane-annealed-mcmc-and-the-step-size) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 three-operators-deep-dive-sheet.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/three-operators-deep-dive-sheet.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/three-operators-deep-dive-sheet.webp`
 
 Visual thesis: One sheet composing the three operators' form, the slope mechanism and the mixture run, so a reader sees why an OR needs heights.
 
@@ -705,14 +705,14 @@ Faithfulness note: The run pane's lines match the note's captured run of mixture
 
 Navigation: ⬅️ [Prompt 16 (Subject capstone): The three operators, the deep-dive sheet](#prompt-16-subject-capstone-the-three-operators-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 17 (Subject concept): Annealed MCMC](#prompt-17-subject-concept-annealed-mcmc) ➡️
 
-Two concept pictures: one for [[Diffusion Models#Annealed MCMC]], a subsection of the two-orders section (prompts 7 to 9), and one for [[Diffusion Models#Step size and the accept step]], a subsection of the energy section (prompts 10 to 12). Lane colours: green route A and the product, purple route B, grey a sampler with no accept step, red a stability limit, gold a share.
+Two concept pictures: one for [[Annealed MCMC]], a subsection of the two-orders section (prompts 7 to 9), and one for [[Step Size And The Accept Step]], a subsection of the energy section (prompts 10 to 12). Lane colours: green route A and the product, purple route B, grey a sampler with no accept step, red a stability limit, gold a share.
 
 ### Prompt 17 (Subject concept): Annealed MCMC
 
 Navigation: ⬅️ [Subject lane: Annealed MCMC and the step size](#subject-lane-annealed-mcmc-and-the-step-size) | 📋 [TOC](#table-of-contents) | [Prompt 18 (Subject concept): The step size and the accept step](#prompt-18-subject-concept-the-step-size-and-the-accept-step) ➡️
 
 [planned] ⚠️ stuck: pixel check, route A and route B bells not to scale after 3 revisions (width ratio A to B at half height 2.32, 2.00, 1.75, 1.54 at t = 100, 75, 50, 25 where the variances give 1.41, 1.38, 1.27, 1.10); labels, colours, dashed and solid styles, loop arrows and the bottom row correct; first attempt came back transparent (RGBA) and was regenerated opaque; last attempt ~/.cache/codex-drop/obsidian/annealed-mcmc-the-concept.png
-Save as: `../Artificial Intelligence/Generative Modeling/assets/annealed-mcmc-the-concept.webp`
+Save as: `../Mathematics/Statistics/Markov Chain Monte Carlo/assets/annealed-mcmc-the-concept.webp`
 
 Visual thesis: Annealed MCMC settles the cloud on the summed score's own curve, route B, at every noise level from noisiest to clean; route B ends at the product, so the cloud does too, where the plain reverse process, which assumes route A, ends 32% too narrow.
 
@@ -748,7 +748,7 @@ Faithfulness note: Route A is dashed green and always the wider of the two bells
 Navigation: ⬅️ [Prompt 17 (Subject concept): Annealed MCMC](#prompt-17-subject-concept-annealed-mcmc) | 📋 [TOC](#table-of-contents) | [Subject lane: What an expert learns from its training set](#subject-lane-what-an-expert-learns-from-its-training-set) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 step-size-and-the-accept-step-the-concept.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/step-size-and-the-accept-step-the-concept.webp`
+Save as: `../Mathematics/Statistics/Markov Chain Monte Carlo/assets/step-size-and-the-accept-step-the-concept.webp`
 
 Visual thesis: Without an accept step a Langevin chain settles wider as the step grows and blows up past 2 / P; with the accept step it stays on the product at every step size, and only the share of proposals accepted falls.
 
@@ -783,14 +783,14 @@ Faithfulness note: The grey curve passes through the three labelled points to sc
 
 Navigation: ⬅️ [Prompt 18 (Subject concept): The step size and the accept step](#prompt-18-subject-concept-the-step-size-and-the-accept-step) | 📋 [TOC](#table-of-contents) | [Prompt 19 (Subject): The training set, the form](#prompt-19-subject-the-training-set-the-form) ➡️
 
-Three pictures for [[Diffusion Models#What an expert learns from its training set]]. Lane colours: blue the A points and expert A, orange a B label, green the A-and-B quadrant, gold a label tag, grey the loss (which reads no label), purple the classifier. Red only for the numbered markers on the deep-dive sheet.
+Three pictures for [[What An Expert Learns From Its Training Set]]. Lane colours: blue the A points and expert A, orange a B label, green the A-and-B quadrant, gold a label tag, grey the loss (which reads no label), purple the classifier. Red only for the numbered markers on the deep-dive sheet.
 
 ### Prompt 19 (Subject): The training set, the form
 
 Navigation: ⬅️ [Subject lane: What an expert learns from its training set](#subject-lane-what-an-expert-learns-from-its-training-set) | 📋 [TOC](#table-of-contents) | [Prompt 20 (Subject): The training set, the mechanism](#prompt-20-subject-the-training-set-the-mechanism) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 expert-and-labels-the-form.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/expert-and-labels-the-form.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/expert-and-labels-the-form.webp`
 
 Visual thesis: One training set feeds three readers; the loss reads only the points, while the conditioning rule and the classifier also read the gold label tags, so only they can be changed by relabelling.
 
@@ -826,7 +826,7 @@ Faithfulness note: The gold label tag reaches the conditioning rule and the clas
 Navigation: ⬅️ [Prompt 19 (Subject): The training set, the form](#prompt-19-subject-the-training-set-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 21 (Subject capstone): The training set, the deep-dive sheet](#prompt-21-subject-capstone-the-training-set-the-deep-dive-sheet) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 expert-and-labels-the-mechanism.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/expert-and-labels-the-mechanism.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/expert-and-labels-the-mechanism.webp`
 
 Visual thesis: The same three points under two labellings give the same expert A, but under "exactly A" honest labelling removes the A-and-B point from condition A, and the classifier learns 0 or 1 for B in the top-left from the labels alone.
 
@@ -862,7 +862,7 @@ Faithfulness note: The dots sit at their coordinates to scale; only the top-left
 Navigation: ⬅️ [Prompt 20 (Subject): The training set, the mechanism](#prompt-20-subject-the-training-set-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: Kinds of composition](#subject-lane-kinds-of-composition) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 expert-and-labels-the-deep-dive.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/expert-and-labels-the-deep-dive.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/expert-and-labels-the-deep-dive.webp`
 
 Visual thesis: The form, the mechanism and the run on one sheet: one training set, three readers, and the four expected fields that show only the readers of labels change.
 
@@ -897,14 +897,14 @@ Faithfulness note: The four markers sit on the values the note's reading table n
 
 Navigation: ⬅️ [Prompt 21 (Subject capstone): The training set, the deep-dive sheet](#prompt-21-subject-capstone-the-training-set-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 22 (Subject concept): Kinds of composition](#prompt-22-subject-concept-kinds-of-composition) ➡️
 
-One concept picture for [[Diffusion Models#Kinds of composition]], a subsection of the composition section, whose form, mechanism and deep-dive sheet are prompts 4 to 6. Colours as in the composition lane: blue expert A, orange expert B, green the composed result; red only on the one card failure that is a chimera, as for a hybrid.
+One concept picture for [[Kinds Of Composition]], a subsection of the composition section, whose form, mechanism and deep-dive sheet are prompts 4 to 6. Colours as in the composition lane: blue expert A, orange expert B, green the composed result; red only on the one card failure that is a chimera, as for a hybrid.
 
 ### Prompt 22 (Subject concept): Kinds of composition
 
 Navigation: ⬅️ [Subject lane: Kinds of composition](#subject-lane-kinds-of-composition) | 📋 [TOC](#table-of-contents) | [Subject lane: When neither training set holds A and B](#subject-lane-when-neither-training-set-holds-a-and-b) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 kinds-of-composition-the-concept.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/kinds-of-composition-the-concept.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/kinds-of-composition-the-concept.webp`
 
 Visual thesis: Three kinds of composition differ in which pixels each expert scores: separate pixels for co-occurrence, the same pixels for intersection, and the same pixels plus a change neither expert holds for interaction; each fails its own way.
 
@@ -939,14 +939,14 @@ Faithfulness note: Only the co-occurrence grid is split into blue and orange hal
 
 Navigation: ⬅️ [Prompt 22 (Subject concept): Kinds of composition](#prompt-22-subject-concept-kinds-of-composition) | 📋 [TOC](#table-of-contents) | [Prompt 23 (Subject concept): The product's support](#prompt-23-subject-concept-the-products-support) ➡️
 
-One concept picture for [[Diffusion Models#When neither training set holds A and B]], a subsection of the training-set section, whose form, mechanism and deep-dive sheet are prompts 19 to 21. Colours as in the composition lane: blue expert A, orange expert B, green the composed result; red only on the empty A-and-B region of the right panel, where the product cannot go.
+One concept picture for [[When Neither Training Set Holds A And B]], a subsection of the training-set section, whose form, mechanism and deep-dive sheet are prompts 19 to 21. Colours as in the composition lane: blue expert A, orange expert B, green the composed result; red only on the empty A-and-B region of the right panel, where the product cannot go.
 
 ### Prompt 23 (Subject concept): The product's support
 
 Navigation: ⬅️ [Subject lane: When neither training set holds A and B](#subject-lane-when-neither-training-set-holds-a-and-b) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 support-the-concept.webp
-Save as: `../Artificial Intelligence/Generative Modeling/assets/support-the-concept.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/support-the-concept.webp`
 
 Visual thesis: A product of two experts lives only where both experts have density, so when neither training set holds A and B the product cannot land there and slides to the nearest edge of the two supports instead.
 
