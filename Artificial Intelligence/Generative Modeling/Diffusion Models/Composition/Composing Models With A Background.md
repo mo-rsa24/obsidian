@@ -17,7 +17,18 @@ Artificial Intelligence, Generative Modeling, Diffusion Models, Composition. Nee
 > [!warning] Unfinished
 > - One picture is still to be drawn: the deep-dive sheet, prompt 6 in the vault's `.prompts/Diffusion Models.md`. Its last render put the marked points off the note's saved figure, and it is stuck after three revisions.
 
-**Definition 5.1 of the Mechanisms of Projective Composition paper composes experts by multiplying them and dividing out the background once for each expert, $\mathcal{C}[p_b, p_1, p_2](x) = \frac{1}{Z}\,p_b(x)\,\frac{p_1(x)}{p_b(x)}\,\frac{p_2(x)}{p_b(x)}$, so each expert counts only where it differs from the background.** In score form, which is what a diffusion sampler adds, $\nabla \log \mathcal{C} = \nabla \log p_1 + \nabla \log p_2 - \nabla \log p_b$. *Cited:* the paper, equations (5) and (6).
+**Definition 5.1 of the Mechanisms of Projective Composition paper composes experts by multiplying them and dividing out the background once for each expert, $\mathcal{C}[p_b, p_1, p_2](x) = \frac{1}{Z}\,p_b(x)\,\frac{p_1(x)}{p_b(x)}\,\frac{p_2(x)}{p_b(x)}$, so each expert counts only where it differs from the background.** In [score](../../../../Mathematics/references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=114) form, which is what a diffusion sampler adds, $\nabla \log \mathcal{C} = \nabla \log p_1 + \nabla \log p_2 - \nabla \log p_b$. *Cited:* the paper, equations (5) and (6).
+
+<!-- video-table: product-of-experts rev=1 -->
+Stanford CS236 on multiplying models into a product of experts, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Composing normalised models into one | Intuition | [Stanford CS236, lecture 11, 23:01 to 29:14](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=1381s) |
+| 2 | The product of experts | Intuition | [Stanford CS236, lecture 11, 54:02 to 57:28](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=3242s) |
+
+Neither segment composes diffusion models by adding their scores or divides out a background, and no listed creator does. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
 
 ## Where you work
 
@@ -85,6 +96,16 @@ On a half it does not care about, an expert repeats the wall. Multiply two exper
 Navigation: ⬅️ [[#Why the background is divided out]] | 📋 [[#Table of contents|TOC]] | [[#The form of a composition]] ➡️
 
 When two conditions should both appear in one sample: a cat and a dog, a red cube and a blue sphere. A diffusion sampler adds the two conditional scores and subtracts the unconditional one, and Definition 5.1 says which distribution that sum is the score of. The rule gives co-occurrence when each expert owns its own pixels and differs from the background only there (split). When two experts want the same pixels (shared), it returns a hybrid.
+
+<!-- video-table: score-function rev=1 -->
+The score in lecture form, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The score function defined, as a vector field over data space | Definition | [Stanford CS236, lecture 13, 3:52 to 11:51](https://www.youtube.com/watch?v=8G-OsDs1RLI&t=232s) |
+
+Start and end times are chapter boundaries from each video; what is said inside was judged from the chapter titles and not read from captions.
+<!-- /video-table -->
 
 ![The paper's Figure 1: photos of one dog plus Van Gogh's Starry Night give an oil painting of that dog|800](references/composition-paper-figure-1-content-and-style.png)
 
@@ -293,7 +314,7 @@ The left image is the toy's shared case at full scale. Both prompts want the sub
 >
 > *Bradley et al., Mechanisms of Projective Composition of Diffusion Models, ICML 2025, [arXiv 2502.04549](https://arxiv.org/abs/2502.04549), Figure 8. arXiv non-exclusive distribution licence; copied for study with citation.*
 
-A way to tell shared from split before sampling. Each concept's direction away from the background, $\mu_i - \mu_b$, plays the part of the toy's "which half does this expert move". Split experts move different halves, so their directions are perpendicular and the cosine is 0. Read off the colour bar by eye, dog against horse is about 0.55 on image embeddings and 0.7 on text, while dog against hat is about 0.4 and 0.25, and Figures 7 and 1 came out as those numbers predict. The toy's split directions are $(-2, 0)$ and $(0, 2)$, with cosine exactly 0. Shared's are $(-2, 0)$ and $(2, 0)$, with cosine $-1$. *Derived* from the toy's means and the background mean $(0, 0)$.
+A way to tell shared from split before sampling. Each concept's direction away from the background, $\mu_i - \mu_b$, plays the part of the toy's "which half does this expert move". Split experts move different halves, so their directions are perpendicular and [the cosine](/home/molef/goal-setting/learning/deep-learning/diffusion-models/08-spectral-structure-of-the-correction/textbook/refresher-dot-norm-cosine.pdf#page=9) is 0. Read off the colour bar by eye, dog against horse is about 0.55 on image embeddings and 0.7 on text, while dog against hat is about 0.4 and 0.25, and Figures 7 and 1 came out as those numbers predict. The toy's split directions are $(-2, 0)$ and $(0, 2)$, with cosine exactly 0. Shared's are $(-2, 0)$ and $(2, 0)$, with cosine $-1$. *Derived* from the toy's means and the background mean $(0, 0)$.
 
 The learner's [Gaussian Bowl Sketchpad](https://claude.ai/artifact/2TarMifiFoFyoB23eQFR64) shows one Gaussian's density as a surface. A page for this composition, with the wall, the two experts and the composed cloud, is being built in the journey's `artifacts/scenes/mechanisms-of-projective-composition/` and is not published yet.
 
@@ -310,7 +331,7 @@ Navigation: ⬅️ [[Kinds Of Composition]] | 📋 [[#Table of contents|TOC]]
 **Taught in:**
 
 - the `drip-read` walk of the Mechanisms of Projective Composition paper note, step 3a: the overlap prediction, the learner's question about the role of the background and the difference between shared and split, the re-teach with two-pixel images, and the per-coordinate derivation traced on paper
-- the PoE derivation foundations journey's plan 13, `plans/13-poe-on-two-gaussians.md`, lines 173 to 182, which composes the same pair with the unconditional $\mathcal{N}(0, \operatorname{diag}(4, 4))$ as the background
+- the PoE derivation foundations journey's [plan 13](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/13-poe-on-two-gaussians.md), lines 173 to 182, which composes the same pair with the unconditional $\mathcal{N}(0, \operatorname{diag}(4, 4))$ as the background
 - the `drip-idea` walk of the overlap dial in the reduce-reuse-recycle research repository, claim 1, round 2 (`artifacts/ideas/poe-overlap-dial/IDEA_MAP.md`): the learner's correction that composition is several operations, and the names co-occurrence, intersection, interaction and contention, for [[Kinds Of Composition]]
 
 **Applied in:** the overlap-dial idea in the reduce-reuse-recycle research repository, which asks how often a product of two 2D experts lands in the A-and-B region as the share of A-and-B points in each expert's training set is turned up from 0%. Its two-axis quadrant setup (A is $x_1 < 0$, B is $x_2 > 0$) is a co-occurrence toy, and the ring-times-bar it reuses is an intersection toy.

@@ -101,7 +101,7 @@ $$
 \end{aligned}
 $$
 
-This is the shape of [[Products And Quotients Of Diagonal Gaussians#How the product works]] with each $1/v$ replaced by $w/v$, so completing the square gives precision $P = w_a/v_a + w_b/v_b$ and mean $B/P$, and the same rule that $P$ must be above 0. On the pair:
+This is the shape of [[Products And Quotients Of Diagonal Gaussians#How the product works]] with each $1/v$ replaced by $w/v$, so [completing the square](../../../references/textbooks/algebra/algebra-handbook.pdf#page=74) gives precision $P = w_a/v_a + w_b/v_b$ and mean $B/P$, and the same rule that $P$ must be above 0. On the pair:
 
 $$
 \begin{aligned}

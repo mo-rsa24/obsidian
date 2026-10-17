@@ -46,7 +46,17 @@ Navigation: 📋 [[#Table of contents|TOC]] | [[#When to reach for the three ope
 
 **Negation**, $q^\text{neg}(x) \propto q^0(x) / q^1(x)^\alpha$. The power $\alpha$ sets how hard $q^1$ is pushed away; the paper's experiments use $\alpha = 0.5$. The paragraph names the two densities $p_0$ and $p_1$ and the equation writes $q^0$ and $q^1$; they are the same two.
 
-**Guidance as a product.** Classifier and classifier-free guidance multiply two experts: one for how likely $x$ is at all, one for how likely the label $y$ is given $x$. Their product is proportional to $p(x \mid y)$ by Bayes' rule. *Cited:* section 3, paragraph 3: "The approaches to guidance discussed in Section 2 define product models with only two experts."
+**Guidance as a product.** Classifier and classifier-free guidance multiply two experts: one for how likely $x$ is at all, one for how likely the label $y$ is given $x$. Their product is proportional to $p(x \mid y)$ by Bayes' rule<sub>[1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/textbook/01-joint-tables-and-independence.md#15-bayes-in-two-lines-from-the-definition "PoE derivation foundations, chapter 1.5, Bayes in two lines from the definition"), [2](../../../../Mathematics/references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=105 "introduction to probability for data science p. 105")</sub>. *Cited:* section 3, paragraph 3: "The approaches to guidance discussed in Section 2 define product models with only two experts."
+
+<!-- video-table: classifier-free-guidance rev=1 -->
+Umar Jamil on classifier-free guidance:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Classifier-free guidance, and how it steers sampling toward the prompt | Intuition | [Umar Jamil, Coding Stable Diffusion from scratch, 22:20 to 31:00](https://www.youtube.com/watch?v=ZBKpAp_6TGI&t=1340s) |
+
+Umar Jamil does not write guidance as a product of two experts or the guidance scale as a power. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
 
 ## When to reach for the three operators
 
@@ -302,7 +312,7 @@ On the pair, with expert a as $p(x)$ and expert b's shape as $p(y \mid x)$, at 1
 
 **Why guidance shares the two-orders gap.** A guided sampler adds the two models' scores at each noise level, which is equation 12's curve, while the reverse process needs equation 11's. The gap in variance is 0 with no noise, 0.2448 at half the signal and 0.5 at pure noise ([[The Order Of Multiplying And Noising#Try the two orders yourself]] step 7), so it is largest at the noisiest steps. *Derived* from those rows. How large it is for a trained text-to-image model is not measured here.
 
-**The mixture's moments.** Each expert contributes its own variance plus its mean squared, weighted by its share:
+**The mixture's moments.** Each expert contributes [its own variance plus its mean squared](../../../../Mathematics/references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=200), weighted by its share:
 
 $$
 \begin{aligned}

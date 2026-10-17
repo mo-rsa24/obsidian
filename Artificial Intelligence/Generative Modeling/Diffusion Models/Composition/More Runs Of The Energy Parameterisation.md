@@ -31,7 +31,7 @@ The same folder as [[The Energy Parameterisation#Try the energy yourself]]: its 
 
 Navigation: 📋 [[#Table of contents|TOC]] | [[#A mixture needs the heights]] ➡️
 
-Fix the noise draw at 0.5 and trace one MALA step from $x = 1.5$, so every number can be checked on paper. Save this as `one_proposal.py`:
+Fix the noise draw at 0.5 and trace one [MALA step](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=98) from $x = 1.5$, so every number can be checked on paper. Save this as `one_proposal.py`:
 
 ```python
 import numpy as np
@@ -212,7 +212,7 @@ You should see:
 
 ![Unadjusted at step 0.3, 99003 of 100000 chains fly off; with the accept step at 0.5 none do, 1317 never move, and the overall variance is 0.7771 against the target's 0.6760|800](assets/energy-light-tails-without-and-with-the-accept-step.png)
 
-Unadjusted Langevin loses one chain in 100,000 at step 0.1 and 99,003 at step 0.3. With the accept step at 0.5 none fly off. 1,317 chains had every proposal rejected in 200 steps and sit where they started, which leaves the overall variance at 0.7771. Their starting points all lie between 2.41 and 4.73 from 0 (`checks/ula_light_tails.out`, the same seed). The chains that moved have 0.6804 against the target's 0.6760.
+[Unadjusted Langevin](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=63) loses one chain in 100,000 at step 0.1 and 99,003 at step 0.3. With the accept step at 0.5 none fly off. 1,317 chains had every proposal rejected in 200 steps and sit where they started, which leaves the overall variance at 0.7771. Their starting points all lie between 2.41 and 4.73 from 0 (`checks/ula_light_tails.out`, the same seed). The chains that moved have 0.6804 against the target's 0.6760.
 
 ### Reading light_tails.py
 
@@ -227,7 +227,7 @@ Unadjusted Langevin loses one chain in 100,000 at step 0.1 and 99,003 at step 0.
 
 Navigation: ⬅️ [[#Light tails]] | 📋 [[#Table of contents|TOC]]
 
-The paper's Table 1 compares samplers by a log-likelihood column, LL, and a variance column. This runs its samplers on the pair with exact scores, every row seeded the same, through Algorithm 1 with 10 Langevin steps or 3 HMC steps of 3 leapfrog steps per level, the counts of the paper's appendix F. MALA's step 0.6 and HMC's 1.05 are fixed across levels and chosen so that about 63% and 74% of proposals are accepted on average (`checks/sampler_ladder.out`), near the 60% and 70% that appendix B.3 aims for; the paper instead scales each level's step with $\beta_t$. LL here is the mean log height of the samples under the true product; Var gap is the size of the difference between the samples' variance and the product's. Save this as `ladder.py`:
+The paper's Table 1 compares samplers by a log-likelihood column, LL, and a variance column. This runs its samplers on the pair with exact scores, every row seeded the same, through Algorithm 1 with 10 Langevin steps or 3 HMC<sub>[1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=70 "volume L3, stochastic processes, p. 70"), [2](../../../../Mathematics/references/textbooks/machine-learning/pattern-recognition-and-machine-learning.pdf#page=568 "pattern recognition and machine learning p. 568")</sub> steps of 3 leapfrog steps per level, the counts of the paper's appendix F. MALA's step 0.6 and HMC's 1.05 are fixed across levels and chosen so that about 63% and 74% of proposals are accepted on average (`checks/sampler_ladder.out`), near the 60% and 70% that appendix B.3 aims for; the paper instead scales each level's step with $\beta_t$. LL here is the mean log height of the samples under the true product; Var gap is the size of the difference between the samples' variance and the product's. Save this as `ladder.py`:
 
 ```python
 import numpy as np

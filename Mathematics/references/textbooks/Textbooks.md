@@ -187,6 +187,14 @@ table on this page gives PDF pages.
 | the quotient rule (Theorem 2.4.2) | [calculus textbook](calculus/calculus-textbook.pdf#page=189) | 189 |
 | elementary functions: what counts as one | [calculus textbook](calculus/calculus-textbook.pdf#page=427) | 427 |
 | the integral of e^(-t^2) has no elementary form, and the error function it defines | [calculus textbook](calculus/calculus-textbook.pdf#page=428) | 428 |
+| precision: the reciprocal of the variance, β = 1/σ² (section 1.2.4, definition) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=43) | 43 |
+| Markov chain Monte Carlo: a proposal that depends on the current state, so the samples form a Markov chain, and the normalising constant may stay unknown (section 11.2, which opens at the foot of PDF page 553) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=554) | 554 |
+| stationary (invariant) distribution of a Markov chain, and detailed balance (11.40) with the one-line proof that it leaves the distribution invariant (section 11.2.1) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=556) | 556 |
+| Metropolis-Hastings: the acceptance probability (11.44), why the normalising constant is not needed, and the detailed-balance proof (section 11.2.2) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=557) | 557 |
+| hybrid (Hamiltonian) Monte Carlo: leapfrog moves accepted or rejected by the Metropolis test on the Hamiltonian, (11.67) (section 11.5.2) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=568) | 568 |
+| a linear transformation of a Gaussian: Y = aX + b for a standard Gaussian X, with its CDF and density (follow-up in section 4.7, density on PDF page 242) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=241) | 241 |
+| the variance of a sample average: Var of the mean of N i.i.d. draws is σ²/N (section 6.3) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=368) | 368 |
+| broadcasting: adding a vector to every row of a matrix by implicit copying (end of section 2.1) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=50) | 50 |
 
 ## general/
 

@@ -268,7 +268,7 @@ s = \sqrt{\sigma^2} \;&\Rightarrow\; \operatorname{Var}[x] = \sigma^2
 \end{aligned}
 $$
 
-A shifted and scaled normal variable is again normal, so $x \sim \mathcal{N}(m, \sigma^2)$. *Cited:* the Normal distribution page in the sources. The columns of `eps` are independent, so the columns of `x` are too, and the cloud is the diagonal Gaussian $\mathcal{N}(\mu, \operatorname{diag}(\sigma^2))$.
+A [shifted and scaled normal variable](../../../references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=241) is again normal, so $x \sim \mathcal{N}(m, \sigma^2)$. *Cited:* the Normal distribution page in the sources. The columns of `eps` are independent, so the columns of `x` are too, and the cloud is the diagonal Gaussian $\mathcal{N}(\mu, \operatorname{diag}(\sigma^2))$.
 
 The worked numbers for `p_1`, $\mu = (-2, 0)$ and $\sigma^2 = (1, 4)$:
 
@@ -279,7 +279,7 @@ $$
 \end{aligned}
 $$
 
-How far a measured value may sit from the truth: with $n$ points, the standard error of a measured mean is $\sqrt{\sigma^2/n}$, and of a measured variance $\sigma^2\sqrt{2/(n-1)}$ for normal data. *Cited:* the Variance page in the sources. For $\sigma^2 = 4$ and $n = 100{,}000$:
+How far a measured value may sit from the truth: with $n$ points, [the standard error of a measured mean](../../../references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=368) is $\sqrt{\sigma^2/n}$, and of a measured variance $\sigma^2\sqrt{2/(n-1)}$ for normal data. *Cited:* the Variance page in the sources. For $\sigma^2 = 4$ and $n = 100{,}000$:
 
 $$
 \begin{aligned}
@@ -317,7 +317,7 @@ Navigation: ⬅️ [[#Why sampling matters]] | 📋 [[#Table of contents|TOC]]
 **Taught in:**
 
 - the `drip-read` walk of [the Mechanisms of Projective Composition paper note](../../../../deep-learning/01-poe-derivation-foundations/papers/mechanisms-of-projective-composition), step 2, where the learner's `sample(mu, var, n)` measured all three clouds within 0.05 of their arrays (`p_1 (100000, 2) mean [-2.0, -0.0] var [1.0, 4.02]`) once the walk had corrected two slips: printing the input arrays instead of the measured numbers, and drawing from `np.random` instead of the seeded `rng`; and step 3a, the experts as clouds
-- the PoE derivation foundations journey's plan 09, `plans/09-the-forward-process.md`, line 148, which draws 200,000 samples from the closed form the same way
+- the PoE derivation foundations journey's [plan 09](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/09-the-forward-process.md), line 148, which draws 200,000 samples from the closed form the same way
 
 **Applied in:** nothing yet.
 

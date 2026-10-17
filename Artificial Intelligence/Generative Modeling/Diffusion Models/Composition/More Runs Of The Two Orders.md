@@ -77,7 +77,7 @@ field 1, `2.8e-16`, is floating-point rounding, so the mixture's two orders are 
 
 Navigation: ⬅️ [[#A mixture against a product]] | 📋 [[#Table of contents|TOC]] | [[#More levels do not help]] ➡️
 
-Annealed Langevin, the paper's Algorithm 1 with the Langevin step as its kernel: at every level, noisiest first, take ten small steps along the summed score, each with fresh noise, then carry the cloud to the next level unchanged. Save this as `annealed.py`:
+Annealed Langevin<sub>[1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=86 "volume L3, stochastic processes, p. 86"), [2](../../../../Mathematics/references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=130 "the little book of generative AI foundations p. 130")</sub>, the paper's Algorithm 1 with the Langevin step as its kernel: at every level, noisiest first, take ten small steps along the summed score, each with fresh noise, then carry the cloud to the next level unchanged. Save this as `annealed.py`:
 
 ```python
 import numpy as np
@@ -247,7 +247,7 @@ You should see:
 
 ![30 steps per level bring the mean to -0.230515 while the variance stays at 0.312800, beside 0.312775 where a chain at step 0.01 settles; step 0.1 ends at 0.367394|900](assets/two-orders-steps-per-level-against-step-size.png)
 
-More steps per level bring the mean onto the product's: $-0.148$ with one step, $-0.2305$ with 30. The variance stops falling at about 0.3128, where an unadjusted chain at step 0.01 settles on the clean product whatever the number of steps. The step size sets the width: 10 steps of 0.1 end at 0.367394, exactly that chain's settled width at step 0.1. A step of 0.001 is too short to travel, and the mean stays at $-0.147$.
+More steps per level bring the mean onto the product's: $-0.148$ with one step, $-0.2305$ with 30. The variance stops falling at about 0.3128, where [an unadjusted chain](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=99) at step 0.01 settles on the clean product whatever the number of steps. The step size sets the width: 10 steps of 0.1 end at 0.367394, exactly that chain's settled width at step 0.1. A step of 0.001 is too short to travel, and the mean stays at $-0.147$.
 
 ### Reading steps_per_level.py
 

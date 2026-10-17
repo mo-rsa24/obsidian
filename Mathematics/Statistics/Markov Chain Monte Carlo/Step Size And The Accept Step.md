@@ -13,7 +13,22 @@ Mathematics, Statistics, Markov Chain Monte Carlo. Needs: [[Multivariate Normal 
 >
 > Stated, not checked: 1 claim, marked where it sits.
 
-**An unadjusted Langevin chain on a Gaussian of precision $P$ settles at variance $1 / (P(1 - \eta P/2))$ and runs away once its step $\eta$ passes $2/P$. A Metropolis accept step holds the target's width at any step, and turns the share of proposals accepted into the dial for choosing the step.** The settled variance is derived in [[The Energy Parameterisation#How the energy works]].
+Textbook: [Volume L3, section 12, the Metropolis corrector by hand, p. 97](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=97)
+
+**An unadjusted Langevin chain<sub>[1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=99 "volume L3, stochastic processes, p. 99"), [2](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=63 "volume L3, stochastic processes, p. 63")</sub> on a Gaussian of [precision](../../references/textbooks/machine-learning/pattern-recognition-and-machine-learning.pdf#page=43) $P$ settles at variance $1 / (P(1 - \eta P/2))$ and runs away once its step $\eta$ passes $2/P$. A Metropolis accept step<sub>[1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=98 "volume L3, stochastic processes, p. 98"), [2](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=21 "volume L3, stochastic processes, p. 21")</sub> holds the target's width at any step, and turns the share of proposals accepted into the dial for choosing the step.** The settled variance is derived in [[The Energy Parameterisation#How the energy works]].
+
+<!-- video-table: metropolis-hastings rev=1 -->
+ritvikmath, then Stanford CS236, on the Metropolis-Hastings accept step, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Working out the acceptance probability for a candidate | Proof | [ritvikmath, Metropolis-Hastings, 7:50 to 12:04](https://www.youtube.com/watch?v=yCv2N7wGDCw&t=470s) |
+| 2 | Accepting or rejecting the candidate with that probability | Intuition | [ritvikmath, Metropolis-Hastings, 12:04 to 13:31](https://www.youtube.com/watch?v=yCv2N7wGDCw&t=724s) |
+| 3 | The Metropolis algorithm, the special case with a symmetric proposal | Intuition | [ritvikmath, Metropolis-Hastings, 13:31 to 18:15](https://www.youtube.com/watch?v=yCv2N7wGDCw&t=811s) |
+| 4 | Sampling an energy-based model with MCMC, accepting or rejecting each move | Intuition | [Stanford CS236, lecture 12, 8:35 to 16:25](https://www.youtube.com/watch?v=Nci1Bepcy0g&t=515s) |
+
+None of these uses a Langevin step as the proposal (MALA) or reads the share of proposals accepted. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
 
 ![Settled variance against step size with and without the accept step, and the share accepted above|800](assets/step-size-and-the-accept-step-the-concept.webp)
 

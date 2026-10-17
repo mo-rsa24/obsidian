@@ -51,7 +51,7 @@ Navigation: 📋 [[#Table of contents|TOC]] | [[#The one-dimensional pair]] ➡�
 
 **Noise each, then multiply**, equation 12. Push each expert to level $\bar\alpha$ on its own, then multiply. This is the curve the summed score belongs to.
 
-The sampler correctors journey's notation calls equation 11's curve "noise-then-compose" and equation 12's "compose-then-noise". Those labels name the curves by a different convention from the order the operations run in, so check any use of them against the equation number.
+The sampler correctors journey names the curves by the order the operations run in, the same as here: equation 11's curve is "compose-then-noise" and equation 12's is "noise-then-compose".
 
 ## The one-dimensional pair
 
@@ -186,9 +186,21 @@ You should see:
 
 ![The reverse process on the summed score ends at variance 0.2102, against the product's 0.3077|800](assets/two-orders-reverse-process-on-the-summed-score.png)
 
-The cloud ends 32% narrower than the product, and its centre sits 0.07 too far toward 0. The line `eps = ...` turns the score into the noise estimate the reverse step of Du et al.'s equation 1 expects.
+The cloud ends 32% narrower than the product, and its centre sits 0.07 too far toward 0. The line `eps = ...` turns the score into the noise estimate<sub>[1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/textbook/09-the-forward-process-by-hand.md#95-eps---sigma_t-grad-log-q "PoE derivation foundations, chapter 9.5, eps = -sigma_t grad log q"), [2](../../../../Mathematics/references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=134 "the little book of generative AI foundations p. 134")</sub> the reverse step of Du et al.'s equation 1 expects.
 
-**6. The technique: build both orders on a grid.** Equations 11 and 12 are integrals over $x_0$. On a grid of 1,601 points, the noising kernel becomes a matrix `K`, whose entry `K[i, j]` is the noising density at `x[i]` given a clean point at `x[j]`, and each integral becomes `K @ density * dx`. Save this as `two_orders.py`:
+<!-- video-table: reverse-step-and-sampler rev=1 -->
+The reverse step and sampler loop, in lecture and in code, to compare against task 2.2:
+
+| Order | What it covers | Kind | Code it writes | Watch |
+|---|---|---|---|---|
+| 1 | Diffusion and the reverse process | Proof | | [Stanford CS236, lecture 16, 19:05 to 29:42](https://www.youtube.com/watch?v=VsllsC2JMGY&t=1145s) |
+| 2 | The reverse loop from noise to image | Code walk | the sampler loop | [Vizuara, DDPM practical, 39:32 to 41:43](https://www.youtube.com/watch?v=6to_EG3SJgs&t=2372s) |
+| 3 | Sampling function of a small DDPM | Code walk | the sampling function | [Umar Jamil, 13:00 to 21:11](https://www.youtube.com/watch?v=I1sPXkm2NH4&t=780s) |
+
+Start and end times are chapter boundaries from each video; what is said inside was judged from the chapter titles and not read from captions.
+<!-- /video-table -->
+
+**6. The technique: build both orders on a grid.** Equations 11 and 12 are integrals<sub>[1](/home/molef/goal-setting/learning/mathematics/statistics/conditional-expectation/textbook/conditional-expectation.pdf#page=12 "conditional expectation from the ground up p. 12"), [2](../../../../Mathematics/references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=266 "introduction to probability for data science p. 266")</sub> over $x_0$. On a grid of 1,601 points, the noising kernel becomes a matrix `K`, whose entry `K[i, j]` is the noising density at `x[i]` given a clean point at `x[j]`, and each integral becomes `K @ density * dx`. Save this as `two_orders.py`:
 
 ```python
 import numpy as np
@@ -302,7 +314,7 @@ Navigation: ⬅️ [[#Try the two orders yourself]] | 📋 [[#Table of contents|
 
 Navigation: ⬅️ [[#Reading the two-orders output]] | 📋 [[#Table of contents|TOC]] | [[Annealed MCMC]] ➡️
 
-**Why a mixture survives the order and a product does not.** Noising a density is one integral against the kernel:
+**Why a mixture survives the order and a product does not.** Noising a density is one integral<sub>[1](/home/molef/goal-setting/learning/mathematics/statistics/conditional-expectation/textbook/conditional-expectation.pdf#page=12 "conditional expectation from the ground up p. 12"), [2](../../../../Mathematics/references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=266 "introduction to probability for data science p. 266")</sub> against the kernel:
 
 $$
 q_t(x_t) = \int q(x_0)\, q(x_t \mid x_0)\, dx_0
@@ -320,7 +332,7 @@ $$
 
 For a product there is no such step. $\int q^1 q^2\, K\, dx_0$ is one integral of a product, and $\left(\int q^1 K\, dx_0\right)\left(\int q^2 K\, dx_0\right)$ is a product of two integrals; an integral of a product is not in general the product of the integrals. *Derived.* [[More Runs Of The Two Orders#A mixture against a product]] shows it: $2.8 \times 10^{-16}$ for the mixture, $0.14$ for the product.
 
-**The worked numbers at $\bar\alpha = 0.5$.** The jump sends $\mathcal{N}(m, v)$ to $\mathcal{N}(\sqrt{\bar\alpha}\,m,\ \bar\alpha v + 1 - \bar\alpha)$ ([[The Forward Process#How the jump works]]), and a product of Gaussians adds precisions.
+**The worked numbers at $\bar\alpha = 0.5$.** The jump sends $\mathcal{N}(m, v)$ to $\mathcal{N}(\sqrt{\bar\alpha}\,m,\ \bar\alpha v + 1 - \bar\alpha)$ ([[The Forward Process#How the jump works]]), and a product of Gaussians adds precisions<sub>[1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/textbook/10-completing-the-square.md#101-the-product-of-two-gaussians-precisions-add "PoE derivation foundations, chapter 10.1, the product of two Gaussians"), [2](../../../../Mathematics/references/textbooks/linear-algebra/matrix-cookbook.pdf#page=42 "matrix cookbook p. 42")</sub>.
 
 Equation 11, multiply first:
 
@@ -388,7 +400,19 @@ $$
 
 Each column comes from the two variance formulas above. Route B runs smoothly from the product to $\mathcal{N}(0, 1/2)$, and the summed score is its exact score at every level. So the summed score is the right score for a different sequence. The mean gap is largest at $t = 56$, $-0.102$, and the variance gap at the noisiest level, 0.5. *Shown* in [[More Runs Of The Two Orders#Route A and route B, level by level]], `route_b.py`.
 
-**Why annealed Langevin reaches the product.** A Langevin chain that follows one score with small steps settles on the curve that score belongs to, whether or not that curve sits in a forward sequence. Annealed Langevin lets the cloud settle on equation 12's curve at each level, then moves to the next. At the last level, $\bar\alpha = 1$, equation 12's curve is the product. The remaining 1.7% matches the error the step size alone causes: ten times smaller steps at no noise bring a chain on this pair from 19.4% too wide to 1.7%. *Cited:* the journey's read-ahead, `read-ahead/00-abstract.md`, sentence 6, from `checks/langevin_chain.out`.
+**Why annealed Langevin reaches the product.** [A Langevin chain](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=64) that follows one score with small steps settles on the curve that score belongs to, whether or not that curve sits in a forward sequence. Annealed Langevin<sub>[1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=86 "volume L3, stochastic processes, p. 86"), [2](../../../../Mathematics/references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=130 "the little book of generative AI foundations p. 130")</sub> lets the cloud settle on equation 12's curve at each level, then moves to the next. At the last level, $\bar\alpha = 1$, equation 12's curve is the product. The remaining 1.7% matches the error the step size alone causes: ten times smaller steps at no noise bring a chain on this pair from 19.4% too wide to 1.7%. *Cited:* the journey's read-ahead, `read-ahead/00-abstract.md`, sentence 6, from `checks/langevin_chain.out`.
+
+<!-- video-table: annealed-langevin rev=1 -->
+Stanford CS236 on why Langevin sampling is annealed across noise levels, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Where plain Langevin sampling fails | Intuition | [Stanford CS236, lecture 14, 5:44 to 9:13](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=344s) |
+| 2 | What adding noise does for the score and for sampling | Intuition | [Stanford CS236, lecture 14, 9:13 to 19:08](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=553s) |
+| 3 | Sampling across many noise scales, noisiest first | Intuition | [Stanford CS236, lecture 14, 23:54 to 28:43](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=1434s) |
+
+CS236 anneals one model's score; it does not anneal a sum of two models' scores, which is what composition samples. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
 
 **The sampler, or the model.** Step 5 and [[More Runs Of The Two Orders#A sampler that reaches the product with the same summed score|the annealed run]] use the same exact scores. One sampler misses by 31.8% of the product's variance and the other lands within 1.7%, so on this pair the failure is the sampler's. The paper's abstract says "We conclude that the sampler (not the model) is responsible for this failure". Its body is more careful, in section 4.1: the results "further imply that the choice of sampler may be responsible for prior failures in compositional generation". *Cited:* `text/abstract.tex` line 2 and `text/method.tex` line 131 of the paper's source.
 
@@ -400,7 +424,7 @@ The paper's Figure 2 shows the same two samplers on two-dimensional pairs:
 >
 > *Du, Durkan, Strudel, Tenenbaum, Dieleman, Fergus, Sohl-Dickstein, Doucet, Grathwohl, Reduce, Reuse, Recycle, ICML 2023, [arXiv 2302.11552](https://arxiv.org/abs/2302.11552), Figure 2. arXiv non-exclusive distribution licence; copied for study with citation.*
 
-The top row is this section's failure at full scale: the true product keeps the top and bottom blobs, reverse diffusion with summed scores leaves samples all round the ring, and HMC, another MCMC sampler, recovers the two blobs. *Shown* in the figure. The sampler kept the ring and lost the bar, one of the two experts.
+The top row is this section's failure at full scale: the true product keeps the top and bottom blobs, reverse diffusion with summed scores leaves samples all round the ring, and HMC<sub>[1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=70 "volume L3, stochastic processes, p. 70"), [2](../../../../Mathematics/references/textbooks/machine-learning/pattern-recognition-and-machine-learning.pdf#page=568 "pattern recognition and machine learning p. 568")</sub>, another MCMC sampler, recovers the two blobs. *Shown* in the figure. The sampler kept the ring and lost the bar, one of the two experts.
 
 The walk redrew the top row with exact scores in place of trained networks, 5,000 samples per panel, counting a sample as on target when it lies within 0.1 of one of the two true blobs. The true product puts 96.8% there and reverse diffusion 55.6%. HMC with the settings the paper's appendix F prints reaches 69.0%, short of what the paper's panel shows; with 30 HMC steps per noise level it reaches 87.0%, and with 300 it reaches 91.5%, on 400 samples each. *Cited:* the journey's answer keys `checks/ring_times_bar.out` and `checks/ring_times_bar_more_steps.out`, three standard errors at most 2.1 points at 5,000 samples and 5.0 to 6.9 at 400. The same panels on the one-dimensional pair, 20,000 samples each: reverse diffusion ends at variance 0.2100 and annealed MCMC at 0.3076, against the product's 0.3077 (`checks/fig2_on_the_object.out`, tolerance 0.0092).
 
@@ -427,7 +451,7 @@ Navigation: ⬅️ [[Annealed MCMC]] | 📋 [[#Table of contents|TOC]] | [[#Why 
 - **Train one model on the product's own data.** Its score is equation 11's directly, and the plain reverse process works. It needs samples of the composition, which composing two models is meant to avoid. Nothing in the authors' 2D notebook computes equation 11: it would need a model trained on the product itself. *Cited:* the journey's read-ahead, `read-ahead/00-abstract.md`, sentence 5, which read all 47 cells of `notebooks/simple_distributions.ipynb`.
 - **Repeat the reverse step at the same level.** Running the reverse process several times at one noise level with the summed score is a form of the Langevin sampler. *Cited:* section 4.1, paragraph 2.
 - **Continuous-time samplers run across time** have the same problem as the reverse process, because they too move along the sequence of levels rather than sampling each level's curve. *Cited:* section 4.1, paragraph 3.
-- **Metropolis-corrected samplers**, MALA and HMC with an accept-or-reject test, which need each model's energy and not only its score. *Cited:* the abstract, sentence 7. Run on this pair in [[The Energy Parameterisation]].
+- **Metropolis-corrected samplers**, MALA and HMC with an [accept-or-reject test](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=21), which need each model's energy and not only its score. *Cited:* the abstract, sentence 7. Run on this pair in [[The Energy Parameterisation]].
 
 ## Why the two orders matter
 
@@ -445,8 +469,8 @@ Navigation: ⬅️ [[#Why the two orders matter]] | 📋 [[#Table of contents|TO
 
 - the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, abstract sentences 5 and 6, and section 3, paragraph 1 (products lose their area, mixtures keep it, and the score ignores the area). The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
 - the same walk, section 4, chunks 45 to 51: reverse diffusion on exact summed scores misses the product at any number of levels, equations 11 and 12 as route A and route B level by level, Algorithm 1 and what its steps per level and step size each control, and why only unadjusted samplers are open to a score model. Paper note at the same path, still to be written.
-- the same journey's plan 24, `plans/24-what-is-annealed.md`, line 21 (which axis annealed MCMC moves along: the noise level, separated from temperature and guidance scale)
-- the sampler correctors for composition journey's plan 14, `plans/14-the-two-gaussian-toy.md`, line 262 (compare the two orders at $\bar\alpha_t = 0.5$ on this pair), and plan 15, `plans/15-the-two-gaps.md`, lines 36 to 44 and 201 to 205 (the gap in mean and the gap in variance, derived in closed form)
+- the same journey's [plan 24](/home/molef/goal-setting/learning/deep-learning/diffusion-models/02-sampler-correctors-for-composition/plans/24-what-is-annealed.md), line 21 (which axis annealed MCMC moves along: the noise level, separated from temperature and guidance scale)
+- the sampler correctors for composition journey's [plan 14](/home/molef/goal-setting/learning/deep-learning/diffusion-models/02-sampler-correctors-for-composition/plans/14-the-two-gaussian-toy.md), line 262 (compare the two orders at $\bar\alpha_t = 0.5$ on this pair), and [plan 15](/home/molef/goal-setting/learning/deep-learning/diffusion-models/02-sampler-correctors-for-composition/plans/15-the-two-gaps.md), lines 36 to 44 and 201 to 205 (the gap in mean and the gap in variance, derived in closed form)
 
 **Applied in:** nothing yet.
 

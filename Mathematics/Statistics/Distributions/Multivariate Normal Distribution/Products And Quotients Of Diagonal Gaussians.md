@@ -208,13 +208,15 @@ From step 5, the first line (split, background divided out), then what differs o
 
 Navigation: ⬅️ [[#Reading the composed output]] | 📋 [[#Table of contents|TOC]] | [[The Area A Product Loses]] ➡️
 
+Textbook: [Matrix Cookbook, section 8.1.8, p. 42](../../../references/textbooks/linear-algebra/matrix-cookbook.pdf#page=42), and [PoE derivation foundations, chapter 10.1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/textbook/10-completing-the-square.md#101-the-product-of-two-gaussians-precisions-add)
+
 For one coordinate, write each density through its logarithm, which drops the constant in front:
 
 $$
 \log \mathcal{N}(x; m, v) = -\frac{(x - m)^2}{2v} + \text{const}
 $$
 
-Multiplying densities adds logs, and dividing subtracts:
+Multiplying densities adds [logs](../../../references/textbooks/algebra/algebra-handbook.pdf#page=110), and dividing subtracts:
 
 $$
 \begin{aligned}
@@ -233,7 +235,7 @@ x \text{ coefficient: } & \tfrac{m_1}{v_1} + \tfrac{m_2}{v_2} - \tfrac{m_b}{v_b}
 \end{aligned}
 $$
 
-Complete the square:
+[Complete the square](../../../references/textbooks/algebra/algebra-handbook.pdf#page=74):
 
 $$
 \begin{aligned}
@@ -243,6 +245,19 @@ $$
 $$
 
 So $\log C = -\frac{(x - B/P)^2}{2 \cdot (1/P)} + \text{const}$, which is the log of a Gaussian with mean $B/P$ and variance $1/P$, provided $P > 0$. When $P < 0$ the square enters with a plus sign and step 4's growth follows.
+
+<!-- video-table: completing-the-square rev=1 -->
+Professor Leonard on completing the square, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Why adding the square of half the middle coefficient makes a perfect square | Intuition | [Intermediate Algebra, 11.1, 42:45 to 50:09](https://www.youtube.com/watch?v=LnqXd2iDFWk&t=2565s) |
+| 2 | The process step by step on quadratics | Worked example | [Intermediate Algebra, 11.1, 50:09 to 1:00:58](https://www.youtube.com/watch?v=LnqXd2iDFWk&t=3009s) |
+| 3 | Fractions and an odd middle term | Worked example | [Intermediate Algebra, 11.1, 1:06:49 to 1:15:55](https://www.youtube.com/watch?v=LnqXd2iDFWk&t=4009s) |
+| 4 | Completing the square when x squared has a coefficient a in front | Worked example | [Precalculus 19, 28:21 to 38:16](https://www.youtube.com/watch?v=pYSYL_vy6YQ&t=1701s) |
+
+Leonard does not complete the square inside a Gaussian exponent, which is the form this journey uses. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
 
 The worked numbers, from the walk:
 
@@ -330,7 +345,7 @@ Navigation: ⬅️ [[#Why precisions matter]] | 📋 [[#Table of contents|TOC]]
 **Taught in:**
 
 - the `drip-read` walk of [the Mechanisms of Projective Composition paper note](../../../../deep-learning/01-poe-derivation-foundations/papers/mechanisms-of-projective-composition), step 3a, the overlap prediction and the re-teach that followed it, where the learner traced the per-coordinate derivation above on paper
-- the PoE derivation foundations journey's plan 13, `plans/13-poe-on-two-gaussians.md`, lines 150 to 152 (the precision-sum formula), 173 to 182 (the wide and the narrow background) and 277 to 294 (the product on paper), with its textbook chapter `textbook/10-completing-the-square.md`, sections 10.1 and 10.2
+- the PoE derivation foundations journey's [plan 13](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/13-poe-on-two-gaussians.md), lines 150 to 152 (the precision-sum formula), 173 to 182 (the wide and the narrow background) and 277 to 294 (the product on paper), with its textbook chapter [textbook chapter 10](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/textbook/10-completing-the-square.md), sections 10.1 and 10.2
 - the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, section 3, paragraph 2, chunk 34: the product of $\mathcal{N}(-1, 0.5)$ and $\mathcal{N}(1, 0.8)$ peaks at the precision-weighted mean $-0.23$, where the experts stand at 55% and 39% of their own peaks. Worked in [[The Product As An Intersection]]. The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
 
 **Applied in:** nothing yet.

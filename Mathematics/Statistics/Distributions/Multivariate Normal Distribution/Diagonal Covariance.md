@@ -44,6 +44,18 @@ Navigation: 📋 [[#Table of contents|TOC]] | [[#When to reach for it]] ➡️
 
 The learner's [Gaussian Bowl Sketchpad](https://claude.ai/artifact/2TarMifiFoFyoB23eQFR64), piece 1a-4 "the equation you can grab", shows this density as rings from above, and its slices through the surface as the one-dimensional bells scaled. The numbers it prints are the ones checked in [[#Try it yourself]] below.
 
+<!-- video-table: multivariate-normal rev=1 -->
+Stanford CS229, then ritvikmath, on the multivariate normal and its covariance matrix, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The multivariate Gaussian density, written with a mean vector and a covariance matrix | Intuition | [Stanford CS229, Autumn 2018, lecture 5, 8:11 to 18:57](https://www.youtube.com/watch?v=nt63k3bfXS0&t=491s) |
+| 2 | What a covariance matrix holds: each coordinate's variance on the diagonal, each pair's covariance off it | Intuition | [ritvikmath, The Covariance Matrix, 2:40 to 5:23](https://www.youtube.com/watch?v=152tSYtiQbw&t=160s) |
+| 3 | Computing a covariance matrix from data | Worked example | [ritvikmath, The Covariance Matrix, 5:23 to 10:59](https://www.youtube.com/watch?v=152tSYtiQbw&t=323s) |
+
+Neither video takes a diagonal covariance apart into one bell per coordinate. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
 ## When to reach for it
 
 Navigation: ⬅️ [[#Diagonal Gaussian]] | 📋 [[#Table of contents|TOC]] | [[#The form]] ➡️
@@ -67,6 +79,18 @@ np.diag(var)                                                              the fu
 ```
 
 The arrays must be NumPy arrays, never lists, for the arithmetic below to work: see [[Arrays Versus Python Lists]].
+
+<!-- video-table: numpy-arrays rev=1 -->
+freeCodeCamp's NumPy course on arrays against lists, in the order to watch:
+
+| Order | What it covers | Kind | Code it writes | Watch |
+|---|---|---|---|---|
+| 1 | Why a NumPy array beats a Python list, in speed and in what it can do | Intuition | | [freeCodeCamp, Python NumPy Tutorial for Beginners, 1:35 to 9:17](https://www.youtube.com/watch?v=QUT1VHiLmmI&t=95s) |
+| 2 | Making an array and reading its shape, size and data type | Code walk | `np.array` and its `.shape`, `.size`, `.dtype` | [freeCodeCamp, Python NumPy Tutorial for Beginners, 11:08 to 16:08](https://www.youtube.com/watch?v=QUT1VHiLmmI&t=668s) |
+| 3 | Arithmetic that acts on every entry at once | Code walk | `+`, `*` and `/` between arrays | [freeCodeCamp, Python NumPy Tutorial for Beginners, 35:45 to 38:20](https://www.youtube.com/watch?v=QUT1VHiLmmI&t=2145s) |
+
+The course does not cover broadcasting by name or the seeded generator `np.random.default_rng`; it draws random numbers with the older global `np.random` functions. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
 
 ![An axis-aligned ellipse with its mean dot and the two variances read off its two axes|800](assets/diagonal-gaussian-the-form.webp)
 
@@ -174,6 +198,8 @@ Navigation: ⬅️ [[#Try it yourself]] | 📋 [[#Table of contents|TOC]] | [[#H
 
 Navigation: ⬅️ [[#Reading the output]] | 📋 [[#Table of contents|TOC]] | [[#Other ways]] ➡️
 
+Textbook: [Introduction to probability for data science, section 5.6, p. 307](../../../references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=307)
+
 With $\Sigma = \operatorname{diag}(\sigma_1^2, \sigma_2^2)$ and $u = x - \mu$:
 
 $$
@@ -225,9 +251,9 @@ Navigation: ⬅️ [[#Why this matters]] | 📋 [[#Table of contents|TOC]]
 **Taught in:**
 
 - the `drip-read` walk of [the Mechanisms of Projective Composition paper note](../../../../deep-learning/01-poe-derivation-foundations/papers/mechanisms-of-projective-composition), step 1 of 3 up to the object, where the three clouds were written as `(mu, var)` pairs of shape `(2,)`
-- the PoE derivation foundations journey's plan 13, `plans/13-poe-on-two-gaussians.md`, lines 69 to 70, 147 to 148, 173 to 174, 284 to 285 and 290 to 291
-- the same journey's plan 08, `plans/08-score-of-a-gaussian.md`, line 192, with $\Sigma = \operatorname{diag}(1, 4)$
-- the same journey's plan 14, `plans/14-kl-and-mutual-information.md`, line 171, with $\operatorname{diag}(1, 1)$ and $\operatorname{diag}(4, 1)$
+- the PoE derivation foundations journey's [plan 13](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/13-poe-on-two-gaussians.md), lines 69 to 70, 147 to 148, 173 to 174, 284 to 285 and 290 to 291
+- the same journey's [plan 08](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/08-score-of-a-gaussian.md), line 192, with $\Sigma = \operatorname{diag}(1, 4)$
+- the same journey's [plan 14](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/14-kl-and-mutual-information.md), line 171, with $\operatorname{diag}(1, 1)$ and $\operatorname{diag}(4, 1)$
 
 **Applied in:** nothing yet.
 

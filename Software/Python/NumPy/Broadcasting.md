@@ -157,6 +157,8 @@ From step 3, the error names the two shapes it could not line up, `(3,)` and `(1
 
 Navigation: ⬅️ [[#Reading the broadcast output]] | 📋 [[#Table of contents|TOC]] | [[#Other ways to broadcast]] ➡️
 
+Textbook: [Deep learning textbook, section 2.1, p. 50](../../../Mathematics/references/textbooks/machine-learning/deep-learning-textbook.pdf#page=50)
+
 Write the shapes one above the other, aligned on the right, and fill missing places with 1:
 
 ```text

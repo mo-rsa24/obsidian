@@ -17,11 +17,23 @@ Mathematics, Statistics, Distributions, Multivariate Normal Distribution. Needs:
 > [!warning] Unfinished
 > - One picture is waiting to be drawn: prompt 9 in the vault's `.prompts/Multivariate Normal Distribution.md`.
 
-Textbook: [[matrix-cookbook.pdf#page=42|Matrix Cookbook, section 8.1.8, p. 42]]
+Textbook: [Matrix Cookbook, section 8.1.8, p. 42](../../../references/textbooks/linear-algebra/matrix-cookbook.pdf#page=42)
 
 **Two densities multiplied point by point no longer have area 1. The area left is $\mathcal{N}(m_1; m_2, v_1 + v_2)$, and averaging the two instead keeps area 1. Dividing the product by its area moves its log by a constant, so the slope of the log, the score, does not change.** For expert a, $\mathcal{N}(-1, 0.5)$, and expert b, $\mathcal{N}(1, 0.8)$, the product's area is 0.075126 and the mixture's is 1.000000.
 
 This is why most ways of combining models, other than guidance, were first studied on energy-based models. Du et al. put it this way: "These ideas have been studied primarily in the context of EBMs because most compositional operators leave the resulting distribution unnormalized." An energy-based model never promised an area of 1, so a combination that loses it costs nothing there. *Cited:* Du et al., Reduce, Reuse, Recycle, section 3, paragraph 1 (`text/method.tex`, line 6 of the arXiv source).
+
+<!-- video-table: energy-based-models rev=1 -->
+Stanford CS236 on energy-based models and the normalising constant they leave out, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | What an energy-based model is | Intuition | [Stanford CS236, lecture 11, 4:42 to 6:45](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=282s) |
+| 2 | Why a probability model must be non-negative and integrate to 1 | Intuition | [Stanford CS236, lecture 11, 6:45 to 15:31](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=405s) |
+| 3 | The partition function, the constant that makes an energy into a density | Intuition | [Stanford CS236, lecture 11, 15:31 to 23:01](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=931s) |
+
+None of these works the area a product of two Gaussians loses. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
 
 **When to reach for it.** When you multiply two densities and then use the result as a density: read off a probability, compare its height with another density's, or weight it in a mixture. Without the division, every height is 0.075126 times too small on this pair. When you need only the score, as a diffusion sampler does, you can skip the division, because the score does not depend on the area.
 
@@ -146,6 +158,18 @@ Z &= 0.214711 / 2.857996 = 0.075126
 \end{aligned}
 $$
 
+<!-- video-table: gaussian-integral rev=1 -->
+Why the area under a Gaussian is exactly 1, which starts from the integral of e^(−x²) equalling √π, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Squaring the integral and turning it into a double integral over the plane | Proof | [3Blue1Brown, 3:44 to 12:47](https://www.youtube.com/watch?v=cy8r7WSuT1I&t=224s) |
+| 2 | The same argument written out step by step on a board | Proof | [Prime Newtons, 1:33 to 14:02](https://www.youtube.com/watch?v=yM_7mrfRW0o&t=93s) |
+| 3 | Why a polar double integral carries an extra factor of r, which the proof above needs | Proof | [Leonard, Calculus 3, 14.3, 15:07 to 22:25](https://www.youtube.com/watch?v=HA41kYxVYnw&t=907s) |
+
+Leonard's lecture has no Gaussian example. Start and end times are chapter boundaries from each video; what is said inside was judged from the chapter titles and not read from captions.
+<!-- /video-table -->
+
 **How the mixture keeps its area.** An integral of a sum is the sum of the integrals:
 
 $$
@@ -174,7 +198,7 @@ $\log Z$ is one number, the same at every $x$, and a constant has slope 0. *Deri
 **Taught in:**
 
 - the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, section 3, paragraph 1. The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
-- the sampler correctors for composition journey's plan 4, `plans/04-energy-and-the-missing-normaliser.md`, lines 49 (the product's area is 0.075126), 63 (why the normaliser has slope 0 in $x$), 133 to 137 (the broken run and its fix) and 179 to 189 (the area as a Gaussian height)
+- the sampler correctors for composition journey's plan 4, [plan 04](/home/molef/goal-setting/learning/deep-learning/diffusion-models/02-sampler-correctors-for-composition/plans/04-energy-and-the-missing-normaliser.md), lines 49 (the product's area is 0.075126), 63 (why the normaliser has slope 0 in $x$), 133 to 137 (the broken run and its fix) and 179 to 189 (the area as a Gaussian height)
 
 **Applied in:** nothing yet.
 

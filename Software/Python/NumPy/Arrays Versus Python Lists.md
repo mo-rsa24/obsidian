@@ -208,7 +208,7 @@ The arrays, from step 4:
 
 Navigation: ⬅️ [[#Reading the output]] | 📋 [[#Table of contents|TOC]] | [[#Other ways]] ➡️
 
-The numbers in step 4 follow from adding precisions, one coordinate at a time.
+The numbers in step 4 follow from adding precisions<sub>[1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/textbook/10-completing-the-square.md#101-the-product-of-two-gaussians-precisions-add "PoE derivation foundations, chapter 10.1, the product of two Gaussians"), [2](../../../Mathematics/references/textbooks/linear-algebra/matrix-cookbook.pdf#page=42 "matrix cookbook p. 42")</sub>, one coordinate at a time.
 
 $$
 \begin{aligned}
@@ -255,7 +255,7 @@ Navigation: ⬅️ [[#Why this matters]] | 📋 [[#Table of contents|TOC]]
 **Taught in:**
 
 - the `drip-read` walk of [the Mechanisms of Projective Composition paper note](../../../deep-learning/01-poe-derivation-foundations/papers/mechanisms-of-projective-composition), step 1 of 3 up to the object, where the learner's lists matched the answer key and were then wrapped in `np.array`
-- the PoE derivation foundations journey's plan 13, `plans/13-poe-on-two-gaussians.md`, lines 147 to 153 and 173 to 175, which compute these same composed means and variances
+- the PoE derivation foundations journey's [plan 13](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/13-poe-on-two-gaussians.md), lines 147 to 153 and 173 to 175, which compute these same composed means and variances
 
 **Applied in:** nothing yet.
 

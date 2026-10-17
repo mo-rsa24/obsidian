@@ -30,6 +30,22 @@ The reference shelf for the moment a derivation stalls on a word a video could t
 - [[#The noise schedule written as code]]
 - [[#The reverse step and the sampler loop]]
 - [[#The epsilon loss written as code]]
+- [[#The multivariate normal and its covariance matrix]]
+- [[#Adding two independent Gaussians]]
+- [[#NumPy arrays against Python lists]]
+- [[#The forward process]]
+- [[#Products of experts]]
+- [[#Energy-based models and the partition function]]
+- [[#Markov chain Monte Carlo]]
+- [[#The Metropolis-Hastings accept step]]
+- [[#Annealed Langevin sampling]]
+- [[#Classifier-free guidance]]
+- [[#Bayes' theorem]]
+- [[#Estimating a number by simulation (Monte Carlo)]]
+- [[#Inverse transform sampling]]
+- [[#Accept-reject sampling]]
+- [[#A Metropolis chain, drawn step by step]]
+- [[#Tuning a Metropolis chain]]
 
 ## Substituting a new variable into an integral (u-substitution)
 
@@ -283,4 +299,229 @@ The epsilon loss written as code, in the order to watch:
 | 2 | A small DDPM end to end, training function first | Code walk | the training function and the sampling function | [Umar Jamil, 13:00 to 21:11](https://www.youtube.com/watch?v=I1sPXkm2NH4&t=780s) |
 
 Start and end times are chapter boundaries from each video; what is said inside was judged from the chapter titles and not read from captions.
+<!-- /video-table -->
+
+## The multivariate normal and its covariance matrix
+
+<!-- video-table: multivariate-normal rev=1 -->
+Stanford CS229, then ritvikmath, on the multivariate normal and its covariance matrix, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The multivariate Gaussian density, written with a mean vector and a covariance matrix | Intuition | [Stanford CS229, Autumn 2018, lecture 5, 8:11 to 18:57](https://www.youtube.com/watch?v=nt63k3bfXS0&t=491s) |
+| 2 | What a covariance matrix holds: each coordinate's variance on the diagonal, each pair's covariance off it | Intuition | [ritvikmath, The Covariance Matrix, 2:40 to 5:23](https://www.youtube.com/watch?v=152tSYtiQbw&t=160s) |
+| 3 | Computing a covariance matrix from data | Worked example | [ritvikmath, The Covariance Matrix, 5:23 to 10:59](https://www.youtube.com/watch?v=152tSYtiQbw&t=323s) |
+
+Neither video takes a diagonal covariance apart into one bell per coordinate. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Adding two independent Gaussians
+
+<!-- video-table: sum-of-independent-gaussians rev=1 -->
+3Blue1Brown on why adding two independent Gaussians gives a Gaussian, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | What computing the sum of two random variables directly would look like | Intuition | [3Blue1Brown, Gaussian + Gaussian = Gaussian, 2:10 to 3:38](https://www.youtube.com/watch?v=d_qvLDhkg00&t=130s) |
+| 2 | A visual argument that the sum of two independent Gaussians is again a Gaussian | Proof | [3Blue1Brown, Gaussian + Gaussian = Gaussian, 3:38 to 8:27](https://www.youtube.com/watch?v=d_qvLDhkg00&t=218s) |
+
+No listed creator works the variance rule Var(aX + bY) = a²Var(X) + b²Var(Y) for independent X and Y, which gives the forward process its square roots. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## NumPy arrays against Python lists
+
+<!-- video-table: numpy-arrays rev=1 -->
+freeCodeCamp's NumPy course on arrays against lists, in the order to watch:
+
+| Order | What it covers | Kind | Code it writes | Watch |
+|---|---|---|---|---|
+| 1 | Why a NumPy array beats a Python list, in speed and in what it can do | Intuition | | [freeCodeCamp, Python NumPy Tutorial for Beginners, 1:35 to 9:17](https://www.youtube.com/watch?v=QUT1VHiLmmI&t=95s) |
+| 2 | Making an array and reading its shape, size and data type | Code walk | `np.array` and its `.shape`, `.size`, `.dtype` | [freeCodeCamp, Python NumPy Tutorial for Beginners, 11:08 to 16:08](https://www.youtube.com/watch?v=QUT1VHiLmmI&t=668s) |
+| 3 | Arithmetic that acts on every entry at once | Code walk | `+`, `*` and `/` between arrays | [freeCodeCamp, Python NumPy Tutorial for Beginners, 35:45 to 38:20](https://www.youtube.com/watch?v=QUT1VHiLmmI&t=2145s) |
+
+The course does not cover broadcasting by name or the seeded generator `np.random.default_rng`; it draws random numbers with the older global `np.random` functions. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## The forward process
+
+<!-- video-table: forward-process rev=1 -->
+Stanford CS236, then Vizuara, on the forward process, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The noising process that turns data into noise | Intuition | [Stanford CS236, lecture 16, 12:22 to 16:23](https://www.youtube.com/watch?v=VsllsC2JMGY&t=742s) |
+| 2 | Many small noising steps combined into one transition to any noise level | Proof | [Stanford CS236, lecture 16, 16:23 to 19:05](https://www.youtube.com/watch?v=VsllsC2JMGY&t=983s) |
+| 3 | Why each step scales the mean down as well as adding noise | Intuition | [Vizuara, Principles of Diffusion Models, lecture 3, 33:51 to 42:46](https://www.youtube.com/watch?v=Dx-1agEjlJs&t=2031s) |
+
+Vizuara is added for row 3, which no CS236 chapter covers; neither noises a two-dimensional Gaussian cloud and checks the closed form. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Products of experts
+
+<!-- video-table: product-of-experts rev=1 -->
+Stanford CS236 on multiplying models into a product of experts, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Composing normalised models into one | Intuition | [Stanford CS236, lecture 11, 23:01 to 29:14](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=1381s) |
+| 2 | The product of experts | Intuition | [Stanford CS236, lecture 11, 54:02 to 57:28](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=3242s) |
+
+Neither segment composes diffusion models by adding their scores or divides out a background, and no listed creator does. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Energy-based models and the partition function
+
+<!-- video-table: energy-based-models rev=1 -->
+Stanford CS236 on energy-based models and the normalising constant they leave out, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | What an energy-based model is | Intuition | [Stanford CS236, lecture 11, 4:42 to 6:45](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=282s) |
+| 2 | Why a probability model must be non-negative and integrate to 1 | Intuition | [Stanford CS236, lecture 11, 6:45 to 15:31](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=405s) |
+| 3 | The partition function, the constant that makes an energy into a density | Intuition | [Stanford CS236, lecture 11, 15:31 to 23:01](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=931s) |
+
+None of these works the area a product of two Gaussians loses. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Markov chain Monte Carlo
+
+<!-- video-table: markov-chain-monte-carlo rev=1 -->
+ritvikmath on Markov chain Monte Carlo, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Drawing samples by running a Markov chain whose long-run distribution is the target | Intuition | [ritvikmath, Markov Chain Monte Carlo, 4:07 to 8:24](https://www.youtube.com/watch?v=yApmR-c_hKU&t=247s) |
+| 2 | The detailed balance condition | Proof | [ritvikmath, Markov Chain Monte Carlo, 8:24 to 12:10](https://www.youtube.com/watch?v=yApmR-c_hKU&t=504s) |
+
+Neither segment anneals a chain across noise levels or uses a gradient in its proposal. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## The Metropolis-Hastings accept step
+
+<!-- video-table: metropolis-hastings rev=1 -->
+ritvikmath, then Stanford CS236, on the Metropolis-Hastings accept step, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Working out the acceptance probability for a candidate | Proof | [ritvikmath, Metropolis-Hastings, 7:50 to 12:04](https://www.youtube.com/watch?v=yCv2N7wGDCw&t=470s) |
+| 2 | Accepting or rejecting the candidate with that probability | Intuition | [ritvikmath, Metropolis-Hastings, 12:04 to 13:31](https://www.youtube.com/watch?v=yCv2N7wGDCw&t=724s) |
+| 3 | The Metropolis algorithm, the special case with a symmetric proposal | Intuition | [ritvikmath, Metropolis-Hastings, 13:31 to 18:15](https://www.youtube.com/watch?v=yCv2N7wGDCw&t=811s) |
+| 4 | Sampling an energy-based model with MCMC, accepting or rejecting each move | Intuition | [Stanford CS236, lecture 12, 8:35 to 16:25](https://www.youtube.com/watch?v=Nci1Bepcy0g&t=515s) |
+
+None of these uses a Langevin step as the proposal (MALA) or reads the share of proposals accepted. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Annealed Langevin sampling
+
+<!-- video-table: annealed-langevin rev=1 -->
+Stanford CS236 on why Langevin sampling is annealed across noise levels, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Where plain Langevin sampling fails | Intuition | [Stanford CS236, lecture 14, 5:44 to 9:13](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=344s) |
+| 2 | What adding noise does for the score and for sampling | Intuition | [Stanford CS236, lecture 14, 9:13 to 19:08](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=553s) |
+| 3 | Sampling across many noise scales, noisiest first | Intuition | [Stanford CS236, lecture 14, 23:54 to 28:43](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=1434s) |
+
+CS236 anneals one model's score; it does not anneal a sum of two models' scores, which is what composition samples. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Classifier-free guidance
+
+<!-- video-table: classifier-free-guidance rev=1 -->
+Umar Jamil on classifier-free guidance:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Classifier-free guidance, and how it steers sampling toward the prompt | Intuition | [Umar Jamil, Coding Stable Diffusion from scratch, 22:20 to 31:00](https://www.youtube.com/watch?v=ZBKpAp_6TGI&t=1340s) |
+
+Umar Jamil does not write guidance as a product of two experts or the guidance scale as a power. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Bayes' theorem
+
+<!-- video-table: bayes-theorem rev=1 -->
+3Blue1Brown, then StatQuest, on Bayes' theorem, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | From a worked example to the general formula | Intuition | [3Blue1Brown, Bayes theorem, the geometry of changing beliefs, 4:09 to 10:13](https://www.youtube.com/watch?v=HZGCoVF3YvM&t=249s) |
+| 2 | Bayes' theorem derived step by step | Proof | [StatQuest, Bayes' Theorem, Clearly Explained, 5:21 to 9:12](https://www.youtube.com/watch?v=9wCnvr7Xw4E&t=321s) |
+
+Both work with events, not densities, so neither divides a conditional density by a prior the way the composition rule does. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Estimating a number by simulation (Monte Carlo)
+
+<!-- video-table: monte-carlo-estimate rev=1 -->
+ritvikmath on estimating a number by simulation, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Darts in a square: the fraction landing in the circle estimates π/4, with the loop written as pseudocode | Worked example | [ritvikmath, Monte Carlo Simulations, 0:23 to 4:50](https://www.youtube.com/watch?v=EaR3C4e600k&t=23s) |
+| 2 | The expected number of rounds until two losses in a row, derived by conditioning on the first rounds to (2 − p)/(1 − p)² | Proof | [ritvikmath, Monte Carlo Simulations, 4:50 to 9:28](https://www.youtube.com/watch?v=EaR3C4e600k&t=290s) |
+| 3 | The same expectation by simulating a million games and averaging, against the exact 6 at p = 1/2 | Worked example, use case | [ritvikmath, Monte Carlo Simulations, 9:28 to 13:32](https://www.youtube.com/watch?v=EaR3C4e600k&t=568s) |
+| 4 | When to reach for it, and why it slows down as p nears 1 | Intuition | [ritvikmath, Monte Carlo Simulations, 13:32 to 16:22](https://www.youtube.com/watch?v=EaR3C4e600k&t=812s) |
+| 5 | One run answers one parameter value, and the number alone does not show where it came from | Intuition | [ritvikmath, Monte Carlo Simulations, 16:22 to 19:01](https://www.youtube.com/watch?v=EaR3C4e600k&t=982s) |
+
+ritvikmath does not cover how fast the error shrinks as samples are added, or weighting samples drawn from a different distribution, which is what an importance-sampling estimate does. Times are read from the video's automatic captions and are good to about 30 seconds.
+<!-- /video-table -->
+
+## Inverse transform sampling
+
+<!-- video-table: inverse-transform-sampling rev=1 -->
+ritvikmath on inverse transform sampling, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Inverse transform sampling, the idea | Intuition | [ritvikmath, Inverse Transform Sampling, 0:07 to 1:39](https://www.youtube.com/watch?v=9ixzzPQWuAY&t=7s) |
+| 2 | The uniform and the exponential distributions the example uses | Definition | [ritvikmath, Inverse Transform Sampling, 1:39 to 2:36](https://www.youtube.com/watch?v=9ixzzPQWuAY&t=99s) |
+| 3 | The cumulative distribution function | Definition | [ritvikmath, Inverse Transform Sampling, 2:36 to 7:54](https://www.youtube.com/watch?v=9ixzzPQWuAY&t=156s) |
+| 4 | Inverting the exponential CDF, and turning a uniform draw into an exponential one | Worked example | [ritvikmath, Inverse Transform Sampling, 7:54 to 10:04](https://www.youtube.com/watch?v=9ixzzPQWuAY&t=474s) |
+
+The creator's own description says the exponential density on the board is missing its λ in front. Times are chapter boundaries read from the video's chapter list, because YouTube refused its captions on 2026-10-17; what is said inside was judged from the chapter titles and not read.
+<!-- /video-table -->
+
+## Accept-reject sampling
+
+<!-- video-table: accept-reject-sampling rev=1 -->
+ritvikmath on accept-reject sampling, which draws from a density known only up to its normalising constant, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Why accept-reject: inverse transform needs the CDF and its inverse, and this needs neither, nor the full density | Intuition | [ritvikmath, Accept-Reject Sampling, 0:00 to 1:09](https://www.youtube.com/watch?v=OXDqjdVVePY&t=0s) |
+| 2 | Student exam scores whose density is known only up to its normalising constant, and why that integral is out of reach | Intuition, use case | [ritvikmath, Accept-Reject Sampling, 1:09 to 3:52](https://www.youtube.com/watch?v=OXDqjdVVePY&t=69s) |
+| 3 | The method: an easy proposal g scaled by M into an envelope above f, then accept each draw with probability f/(M g) | Definition | [ritvikmath, Accept-Reject Sampling, 3:52 to 7:45](https://www.youtube.com/watch?v=OXDqjdVVePY&t=232s) |
+| 4 | Bayes' rule shows the accepted draws have density f/NC; the overall acceptance probability NC/M comes out on the way | Proof | [ritvikmath, Accept-Reject Sampling, 8:05 to 12:04](https://www.youtube.com/watch?v=OXDqjdVVePY&t=485s) |
+| 5 | Why it works: f/g is high for a point the target likes and the proposal rarely offers | Intuition | [ritvikmath, Accept-Reject Sampling, 12:28 to 15:10](https://www.youtube.com/watch?v=OXDqjdVVePY&t=748s) |
+| 6 | A spiky target forces a huge M, so NC/M nears 0 and the sampler stalls | Intuition | [ritvikmath, Accept-Reject Sampling, 15:10 to 17:12](https://www.youtube.com/watch?v=OXDqjdVVePY&t=910s) |
+
+ritvikmath never runs the exam-score example with numbers, and covers the CDF method row 1 contrasts against in his [inverse transform video](https://www.youtube.com/watch?v=9ixzzPQWuAY). Times are read from the video's automatic captions and are good to about 30 seconds.
+<!-- /video-table -->
+
+## A Metropolis chain, drawn step by step
+
+<!-- video-table: metropolis-chain-drawn rev=1 -->
+DataMListic on one Metropolis-Hastings chain, drawn step by step, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Proposing a new state from a symmetric proposal around the current one | Intuition | [DataMListic, Metropolis-Hastings Explained, 0:23 to 0:46](https://www.youtube.com/watch?v=7IpvsfRgTTY&t=23s) |
+| 2 | Accept or reject: the acceptance probability is the minimum of 1 and the density ratio | Definition | [DataMListic, Metropolis-Hastings Explained, 0:46 to 1:12](https://www.youtube.com/watch?v=7IpvsfRgTTY&t=46s) |
+| 3 | A chain run on a heat map: proposals turn green or red, and the samples gather where the density is high | Intuition | [DataMListic, Metropolis-Hastings Explained, 1:12 to 1:37](https://www.youtube.com/watch?v=7IpvsfRgTTY&t=72s) |
+| 4 | Detailed balance as two probability flows between a pair of states, flow out equal to flow in | Intuition | [DataMListic, Metropolis-Hastings Explained, 1:37 to 2:00](https://www.youtube.com/watch?v=7IpvsfRgTTY&t=97s) |
+
+DataMListic uses only a symmetric proposal, so the proposal-density ratio an asymmetric move needs never appears, and nothing is worked with numbers; the user supplied this video, and DataMListic is not on the creator list. Times are the video's own chapter boundaries, checked against its automatic captions to within a few seconds.
+<!-- /video-table -->
+
+## Tuning a Metropolis chain
+
+<!-- video-table: tuning-a-metropolis-chain rev=1 -->
+DataMListic on tuning a Metropolis chain, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Step sizes too small, too large and just right, and the 20 to 50 percent acceptance-rate target | Intuition | [DataMListic, Metropolis-Hastings Explained, 2:00 to 2:22](https://www.youtube.com/watch?v=7IpvsfRgTTY&t=120s) |
+| 2 | Burn-in: discard the early samples so the chain forgets where it started | Intuition | [DataMListic, Metropolis-Hastings Explained, 2:22 to 2:34](https://www.youtube.com/watch?v=7IpvsfRgTTY&t=142s) |
+
+DataMListic states the 20 to 50 percent rule without deriving it and never mentions effective sample size; the user supplied this video, and DataMListic is not on the creator list. Times are the video's own chapter boundaries, checked against its automatic captions to within a few seconds.
 <!-- /video-table -->

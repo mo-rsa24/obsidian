@@ -24,7 +24,7 @@ Mathematics, Statistics, Distributions. Needs: the one-dimensional normal densit
 >
 > Each note below lists its own missing pictures and runs at its top.
 
-**A multivariate normal is a bell over many coordinates at once, set by a mean vector $\mu$ and a covariance matrix $\Sigma$.** In $d$ dimensions its density at a point $x$ is
+**A multivariate normal is a bell over many coordinates at once, set by a mean vector $\mu$ and [a covariance matrix](../../../references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=196) $\Sigma$.** In $d$ dimensions its density at a point $x$ is
 
 $$
 \mathcal{N}(x; \mu, \Sigma) = \frac{1}{(2\pi)^{d/2} \det(\Sigma)^{1/2}} \exp\!\left( -\tfrac{1}{2} (x - \mu)^\top \Sigma^{-1} (x - \mu) \right).
