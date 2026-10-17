@@ -716,7 +716,9 @@ Both lines are derived in [[Multivariate Normal Distribution#Products of Gaussia
 
 *Each tile is one image: blue is the cat value $+1$, red the dog value $-1$, grey 0. The first two tiles are the experts' means. The next four are the exact product's means: (a) a cat head on a dog body, (b) all grey, and the two heaviest components of (c), each at weight 0.50.*
 
-> 🖼️ **Picture on its way**: the three settings as real animals, each expert sharp where it is sure and blurred where it is loose, beside the product each setting gives. <!-- slot: assets/parts-world-the-concept.webp · prompt: .prompts/Diffusion Models.md#prompt-32-subject-concept-mosaic-blend-or-two-animals -->
+![Three rows of a cat expert times a dog expert: a cat-head-on-dog-body mosaic when each is sure of a different part, a grey smudge in a red card when both are sure of everything, and two animals side by side at weight 0.50 when each animal sits in either half|720](assets/parts-world-the-concept.webp)
+
+*Sharp means sure. Each product keeps the sharp part from whichever expert is sure of it: the mosaic costs log Z = -46.5, the blend log Z = -1583.4, and in row (c) the frames that put both animals in one half get weight 0.00.*
 
 **Try it yourself.**
 

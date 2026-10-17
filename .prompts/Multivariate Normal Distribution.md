@@ -1,6 +1,6 @@
 # Multivariate Normal Distribution: illustrated map
 
-The drawn pictures for the vault note [[Multivariate Normal Distribution]], sections [[Multivariate Normal Distribution#Diagonal covariance]], [[Multivariate Normal Distribution#Sampling a diagonal Gaussian]] and [[Multivariate Normal Distribution#Products and quotients of diagonal Gaussians]]. `11 prompts · 6 rendered · 2 stuck · 3 waiting`
+The drawn pictures for the vault note [[Multivariate Normal Distribution]], sections [[Multivariate Normal Distribution#Diagonal covariance]], [[Multivariate Normal Distribution#Sampling a diagonal Gaussian]] and [[Multivariate Normal Distribution#Products and quotients of diagonal Gaussians]], with one picture for [[Multivariate Normal Distribution#Products of Gaussian mixtures]]. `12 prompts · 6 rendered · 2 stuck · 1 rendering · 3 waiting`
 
 ## Table of contents
 
@@ -25,6 +25,8 @@ The drawn pictures for the vault note [[Multivariate Normal Distribution]], sect
 - [Prompt 8 (Subject capstone): Precisions, the deep-dive sheet](#prompt-8-subject-capstone-precisions-the-deep-dive-sheet)
 - [Prompt 9 (Subject): The area a product loses](#prompt-9-subject-the-area-a-product-loses)
 - [Prompt 10 (Subject): Powers of Gaussians](#prompt-10-subject-powers-of-gaussians)
+- [Subject lane: Products of Gaussian mixtures](#subject-lane-products-of-gaussian-mixtures)
+- [Prompt 11 (Subject): Products of Gaussian mixtures](#prompt-11-subject-products-of-gaussian-mixtures)
 - [Process lane](#process-lane)
 
 ## Abstraction chain
@@ -406,7 +408,7 @@ Faithfulness note: The green parabola's vertex is at -1.5 and its curvature equa
 
 Navigation: ⬅️ [Prompt 7 (Subject): Precisions, the mechanism](#prompt-7-subject-precisions-the-mechanism) | 📋 [TOC](#table-of-contents) | [Prompt 9 (Subject): The area a product loses](#prompt-9-subject-the-area-a-product-loses) ➡️
 
-[planned] ⏳ not rendered
+[planned] ⚙️ rendering 01a149ff-cfb0-7973-8b76-dd53da89fb85
 Save as: `../Mathematics/Statistics/Distributions/assets/products-deep-dive-sheet.webp`
 
 Visual thesis: The composed precision, the weighted sum, the mean and the variance come from adding and subtracting, and the run shows the background moving split to (-2, 2) and shared to (-1.5, 0).
@@ -476,7 +478,7 @@ Faithfulness note: The solid green bump peaks near 0.054 and is about one tenth 
 
 ### Prompt 10 (Subject): Powers of Gaussians
 
-Navigation: ⬅️ [Prompt 9 (Subject): The area a product loses](#prompt-9-subject-the-area-a-product-loses) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
+Navigation: ⬅️ [Prompt 9 (Subject): The area a product loses](#prompt-9-subject-the-area-a-product-loses) | 📋 [TOC](#table-of-contents) | [Subject lane: Products of Gaussian mixtures](#subject-lane-products-of-gaussian-mixtures) ➡️
 
 [planned] ⏳ not rendered
 Save as: `../Mathematics/Statistics/Distributions/assets/products-powers-of-gaussians.webp`
@@ -510,8 +512,50 @@ Exclusions: no mixture, no noise levels, no numbers other than those listed. no 
 
 Faithfulness note: Bar lengths are to scale: the blue bar is 2 units with power 1, the orange bar 1.25 units in row 1, 2.5 in row 2 and -0.625 pointing left in row 3; row 4's blue bar is -2 pointing left; the last row's curve opens upward and has no peak; the negation bell sits left of where expert a would be. Every label in the image, exactly: "product, w_b = 1", "guidance, w_b = 2", "negation, w_b = -0.5", "not a density, w_a = -1", "expert a", "expert b", "precision 3.25", "precision 4.5", "precision 1.375", "precision -0.75", "precision 2 times w_a", "precision 1.25 times w_b".
 
+## Subject lane: Products of Gaussian mixtures
+
+Navigation: ⬅️ [Prompt 10 (Subject): Powers of Gaussians](#prompt-10-subject-powers-of-gaussians) | 📋 [TOC](#table-of-contents) | [Prompt 11 (Subject): Products of Gaussian mixtures](#prompt-11-subject-products-of-gaussian-mixtures) ➡️
+
+One picture for [[Multivariate Normal Distribution#Products of Gaussian mixtures]], a subsection of the precisions section, whose form, mechanism and deep-dive sheet are prompts 6 to 8. Colours as in the precisions lane: blue expert 1 (the cat mixture), orange expert 2 (the dog mixture), grey for what is off or blended, green the kept composition. Every number is counted from the overlap-dial walk's `example-9-parts-world/numbers.json`, setting (c).
+
+### Prompt 11 (Subject): Products of Gaussian mixtures
+
+Navigation: ⬅️ [Subject lane: Products of Gaussian mixtures](#subject-lane-products-of-gaussian-mixtures) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Mathematics/Statistics/Distributions/assets/products-of-gaussian-mixtures.webp`
+
+Visual thesis: Multiplying two two-component mixtures gives one component per pair, four in all, and each pair's weight is how much its two components overlap, so the two pairs that agree keep all the weight and the two that clash keep none.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for every 4 by 4 tile, the grid and all typography. Compose for reading at 800 px wide, 3:2 landscape; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: A banner across the top: "w_ij is proportional to pi_i rho_j N(mu_i; nu_j, S_i + L_j)". Below it a 2 by 2 grid of cells with row headers on the left and column headers on top. The row group is labelled "cat mixture" and its two headers are small 4 by 4 tiles: "cat left, 0.5" with the left two columns blue and the right two columns pale grey, and "cat right, 0.5" with the right two columns blue and the left two pale grey. The column group is labelled "dog mixture" and its two headers are tiles: "dog left, 0.5" with the left two columns orange and the right two pale grey, and "dog right, 0.5" with the right two columns orange and the left two pale grey. Each cell holds the product component's 4 by 4 tile and two lines of text. Cell cat left with dog left: a tile with every square mid-grey, "log w = -803.2" and "weight 0.00", the cell faded, grey border, with the caption "both in one half: they clash". Cell cat right with dog right: the same, faded, mid-grey tile, "log w = -803.2", "weight 0.00". Cell cat left with dog right: a tile with the left two columns blue and the right two orange, "log w = -24.1" and "weight 0.50", green border, with the caption "side by side: they agree". Cell cat right with dog left: a tile with the left two columns orange and the right two blue, "log w = -24.1" and "weight 0.50", green border.
+
+Cast: one banner, four header tiles, four cells each with one tile.
+
+Flows: none.
+
+Text in the image, spelled exactly: "cat mixture", "dog mixture", "cat left, 0.5", "cat right, 0.5", "dog left, 0.5", "dog right, 0.5", "log w = -803.2", "log w = -24.1", "weight 0.00", "weight 0.50", "both in one half: they clash", "side by side: they agree", "w_ij is proportional to pi_i rho_j N(mu_i; nu_j, S_i + L_j)".
+
+Exclusions: no bells or curves, no animals drawn, no fifth cell, no red. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: The two diagonal cells pairing the same half (cat left with dog left, cat right with dog right) are faded with all-grey tiles at weight 0.00 and log w -803.2; the two off-diagonal cells are green-bordered with a blue half and an orange half, in opposite halves, at weight 0.50 and log w -24.1. Each header tile is coloured only on its own half. The numbers are setting (c)'s fields in `numbers.json`, rounded to one decimal. Every label in the image, exactly: "cat mixture", "dog mixture", "cat left, 0.5", "cat right, 0.5", "dog left, 0.5", "dog right, 0.5", "log w = -803.2", "log w = -24.1", "weight 0.00", "weight 0.50", "both in one half: they clash", "side by side: they agree", "w_ij is proportional to pi_i rho_j N(mu_i; nu_j, S_i + L_j)".
+
 ## Process lane
 
-Navigation: ⬅️ [Prompt 10 (Subject): Powers of Gaussians](#prompt-10-subject-powers-of-gaussians) | 📋 [TOC](#table-of-contents)
+Navigation: ⬅️ [Prompt 11 (Subject): Products of Gaussian mixtures](#prompt-11-subject-products-of-gaussian-mixtures) | 📋 [TOC](#table-of-contents)
 
 None. A vault note's section has no plan tree to draw over it.

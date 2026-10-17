@@ -1,6 +1,6 @@
 # Diffusion Models: illustrated map
 
-The drawn pictures for the vault note [[Diffusion Models]], sections [[Diffusion Models#The forward process in one jump]], [[Diffusion Models#Composing models with a background]], [[Diffusion Models#The order of multiplying and noising]] and [[Diffusion Models#The energy parameterisation]], with one concept picture for [[Diffusion Models#The product as an intersection]], [[Diffusion Models#Product, mixture and negation]], with one concept picture each for [[Diffusion Models#Annealed MCMC]] and [[Diffusion Models#Step size and the accept step]], [[Diffusion Models#What an expert learns from its training set]], one concept picture for [[Diffusion Models#Kinds of composition]], and one concept picture for [[Diffusion Models#When neither training set holds A and B]], and the form, the mechanism and the deep-dive sheet for [[Diffusion Models#Three things called annealing]], with one concept picture each for [[Diffusion Models#The tempered density and its score]], [[Diffusion Models#The log of a power and of a quotient]] and [[Diffusion Models#Why the normaliser has no slope in x]], and a concept picture and a mechanism for [[Diffusion Models#The four-quadrant answer key]]. `31 prompts · 24 rendered · 7 stuck · 0 rendering · 0 waiting`
+The drawn pictures for the vault note [[Diffusion Models]], sections [[Diffusion Models#The forward process in one jump]], [[Diffusion Models#Composing models with a background]], [[Diffusion Models#The order of multiplying and noising]] and [[Diffusion Models#The energy parameterisation]], with one concept picture for [[Diffusion Models#The product as an intersection]], [[Diffusion Models#Product, mixture and negation]], with one concept picture each for [[Diffusion Models#Annealed MCMC]] and [[Diffusion Models#Step size and the accept step]], [[Diffusion Models#What an expert learns from its training set]], one concept picture for [[Diffusion Models#Kinds of composition]], and one concept picture for [[Diffusion Models#When neither training set holds A and B]], and the form, the mechanism and the deep-dive sheet for [[Diffusion Models#Three things called annealing]], with one concept picture each for [[Diffusion Models#The tempered density and its score]], [[Diffusion Models#The log of a power and of a quotient]] and [[Diffusion Models#Why the normaliser has no slope in x]], a concept picture and a mechanism for [[Diffusion Models#The four-quadrant answer key]], and a concept picture and a mechanism for [[Diffusion Models#Mosaic, blend or two animals from one product]]. `33 prompts · 25 rendered · 7 stuck · 1 rendering · 0 waiting`
 
 ## Table of contents
 
@@ -54,6 +54,9 @@ The drawn pictures for the vault note [[Diffusion Models]], sections [[Diffusion
 - [Subject lane: The four-quadrant answer key](#subject-lane-the-four-quadrant-answer-key)
 - [Prompt 29 (Subject concept): The four quadrants as chest films](#prompt-29-subject-concept-the-four-quadrants-as-chest-films)
 - [Prompt 30 (Subject): The answer key, where each product lands](#prompt-30-subject-the-answer-key-where-each-product-lands)
+- [Subject lane: Mosaic, blend or two animals from one product](#subject-lane-mosaic-blend-or-two-animals-from-one-product)
+- [Prompt 32 (Subject concept): Mosaic, blend or two animals](#prompt-32-subject-concept-mosaic-blend-or-two-animals)
+- [Prompt 33 (Subject): The parts world, the mechanism](#prompt-33-subject-the-parts-world-the-mechanism)
 - [Process lane](#process-lane)
 
 ## Abstraction chain
@@ -1253,7 +1256,7 @@ Faithfulness note: The two right-hand films show the collapsed lung and the two 
 
 ### Prompt 30 (Subject): The answer key, where each product lands
 
-Navigation: ⬅️ [Prompt 29 (Subject concept): The four quadrants as chest films](#prompt-29-subject-concept-the-four-quadrants-as-chest-films) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
+Navigation: ⬅️ [Prompt 29 (Subject concept): The four quadrants as chest films](#prompt-29-subject-concept-the-four-quadrants-as-chest-films) | 📋 [TOC](#table-of-contents) | [Subject lane: Mosaic, blend or two animals from one product](#subject-lane-mosaic-blend-or-two-animals-from-one-product) ➡️
 
 [planned] 🖼️ rendered 2026-10-17 support-where-each-product-lands.webp
 Save as: `../Artificial Intelligence/Generative Modeling/assets/support-where-each-product-lands.webp`
@@ -1287,8 +1290,86 @@ Exclusions: no formulas, no axis tick labels beyond -1, 0 and 1, no chest X-ray 
 
 Faithfulness note: Panel 1 has four equal dots; panel 2 has two large dots on bottom-right and top-left and two small ones on top-right and bottom-left, with areas in the ratio 0.44 to 0.06; panel 3's single dot sits at the origin and touches no circle; panels 4 and 5 each have one dot inside the top-right circle and nothing elsewhere. The top-right circle is red and dashed in all five panels. Every label in the image, exactly: "where the composed density lands", "fine-tune step 0", "fine-tuned, 10% left over", "trained from scratch", "one conditional model, 1 film in 20 is A and B", "own-part experts, no A and B film", "0.25", "0.44", "0.06", "0.99", "a blend, no film", "A and B: pneumothorax, no drain".
 
+## Subject lane: Mosaic, blend or two animals from one product
+
+Navigation: ⬅️ [Prompt 30 (Subject): The answer key, where each product lands](#prompt-30-subject-the-answer-key-where-each-product-lands) | 📋 [TOC](#table-of-contents) | [Prompt 32 (Subject concept): Mosaic, blend or two animals](#prompt-32-subject-concept-mosaic-blend-or-two-animals) ➡️
+
+A concept picture and a mechanism for [[Diffusion Models#Mosaic, blend or two animals from one product]], a subsection of the composition section, whose form, mechanism and deep-dive sheet are prompts 4 to 6. Colours as in the composition lane: blue the cat expert, orange the dog expert, green the composed result, grey the blend; red only on the one card that holds the blend, as for a hybrid. In the mechanism, green and purple keep their two-orders meanings: green the noised product (equation 11), purple the product of noised experts that summed scores follow (equation 12). Every number is counted from the overlap-dial walk's `example-9-parts-world/numbers.json` and the derivation in the note.
+
+### Prompt 32 (Subject concept): Mosaic, blend or two animals
+
+Navigation: ⬅️ [Subject lane: Mosaic, blend or two animals from one product](#subject-lane-mosaic-blend-or-two-animals-from-one-product) | 📋 [TOC](#table-of-contents) | [Prompt 33 (Subject): The parts world, the mechanism](#prompt-33-subject-the-parts-world-the-mechanism) ➡️
+
+[planned] 🖼️ rendered 2026-10-17 parts-world-the-concept.webp
+Save as: `../Artificial Intelligence/Generative Modeling/assets/parts-world-the-concept.webp`
+
+Visual thesis: One product of a cat expert and a dog expert gives a cat head on a dog body, a grey blend, or two animals side by side, and which one depends only on the parts each expert is sure of.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for the three small 4 by 4 tiles and all typography. Compose for reading at 800 px wide, 3:2 landscape; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: Three rows, each titled at its left: "(a) each sure of a different part", "(b) both sure of everything", "(c) each animal in either half". Every row reads left to right: a card headed "cat expert" with a blue border, a multiplication sign, a card headed "dog expert" with an orange border, an equals sign, and a card headed "product". Sureness is drawn as sharpness: a part the expert is sure of is crisp, a part it is loose about is heavily blurred. Row (a): the cat card shows a tabby cat whose head is crisp and whose body is blurred, captioned "sure of the head"; the dog card shows a golden dog whose head is blurred and whose body is crisp, captioned "sure of the body"; the product card, green border, shows one animal with a tabby cat's head on a golden dog's body, captioned "mosaic: cat head, dog body", with a small tag "log Z = -46.5". Row (b): the cat card shows a fully crisp cat, the dog card a fully crisp dog, each captioned "sure everywhere"; the product card has a red border and shows a flat grey animal-shaped smudge with no cat or dog features, captioned "blend: neither cat nor dog", with a small tag "log Z = -1583.4". Row (c): the cat card shows two small frames side by side, a cat in the left half of one frame and in the right half of the other, each frame marked "0.5", captioned "in either half"; the dog card the same with a dog; the product card, green border, shows two small frames, a cat on the left with a dog on the right and a dog on the left with a cat on the right, each marked "0.50", captioned "two animals side by side", and below them two small faded grey frames with a cat and a dog squeezed into one half, each marked "0.00". At the right end of each row, a small 4 by 4 tile of squares: row (a) the top two rows blue and the bottom two rows orange; row (b) all sixteen squares grey; row (c) the left two columns blue and the right two orange.
+
+Cast: three rows, nine cards, three 4 by 4 tiles, two tags.
+
+Flows: none beyond the multiplication and equals signs.
+
+Text in the image, spelled exactly: "(a) each sure of a different part", "(b) both sure of everything", "(c) each animal in either half", "cat expert", "dog expert", "product", "sure of the head", "sure of the body", "sure everywhere", "in either half", "mosaic: cat head, dog body", "blend: neither cat nor dog", "two animals side by side", "log Z = -46.5", "log Z = -1583.4", "0.5", "0.50", "0.00".
+
+Exclusions: no equations, no axes, no fourth row, no red anywhere except the border of row (b)'s product card. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: Row (a)'s cat is crisp only on the head and its dog crisp only on the body, and its product is one animal with a cat head on a dog body; row (b)'s experts are crisp everywhere and its product is a featureless grey smudge in the only red-bordered card; row (c)'s product has two heavy frames with the animals in opposite halves, marked 0.50, and two faded frames with both in one half, marked 0.00. The tiles: (a) blue top two rows over orange bottom two rows, (b) all grey, (c) blue left two columns beside orange right two. The log Z tags are -46.5 for (a) and -1583.4 for (b), from fields 3 and 6 of the note's run. Every label in the image, exactly: "(a) each sure of a different part", "(b) both sure of everything", "(c) each animal in either half", "cat expert", "dog expert", "product", "sure of the head", "sure of the body", "sure everywhere", "in either half", "mosaic: cat head, dog body", "blend: neither cat nor dog", "two animals side by side", "log Z = -46.5", "log Z = -1583.4", "0.5", "0.50", "0.00".
+
+### Prompt 33 (Subject): The parts world, the mechanism
+
+Navigation: ⬅️ [Prompt 32 (Subject concept): Mosaic, blend or two animals](#prompt-32-subject-concept-mosaic-blend-or-two-animals) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
+
+[planned] ⚙️ rendering 01a14a04-b4d4-7880-aa81-de20040f4c89
+Save as: `../Artificial Intelligence/Generative Modeling/assets/parts-world-the-mechanism.webp`
+
+Visual thesis: Noising shrinks the cat's precision lead on a head pixel from 100 to 1 down to 1.98 to 1, so summed scores put the head at 0.233 where the correct noised target is 0.693.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for the bars, the number lines, the dots and all typography, with every bar and dot at its exact value. Compose for reading at 800 px wide, 16:9 landscape; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: A small heading across the top: "one head pixel". Two panels side by side. Left panel, titled "clean, abar = 1": two vertical bars on one baseline, a blue bar labelled "cat precision 100" and an orange bar labelled "dog precision 1", heights in the exact ratio 100 to 1, so the orange bar is a sliver. Under the bars, a horizontal number line from -1 to 1 with an orange tick at -1 labelled "dog -1", a grey tick at 0 labelled "blend 0" and a blue tick at 1 labelled "cat +1"; a green dot at 0.980 labelled "product 0.980". Right panel, titled "noise level abar = 0.5": a blue bar labelled "cat precision 1.98" and an orange bar labelled "dog precision 1", heights in the exact ratio 1.98 to 1. Under them, the same number line from -1 to 1, with an orange tick at -0.707 labelled "dog -0.707", the grey tick at 0 labelled "blend 0" and a blue tick at 0.707 labelled "cat 0.707"; a green dot at 0.693 labelled "noised product 0.693 (equation 11)" and a purple dot at 0.233 labelled "summed scores 0.233 (equation 12)", with a thin grey bracket between the two dots. A small grey caption under the two panels: "bars drawn to each panel's own scale".
+
+Cast: two panels, four precision bars, two number lines, three dots.
+
+Flows: none.
+
+Text in the image, spelled exactly: "one head pixel", "clean, abar = 1", "noise level abar = 0.5", "cat precision 100", "dog precision 1", "cat precision 1.98", "bars drawn to each panel's own scale", "cat +1", "dog -1", "cat 0.707", "dog -0.707", "blend 0", "product 0.980", "noised product 0.693 (equation 11)", "summed scores 0.233 (equation 12)".
+
+Exclusions: no curves or bells, no third panel, no cats or dogs drawn, no tick labels beyond those listed. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: The left bars are in the ratio 100 to 1 and the right bars 1.98 to 1; the green dot sits at 0.980 on the left line and at 0.693 on the right, and the purple dot at 0.233 on the right line only, left of the green one and right of 0. The expert ticks sit at plus and minus 1 on the left line and plus and minus 0.707 on the right. Every number is from fields 11 and 12 of the note's run and the derivation under setting (d). Every label in the image, exactly: "one head pixel", "clean, abar = 1", "noise level abar = 0.5", "cat precision 100", "dog precision 1", "cat precision 1.98", "bars drawn to each panel's own scale", "cat +1", "dog -1", "cat 0.707", "dog -0.707", "blend 0", "product 0.980", "noised product 0.693 (equation 11)", "summed scores 0.233 (equation 12)".
+
 ## Process lane
 
-Navigation: ⬅️ [Prompt 30 (Subject): The answer key, where each product lands](#prompt-30-subject-the-answer-key-where-each-product-lands) | 📋 [TOC](#table-of-contents)
+Navigation: ⬅️ [Prompt 33 (Subject): The parts world, the mechanism](#prompt-33-subject-the-parts-world-the-mechanism) | 📋 [TOC](#table-of-contents)
 
 None. A vault note's section has no plan tree to draw over it.
