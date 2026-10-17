@@ -107,7 +107,7 @@ A trained expert matches its training set smoothed by the noise, as step 2 of [[
              overlap removed: the product is tallest at (0.240, -0.315)
    ```
 
-   ![The run's six lines, with the overlap mass, the share near the missing combination and the tallest point marked 1 to 8|900](../assets/support-the-product-without-overlap.png)
+   ![The run's six lines, with the overlap mass, the share near the missing combination and the tallest point marked 1 to 8|900](assets/support-the-product-without-overlap.png)
 
 5. Clean up, and check the folder is gone:
 
@@ -137,7 +137,7 @@ A trained expert matches its training set smoothed by the noise, as step 2 of [[
 2. **The pair with the overlap removed.** The nearest kept modes sit at $x_1 = \pm 0.5 \cos 45^\circ = \pm 0.3536$, which is $0.1536 = 5.12$ widths outside the bar's edge at 0.2. The share of such a Gaussian that crosses the edge is $\Phi(-5.12) = 1.54 \times 10^{-7}$. Four such modes, each of weight $1/6$, with 0.939 of each inside the kept band $|x_2| < 0.4$, under a bar of height $1/(0.4 \times 1.6)$, give $Z = 4 \times \tfrac16 \times 1.54 \times 10^{-7} \times 0.939 / 0.64 = 1.51 \times 10^{-7}$. *Derived.* The run's `1.6e-07` in field 3 is 6% higher because the grid's spacing of 0.005 is coarse against a tail this steep.
 3. **What the rule leaves to smoothing.** The product is zero wherever either factor is zero, so all of field 6's mass comes from the smoothing tails, and those tails are thickest where the two supports are nearest each other. That is the bar's edge beside the 45-degree modes, and the missing combination is not there. *Shown* in fields 5 to 7.
 
-![The product's support as the intersection of supports, the ring-times-bar with and without the overlap|800](../assets/support-the-concept.webp)
+![The product's support as the intersection of supports, the ring-times-bar with and without the overlap|800](assets/support-the-concept.webp)
 
 *The product's support as the intersection of supports, the ring-times-bar with and without the overlap.*
 

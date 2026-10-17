@@ -85,7 +85,7 @@ score of eq 12:                      s1(x_t, abar) + s2(x_t, abar), the summed s
 equal at abar = 1 for a product; equal at every abar for a mixture (q1 + q2) / 2
 ```
 
-![The clean experts multiplied then noised in green against noised then multiplied in purple|800](../assets/two-orders-the-form.webp)
+![The clean experts multiplied then noised in green against noised then multiplied in purple|800](assets/two-orders-the-form.webp)
 
 *The form, the clean experts multiplied then noised in green against noised then multiplied in purple.*
 
@@ -184,7 +184,7 @@ print(f"the product it was meant to reach:   mean {m:.4f}, variance {v:.4f}")
 
 You should see:
 
-![The reverse process on the summed score ends at variance 0.2102, against the product's 0.3077|800](../assets/two-orders-reverse-process-on-the-summed-score.png)
+![The reverse process on the summed score ends at variance 0.2102, against the product's 0.3077|800](assets/two-orders-reverse-process-on-the-summed-score.png)
 
 The cloud ends 32% narrower than the product, and its centre sits 0.07 too far toward 0. The line `eps = ...` turns the score into the noise estimate the reverse step of Du et al.'s equation 1 expects.
 
@@ -230,7 +230,7 @@ for name, p in [("multiply, then noise (eq 11)", first), ("noise each, then mult
 
 You should see:
 
-![Multiply then noise has variance 0.6538; noise each then multiply has variance 0.4091; their slopes at 1.5 differ|900](../assets/two-orders-multiply-then-noise-against-noise-then-multiply.png)
+![Multiply then noise has variance 0.6538; noise each then multiply has variance 0.4091; their slopes at 1.5 differ|900](assets/two-orders-multiply-then-noise-against-noise-then-multiply.png)
 
 With half the signal left, the curve a reverse process needs has variance 0.654, and the curve summed scores describe has variance 0.409. The two lines differ only in where `*` sits relative to `K @`.
 
@@ -253,7 +253,7 @@ for abar in (1.0, 0.9, 0.5, 0.1, 0.0):
 
 You should see:
 
-![The two orders at five noise levels: equal with no noise, apart by 0.2448 at half the signal, N(0, 1) against N(0, 0.5) at pure noise|900](../assets/two-orders-the-gap-at-every-noise-level.png)
+![The two orders at five noise levels: equal with no noise, apart by 0.2448 at half the signal, N(0, 1) against N(0, 0.5) at pure noise|900](assets/two-orders-the-gap-at-every-noise-level.png)
 
 The abar 0.5 line matches step 6 to four decimals. The gap is zero only with no noise, and it grows to 0.5 at pure noise.
 
@@ -394,7 +394,7 @@ Each column comes from the two variance formulas above. Route B runs smoothly fr
 
 The paper's Figure 2 shows the same two samplers on two-dimensional pairs:
 
-![The paper's Figure 2: a ring of eight blobs times a vertical bar should give two blobs; reverse diffusion gives a ring, HMC gives the two blobs. Bottom row: two columns of three blobs added should give six; reverse diffusion smears them into three bars, HMC gives six|900](../references/two-orders-paper-figure-2-product-and-mixture-toys.png)
+![The paper's Figure 2: a ring of eight blobs times a vertical bar should give two blobs; reverse diffusion gives a ring, HMC gives the two blobs. Bottom row: two columns of three blobs added should give six; reverse diffusion smears them into three bars, HMC gives six|900](references/two-orders-paper-figure-2-product-and-mixture-toys.png)
 
 > **Figure 2.** **An illustration of product and mixture compositional models, and the improved sampling performance of MCMC in both cases.** Left to right: Component distributions, ground truth composed distribution, reverse diffusion samples, HMC samples. Top: product, bottom: mixture. Reverse diffusion fails to sample from composed models.
 >
@@ -406,11 +406,11 @@ The walk redrew the top row with exact scores in place of trained networks, 5,00
 
 The bottom row is a mixture, where the noising order does not matter ([[More Runs Of The Two Orders#A mixture against a product]]: $2.8 \times 10^{-16}$), and reverse diffusion still smears it. With exact scores the mixture's noised curves are one forward sequence, so the plain reverse process would be the right sampler, and the bottom row's failure has to come from how the two trained models were combined. The paper gives no cause: its appendix C.3 lists "products, tempering, and guidance" as the operators that do not commute with noising and leaves the mixture out, while the caption says reverse diffusion "fails to sample from composed models" of both rows. *Derived* for the commuting; *cited* for the caption and C.3, as the journey's read-ahead quotes them at chunk 36. A mixture's score needs each model's height as well as its slope, and the paper builds it from energy-parameterised models, assuming "this ratio [of normalizers] is 1"; [[The Energy Parameterisation#How the energy works]] and [[Product, Mixture And Negation]] work that out on this pair. No released code builds this row. *Cited:* section 3, the mixture paragraph.
 
-![The blur passing through a mixture and not through a product|800](../assets/two-orders-the-mechanism.webp)
+![The blur passing through a mixture and not through a product|800](assets/two-orders-the-mechanism.webp)
 
 *The mechanism, the blur passing through a mixture and not through a product.*
 
-![The deep-dive sheet composing the form, the mechanism and the run of closed_form.py|800](../assets/two-orders-deep-dive-sheet.webp)
+![The deep-dive sheet composing the form, the mechanism and the run of closed_form.py|800](assets/two-orders-deep-dive-sheet.webp)
 
 *The deep-dive sheet composing the form, the mechanism and the run of `closed_form.py`.*
 

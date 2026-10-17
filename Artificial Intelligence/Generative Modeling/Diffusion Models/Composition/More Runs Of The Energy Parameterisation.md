@@ -54,7 +54,7 @@ print(f"accept probability: min(1, exp({(d_f + d_k)[0]:.6f})) = {min(1.0, float(
 
 You should see:
 
-![One proposal from 1.5 lands at 1.161107; the height rises by 1.719645, the move's asymmetry costs 1.440203, and the proposal is kept with probability 1|600](../assets/energy-one-proposal-by-hand.png)
+![One proposal from 1.5 lands at 1.161107; the height rises by 1.719645, the move's asymmetry costs 1.440203, and the proposal is kept with probability 1|600](assets/energy-one-proposal-by-hand.png)
 
 ### Reading one_proposal.py
 
@@ -95,7 +95,7 @@ print(f"slope of the true mixture's log, difference quotient: {((np.log(mix(x + 
 
 You should see:
 
-![The mixture's slope at 0 is -0.261437 from the true heights and by difference quotient; dropping the normalisers gives -0.073834 and fixed half weights give -0.375000|800](../assets/energy-a-mixture-needs-the-heights.png)
+![The mixture's slope at 0 is -0.261437 from the true heights and by difference quotient; dropping the normalisers gives -0.073834 and fixed half weights give -0.375000|800](assets/energy-a-mixture-needs-the-heights.png)
 
 Only the true heights give the true slope. The two slopes are fixed numbers, -2 and 1.25; what changes the answer is how much weight each gets, and the weight is a height.
 
@@ -155,7 +155,7 @@ print("the product: variance 0.3077")
 
 You should see:
 
-![Unadjusted Langevin follows the closed form to step 0.5, reaches 12.4 at 0.6 and runs away past 0.615; with the accept step every row stays near 0.308, and the share accepted falls from 0.9987 to 0.3779|900](../assets/energy-step-size-and-the-accept-step.png)
+![Unadjusted Langevin follows the closed form to step 0.5, reaches 12.4 at 0.6 and runs away past 0.615; with the accept step every row stays near 0.308, and the share accepted falls from 0.9987 to 0.3779|900](assets/energy-step-size-and-the-accept-step.png)
 
 Without the accept step the width follows the closed form up to step 0.6 and runs away beyond 0.615. With it, every row ends within 0.0022 of the product's 0.3077, inside the sampling tolerance of 0.0041, and the only thing the step size changes is how many proposals are kept.
 
@@ -210,7 +210,7 @@ print(f"the target's own variance: {(g ** 2 * p).sum() / p.sum():.4f}")
 
 You should see:
 
-![Unadjusted at step 0.3, 99003 of 100000 chains fly off; with the accept step at 0.5 none do, 1317 never move, and the overall variance is 0.7771 against the target's 0.6760|800](../assets/energy-light-tails-without-and-with-the-accept-step.png)
+![Unadjusted at step 0.3, 99003 of 100000 chains fly off; with the accept step at 0.5 none do, 1317 never move, and the overall variance is 0.7771 against the target's 0.6760|800](assets/energy-light-tails-without-and-with-the-accept-step.png)
 
 Unadjusted Langevin loses one chain in 100,000 at step 0.1 and 99,003 at step 0.3. With the accept step at 0.5 none fly off. 1,317 chains had every proposal rejected in 200 steps and sit where they started, which leaves the overall variance at 0.7771. Their starting points all lie between 2.41 and 4.73 from 0 (`checks/ula_light_tails.out`, the same seed). The chains that moved have 0.6804 against the target's 0.6760.
 
@@ -302,7 +302,7 @@ print(f"the true product's own LL: {-0.5 * np.log(2 * np.pi * np.e * VP):.4f}")
 
 You should see:
 
-![Reverse scores LL -0.6802, above the true product's own -0.8296; ULA at MALA's step 0.6 ends at variance 12.1045; MALA's variance gap is 0.0001|900](../assets/energy-table-1-on-the-pair.png)
+![Reverse scores LL -0.6802, above the true product's own -0.8296; ULA at MALA's step 0.6 ends at variance 12.1045; MALA's variance gap is 0.0001|900](assets/energy-table-1-on-the-pair.png)
 
 By the variance gap the adjusted samplers win: MALA 0.0001, HMC 0.0012, against ULA at a small step 0.0047 and the reverse process 0.0974. By LL the reverse process looks best of all, which is wrong; [[Step Size And The Accept Step]] works out why.
 

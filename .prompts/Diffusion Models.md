@@ -214,7 +214,7 @@ The form, the mechanism and the deep-dive sheet for [[Composing Models With A Ba
 Navigation: ⬅️ [Subject lane: Composing models with a background](#subject-lane-composing-models-with-a-background) | 📋 [TOC](#table-of-contents) | [Prompt 5 (Subject): Composition, the mechanism](#prompt-5-subject-composition-the-mechanism) ➡️
 
 [planned] 🖼️ rendered 2026-10-05 composition-the-form.webp
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/composition-the-form.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/composition-the-form.webp`
 
 Visual thesis: A two-pixel scene is a wall split into a left half and a right half; each expert puts an object in one half and repeats the wall elsewhere; the rule multiplies the experts and divides out the wall once.
 
@@ -250,7 +250,7 @@ Faithfulness note: In split the composed wall holds both objects, one per half; 
 Navigation: ⬅️ [Prompt 4 (Subject): Composition, the form](#prompt-4-subject-composition-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 6 (Subject capstone): Composition, the deep-dive sheet](#prompt-6-subject-capstone-composition-the-deep-dive-sheet) ➡️
 
 [planned] 🖼️ rendered 2026-10-05 composition-the-mechanism.webp
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/composition-the-mechanism.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/composition-the-mechanism.webp`
 
 Visual thesis: In every half where an expert equals the wall, its precision cancels the wall's and the other expert decides alone; in shared's left half neither cancels, so the two pull against each other and land on -1.5.
 
@@ -286,7 +286,7 @@ Faithfulness note: Exactly three cards show a struck cancelling pair; the shared
 Navigation: ⬅️ [Prompt 5 (Subject): Composition, the mechanism](#prompt-5-subject-composition-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: The order of multiplying and noising](#subject-lane-the-order-of-multiplying-and-noising) ➡️
 
 [planned] ⚠️ stuck: pixel check, pane 3 marked points off the note's saved figure (split composition near (-2.65, 1.9) not (-2.0, 2.0); shared composition near -2.2 not -1.5; shared experts centred near -3 and +3 not -2 and +2), after 3 revisions; cards, markers and labels correct; last attempt ~/.cache/codex-drop/obsidian/dm-comp-sheet.png
-Save as: `../Artificial Intelligence/Generative Modeling/assets/composition-deep-dive-sheet.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/composition-deep-dive-sheet.webp`
 
 Visual thesis: Dividing out the wall gives co-occurrence at (-2, 2) when each expert owns its half, and a hybrid at (-1.5, 0) when both want the same half.
 
@@ -328,7 +328,7 @@ The form, the mechanism and the deep-dive sheet for [[The Order Of Multiplying A
 Navigation: ⬅️ [Subject lane: The order of multiplying and noising](#subject-lane-the-order-of-multiplying-and-noising) | 📋 [TOC](#table-of-contents) | [Prompt 8 (Subject): The two orders, the mechanism](#prompt-8-subject-the-two-orders-the-mechanism) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 two-orders-the-form.webp
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/two-orders-the-form.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/two-orders-the-form.webp`
 
 Visual thesis: Multiplying the two experts and then noising (equation 11) gives a wider curve than noising each expert and then multiplying (equation 12), and adding the two models' scores gives only the second.
 
@@ -364,7 +364,7 @@ Faithfulness note: The upper row multiplies first and ends in green with varianc
 Navigation: ⬅️ [Prompt 7 (Subject): The two orders, the form](#prompt-7-subject-the-two-orders-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 9 (Subject capstone): The two orders, the deep-dive sheet](#prompt-9-subject-capstone-the-two-orders-the-deep-dive-sheet) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 two-orders-the-mechanism.webp
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/two-orders-the-mechanism.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/two-orders-the-mechanism.webp`
 
 Visual thesis: Noising blurs every point of a density with the same kernel, a blur passes through a sum but not through a product, so a mixture comes out the same in either order and a product does not.
 
@@ -400,7 +400,7 @@ Faithfulness note: In the mixture row the two noised curves coincide; in the pro
 Navigation: ⬅️ [Prompt 8 (Subject): The two orders, the mechanism](#prompt-8-subject-the-two-orders-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: The energy parameterisation](#subject-lane-the-energy-parameterisation) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 two-orders-deep-dive-sheet.webp
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/two-orders-deep-dive-sheet.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/two-orders-deep-dive-sheet.webp`
 
 Visual thesis: The two orders agree with no noise and part as noise grows, until the noised product is N(0, 1) while the summed-score curve is N(0, 1/2).
 
@@ -442,7 +442,7 @@ The form, the mechanism and the deep-dive sheet for [[The Energy Parameterisatio
 Navigation: ⬅️ [Subject lane: The energy parameterisation](#subject-lane-the-energy-parameterisation) | 📋 [TOC](#table-of-contents) | [Prompt 11 (Subject): The energy, the mechanism](#prompt-11-subject-the-energy-the-mechanism) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 energy-the-form.webp
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/energy-the-form.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/energy-the-form.webp`
 
 Visual thesis: An energy-parameterised network outputs one number per input; its slope, times minus the noise scale, is the usual noise estimate, and its height is what mixture weights and the accept test need.
 
@@ -478,7 +478,7 @@ Faithfulness note: The energy is a single gold number, never a vector; both teal
 Navigation: ⬅️ [Prompt 10 (Subject): The energy, the form](#prompt-10-subject-the-energy-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 12 (Subject capstone): The energy, the deep-dive sheet](#prompt-12-subject-capstone-the-energy-the-deep-dive-sheet) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 energy-the-mechanism.webp
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/energy-the-mechanism.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/energy-the-mechanism.webp`
 
 Visual thesis: The accept test compares the energy at the proposal with the energy at the start, the normaliser cancels, and with the test a step size that left Langevin 19% too wide lands on the product.
 
@@ -514,7 +514,7 @@ Faithfulness note: The upper curve is the energy f, a parabola opening downward,
 Navigation: ⬅️ [Prompt 11 (Subject): The energy, the mechanism](#prompt-11-subject-the-energy-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: The product as an intersection](#subject-lane-the-product-as-an-intersection) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 energy-deep-dive-sheet.webp
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/energy-deep-dive-sheet.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/energy-deep-dive-sheet.webp`
 
 Visual thesis: One accept-step proposal, worked by hand, reads as the energy's height change plus the move's asymmetry, and its sign decides whether the move is kept.
 
@@ -556,7 +556,7 @@ One concept picture for [[The Product As An Intersection]], a subsection of the 
 Navigation: ⬅️ [Subject lane: The product as an intersection](#subject-lane-the-product-as-an-intersection) | 📋 [TOC](#table-of-contents) | [Subject lane: Product, mixture and negation](#subject-lane-product-mixture-and-negation) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 intersection-the-concept.webp
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/intersection-the-concept.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/intersection-the-concept.webp`
 
 Visual thesis: A product of two experts peaks where both are partly tall, never where either is at its best, and when the experts do not overlap it peaks in a gap that neither believes in.
 
@@ -598,7 +598,7 @@ The form, the mechanism and the deep-dive sheet for [[Product, Mixture And Negat
 Navigation: ⬅️ [Subject lane: Product, mixture and negation](#subject-lane-product-mixture-and-negation) | 📋 [TOC](#table-of-contents) | [Prompt 15 (Subject): The three operators, the mechanism](#prompt-15-subject-the-three-operators-the-mechanism) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 three-operators-the-form.webp
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/three-operators-the-form.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/three-operators-the-form.webp`
 
 Visual thesis: Three operators combine the same two experts: the product is narrower than both, the mixture wider than both, negation moves away from the pushed expert and widens; only the mixture needs heights.
 
@@ -634,7 +634,7 @@ Faithfulness note: The green product bell is narrower and taller than both exper
 Navigation: ⬅️ [Prompt 14 (Subject): The three operators, the form](#prompt-14-subject-the-three-operators-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 16 (Subject capstone): The three operators, the deep-dive sheet](#prompt-16-subject-capstone-the-three-operators-the-deep-dive-sheet) ➡️
 
 [planned] ⚠️ stuck: pixel check, arrow lengths off scale after 3 revisions (on slope of a's own scale: violet true slope 0.34 units where the note says about 0.25, grey averaged 0.42 not 0.375, product green 0.86 not 0.75, mixture slope of b 0.59 not 0.669); head-to-tail chaining, directions, dials and labels correct; last attempt ~/.cache/codex-drop/obsidian/three-operators-the-mechanism.png
-Save as: `../Artificial Intelligence/Generative Modeling/assets/three-operators-the-mechanism.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/three-operators-the-mechanism.webp`
 
 Visual thesis: A product and a negation are built by adding scaled slopes, but a mixture's slope weights each expert's slope by its share of the height, which a slope does not carry.
 
@@ -670,7 +670,7 @@ Faithfulness note: Arrow lengths are to scale: the product's green arrow is thre
 Navigation: ⬅️ [Prompt 15 (Subject): The three operators, the mechanism](#prompt-15-subject-the-three-operators-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: Annealed MCMC and the step size](#subject-lane-annealed-mcmc-and-the-step-size) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 three-operators-deep-dive-sheet.webp
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/three-operators-deep-dive-sheet.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/three-operators-deep-dive-sheet.webp`
 
 Visual thesis: One sheet composing the three operators' form, the slope mechanism and the mixture run, so a reader sees why an OR needs heights.
 
@@ -790,7 +790,7 @@ Three pictures for [[What An Expert Learns From Its Training Set]]. Lane colours
 Navigation: ⬅️ [Subject lane: What an expert learns from its training set](#subject-lane-what-an-expert-learns-from-its-training-set) | 📋 [TOC](#table-of-contents) | [Prompt 20 (Subject): The training set, the mechanism](#prompt-20-subject-the-training-set-the-mechanism) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 expert-and-labels-the-form.webp
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/expert-and-labels-the-form.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/expert-and-labels-the-form.webp`
 
 Visual thesis: One training set feeds three readers; the loss reads only the points, while the conditioning rule and the classifier also read the gold label tags, so only they can be changed by relabelling.
 
@@ -826,7 +826,7 @@ Faithfulness note: The gold label tag reaches the conditioning rule and the clas
 Navigation: ⬅️ [Prompt 19 (Subject): The training set, the form](#prompt-19-subject-the-training-set-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 21 (Subject capstone): The training set, the deep-dive sheet](#prompt-21-subject-capstone-the-training-set-the-deep-dive-sheet) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 expert-and-labels-the-mechanism.webp
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/expert-and-labels-the-mechanism.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/expert-and-labels-the-mechanism.webp`
 
 Visual thesis: The same three points under two labellings give the same expert A, but under "exactly A" honest labelling removes the A-and-B point from condition A, and the classifier learns 0 or 1 for B in the top-left from the labels alone.
 
@@ -862,7 +862,7 @@ Faithfulness note: The dots sit at their coordinates to scale; only the top-left
 Navigation: ⬅️ [Prompt 20 (Subject): The training set, the mechanism](#prompt-20-subject-the-training-set-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: Kinds of composition](#subject-lane-kinds-of-composition) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 expert-and-labels-the-deep-dive.webp
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/expert-and-labels-the-deep-dive.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/expert-and-labels-the-deep-dive.webp`
 
 Visual thesis: The form, the mechanism and the run on one sheet: one training set, three readers, and the four expected fields that show only the readers of labels change.
 
@@ -904,7 +904,7 @@ One concept picture for [[Kinds Of Composition]], a subsection of the compositio
 Navigation: ⬅️ [Subject lane: Kinds of composition](#subject-lane-kinds-of-composition) | 📋 [TOC](#table-of-contents) | [Subject lane: When neither training set holds A and B](#subject-lane-when-neither-training-set-holds-a-and-b) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 kinds-of-composition-the-concept.webp
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/kinds-of-composition-the-concept.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/kinds-of-composition-the-concept.webp`
 
 Visual thesis: Three kinds of composition differ in which pixels each expert scores: separate pixels for co-occurrence, the same pixels for intersection, and the same pixels plus a change neither expert holds for interaction; each fails its own way.
 
@@ -946,7 +946,7 @@ One concept picture for [[When Neither Training Set Holds A And B]], a subsectio
 Navigation: ⬅️ [Subject lane: When neither training set holds A and B](#subject-lane-when-neither-training-set-holds-a-and-b) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
 
 [planned] 🖼️ rendered 2026-10-15 support-the-concept.webp
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/support-the-concept.webp`
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/support-the-concept.webp`
 
 Visual thesis: A product of two experts lives only where both experts have density, so when neither training set holds A and B the product cannot land there and slides to the nearest edge of the two supports instead.
 

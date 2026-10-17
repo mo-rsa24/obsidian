@@ -71,7 +71,7 @@ the paper's f:   f_theta(x, t) = -||s_theta(x, t)||^2, with s_theta an ordinary 
 
 The mixture line needs each $Z_i$, or at least their ratio. The accept line does not, because both heights belong to the same target and its $Z$ cancels.
 
-![One network giving one number whose slope is the noise estimate and whose height feeds the mixture weights and the accept test|800](../assets/energy-the-form.webp)
+![One network giving one number whose slope is the noise estimate and whose height feeds the mixture weights and the accept test|800](assets/energy-the-form.webp)
 
 *The form, one network giving one number whose slope is the noise estimate and whose height feeds the mixture weights and the accept test.*
 
@@ -156,7 +156,7 @@ print("noise estimate eps = -sigma grad f:", (-sigma * slope).round(6))
 
 You should see:
 
-![The energy gives one number per point, shape (3,); the score one per coordinate, shape (3, 1); the slope of f matches the score; eps at 1.5 is 2.08088|800](../assets/energy-one-number-per-point-and-its-slope.png)
+![The energy gives one number per point, shape (3,); the score one per coordinate, shape (3, 1); the slope of f matches the score; eps at 1.5 is 2.08088|800](assets/energy-one-number-per-point-and-its-slope.png)
 
 The slope of $f$, measured by nudging $x$, equals the score to six decimals, and minus $\sigma_t$ times it is the noise a network would predict. The energy's shape is `(3,)` where the score's is `(3, 1)`: one number per point against one per coordinate. For a 3 by 64 by 64 image the score has 12,288 numbers and the energy still has one.
 
@@ -184,7 +184,7 @@ print(f"the product:                          mean -0.2308, variance {1 / P:.4f}
 
 You should see:
 
-![Langevin without an accept step at step 0.1 ends at variance 0.3671, where the closed form says 0.3674, against the product's 0.3077|800](../assets/energy-langevin-without-the-accept-step.png)
+![Langevin without an accept step at step 0.1 ends at variance 0.3671, where the closed form says 0.3674, against the product's 0.3077|800](assets/energy-langevin-without-the-accept-step.png)
 
 The chains settle 19.4% wider than the product. More steps will not help: 0.3674 is where this step size settles, derived in [[#How the energy works]].
 
@@ -223,7 +223,7 @@ if __name__ == "__main__":
 
 You should see:
 
-![Langevin with the accept step at step 0.1 ends at variance 0.3071 against the product's 0.3077, with 95.8% of proposals accepted|800](../assets/energy-langevin-with-the-accept-step.png)
+![Langevin with the accept step at step 0.1 ends at variance 0.3071 against the product's 0.3077, with 95.8% of proposals accepted|800](assets/energy-langevin-with-the-accept-step.png)
 
 The same step size now lands within 0.0006 of the product's variance, inside the 0.0041 that sampling 100,000 chains allows. The line `log_a = energy(prop) - energy(x) + ...` is the only place the energy is used, and it is the line two score models could not write.
 
@@ -235,7 +235,7 @@ The same step size now lands within 0.0006 of the product's variance, inside the
 
 You should see:
 
-![Langevin without an accept step at step 0.01 ends at variance 0.3134, where the closed form says 0.3128, against the product's 0.3077|800](../assets/energy-langevin-with-a-ten-times-smaller-step.png)
+![Langevin without an accept step at step 0.01 ends at variance 0.3134, where the closed form says 0.3128, against the product's 0.3077|800](assets/energy-langevin-with-a-ten-times-smaller-step.png)
 
 The error falls from 19.4% to 1.7%, and never to zero. Each step moves a tenth as far, so the chain needs about ten times as many steps to travel the same distance: an offset from the centre shrinks by a factor $e$ in about $1/(\text{step} \times 3.25)$ steps, 3.1 steps at 0.1 and 30.8 at 0.01. *Derived* in [[#How the energy works]].
 

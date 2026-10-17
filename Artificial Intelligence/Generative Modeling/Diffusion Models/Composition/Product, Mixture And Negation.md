@@ -67,7 +67,7 @@ negation  q_neg  ~ q_0 / q_1^alpha           score: s_0 - alpha * s_1           
 guidance  p(x | y) ~ p(x) * p(y | x)         score: s_x + s_(y|x)                 a product of two experts
 ```
 
-![The three operators as three cards, each with two expert bells and the result bell, and what each needs (slopes or heights)|800](../assets/three-operators-the-form.webp)
+![The three operators as three cards, each with two expert bells and the result bell, and what each needs (slopes or heights)|800](assets/three-operators-the-form.webp)
 
 *The form, the three operators as three cards, each with two expert bells and the result bell, and what each needs (slopes or heights).*
 
@@ -154,7 +154,7 @@ for abar in (1.0, 0.5):
 
 You should see:
 
-![Equation 8 at 0 gives 0.049552 over Z = 0.075126, which is 0.659582; the product's variance is 0.307692; the added scores equal the product's slope with no noise, -5.625, and differ with half the signal left, -3.823802 against -2.543685|900](../assets/three-operators-the-product-and-guidance.png)
+![Equation 8 at 0 gives 0.049552 over Z = 0.075126, which is 0.659582; the product's variance is 0.307692; the added scores equal the product's slope with no noise, -5.625, and differ with half the signal left, -3.823802 against -2.543685|900](assets/three-operators-the-product-and-guidance.png)
 
 The product is narrower than both experts, 0.308 against 0.5 and 0.8: it is stricter than either alone. With no noise, guidance's added scores are exactly the product's slope. With half the signal left they are not, which is [[The Order Of Multiplying And Noising]] again, because guidance is a product.
 
@@ -187,7 +187,7 @@ for c in (2.0, 0.5):
 
 You should see:
 
-![The mixture has area 1 and variance 1.65; at 0 the shares are 0.465 and 0.535 and the true slope is -0.261437, against -0.75 for added scores and -0.375 for averaged ones; with expert b's height doubled the mean moves to +0.333|850](../assets/three-operators-the-mixture-and-its-slope.png)
+![The mixture has area 1 and variance 1.65; at 0 the shares are 0.465 and 0.535 and the true slope is -0.261437, against -0.75 for added scores and -0.375 for averaged ones; with expert b's height doubled the mean moves to +0.333|850](assets/three-operators-the-mixture-and-its-slope.png)
 
 The mixture is wider than both experts, 1.65 against 0.5 and 0.8, where the product was narrower. Two ways of building it from scores alone both miss its slope: adding gives the product's $-0.75$, and fixed halves give $-0.375$. Only the shares, which come from the heights, give $-0.261$. And a height known only up to a factor is not enough: doubling expert b's height moves the mixture's centre from 0 to 0.333.
 
@@ -217,7 +217,7 @@ print(f"abar 0.5: negate then noise variance {v1:.6f}; noise then negate varianc
 
 You should see:
 
-![a over the square root of b has mean -1.909 and variance 0.727 with precision 1.375; its slope at 1.5 is -4.6875 from scores alone; b over a has precision -0.75; the notebook's weights give variance 0.449; with half the signal left, negate then noise gives 0.864 and noise then negate 1.286|1000](../assets/three-operators-negation.png)
+![a over the square root of b has mean -1.909 and variance 0.727 with precision 1.375; its slope at 1.5 is -4.6875 from scores alone; b over a has precision -0.75; the notebook's weights give variance 0.449; with half the signal left, negate then noise gives 0.864 and noise then negate 1.286|1000](assets/three-operators-negation.png)
 
 Dividing by $\sqrt{b}$ moves expert a from $-1$ to $-1.909$, away from b, and widens it from 0.5 to 0.727. Its slope is expert a's score minus half of b's, so scores suffice. Swap the roles and divide b by all of a, and the precision is $-0.75$: the result grows without limit and is no density. With noise, the order matters the other way round from the product: noising first makes the negation too wide, 1.286 against 0.864, where it made the product too narrow.
 
@@ -352,7 +352,7 @@ Navigation: ⬅️ [[#Other ways to combine models]] | 📋 [[#Table of contents
 
 Which operator a prompt asks for decides whether a score model can serve it at all. AND and NOT can, OR cannot. "A cat or a dog" from a mixture gives one or the other per image, never both in one image, while "a cat and a dog" from a product gives whatever lies in both experts' high regions. If the cat expert is high only on images that are entirely cat, that shared region holds only blends, which is the hybrid of [[Composing Models With A Background#Why composition matters]]. *Stated:* the link between what an expert's high region contains and a hybrid is the writer's reading of the two sections together.
 
-![The paper's Figure 6: five columns of two generated horses, labelled "A horse", then AND "Grass plains", AND "A sandy beach", AND ("A sandy beach" OR "Grass plains"), and that AND NOT "Sunny"|900](../references/three-operators-paper-figure-6-horses.png)
+![The paper's Figure 6: five columns of two generated horses, labelled "A horse", then AND "Grass plains", AND "A sandy beach", AND ("A sandy beach" OR "Grass plains"), and that AND NOT "Sunny"|900](references/three-operators-paper-figure-6-horses.png)
 
 > **Figure 6.** Energy based parameterization enables high-resolution compositional text-to-image synthesis.
 >
@@ -362,7 +362,7 @@ The labels use all three operators nested: AND a product, OR a mixture, NOT a ne
 
 *🖼️ Diagram wanted: the mechanism, slopes adding for the product and negation and height-weighted for the mixture. Prompt 15 in the same file.*
 
-![The deep-dive sheet composing the form, the mechanism and the three runs|800](../assets/three-operators-deep-dive-sheet.webp)
+![The deep-dive sheet composing the form, the mechanism and the three runs|800](assets/three-operators-deep-dive-sheet.webp)
 
 *The deep-dive sheet composing the form, the mechanism and the three runs.*
 

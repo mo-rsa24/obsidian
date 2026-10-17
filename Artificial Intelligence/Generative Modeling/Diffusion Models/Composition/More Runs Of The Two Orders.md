@@ -65,7 +65,7 @@ print(f"product, largest difference in height between the two orders: {np.abs(a 
 
 You should see:
 
-![A mixture's two orders differ by 2.8e-16 in height, a product's by 0.14|800](../assets/two-orders-a-mixture-commutes-a-product-does-not.png)
+![A mixture's two orders differ by 2.8e-16 in height, a product's by 0.14|800](assets/two-orders-a-mixture-commutes-a-product-does-not.png)
 
 For the mixture the difference is rounding error. For the product it is 0.14 in height, on curves whose peaks are about 0.5 to 0.6 high.
 
@@ -100,7 +100,7 @@ print(f"the product it was meant to reach:     mean {m:.4f}, variance {v:.4f}")
 
 You should see:
 
-![Annealed Langevin on the summed score ends at variance 0.3124, against the product's 0.3077|800](../assets/two-orders-annealed-langevin-on-the-summed-score.png)
+![Annealed Langevin on the summed score ends at variance 0.3124, against the product's 0.3077|800](assets/two-orders-annealed-langevin-on-the-summed-score.png)
 
 The same scores as [[The Order Of Multiplying And Noising#Try the two orders yourself|step 5]], a different sampler, and the cloud lands within 1.5% of the product's variance. It costs 1,010 score evaluations per point against the reverse process's 100.
 
@@ -152,7 +152,7 @@ print("targets: the product -0.230769  0.307692;  expert a -1.000000  0.500000")
 
 You should see:
 
-![With expert a alone the variance falls to 0.500043 at 10,000 levels; with the summed score it settles at 0.207390, far from the product's 0.307692|800](../assets/two-orders-more-levels-do-not-help.png)
+![With expert a alone the variance falls to 0.500043 at 10,000 levels; with the summed score it settles at 0.207390, far from the product's 0.307692|800](assets/two-orders-more-levels-do-not-help.png)
 
 On expert a alone the error shrinks as the levels grow, from 0.545 at 10 levels to 0.500043 at 10,000. On the summed score the variance settles at 0.2074 and stays there, 32.6% below the product. The loop is fine; the curves it follows are the wrong ones.
 
@@ -193,7 +193,7 @@ print(f"mean gap, A minus B, largest at t = {t_m}: {g_m:+.6f};  variance gap lar
 
 You should see:
 
-![Route A's variance runs 0.3077 to 1.0000 and route B's 0.3077 to 0.5000; the mean gap peaks at t = 56 and the variance gap at t = 100|900](../assets/two-orders-route-a-and-route-b-level-by-level.png)
+![Route A's variance runs 0.3077 to 1.0000 and route B's 0.3077 to 0.5000; the mean gap peaks at t = 56 and the variance gap at t = 100|900](assets/two-orders-route-a-and-route-b-level-by-level.png)
 
 The two routes start as the same product at $t = 0$. Route B runs smoothly to $\mathcal{N}(0, 1/2)$, narrower than route A at every level past $t = 0$. The centres are furthest apart at $t = 56$, on the noisy side of the middle; a count that starts from the noisiest level puts the same peak at 44.
 
@@ -245,7 +245,7 @@ print("the product: mean -0.230769, variance 0.307692")
 
 You should see:
 
-![30 steps per level bring the mean to -0.230515 while the variance stays at 0.312800, beside 0.312775 where a chain at step 0.01 settles; step 0.1 ends at 0.367394|900](../assets/two-orders-steps-per-level-against-step-size.png)
+![30 steps per level bring the mean to -0.230515 while the variance stays at 0.312800, beside 0.312775 where a chain at step 0.01 settles; step 0.1 ends at 0.367394|900](assets/two-orders-steps-per-level-against-step-size.png)
 
 More steps per level bring the mean onto the product's: $-0.148$ with one step, $-0.2305$ with 30. The variance stops falling at about 0.3128, where an unadjusted chain at step 0.01 settles on the clean product whatever the number of steps. The step size sets the width: 10 steps of 0.1 end at 0.367394, exactly that chain's settled width at step 0.1. A step of 0.001 is too short to travel, and the mean stays at $-0.147$.
 

@@ -69,7 +69,7 @@ classifier p(B | x)  ->  share of training points near x labelled B        what 
 guided score  =  grad log p(x | A)  +  w * grad log p(B | x)                points toward B as labelled
 ```
 
-![One training set flowing into three readers (the loss, the conditioning rule, the classifier) with the label reaching only the last two|800](../assets/expert-and-labels-the-form.webp)
+![One training set flowing into three readers (the loss, the conditioning rule, the classifier) with the label reaching only the last two|800](assets/expert-and-labels-the-form.webp)
 
 *The form, one training set flowing into three readers (the loss, the conditioning rule, the classifier) with the label reaching only the last two.*
 
@@ -169,7 +169,7 @@ Navigation: ⬅️ [[#Reading the labels output]] | 📋 [[#Table of contents|TO
 
 The walk called step 5 a shortcut. Shortcut learning names a decision rule that does well on the training benchmark and fails to transfer, such as a classifier leaning on a feature that travels with the label. *Cited:* Geirhos et al. 2020, abstract. Here the classifier learns the labels' own mistake, which the field calls label noise, or positive-unlabelled data when only some positives carry the label. *Stated:* those two names are the writer's, not checked against a source.
 
-![The three points in their quadrants under set 1 and set 2, with what each reader learns|800](../assets/expert-and-labels-the-mechanism.webp)
+![The three points in their quadrants under set 1 and set 2, with what each reader learns|800](assets/expert-and-labels-the-mechanism.webp)
 
 *The mechanism, the three points in their quadrants under set 1 and set 2, with what each reader learns.*
 
@@ -187,7 +187,7 @@ Navigation: ⬅️ [[#Other ways to keep labels from steering the result]] | �
 
 The repaired claim: **a density expert learns its training set's density, and labels matter only where something reads them.** Before blaming a composition for missing the A-and-B region, count the A-and-B points each factor was trained on under the conditioning rule actually in use, and check whether a classifier in the loop was trained on labels that miss B.
 
-![The deep-dive sheet composing the form, the mechanism and the expected output|800](../assets/expert-and-labels-the-deep-dive.webp)
+![The deep-dive sheet composing the form, the mechanism and the expected output|800](assets/expert-and-labels-the-deep-dive.webp)
 
 *The deep-dive sheet composing the form, the mechanism and the expected output.*
 

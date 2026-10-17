@@ -85,11 +85,11 @@ Artificial Intelligence, Generative Modeling, Diffusion Models, Composition. Nee
    far: there, b is 1.2e-07 against its own peak 0.446, 2.69e-05%
    ```
 
-   ![The run's six lines, with the product's peak and each expert's share of its own peak marked 1 to 6|800](../assets/intersection-heights-at-the-product-peak.png)
+   ![The run's six lines, with the product's peak and each expert's share of its own peak marked 1 to 6|800](assets/intersection-heights-at-the-product-peak.png)
 
    and the saved `intersection.png`:
 
-   ![Left, the near pair: the green product peaks at -0.23 between the blue and orange experts, where both are partly tall. Right, the far pair: the green product peaks at -0.92 in the gap, where both experts are flat|900](../assets/intersection-the-product-peaks-between-the-experts.png)
+   ![Left, the near pair: the green product peaks at -0.23 between the blue and orange experts, where both are partly tall. Right, the far pair: the green product peaks at -0.92 in the gap, where both experts are flat|900](assets/intersection-the-product-peaks-between-the-experts.png)
 
 5. Clean up, and check the folder is gone:
 
@@ -127,7 +127,7 @@ Moving the experts apart never moves the peak away from the weighted average, an
 
 **Why the intersection matters.** This is the one-dimensional picture of a hybrid. The background-divided toy above lands on $-1.5$ in shared's left half for the same reason: a product lands on points that are partly like each concept. The plain product has no background to divide out, so it shows the compromise with nothing else in the way.
 
-![The product as an intersection, two experts and their product with each expert's share at the product's peak|800](../assets/intersection-the-concept.webp)
+![The product as an intersection, two experts and their product with each expert's share at the product's peak|800](assets/intersection-the-concept.webp)
 
 *The product as an intersection, two experts and their product with each expert's share at the product's peak.*
 
