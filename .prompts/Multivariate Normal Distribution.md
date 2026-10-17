@@ -1,6 +1,6 @@
 # Multivariate Normal Distribution: illustrated map
 
-The drawn pictures for the vault note [[Multivariate Normal Distribution]], sections [[Multivariate Normal Distribution#Diagonal covariance]], [[Multivariate Normal Distribution#Sampling a diagonal Gaussian]] and [[Multivariate Normal Distribution#Products and quotients of diagonal Gaussians]]. `11 prompts · 6 rendered · 2 stuck · 3 waiting`
+The drawn pictures for the notes in the vault's [[Multivariate Normal Distribution]] folder, sections [[Diagonal Covariance]], [[Sampling A Diagonal Gaussian]] and [[Products And Quotients Of Diagonal Gaussians]]. `11 prompts · 6 rendered · 2 stuck · 3 waiting`
 
 ## Table of contents
 
@@ -81,7 +81,7 @@ The form, the mechanism, then the deep-dive sheet that composes them with the ru
 Navigation: ⬅️ [Subject lane](#subject-lane) | 📋 [TOC](#table-of-contents) | [Prompt 2 (Subject): The mechanism](#prompt-2-subject-the-mechanism) ➡️
 
 [planned] 🖼️ rendered 2026-10-04 diagonal-gaussian-the-form.webp
-Save as: `../Mathematics/Statistics/Distributions/assets/diagonal-gaussian-the-form.webp`
+Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/diagonal-gaussian-the-form.webp`
 
 Visual thesis: The mean array places the centre; the variance array determines the squared spreads along the two coordinate axes.
 
@@ -121,7 +121,7 @@ Faithfulness note: The oval must be taller than wide by a factor of two (standar
 Navigation: ⬅️ [Prompt 1 (Subject): The form](#prompt-1-subject-the-form) | 📋 [TOC](#table-of-contents) | [Subject capstone: The deep-dive sheet](#subject-capstone-the-deep-dive-sheet) ➡️
 
 [planned] 🖼️ rendered 2026-10-04 diagonal-gaussian-the-mechanism.webp
-Save as: `../Mathematics/Statistics/Distributions/assets/diagonal-gaussian-the-mechanism.webp`
+Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/diagonal-gaussian-the-mechanism.webp`
 
 Visual thesis: For a diagonal Gaussian, the coordinates are independent, so multiplying their marginal density heights gives the joint density height.
 
@@ -161,7 +161,7 @@ Faithfulness note: The heights are exactly 0.2420 and 0.1210 and their product 0
 Navigation: ⬅️ [Prompt 2 (Subject): The mechanism](#prompt-2-subject-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: Sampling a diagonal Gaussian](#subject-lane-sampling-a-diagonal-gaussian) ➡️
 
 [planned] 🖼️ rendered 2026-10-04 diagonal-gaussian-deep-dive-sheet.webp
-Save as: `../Mathematics/Statistics/Distributions/assets/diagonal-gaussian-deep-dive-sheet.webp`
+Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/diagonal-gaussian-deep-dive-sheet.webp`
 
 Visual thesis: Read the output field by field: the matrix and per-coordinate calculations give the same squared distance and the same joint density.
 
@@ -213,7 +213,7 @@ Faithfulness note: Every output line matches the note's captured run character f
 
 Navigation: ⬅️ [Subject capstone: The deep-dive sheet](#subject-capstone-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 3 (Subject): Sampling, the form](#prompt-3-subject-sampling-the-form) ➡️
 
-The form, the mechanism and the deep-dive sheet for [[Multivariate Normal Distribution#Sampling a diagonal Gaussian]].
+The form, the mechanism and the deep-dive sheet for [[Sampling A Diagonal Gaussian]].
 
 ### Prompt 3 (Subject): Sampling, the form
 
@@ -256,7 +256,7 @@ Faithfulness note: Panel 3's cloud is centred at (-2, 0) and twice as tall along
 Navigation: ⬅️ [Prompt 3 (Subject): Sampling, the form](#prompt-3-subject-sampling-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 5 (Subject capstone): Sampling, the deep-dive sheet](#prompt-5-subject-capstone-sampling-the-deep-dive-sheet) ➡️
 
 [planned] 🖼️ rendered 2026-10-04 sampling-the-mechanism.webp
-Save as: `../Mathematics/Statistics/Distributions/assets/sampling-the-mechanism.webp`
+Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/sampling-the-mechanism.webp`
 
 Visual thesis: Shifting a standard-normal variable by m moves its bell without changing its width, and multiplying it by s widens the bell so its variance becomes s squared; one coordinate at a time, that turns N(0, 1) into N(m, sigma^2).
 
@@ -328,14 +328,14 @@ Faithfulness note: The output lines match the note's captured run character for 
 
 Navigation: ⬅️ [Prompt 5 (Subject capstone): Sampling, the deep-dive sheet](#prompt-5-subject-capstone-sampling-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 6 (Subject): Precisions, the form](#prompt-6-subject-precisions-the-form) ➡️
 
-The form, the mechanism and the deep-dive sheet for [[Multivariate Normal Distribution#Products and quotients of diagonal Gaussians]].
+The form, the mechanism and the deep-dive sheet for [[Products And Quotients Of Diagonal Gaussians]].
 
 ### Prompt 6 (Subject): Precisions, the form
 
 Navigation: ⬅️ [Subject lane: Products and quotients of diagonal Gaussians](#subject-lane-products-and-quotients-of-diagonal-gaussians) | 📋 [TOC](#table-of-contents) | [Prompt 7 (Subject): Precisions, the mechanism](#prompt-7-subject-precisions-the-mechanism) ➡️
 
 [planned] 🖼️ rendered 2026-10-04 products-the-form.webp
-Save as: `../Mathematics/Statistics/Distributions/assets/products-the-form.webp`
+Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/products-the-form.webp`
 
 Visual thesis: Composing Gaussians adds the experts' precisions and subtracts the background's, and the composed mean is each mean weighted by its precision, summed the same way, over the composed precision.
 
@@ -371,7 +371,7 @@ Faithfulness note: Expert 1's bar is four times expert 2's; the background bar h
 Navigation: ⬅️ [Prompt 6 (Subject): Precisions, the form](#prompt-6-subject-precisions-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 8 (Subject capstone): Precisions, the deep-dive sheet](#prompt-8-subject-capstone-precisions-the-deep-dive-sheet) ➡️
 
 [planned] 🖼️ rendered 2026-10-04 products-the-mechanism.webp
-Save as: `../Mathematics/Statistics/Distributions/assets/products-the-mechanism.webp`
+Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/products-the-mechanism.webp`
 
 Visual thesis: In log space, multiplying and dividing densities adds and subtracts parabolas, and the composed parabola's vertex is the composed mean while its curvature is the composed precision.
 
@@ -407,7 +407,7 @@ Faithfulness note: The green parabola's vertex is at -1.5 and its curvature equa
 Navigation: ⬅️ [Prompt 7 (Subject): Precisions, the mechanism](#prompt-7-subject-precisions-the-mechanism) | 📋 [TOC](#table-of-contents) | [Prompt 9 (Subject): The area a product loses](#prompt-9-subject-the-area-a-product-loses) ➡️
 
 [planned] ⏳ not rendered
-Save as: `../Mathematics/Statistics/Distributions/assets/products-deep-dive-sheet.webp`
+Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/products-deep-dive-sheet.webp`
 
 Visual thesis: The composed precision, the weighted sum, the mean and the variance come from adding and subtracting, and the run shows the background moving split to (-2, 2) and shared to (-1.5, 0).
 

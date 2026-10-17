@@ -45,7 +45,7 @@ Navigation: 📋 [[#Table of contents|TOC]] | [[#The one-dimensional pair]] ➡�
 
 **Score.** The slope of the log of a density, $\nabla_x \log q(x)$. A diffusion model's network estimates it at every noise level. For $\mathcal{N}(m, v)$ it is $-(x - m)/v$, because [the log](../../../../Mathematics/references/textbooks/algebra/algebra-handbook.pdf#page=110) of the density is $-(x - m)^2 / (2v)$ plus a constant. *Derived.*
 
-**Summed score.** Two models' scores added at the same point and the same level. The log of a product is the sum of the logs, so the summed score is the score of the product of the two *noised* experts. *Derived.* The product's missing area does not enter it: on this pair the clean product has area 0.075126, and dividing by that moves the log by a constant, which has slope 0. See [[Multivariate Normal Distribution#The area a product loses]].
+**Summed score.** Two models' scores added at the same point and the same level. The log of a product is the sum of the logs, so the summed score is the score of the product of the two *noised* experts. *Derived.* The product's missing area does not enter it: on this pair the clean product has area 0.075126, and dividing by that moves the log by a constant, which has slope 0. See [[The Area A Product Loses]].
 
 **Multiply, then noise**, equation 11. Multiply the clean experts, then push the product through the forward process to level $\bar\alpha$. This is the curve a model trained on the product's own data would learn, and the one the reverse process assumes it is walking down.
 
@@ -65,7 +65,7 @@ Every number below is on two one-dimensional experts, chosen unequal so the prod
 | expert b | $1$ | $0.8$ |
 | their product, no noise | $-0.2308$ | $0.3077$ |
 
-The product is narrower than either expert because precisions add: $1/0.5 + 1/0.8 = 3.25$, and $1/3.25 = 0.3077$. See [[Multivariate Normal Distribution#Products and quotients of diagonal Gaussians]].
+The product is narrower than either expert because precisions add: $1/0.5 + 1/0.8 = 3.25$, and $1/3.25 = 0.3077$. See [[Products And Quotients Of Diagonal Gaussians]].
 
 ## When to reach for the two orders
 
@@ -101,7 +101,7 @@ Navigation: ⬅️ [[#The form of the two orders]] | 📋 [[#Table of contents|T
 
 You should see a version number. This run printed `2.4.6`.
 
-**2. When it is missing.** [[Multivariate Normal Distribution#Try sampling yourself]] steps 1 and 2 say how to make the environment, or how to use `uv run` instead.
+**2. When it is missing.** [[Sampling A Diagonal Gaussian#Try sampling yourself]] steps 1 and 2 say how to make the environment, or how to use `uv run` instead.
 
 **3. Make something to act on.** A new empty folder, and the two experts with the three pieces every script below uses: the forward jump from [[The Forward Process]], the product rule, and the summed score. The last six lines build a 100-level cosine noise schedule for the two samplers, step 5's and [[More Runs Of The Two Orders#A sampler that reaches the product with the same summed score|the annealed run]]'s.
 

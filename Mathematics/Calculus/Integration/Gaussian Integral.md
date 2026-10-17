@@ -329,7 +329,7 @@ $$
 
 ### Why this matters
 
-Every normalising constant of a Gaussian is this area slid and stretched. The diffusion journey's plan 05 uses it for $Z_a$ and $Z_b$, and [[Multivariate Normal Distribution#The area a product loses]] needs it when the bell left after completing the square "integrates to $\sqrt{2\pi/P}$". The failure of the usual route matters too: it is the reason the exact value comes from squaring the integral into a two-dimensional volume rather than from an antiderivative.
+Every normalising constant of a Gaussian is this area slid and stretched. The diffusion journey's plan 05 uses it for $Z_a$ and $Z_b$, and [[The Area A Product Loses]] needs it when the bell left after completing the square "integrates to $\sqrt{2\pi/P}$". The failure of the usual route matters too: it is the reason the exact value comes from squaring the integral into a two-dimensional volume rather than from an antiderivative.
 
 ### Taught in, applied in
 

@@ -6,7 +6,7 @@ aliases: [composition, compositional generation, composing models]
 
 Up: [[Diffusion Models]] · ⬅️ [[The Forward Process]]
 
-Artificial Intelligence, Generative Modeling, Diffusion Models. Needs: [[The Forward Process]] for noise levels, and [[Multivariate Normal Distribution#Products and quotients of diagonal Gaussians]] for the arithmetic.
+Artificial Intelligence, Generative Modeling, Diffusion Models. Needs: [[The Forward Process]] for noise levels, and [[Products And Quotients Of Diagonal Gaussians]] for the arithmetic.
 
 **Composing diffusion models means sampling from the product of what each trained model believes, with the background they share divided out once.** These notes run from the rule itself, to the samplers that reach the product, to what each expert learns from its training set, all on small Gaussian clouds you can check by hand.
 

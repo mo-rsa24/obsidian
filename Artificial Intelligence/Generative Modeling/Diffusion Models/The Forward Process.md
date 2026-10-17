@@ -11,7 +11,7 @@ sources:
 
 Up: [[Diffusion Models]] · [[Composition]] ➡️
 
-Artificial Intelligence, Generative Modeling, Diffusion Models. Needs: [[Multivariate Normal Distribution#Sampling a diagonal Gaussian]] for drawing a cloud, and [[NumPy#Broadcasting]] for noising many levels in one line.
+Artificial Intelligence, Generative Modeling, Diffusion Models. Needs: [[Sampling A Diagonal Gaussian]] for drawing a cloud, and [[Broadcasting]] for noising many levels in one line.
 
 > [!question] Test yourself
 > [The diffusion models quiz](https://claude.ai/artifact/MyTdAaVfZW3wiqhbLKg4wu) covers this note, with the rest of the [[Diffusion Models]] folder. Your attempts are saved on the page.

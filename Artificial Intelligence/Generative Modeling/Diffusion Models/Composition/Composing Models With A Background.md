@@ -9,7 +9,7 @@ sources:
 
 Up: [[Composition]] · [[The Product As An Intersection]] ➡️
 
-Artificial Intelligence, Generative Modeling, Diffusion Models, Composition. Needs: [[The Forward Process]] for noise levels, and [[Multivariate Normal Distribution#Products and quotients of diagonal Gaussians]] for the arithmetic of composing.
+Artificial Intelligence, Generative Modeling, Diffusion Models, Composition. Needs: [[The Forward Process]] for noise levels, and [[Products And Quotients Of Diagonal Gaussians]] for the arithmetic of composing.
 
 > [!question] Test yourself
 > [The diffusion models quiz](https://claude.ai/artifact/MyTdAaVfZW3wiqhbLKg4wu) covers this note, with the rest of the [[Diffusion Models]] folder. Your attempts are saved on the page.
@@ -104,7 +104,7 @@ grad log C = sum_i grad log p_i  -  (k - 1) * grad log p_b                  the 
 for two experts:  C = p_1 * p_2 / p_b                                       one background divided out
 ```
 
-For diagonal Gaussians, `p_1 * p_2 / p_b` is computed one coordinate at a time by adding and subtracting precisions, as in [[Multivariate Normal Distribution#Products and quotients of diagonal Gaussians]].
+For diagonal Gaussians, `p_1 * p_2 / p_b` is computed one coordinate at a time by adding and subtracting precisions, as in [[Products And Quotients Of Diagonal Gaussians]].
 
 ![The two-pixel scene as a wall with an object in each half, and the rule multiplying the two experts and dividing out one wall|800](../assets/composition-the-form.webp)
 
@@ -118,7 +118,7 @@ Navigation: ⬅️ [[#The form of a composition]] | 📋 [[#Table of contents|TO
 
 **2. Make something to act on.** `toy.py` in `~/playground/sandbox/gaussian-clouds`. Its `shared` and `split` lists hold the four clouds of [[#The two-pixel picture]].
 
-**3. Look at it before.** The experts as clouds, shared beside split, are drawn in [[Multivariate Normal Distribution#Try sampling yourself]] step 7. Before plotting, the walk asked where expert 1 and expert 2 overlap. The learner predicted "blue and orange overlap more around the origin, and the origin is the centre of the overlap". The answer key's run, in [[Multivariate Normal Distribution#Try composing yourself]] step 3, puts the overlap at $(-1.2, 0)$ for shared and $(-1.6, 1.6)$ for split, with no background in the product.
+**3. Look at it before.** The experts as clouds, shared beside split, are drawn in [[Sampling A Diagonal Gaussian#Try sampling yourself]] step 7. Before plotting, the walk asked where expert 1 and expert 2 overlap. The learner predicted "blue and orange overlap more around the origin, and the origin is the centre of the overlap". The answer key's run, in [[Products And Quotients Of Diagonal Gaussians#Try composing yourself]] step 3, puts the overlap at $(-1.2, 0)$ for shared and $(-1.6, 1.6)$ for split, with no background in the product.
 
 **4. The failure, and the technique, in one picture.** Save this as `picture.py`. For each version it draws the wall in grey, expert 1 in blue and expert 2 in orange, each as the contour at 30% of its peak height. It marks the plain product $p_1 p_2$ with a purple cross and the composition $p_1 p_2 / p_b$ with a green dot and a green filled contour:
 
@@ -173,7 +173,7 @@ saved composition-split-and-shared.png
 
 On the left, split: the green dot sits at $(-2, 2)$, expert 1's left value and expert 2's right value together. That is co-occurrence. The purple cross at $(-1.6, 1.6)$ is the product with the wall left in, pulled 0.4 toward the middle on both halves. On the right, shared: the green dot sits at $(-1.5, 0)$. The left half is $-1.5$, a value neither expert wanted, so the result is a hybrid, and dividing out the wall does not rescue it.
 
-**5. Another way to get the same answer.** `compose.py` in [[Multivariate Normal Distribution#Try composing yourself]] step 5 prints the same four centres by precisions, and `grid_check.py` in step 6 there finds them without any formula.
+**5. Another way to get the same answer.** `compose.py` in [[Products And Quotients Of Diagonal Gaussians#Try composing yourself]] step 5 prints the same four centres by precisions, and `grid_check.py` in step 6 there finds them without any formula.
 
 **6. Clean up, and prove it.**
 
@@ -200,7 +200,7 @@ Navigation: ⬅️ [[#Try composing yourself]] | 📋 [[#Table of contents|TOC]]
 
 Navigation: ⬅️ [[#Reading the composition picture]] | 📋 [[#Table of contents|TOC]] | [[#Other ways to compose]] ➡️
 
-Per coordinate, with precision $P = 1/v_1 + 1/v_2 - 1/v_b$ and $B = m_1/v_1 + m_2/v_2 - m_b/v_b$, the composed mean is $B/P$ and the variance $1/P$. The derivation, step by step, is [[Multivariate Normal Distribution#How the product works]], and the formula in print is the [product of Gaussian densities](../../../../Mathematics/references/textbooks/linear-algebra/matrix-cookbook.pdf#page=42). The four halves of the toy:
+Per coordinate, with precision $P = 1/v_1 + 1/v_2 - 1/v_b$ and $B = m_1/v_1 + m_2/v_2 - m_b/v_b$, the composed mean is $B/P$ and the variance $1/P$. The derivation, step by step, is [[Products And Quotients Of Diagonal Gaussians#How the product works]], and the formula in print is the [product of Gaussian densities](../../../../Mathematics/references/textbooks/linear-algebra/matrix-cookbook.pdf#page=42). The four halves of the toy:
 
 $$
 \begin{aligned}

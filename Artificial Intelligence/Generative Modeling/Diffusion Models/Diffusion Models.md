@@ -16,7 +16,7 @@ sources:
 
 Up: [[Generative Modeling]]
 
-Artificial Intelligence, Generative Modeling. Needs: [[Multivariate Normal Distribution#Sampling a diagonal Gaussian]] for drawing a cloud, [[Multivariate Normal Distribution#Products and quotients of diagonal Gaussians]] for the arithmetic of composing, and [[NumPy#Broadcasting]] for noising many levels in one line.
+Artificial Intelligence, Generative Modeling. Needs: [[Sampling A Diagonal Gaussian]] for drawing a cloud, [[Products And Quotients Of Diagonal Gaussians]] for the arithmetic of composing, and [[Broadcasting]] for noising many levels in one line.
 
 > [!question] Test yourself
 > [The diffusion models quiz](https://claude.ai/artifact/MyTdAaVfZW3wiqhbLKg4wu) covers [[The Forward Process]], [[Composing Models With A Background]] with the paper's figures, [[Kinds Of Composition]], [[What An Expert Learns From Its Training Set]] and [[When Neither Training Set Holds A And B]], in 41 questions. Your attempts are saved on the page.
@@ -38,9 +38,9 @@ mkdir -p ~/playground/sandbox/gaussian-clouds && cd ~/playground/sandbox/gaussia
 ~/.vault-sandbox/bin/python -c "import numpy; print(numpy.__version__)"
 ```
 
-You should see a version number. This run printed `2.4.6`. If the environment is missing, [[Multivariate Normal Distribution#Try sampling yourself]] steps 1 and 2 say how to make it, or how to use `uv run` instead.
+You should see a version number. This run printed `2.4.6`. If the environment is missing, [[Sampling A Diagonal Gaussian#Try sampling yourself]] steps 1 and 2 say how to make it, or how to use `uv run` instead.
 
-Both sections use the learner's `toy.py` and `samples.py`. Save them from [[Multivariate Normal Distribution#Try sampling yourself]], steps 3 and 5, into this folder.
+Both sections use the learner's `toy.py` and `samples.py`. Save them from [[Sampling A Diagonal Gaussian#Try sampling yourself]], steps 3 and 5, into this folder.
 
 ## Notes in this folder
 

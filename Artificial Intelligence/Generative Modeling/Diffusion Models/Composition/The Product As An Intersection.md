@@ -22,7 +22,7 @@ Artificial Intelligence, Generative Modeling, Diffusion Models, Composition. Nee
 
 **Try it yourself.** The two experts are the pair in [[The Order Of Multiplying And Noising#The one-dimensional pair]], $a = \mathcal{N}(-1, 0.5)$ and $b = \mathcal{N}(1, 0.8)$, with a second pair of the same widths pulled apart to $\pm 4$.
 
-1. You need the prepared environment: `~/.vault-sandbox/bin/python -c "import numpy, matplotlib"` prints nothing when both are there. If it fails, [[Multivariate Normal Distribution#Try sampling yourself]] steps 1 and 2 say how to make it.
+1. You need the prepared environment: `~/.vault-sandbox/bin/python -c "import numpy, matplotlib"` prints nothing when both are there. If it fails, [[Sampling A Diagonal Gaussian#Try sampling yourself]] steps 1 and 2 say how to make it.
 2. Make an empty folder:
 
    ```bash
@@ -111,7 +111,7 @@ Artificial Intelligence, Generative Modeling, Diffusion Models, Composition. Nee
 | 5 | far, $a$ at the peak | `0.00759%` | expert $a$ gives this point almost no weight | shown |
 | 6 | far, $b$ at the peak | `2.69e-05%` | nor does expert $b$. After dividing by $Z$ the product is still a full-height bell, centred on a point neither expert believes in | shown |
 
-**How the intersection works.** The product's peak is the [[Multivariate Normal Distribution#How the product works|precision-weighted mean]] of the experts' means, worked there step by step:
+**How the intersection works.** The product's peak is the [[Products And Quotients Of Diagonal Gaussians#How the product works|precision-weighted mean]] of the experts' means, worked there step by step:
 
 $$x^\star = \frac{m_a/v_a + m_b/v_b}{1/v_a + 1/v_b} = \frac{-2 + 1.25}{3.25} = -0.230769$$
 

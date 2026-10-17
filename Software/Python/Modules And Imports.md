@@ -33,7 +33,7 @@ mkdir -p ~/playground/sandbox/numpy-arrays && cd ~/playground/sandbox/numpy-arra
 uv run --no-project --with numpy python -c "import numpy; print(numpy.__version__)"
 ```
 
-You should see a version number; this run printed `2.4.6`. The setup is shared with [[NumPy#Arrays versus Python lists]], so one folder serves both notes.
+You should see a version number; this run printed `2.4.6`. The setup is shared with [[Arrays Versus Python Lists]], so one folder serves both notes.
 
 ## Table of contents
 
@@ -116,13 +116,13 @@ uv run --no-project --with numpy python -c "import toy; print(toy.shared)"
 AttributeError: module 'toy' has no attribute 'shared'
 ```
 
-**4. The technique.** Move the assignments above the `if` line and keep only the prints below it. The full file, with arrays, is step 4 of [[NumPy#Try it yourself]]. Then a second file, `use.py`, starting with `from toy import shared`, runs:
+**4. The technique.** Move the assignments above the `if` line and keep only the prints below it. The full file, with arrays, is step 4 of [[Arrays Versus Python Lists#Try it yourself]]. Then a second file, `use.py`, starting with `from toy import shared`, runs:
 
 ```bash
 uv run --no-project --with numpy python use.py
 ```
 
-and its first line reads `shape: (2,) (2,)`, which means `shared` arrived. The full output is read in [[NumPy#Reading the output]].
+and its first line reads `shape: (2,) (2,)`, which means `shared` arrived. The full output is read in [[Arrays Versus Python Lists#Reading the output]].
 
 **5. Another way to get the same answer.** When you cannot edit the file, run it as if it were started directly and take back its names:
 
@@ -163,7 +163,7 @@ You should see:
 
 ![Importing one function runs the whole print loop first|900](assets/modules-a-print-at-module-level-runs-on-import.png)
 
-Marker 1 is the loop, which ran during the import and drew 300,000 points (600,000 random numbers) nobody asked for. Marker 2 is the importer's own line, printed only afterwards. Put the loop under `if __name__ == "__main__":`, as `samples.py` does in [[Multivariate Normal Distribution#Try sampling yourself]] step 5, and the same import prints only `import finished`. The prepared environment `~/.vault-sandbox/bin/python` is set up as in that note's steps 1 and 2.
+Marker 1 is the loop, which ran during the import and drew 300,000 points (600,000 random numbers) nobody asked for. Marker 2 is the importer's own line, printed only afterwards. Put the loop under `if __name__ == "__main__":`, as `samples.py` does in [[Sampling A Diagonal Gaussian#Try sampling yourself]] step 5, and the same import prints only `import finished`. The prepared environment `~/.vault-sandbox/bin/python` is set up as in that note's steps 1 and 2.
 
 **7. Clean up, and prove it.**
 
@@ -224,7 +224,7 @@ A walk builds one small file per step, and every later step imports the earlier 
 >
 > The `toy.py` in step 1 is the learner's own file, copied byte for byte from the walk, and its direct-run output matched the learner's.
 >
-> The worked example in step 6 was run by the writer in `~/playground/sandbox/gaussian-clouds` on the same PC through the prepared environment `~/.vault-sandbox/bin/python` (Python 3.11.13, NumPy 2.4.6) on 2026-10-04, once with the learner's `toy.py` and once with the array `toy.py` of [[NumPy#Try it yourself]] step 4, which printed the same lines. With the loop under the `if` line, the same import printed only `import finished`. The folder was removed afterwards.
+> The worked example in step 6 was run by the writer in `~/playground/sandbox/gaussian-clouds` on the same PC through the prepared environment `~/.vault-sandbox/bin/python` (Python 3.11.13, NumPy 2.4.6) on 2026-10-04, once with the learner's `toy.py` and once with the array `toy.py` of [[Arrays Versus Python Lists#Try it yourself]] step 4, which printed the same lines. With the loop under the `if` line, the same import printed only `import finished`. The folder was removed afterwards.
 >
 > Both output pictures were rendered from the captured text by a script in DejaVu Sans Mono, never drawn.
 >

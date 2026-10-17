@@ -1,6 +1,6 @@
 # NumPy: illustrated map
 
-The drawn pictures for the vault note [[NumPy]], sections [[NumPy#Arrays versus Python lists]], [[NumPy#Broadcasting]] and [[NumPy#Random numbers from a seeded generator]]. `9 prompts · 9 rendered · 0 waiting`
+The drawn pictures for the notes in the vault's [[NumPy]] folder, sections [[Arrays Versus Python Lists]], [[Broadcasting]] and [[Random Numbers From A Seeded Generator]]. `9 prompts · 9 rendered · 0 waiting`
 
 ## Table of contents
 
@@ -79,7 +79,7 @@ The form, the mechanism, then the deep-dive sheet that composes them with the ru
 Navigation: ⬅️ [Subject lane](#subject-lane) | 📋 [TOC](#table-of-contents) | [Prompt 2 (Subject): The mechanism](#prompt-2-subject-the-mechanism) ➡️
 
 [planned] 🖼️ rendered 2026-10-04 numpy-arrays-the-form.webp
-Save as: `../Software/Python/assets/numpy-arrays-the-form.webp`
+Save as: `../Software/Python/NumPy/assets/numpy-arrays-the-form.webp`
 
 Visual thesis: np.array turns a list of numbers into an array of shape (2,) whose arithmetic acts on each entry.
 
@@ -113,7 +113,7 @@ Faithfulness note: The array has exactly two cells holding 1.0 and 4.0; the resu
 Navigation: ⬅️ [Prompt 1 (Subject): The form](#prompt-1-subject-the-form) | 📋 [TOC](#table-of-contents) | [Subject capstone: The deep-dive sheet](#subject-capstone-the-deep-dive-sheet) ➡️
 
 [planned] 🖼️ rendered 2026-10-04 numpy-arrays-the-mechanism.webp
-Save as: `../Software/Python/assets/numpy-arrays-the-mechanism.webp`
+Save as: `../Software/Python/NumPy/assets/numpy-arrays-the-mechanism.webp`
 
 Visual thesis: The same + sign joins two lists end to end but adds corresponding entries of two arrays.
 
@@ -153,7 +153,7 @@ Faithfulness note: The list result has four entries in the order 1, 4, 4, 1; the
 Navigation: ⬅️ [Prompt 2 (Subject): The mechanism](#prompt-2-subject-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: Broadcasting](#subject-lane-broadcasting) ➡️
 
 [planned] 🖼️ rendered 2026-10-04 numpy-arrays-deep-dive-sheet.webp
-Save as: `../Software/Python/assets/numpy-arrays-deep-dive-sheet.webp`
+Save as: `../Software/Python/NumPy/assets/numpy-arrays-deep-dive-sheet.webp`
 
 Visual thesis: Read the composed output one field at a time: shape, reciprocal variances, then the mean and variance before and after background removal.
 
@@ -211,14 +211,14 @@ Faithfulness note: Output lines match the note's captured run character for char
 
 Navigation: ⬅️ [Subject capstone: The deep-dive sheet](#subject-capstone-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 4 (Subject): Broadcasting, the form](#prompt-4-subject-broadcasting-the-form) ➡️
 
-The form, the mechanism and the deep-dive sheet for [[NumPy#Broadcasting]].
+The form, the mechanism and the deep-dive sheet for [[Broadcasting]].
 
 ### Prompt 4 (Subject): Broadcasting, the form
 
 Navigation: ⬅️ [Subject lane: Broadcasting](#subject-lane-broadcasting) | 📋 [TOC](#table-of-contents) | [Prompt 5 (Subject): Broadcasting, the mechanism](#prompt-5-subject-broadcasting-the-mechanism) ➡️
 
 [planned] 🖼️ rendered 2026-10-04 broadcasting-the-form.webp
-Save as: `../Software/Python/assets/broadcasting-the-form.webp`
+Save as: `../Software/Python/NumPy/assets/broadcasting-the-form.webp`
 
 Visual thesis: Two shapes are written one above the other and lined up from the right; each column must hold equal lengths or a 1, and a missing place counts as 1.
 
@@ -254,7 +254,7 @@ Faithfulness note: Columns are aligned on the right in both rows; every dashed b
 Navigation: ⬅️ [Prompt 4 (Subject): Broadcasting, the form](#prompt-4-subject-broadcasting-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 6 (Subject capstone): Broadcasting, the deep-dive sheet](#prompt-6-subject-capstone-broadcasting-the-deep-dive-sheet) ➡️
 
 [planned] 🖼️ rendered 2026-10-04 broadcasting-the-mechanism.webp
-Save as: `../Software/Python/assets/broadcasting-the-mechanism.webp`
+Save as: `../Software/Python/NumPy/assets/broadcasting-the-mechanism.webp`
 
 Visual thesis: A (2,) row is reused for every row of a (5, 2) matrix, a (3, 1, 1) column is applied to the whole matrix once per level, and a (3,) against a (100000, 2) fails because 3 meets 2.
 
@@ -290,7 +290,7 @@ Faithfulness note: Panel 1 shows exactly five copies; panel 2 shows exactly thre
 Navigation: ⬅️ [Prompt 5 (Subject): Broadcasting, the mechanism](#prompt-5-subject-broadcasting-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: Random numbers from a seeded generator](#subject-lane-random-numbers-from-a-seeded-generator) ➡️
 
 [planned] 🖼️ rendered 2026-10-04 broadcasting-deep-dive-sheet.webp
-Save as: `../Software/Python/assets/broadcasting-deep-dive-sheet.webp`
+Save as: `../Software/Python/NumPy/assets/broadcasting-deep-dive-sheet.webp`
 
 Visual thesis: Shapes lined up from the right decide every result shape, and the run prints each one.
 
@@ -326,14 +326,14 @@ Faithfulness note: The output lines match the note's captured run character for 
 
 Navigation: ⬅️ [Prompt 6 (Subject capstone): Broadcasting, the deep-dive sheet](#prompt-6-subject-capstone-broadcasting-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 7 (Subject): Seeding, the form](#prompt-7-subject-seeding-the-form) ➡️
 
-The form, the mechanism and the deep-dive sheet for [[NumPy#Random numbers from a seeded generator]].
+The form, the mechanism and the deep-dive sheet for [[Random Numbers From A Seeded Generator]].
 
 ### Prompt 7 (Subject): Seeding, the form
 
 Navigation: ⬅️ [Subject lane: Random numbers from a seeded generator](#subject-lane-random-numbers-from-a-seeded-generator) | 📋 [TOC](#table-of-contents) | [Prompt 8 (Subject): Seeding, the mechanism](#prompt-8-subject-seeding-the-mechanism) ➡️
 
 [planned] 🖼️ rendered 2026-10-04 seeding-the-form.webp
-Save as: `../Software/Python/assets/seeding-the-form.webp`
+Save as: `../Software/Python/NumPy/assets/seeding-the-form.webp`
 
 Visual thesis: One seeded generator feeds every draw in a file; a bare np.random call draws from a separate hidden global generator that the seed never reaches.
 
@@ -369,7 +369,7 @@ Faithfulness note: The seeded generator connects to exactly two calls and never 
 Navigation: ⬅️ [Prompt 7 (Subject): Seeding, the form](#prompt-7-subject-seeding-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 9 (Subject capstone): Seeding, the deep-dive sheet](#prompt-9-subject-capstone-seeding-the-deep-dive-sheet) ➡️
 
 [planned] 🖼️ rendered 2026-10-04 seeding-the-mechanism.webp
-Save as: `../Software/Python/assets/seeding-the-mechanism.webp`
+Save as: `../Software/Python/NumPy/assets/seeding-the-mechanism.webp`
 
 Visual thesis: A seed sets a generator's starting state; each draw reads the next numbers and moves the state on; a second generator with the same seed replays the stream from the start.
 
@@ -405,7 +405,7 @@ Faithfulness note: The six numbers appear in the listed order on the first tape;
 Navigation: ⬅️ [Prompt 8 (Subject): Seeding, the mechanism](#prompt-8-subject-seeding-the-mechanism) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
 
 [planned] 🖼️ rendered 2026-10-04 seeding-deep-dive-sheet.webp
-Save as: `../Software/Python/assets/seeding-deep-dive-sheet.webp`
+Save as: `../Software/Python/NumPy/assets/seeding-deep-dive-sheet.webp`
 
 Visual thesis: A seeded generator's stream continues across draws and restarts for a fresh generator with the same seed, as the run prints.
 

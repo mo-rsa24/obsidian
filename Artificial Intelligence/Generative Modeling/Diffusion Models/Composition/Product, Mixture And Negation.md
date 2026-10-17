@@ -42,7 +42,7 @@ Navigation: 📋 [[#Table of contents|TOC]] | [[#When to reach for the three ope
 
 **Product**, $q^\text{prod}(x) = \frac{1}{Z}\prod_i q^i(x)$ with $Z = \int \prod_i q^i(x)\,dx$. The paper calls it an "intersection". Its peak is a compromise between the experts: [[The Product As An Intersection]].
 
-**Mixture**, $q^\text{mix}(x) = \frac{1}{N}\sum_i q^i(x)$. The paper calls it a "union". It needs no $Z$, because averaging densities keeps area 1 ([[Multivariate Normal Distribution#The area a product loses]]).
+**Mixture**, $q^\text{mix}(x) = \frac{1}{N}\sum_i q^i(x)$. The paper calls it a "union". It needs no $Z$, because averaging densities keeps area 1 ([[The Area A Product Loses]]).
 
 **Negation**, $q^\text{neg}(x) \propto q^0(x) / q^1(x)^\alpha$. The power $\alpha$ sets how hard $q^1$ is pushed away; the paper's experiments use $\alpha = 0.5$. The paragraph names the two densities $p_0$ and $p_1$ and the equation writes $q^0$ and $q^1$; they are the same two.
 
@@ -83,9 +83,9 @@ Navigation: ⬅️ [[#The form of the three operators]] | 📋 [[#Table of conte
 
 You should see a version number. This run printed `2.4.6`.
 
-**2. When it is missing.** [[Multivariate Normal Distribution#Try sampling yourself]] steps 1 and 2 say how to make the environment, or how to use `uv run` instead.
+**2. When it is missing.** [[Sampling A Diagonal Gaussian#Try sampling yourself]] steps 1 and 2 say how to make the environment, or how to use `uv run` instead.
 
-**3. Make something to act on.** A new empty folder, and the pair of [[The Order Of Multiplying And Noising#The one-dimensional pair]] with the pieces every script uses: the density on an axis, its moments, the forward jump, the score, and `power`, which combines two Gaussians raised to any powers ([[Multivariate Normal Distribution#Powers of Gaussians]]).
+**3. Make something to act on.** A new empty folder, and the pair of [[The Order Of Multiplying And Noising#The one-dimensional pair]] with the pieces every script uses: the density on an axis, its moments, the forward jump, the score, and `power`, which combines two Gaussians raised to any powers ([[Powers Of Gaussians]]).
 
 ```bash
 mkdir -p ~/playground/sandbox/three-operators && cd ~/playground/sandbox/three-operators
@@ -287,7 +287,7 @@ q^\text{prod}(0) &= 0.049552 / 0.075126 = 0.659582
 \end{aligned}
 $$
 
-*Derived;* $Z$ is worked in [[Multivariate Normal Distribution#The area a product loses]].
+*Derived;* $Z$ is worked in [[The Area A Product Loses]].
 
 **Why guidance's scores add.** The log of a product is the sum of the logs ([log rules](../../../../Mathematics/references/textbooks/algebra/algebra-handbook.pdf#page=110)), and $\log p(y)$ does not depend on $x$:
 
@@ -324,7 +324,7 @@ $$
 
 **Why no fixed rule on scores builds a mixture.** The mixture's slope is $w_a s_a + w_b s_b$ with $w_a = q_a / (q_a + q_b)$ ([[The Energy Parameterisation#How the energy works]]). The shares change along the axis: expert a's is 0.939 at $-1$, 0.465 at 0 and 0.023 at 1 (`checks/mixture_score.out`). Adding scores fixes both weights at 1 and averaging fixes them at $\tfrac12$, and neither follows the shares. *Derived.*
 
-**Negation as a power.** Raising a Gaussian to the power $w$ multiplies its precision by $w$ ([[Multivariate Normal Distribution#Powers of Gaussians]]), so with $\alpha = 0.5$:
+**Negation as a power.** Raising a Gaussian to the power $w$ multiplies its precision by $w$ ([[Powers Of Gaussians]]), so with $\alpha = 0.5$:
 
 $$
 \begin{aligned}

@@ -87,7 +87,7 @@ Navigation: ⬅️ [[#The form of the energy parameterisation]] | 📋 [[#Table 
 
 You should see a version number. This run printed `2.4.6`.
 
-**2. When it is missing.** [[Multivariate Normal Distribution#Try sampling yourself]] steps 1 and 2 say how to make the environment, or how to use `uv run` instead.
+**2. When it is missing.** [[Sampling A Diagonal Gaussian#Try sampling yourself]] steps 1 and 2 say how to make the environment, or how to use `uv run` instead.
 
 **3. Make something to act on.** A new empty folder, and the same two experts as [[The Order Of Multiplying And Noising#The one-dimensional pair]], each now written as an energy beside its score. The product's energy is the two energies added, so its score is the summed score.
 
