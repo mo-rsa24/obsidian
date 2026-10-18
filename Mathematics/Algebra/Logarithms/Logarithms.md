@@ -11,3 +11,4 @@ Mathematics, Algebra, Logarithms. **A logarithm turns multiplication into additi
 ## Notes in this folder
 
 - [[The Log Of A Power And Of A Quotient]]: the log of a power is the power times the log, and the log of a quotient is a difference, worked on a tempered Gaussian.
+- [[Solving For The Exponent With Logarithms]]: solving an equation or inequality with the unknown in the exponent, such as the fewest clean rows for a stated tolerance, with the flip of the sign when dividing by a negative log.

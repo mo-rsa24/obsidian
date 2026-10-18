@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 640" width="1100" height="640" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="Scott pools the two yes-rates, Cohen keeps them separate">
+<title>Scott pools the two yes-rates, Cohen keeps them separate</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1f2937"/></marker></defs>
+<rect width="1100" height="640" fill="#ffffff"/>
+<text x="40.0" y="46.0" font-size="26" fill="#1f2937" text-anchor="start" font-weight="700">03  Scott pools the rates, Cohen keeps them apart</text>
+<rect x="40.0" y="61.0" width="150.0" height="22.0" rx="11" fill="#d1fae5" stroke="#059669" stroke-width="1.2" opacity="1"/>
+<text x="115.0" y="76.0" font-size="13" fill="#059669" text-anchor="middle" font-weight="600">maths + mechanism</text>
+<text x="205.0" y="76.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="400">1 drip ≈ 45 min · 1 scene ≈ 30 min · 1 segment ≈ 20 min</text>
+<rect x="40.0" y="92.0" width="1020.0" height="34.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" opacity="1"/>
+<text x="54.0" y="114.0" font-size="15" fill="#dc2626" text-anchor="start" font-weight="600">Fails when: Cohen&#x27;s p<tspan baseline-shift="sub" font-size="70%">e</tspan> uses each rater&#x27;s own rate, so a judge whose rate differs from the person&#x27;s gets a higher κ than under Scott.</text>
+<text x="40.0" y="156.0" font-size="15" fill="#6b7280" text-anchor="start" font-weight="400">Judge C, the rubber stamp: the person passes 17 of 20, the judge passes all 20 (cells 17, 0, 3, 0)</text>
+<rect x="150.0" y="210.0" width="250.0" height="250.0" rx="0" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5" opacity="1"/>
+<rect x="150.0" y="210.0" width="212.5" height="250.0" rx="0" fill="#059669" stroke="none" stroke-width="1.5" opacity="0.55"/>
+<rect x="362.5" y="460.0" width="37.5" height="0.0" rx="0" fill="#059669" stroke="none" stroke-width="1.5" opacity="0.55"/>
+<rect x="150.0" y="210.0" width="250.0" height="250.0" rx="0" fill="none" stroke="#1f2937" stroke-width="1.8" opacity="1"/>
+<line x1="362.5" y1="210.0" x2="362.5" y2="460.0" stroke="#2563eb" stroke-width="2" stroke-dasharray="5 4"/>
+<line x1="150.0" y1="460.0" x2="400.0" y2="460.0" stroke="#d97706" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="256.2" y="198.0" font-size="13" fill="#2563eb" text-anchor="middle" font-weight="600">person yes 0.85</text>
+<text x="381.2" y="198.0" font-size="13" fill="#2563eb" text-anchor="middle" font-weight="600">no 0.15</text>
+<text x="140.0" y="339.0" font-size="13" fill="#d97706" text-anchor="end" font-weight="600">judge yes 1.00</text>
+<text x="140.0" y="464.0" font-size="13" fill="#d97706" text-anchor="end" font-weight="600">no 0.00</text>
+<text x="275.0" y="178.0" font-size="17" fill="#1f2937" text-anchor="middle" font-weight="700">Cohen: separate rates</text>
+<rect x="560.0" y="210.0" width="250.0" height="250.0" rx="0" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5" opacity="1"/>
+<rect x="560.0" y="210.0" width="231.2" height="231.2" rx="0" fill="#dc2626" stroke="none" stroke-width="1.5" opacity="0.55"/>
+<rect x="791.2" y="441.2" width="18.8" height="18.8" rx="0" fill="#dc2626" stroke="none" stroke-width="1.5" opacity="0.55"/>
+<rect x="560.0" y="210.0" width="250.0" height="250.0" rx="0" fill="none" stroke="#1f2937" stroke-width="1.8" opacity="1"/>
+<line x1="791.2" y1="210.0" x2="791.2" y2="460.0" stroke="#2563eb" stroke-width="2" stroke-dasharray="5 4"/>
+<line x1="560.0" y1="441.2" x2="810.0" y2="441.2" stroke="#d97706" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="675.6" y="198.0" font-size="13" fill="#2563eb" text-anchor="middle" font-weight="600">person yes 0.93</text>
+<text x="800.6" y="198.0" font-size="13" fill="#2563eb" text-anchor="middle" font-weight="600">no 0.07</text>
+<text x="550.0" y="329.6" font-size="13" fill="#d97706" text-anchor="end" font-weight="600">judge yes 0.93</text>
+<text x="550.0" y="454.6" font-size="13" fill="#d97706" text-anchor="end" font-weight="600">no 0.07</text>
+<text x="685.0" y="178.0" font-size="17" fill="#1f2937" text-anchor="middle" font-weight="700">Scott: one pooled rate for both</text>
+<text x="275.0" y="490.0" font-size="15" fill="#059669" text-anchor="middle" font-weight="600">p<tspan baseline-shift="sub" font-size="70%">e</tspan> = 0.85×1.00 + 0.15×0.00 = 0.85</text>
+<text x="685.0" y="490.0" font-size="15" fill="#dc2626" text-anchor="middle" font-weight="600">p<tspan baseline-shift="sub" font-size="70%">e</tspan> = 0.925² + 0.075² = 0.861</text>
+<text x="275.0" y="516.0" font-size="18" fill="#059669" text-anchor="middle" font-weight="700">κ = (0.85 − 0.85) / 0.15 = 0.000</text>
+<text x="685.0" y="516.0" font-size="18" fill="#dc2626" text-anchor="middle" font-weight="700">π = (0.85 − 0.861) / 0.139 = -0.081</text>
+<rect x="860.0" y="190.0" width="200.0" height="270.0" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5" opacity="1"/>
+<text x="960.0" y="218.0" font-size="15" fill="#1f2937" text-anchor="middle" font-weight="700">The gap in p<tspan baseline-shift="sub" font-size="70%">e</tspan></text>
+<text x="960.0" y="246.0" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="400">p<tspan baseline-shift="sub" font-size="70%">e</tspan> Scott − p<tspan baseline-shift="sub" font-size="70%">e</tspan> Cohen</text>
+<text x="960.0" y="264.9" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="400">= (h − j)² / 2</text>
+<text x="960.0" y="283.8" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="400">= (0.85 − 1.00)² / 2</text>
+<text x="960.0" y="302.7" font-size="14" fill="#1f2937" text-anchor="middle" font-weight="400">= 0.01125</text>
+<text x="960.0" y="350.0" font-size="13" fill="#6b7280" text-anchor="middle" font-weight="400">Judge A, rates 0.85</text>
+<text x="960.0" y="367.6" font-size="13" fill="#6b7280" text-anchor="middle" font-weight="400">and 0.90:</text>
+<text x="960.0" y="385.1" font-size="13" fill="#6b7280" text-anchor="middle" font-weight="400">gap 0.00125</text>
+<text x="960.0" y="402.6" font-size="13" fill="#6b7280" text-anchor="middle" font-weight="400">κ 0.318 ≈ π 0.314</text>
+<text x="40.0" y="580.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="400">Thakur et al. 2406.12624 App B: Cohen&#x27;s p<tspan baseline-shift="sub" font-size="70%">e</tspan> &quot;adjusts for the observed average differences between raters, which is in fact part of what we intend to measure.&quot;</text>
+<text x="40.0" y="600.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="400">When the two rates are equal the squares coincide and κ = π. Scott&#x27;s baseline is never lower than Cohen&#x27;s, so π ≤ κ always.</text>
+<text x="40.0" y="622.0" font-size="12" fill="#6b7280" text-anchor="start" font-weight="400">Judge C of the worked example (checks/test-2-pass-rates.py), counts invented. Pooled rate = (h + j) / 2, h and j the person&#x27;s and the judge&#x27;s yes-rates.</text>
+</svg>

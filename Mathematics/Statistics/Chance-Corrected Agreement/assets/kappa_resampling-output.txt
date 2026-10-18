@@ -1,0 +1,6 @@
+calibrated: agrees on 88 of 105, kappa 0.341
+  resample rows    : 4997 usable of 5000, 90% range 0.14 to 0.53, sd 0.119
+  resample products: 5000 usable of 5000, 90% range 0.20 to 0.51, sd 0.094
+underconfident: agrees on 103 of 105, kappa 0.879
+  resample rows    : 4997 usable of 5000, 90% range 0.71 to 1.00, sd 0.091
+  resample products: 5000 usable of 5000, 90% range 0.78 to 1.00, sd 0.066

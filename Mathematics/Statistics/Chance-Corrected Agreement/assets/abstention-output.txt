@@ -1,0 +1,10 @@
+N = 105  judge passes/fails/reviews = 10 70 25
+exclusion:  N_eff=80 accuracy=0.963 kappa=0.803 coverage=0.762
+  full-set accuracy must lie in [0.733, 0.971] (width = uncovered share 0.238)
+recoding:   N_eff=105 accuracy=0.962 kappa=0.757  (wrong passes 3, wrong fails 1)
+three-class: N_eff=105 accuracy=0.733 kappa=0.292
+bad products: passed 3 (0.031), failed 70, sent to a person 24 (0.247)
+good pages: passed 7, failed 0, sent to a person 1
+rows reaching a person: 25 of 105 = 0.238
+bad passed 3 of 97: 90% upper bound 0.068
+answered rows only (80): wrong passes 3 of 10 passes = 0.300

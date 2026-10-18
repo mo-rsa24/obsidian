@@ -1,0 +1,17 @@
+V2-like, catches about half (8, 0, 48, 49)
+  po=0.543 kappa=0.135 pi=-0.079 wrong-of-passes=0.857 bad-missed=0.495 good-failed=0.000 Pc=0.505 P+=1.000
+good judge, 3 wrong passes, 1 wrong fail (7, 1, 3, 94)
+  po=0.962 kappa=0.757 pi=0.757 wrong-of-passes=0.300 bad-missed=0.031 good-failed=0.125 Pc=0.844 P+=0.198
+rubber stamp, passes all 105 (8, 0, 97, 0)
+  po=0.076 kappa=0.000 pi=-0.858 wrong-of-passes=0.924 bad-missed=1.000 good-failed=0.000 Pc=0.000 P+=1.000
+fail-everything, fails all 105 (0, 8, 0, 97)
+  po=0.924 kappa=0.000 pi=-0.040 wrong-of-passes=nan bad-missed=0.000 good-failed=1.000 Pc=0.000 P+=0.000
+90% upper bound on a rate
+  bad missed 0 of 97   0.023
+  bad missed 3 of 97   0.068
+  bad missed 0 of 8    0.250
+  bad missed 0 of 5    0.369
+  bad missed 0 of 3    0.536
+  good failed 0 of 8   0.250
+  good failed 1 of 8   0.406
+bad cases needed for a 5% bound with 0 misses: 45

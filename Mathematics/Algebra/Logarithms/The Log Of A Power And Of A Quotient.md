@@ -6,7 +6,7 @@ sources:
 
 # The Log Of A Power And Of A Quotient
 
-Up: [[Logarithms]]
+Up: [[Logarithms]] · [[Solving For The Exponent With Logarithms]] ➡️
 
 Mathematics, Algebra, Logarithms. Needs: nothing beyond the log of a product.
 

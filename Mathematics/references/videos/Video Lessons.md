@@ -49,6 +49,12 @@ The reference shelf for the moment a derivation stalls on a word a video could t
 - [[#Accept-reject sampling]]
 - [[#A Metropolis chain, drawn step by step]]
 - [[#Tuning a Metropolis chain]]
+- [[#The arithmetic mean is at least the geometric mean (two numbers)]]
+- [[#The correlation coefficient]]
+- [[#The phi and Matthews correlation coefficient (a 2 by 2 table)]]
+- [[#The bootstrap]]
+- [[#Solving an inequality with the unknown in the exponent]]
+- [[#Inverse transform sampling worked on the exponential]]
 
 ## Substituting a new variable into an integral (u-substitution)
 
@@ -570,4 +576,88 @@ Chalmers' multiple object tracking course, from the open web, on multiplying a G
 | 3 | Two components and two hypotheses give four numbered components | Worked example, open web | [Chalmers, Gaussian Sum Filtering: Prediction and Update, 6:05 to 7:04](https://www.youtube.com/watch?v=G_X_dMZUkdI&t=365s) |
 
 No listed creator multiplies two mixtures. The second factor in this lecture is a measurement model with a detection probability and clutter rather than a second expert, so read each measurement hypothesis as one component of the second mixture; the Kalman update is the product of the pair's two Gaussians. Times are read from automatic captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## The arithmetic mean is at least the geometric mean (two numbers)
+
+<!-- video-table: am-gm-two-numbers rev=1 -->
+MathOdyssey, then David Metzler, both from the open web, on the proof that (a + b)/2 is at least the square root of ab, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Subtract the geometric mean from the arithmetic mean, write a and b as squares of their roots, and the difference becomes (root a minus root b) squared over 2, which cannot be negative; equality only when a equals b | Proof, open web | [MathOdyssey, Proof of AM-GM for two positive numbers, 0:16 to 3:05](https://www.youtube.com/watch?v=8sMtm9JfMfI&t=16s) |
+| 2 | Square both sides to find a hint, reach (a minus b) squared at least 0, then run the steps forwards as the proof | Proof, open web | [Metzler, Proof example: AM-GM Inequality, 4:35 to 7:58](https://www.youtube.com/watch?v=MVSmvLyowt0&t=275s) |
+
+No listed creator proves the inequality, and no worked example with numbers was found. Metzler also shows how to find the proof (1:20 to 4:35) and proves that square roots keep an inequality (8:13 to 9:51). Times are read from automatic captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## The correlation coefficient
+
+<!-- video-table: correlation-coefficient rev=1 -->
+Mahesh Huddar, then StatQuest, on Pearson's correlation (covariance over the two standard deviations), in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Correlation runs from minus 1 to 1: perfect positive, perfect negative, and no linear relationship at 0 | Intuition | [Mahesh Huddar, How to find the coefficient of correlation, 0:31 to 2:23](https://www.youtube.com/watch?v=bXlYuKFGsZY&t=31s) |
+| 2 | Four data points: the two means, the covariance, both variances, and r = covariance over root variance times root variance, which comes out 0 | Worked example | [Mahesh Huddar, How to find the coefficient of correlation, 2:23 to 6:10](https://www.youtube.com/watch?v=bXlYuKFGsZY&t=143s) |
+| 3 | The denominator squeezes covariance into minus 1 to 1; covariance 116 with variances 101.8 and 160.3 gives 0.9 | Worked example | [StatQuest, Pearson's Correlation, Clearly Explained, 13:37 to 16:04](https://www.youtube.com/watch?v=xZ_z8KWkhXE&t=817s) |
+
+Mahesh Huddar's example ends at 0, so it shows the arithmetic but not a strong relationship; StatQuest supplies the nonzero answer and assumes his variance and covariance videos. Neither proves that r stays between minus 1 and 1. Times are read from automatic captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## The phi and Matthews correlation coefficient (a 2 by 2 table)
+
+<!-- video-table: phi-matthews-correlation rev=1 -->
+Pedram Jahangiry, from the open web, on the Matthews correlation coefficient of a confusion matrix, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The coefficient is the correlation between actual and predicted: true positive times true negative minus false positive times false negative, over the square root of the four pair sums; it runs from minus 1 to 1 | Intuition, open web | [Jahangiry, Performance metrics for classification models, 16:22 to 18:24](https://www.youtube.com/watch?v=IDPmX6xT3Us&t=982s) |
+| 2 | 100 cases with 2 defaulters and a model that always says no default: accuracy 98 percent, precision, recall and F1 all 0, and the coefficient read as 0 | Worked example, open web | [Jahangiry, Performance metrics for classification models, 18:54 to 20:30](https://www.youtube.com/watch?v=IDPmX6xT3Us&t=1134s) |
+
+Nothing on Mahesh Huddar's channel covers the phi or Matthews coefficient, and no video on a listed creator does. The example skips the arithmetic of the denominator: with that table it is 0, so the coefficient is undefined and conventionally set to 0. He does not name the phi coefficient, which is the same quantity for any two yes-or-no columns. Times are read from automatic captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## The bootstrap
+
+<!-- video-table: bootstrap-resampling rev=1 -->
+StatQuest, then Joshua French from the open web, on the bootstrap (resampling a data set with replacement to get a standard error or an interval), in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Eight patients with a mean response of 0.5, and why repeating the whole experiment to see how far that mean moves is too costly | Intuition | [StatQuest, Bootstrapping Main Ideas, 0:17 to 2:18](https://www.youtube.com/watch?v=Xz0x-8-cgaQ&t=17s) |
+| 2 | Draw from the eight values eight times with replacement, take the mean, repeat thousands of times; the four steps and the name for sampling with replacement | Worked example | [StatQuest, Bootstrapping Main Ideas, 2:18 to 5:22](https://www.youtube.com/watch?v=Xz0x-8-cgaQ&t=138s) |
+| 3 | The standard error is the standard deviation of the bootstrap means; a 95 percent interval is the stretch that covers 95 percent of them | Definition | [StatQuest, Bootstrapping Main Ideas, 6:30 to 7:02](https://www.youtube.com/watch?v=Xz0x-8-cgaQ&t=390s) |
+| 4 | A sample of numbers, 1000 resamples in R, the 2.5 and 97.5 percent quantiles of the resample means, and the interval 2.44 to 4.98 for a true mean of 3 | Worked example, code walk, open web | [Joshua French, Bootstrap confidence interval example, 2:12 to 6:12](https://www.youtube.com/watch?v=IBuJSRu9Quw&t=132s) |
+
+StatQuest shows the eight values on screen without reading them out and gives no number for the standard error. French reaches an interval, not a standard error, and uses the percentile interval only. Neither covers when the bootstrap fails. Mahesh Huddar's channel has no video on it. Times are read from automatic captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## Solving an inequality with the unknown in the exponent
+
+<!-- video-table: exponent-inequality-with-logarithms rev=1 -->
+Hasegi Inc., then TLMaths, both from the open web, on solving an inequality such as 0.5^x < 10^300 with logarithms, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | (1/2)^x < (1/2)^3 gives x > 3: a base below 1 makes the function fall, so the order reverses | Intuition, open web | [Hasegi Inc., Why an Exponential Inequality Flips When the Base Is Below 1, 0:03 to 1:32](https://www.youtube.com/watch?v=WzR5E7dGM7M&t=3s) |
+| 2 | Write 1/2 as 2^(-1), compare exponents to get -x < -3, and multiplying both sides by -1 flips the sign: the same flip as dividing by a negative | Intuition, open web | [Hasegi Inc., Why an Exponential Inequality Flips When the Base Is Below 1, 1:32 to 2:05](https://www.youtube.com/watch?v=WzR5E7dGM7M&t=92s) |
+| 3 | Solve 0.5^x < 10^300: take natural logs of both sides, bring both exponents down, divide by ln 0.5 = -0.693, which is negative, so the sign reverses and x > -996.57 | Worked example, open web | [TLMaths, Solving 0.5^x less than 10^300, 0:06 to 2:23](https://www.youtube.com/watch?v=nDr4CrZ_CO8&t=6s) |
+| 4 | Why writing it as a log with base 0.5 in one step goes wrong (the flip is forgotten), and why to go through natural logs | Worked example, open web | [TLMaths, Solving 0.5^x less than 10^300, 2:23 to 3:27](https://www.youtube.com/watch?v=nDr4CrZ_CO8&t=143s) |
+
+Neither video solves for a whole number of repeats or rounds the answer up, and neither starts from a base above 1 with a positive log. TLMaths refers to an earlier video of his for the base 2 case. Professor Leonard's logarithm lecture (Precalculus 64) was checked by chapter titles only, which name equations, so it is not linked. Times are read from automatic captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## Inverse transform sampling worked on the exponential
+
+<!-- video-table: inverse-transform-exponential-example rev=1 -->
+Susu Zhang, then Marcus Pendergrass, both from the open web, on turning uniform random numbers into exponential ones with the inverse CDF, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | From the exponential density to its CDF 1 - e^(-λx), set equal to u, and solved for x = -(1/λ) ln(1 - u) | Worked example, open web | [Susu Zhang, Lec1 2 2 Example Exp, 0:06 to 4:22](https://www.youtube.com/watch?v=joBKfHH5bwc&t=6s) |
+| 2 | The inverse as an R function, 1000 uniform draws, the transform with λ = 1, and a histogram laid over the exponential density | Code walk, open web | [Susu Zhang, Lec1 2 2 Example Exp, 4:22 to 10:22](https://www.youtube.com/watch?v=joBKfHH5bwc&t=262s) |
+| 3 | 10,000 uniforms in Desmos, -ln(1 - u) for λ = 1, then multiplied by 2 to get λ = 1/2 | Worked example, open web | [Marcus Pendergrass, Using The Inverse CDF Method to Simulate Random Variables, 3:24 to 6:36](https://www.youtube.com/watch?v=xf-ltpf7rwQ&t=204s) |
+
+Both work by simulating many draws and comparing to the density; neither turns two or three specific uniform numbers into exponential values by hand, and neither proves the transformed draws have the target CDF. Pendergrass cites the two facts he uses to his own course notes. The ritvikmath block above covers the CDF and the inverse. Mahesh Huddar's channel has no video on it. Times are read from automatic captions and good to about 30 seconds.
 <!-- /video-table -->

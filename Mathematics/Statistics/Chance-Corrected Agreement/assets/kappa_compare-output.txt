@@ -1,0 +1,17 @@
+point values: kappa A 0.3182, kappa B 0.4595, difference 0.1413
+resample 1: product 17 drawn 1 times; A table (16, 1, 2, 1) kappa 0.3182; B table (17, 0, 2, 1) kappa 0.4595
+resample 2: product 17 drawn 0 times; A table (18, 0, 0, 2) kappa 1.0; B table (18, 0, 0, 2) kappa 1.0
+resample 3: product 17 drawn 0 times; A table (16, 0, 2, 2) kappa 0.6154; B table (16, 0, 2, 2) kappa 0.6154
+  kappa A            : 6370 usable of 10000, 90% range 0.138 to 0.828
+  kappa B            : 6370 usable of 10000, 90% range 0.273 to 1.000
+  B minus A (paired) : 6370 usable of 10000, 90% range 0.000 to 0.385
+  share of paired resamples with B minus A at or below 0: 0.369
+  share of paired resamples with B minus A exactly 0: 0.369
+  share of resamples that left out the one product where A and B differ: 0.358
+
+105 rows, the same rows scored by both invented judges, whole products resampled
+point values: calibrated 0.341, underconfident 0.879, difference 0.538
+  calibrated         : 5000 usable of 5000, 90% range 0.198 to 0.498
+  underconfident     : 5000 usable of 5000, 90% range 0.779 to 1.000
+  difference (paired): 5000 usable of 5000, 90% range 0.385 to 0.712
+  share of paired resamples with the difference at or below 0: 0.0000

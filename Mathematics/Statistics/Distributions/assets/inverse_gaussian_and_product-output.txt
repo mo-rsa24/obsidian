@@ -1,0 +1,22 @@
+GAUSSIAN: F has no closed-form inverse; NormalDist().inv_cdf finds it numerically
+inv_cdf(0.975) = 1.959964   cdf of that = 0.975000
+posterior N(8/3, (2/3)^2): ten draws from the ten fixed uniforms
+ i     u  z = inv_cdf(u)  x = 8/3 + 2/3 z  inv_cdf on N(8/3,2/3)
+ 1  0.12       -1.174987         1.883342               1.883342
+ 2  0.85        1.036433         3.357622               3.357622
+ 3  0.47       -0.075270         2.616487               2.616487
+ 4  0.93        1.475791         3.650527               3.650527
+ 5  0.30       -0.524401         2.317066               2.317066
+ 6  0.66        0.412463         2.941642               2.941642
+ 7  0.05       -1.644854         1.570098               1.570098
+ 8  0.71        0.553385         3.035590               3.035590
+ 9  0.58        0.201893         2.801262               2.801262
+10  0.24       -0.706303         2.195798               2.195798
+by bisection on the CDF: x = 1.959964 after 45 halvings of [-10, 10]
+
+A PRODUCT OF TWO DENSITIES: N(0, 1) times N(1, 1)
+area under the product (trapezoids, 8000 strips): 0.219696
+exact area, the N(0, 2) density at 1:           0.219696
+largest value of the running sum if used as a CDF: 0.219696  (a CDF must end at 1)
+after dividing by the area, the sum ends at: 1.000000
+100000 draws, seed 7: mean 0.4973 (exact 0.5), variance 0.4990 (exact 0.5)

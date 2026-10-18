@@ -1,0 +1,11 @@
+A. verdicts drawn row by row (the case in How Sure Kappa Is), seed 1, 5000 resamples
+   kappa 0.341
+   resample rows    : 90% range 0.14 to 0.53, width 0.39, sd 0.119
+   resample products: 90% range 0.20 to 0.51, width 0.31, sd 0.094
+B. copies of a product share their fate (one draw per product decides all its copies), seed 3
+   kappa 0.928
+   resample rows    : 90% range 0.78 to 1.00, width 0.22, sd 0.083
+   resample products: 90% range 0.75 to 1.00, width 0.25, sd 0.075
+C. both cases over 30 different data seeds (1000 resamples each)
+   independent: mean sd rows 0.109, mean sd products 0.087, rows gave the smaller sd in 2 of 30 data sets
+   shared     : mean sd rows 0.090, mean sd products 0.203, rows gave the smaller sd in 23 of 30 data sets

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 640" width="1100" height="640" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="The 2x2 table and observed agreement p_o">
+<title>The 2x2 table and observed agreement p_o</title>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1f2937"/></marker></defs>
+<rect width="1100" height="640" fill="#ffffff"/>
+<text x="40.0" y="46.0" font-size="26" fill="#1f2937" text-anchor="start" font-weight="700">01  The table, and percent agreement</text>
+<rect x="40.0" y="61.0" width="150.0" height="22.0" rx="11" fill="#d1fae5" stroke="#059669" stroke-width="1.2" opacity="1"/>
+<text x="115.0" y="76.0" font-size="13" fill="#059669" text-anchor="middle" font-weight="600">maths + mechanism</text>
+<text x="205.0" y="76.0" font-size="13" fill="#6b7280" text-anchor="start" font-weight="400">recap of textbook 10.3 · 1 drip ≈ 45 min · 1 segment ≈ 20 min</text>
+<rect x="40.0" y="92.0" width="1020.0" height="34.0" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.2" opacity="1"/>
+<text x="54.0" y="114.0" font-size="15" fill="#dc2626" text-anchor="start" font-weight="600">Fails when: 0.85 agreement sounds good, yet the judge passed 2 of the 3 products a person would stop.</text>
+<text x="268.0" y="196.0" font-size="14" fill="#d97706" text-anchor="middle" font-weight="600">the judge says</text>
+<text x="176.0" y="220.0" font-size="14" fill="#d97706" text-anchor="middle" font-weight="400">yes</text>
+<text x="268.0" y="220.0" font-size="14" fill="#d97706" text-anchor="middle" font-weight="400">no</text>
+<text transform="translate(68,322) rotate(-90)" font-size="14" fill="#2563eb" text-anchor="middle" font-weight="600">the person says</text>
+<text x="122.0" y="281.0" font-size="14" fill="#2563eb" text-anchor="end" font-weight="400">yes</text>
+<text x="122.0" y="373.0" font-size="14" fill="#2563eb" text-anchor="end" font-weight="400">no</text>
+<rect x="130.0" y="230.0" width="92.0" height="92.0" rx="0" fill="#d1fae5" stroke="#059669" stroke-width="2.2" opacity="1"/>
+<text x="176.0" y="286.0" font-size="30" fill="#059669" text-anchor="middle" font-weight="700">16</text>
+<rect x="222.0" y="230.0" width="92.0" height="92.0" rx="0" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5" opacity="1"/>
+<text x="268.0" y="286.0" font-size="30" fill="#1f2937" text-anchor="middle" font-weight="700">1</text>
+<rect x="130.0" y="322.0" width="92.0" height="92.0" rx="0" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5" opacity="1"/>
+<text x="176.0" y="378.0" font-size="30" fill="#1f2937" text-anchor="middle" font-weight="700">2</text>
+<rect x="222.0" y="322.0" width="92.0" height="92.0" rx="0" fill="#d1fae5" stroke="#059669" stroke-width="2.2" opacity="1"/>
+<text x="268.0" y="378.0" font-size="30" fill="#059669" text-anchor="middle" font-weight="700">1</text>
+<text x="328.0" y="282.0" font-size="18" fill="#2563eb" text-anchor="start" font-weight="700">17</text>
+<text x="328.0" y="374.0" font-size="18" fill="#2563eb" text-anchor="start" font-weight="700">3</text>
+<text x="176.0" y="438.0" font-size="18" fill="#d97706" text-anchor="middle" font-weight="700">18</text>
+<text x="268.0" y="438.0" font-size="18" fill="#d97706" text-anchor="middle" font-weight="700">2</text>
+<text x="60.0" y="175.0" font-size="15" fill="#6b7280" text-anchor="start" font-weight="400">20 products, one verdict each from a person and from the judge</text>
+<text x="60.0" y="470.0" font-size="22" fill="#059669" text-anchor="start" font-weight="700">p<tspan baseline-shift="sub" font-size="70%">o</tspan> = (16 + 1) / 20 = 0.85</text>
+<text x="60.0" y="498.0" font-size="14" fill="#6b7280" text-anchor="start" font-weight="400">the green diagonal, as a share of every product</text>
+<rect x="560.0" y="160.0" width="500.0" height="200.0" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.5" opacity="1"/>
+<text x="580.0" y="190.0" font-size="17" fill="#1f2937" text-anchor="start" font-weight="700">Read the same table another way</text>
+<text x="580.0" y="220.0" font-size="14.5" fill="#1f2937" text-anchor="start" font-weight="400">Of the 18 products the judge passed, 16 the person also passed:</text>
+<text x="580.0" y="239.6" font-size="14.5" fill="#1f2937" text-anchor="start" font-weight="400">  16 / 18 = 0.889</text>
+<text x="580.0" y="259.1" font-size="14.5" fill="#1f2937" text-anchor="start" font-weight="400">Of the 3 products the person would stop, the judge passed 2:</text>
+<text x="580.0" y="278.7" font-size="14.5" fill="#1f2937" text-anchor="start" font-weight="400">  2 / 3 = 0.667 of the bad ones got through</text>
+<rect x="560.0" y="385.0" width="500.0" height="150.0" rx="8" fill="#d1fae5" stroke="#059669" stroke-width="1.5" opacity="1"/>
+<text x="580.0" y="415.0" font-size="16" fill="#059669" text-anchor="start" font-weight="700">What the next pictures add</text>
+<text x="580.0" y="442.0" font-size="14.5" fill="#1f2937" text-anchor="start" font-weight="400">Both raters say yes almost every time, so they would match</text>
+<text x="580.0" y="461.6" font-size="14.5" fill="#1f2937" text-anchor="start" font-weight="400">a lot even if each answered without looking.</text>
+<text x="580.0" y="481.1" font-size="14.5" fill="#1f2937" text-anchor="start" font-weight="400">p<tspan baseline-shift="sub" font-size="70%">o</tspan> cannot tell. The margins (17 and 18 yes out of 20)</text>
+<text x="580.0" y="500.7" font-size="14.5" fill="#1f2937" text-anchor="start" font-weight="400">set how much matching to expect from chance alone.</text>
+<text x="40.0" y="622.0" font-size="12" fill="#6b7280" text-anchor="start" font-weight="400">Source: 20-product toy from the combine drip&#x27;s check test-jung.py (invented counts). Textbook 10.3 teaches this on 10 pairs.</text>
+</svg>
