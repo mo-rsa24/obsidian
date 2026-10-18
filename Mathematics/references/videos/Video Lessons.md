@@ -724,5 +724,5 @@ Mary Wootters, from the open web, on the total variation distance between two di
 | 2 | Two bar charts split where each is the higher: the two shaded areas are equal, and each one is the TV | Proof, open web | [Wootters, Total Variation Distance, 1:35 to 3:47](https://www.youtube.com/watch?v=aJP0Bj6jVkI&t=95s) |
 | 3 | A fair coin against one that lands heads 0.6 of the time: TV = ½(0.1 + 0.1) = 0.1 | Worked example, open web | [Wootters, Total Variation Distance, 4:34 to 6:42](https://www.youtube.com/watch?v=aJP0Bj6jVkI&t=274s) |
 
-No listed creator covers it. Wootters compares two known tables; she does not estimate TV from two sets of samples on a binning, so the floor that two draws of the same data reach is not covered. Times are read from automatic captions and good to about 30 seconds.
+No listed creator covers it. Wootters compares two known tables; she does not estimate TV from two sets of samples on a binning, so the sampling-noise baseline that two draws of the same data reach is not covered. Times are read from automatic captions and good to about 30 seconds.
 <!-- /video-table -->
