@@ -203,6 +203,14 @@ table on this page gives PDF pages.
 | the Bernoulli mean and variance, E[X] = p and Var[X] = p(1 − p), so an indicator's variance (Theorem 3.6) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=154) | 154 |
 | a probability density function, defined with the unity condition that it integrates to 1 (Definition 4.1) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=190) | 190 |
 | the CDF of an arbitrary Gaussian by standardising, F(x) = Φ((x − µ)/σ), with the upper tail 1 − Φ on the next page (Theorem 4.11) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=231) | 231 |
+| substitution in a definite integral: change the limits to u = g(a), u = g(b), with a worked example (section 5.9, Method 2) | [calculus textbook](calculus/calculus-textbook.pdf#page=415) | 415 |
+| the Gaussian integral: the normaliser of exp(−x²/2σ²) is √(2πσ²), squared and changed to polar coordinates, with hints (Exercise 2.12) | [probabilistic machine learning: an introduction](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=99) | 99 |
+| the PDF of X + Y is the convolution of the two PDFs, derived from the CDF of the sum (section 5.5.2) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=298) | 298 |
+| the sum of two independent Gaussians is Gaussian with means and variances added, proved by convolution (Theorem 5.12) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=299) | 299 |
+| the CDF of the standard Gaussian, Φ, and its link to erf (Definition 4.15) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=230) | 230 |
+| the Gaussian kernel density estimator: one Gaussian of width h on each data point, averaged (equation 2.250, section 2.5.1) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=142) | 142 |
+| responsibility in a Gaussian mixture: the posterior of a component given x, by Bayes' theorem (equation 9.13) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=449) | 449 |
+| the double integral as the limit of Riemann sums, each term the value times the area of a small cell (section 14.1, equation 4) | [calculus textbook](calculus/calculus-textbook.pdf#page=1026) | 1026 |
 
 ## general/
 
