@@ -199,6 +199,10 @@ table on this page gives PDF pages.
 | the derivative of a constant function is 0, by (c - c) / h = 0 (Theorem 2.3.1) | [calculus textbook](calculus/calculus-textbook.pdf#page=179) | 179 |
 | the variable of integration in a definite integral is a dummy variable and plays no role in the result | [calculus textbook](calculus/calculus-textbook.pdf#page=392) | 392 |
 | the derivative of ln x is 1 / x, from the difference quotient (section 3.2) | [calculus textbook](calculus/calculus-textbook.pdf#page=216) | 216 |
+| variance under an affine map, V[Ax + b] = AΣAᵀ (a²σ² for a scalar), and V[x + y] = V[x] + V[y] for independent x, y (equations 6.51 and section 6.4.5) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=200) | 200 |
+| the Bernoulli mean and variance, E[X] = p and Var[X] = p(1 − p), so an indicator's variance (Theorem 3.6) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=154) | 154 |
+| a probability density function, defined with the unity condition that it integrates to 1 (Definition 4.1) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=190) | 190 |
+| the CDF of an arbitrary Gaussian by standardising, F(x) = Φ((x − µ)/σ), with the upper tail 1 − Φ on the next page (Theorem 4.11) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=231) | 231 |
 
 ## general/
 
