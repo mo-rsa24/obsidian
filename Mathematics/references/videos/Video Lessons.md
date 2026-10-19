@@ -59,6 +59,33 @@ The reference shelf for the moment a derivation stalls on a word a video could t
 - [[#Score matching]]
 - [[#The kernel density estimate]]
 - [[#Total variation distance]]
+- [[#Why labellers disagree (annotator agreement)]]
+- [[#Finding near-duplicate text]]
+- [[#DDPM training and sampling]]
+- [[#How a condition reaches a UNet through attention]]
+- [[#The VAE and its ELBO]]
+- [[#Diffusion in a VAE latent space]]
+- [[#Fast samplers as solvers of the probability flow ODE]]
+- [[#Langevin dynamics]]
+- [[#The probability flow ODE]]
+- [[#DDIM]]
+- [[#Diffusion written as a forward SDE]]
+- [[#The reverse SDE and the probability flow ODE]]
+- [[#DDIM as an ODE solver]]
+- [[#Flow matching]]
+- [[#Scaled dot-product self-attention]]
+- [[#Self-attention and cross-attention side by side]]
+- [[#Attention as a soft dictionary lookup]]
+- [[#An embedding layer as a one-hot product]]
+- [[#Reading rows out of an embedding table in code]]
+- [[#Word2vec's skip-gram objective]]
+- [[#The residual connection]]
+- [[#Gradients with and without shortcut connections]]
+- [[#Layer normalisation in code]]
+- [[#Masking the future in self-attention]]
+- [[#Multi-head attention]]
+- [[#The sinusoidal position formula]]
+- [[#Cross-attention in the encoder-decoder transformer]]
 - [[#Compound interest, the annuity formula and the Rule of 72]]
 - [[#Nominal against effective interest rates]]
 - [[#Real return after inflation]]
@@ -475,16 +502,17 @@ None of these uses a Langevin step as the proposal (MALA) or reads the share of 
 
 ## Annealed Langevin sampling
 
-<!-- video-table: annealed-langevin rev=1 -->
-Stanford CS236 on why Langevin sampling is annealed across noise levels, in the order to watch:
+<!-- video-table: annealed-langevin rev=2 -->
+Stanford CS236, then Stanford CME296, on why Langevin sampling is annealed across noise levels, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | Where plain Langevin sampling fails | Intuition | [Stanford CS236, lecture 14, 5:44 to 9:13](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=344s) |
 | 2 | What adding noise does for the score and for sampling | Intuition | [Stanford CS236, lecture 14, 9:13 to 19:08](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=553s) |
 | 3 | Sampling across many noise scales, noisiest first | Intuition | [Stanford CS236, lecture 14, 23:54 to 28:43](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=1434s) |
+| 4 | Confirm after the sitting: run Langevin on the noisiest score first, then on less and less noisy ones | Intuition | [CME296, lecture 2, 52:49 to 58:09](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=3169s) |
 
-CS236 anneals one model's score; it does not anneal a sum of two models' scores, which is what composition samples. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+CS236 anneals one model's score; it does not anneal a sum of two models' scores, which is what composition samples, and neither lecture shows the predictor step alongside the corrector. Rows 1 to 3 are chapter boundaries read from CS236's chapter list, so each is good to the chapter and the sentence inside it is not checked; row 4 is read from CME296's automatic captions and good to about 30 seconds.
 <!-- /video-table -->
 
 ## Classifier-free guidance
@@ -773,7 +801,350 @@ Mary Wootters, from the open web, on the total variation distance between two di
 | 2 | Two bar charts split where each is the higher: the two shaded areas are equal, and each one is the TV | Proof, open web | [Wootters, Total Variation Distance, 1:35 to 3:47](https://www.youtube.com/watch?v=aJP0Bj6jVkI&t=95s) |
 | 3 | A fair coin against one that lands heads 0.6 of the time: TV = ½(0.1 + 0.1) = 0.1 | Worked example, open web | [Wootters, Total Variation Distance, 4:34 to 6:42](https://www.youtube.com/watch?v=aJP0Bj6jVkI&t=274s) |
 
-No listed creator covers it. Wootters compares two known tables; she does not estimate TV from two sets of samples on a binning, so the floor that two draws of the same data reach is not covered. Times are read from automatic captions and good to about 30 seconds.
+No listed creator covers it. Wootters compares two known tables; she does not estimate TV from two sets of samples on a binning, so the sampling-noise baseline that two draws of the same data reach is not covered. Times are read from automatic captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## Why labellers disagree (annotator agreement)
+
+<!-- video-table: annotator-agreement rev=1 -->
+Confirm after pass B, before building the table in instruction 5. Stanford CS224N on why labellers disagree:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Five researchers with detailed rubrics agree 67% of the time where chance gives 50%, and one person labels differently a few hours later. Watch for the 50% chance level, the baseline kappa subtracts, and for the second case, which is your pass A against pass B | Intuition | [CS224N, lecture 11, 35:00 to 38:30](https://www.youtube.com/watch?v=TO0CqzqiArM&t=2100s) |
+
+CS224N reports raw agreement beside chance and never computes kappa or any chance-corrected statistic. Times are caption-read from automatic captions, accurate to about 30 seconds.
+<!-- /video-table -->
+
+## Finding near-duplicate text
+
+<!-- video-table: near-duplicate-matching rev=1 -->
+Confirm after tasks 1.1 and 1.4, once your own numbers are on paper. Stanford CS336 on finding near-duplicate text, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Why comparing every item with every other cannot scale, exact matching by hash, then Jaccard worked on {1,2,3,4} against {1,2,3,5} to 0.6. Watch for intersection over union, the computation task 1.1 asks of you | Worked example | [CS336, lecture 14, 27:00 to 32:30](https://www.youtube.com/watch?v=5sxHosTLPF8&t=1620s) |
+| 2 | MinHash makes two sets collide with probability equal to their Jaccard; bands of hashes turn that into an S-shaped curve so only pairs above a threshold get compared. Watch for the low end of the curve, which is the true pairs never scored, the recall risk task 1.4 asks you to write | Proof | [CS336, lecture 14, 32:30 to 48:30](https://www.youtube.com/watch?v=5sxHosTLPF8&t=1950s) |
+
+CS336 does not cover Levenshtein edit distance, a blocking key built from a token, or the cost of a wrong merge. Times are caption-read from automatic captions, accurate to about 30 seconds.
+<!-- /video-table -->
+
+## DDPM training and sampling
+
+<!-- video-table: ddpm-training-and-sampling rev=1 -->
+Stanford CME296 on DDPM, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient before the sitting: why the course centres on the DDPM paper and what its loss has to do | Intuition | [CME296, lecture 1, 23:31 to 26:33](https://www.youtube.com/watch?v=tr-CUpw--ck&t=1411s) |
+| 2 | Confirm after the sitting: one training step (clean image, noise, step, noised image, predict the noise), then sampling from t = T down to 0 with the derived reverse step | Proof | [CME296, lecture 1, 1:27:18 to 1:29:49](https://www.youtube.com/watch?v=tr-CUpw--ck&t=5238s) |
+
+The lecture works on images; the two-moons toy is not used. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## How a condition reaches a UNet through attention
+
+<!-- video-table: cross-attention-in-a-unet rev=1 -->
+Stanford CME296, CS231N and CS224N on how a condition reaches a UNet through attention, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient before the sitting: three ways to inject a time step and a condition into a UNet (add to the feature map, modulate it, or cross-attend), with no consensus on one | Intuition | [CME296, lecture 5, 30:31 to 33:21](https://www.youtube.com/watch?v=HpFdSlMeXzQ&t=1831s) |
+| 2 | Confirm after task 2.1: why the dot product is divided by the square root of the width before the softmax | Intuition | [CS231N, lecture 8, 32:20 to 34:20](https://www.youtube.com/watch?v=RQowiOF_FvQ&t=1940s) |
+| 3 | Confirm after task 2.1: queries from one sequence, keys and values from another, "two of the arrows come from the encoder" | Intuition | [CS224N 2023, lecture 8, 1:10:02 to 1:12:39](https://www.youtube.com/watch?v=LWMzyfvuehA&t=4202s) |
+
+None works the one-token case, where every softmax row is [1]. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## The VAE and its ELBO
+
+<!-- video-table: vae-and-the-elbo rev=1 -->
+Stanford CME296 on the autoencoder, the VAE and its ELBO, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient before the sitting: an autoencoder compresses an image and decompresses it, with nothing forcing the latent space to have structure | Intuition | [CME296, lecture 4, 14:27 to 22:56](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=867s) |
+| 2 | Unblock during the derivation: the VAE encoder gives a mean and a spread, and the latent is sampled from them | Intuition | [CME296, lecture 4, 22:56 to 31:19](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=1376s) |
+| 3 | Confirm after the derivation: the ELBO derived line by line | Proof | [CME296, lecture 4, 31:19 to 46:43](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=1879s) |
+
+The cost of convolution against image size, which opens this sitting, is not covered. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Diffusion in a VAE latent space
+
+<!-- video-table: latent-diffusion rev=1 -->
+Stanford CME296 on running diffusion in a VAE latent space, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: train the VAE first, then train the generative model on encoder outputs, then decode its samples back to pixels | Intuition | [CME296, lecture 4, 57:01 to 1:00:31](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=3421s) |
+
+The lecture trains flow matching in the latent space and does not rescale the latents to unit spread. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Fast samplers as solvers of the probability flow ODE
+
+<!-- video-table: fast-samplers-and-the-pf-ode rev=1 -->
+Stanford CME296 on samplers as equation solvers, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient before the sitting: DDIM, linking two steps that skip the ones between, checked rather than derived, and why large skips lose quality when there is randomness inside each skip | Intuition | [CME296, lecture 1, 1:29:49 to 1:46:26](https://www.youtube.com/watch?v=tr-CUpw--ck&t=5389s) |
+| 2 | Confirm after the sitting: the probability-flow ODE; the reverse SDE carries two sources of error (discretisation and randomness); an ODE with no random term carries one, and its derivation is sketched | Proof | [CME296, lecture 2, 1:30:32 to 1:41:24](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=5432s) |
+| 3 | Confirm after the sitting: counting function evaluations, and DPM-Solver as a better solver of the same ODE | Intuition | [CME296, lecture 2, 1:41:24 to 1:48:48](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=6084s) |
+
+SDXL's Euler discrete scheduler and its sigma list are not shown. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Langevin dynamics
+
+<!-- video-table: langevin-dynamics rev=1 -->
+Stanford CME296 on Langevin sampling, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: following the score alone ends at the densest places, so Langevin sampling adds a random term to keep samples diverse | Intuition | [CME296, lecture 2, 14:30 to 18:43](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=870s) |
+
+The update is shown, not derived. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## The probability flow ODE
+
+<!-- video-table: probability-flow-ode rev=1 -->
+Stanford CME296 on the probability-flow ODE, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: the probability-flow ODE; the reverse SDE carries two sources of error (discretisation and randomness); an ODE with no random term carries one, and its derivation is sketched | Proof | [CME296, lecture 2, 1:30:32 to 1:41:24](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=5432s) |
+
+Composition of two scores is not covered. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## DDIM
+
+<!-- video-table: ddim rev=1 -->
+Stanford CME296 on DDIM, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: DDIM, linking two steps that skip the ones between, checked rather than derived, and why large skips lose quality when there is randomness inside each skip | Intuition | [CME296, lecture 1, 1:29:49 to 1:46:26](https://www.youtube.com/watch?v=tr-CUpw--ck&t=5389s) |
+
+Composition is not covered. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Diffusion written as a forward SDE
+
+<!-- video-table: forward-sde rev=1 -->
+Stanford CME296 on diffusion written as an SDE, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: dx = drift dt + diffusion dW, with the drift deterministic and the diffusion term random | Intuition | [CME296, lecture 2, 1:14:31 to 1:22:54](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=4471s) |
+
+VP and VE are not compared side by side. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## The reverse SDE and the probability flow ODE
+
+<!-- video-table: reverse-sde-and-pf-ode rev=1 -->
+Stanford CME296 on the two ways back, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: the reverse SDE and solving it step by step with Euler-Maruyama | Proof | [CME296, lecture 2, 1:25:14 to 1:30:32](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=5114s) |
+| 2 | Confirm after the sitting: the probability-flow ODE; the reverse SDE carries two sources of error (discretisation and randomness); an ODE with no random term carries one, and its derivation is sketched | Proof | [CME296, lecture 2, 1:30:32 to 1:41:24](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=5432s) |
+
+No toy is run. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## DDIM as an ODE solver
+
+<!-- video-table: ddim-as-an-ode-solver rev=1 -->
+Stanford CME296 on DDIM and ODE solvers, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: DDIM, linking two steps that skip the ones between, checked rather than derived, and why large skips lose quality when there is randomness inside each skip | Intuition | [CME296, lecture 1, 1:29:49 to 1:46:26](https://www.youtube.com/watch?v=tr-CUpw--ck&t=5389s) |
+| 2 | Confirm after the sitting: counting function evaluations, and DPM-Solver as a higher-order solver of the same ODE | Intuition | [CME296, lecture 2, 1:41:24 to 1:48:48](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=6084s) |
+
+The stretches do not derive DDIM as a step of an ODE solver. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Flow matching
+
+<!-- video-table: flow-matching rev=1 -->
+Stanford CME296 on flow matching, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient before the sitting: flow matching learns the vector field directly instead of a likelihood | Intuition | [CME296, lecture 3, 46:16 to 47:58](https://www.youtube.com/watch?v=agN3AlfGFrk&t=2776s) |
+| 2 | Unblock during the sitting: the flow-matching loss is equivalent to the conditional loss, which pairs one data point with one noise point | Proof | [CME296, lecture 3, 1:10:54 to 1:26:02](https://www.youtube.com/watch?v=agN3AlfGFrk&t=4254s) |
+| 3 | Confirm after the sitting: training samples noise, a data point and a time and regresses the velocity; sampling solves the ODE step by step | Intuition | [CME296, lecture 3, 1:28:50 to 1:30:31](https://www.youtube.com/watch?v=agN3AlfGFrk&t=5330s) |
+| 4 | Confirm after the sitting: straight lines between pairs, what happens where two lines cross, and rectified flow's fix | Intuition | [CME296, lecture 3, 1:30:31 to 1:43:05](https://www.youtube.com/watch?v=agN3AlfGFrk&t=5431s) |
+
+The two-moons toy and the 10-step comparison with DDPM are not shown. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Scaled dot-product self-attention
+
+<!-- video-table: scaled-dot-product-self-attention rev=1 -->
+Stanford CS231N on the attention operator, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: why the dot product is scaled by the square root of the width | Intuition | [CS231N, lecture 8, 32:20 to 34:20](https://www.youtube.com/watch?v=RQowiOF_FvQ&t=1940s) |
+| 2 | Confirm after the sitting: project each input to a key and a value, compare every key with every query, softmax per query, and combine the values | Proof | [CS231N, lecture 8, 38:40 to 44:50](https://www.youtube.com/watch?v=RQowiOF_FvQ&t=2320s) |
+
+The lecture never names attn1 or a UNet; image tokens appear only as an example. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Self-attention and cross-attention side by side
+
+<!-- video-table: self-and-cross-attention rev=1 -->
+Stanford CS224N on self-attention and cross-attention, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Unblock during the paper drip: scores as query-key dot products, the softmax over j, and the weighted sum of values | Proof | [CS224N 2023, lecture 8, 16:03 to 17:40](https://www.youtube.com/watch?v=LWMzyfvuehA&t=963s) |
+| 2 | Unblock during the numpy drip: the whole sentence as matrix products, with the n by n score matrix in one product | Code walk | [CS224N 2023, lecture 8, 45:17 to 47:50](https://www.youtube.com/watch?v=LWMzyfvuehA&t=2717s) |
+| 3 | Confirm after the sitting: dividing scores by a constant set by the width, stated in words | Intuition | [CS224N 2023, lecture 8, 56:38 to 58:02](https://www.youtube.com/watch?v=LWMzyfvuehA&t=3398s) |
+| 4 | Confirm after the sitting: decoder queries reading encoder keys and values | Intuition | [CS224N 2023, lecture 8, 1:10:02 to 1:12:39](https://www.youtube.com/watch?v=LWMzyfvuehA&t=4202s) |
+
+Slides, not typed code, and no attention map is drawn. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Attention as a soft dictionary lookup
+
+<!-- video-table: attention-as-a-soft-lookup rev=1 -->
+Stanford CS224N on attention as a soft dictionary lookup, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: a Python dictionary returns the one value whose key matches; attention scores the query against every key, softmaxes, and averages all values. Watch for the moment the exact match becomes a soft one, the step you reverse with a hard cut | Intuition | [CS224N 2023, lecture 8, 12:04 to 13:36](https://www.youtube.com/watch?v=LWMzyfvuehA&t=724s) |
+
+The lecture never keeps a top-k subset, so the hard cut itself is not shown. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## An embedding layer as a one-hot product
+
+<!-- video-table: embedding-as-one-hot-product rev=1 -->
+Vizuara on an embedding layer as a one-hot product, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: an embedding lookup gives the same vectors as a linear layer applied to one-hot rows, so the table is a weight matrix | Intuition | [Vizuara, LLMs from scratch lecture 10, 48:32 to 55:09](https://www.youtube.com/watch?v=ghCSGRgVB_o&t=2912s) |
+
+No gradient on the table is computed. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Reading rows out of an embedding table in code
+
+<!-- video-table: embedding-lookup-in-code rev=1 -->
+Vizuara on reading rows out of an embedding table in code, to watch during this build:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Unblock during the build: build the embedding layer in PyTorch and read each id's vector as a row of the weight matrix | Code walk | [Vizuara, LLMs from scratch lecture 10, 41:27 to 48:32](https://www.youtube.com/watch?v=ghCSGRgVB_o&t=2487s) |
+
+Direct indexing is shown; the matrix-product route is in the table under plan 33. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Word2vec's skip-gram objective
+
+<!-- video-table: skip-gram-objective rev=1 -->
+Stanford CS224N on word2vec's skip-gram, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: predict the words around each centre word from word vectors alone, and the objective that training maximises | Proof | [CS224N 2024, lecture 1, 47:08 to 55:57](https://www.youtube.com/watch?v=DzpHeXVSC5I&t=2828s) |
+
+No single update is worked with numbers. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## The residual connection
+
+<!-- video-table: residual-connection rev=1 -->
+Stanford CS224N on the residual connection, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: the layer's output is added to its input, so the layer only learns the residual and the gradient through the skip path is 1. Watch for "the gradient is one because it's the identity" | Intuition | [CS224N 2023, lecture 8, 58:51 to 59:58](https://www.youtube.com/watch?v=LWMzyfvuehA&t=3531s) |
+
+No numbers; the 20-layer shrinkage is not computed. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Gradients with and without shortcut connections
+
+<!-- video-table: gradient-through-shortcut-connections rev=1 -->
+Vizuara measuring gradients with and without shortcut connections, to watch after this build:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the build: a five-layer network's gradients printed layer by layer without shortcuts, then with them | Code walk | [Vizuara, shortcut connections, 22:55 to 30:48](https://www.youtube.com/watch?v=2r0QahNdwMw&t=1375s) |
+
+Uses 5 layers, not 20. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Layer normalisation in code
+
+<!-- video-table: layer-norm-in-code rev=1 -->
+Vizuara coding layer normalisation, to watch after this build:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the build: a LayerNorm class with mean, variance, epsilon, scale and shift, then tested | Code walk | [Vizuara, LLMs from scratch lecture 20, 26:01 to 36:55](https://www.youtube.com/watch?v=G3W-LT79LSI&t=1561s) |
+
+Does not stack scaling layers to compare with and without normalisation. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Masking the future in self-attention
+
+<!-- video-table: causal-masking rev=1 -->
+Stanford CS224N and Vizuara on masking the future in self-attention, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the build: the full n by n score matrix is computed, every score where j is after i is set to minus infinity, and the softmax turns those into weight 0. Watch the grid of greyed-out cells, which is your lower-triangular mask | Intuition | [CS224N 2023, lecture 8, 33:02 to 34:58](https://www.youtube.com/watch?v=LWMzyfvuehA&t=1982s) |
+| 2 | Unblock during the build: apply a lower-triangular mask to the attention weights in Python | Code walk | [Vizuara, LLMs from scratch lecture 16, 14:25 to 24:45](https://www.youtube.com/watch?v=h94TQOK7NRA&t=865s) |
+| 3 | Confirm after the build: the upper-triangular minus-infinity mask applied before one softmax, avoiding leakage | Code walk | [Vizuara, LLMs from scratch lecture 16, 26:39 to 32:33](https://www.youtube.com/watch?v=h94TQOK7NRA&t=1599s) |
+
+Position is not covered here; it is in the table under plan 44. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Multi-head attention
+
+<!-- video-table: multi-head-attention rev=1 -->
+Stanford CS224N on multi-head attention, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: h heads, each with its own query, key and value matrices projecting to width d over h, a separate softmax per head, then the outputs concatenated and mixed by one final linear map. Watch for "look in different places for different reasons" | Proof | [CS224N 2023, lecture 8, 47:50 to 52:05](https://www.youtube.com/watch?v=LWMzyfvuehA&t=2870s) |
+
+No toy with one-number heads; the lecture uses symbols and a picture. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## The sinusoidal position formula
+
+<!-- video-table: sinusoidal-position-formula rev=1 -->
+Stanford CME295 on the sinusoidal position formula, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: one vector per position built from sines and cosines at different frequencies, matching the token embedding width, and why that choice makes sense | Proof | [CME295, lecture 2, 15:36 to 25:56](https://www.youtube.com/watch?v=yT84Y5zCnaA&t=936s) |
+
+Multi-head attention is in the other table in this file. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Cross-attention in the encoder-decoder transformer
+
+<!-- video-table: cross-attention rev=1 -->
+Stanford CS224N on cross-attention in the encoder-decoder transformer, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: the decoder's vectors supply the queries and the encoder's output supplies the keys and values, so two of the three arrows come from the encoder. Watch for "two of the arrows come from the encoder and one of the arrows comes from the decoder" | Intuition | [CS224N 2023, lecture 8, 1:10:02 to 1:12:39](https://www.youtube.com/watch?v=LWMzyfvuehA&t=4202s) |
+
+No weights matrix is worked with numbers. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
 ## Compound interest, the annuity formula and the Rule of 72

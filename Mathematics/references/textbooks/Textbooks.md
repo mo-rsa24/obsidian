@@ -211,6 +211,94 @@ table on this page gives PDF pages.
 | the Gaussian kernel density estimator: one Gaussian of width h on each data point, averaged (equation 2.250, section 2.5.1) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=142) | 142 |
 | responsibility in a Gaussian mixture: the posterior of a component given x, by Bayes' theorem (equation 9.13) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=449) | 449 |
 | the double integral as the limit of Riemann sums, each term the value times the area of a small cell (section 14.1, equation 4) | [calculus textbook](calculus/calculus-textbook.pdf#page=1026) | 1026 |
+| tokenization: splitting raw text into words with a regular expression, on whitespace or on word characters (section 3.7) | [natural language processing with Python](natural-language-processing/natural-language-processing-with-python.pdf#page=131) | 131 |
+| regular expression metacharacters: `[abc]`, the range `[A-Z0-9]`, `+` for one or more, `*`, `?`, `{m,n}` (Table 3-3, section 3.4) | [natural language processing with Python](natural-language-processing/natural-language-processing-with-python.pdf#page=123) | 123 |
+| a text's vocabulary as a Python set: `set(text)`, `len(set(text))`, word types against tokens (section 1.1) | [natural language processing with Python](natural-language-processing/natural-language-processing-with-python.pdf#page=30) | 30 |
+| recursion: a function that calls itself on a smaller instance, with a base case (section 4.7) | [natural language processing with Python](natural-language-processing/natural-language-processing-with-python.pdf#page=182) | 182 |
+| dynamic programming: overlapping subproblems stored in a lookup table, bottom-up against top-down and memoization, on Sanskrit meters (section 4.7, through PDF page 189) | [natural language processing with Python](natural-language-processing/natural-language-processing-with-python.pdf#page=187) | 187 |
+| softmax: K arbitrary outputs made non-negative and summing to one, softmaxₖ[z] = exp[zₖ]/Σ exp[zₖ′], with a picture of the categorical distribution it produces (section 5.5, equation 5.22) | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=82) | 82 |
+| softmax computed safely: subtract maxᵢ xᵢ before exponentiating so exp cannot overflow, and why the value is unchanged (section 4.1, equation 4.1) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=97) | 97 |
+| the dot product in components, u · v = u₁v₁ + … + uₙvₙ, with worked examples in R³ and R⁴ (Definition 4, section 3.2) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=161) | 161 |
+| the dot product geometrically, u · v = ‖u‖‖v‖cos θ, worked on two vectors at 45°, then the component form derived from the law of cosines (section 3.2) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=160) | 160 |
+| the norm (length) of a vector, ‖v‖ = √(v₁² + … + vₙ²), with worked norms and unit vectors on the next page (section 3.2) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=156) | 156 |
+| Euclidean distance between two points in Rⁿ, d(u, v) = ‖u − v‖ (Definition 2 and Example 4, section 3.2) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=159) | 159 |
+| cosine similarity cos θ = v₁ᵀv₂ / (‖v₁‖‖v₂‖), and the dot product read as a scaled projection (section 1.1, boxed) | [the little book of generative AI foundations](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=13) | 13 |
+| the angle between two vectors from the inner product, worked: cos ω = 3/√10, about 18° (Example 3.6) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=83) | 83 |
+| independent events: P[A ∩ B] = P[A]P[B], and why, through conditional probability (Definition 2.23, section 2.4.2) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=101) | 101 |
+| combinations: choosing k of n unordered, n! / (k!(n − k)!), so n(n − 1)/2 pairs (Theorem 1.7, section 1.5) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=51) | 51 |
+| bootstrapping: K datasets drawn with replacement from the one you have, the bootstrapped mean and variance (Algorithm 2, section 9.2) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=579) | 579 |
+| additivity: probabilities of disjoint events add, and why the three axioms (Axiom III, section 2.3) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=91) | 91 |
+| precision and recall: TP/(TP + FP) and TP/(TP + FN), what high and low each mean (section 9.5, equations 9.42 and 9.43) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=618) | 618 |
+| the harmonic mean: the reciprocal of the mean of reciprocals, worked on an average speed | [algebra handbook](algebra/algebra-handbook.pdf#page=170) | 170 |
+| percent increase and decrease: the change divided by the original amount, worked | [pre-algebra handbook](general/pre-algebra-handbook.pdf#page=37) | 37 |
+| Bellman's equation: the shortest-path label of a node is the minimum over incoming arcs of the upstream label plus the arc cost, λj = min(λi + cij) (Theorem 23.11) | [optimization: principles and algorithms](optimization/optimization-principles-and-algorithms.pdf#page=582) | 582 |
+| union and intersection of two sets, defined with Venn diagrams (section 3.3, Definitions 8 and 9, intersection on PDF page 58) | [introduction to statistics](statistics/introduction-to-statistics.pdf#page=57) | 57 |
+| the chain rule: the derivative of a composition f∘g from the derivatives of f and g, motivated by miles per gallon (section 2.6, Theorem 2.6.1 on the next page) | [calculus textbook](calculus/calculus-textbook.pdf#page=198) | 198 |
+| the standard deviation: the square root of the variance, Var[X] = E[(X − µ)²] (Definition 3.7) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=150) | 150 |
+| triangular matrices: lower triangular has zeros above the main diagonal, upper triangular below, drawn for 4 by 4 (section 1.7, Example 2) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=83) | 83 |
+| Jensen's inequality: E[g(X)] ≥ g(E[X]) for convex g, flipped for concave g, motivated by E[X²] ≥ E[X]² (Theorem 6.10, section 6.2.3) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=352) | 352 |
+| the standard error: the standard deviation of a sample average, se = σ/√N, then the critical value and margin of error (equations 9.7 to 9.9, section 9.1) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=568) | 568 |
+| the binomial PMF: k successes in n independent trials, C(n, k)pᵏ(1 − p)ⁿ⁻ᵏ, so none in n has probability (1 − p)ⁿ (Definition 3.9, section 3.5.2) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=159) | 159 |
+| radians: 2π in one turn, one radian is the radius wrapped along the circle, arc length S = rθ | [trigonometry handbook](trigonometry/trigonometry-handbook.pdf#page=7) | 7 |
+| the graphs of the basic trigonometric functions, sine and cosine as waves | [trigonometry handbook](trigonometry/trigonometry-handbook.pdf#page=16) | 16 |
+| dividing decimals in long-division form, a fraction turned into a decimal | [pre-algebra handbook](general/pre-algebra-handbook.pdf#page=30) | 30 |
+| rounding rules, to a given decimal place | [pre-algebra handbook](general/pre-algebra-handbook.pdf#page=32) | 32 |
+| ratios as fractions relating two counts | [pre-algebra handbook](general/pre-algebra-handbook.pdf#page=74) | 74 |
+| the floor (greatest integer) function | [algebra handbook](algebra/algebra-handbook.pdf#page=25) | 25 |
+| properties of inequalities: multiplying or dividing both sides by a negative number flips the sign | [algebra handbook](algebra/algebra-handbook.pdf#page=42) | 42 |
+| absolute value inequalities, |x − a| < c split into −c < x − a < c | [algebra handbook](algebra/algebra-handbook.pdf#page=48) | 48 |
+| multiplying binomials, the square of a difference | [algebra handbook](algebra/algebra-handbook.pdf#page=62) | 62 |
+| the parabola: its vertex and which way it opens | [algebra handbook](algebra/algebra-handbook.pdf#page=73) | 73 |
+| graphing simple rational functions a/(x − h) + k, such as 1 − d/L | [algebra handbook](algebra/algebra-handbook.pdf#page=139) | 139 |
+| horizontal asymptotes and end behaviour of a rational function, worked | [algebra handbook](algebra/algebra-handbook.pdf#page=140) | 140 |
+| sequences, recursive formulas and the nth term | [algebra handbook](algebra/algebra-handbook.pdf#page=163) | 163 |
+| summation notation Σ, expanded term by term | [algebra handbook](algebra/algebra-handbook.pdf#page=165) | 165 |
+| a proportion: count over total, then times 100 for a percentage | [introduction to statistics](statistics/introduction-to-statistics.pdf#page=21) | 21 |
+| the mean, plain and frequency-weighted | [introduction to statistics](statistics/introduction-to-statistics.pdf#page=40) | 40 |
+| sets and elements, X = {A, …} | [introduction to statistics](statistics/introduction-to-statistics.pdf#page=55) | 55 |
+| E[XY] = E[X]E[Y] for independent variables | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=280) | 280 |
+| precision and recall (equation 9.40) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=617) | 617 |
+| the matrix product and the size it needs | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=43) | 43 |
+| the inverse of a product, (AB)⁻¹ = B⁻¹A⁻¹ | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=60) | 60 |
+| vectors as ordered n-tuples | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=150) | 150 |
+| the angle and cosine in any number of dimensions, θ = cos⁻¹(u·v / ‖u‖‖v‖) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=162) | 162 |
+| the theorem of Pythagoras in Rⁿ | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=174) | 174 |
+| the theorem of Pythagoras, a² + b² = c² | [geometry handbook](geometry/geometry-handbook.pdf#page=80) | 80 |
+| least squares | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=393) | 393 |
+| quadratic forms (section 7.3) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=432) | 432 |
+| the Woodbury identity (section 3.2.2) | [matrix cookbook](linear-algebra/matrix-cookbook.pdf#page=18) | 18 |
+| the tangent slope as the limit of secant slopes | [calculus textbook](calculus/calculus-textbook.pdf#page=157) | 157 |
+| the extended power rule, worked on 1/x | [calculus textbook](calculus/calculus-textbook.pdf#page=181) | 181 |
+| first and second derivative tests for a local minimum | [calculus textbook](calculus/calculus-textbook.pdf#page=271) | 271 |
+| sigma notation | [calculus textbook](calculus/calculus-textbook.pdf#page=364) | 364 |
+| the definite integral | [calculus textbook](calculus/calculus-textbook.pdf#page=377) | 377 |
+| the derivative of tanh, sech² | [calculus textbook](calculus/calculus-textbook.pdf#page=501) | 501 |
+| the Maclaurin series for eˣ | [calculus textbook](calculus/calculus-textbook.pdf#page=684) | 684 |
+| the chain rule for several variables | [calculus textbook](calculus/calculus-textbook.pdf#page=973) | 973 |
+| the gradient | [calculus textbook](calculus/calculus-textbook.pdf#page=987) | 987 |
+| Minkowski loss: the conditional median for q = 1 | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=67) | 67 |
+| bias squared plus variance plus noise (equation 3.41) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=168) | 168 |
+| Gaussian classes with a shared covariance give a logistic posterior (section 4.2.1) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=216) | 216 |
+| the Gaussian mixture model (equation 9.7) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=447) | 447 |
+| EM for Gaussian mixtures (section 9.2.2) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=452) | 452 |
+| probabilistic PCA (section 12.2) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=586) | 586 |
+| mean squared error as bias squared plus variance (section 5.4.4) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=145) | 145 |
+| indexes start from zero | [natural language processing with Python](natural-language-processing/natural-language-processing-with-python.pdf#page=34) | 34 |
+| Itô's lemma: the stochastic chain rule, Theorem 7.3.1 (definition) | [stochastic differential equations](calculus/stochastic-differential-equations.pdf#page=156) | 156 |
+| Itô's lemma: why the second-order term in dX stays, giving the extra drift tr(GᵀHG)/2 | [stochastic differential equations](calculus/stochastic-differential-equations.pdf#page=157) | 157 |
+| Euler-Maruyama scheme: defined from an ODE driven by noise, with the Brownian increment (eq. 6.3) | [stochastic differential equations](calculus/stochastic-differential-equations.pdf#page=130) | 130 |
+| Euler-Maruyama run in code: a scalar SDE solved and plotted | [SDEs in code, example 1](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Example-1:-Scalar-SDEs) | web |
+| many sample paths of one SDE, with their mean and spread | [SDEs in code, ensembles](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Ensemble-Simulations) | web |
+| the CDF of a continuous variable: F(x) = P[X ≤ x], the integral of the PDF up to x, with a uniform worked example (Definition 4.7, section 4.3.1) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=202) | 202 |
+| the forward Kolmogorov (Fokker-Planck) equation, Theorem 9.5.1 | [stochastic differential equations](calculus/stochastic-differential-equations.pdf#page=214) | 214 |
+| the stationary density of a scalar SDE, worked (eqs 9.6, 9.7) | [stochastic differential equations](calculus/stochastic-differential-equations.pdf#page=220) | 220 |
+| the sum and difference rules for derivatives, (f + g)′ = f′ + g′ (Theorem 2.3.5) | [calculus textbook](calculus/calculus-textbook.pdf#page=182) | 182 |
+| the gradient of a dot product, ∂(xᵀa)/∂x = aᵀ, and other gradient identities (section 5.5) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=164) | 164 |
+| standardization: subtract the mean, divide by the standard deviation (section 10.6) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=342) | 342 |
+| the transpose (Definition 2.4) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=31) | 31 |
+| the identity matrix, I A = A I = A (equation 2.20) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=30) | 30 |
+| the partial derivative: hold every other variable fixed and differentiate in one (Definition 13.3.1) | [calculus textbook](calculus/calculus-textbook.pdf#page=951) | 951 |
+| symmetric central differences, (f(w + ε) − f(w − ε)) / 2ε, accurate to O(ε²), for checking a derivative numerically (equation 5.69) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=264) | 264 |
 
 ## general/
 
@@ -844,6 +932,152 @@ printed page number is the PDF page minus 2.
 
 `calculus/gamma-function.pdf`, 5 pages. Own notes from the Mathematical Statistics series, 2 September
 2021: the gamma function and a proof by induction that Γ(n) = (n − 1)!. Was `Gamma Function.pdf`.
+
+### Stochastic differential equations
+
+`calculus/stochastic-differential-equations.pdf`, 429 pages. Uffe Høgsbro Thygesen, *Stochastic Differential
+Equations for Science and Engineering*, 1st edition, CRC Press, 2023, in the author's preprint of 11 July 2023
+from DTU Orbit (page numbers differ from the printed book; solutions to selected exercises are included). A
+published textbook in preprint form: probability spaces and conditional expectation, Brownian motion, the Itô
+integral and Itô's lemma, Euler-Maruyama and other numerical schemes, the forward and backward Kolmogorov
+(Fokker-Planck) equations, filtering and stochastic control. Was
+`Thygesen_2023_SDEs_for_science_and_engineering_PREPRINT.pdf`. The printed page number is the PDF page minus
+10; the solutions restart their own numbering at 1 on PDF page 386.
+
+| Chapter | PDF page |
+| --- | --- |
+| 1 Introduction | [11](calculus/stochastic-differential-equations.pdf#page=11) |
+| Part I Fundamentals | [19](calculus/stochastic-differential-equations.pdf#page=19) |
+| 2 Diffusive Transport and Random Walks | [20](calculus/stochastic-differential-equations.pdf#page=20) |
+| 2.1 Diffusive Transport | [21](calculus/stochastic-differential-equations.pdf#page=21) |
+| 2.2 Advective and Diffusive Transport | [28](calculus/stochastic-differential-equations.pdf#page=28) |
+| 2.3 Diffusion in More Than One Dimension | [29](calculus/stochastic-differential-equations.pdf#page=29) |
+| 2.4 Relative Importance of Advection and Diffusion | [31](calculus/stochastic-differential-equations.pdf#page=31) |
+| 2.5 The Motion of a Single Molecule | [33](calculus/stochastic-differential-equations.pdf#page=33) |
+| 2.6 Monte Carlo Simulation of Particle Motion | [35](calculus/stochastic-differential-equations.pdf#page=35) |
+| 3 Stochastic Experiments and Probability Spaces | [40](calculus/stochastic-differential-equations.pdf#page=40) |
+| 3.1 Stochastic Experiments | [41](calculus/stochastic-differential-equations.pdf#page=41) |
+| 3.2 Random Variables | [45](calculus/stochastic-differential-equations.pdf#page=45) |
+| 3.3 Expectation is Integration | [47](calculus/stochastic-differential-equations.pdf#page=47) |
+| 3.4 Information is a σ-Algebra | [49](calculus/stochastic-differential-equations.pdf#page=49) |
+| 3.5 Conditional Expectations | [51](calculus/stochastic-differential-equations.pdf#page=51) |
+| 3.6 Independence and Conditional Independence | [56](calculus/stochastic-differential-equations.pdf#page=56) |
+| 3.7 Linear Spaces of Random Variables | [58](calculus/stochastic-differential-equations.pdf#page=58) |
+| 4 Brownian Motion | [74](calculus/stochastic-differential-equations.pdf#page=74) |
+| 4.1 Stochastic processes and random functions | [75](calculus/stochastic-differential-equations.pdf#page=75) |
+| 4.2 Definition of Brownian motion | [75](calculus/stochastic-differential-equations.pdf#page=75) |
+| 4.3 Properties of Brownian Motion | [77](calculus/stochastic-differential-equations.pdf#page=77) |
+| 4.4 Filtrations and accumulation of information | [88](calculus/stochastic-differential-equations.pdf#page=88) |
+| 4.5 The martingale property | [89](calculus/stochastic-differential-equations.pdf#page=89) |
+| 5 Linear Dynamic Systems | [101](calculus/stochastic-differential-equations.pdf#page=101) |
+| 5.1 Linear Systems with Deterministic Inputs | [102](calculus/stochastic-differential-equations.pdf#page=102) |
+| 5.2 Linear Systems in the Frequency Domain | [104](calculus/stochastic-differential-equations.pdf#page=104) |
+| 5.3 A Linear System Driven by Noise | [106](calculus/stochastic-differential-equations.pdf#page=106) |
+| 5.4 Stationary Processes in Time Domain | [108](calculus/stochastic-differential-equations.pdf#page=108) |
+| 5.5 Stationary Processes in Frequency Domain | [110](calculus/stochastic-differential-equations.pdf#page=110) |
+| 5.6 The Response to Noise | [111](calculus/stochastic-differential-equations.pdf#page=111) |
+| 5.7 The White Noise Limit | [113](calculus/stochastic-differential-equations.pdf#page=113) |
+| 5.8 Integrated White Noise is Brownian Motion | [115](calculus/stochastic-differential-equations.pdf#page=115) |
+| 5.9 Linear Systems Driven by White Noise | [117](calculus/stochastic-differential-equations.pdf#page=117) |
+| 5.10 The Ornstein-Uhlenbeck Process | [120](calculus/stochastic-differential-equations.pdf#page=120) |
+| 5.11 The Noisy Harmonic Oscillator | [121](calculus/stochastic-differential-equations.pdf#page=121) |
+| Part II Stochastic Calculus | [128](calculus/stochastic-differential-equations.pdf#page=128) |
+| 6 Stochastic integrals | [129](calculus/stochastic-differential-equations.pdf#page=129) |
+| 6.1 Ordinary Differential Equations Driven by Noise | [130](calculus/stochastic-differential-equations.pdf#page=130) |
+| 6.2 Some Exemplary Equations | [132](calculus/stochastic-differential-equations.pdf#page=132) |
+| 6.3 The Itô Integral and its Properties | [135](calculus/stochastic-differential-equations.pdf#page=135) |
+| 6.4 A Cautionary Example: ∫ B dB | [139](calculus/stochastic-differential-equations.pdf#page=139) |
+| 6.5 Itô Processes and Solutions to SDEs | [142](calculus/stochastic-differential-equations.pdf#page=142) |
+| 6.6 Relaxing the L2 Constraint | [144](calculus/stochastic-differential-equations.pdf#page=144) |
+| 6.7 Integration with Respect to Itô Processes | [145](calculus/stochastic-differential-equations.pdf#page=145) |
+| 6.8 The Stratonovich Integral | [146](calculus/stochastic-differential-equations.pdf#page=146) |
+| 6.9 Calculus of Cross-Variations | [148](calculus/stochastic-differential-equations.pdf#page=148) |
+| 7 The Stochastic Chain Rule | [154](calculus/stochastic-differential-equations.pdf#page=154) |
+| 7.1 The Chain Rule of Deterministic Calculus | [155](calculus/stochastic-differential-equations.pdf#page=155) |
+| 7.2 Transformations of Random Variables | [155](calculus/stochastic-differential-equations.pdf#page=155) |
+| 7.3 Itô's Lemma: The Stochastic Chain Rule | [156](calculus/stochastic-differential-equations.pdf#page=156) |
+| 7.4 Some SDE's with Analytical Solutions | [159](calculus/stochastic-differential-equations.pdf#page=159) |
+| 7.5 Dynamics of Derived Quantities | [163](calculus/stochastic-differential-equations.pdf#page=163) |
+| 7.6 Coordinate Transformations | [165](calculus/stochastic-differential-equations.pdf#page=165) |
+| 7.7 Time Change | [169](calculus/stochastic-differential-equations.pdf#page=169) |
+| 7.8 Stratonovich Calculus | [172](calculus/stochastic-differential-equations.pdf#page=172) |
+| 8 Existence, Uniqueness, and Numerics | [180](calculus/stochastic-differential-equations.pdf#page=180) |
+| 8.1 The Initial Value Problem | [181](calculus/stochastic-differential-equations.pdf#page=181) |
+| 8.2 Uniqueness of Solutions | [181](calculus/stochastic-differential-equations.pdf#page=181) |
+| 8.3 Existence of Solutions | [185](calculus/stochastic-differential-equations.pdf#page=185) |
+| 8.4 Numerical Simulation of Sample Paths | [189](calculus/stochastic-differential-equations.pdf#page=189) |
+| 9 The Kolmogorov equations | [204](calculus/stochastic-differential-equations.pdf#page=204) |
+| 9.1 Brownian Motion is a Markov Process | [205](calculus/stochastic-differential-equations.pdf#page=205) |
+| 9.2 Diffusions are Markov Processes | [206](calculus/stochastic-differential-equations.pdf#page=206) |
+| 9.3 Transition Probabilities and Densities | [207](calculus/stochastic-differential-equations.pdf#page=207) |
+| 9.4 The Backward Kolmogorov Equation | [211](calculus/stochastic-differential-equations.pdf#page=211) |
+| 9.5 The Forward Kolmogorov Equation | [214](calculus/stochastic-differential-equations.pdf#page=214) |
+| 9.6 Different Forms of the Kolmogorov Equations | [216](calculus/stochastic-differential-equations.pdf#page=216) |
+| 9.7 Drift, Noise Intensity, Advection, and Diffusion | [218](calculus/stochastic-differential-equations.pdf#page=218) |
+| 9.8 Stationary Distributions | [219](calculus/stochastic-differential-equations.pdf#page=219) |
+| 9.9 Detailed Balance and Reversibility | [222](calculus/stochastic-differential-equations.pdf#page=222) |
+| Part III Applications | [245](calculus/stochastic-differential-equations.pdf#page=245) |
+| 10 State Estimation | [246](calculus/stochastic-differential-equations.pdf#page=246) |
+| 10.1 Recursive Filtering | [247](calculus/stochastic-differential-equations.pdf#page=247) |
+| 10.2 Observation Models and the State Likelihood | [248](calculus/stochastic-differential-equations.pdf#page=248) |
+| 10.3 The Recursions: Time Update and Data Update | [251](calculus/stochastic-differential-equations.pdf#page=251) |
+| 10.4 The Smoothing Filter | [255](calculus/stochastic-differential-equations.pdf#page=255) |
+| 10.5 Sampling Typical Tracks | [257](calculus/stochastic-differential-equations.pdf#page=257) |
+| 10.6 Likelihood Inference | [258](calculus/stochastic-differential-equations.pdf#page=258) |
+| 10.7 The Kalman Filter | [260](calculus/stochastic-differential-equations.pdf#page=260) |
+| 10.8 Estimating States and Parameters as a Mixed-Effects Model | [267](calculus/stochastic-differential-equations.pdf#page=267) |
+| 11 Expectations to the Future | [274](calculus/stochastic-differential-equations.pdf#page=274) |
+| 11.1 Dynkin's Formula | [275](calculus/stochastic-differential-equations.pdf#page=275) |
+| 11.2 Expected Exit Times from Bounded Domains | [276](calculus/stochastic-differential-equations.pdf#page=276) |
+| 11.3 Absorbing Boundaries | [282](calculus/stochastic-differential-equations.pdf#page=282) |
+| 11.4 The Expected Point of Exit | [285](calculus/stochastic-differential-equations.pdf#page=285) |
+| 11.5 Recurrence of Brownian Motion | [287](calculus/stochastic-differential-equations.pdf#page=287) |
+| 11.6 The Poisson Equation | [289](calculus/stochastic-differential-equations.pdf#page=289) |
+| 11.7 Analysis of a Singular Boundary Point | [289](calculus/stochastic-differential-equations.pdf#page=289) |
+| 11.8 Discounting and the Feynman-Kac Formula | [293](calculus/stochastic-differential-equations.pdf#page=293) |
+| 12 Stochastic Stability Theory | [305](calculus/stochastic-differential-equations.pdf#page=305) |
+| 12.1 The Stability Problem | [306](calculus/stochastic-differential-equations.pdf#page=306) |
+| 12.2 The Sensitivity Equations | [307](calculus/stochastic-differential-equations.pdf#page=307) |
+| 12.3 Stochastic Lyapunov Exponents | [310](calculus/stochastic-differential-equations.pdf#page=310) |
+| 12.4 Extrema of the Stationary Distribution | [313](calculus/stochastic-differential-equations.pdf#page=313) |
+| 12.5 A Worked Example: A Stochastic Predator-Prey Model | [316](calculus/stochastic-differential-equations.pdf#page=316) |
+| 12.6 Geometric Brownian Motion Revisited | [320](calculus/stochastic-differential-equations.pdf#page=320) |
+| 12.7 Stochastic Lyapunov Functions | [322](calculus/stochastic-differential-equations.pdf#page=322) |
+| 12.8 Stability in Mean Square | [325](calculus/stochastic-differential-equations.pdf#page=325) |
+| 12.9 Stochastic Boundedness | [328](calculus/stochastic-differential-equations.pdf#page=328) |
+| 13 Dynamic Optimization | [335](calculus/stochastic-differential-equations.pdf#page=335) |
+| 13.1 Markov Decision Problems | [336](calculus/stochastic-differential-equations.pdf#page=336) |
+| 13.2 Controlled Diffusions and Performance Objectives | [339](calculus/stochastic-differential-equations.pdf#page=339) |
+| 13.3 Verification and the Hamilton-Jacobi-Bellman Equation | [340](calculus/stochastic-differential-equations.pdf#page=340) |
+| 13.4 Portfolio Selection | [342](calculus/stochastic-differential-equations.pdf#page=342) |
+| 13.5 Multivariate Linear-Quadratic Control | [343](calculus/stochastic-differential-equations.pdf#page=343) |
+| 13.6 Steady-State Control Problems | [346](calculus/stochastic-differential-equations.pdf#page=346) |
+| 13.7 Designing an Autopilot | [350](calculus/stochastic-differential-equations.pdf#page=350) |
+| 13.8 Designing a Fisheries Management System | [352](calculus/stochastic-differential-equations.pdf#page=352) |
+| 13.9 A Fisheries Management Problem in 2D | [354](calculus/stochastic-differential-equations.pdf#page=354) |
+| 13.10 Optimal Diel Vertical Migrations | [358](calculus/stochastic-differential-equations.pdf#page=358) |
+| 14 Perspectives | [369](calculus/stochastic-differential-equations.pdf#page=369) |
+| Solutions to selected exercises | [385](calculus/stochastic-differential-equations.pdf#page=385) |
+
+### Stochastic differential equations in code
+
+A web tutorial, not a PDF: the SciML *DifferentialEquations.jl* documentation's SDE tutorial, at
+[docs.sciml.ai](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/). It writes the SDEs the Thygesen book above derives as Julia code with
+`StochasticDiffEq.jl` and plots each solution, so it is the place to see Euler-Maruyama, an ensemble of
+paths and the different noise shapes run. Link a section with its `#` anchor, as below; there are no
+page numbers.
+
+| Section | Link |
+| --- | --- |
+| Stochastic Differential Equations: what the tutorial assumes (the ODE tutorial) | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Stochastic-Differential-Equations) |
+| Example 1: a scalar SDE with linear drift and noise, solved by Euler-Maruyama (`EM`) and plotted | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Example-1:-Scalar-SDEs) |
+| Higher-order methods: `EM` against `SRIW1` and the analytic solution, adaptive and fixed steps | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Using-Higher-Order-Methods) |
+| Ensemble simulations: 1000 trajectories, their mean and quantiles, a time-point correlation | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Ensemble-Simulations) |
+| Example 2: stochastic Lorenz system, one noise term per variable (diagonal noise) | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Example-2:-Systems-of-SDEs-with-Diagonal-Noise) |
+| Example 3: one shared Wiener process driving a linear matrix SDE (scalar noise) | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Example-3:-Systems-of-SDEs-with-Scalar-Noise) |
+| Example 4: a 2×4 noise matrix, dense and sparse (non-diagonal noise) | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Example-4:-Systems-of-SDEs-with-Non-Diagonal-Noise) |
+| Example 5: passing a custom coloured noise process (only `EM` and `EulerHeun` accept it) | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Example-5:-Colored-Noise) |
+| Heston stochastic volatility model with correlated Wiener noise | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Example:-Spatially-Colored-Noise-in-the-Heston-Model) |
 
 ## statistics/
 
@@ -2365,3 +2599,147 @@ conditioning [63](optimization/optimization-principles-and-algorithms.pdf#page=6
 | Algorithm 27.5 Neighborhood of size k for the knapsack problem | [681](optimization/optimization-principles-and-algorithms.pdf#page=681) |
 | Algorithm 27.6 Variable Neighborhood Search | [687](optimization/optimization-principles-and-algorithms.pdf#page=687) |
 | Algorithm 27.7 Simulated annealing | [694](optimization/optimization-principles-and-algorithms.pdf#page=694) |
+
+## natural-language-processing/
+
+### Natural language processing with Python
+
+`natural-language-processing/natural-language-processing-with-python.pdf`, 504 pages, downloaded as
+`NLTK.pdf`. Steven Bird, Ewan Klein and
+Edward Loper, *Natural Language Processing with Python*, O'Reilly Media, first edition, 2009. A
+published textbook that teaches Python and natural language processing together through the NLTK
+library (Python 2 syntax): texts as lists of words and their vocabulary as a set, corpora, raw text,
+regular expressions and tokenization, writing structured programs (sequences, functions, recursion,
+dynamic programming), tagging, classification, information extraction, grammars and parsing, meaning,
+and managing linguistic data. The table is from the PDF's own outline, chapters and their sections.
+The printed page number is the PDF page minus 22 from chapter 1 on.
+
+**What it teaches that the maths books do not.** Splitting text into words with a regular expression
+(section 3.7, [131](natural-language-processing/natural-language-processing-with-python.pdf#page=131)), a text's vocabulary as `set(text)` ([30](natural-language-processing/natural-language-processing-with-python.pdf#page=30)),
+and dynamic programming worked bottom-up and top-down on one small problem (section 4.7,
+[187](natural-language-processing/natural-language-processing-with-python.pdf#page=187) to [189](natural-language-processing/natural-language-processing-with-python.pdf#page=189)). It names string edit distance only in an
+exercise (Chapter 4 exercise 25, [198](natural-language-processing/natural-language-processing-with-python.pdf#page=198)) and uses `nltk.edit_dist` to rank spelling
+candidates ([446](natural-language-processing/natural-language-processing-with-python.pdf#page=446)); it never derives the edit table.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| Preface | [11](natural-language-processing/natural-language-processing-with-python.pdf#page=11) |
+| 1 Language Processing and Python | [23](natural-language-processing/natural-language-processing-with-python.pdf#page=23) |
+| 1.1 Computing with Language: Texts and Words | [23](natural-language-processing/natural-language-processing-with-python.pdf#page=23) |
+| 1.2 A Closer Look at Python: Texts as Lists of Words | [32](natural-language-processing/natural-language-processing-with-python.pdf#page=32) |
+| 1.3 Computing with Language: Simple Statistics | [38](natural-language-processing/natural-language-processing-with-python.pdf#page=38) |
+| 1.4 Back to Python: Making Decisions and Taking Control | [44](natural-language-processing/natural-language-processing-with-python.pdf#page=44) |
+| 1.5 Automatic Natural Language Understanding | [49](natural-language-processing/natural-language-processing-with-python.pdf#page=49) |
+| 1.6 Summary | [55](natural-language-processing/natural-language-processing-with-python.pdf#page=55) |
+| 1.7 Further Reading | [56](natural-language-processing/natural-language-processing-with-python.pdf#page=56) |
+| 1.8 Exercises | [57](natural-language-processing/natural-language-processing-with-python.pdf#page=57) |
+| 2 Accessing Text Corpora and Lexical Resources | [61](natural-language-processing/natural-language-processing-with-python.pdf#page=61) |
+| 2.1 Accessing Text Corpora | [61](natural-language-processing/natural-language-processing-with-python.pdf#page=61) |
+| 2.2 Conditional Frequency Distributions | [74](natural-language-processing/natural-language-processing-with-python.pdf#page=74) |
+| 2.3 More Python: Reusing Code | [78](natural-language-processing/natural-language-processing-with-python.pdf#page=78) |
+| 2.4 Lexical Resources | [81](natural-language-processing/natural-language-processing-with-python.pdf#page=81) |
+| 2.5 WordNet | [89](natural-language-processing/natural-language-processing-with-python.pdf#page=89) |
+| 2.6 Summary | [95](natural-language-processing/natural-language-processing-with-python.pdf#page=95) |
+| 2.7 Further Reading | [95](natural-language-processing/natural-language-processing-with-python.pdf#page=95) |
+| 2.8 Exercises | [96](natural-language-processing/natural-language-processing-with-python.pdf#page=96) |
+| 3 Processing Raw Text | [101](natural-language-processing/natural-language-processing-with-python.pdf#page=101) |
+| 3.1 Accessing Text from the Web and from Disk | [102](natural-language-processing/natural-language-processing-with-python.pdf#page=102) |
+| 3.2 Strings: Text Processing at the Lowest Level | [109](natural-language-processing/natural-language-processing-with-python.pdf#page=109) |
+| 3.3 Text Processing with Unicode | [115](natural-language-processing/natural-language-processing-with-python.pdf#page=115) |
+| 3.4 Regular Expressions for Detecting Word Patterns | [119](natural-language-processing/natural-language-processing-with-python.pdf#page=119) |
+| 3.5 Useful Applications of Regular Expressions | [124](natural-language-processing/natural-language-processing-with-python.pdf#page=124) |
+| 3.6 Normalizing Text | [129](natural-language-processing/natural-language-processing-with-python.pdf#page=129) |
+| 3.7 Regular Expressions for Tokenizing Text | [131](natural-language-processing/natural-language-processing-with-python.pdf#page=131) |
+| 3.8 Segmentation | [134](natural-language-processing/natural-language-processing-with-python.pdf#page=134) |
+| 3.9 Formatting: From Lists to Strings | [138](natural-language-processing/natural-language-processing-with-python.pdf#page=138) |
+| 3.10 Summary | [143](natural-language-processing/natural-language-processing-with-python.pdf#page=143) |
+| 3.11 Further Reading | [144](natural-language-processing/natural-language-processing-with-python.pdf#page=144) |
+| 3.12 Exercises | [145](natural-language-processing/natural-language-processing-with-python.pdf#page=145) |
+| 4 Writing Structured Programs | [151](natural-language-processing/natural-language-processing-with-python.pdf#page=151) |
+| 4.1 Back to the Basics | [152](natural-language-processing/natural-language-processing-with-python.pdf#page=152) |
+| 4.2 Sequences | [155](natural-language-processing/natural-language-processing-with-python.pdf#page=155) |
+| 4.3 Questions of Style | [160](natural-language-processing/natural-language-processing-with-python.pdf#page=160) |
+| 4.4 Functions: The Foundation of Structured Programming | [164](natural-language-processing/natural-language-processing-with-python.pdf#page=164) |
+| 4.5 Doing More with Functions | [171](natural-language-processing/natural-language-processing-with-python.pdf#page=171) |
+| 4.6 Program Development | [176](natural-language-processing/natural-language-processing-with-python.pdf#page=176) |
+| 4.7 Algorithm Design | [182](natural-language-processing/natural-language-processing-with-python.pdf#page=182) |
+| 4.8 A Sample of Python Libraries | [189](natural-language-processing/natural-language-processing-with-python.pdf#page=189) |
+| 4.9 Summary | [194](natural-language-processing/natural-language-processing-with-python.pdf#page=194) |
+| 4.10 Further Reading | [195](natural-language-processing/natural-language-processing-with-python.pdf#page=195) |
+| 4.11 Exercises | [195](natural-language-processing/natural-language-processing-with-python.pdf#page=195) |
+| 5 Categorizing and Tagging Words | [201](natural-language-processing/natural-language-processing-with-python.pdf#page=201) |
+| 5.1 Using a Tagger | [201](natural-language-processing/natural-language-processing-with-python.pdf#page=201) |
+| 5.2 Tagged Corpora | [203](natural-language-processing/natural-language-processing-with-python.pdf#page=203) |
+| 5.3 Mapping Words to Properties Using Python Dictionaries | [211](natural-language-processing/natural-language-processing-with-python.pdf#page=211) |
+| 5.4 Automatic Tagging | [220](natural-language-processing/natural-language-processing-with-python.pdf#page=220) |
+| 5.5 N-Gram Tagging | [224](natural-language-processing/natural-language-processing-with-python.pdf#page=224) |
+| 5.6 Transformation-Based Tagging | [230](natural-language-processing/natural-language-processing-with-python.pdf#page=230) |
+| 5.7 How to Determine the Category of a Word | [232](natural-language-processing/natural-language-processing-with-python.pdf#page=232) |
+| 5.8 Summary | [235](natural-language-processing/natural-language-processing-with-python.pdf#page=235) |
+| 5.9 Further Reading | [236](natural-language-processing/natural-language-processing-with-python.pdf#page=236) |
+| 5.10 Exercises | [237](natural-language-processing/natural-language-processing-with-python.pdf#page=237) |
+| 6 Learning to Classify Text | [243](natural-language-processing/natural-language-processing-with-python.pdf#page=243) |
+| 6.1 Supervised Classification | [243](natural-language-processing/natural-language-processing-with-python.pdf#page=243) |
+| 6.2 Further Examples of Supervised Classification | [255](natural-language-processing/natural-language-processing-with-python.pdf#page=255) |
+| 6.3 Evaluation | [259](natural-language-processing/natural-language-processing-with-python.pdf#page=259) |
+| 6.4 Decision Trees | [264](natural-language-processing/natural-language-processing-with-python.pdf#page=264) |
+| 6.5 Naive Bayes Classifiers | [267](natural-language-processing/natural-language-processing-with-python.pdf#page=267) |
+| 6.6 Maximum Entropy Classifiers | [272](natural-language-processing/natural-language-processing-with-python.pdf#page=272) |
+| 6.7 Modeling Linguistic Patterns | [276](natural-language-processing/natural-language-processing-with-python.pdf#page=276) |
+| 6.8 Summary | [278](natural-language-processing/natural-language-processing-with-python.pdf#page=278) |
+| 6.9 Further Reading | [278](natural-language-processing/natural-language-processing-with-python.pdf#page=278) |
+| 6.10 Exercises | [279](natural-language-processing/natural-language-processing-with-python.pdf#page=279) |
+| 7 Extracting Information from Text | [283](natural-language-processing/natural-language-processing-with-python.pdf#page=283) |
+| 7.1 Information Extraction | [283](natural-language-processing/natural-language-processing-with-python.pdf#page=283) |
+| 7.2 Chunking | [286](natural-language-processing/natural-language-processing-with-python.pdf#page=286) |
+| 7.3 Developing and Evaluating Chunkers | [292](natural-language-processing/natural-language-processing-with-python.pdf#page=292) |
+| 7.4 Recursion in Linguistic Structure | [299](natural-language-processing/natural-language-processing-with-python.pdf#page=299) |
+| 7.5 Named Entity Recognition | [303](natural-language-processing/natural-language-processing-with-python.pdf#page=303) |
+| 7.6 Relation Extraction | [306](natural-language-processing/natural-language-processing-with-python.pdf#page=306) |
+| 7.7 Summary | [307](natural-language-processing/natural-language-processing-with-python.pdf#page=307) |
+| 7.8 Further Reading | [308](natural-language-processing/natural-language-processing-with-python.pdf#page=308) |
+| 7.9 Exercises | [308](natural-language-processing/natural-language-processing-with-python.pdf#page=308) |
+| 8 Analyzing Sentence Structure | [313](natural-language-processing/natural-language-processing-with-python.pdf#page=313) |
+| 8.1 Some Grammatical Dilemmas | [314](natural-language-processing/natural-language-processing-with-python.pdf#page=314) |
+| 8.2 What’s the Use of Syntax? | [317](natural-language-processing/natural-language-processing-with-python.pdf#page=317) |
+| 8.3 Context-Free Grammar | [320](natural-language-processing/natural-language-processing-with-python.pdf#page=320) |
+| 8.4 Parsing with Context-Free Grammar | [324](natural-language-processing/natural-language-processing-with-python.pdf#page=324) |
+| 8.5 Dependencies and Dependency Grammar | [332](natural-language-processing/natural-language-processing-with-python.pdf#page=332) |
+| 8.6 Grammar Development | [337](natural-language-processing/natural-language-processing-with-python.pdf#page=337) |
+| 8.7 Summary | [343](natural-language-processing/natural-language-processing-with-python.pdf#page=343) |
+| 8.8 Further Reading | [344](natural-language-processing/natural-language-processing-with-python.pdf#page=344) |
+| 8.9 Exercises | [344](natural-language-processing/natural-language-processing-with-python.pdf#page=344) |
+| 9 Building Feature-Based Grammars | [349](natural-language-processing/natural-language-processing-with-python.pdf#page=349) |
+| 9.1 Grammatical Features | [349](natural-language-processing/natural-language-processing-with-python.pdf#page=349) |
+| 9.2 Processing Feature Structures | [359](natural-language-processing/natural-language-processing-with-python.pdf#page=359) |
+| 9.3 Extending a Feature-Based Grammar | [366](natural-language-processing/natural-language-processing-with-python.pdf#page=366) |
+| 9.4 Summary | [378](natural-language-processing/natural-language-processing-with-python.pdf#page=378) |
+| 9.5 Further Reading | [379](natural-language-processing/natural-language-processing-with-python.pdf#page=379) |
+| 9.6 Exercises | [380](natural-language-processing/natural-language-processing-with-python.pdf#page=380) |
+| 10 Analyzing the Meaning of Sentences | [383](natural-language-processing/natural-language-processing-with-python.pdf#page=383) |
+| 10.1 Natural Language Understanding | [383](natural-language-processing/natural-language-processing-with-python.pdf#page=383) |
+| 10.2 Propositional Logic | [390](natural-language-processing/natural-language-processing-with-python.pdf#page=390) |
+| 10.3 First-Order Logic | [394](natural-language-processing/natural-language-processing-with-python.pdf#page=394) |
+| 10.4 The Semantics of English Sentences | [407](natural-language-processing/natural-language-processing-with-python.pdf#page=407) |
+| 10.5 Discourse Semantics | [419](natural-language-processing/natural-language-processing-with-python.pdf#page=419) |
+| 10.6 Summary | [424](natural-language-processing/natural-language-processing-with-python.pdf#page=424) |
+| 10.7 Further Reading | [425](natural-language-processing/natural-language-processing-with-python.pdf#page=425) |
+| 10.8 Exercises | [426](natural-language-processing/natural-language-processing-with-python.pdf#page=426) |
+| 11 Managing Linguistic Data | [429](natural-language-processing/natural-language-processing-with-python.pdf#page=429) |
+| 11.1 Corpus Structure: A Case Study | [429](natural-language-processing/natural-language-processing-with-python.pdf#page=429) |
+| 11.2 The Life Cycle of a Corpus | [434](natural-language-processing/natural-language-processing-with-python.pdf#page=434) |
+| 11.3 Acquiring Data | [438](natural-language-processing/natural-language-processing-with-python.pdf#page=438) |
+| 11.4 Working with XML | [447](natural-language-processing/natural-language-processing-with-python.pdf#page=447) |
+| 11.5 Working with Toolbox Data | [453](natural-language-processing/natural-language-processing-with-python.pdf#page=453) |
+| 11.6 Describing Language Resources Using OLAC Metadata | [457](natural-language-processing/natural-language-processing-with-python.pdf#page=457) |
+| 11.7 Summary | [459](natural-language-processing/natural-language-processing-with-python.pdf#page=459) |
+| 11.8 Further Reading | [459](natural-language-processing/natural-language-processing-with-python.pdf#page=459) |
+| 11.9 Exercises | [460](natural-language-processing/natural-language-processing-with-python.pdf#page=460) |
+| Afterword: The Language Challenge | [463](natural-language-processing/natural-language-processing-with-python.pdf#page=463) |
+| Language Processing Versus Symbol Processing | [464](natural-language-processing/natural-language-processing-with-python.pdf#page=464) |
+| Contemporary Philosophical Divides | [465](natural-language-processing/natural-language-processing-with-python.pdf#page=465) |
+| NLTK Roadmap | [466](natural-language-processing/natural-language-processing-with-python.pdf#page=466) |
+| Envoi... | [469](natural-language-processing/natural-language-processing-with-python.pdf#page=469) |
+| Bibliography | [471](natural-language-processing/natural-language-processing-with-python.pdf#page=471) |
+| NLTK Index | [481](natural-language-processing/natural-language-processing-with-python.pdf#page=481) |
+| General Index | [485](natural-language-processing/natural-language-processing-with-python.pdf#page=485) |
