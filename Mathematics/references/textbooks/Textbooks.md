@@ -245,6 +245,7 @@ table on this page gives PDF pages.
 | rounding rules, to a given decimal place | [pre-algebra handbook](general/pre-algebra-handbook.pdf#page=32) | 32 |
 | ratios as fractions relating two counts | [pre-algebra handbook](general/pre-algebra-handbook.pdf#page=74) | 74 |
 | the floor (greatest integer) function | [algebra handbook](algebra/algebra-handbook.pdf#page=25) | 25 |
+| properties of inequalities: multiplying or dividing both sides by a negative number flips the sign | [algebra handbook](algebra/algebra-handbook.pdf#page=42) | 42 |
 | absolute value inequalities, |x − a| < c split into −c < x − a < c | [algebra handbook](algebra/algebra-handbook.pdf#page=48) | 48 |
 | multiplying binomials, the square of a difference | [algebra handbook](algebra/algebra-handbook.pdf#page=62) | 62 |
 | the parabola: its vertex and which way it opens | [algebra handbook](algebra/algebra-handbook.pdf#page=73) | 73 |
@@ -283,6 +284,21 @@ table on this page gives PDF pages.
 | probabilistic PCA (section 12.2) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=586) | 586 |
 | mean squared error as bias squared plus variance (section 5.4.4) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=145) | 145 |
 | indexes start from zero | [natural language processing with Python](natural-language-processing/natural-language-processing-with-python.pdf#page=34) | 34 |
+| Itô's lemma: the stochastic chain rule, Theorem 7.3.1 (definition) | [stochastic differential equations](calculus/stochastic-differential-equations.pdf#page=156) | 156 |
+| Itô's lemma: why the second-order term in dX stays, giving the extra drift tr(GᵀHG)/2 | [stochastic differential equations](calculus/stochastic-differential-equations.pdf#page=157) | 157 |
+| Euler-Maruyama scheme: defined from an ODE driven by noise, with the Brownian increment (eq. 6.3) | [stochastic differential equations](calculus/stochastic-differential-equations.pdf#page=130) | 130 |
+| Euler-Maruyama run in code: a scalar SDE solved and plotted | [SDEs in code, example 1](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Example-1:-Scalar-SDEs) | web |
+| many sample paths of one SDE, with their mean and spread | [SDEs in code, ensembles](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Ensemble-Simulations) | web |
+| the CDF of a continuous variable: F(x) = P[X ≤ x], the integral of the PDF up to x, with a uniform worked example (Definition 4.7, section 4.3.1) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=202) | 202 |
+| the forward Kolmogorov (Fokker-Planck) equation, Theorem 9.5.1 | [stochastic differential equations](calculus/stochastic-differential-equations.pdf#page=214) | 214 |
+| the stationary density of a scalar SDE, worked (eqs 9.6, 9.7) | [stochastic differential equations](calculus/stochastic-differential-equations.pdf#page=220) | 220 |
+| the sum and difference rules for derivatives, (f + g)′ = f′ + g′ (Theorem 2.3.5) | [calculus textbook](calculus/calculus-textbook.pdf#page=182) | 182 |
+| the gradient of a dot product, ∂(xᵀa)/∂x = aᵀ, and other gradient identities (section 5.5) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=164) | 164 |
+| standardization: subtract the mean, divide by the standard deviation (section 10.6) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=342) | 342 |
+| the transpose (Definition 2.4) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=31) | 31 |
+| the identity matrix, I A = A I = A (equation 2.20) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=30) | 30 |
+| the partial derivative: hold every other variable fixed and differentiate in one (Definition 13.3.1) | [calculus textbook](calculus/calculus-textbook.pdf#page=951) | 951 |
+| symmetric central differences, (f(w + ε) − f(w − ε)) / 2ε, accurate to O(ε²), for checking a derivative numerically (equation 5.69) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=264) | 264 |
 
 ## general/
 
@@ -916,6 +932,152 @@ printed page number is the PDF page minus 2.
 
 `calculus/gamma-function.pdf`, 5 pages. Own notes from the Mathematical Statistics series, 2 September
 2021: the gamma function and a proof by induction that Γ(n) = (n − 1)!. Was `Gamma Function.pdf`.
+
+### Stochastic differential equations
+
+`calculus/stochastic-differential-equations.pdf`, 429 pages. Uffe Høgsbro Thygesen, *Stochastic Differential
+Equations for Science and Engineering*, 1st edition, CRC Press, 2023, in the author's preprint of 11 July 2023
+from DTU Orbit (page numbers differ from the printed book; solutions to selected exercises are included). A
+published textbook in preprint form: probability spaces and conditional expectation, Brownian motion, the Itô
+integral and Itô's lemma, Euler-Maruyama and other numerical schemes, the forward and backward Kolmogorov
+(Fokker-Planck) equations, filtering and stochastic control. Was
+`Thygesen_2023_SDEs_for_science_and_engineering_PREPRINT.pdf`. The printed page number is the PDF page minus
+10; the solutions restart their own numbering at 1 on PDF page 386.
+
+| Chapter | PDF page |
+| --- | --- |
+| 1 Introduction | [11](calculus/stochastic-differential-equations.pdf#page=11) |
+| Part I Fundamentals | [19](calculus/stochastic-differential-equations.pdf#page=19) |
+| 2 Diffusive Transport and Random Walks | [20](calculus/stochastic-differential-equations.pdf#page=20) |
+| 2.1 Diffusive Transport | [21](calculus/stochastic-differential-equations.pdf#page=21) |
+| 2.2 Advective and Diffusive Transport | [28](calculus/stochastic-differential-equations.pdf#page=28) |
+| 2.3 Diffusion in More Than One Dimension | [29](calculus/stochastic-differential-equations.pdf#page=29) |
+| 2.4 Relative Importance of Advection and Diffusion | [31](calculus/stochastic-differential-equations.pdf#page=31) |
+| 2.5 The Motion of a Single Molecule | [33](calculus/stochastic-differential-equations.pdf#page=33) |
+| 2.6 Monte Carlo Simulation of Particle Motion | [35](calculus/stochastic-differential-equations.pdf#page=35) |
+| 3 Stochastic Experiments and Probability Spaces | [40](calculus/stochastic-differential-equations.pdf#page=40) |
+| 3.1 Stochastic Experiments | [41](calculus/stochastic-differential-equations.pdf#page=41) |
+| 3.2 Random Variables | [45](calculus/stochastic-differential-equations.pdf#page=45) |
+| 3.3 Expectation is Integration | [47](calculus/stochastic-differential-equations.pdf#page=47) |
+| 3.4 Information is a σ-Algebra | [49](calculus/stochastic-differential-equations.pdf#page=49) |
+| 3.5 Conditional Expectations | [51](calculus/stochastic-differential-equations.pdf#page=51) |
+| 3.6 Independence and Conditional Independence | [56](calculus/stochastic-differential-equations.pdf#page=56) |
+| 3.7 Linear Spaces of Random Variables | [58](calculus/stochastic-differential-equations.pdf#page=58) |
+| 4 Brownian Motion | [74](calculus/stochastic-differential-equations.pdf#page=74) |
+| 4.1 Stochastic processes and random functions | [75](calculus/stochastic-differential-equations.pdf#page=75) |
+| 4.2 Definition of Brownian motion | [75](calculus/stochastic-differential-equations.pdf#page=75) |
+| 4.3 Properties of Brownian Motion | [77](calculus/stochastic-differential-equations.pdf#page=77) |
+| 4.4 Filtrations and accumulation of information | [88](calculus/stochastic-differential-equations.pdf#page=88) |
+| 4.5 The martingale property | [89](calculus/stochastic-differential-equations.pdf#page=89) |
+| 5 Linear Dynamic Systems | [101](calculus/stochastic-differential-equations.pdf#page=101) |
+| 5.1 Linear Systems with Deterministic Inputs | [102](calculus/stochastic-differential-equations.pdf#page=102) |
+| 5.2 Linear Systems in the Frequency Domain | [104](calculus/stochastic-differential-equations.pdf#page=104) |
+| 5.3 A Linear System Driven by Noise | [106](calculus/stochastic-differential-equations.pdf#page=106) |
+| 5.4 Stationary Processes in Time Domain | [108](calculus/stochastic-differential-equations.pdf#page=108) |
+| 5.5 Stationary Processes in Frequency Domain | [110](calculus/stochastic-differential-equations.pdf#page=110) |
+| 5.6 The Response to Noise | [111](calculus/stochastic-differential-equations.pdf#page=111) |
+| 5.7 The White Noise Limit | [113](calculus/stochastic-differential-equations.pdf#page=113) |
+| 5.8 Integrated White Noise is Brownian Motion | [115](calculus/stochastic-differential-equations.pdf#page=115) |
+| 5.9 Linear Systems Driven by White Noise | [117](calculus/stochastic-differential-equations.pdf#page=117) |
+| 5.10 The Ornstein-Uhlenbeck Process | [120](calculus/stochastic-differential-equations.pdf#page=120) |
+| 5.11 The Noisy Harmonic Oscillator | [121](calculus/stochastic-differential-equations.pdf#page=121) |
+| Part II Stochastic Calculus | [128](calculus/stochastic-differential-equations.pdf#page=128) |
+| 6 Stochastic integrals | [129](calculus/stochastic-differential-equations.pdf#page=129) |
+| 6.1 Ordinary Differential Equations Driven by Noise | [130](calculus/stochastic-differential-equations.pdf#page=130) |
+| 6.2 Some Exemplary Equations | [132](calculus/stochastic-differential-equations.pdf#page=132) |
+| 6.3 The Itô Integral and its Properties | [135](calculus/stochastic-differential-equations.pdf#page=135) |
+| 6.4 A Cautionary Example: ∫ B dB | [139](calculus/stochastic-differential-equations.pdf#page=139) |
+| 6.5 Itô Processes and Solutions to SDEs | [142](calculus/stochastic-differential-equations.pdf#page=142) |
+| 6.6 Relaxing the L2 Constraint | [144](calculus/stochastic-differential-equations.pdf#page=144) |
+| 6.7 Integration with Respect to Itô Processes | [145](calculus/stochastic-differential-equations.pdf#page=145) |
+| 6.8 The Stratonovich Integral | [146](calculus/stochastic-differential-equations.pdf#page=146) |
+| 6.9 Calculus of Cross-Variations | [148](calculus/stochastic-differential-equations.pdf#page=148) |
+| 7 The Stochastic Chain Rule | [154](calculus/stochastic-differential-equations.pdf#page=154) |
+| 7.1 The Chain Rule of Deterministic Calculus | [155](calculus/stochastic-differential-equations.pdf#page=155) |
+| 7.2 Transformations of Random Variables | [155](calculus/stochastic-differential-equations.pdf#page=155) |
+| 7.3 Itô's Lemma: The Stochastic Chain Rule | [156](calculus/stochastic-differential-equations.pdf#page=156) |
+| 7.4 Some SDE's with Analytical Solutions | [159](calculus/stochastic-differential-equations.pdf#page=159) |
+| 7.5 Dynamics of Derived Quantities | [163](calculus/stochastic-differential-equations.pdf#page=163) |
+| 7.6 Coordinate Transformations | [165](calculus/stochastic-differential-equations.pdf#page=165) |
+| 7.7 Time Change | [169](calculus/stochastic-differential-equations.pdf#page=169) |
+| 7.8 Stratonovich Calculus | [172](calculus/stochastic-differential-equations.pdf#page=172) |
+| 8 Existence, Uniqueness, and Numerics | [180](calculus/stochastic-differential-equations.pdf#page=180) |
+| 8.1 The Initial Value Problem | [181](calculus/stochastic-differential-equations.pdf#page=181) |
+| 8.2 Uniqueness of Solutions | [181](calculus/stochastic-differential-equations.pdf#page=181) |
+| 8.3 Existence of Solutions | [185](calculus/stochastic-differential-equations.pdf#page=185) |
+| 8.4 Numerical Simulation of Sample Paths | [189](calculus/stochastic-differential-equations.pdf#page=189) |
+| 9 The Kolmogorov equations | [204](calculus/stochastic-differential-equations.pdf#page=204) |
+| 9.1 Brownian Motion is a Markov Process | [205](calculus/stochastic-differential-equations.pdf#page=205) |
+| 9.2 Diffusions are Markov Processes | [206](calculus/stochastic-differential-equations.pdf#page=206) |
+| 9.3 Transition Probabilities and Densities | [207](calculus/stochastic-differential-equations.pdf#page=207) |
+| 9.4 The Backward Kolmogorov Equation | [211](calculus/stochastic-differential-equations.pdf#page=211) |
+| 9.5 The Forward Kolmogorov Equation | [214](calculus/stochastic-differential-equations.pdf#page=214) |
+| 9.6 Different Forms of the Kolmogorov Equations | [216](calculus/stochastic-differential-equations.pdf#page=216) |
+| 9.7 Drift, Noise Intensity, Advection, and Diffusion | [218](calculus/stochastic-differential-equations.pdf#page=218) |
+| 9.8 Stationary Distributions | [219](calculus/stochastic-differential-equations.pdf#page=219) |
+| 9.9 Detailed Balance and Reversibility | [222](calculus/stochastic-differential-equations.pdf#page=222) |
+| Part III Applications | [245](calculus/stochastic-differential-equations.pdf#page=245) |
+| 10 State Estimation | [246](calculus/stochastic-differential-equations.pdf#page=246) |
+| 10.1 Recursive Filtering | [247](calculus/stochastic-differential-equations.pdf#page=247) |
+| 10.2 Observation Models and the State Likelihood | [248](calculus/stochastic-differential-equations.pdf#page=248) |
+| 10.3 The Recursions: Time Update and Data Update | [251](calculus/stochastic-differential-equations.pdf#page=251) |
+| 10.4 The Smoothing Filter | [255](calculus/stochastic-differential-equations.pdf#page=255) |
+| 10.5 Sampling Typical Tracks | [257](calculus/stochastic-differential-equations.pdf#page=257) |
+| 10.6 Likelihood Inference | [258](calculus/stochastic-differential-equations.pdf#page=258) |
+| 10.7 The Kalman Filter | [260](calculus/stochastic-differential-equations.pdf#page=260) |
+| 10.8 Estimating States and Parameters as a Mixed-Effects Model | [267](calculus/stochastic-differential-equations.pdf#page=267) |
+| 11 Expectations to the Future | [274](calculus/stochastic-differential-equations.pdf#page=274) |
+| 11.1 Dynkin's Formula | [275](calculus/stochastic-differential-equations.pdf#page=275) |
+| 11.2 Expected Exit Times from Bounded Domains | [276](calculus/stochastic-differential-equations.pdf#page=276) |
+| 11.3 Absorbing Boundaries | [282](calculus/stochastic-differential-equations.pdf#page=282) |
+| 11.4 The Expected Point of Exit | [285](calculus/stochastic-differential-equations.pdf#page=285) |
+| 11.5 Recurrence of Brownian Motion | [287](calculus/stochastic-differential-equations.pdf#page=287) |
+| 11.6 The Poisson Equation | [289](calculus/stochastic-differential-equations.pdf#page=289) |
+| 11.7 Analysis of a Singular Boundary Point | [289](calculus/stochastic-differential-equations.pdf#page=289) |
+| 11.8 Discounting and the Feynman-Kac Formula | [293](calculus/stochastic-differential-equations.pdf#page=293) |
+| 12 Stochastic Stability Theory | [305](calculus/stochastic-differential-equations.pdf#page=305) |
+| 12.1 The Stability Problem | [306](calculus/stochastic-differential-equations.pdf#page=306) |
+| 12.2 The Sensitivity Equations | [307](calculus/stochastic-differential-equations.pdf#page=307) |
+| 12.3 Stochastic Lyapunov Exponents | [310](calculus/stochastic-differential-equations.pdf#page=310) |
+| 12.4 Extrema of the Stationary Distribution | [313](calculus/stochastic-differential-equations.pdf#page=313) |
+| 12.5 A Worked Example: A Stochastic Predator-Prey Model | [316](calculus/stochastic-differential-equations.pdf#page=316) |
+| 12.6 Geometric Brownian Motion Revisited | [320](calculus/stochastic-differential-equations.pdf#page=320) |
+| 12.7 Stochastic Lyapunov Functions | [322](calculus/stochastic-differential-equations.pdf#page=322) |
+| 12.8 Stability in Mean Square | [325](calculus/stochastic-differential-equations.pdf#page=325) |
+| 12.9 Stochastic Boundedness | [328](calculus/stochastic-differential-equations.pdf#page=328) |
+| 13 Dynamic Optimization | [335](calculus/stochastic-differential-equations.pdf#page=335) |
+| 13.1 Markov Decision Problems | [336](calculus/stochastic-differential-equations.pdf#page=336) |
+| 13.2 Controlled Diffusions and Performance Objectives | [339](calculus/stochastic-differential-equations.pdf#page=339) |
+| 13.3 Verification and the Hamilton-Jacobi-Bellman Equation | [340](calculus/stochastic-differential-equations.pdf#page=340) |
+| 13.4 Portfolio Selection | [342](calculus/stochastic-differential-equations.pdf#page=342) |
+| 13.5 Multivariate Linear-Quadratic Control | [343](calculus/stochastic-differential-equations.pdf#page=343) |
+| 13.6 Steady-State Control Problems | [346](calculus/stochastic-differential-equations.pdf#page=346) |
+| 13.7 Designing an Autopilot | [350](calculus/stochastic-differential-equations.pdf#page=350) |
+| 13.8 Designing a Fisheries Management System | [352](calculus/stochastic-differential-equations.pdf#page=352) |
+| 13.9 A Fisheries Management Problem in 2D | [354](calculus/stochastic-differential-equations.pdf#page=354) |
+| 13.10 Optimal Diel Vertical Migrations | [358](calculus/stochastic-differential-equations.pdf#page=358) |
+| 14 Perspectives | [369](calculus/stochastic-differential-equations.pdf#page=369) |
+| Solutions to selected exercises | [385](calculus/stochastic-differential-equations.pdf#page=385) |
+
+### Stochastic differential equations in code
+
+A web tutorial, not a PDF: the SciML *DifferentialEquations.jl* documentation's SDE tutorial, at
+[docs.sciml.ai](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/). It writes the SDEs the Thygesen book above derives as Julia code with
+`StochasticDiffEq.jl` and plots each solution, so it is the place to see Euler-Maruyama, an ensemble of
+paths and the different noise shapes run. Link a section with its `#` anchor, as below; there are no
+page numbers.
+
+| Section | Link |
+| --- | --- |
+| Stochastic Differential Equations: what the tutorial assumes (the ODE tutorial) | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Stochastic-Differential-Equations) |
+| Example 1: a scalar SDE with linear drift and noise, solved by Euler-Maruyama (`EM`) and plotted | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Example-1:-Scalar-SDEs) |
+| Higher-order methods: `EM` against `SRIW1` and the analytic solution, adaptive and fixed steps | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Using-Higher-Order-Methods) |
+| Ensemble simulations: 1000 trajectories, their mean and quantiles, a time-point correlation | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Ensemble-Simulations) |
+| Example 2: stochastic Lorenz system, one noise term per variable (diagonal noise) | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Example-2:-Systems-of-SDEs-with-Diagonal-Noise) |
+| Example 3: one shared Wiener process driving a linear matrix SDE (scalar noise) | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Example-3:-Systems-of-SDEs-with-Scalar-Noise) |
+| Example 4: a 2×4 noise matrix, dense and sparse (non-diagonal noise) | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Example-4:-Systems-of-SDEs-with-Non-Diagonal-Noise) |
+| Example 5: passing a custom coloured noise process (only `EM` and `EulerHeun` accept it) | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Example-5:-Colored-Noise) |
+| Heston stochastic volatility model with correlated Wiener noise | [open](https://docs.sciml.ai/DiffEqDocs/stable/tutorials/sde_example/#Example:-Spatially-Colored-Noise-in-the-Heston-Model) |
 
 ## statistics/
 
