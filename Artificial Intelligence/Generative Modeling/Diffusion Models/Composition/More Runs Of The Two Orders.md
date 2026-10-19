@@ -108,16 +108,17 @@ The same scores as [[The Order Of Multiplying And Noising#Try the two orders you
 
 [A Langevin chain](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=64) that follows one score with small steps settles on the curve that score belongs to, whether or not that curve sits in a forward sequence. Annealed Langevin<sub>[1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/l3-stochastic-processes.pdf#page=86 "volume L3, stochastic processes, p. 86"), [2](../../../../Mathematics/references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=130 "the little book of generative AI foundations p. 130")</sub> lets the cloud settle on equation 12's curve at each level, then moves to the next. At the last level, $\bar\alpha = 1$, equation 12's curve is the product. The remaining 1.7% matches the error the step size alone causes: ten times smaller steps at no noise bring a chain on this pair from 19.4% too wide to 1.7%. *Cited:* the journey's read-ahead, `read-ahead/00-abstract.md`, sentence 6, from `checks/langevin_chain.out`.
 
-<!-- video-table: annealed-langevin rev=1 -->
-Stanford CS236 on why Langevin sampling is annealed across noise levels, in the order to watch:
+<!-- video-table: annealed-langevin rev=2 -->
+Stanford CS236, then Stanford CME296, on why Langevin sampling is annealed across noise levels, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | Where plain Langevin sampling fails | Intuition | [Stanford CS236, lecture 14, 5:44 to 9:13](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=344s) |
 | 2 | What adding noise does for the score and for sampling | Intuition | [Stanford CS236, lecture 14, 9:13 to 19:08](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=553s) |
 | 3 | Sampling across many noise scales, noisiest first | Intuition | [Stanford CS236, lecture 14, 23:54 to 28:43](https://www.youtube.com/watch?v=E69Lp_T9nVg&t=1434s) |
+| 4 | Confirm after the sitting: run Langevin on the noisiest score first, then on less and less noisy ones | Intuition | [CME296, lecture 2, 52:49 to 58:09](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=3169s) |
 
-CS236 anneals one model's score; it does not anneal a sum of two models' scores, which is what composition samples. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+CS236 anneals one model's score; it does not anneal a sum of two models' scores, which is what composition samples, and neither lecture shows the predictor step alongside the corrector. Rows 1 to 3 are chapter boundaries read from CS236's chapter list, so each is good to the chapter and the sentence inside it is not checked; row 4 is read from CME296's automatic captions and good to about 30 seconds.
 <!-- /video-table -->
 
 ## More levels do not help
