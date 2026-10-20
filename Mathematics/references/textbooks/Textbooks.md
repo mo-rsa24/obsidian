@@ -299,6 +299,38 @@ table on this page gives PDF pages.
 | the identity matrix, I A = A I = A (equation 2.20) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=30) | 30 |
 | the partial derivative: hold every other variable fixed and differentiate in one (Definition 13.3.1) | [calculus textbook](calculus/calculus-textbook.pdf#page=951) | 951 |
 | symmetric central differences, (f(w + ε) − f(w − ε)) / 2ε, accurate to O(ε²), for checking a derivative numerically (equation 5.69) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=264) | 264 |
+| the unit circle: the x-coordinate is the cosine of the angle and the y-coordinate is its sine | [trigonometry handbook](trigonometry/trigonometry-handbook.pdf#page=10) | 10 |
+| a telescoping sum: each term cancels part of the next until only the first and last remain (section 9.3, equation 10) | [calculus textbook](calculus/calculus-textbook.pdf#page=644) | 644 |
+| the conditional PDF: f(x | y) = f(x, y) / f(y) (Definition 5.16, at the foot of the page) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=287) | 287 |
+| the product of two normals is proportional to a third normal, with its mean, covariance and constant (section 5.6, equations 5.14 and 5.15) | [computer vision textbook](computer-vision/computer-vision-textbook.pdf#page=76) | 76 |
+| the gradient points in the direction of fastest increase, and its length is the largest slope (section 13.6, properties of the gradient) | [calculus textbook](calculus/calculus-textbook.pdf#page=988) | 988 |
+| Leibniz's rule: differentiating under the integral sign, the gradient of an integral is the integral of the gradient (equation 18.14) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=623) | 623 |
+| the derivative of ln u by the chain rule, u′ / u (section 3.2) | [calculus textbook](calculus/calculus-textbook.pdf#page=217) | 217 |
+| doubling time and half-life of an exponential model, T = ln 2 / k, with the halving figure (section 8.2) | [calculus textbook](calculus/calculus-textbook.pdf#page=597) | 597 |
+| absolute value: the distance from zero | [algebra handbook](algebra/algebra-handbook.pdf#page=15) | 15 |
+| adding rational expressions over a common denominator | [algebra handbook](algebra/algebra-handbook.pdf#page=145) | 145 |
+| perfect squares: (a + b)² = a² + 2ab + b² and (a − b)² = a² − 2ab + b² | [algebra handbook](algebra/algebra-handbook.pdf#page=66) | 66 |
+| the likelihood function, and Bayes' theorem in words: posterior ∝ likelihood × prior (equations 1.43 and 1.44) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=41) | 41 |
+| the continuous uniform density u(x; a, b) = 1 / (b − a) on [a, b], 0 outside (section 3.3.2) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=74) | 74 |
+| the product rule, p(x, y) = p(y | x) p(x) (equation 6.22) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=191) | 191 |
+| matrix-vector multiplication: each output is a weighted sum of the inputs, yᵢ = Σⱼ Aᵢⱼ xⱼ, with a worked 2 by 2 example | [matrix-vector multiplication](linear-algebra/matrix-vector-multiplication.pdf#page=1) | 1 |
+| the log-sum-exp trick: log Σ exp(aₖ) = m + log Σ exp(aₖ − m) with m the largest term, so nothing overflows (section 2.5.4, equation 2.99) | [probabilistic machine learning: an introduction](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=80) | 80 |
+| softmax temperature: dividing by T, low T puts the mass on the largest entry and high T spreads it, named from statistical physics (section 2.5.2, equation 2.94) | [probabilistic machine learning: an introduction](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=79) | 79 |
+| linearity of expectation: E[aX + b] = aE[X] + b, and the expectation of a sum is the sum of expectations (equation 2.25) | [probabilistic machine learning: an introduction](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=66) | 66 |
+| the basic Metropolis algorithm (1953): accept a candidate with min(1, p(z⋆)/p(z)) by comparing with a uniform draw u, and the samples form a Markov chain (equation 11.33) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=554) | 554 |
+| a first-order Markov chain: p(z⁽ᵐ⁺¹⁾ | z⁽¹⁾, …, z⁽ᵐ⁾) = p(z⁽ᵐ⁺¹⁾ | z⁽ᵐ⁾) (section 11.2.1, equation 11.37, at the foot of the page) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=555) | 555 |
+| the Hamiltonian: kinetic energy K(r) = ½‖r‖², total energy H = E + K, Hamilton's equations, with a note on William Rowan Hamilton (section 11.5.1, equations 11.56 to 11.59) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=565) | 565 |
+| the leapfrog discretization: half step in momentum, full step in position, half step in momentum (equations 11.64 to 11.66) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=567) | 567 |
+| each leapfrog step shears phase space without changing volume, and the hybrid Monte Carlo detailed-balance argument (Figure 11.14) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=569) | 569 |
+| the Dirac distribution and the empirical distribution, one point mass of 1/m on each data point (section 3.9.5) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=81) | 81 |
+| self-information with the natural log, measured in nats (section 3.13, equation 3.48) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=89) | 89 |
+| overflow and underflow: finite bit patterns, rounding error, numbers near zero rounded to zero (section 4.1) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=96) | 96 |
+| Adam: normalise the gradient by its squared magnitude so each direction moves a set distance (section 6.4) | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=102) | 102 |
+| the binomial mean, E[X] = np, with its variance, and the proof (Theorem 3.7) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=162) | 162 |
+| the symmetry of the standard Gaussian CDF, Φ(y) = 1 − Φ(−y), and tail probabilities (Corollary 4.1) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=232) | 232 |
+| the determinant of a triangular matrix is the product of its diagonal entries (Theorem 2.1.2) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=124) | 124 |
+| composition of functions: (f ∘ g)(x) = f(g(x)), the function closest to the variable acts first | [algebra handbook](algebra/algebra-handbook.pdf#page=27) | 27 |
+| the distributive property, a(b + c) = ab + ac, with the commutative and associative properties | [algebra handbook](algebra/algebra-handbook.pdf#page=16) | 16 |
 
 ## general/
 

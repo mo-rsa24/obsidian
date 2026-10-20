@@ -254,7 +254,7 @@ Navigation: ⬅️ [[#Why this matters]] | 📋 [[#Table of contents|TOC]]
 - the same journey's [plan 08](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/08-score-of-a-gaussian.md), line 192, with $\Sigma = \operatorname{diag}(1, 4)$
 - the same journey's [plan 14](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/14-kl-and-mutual-information.md), line 171, with $\operatorname{diag}(1, 1)$ and $\operatorname{diag}(4, 1)$
 
-**Applied in:** nothing yet.
+**Applied in:** step 2 of the parts-world rebuild walk in the reduce-reuse-recycle research repository (`artifacts/drips/simple-distributions-rebuild/04-the-parts-world.md#step-2-a-diagonal-gaussian-expert`), where the cat expert over a 4 × 4 image is tight on the eight head pixels (variance 0.01) and loose on the eight body pixels (variance 1), so it prefers the all-cat image to the all-dog image by 1600 + 16 = 1616 nats.
 
 **Before this note:** the learner's LibreOffice note `Mathematics/Statistics/Distributions/Multivariate Normal Distribution/Multivariate Normal Distribution.odt` defines the distribution by its mean and covariance matrix, and records that zero covariance means independent variables, with an example of $\mathcal{N}(0, I)$.
 
