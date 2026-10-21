@@ -1,6 +1,6 @@
 # Multivariate Normal Distribution: illustrated map
 
-The drawn pictures for the notes in the vault's [[Multivariate Normal Distribution]] folder, sections [[Diagonal Covariance]], [[Sampling A Diagonal Gaussian]], [[Sums Of Independent Gaussians]] and [[Products And Quotients Of Diagonal Gaussians]]. `15 prompts · 8 rendered · 4 stuck · 0 rendering · 3 waiting`
+The drawn pictures for the notes in the vault's [[Multivariate Normal Distribution]] folder, sections [[Diagonal Covariance]], [[Sampling A Diagonal Gaussian]], [[Sums Of Independent Gaussians]] and [[Products And Quotients Of Diagonal Gaussians]]. `15 prompts · 8 rendered · 3 replaced by code-drawn SVGs · 4 stuck · 0 rendering · 0 waiting`
 
 ## Table of contents
 
@@ -568,7 +568,7 @@ The form, the mechanism and the deep-dive sheet for [[Sums Of Independent Gaussi
 
 Navigation: ⬅️ [Subject lane: Sums of independent Gaussians](#subject-lane-sums-of-independent-gaussians) | 📋 [TOC](#table-of-contents) | [Prompt 13 (Subject): Sums, the mechanism](#prompt-13-subject-sums-the-mechanism) ➡️
 
-[planned] ⏳ not rendered
+[built] 🔁 replaced 2026-10-21 by the code-drawn `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/sums-the-form-variances-stack.svg`, because this faithfulness note needs bars to the exact scale; the SVG draws the note's schedule row (a² = 0.1644, b² = 0.5217 stacked into 0.6861, beside the weights 0.4054 and 0.7223 stacked into 1.1277), and the two-step numbers 0.08, 0.2 and 0.28 sit in the note's toy table. Never drawn by Codex.
 Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/sums-the-form.webp`
 
 Visual thesis: Two fresh noises combine by squaring each weight and adding, so weights 0.282843 and 0.447214 give one draw of variance 0.28 and standard deviation 0.529, while adding the weights first gives 0.730056, the spread only a reused draw has.
@@ -604,7 +604,7 @@ Faithfulness note: The three variance bars are to one scale, 0.08 : 0.2 : 0.28, 
 
 Navigation: ⬅️ [Prompt 12 (Subject): Sums, the form](#prompt-12-subject-sums-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 14 (Subject capstone): Sums, the deep-dive sheet](#prompt-14-subject-capstone-sums-the-deep-dive-sheet) ➡️
 
-[planned] ⏳ not rendered
+[built] 🔁 replaced 2026-10-21 by the code-drawn `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/sums-the-four-cells-of-the-squared-sum.svg`, because this faithfulness note needs exact cell values; the SVG measures each cell on a million draws of the schedule row (cross cells -0.0001 fresh and 0.2932 reused, sums 0.6851 and 1.2734), and the two-step cross term 2ab = 0.252982 and reused total 0.532982 sit in the note's worked-numbers display. Never drawn by Codex.
 Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/sums-the-mechanism.webp`
 
 Visual thesis: Squaring the sum lays out four cells, and the two cross cells average to zero when the second noise is drawn fresh, leaving 0.08 + 0.2 = 0.28, but each stays at ab = 0.126491 when the draw is reused, giving 0.532982.
@@ -640,7 +640,7 @@ Faithfulness note: In the left grid the two off-diagonal cells are faded grey an
 
 Navigation: ⬅️ [Prompt 13 (Subject): Sums, the mechanism](#prompt-13-subject-sums-the-mechanism) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
 
-[planned] ⏳ not rendered
+[built] 🔁 replaced 2026-10-21 by the code-drawn `sums-the-form-variances-stack.svg` (pane 1) and `sums-the-four-cells-of-the-squared-sum.svg` (pane 2) in `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/`, with the note's toy table and worked-numbers display (pane 3) and its bold-labelled chunks (pane 4), because this faithfulness note needs pane 1's bars to the exact scale 0.08 : 0.2 : 0.28. Never drawn by Codex.
 Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/sums-deep-dive-sheet.webp`
 
 Visual thesis: One sheet carries the rule from its form to the two forward steps it licenses: square each weight and add, because independence zeroes the cross cells, and on the toy both routes give 0.28 while a reused draw gives 0.532982.

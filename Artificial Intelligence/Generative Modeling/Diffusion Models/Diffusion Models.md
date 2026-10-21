@@ -60,7 +60,10 @@ Read them in this order.
 
 - [[The Forward Process]]: noising a clean point to any noise level in one step, and why that matches fifty small steps.
 - [[From Many Steps To One Jump]]: why the small steps collapse into the one jump, two steps by hand and then induction, with $\bar\alpha_t$ as the product of the $1 - \beta$ factors.
+- [[Running From Many Steps To One Jump]]: the two steps and the induction run in an empty folder, from the cosine schedule and the forgotten shrink to 200,000 drawn chains, each output read field by field.
 - [[The Density Of The One Jump]]: the noise as one draw, the density $q(x_t \mid x_0)$ of the noised point for a fixed clean point, and why its exponent at the drawn point is $-|\varepsilon|^2/2$ at every step.
+- [[How The Density Follows From The Draw]]: the derivation of that density from the one-shot draw, the noise as one draw, its centre, spread and shape, the 2D Gaussian written out, then the exponent worked on the toy with the centre's square root dropped.
+- [[Running The Density Of The One Jump]]: the density run in an empty folder, from the centre without its square root and the density at two steps to SciPy's check and the same draw at five steps, each output read field by field.
 - [[The Cosine Noise Schedule]]: where every $\bar\alpha_t$ comes from, the 101 boundary values $C_k$ of a 100-step timetable, each the squared cosine of an angle on a quarter turn, computed by hand.
 - [[The Quarter Circle Under The Cosine Schedule]]: the geometry under $C_k$ on a Cartesian plane, drawn by the Python that computes it: the 101 posts on the quarter arc as a ruler, and the point at post 51 as step 50's signal and noise multipliers.
 - [[The Quarter Turn And The Fraction]]: the squared cosine walked across all 101 posts, flat at both ends, and the fraction $\cos^2\theta_k / \cos^2\theta_0$ whose denominator never changes a step's noise; then each piece removed in turn, with what it changes.

@@ -1,6 +1,6 @@
 # Diffusion Models: illustrated map
 
-The drawn pictures for the notes in the vault's [[Diffusion Models]] folder and its two [[Markov Chain Monte Carlo]] notes: [[The Forward Process]], [[Composing Models With A Background]], [[The Order Of Multiplying And Noising]] and [[The Energy Parameterisation]], with one concept picture for [[The Product As An Intersection]], [[Product, Mixture And Negation]], with one concept picture each for [[Annealed MCMC]] and [[Step Size And The Accept Step]], [[What An Expert Learns From Its Training Set]], one concept picture for [[Kinds Of Composition]], one concept picture for [[When Neither Training Set Holds A And B]], [[From Many Steps To One Jump]], [[The Density Of The One Jump]], [[The Cosine Noise Schedule]] and [[The Quarter Circle Under The Cosine Schedule]]. `45 prompts · 26 rendered · 8 stuck · 0 rendering · 11 waiting`
+The drawn pictures for the notes in the vault's [[Diffusion Models]] folder and its two [[Markov Chain Monte Carlo]] notes: [[The Forward Process]], [[Composing Models With A Background]], [[The Order Of Multiplying And Noising]] and [[The Energy Parameterisation]], with one concept picture for [[The Product As An Intersection]], [[Product, Mixture And Negation]], with one concept picture each for [[Annealed MCMC]] and [[Step Size And The Accept Step]], [[What An Expert Learns From Its Training Set]], one concept picture for [[Kinds Of Composition]], one concept picture for [[When Neither Training Set Holds A And B]], [[From Many Steps To One Jump]], [[The Density Of The One Jump]], [[The Cosine Noise Schedule]] and [[The Quarter Circle Under The Cosine Schedule]]. `45 prompts · 25 rendered · 5 replaced by code-drawn SVGs · 8 stuck · 0 rendering · 7 waiting`
 
 ## Table of contents
 
@@ -1394,8 +1394,8 @@ The form, the mechanism and the deep-dive sheet for [[From Many Steps To One Jum
 
 Navigation: ⬅️ [Subject lane: From many steps to one jump](#subject-lane-from-many-steps-to-one-jump) | 📋 [TOC](#table-of-contents) | [Prompt 35 (Subject): Many steps to one jump, the mechanism](#prompt-35-subject-many-steps-to-one-jump-the-mechanism) ➡️
 
-[planned] ⏳ not rendered
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-induction-the-form.webp`
+[planned] 🖼️ rendered 2026-10-21 by script, not by Codex: this prompt is replaced by the matplotlib SVG `forward-induction-one-step-at-step-50.svg`, its three stacked bars drawn to scale (before: signal 0.4938 and old noise 0.5062; both shrunk by 0.96845 to 0.4783 and 0.4902 with a dashed gap of 0.0315; after: the fresh 0.0315 on top, back to the dotted line at 1). It is embedded in [[From Many Steps To One Jump]] under the code that drew it. Green is the signal and orange the noise, as in the note's colour key, in place of blue and grey; the arrow label reads "× (1 − β₅₀) = 0.96845" and the title carries the one-step line.
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-induction-one-step-at-step-50.svg`
 
 Visual thesis: One step shrinks the signal and the old noise by the same factor 1 - beta_t, and the fresh noise beta_t refills exactly the gap that leaves below 1.
 
@@ -1430,8 +1430,8 @@ Faithfulness note: Bar heights are to scale: 0.4938 and 0.5062 in bar 1; 0.4783 
 
 Navigation: ⬅️ [Prompt 34 (Subject): Many steps to one jump, the form](#prompt-34-subject-many-steps-to-one-jump-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 36 (Subject capstone): Many steps to one jump, the deep-dive sheet](#prompt-36-subject-capstone-many-steps-to-one-jump-the-deep-dive-sheet) ➡️
 
-[planned] ⏳ not rendered
-Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-induction-the-mechanism.webp`
+[planned] 🖼️ rendered 2026-10-21 by script, not by Codex: this prompt is replaced by the matplotlib SVG `forward-induction-shares-at-every-step.svg`. Its left panel draws the signal share ᾱ_t and the noise share 1 − ᾱ_t over all 100 steps as two areas that always fill 1, with dots and labels at t = 0, 25, 49, 50, 75 and 99 (0.9994, 0.8356, 0.4938, 0.4783, 0.1335, 0.0000); its right panel draws the total with the shrink forgotten, 1.2085 at t = 50 and 7.8789 at t = 99, against the kept total 1. It is embedded in [[From Many Steps To One Jump]] under the code that drew it. The six stacked bars become one continuous area with the six steps marked, the step-50 split 0.4902 and 0.0315 is drawn in `forward-induction-one-step-at-step-50.svg` instead, and green and orange replace blue and grey.
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-induction-shares-at-every-step.svg`
 
 Visual thesis: Done at every step, the shrink-then-add keeps signal plus noise at exactly 1 while the signal share falls as the running product abar_t; skipping the shrink pushes the total past 1.
 
@@ -1508,7 +1508,7 @@ The form, the mechanism and the deep-dive sheet for [[The Density Of The One Jum
 
 Navigation: ⬅️ [Subject lane: The density of the one jump](#subject-lane-the-density-of-the-one-jump) | 📋 [TOC](#table-of-contents) | [Prompt 38 (Subject): The jump's density, the mechanism](#prompt-38-subject-the-jumps-density-the-mechanism) ➡️
 
-[planned] ⏳ not rendered
+[planned] 🖼️ rendered 2026-10-21 by script, not by Codex: this prompt is replaced by the matplotlib SVG `forward-density-the-form-at-step-50.svg`, because its faithfulness note fixes exact positions and radii. Its left panel draws the plane at t = 50 to scale, shaded by the height of q: the star x0 at (0, 0.5), the centre ring at (0, 0.3458), the one-sd circle of radius 0.7223, the arrow d = 0.7223 eps = (0.2167, -0.8668) to the drawn point (0.2167, -0.5210), and the contour through it labelled exponent -0.765, q = 0.1419. Its right panel is a slice through the centre carrying the three slots: the front factor 0.3050 at distance 0, the width 2 x 0.5217 in the printed formula, and the drawn point's distance 0.8935 at height 0.1419. It is embedded in [[The Density Of The One Jump]] under the code that drew it. The outer circles at 1.4446 and 2.1669 are replaced by the grey shading, the slot cards by the slice, the drawn point is teal and the arrow orange, as in the note's colour key, in place of black and grey.
 Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-density-the-form.webp`
 
 Visual thesis: The density of the noised point is three pieces with one job each: a squared distance from the centre sqrt(abar) x0, a width 2(1 - abar), and a front factor that makes the volume 1.
@@ -1544,7 +1544,7 @@ Faithfulness note: The star sits at (0, 0.5), the centre at (0, 0.3458), the dra
 
 Navigation: ⬅️ [Prompt 37 (Subject): The jump's density, the form](#prompt-37-subject-the-jumps-density-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 39 (Subject capstone): The jump's density, the deep-dive sheet](#prompt-39-subject-capstone-the-jumps-density-the-deep-dive-sheet) ➡️
 
-[planned] ⏳ not rendered
+[planned] 🖼️ rendered 2026-10-21 by script, not by Codex: this prompt is replaced by the matplotlib SVG `forward-density-the-exponent-contour-at-two-steps.svg`, because its faithfulness note fixes the circle radii and needs each drawn point exactly on its circle. Its left panel draws both steps on one plane at one scale: the centres (0, 0.4571) and (0, 0.3458), the -0.765 circles of radius 0.5015 and 0.8935, the arrows 0.4054 eps and 0.7223 eps to x_25 = (0.1216, -0.0295) and x_50 = (0.2167, -0.5210), with q = 0.4505 and 0.1419. Its right panel draws t = 50 with the wrong centre (0, 0.2391), its grey dashed -0.765 circle and a grey dashed arrow (0.2167, -0.7601) to x_50, exponent -0.5987, q = 0.1676. It is embedded in [[How The Density Follows From The Draw]] under the code that drew it. The two steps share one plane instead of two, the wrong centre is a second panel instead of an overlay, and grey replaces orange for the wrong centre because orange is the noise scale in the note's colour key.
 Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-density-the-mechanism.webp`
 
 Visual thesis: A later step widens the bell and pushes the drawn point out by the same factor, so the drawn point always sits on the contour where the exponent is -|eps|^2 / 2 = -0.765; a centre without its square root breaks that.
