@@ -96,6 +96,7 @@ table on this page gives PDF pages.
 | hypothesis testing: null and alternative hypotheses, the courtroom picture (intuition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=582) | 582 |
 | hypothesis testing: a worked die example with an estimator | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=583) | 583 |
 | hypothesis testing: the p-value, with a worked number | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=588) | 588 |
+| Type I and Type II errors, and the significance level α as the probability of a Type I error (section 5.5.1, definition) | [introduction to statistics](statistics/introduction-to-statistics.pdf#page=106) | 106 |
 | maximum likelihood estimation: the likelihood function from the joint density (intuition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=484) | 484 |
 | maximum likelihood estimation: the i.i.d. likelihood and log-likelihood | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=486) | 486 |
 | maximum likelihood estimation: the ML estimate, with a Bernoulli worked example | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=489) | 489 |
