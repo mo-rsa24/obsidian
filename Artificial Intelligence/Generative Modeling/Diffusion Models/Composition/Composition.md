@@ -34,6 +34,8 @@ Artificial Intelligence, Generative Modeling, Diffusion Models. Needs: [[The For
 - [[Three Things Called Annealing]]: the temperature, the noise level and the guidance scale, the three numbers this literature calls annealed, told apart on one toy.
 - [[The Tempered Density And Its Score]]: a density raised to a power and normalised, and why its score is the old score scaled by the power.
 - [[Why The Normaliser Has No Slope In X]]: the normaliser depends on the power and not on the point, so it drops out of the score.
+- [[The Slope Of The Normaliser In Beta]]: the one direction the normaliser does move, $\log Z_\beta$ falling with slope $-1/(2\beta)$, and why a method across temperatures needs the ratio of normalisers.
+- [[Running Why The Normaliser Has No Slope In X]]: `zslope.py`, the run that checks both slopes by difference quotients, with its output read field by field and the two-dimensional case.
 
 ## The samplers it borrows
 
