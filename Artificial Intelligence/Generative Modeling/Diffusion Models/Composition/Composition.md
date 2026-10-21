@@ -4,7 +4,7 @@ aliases: [composition, compositional generation, composing models]
 
 # Composition
 
-Up: [[Diffusion Models]] · ⬅️ [[The Forward Process]]
+Up: [[Diffusion Models]] · ⬅️ [[The Quarter Turn And The Fraction]]
 
 Artificial Intelligence, Generative Modeling, Diffusion Models. Needs: [[The Forward Process]] for noise levels, and [[Products And Quotients Of Diagonal Gaussians]] for the arithmetic.
 

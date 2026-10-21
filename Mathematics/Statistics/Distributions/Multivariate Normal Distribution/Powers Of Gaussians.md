@@ -129,7 +129,10 @@ $\mathcal{N}(3, 4)$ at $\beta = 2$ is $\mathcal{N}(3, 2)$, and expert a, $\mathc
 
 **Taught in:** the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, section 3, chunks 37, 40 and 41 (guidance as a product, equation 10 and its positive-precision condition, the notebook's weights), from the walk's answer keys `checks/negation.out` and `checks/guidance_on_the_object.out`. One Gaussian to a power: piece 2 of the `drip --math` walk of the sampler correctors for composition journey's plan 24, `plans/24-what-is-annealed.md`, lines 129 to 150, in `drips/24-what-is-annealed/`. The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
 
-**Applied in:** nothing yet.
+**Applied in:**
+
+- step 4 of the composing-and-sampling rebuild walk in the reduce-reuse-recycle research repository (`artifacts/drips/simple-distributions-rebuild/02-composing-and-sampling.md#step-4-negation`), where negation with $w = 0.3$ on $p_A = \mathcal N(0,1)$ and $p_B = \mathcal N(0, s^2)$ keeps a finite area only when $s^2 > 0.2308$, so a narrower B sends the mass off to infinity.
+- step 11 of the ideal-experts rebuild walk in the reduce-reuse-recycle research repository (`artifacts/drips/simple-distributions-rebuild/03-ideal-experts-and-the-seven-kinds.md#step-11-negation`), where the ring, not the bar, uses $w = 0.05$ because at the paper's $w = 0.3$ the reciprocal of the bar sends 0.863 of the mass away from the ring.
 
 > [!note]- How this was checked
 > Every output in this note was run by the writer in an empty folder, `~/playground/sandbox/gaussian-powers`, on the PC: Ubuntu under WSL2, through the prepared environment `~/.vault-sandbox/bin/python` (Python 3.11.13, NumPy 2.4.6), on 2026-10-13. The folder was removed afterwards and the clean-up check returned 2. Rows 1 to 4 and 6 match the walk's answer keys `checks/negation.out` and `checks/guidance_on_the_object.out` in the journey's `sources/reduce-reuse-recycle/`, both re-run in a sandbox the same day with output identical to the saved files; row 5's grid reading is new to this note and is explained by the closed form beside it. The terminal picture was rendered from the captured text by a script in DejaVu Sans Mono and opened before filing.

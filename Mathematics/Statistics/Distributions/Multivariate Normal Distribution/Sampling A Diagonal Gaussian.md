@@ -7,9 +7,9 @@ sources:
 
 # Sampling A Diagonal Gaussian
 
-Up: [[Multivariate Normal Distribution]] · ⬅️ [[Diagonal Covariance]] · [[Products And Quotients Of Diagonal Gaussians]] ➡️
+Up: [[Multivariate Normal Distribution]] · ⬅️ [[Diagonal Covariance]] · [[Sums Of Independent Gaussians]] ➡️
 
-Mathematics, Statistics, Distributions, Multivariate Normal Distribution. Needs: [[Diagonal Covariance]], and [[Random Numbers From A Seeded Generator]] for the draws.
+Mathematics, Statistics, Distributions, Multivariate Normal Distribution. Needs: [[Diagonal Covariance]], [[Random Numbers From A Seeded Generator]] for the draws, and [[Variance#Scaling a draw scales its variance by the square|the scaling rule for variance]] for why the stretch is a square root.
 
 > [!question] Test yourself
 > [The diagonal Gaussian quiz](https://claude.ai/artifact/Vmd1FBg7oWwZq1onu9Jofa) covers this note, with the rest of the [[Multivariate Normal Distribution]] folder. Your attempts are saved on the page.
@@ -259,7 +259,7 @@ From step 4, the difference that matters:
 
 Navigation: ⬅️ [[#Reading the sampled output]] | 📋 [[#Table of contents|TOC]] | [[#Other ways to sample]] ➡️
 
-One coordinate at a time. Take $\varepsilon \sim \mathcal{N}(0, 1)$ and set $x = m + s\,\varepsilon$:
+One coordinate at a time, by [the scale and shift properties of variance](../../../references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=151), derived step by step in [[Scaling And Shifting A Random Variable#How scaling and shifting work]]. Take $\varepsilon \sim \mathcal{N}(0, 1)$ and set $x = m + s\,\varepsilon$:
 
 $$
 \begin{aligned}

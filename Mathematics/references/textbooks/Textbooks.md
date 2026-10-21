@@ -73,6 +73,7 @@ table on this page gives PDF pages.
 | mean, expected value, variance | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=193) | 193 |
 | covariance (Definition 6.5) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=196) | 196 |
 | the Gaussian distribution | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=203) | 203 |
+| the univariate and multivariate Gaussian density formulas (6.62, 6.63) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=204) | 204 |
 | change of variables for densities | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=220) | 220 |
 | what a vector field is (Definition 15.1.1) | [calculus textbook](calculus/calculus-textbook.pdf#page=1109) | 1109 |
 | gradient fields: a field that is the gradient of a function | [calculus textbook](calculus/calculus-textbook.pdf#page=1111) | 1111 |
@@ -83,6 +84,8 @@ table on this page gives PDF pages.
 | conditional expectation: E[X] = E[E[X|Y]] with a worked two-class example | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=293) | 293 |
 | variance (continuous): the definition and the E[X²] − μ² shortcut, with proof | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=200) | 200 |
 | variance: worked example for the uniform distribution | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=201) | 201 |
+| variance (discrete): Var[X] = E[X²] − E[X]², Var[cX] = c²Var[X] and Var[X + c] = Var[X] (Theorem 3.5, with proof) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=151) | 151 |
+| the Bernoulli random variable: two states 1 and 0 with probabilities p and 1 − p (Definition 3.8) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=153) | 153 |
 | covariance: the definition, and Cov(X, Y) = E[XY] − E[X]E[Y] with proof | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=278) | 278 |
 | covariance: why joint expectation is E[XY], through the angle between two vectors (intuition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=274) | 274 |
 | conditional probability: the definition P[A|B] = P[A ∩ B] / P[B], with intuition | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=97) | 97 |
@@ -91,6 +94,7 @@ table on this page gives PDF pages.
 | Bayes' rule: worked examples (winning a match against three player types, a noisy channel) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=107) | 107 |
 | the Gaussian distribution: the density and its two parameters, mean and variance | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=227) | 227 |
 | the Gaussian distribution: plots of how μ and σ move and widen the curve (intuition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=228) | 228 |
+| the standard Gaussian's CDF Φ(x), and Φ(x) = ½(1 + erf(x/√2)) (Definition 4.15) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=230) | 230 |
 | the multivariate Gaussian: the d-dimensional density with Σ⁻¹ (definition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=306) | 306 |
 | the multivariate Gaussian: its mean vector and covariance matrix, the diagonal case | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=307) | 307 |
 | hypothesis testing: null and alternative hypotheses, the courtroom picture (intuition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=582) | 582 |
@@ -205,6 +209,7 @@ table on this page gives PDF pages.
 | a probability density function, defined with the unity condition that it integrates to 1 (Definition 4.1) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=190) | 190 |
 | the CDF of an arbitrary Gaussian by standardising, F(x) = Φ((x − µ)/σ), with the upper tail 1 − Φ on the next page (Theorem 4.11) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=231) | 231 |
 | substitution in a definite integral: change the limits to u = g(a), u = g(b), with a worked example (section 5.9, Method 2) | [calculus textbook](calculus/calculus-textbook.pdf#page=415) | 415 |
+| iterated integrals: a double integral over a rectangle as two successive single integrals, holding one variable fixed (section 14.1, equations 6 and 7) | [calculus textbook](calculus/calculus-textbook.pdf#page=1027) | 1027 |
 | the Gaussian integral: the normaliser of exp(−x²/2σ²) is √(2πσ²), squared and changed to polar coordinates, with hints (Exercise 2.12) | [probabilistic machine learning: an introduction](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=99) | 99 |
 | the PDF of X + Y is the convolution of the two PDFs, derived from the CDF of the sum (section 5.5.2) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=298) | 298 |
 | the sum of two independent Gaussians is Gaussian with means and variances added, proved by convolution (Theorem 5.12) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=299) | 299 |
@@ -275,6 +280,10 @@ table on this page gives PDF pages.
 | the definite integral | [calculus textbook](calculus/calculus-textbook.pdf#page=377) | 377 |
 | the derivative of tanh, sech² | [calculus textbook](calculus/calculus-textbook.pdf#page=501) | 501 |
 | the Maclaurin series for eˣ | [calculus textbook](calculus/calculus-textbook.pdf#page=684) | 684 |
+| the moment generating function, M(s) = E[e^{sX}], defined (Definition 6.1) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=340) | 340 |
+| the moment generating function of a sum of independent variables is the product (Theorem 6.2) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=343) | 343 |
+| the same moment generating function means the same distribution (Definition 12, property 2) | [introduction to statistics](statistics/introduction-to-statistics.pdf#page=83) | 83 |
+| sinh and cosh defined from eˣ and e⁻ˣ | [calculus handbook](calculus/calculus-handbook.pdf#page=79) | 79 |
 | the chain rule for several variables | [calculus textbook](calculus/calculus-textbook.pdf#page=973) | 973 |
 | the gradient | [calculus textbook](calculus/calculus-textbook.pdf#page=987) | 987 |
 | Minkowski loss: the conditional median for q = 1 | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=67) | 67 |
@@ -300,6 +309,38 @@ table on this page gives PDF pages.
 | the identity matrix, I A = A I = A (equation 2.20) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=30) | 30 |
 | the partial derivative: hold every other variable fixed and differentiate in one (Definition 13.3.1) | [calculus textbook](calculus/calculus-textbook.pdf#page=951) | 951 |
 | symmetric central differences, (f(w + ε) − f(w − ε)) / 2ε, accurate to O(ε²), for checking a derivative numerically (equation 5.69) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=264) | 264 |
+| the unit circle: the x-coordinate is the cosine of the angle and the y-coordinate is its sine | [trigonometry handbook](trigonometry/trigonometry-handbook.pdf#page=10) | 10 |
+| a telescoping sum: each term cancels part of the next until only the first and last remain (section 9.3, equation 10) | [calculus textbook](calculus/calculus-textbook.pdf#page=644) | 644 |
+| the conditional PDF: f(x | y) = f(x, y) / f(y) (Definition 5.16, at the foot of the page) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=287) | 287 |
+| the product of two normals is proportional to a third normal, with its mean, covariance and constant (section 5.6, equations 5.14 and 5.15) | [computer vision textbook](computer-vision/computer-vision-textbook.pdf#page=76) | 76 |
+| the gradient points in the direction of fastest increase, and its length is the largest slope (section 13.6, properties of the gradient) | [calculus textbook](calculus/calculus-textbook.pdf#page=988) | 988 |
+| Leibniz's rule: differentiating under the integral sign, the gradient of an integral is the integral of the gradient (equation 18.14) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=623) | 623 |
+| the derivative of ln u by the chain rule, u′ / u (section 3.2) | [calculus textbook](calculus/calculus-textbook.pdf#page=217) | 217 |
+| doubling time and half-life of an exponential model, T = ln 2 / k, with the halving figure (section 8.2) | [calculus textbook](calculus/calculus-textbook.pdf#page=597) | 597 |
+| absolute value: the distance from zero | [algebra handbook](algebra/algebra-handbook.pdf#page=15) | 15 |
+| adding rational expressions over a common denominator | [algebra handbook](algebra/algebra-handbook.pdf#page=145) | 145 |
+| perfect squares: (a + b)² = a² + 2ab + b² and (a − b)² = a² − 2ab + b² | [algebra handbook](algebra/algebra-handbook.pdf#page=66) | 66 |
+| the likelihood function, and Bayes' theorem in words: posterior ∝ likelihood × prior (equations 1.43 and 1.44) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=41) | 41 |
+| the continuous uniform density u(x; a, b) = 1 / (b − a) on [a, b], 0 outside (section 3.3.2) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=74) | 74 |
+| the product rule, p(x, y) = p(y | x) p(x) (equation 6.22) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=191) | 191 |
+| matrix-vector multiplication: each output is a weighted sum of the inputs, yᵢ = Σⱼ Aᵢⱼ xⱼ, with a worked 2 by 2 example | [matrix-vector multiplication](linear-algebra/matrix-vector-multiplication.pdf#page=1) | 1 |
+| the log-sum-exp trick: log Σ exp(aₖ) = m + log Σ exp(aₖ − m) with m the largest term, so nothing overflows (section 2.5.4, equation 2.99) | [probabilistic machine learning: an introduction](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=80) | 80 |
+| softmax temperature: dividing by T, low T puts the mass on the largest entry and high T spreads it, named from statistical physics (section 2.5.2, equation 2.94) | [probabilistic machine learning: an introduction](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=79) | 79 |
+| linearity of expectation: E[aX + b] = aE[X] + b, and the expectation of a sum is the sum of expectations (equation 2.25) | [probabilistic machine learning: an introduction](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=66) | 66 |
+| the basic Metropolis algorithm (1953): accept a candidate with min(1, p(z⋆)/p(z)) by comparing with a uniform draw u, and the samples form a Markov chain (equation 11.33) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=554) | 554 |
+| a first-order Markov chain: p(z⁽ᵐ⁺¹⁾ | z⁽¹⁾, …, z⁽ᵐ⁾) = p(z⁽ᵐ⁺¹⁾ | z⁽ᵐ⁾) (section 11.2.1, equation 11.37, at the foot of the page) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=555) | 555 |
+| the Hamiltonian: kinetic energy K(r) = ½‖r‖², total energy H = E + K, Hamilton's equations, with a note on William Rowan Hamilton (section 11.5.1, equations 11.56 to 11.59) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=565) | 565 |
+| the leapfrog discretization: half step in momentum, full step in position, half step in momentum (equations 11.64 to 11.66) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=567) | 567 |
+| each leapfrog step shears phase space without changing volume, and the hybrid Monte Carlo detailed-balance argument (Figure 11.14) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=569) | 569 |
+| the Dirac distribution and the empirical distribution, one point mass of 1/m on each data point (section 3.9.5) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=81) | 81 |
+| self-information with the natural log, measured in nats (section 3.13, equation 3.48) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=89) | 89 |
+| overflow and underflow: finite bit patterns, rounding error, numbers near zero rounded to zero (section 4.1) | [deep learning textbook](machine-learning/deep-learning-textbook.pdf#page=96) | 96 |
+| Adam: normalise the gradient by its squared magnitude so each direction moves a set distance (section 6.4) | [understanding deep learning](machine-learning/understanding-deep-learning.pdf#page=102) | 102 |
+| the binomial mean, E[X] = np, with its variance, and the proof (Theorem 3.7) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=162) | 162 |
+| the symmetry of the standard Gaussian CDF, Φ(y) = 1 − Φ(−y), and tail probabilities (Corollary 4.1) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=232) | 232 |
+| the determinant of a triangular matrix is the product of its diagonal entries (Theorem 2.1.2) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=124) | 124 |
+| composition of functions: (f ∘ g)(x) = f(g(x)), the function closest to the variable acts first | [algebra handbook](algebra/algebra-handbook.pdf#page=27) | 27 |
+| the distributive property, a(b + c) = ab + ac, with the commutative and associative properties | [algebra handbook](algebra/algebra-handbook.pdf#page=16) | 16 |
 
 ## general/
 

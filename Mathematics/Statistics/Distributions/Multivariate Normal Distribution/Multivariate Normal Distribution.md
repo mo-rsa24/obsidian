@@ -30,7 +30,7 @@ $$
 
 The second argument is always a variance, so in one dimension this is $\mathcal{N}(\mu, \sigma^2)$. *Cited:* the Wikipedia page in the sources.
 
-The notes below take the diagonal case, where every coordinate has its own variance and no two are correlated: what its density is, how to sample it, and what multiplying, dividing and raising Gaussians to powers gives.
+The notes below take the diagonal case, where every coordinate has its own variance and no two are correlated: what its density is, how to sample it, what adding independent Gaussian draws gives, and what multiplying, dividing and raising Gaussians to powers gives.
 
 ## Where you work
 
@@ -52,6 +52,7 @@ Read them in this order.
 
 - [[Diagonal Covariance]]: one variance per coordinate, so the density is a product of one-dimensional bells.
 - [[Sampling A Diagonal Gaussian]]: drawing points as the mean plus the square root of the variance times standard normal noise.
+- [[Sums Of Independent Gaussians]]: why independent Gaussian noises add their variances, so $a\,e_1 + b\,e_2$ is one draw of variance $a^2 + b^2$, and what reusing a draw does instead.
 - [[Products And Quotients Of Diagonal Gaussians]]: multiplying or dividing two Gaussians by adding or subtracting precisions, and the precision-weighted mean.
 - [[The Area A Product Loses]]: the area a product of densities loses, which is the overlap of the two Gaussians and has no slope.
 - [[Powers Of Gaussians]]: raising Gaussians to powers and combining them, and when the result still has positive precision.

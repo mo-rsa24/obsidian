@@ -4,7 +4,7 @@ aliases: [logarithms, logarithm, log]
 
 # Logarithms
 
-Up: [[Algebra]]
+Up: [[Algebra]] · ⬅️ [[The Exponent Rules]] · [[Arithmetic And Geometric Mean]] ➡️
 
 Mathematics, Algebra, Logarithms. **A logarithm turns multiplication into addition**, which is why a log-density is easier to work with than the density itself.
 

@@ -7,7 +7,7 @@ sources:
 
 # Products And Quotients Of Diagonal Gaussians
 
-Up: [[Multivariate Normal Distribution]] · ⬅️ [[Sampling A Diagonal Gaussian]] · [[The Area A Product Loses]] ➡️
+Up: [[Multivariate Normal Distribution]] · ⬅️ [[Sums Of Independent Gaussians]] · [[The Area A Product Loses]] ➡️
 
 Mathematics, Statistics, Distributions, Multivariate Normal Distribution. Needs: [[Diagonal Covariance]].
 
@@ -437,7 +437,11 @@ Navigation: ⬅️ [[#Why precisions matter]] | 📋 [[#Table of contents|TOC]]
 - the `drip-read` walk of Du et al., Reduce, Reuse, Recycle, section 3, paragraph 2, chunk 34: the product of $\mathcal{N}(-1, 0.5)$ and $\mathcal{N}(1, 0.8)$ peaks at the precision-weighted mean $-0.23$, where the experts stand at 55% and 39% of their own peaks. Worked in [[The Product As An Intersection]]. The walk's paper note, `deep-learning/diffusion-models/02-sampler-correctors-for-composition/papers/reduce-reuse-recycle/reduce-reuse-recycle.md` in this vault, is not written yet; link it here when it is.
 - the `drip-idea` walk of the overlap dial in the reduce-reuse-recycle research repository, claim 9, the `example 9` control (`artifacts/ideas/poe-overlap-dial/IDEA_MAP.md` line 93, and `example-9-parts-world/example-9-parts-world.tex` beside it, equations 1 to 3): the one-pair identity with its overlap $Z$, and the product of two mixtures, for [[#Products of Gaussian mixtures]]
 
-**Applied in:** nothing yet.
+**Applied in:**
+
+- step 9 of the ideal-experts rebuild walk in the reduce-reuse-recycle research repository (`artifacts/drips/simple-distributions-rebuild/03-ideal-experts-and-the-seven-kinds.md#step-9-dominance`), where a ring mode of variance 0.0034 times a central blob of variance 0.0125 has its mean scaled by 0.0125/0.0159 = 0.786, which moves radius 0.5 to 0.393; the exact mean radius is 0.4042.
+- step 3 of the parts-world rebuild walk in the reduce-reuse-recycle research repository (`artifacts/drips/simple-distributions-rebuild/04-the-parts-world.md#step-3-the-product-pixel-by-pixel-the-mosaic`), where precisions 100 and 1 on a head pixel put the product's mean at 0.9802, the body mirrors it at −0.9802, and $\log Z$ is −46.47.
+- step 5 of the parts-world rebuild walk in the reduce-reuse-recycle research repository (`artifacts/drips/simple-distributions-rebuild/04-the-parts-world.md#step-5-mixtures-and-two-animals-in-one-picture`), where the product of two two-component mixtures has one component per pair: each side-by-side pair keeps weight 0.5, and a pair with both animals on the same half has weight 2.14e-339.
 
 > [!note]- How this was checked
 > Every output in [[Sampling A Diagonal Gaussian]] and this note was run by the writer in an empty folder, `~/playground/sandbox/gaussian-clouds`, on the PC: Ubuntu under WSL2, through the prepared environment `~/.vault-sandbox/bin/python` (Python 3.11.13, NumPy 2.4.6, SciPy 1.17.1, Matplotlib 3.11.2), on 2026-10-04. `samples.py` was also run through `uv run --no-project --with numpy python` (uv 0.8.13) and printed the same three lines. The folder was removed afterwards and the clean-up check returned 2.

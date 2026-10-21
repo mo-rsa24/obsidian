@@ -1,6 +1,6 @@
 # Diffusion Models: illustrated map
 
-The drawn pictures for the notes in the vault's [[Diffusion Models]] folder and its two [[Markov Chain Monte Carlo]] notes: [[The Forward Process]], [[Composing Models With A Background]], [[The Order Of Multiplying And Noising]] and [[The Energy Parameterisation]], with one concept picture for [[The Product As An Intersection]], [[Product, Mixture And Negation]], with one concept picture each for [[Annealed MCMC]] and [[Step Size And The Accept Step]], [[What An Expert Learns From Its Training Set]], one concept picture for [[Kinds Of Composition]], and one concept picture for [[When Neither Training Set Holds A And B]]. `33 prompts · 25 rendered · 8 stuck · 0 rendering · 0 waiting`
+The drawn pictures for the notes in the vault's [[Diffusion Models]] folder and its two [[Markov Chain Monte Carlo]] notes: [[The Forward Process]], [[Composing Models With A Background]], [[The Order Of Multiplying And Noising]] and [[The Energy Parameterisation]], with one concept picture for [[The Product As An Intersection]], [[Product, Mixture And Negation]], with one concept picture each for [[Annealed MCMC]] and [[Step Size And The Accept Step]], [[What An Expert Learns From Its Training Set]], one concept picture for [[Kinds Of Composition]], one concept picture for [[When Neither Training Set Holds A And B]], [[From Many Steps To One Jump]], [[The Density Of The One Jump]], [[The Cosine Noise Schedule]] and [[The Quarter Circle Under The Cosine Schedule]]. `45 prompts · 26 rendered · 8 stuck · 0 rendering · 11 waiting`
 
 ## Table of contents
 
@@ -57,6 +57,22 @@ The drawn pictures for the notes in the vault's [[Diffusion Models]] folder and 
 - [Subject lane: Mosaic, blend or two animals from one product](#subject-lane-mosaic-blend-or-two-animals-from-one-product)
 - [Prompt 32 (Subject concept): Mosaic, blend or two animals](#prompt-32-subject-concept-mosaic-blend-or-two-animals)
 - [Prompt 33 (Subject): The parts world, the mechanism](#prompt-33-subject-the-parts-world-the-mechanism)
+- [Subject lane: From many steps to one jump](#subject-lane-from-many-steps-to-one-jump)
+- [Prompt 34 (Subject): Many steps to one jump, the form](#prompt-34-subject-many-steps-to-one-jump-the-form)
+- [Prompt 35 (Subject): Many steps to one jump, the mechanism](#prompt-35-subject-many-steps-to-one-jump-the-mechanism)
+- [Prompt 36 (Subject capstone): Many steps to one jump, the deep-dive sheet](#prompt-36-subject-capstone-many-steps-to-one-jump-the-deep-dive-sheet)
+- [Subject lane: The density of the one jump](#subject-lane-the-density-of-the-one-jump)
+- [Prompt 37 (Subject): The jump's density, the form](#prompt-37-subject-the-jumps-density-the-form)
+- [Prompt 38 (Subject): The jump's density, the mechanism](#prompt-38-subject-the-jumps-density-the-mechanism)
+- [Prompt 39 (Subject capstone): The jump's density, the deep-dive sheet](#prompt-39-subject-capstone-the-jumps-density-the-deep-dive-sheet)
+- [Subject lane: The cosine noise schedule](#subject-lane-the-cosine-noise-schedule)
+- [Prompt 40 (Subject): The cosine boundaries, the form](#prompt-40-subject-the-cosine-boundaries-the-form)
+- [Prompt 41 (Subject): The cosine boundaries, the mechanism](#prompt-41-subject-the-cosine-boundaries-the-mechanism)
+- [Prompt 42 (Subject capstone): The cosine boundaries, the deep-dive sheet](#prompt-42-subject-capstone-the-cosine-boundaries-the-deep-dive-sheet)
+- [Subject lane: The quarter circle under the cosine schedule](#subject-lane-the-quarter-circle-under-the-cosine-schedule)
+- [Prompt 43 (Subject): The quarter circle, the form](#prompt-43-subject-the-quarter-circle-the-form)
+- [Prompt 44 (Subject): The quarter circle, the mechanism](#prompt-44-subject-the-quarter-circle-the-mechanism)
+- [Prompt 45 (Subject capstone): The quarter circle, the deep-dive sheet](#prompt-45-subject-capstone-the-quarter-circle-the-deep-dive-sheet)
 - [Process lane](#process-lane)
 
 ## Abstraction chain
@@ -1334,7 +1350,7 @@ Faithfulness note: Row (a)'s cat is crisp only on the head and its dog crisp onl
 
 ### Prompt 33 (Subject): The parts world, the mechanism
 
-Navigation: ⬅️ [Prompt 32 (Subject concept): Mosaic, blend or two animals](#prompt-32-subject-concept-mosaic-blend-or-two-animals) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
+Navigation: ⬅️ [Prompt 32 (Subject concept): Mosaic, blend or two animals](#prompt-32-subject-concept-mosaic-blend-or-two-animals) | 📋 [TOC](#table-of-contents) | [Subject lane: From many steps to one jump](#subject-lane-from-many-steps-to-one-jump) ➡️
 
 [planned] ⚠️ stuck: pixel check, right number line not linear after 3 revisions (0 to cat 0.707 is 307 px, 0 to dog -0.707 is 252 px, so the green dot reads about 0.68 where it must be 0.693 and the purple dot about 0.21 where it must be 0.233); last attempt also lifts the purple dot off the line onto a raised bracket with a second green dot, and draws the right bars 1.91 to 1 not 1.98; left line, left bars, opacity and every label correct; first attempt came back transparent (RGBA) and was regenerated opaque; one revision call went to the krea tool and was cancelled, then retried; last attempt ~/.cache/codex-drop/obsidian/parts-world-the-mechanism.png
 Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/Composition/assets/parts-world-the-mechanism.webp`
@@ -1368,8 +1384,464 @@ Exclusions: no curves or bells, no third panel, no cats or dogs drawn, no tick l
 
 Faithfulness note: The left bars are in the ratio 100 to 1 and the right bars 1.98 to 1; the green dot sits at 0.980 on the left line and at 0.693 on the right, and the purple dot at 0.233 on the right line only, left of the green one and right of 0. The expert ticks sit at plus and minus 1 on the left line and plus and minus 0.707 on the right. Every number is from fields 11 and 12 of the note's run and the derivation under setting (d). Every label in the image, exactly: "one head pixel", "clean, abar = 1", "noise level abar = 0.5", "cat precision 100", "dog precision 1", "cat precision 1.98", "bars drawn to each panel's own scale", "cat +1", "dog -1", "cat 0.707", "dog -0.707", "blend 0", "product 0.980", "noised product 0.693 (equation 11)", "summed scores 0.233 (equation 12)".
 
+## Subject lane: From many steps to one jump
+
+Navigation: ⬅️ [Prompt 33 (Subject): The parts world, the mechanism](#prompt-33-subject-the-parts-world-the-mechanism) | 📋 [TOC](#table-of-contents) | [Prompt 34 (Subject): Many steps to one jump, the form](#prompt-34-subject-many-steps-to-one-jump-the-form) ➡️
+
+The form, the mechanism and the deep-dive sheet for [[From Many Steps To One Jump]]. Colours as in the forward-process lane: blue is the clean part (the signal share), grey is noise, with mid-grey for the old noise carried from earlier steps and light grey for the fresh noise one step adds. Red only for the numbered markers on the deep-dive sheet. Every number comes from the note's runs on the cosine schedule ($T = 100$, offset 0.008), steps counted from 0.
+
+### Prompt 34 (Subject): Many steps to one jump, the form
+
+Navigation: ⬅️ [Subject lane: From many steps to one jump](#subject-lane-from-many-steps-to-one-jump) | 📋 [TOC](#table-of-contents) | [Prompt 35 (Subject): Many steps to one jump, the mechanism](#prompt-35-subject-many-steps-to-one-jump-the-mechanism) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-induction-the-form.webp`
+
+Visual thesis: One step shrinks the signal and the old noise by the same factor 1 - beta_t, and the fresh noise beta_t refills exactly the gap that leaves below 1.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for any bar, axis or grid, and for all typography; every bar segment's height is drawn to scale from the numbers given. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: One worked step at t = 50, left to right, three vertical stacked bars on one shared height axis from 0 to 1, with a thin dotted line across all three at height 1 labelled total 1. Bar 1, titled before: s_49: a blue segment of height 0.4938 labelled signal 0.4938 at the bottom and a mid-grey segment of height 0.5062 labelled old noise 0.5062 on top, together exactly reaching the line at 1. Between bars 1 and 2, an arrow labelled x (1 - beta_50) = 0.96845. Bar 2: the same two segments each scaled by 0.96845, blue 0.4783 labelled signal 0.4783 and mid-grey 0.4902 labelled old noise, shrunk 0.4902, so the bar stops 0.0315 below the line, the gap left empty with a dashed outline. Between bars 2 and 3, a small light-grey block labelled + fresh noise beta_50 = 0.0315 with an arrow into the gap. Bar 3, titled after: s_50: blue 0.4783, mid-grey 0.4902, and the light-grey 0.0315 block on top, together reaching the line at 1 exactly. The title one step, t = 50 above the row, and under the whole row one line: s_t = sqrt(1 - beta_t) s_(t-1) + sqrt(beta_t) eps_t.
+
+Cast: three stacked bars (blue signal, mid-grey old noise, light-grey fresh noise), one arrow with the shrink factor, one fresh-noise block.
+
+Flows: the shrink arrow between bars 1 and 2, the fresh block's arrow into the gap.
+
+Text in the image, spelled exactly: "one step, t = 50", "before: s_49", "signal 0.4938", "old noise 0.5062", "x (1 - beta_50) = 0.96845", "signal 0.4783", "old noise, shrunk 0.4902", "+ fresh noise beta_50 = 0.0315", "after: s_50", "total 1", "s_t = sqrt(1 - beta_t) s_(t-1) + sqrt(beta_t) eps_t".
+
+Exclusions: no point clouds, no other steps, no reverse process. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: Bar heights are to scale: 0.4938 and 0.5062 in bar 1; 0.4783 and 0.4902 in bar 2, with a 0.0315 gap; 0.4783, 0.4902 and 0.0315 in bar 3, summing to 1. Blue is the clean part (signal), mid-grey is the old noise, light grey is the fresh noise. Both segments shrink between bars 1 and 2, the old noise as well as the signal. Every label in the image, exactly: "one step, t = 50", "before: s_49", "signal 0.4938", "old noise 0.5062", "x (1 - beta_50) = 0.96845", "signal 0.4783", "old noise, shrunk 0.4902", "+ fresh noise beta_50 = 0.0315", "after: s_50", "total 1", "s_t = sqrt(1 - beta_t) s_(t-1) + sqrt(beta_t) eps_t".
+
+### Prompt 35 (Subject): Many steps to one jump, the mechanism
+
+Navigation: ⬅️ [Prompt 34 (Subject): Many steps to one jump, the form](#prompt-34-subject-many-steps-to-one-jump-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 36 (Subject capstone): Many steps to one jump, the deep-dive sheet](#prompt-36-subject-capstone-many-steps-to-one-jump-the-deep-dive-sheet) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-induction-the-mechanism.webp`
+
+Visual thesis: Done at every step, the shrink-then-add keeps signal plus noise at exactly 1 while the signal share falls as the running product abar_t; skipping the shrink pushes the total past 1.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for any bar, axis or grid, and for all typography; every bar segment's height is drawn to scale from the numbers given. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: Six vertical stacked bars left to right at steps t = 0, 25, 49, 50, 75 and 99, on one shared height axis from 0 to 1.3, with a thin dotted line at height 1 labelled total 1. Each bar is a blue segment at the bottom of height abar_t, labelled with its value, and a grey segment on top of height 1 - abar_t, so every bar reaches exactly 1: blue heights 0.9994, 0.8356, 0.4938, 0.4783, 0.1335 and 0.0 (the last bar is all grey). Label the blue segment of the first bar signal share abar_t and the grey segment of the second bar noise 1 - abar_t. The t = 50 bar has its grey split in two: a mid-grey lower piece labelled old noise, shrunk 0.4902 and a light-grey top piece labelled fresh 0.0315. Beside the t = 50 bar, a ghost bar drawn only as a dashed grey outline, reaching 1.2085, above the line at 1, labelled old noise not shrunk: 1.2085 at t = 50. Under the row, one line: abar_t = (1 - beta_0)(1 - beta_1) ... (1 - beta_t).
+
+Cast: six stacked bars, one dashed ghost bar, one dotted line at 1.
+
+Flows: none; the bars sit in step order left to right.
+
+Text in the image, spelled exactly: "t = 0", "t = 25", "t = 49", "t = 50", "t = 75", "t = 99", "signal share abar_t", "noise 1 - abar_t", "0.9994", "0.8356", "0.4938", "0.4783", "0.1335", "0.0", "old noise, shrunk 0.4902", "fresh 0.0315", "old noise not shrunk: 1.2085 at t = 50", "total 1", "abar_t = (1 - beta_0)(1 - beta_1) ... (1 - beta_t)".
+
+Exclusions: no point clouds, no seventh bar, no reverse arrows. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: Blue heights are to scale at 0.9994, 0.8356, 0.4938, 0.4783, 0.1335 and 0.0; every solid bar reaches exactly 1; only the dashed ghost bar crosses the line, at 1.2085. The t = 50 bar's grey splits 0.4902 below and 0.0315 above. Every label in the image, exactly: "t = 0", "t = 25", "t = 49", "t = 50", "t = 75", "t = 99", "signal share abar_t", "noise 1 - abar_t", "0.9994", "0.8356", "0.4938", "0.4783", "0.1335", "0.0", "old noise, shrunk 0.4902", "fresh 0.0315", "old noise not shrunk: 1.2085 at t = 50", "total 1", "abar_t = (1 - beta_0)(1 - beta_1) ... (1 - beta_t)".
+
+### Prompt 36 (Subject capstone): Many steps to one jump, the deep-dive sheet
+
+Navigation: ⬅️ [Prompt 35 (Subject): Many steps to one jump, the mechanism](#prompt-35-subject-many-steps-to-one-jump-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: The density of the one jump](#subject-lane-the-density-of-the-one-jump) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-induction-deep-dive-sheet.webp`
+
+Visual thesis: One step shrinks the old noise and adds fresh noise, and the run's numbers show two steps and then all hundred landing on 1 - abar_t.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script. A tall sheet of exactly four panes stacked vertically, each the full width, designed for reading at 800 px wide; add height rather than shrinking text, with output and field text at least 20 px at that width. The first two panes are compact reminders of the form and the mechanism, not full copies. The run pane is the focal pane. Field cards run 1 to N in one column in the same order as the markers, each starting with its red number, and are matched to the output by number alone: no leader lines between panes.
+
+Scene: Pane 1, The form: a compact reminder of prompt 34, the three bars at t = 50 and the line s_t = sqrt(1 - beta_t) s_(t-1) + sqrt(beta_t) eps_t. Pane 2, The mechanism: a compact reminder of prompt 35, the six bars and the line abar_t = (1 - beta_0)(1 - beta_1) ... (1 - beta_t). Pane 3, The run: six lines of monospace output, exactly, one per line: $ python3 two_steps.py || steps 0 and 1: shrunk old noise 0.0006306 + fresh 0.0011169 = 0.0017475 | 1 - abar_1 0.0017475 | signal 0.9991 || step 50: old noise 0.5062 shrunk to 0.4902 + fresh 0.0315 = 0.5217 | 1 - abar_50 0.5217 | signal 0.6916 || typical misses: old 0.7001  fresh 0.1776  combined 0.7223 || $ python3 induction.py || steps checked 100  largest signal gap 2.2e-16  largest noise gap 1.1e-16 (the || marks a new line and is not printed; the single | inside lines is printed). Red markers: 1 over 0.0006306; 2 over = 0.0017475; 3 over 1 - abar_1 0.0017475; 4 over shrunk to 0.4902; 5 over = 0.5217 | 1 - abar_50 0.5217; 6 over signal 0.6916 on the step 50 line; 7 over combined 0.7223; 8 over largest signal gap 2.2e-16; 9 over largest noise gap 1.1e-16. Pane 4, Reading it: nine cards in order.
+
+Cast: the two reminders, the output block, nine numbered field cards.
+
+Flows: none between panes.
+
+Text in the image, spelled exactly: "The form", "The mechanism", "The run", "Reading it", "s_t = sqrt(1 - beta_t) s_(t-1) + sqrt(beta_t) eps_t", "abar_t = (1 - beta_0)(1 - beta_1) ... (1 - beta_t)", "$ python3 two_steps.py", "steps 0 and 1: shrunk old noise 0.0006306 + fresh 0.0011169 = 0.0017475 | 1 - abar_1 0.0017475 | signal 0.9991", "step 50: old noise 0.5062 shrunk to 0.4902 + fresh 0.0315 = 0.5217 | 1 - abar_50 0.5217 | signal 0.6916", "typical misses: old 0.7001  fresh 0.1776  combined 0.7223", "$ python3 induction.py", "steps checked 100  largest signal gap 2.2e-16  largest noise gap 1.1e-16", "1 old noise shrunk by step 1 too", "2 the two noises add", "3 the closed form, equal to 2", "4 old noise 0.5062 times 0.96845", "5 total equals 1 - abar_50", "6 the share of x0 left", "7 squares add, not misses", "8 signal matches at all 100 steps", "9 noise matches at all 100 steps".
+
+Exclusions: no fifth pane, no leader lines between panes, no altered output text. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: The output lines match the note's captured run character for character; markers 1 to 9 sit over the same fields as the note's rendered output picture `forward-induction-two-steps-then-every-step.png`; four panes only. Every label in the image, exactly: "The form", "The mechanism", "The run", "Reading it", "s_t = sqrt(1 - beta_t) s_(t-1) + sqrt(beta_t) eps_t", "abar_t = (1 - beta_0)(1 - beta_1) ... (1 - beta_t)", "$ python3 two_steps.py", "steps 0 and 1: shrunk old noise 0.0006306 + fresh 0.0011169 = 0.0017475 | 1 - abar_1 0.0017475 | signal 0.9991", "step 50: old noise 0.5062 shrunk to 0.4902 + fresh 0.0315 = 0.5217 | 1 - abar_50 0.5217 | signal 0.6916", "typical misses: old 0.7001  fresh 0.1776  combined 0.7223", "$ python3 induction.py", "steps checked 100  largest signal gap 2.2e-16  largest noise gap 1.1e-16", "1 old noise shrunk by step 1 too", "2 the two noises add", "3 the closed form, equal to 2", "4 old noise 0.5062 times 0.96845", "5 total equals 1 - abar_50", "6 the share of x0 left", "7 squares add, not misses", "8 signal matches at all 100 steps", "9 noise matches at all 100 steps".
+
+## Subject lane: The density of the one jump
+
+Navigation: ⬅️ [Prompt 36 (Subject capstone): Many steps to one jump, the deep-dive sheet](#prompt-36-subject-capstone-many-steps-to-one-jump-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 37 (Subject): The jump's density, the form](#prompt-37-subject-the-jumps-density-the-form) ➡️
+
+The form, the mechanism and the deep-dive sheet for [[The Density Of The One Jump]]. Colours as in the forward-process lane: blue is the clean point and the centre it is shrunk to, grey is noise (the bell's circles and the displacement arrow). Orange only for the wrong centre in the broken case, and red only for the numbered markers on the deep-dive sheet. Every number comes from the note's runs on the cosine schedule ($T = 100$, offset 0.008), steps counted from 0, with the toy's clean point x0 = (0, 0.5) and draw eps = (0.3, -1.2).
+
+### Prompt 37 (Subject): The jump's density, the form
+
+Navigation: ⬅️ [Subject lane: The density of the one jump](#subject-lane-the-density-of-the-one-jump) | 📋 [TOC](#table-of-contents) | [Prompt 38 (Subject): The jump's density, the mechanism](#prompt-38-subject-the-jumps-density-the-mechanism) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-density-the-form.webp`
+
+Visual thesis: The density of the noised point is three pieces with one job each: a squared distance from the centre sqrt(abar) x0, a width 2(1 - abar), and a front factor that makes the volume 1.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for the plane, the circles, the arrow and all typography; positions are drawn to scale from the numbers given. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: Two stacked parts. Top: the formula on one line, large, q(x_t | x0) = 1 / (2 pi (1 - abar_t)) * exp( - |x_t - sqrt(abar_t) x0|^2 / (2 (1 - abar_t)) ), with three bracketed slots under it, each a small rounded card joined to its piece by a short bracket: under 1 / (2 pi (1 - abar_t)) the card front factor: makes the volume 1, 0.3050 at t = 50; under |x_t - sqrt(abar_t) x0|^2 the card squared distance from the centre, 0.7983; under 2 (1 - abar_t) the card sets the width, 2 x 0.5217. Bottom: a square 2D plane from -1.2 to 1.2 on both axes, axes labelled x1 and x2, at t = 50. A blue star at (0, 0.5) labelled clean point x0 = (0, 0.5); a short blue arrow from it down to a blue dot at (0, 0.3458) labelled centre sqrt(abar) x0 = (0, 0.3458); three concentric grey circles around the centre at radii 0.7223, 1.4446 and 2.1669 clipped to the plane, the first labelled 1 sd = 0.7223; a black dot at (0.2167, -0.5210) labelled drawn point x_50 = (0.2167, -0.5210); a grey arrow from the centre to the drawn point labelled d = 0.7223 eps. The title the density at t = 50 above the plane.
+
+Cast: the formula with three slot cards, one 2D plane with a star, a centre dot, three circles, a drawn point and one arrow.
+
+Flows: the shrink arrow from x0 to the centre, the displacement arrow from the centre to the drawn point.
+
+Text in the image, spelled exactly: "q(x_t | x0) = 1 / (2 pi (1 - abar_t)) * exp( - |x_t - sqrt(abar_t) x0|^2 / (2 (1 - abar_t)) )", "front factor: makes the volume 1, 0.3050 at t = 50", "squared distance from the centre, 0.7983", "sets the width, 2 x 0.5217", "the density at t = 50", "x1", "x2", "clean point x0 = (0, 0.5)", "centre sqrt(abar) x0 = (0, 0.3458)", "1 sd = 0.7223", "drawn point x_50 = (0.2167, -0.5210)", "d = 0.7223 eps".
+
+Exclusions: no second time step, no reverse process, no 3D surface. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: The star sits at (0, 0.5), the centre at (0, 0.3458), the drawn point at (0.2167, -0.5210); the circles are centred on the centre, not on x0, with radii 0.7223, 1.4446 and 2.1669; the arrow runs from the centre to the drawn point. Blue is the clean point and its centre, grey is noise. Every label in the image, exactly: "q(x_t | x0) = 1 / (2 pi (1 - abar_t)) * exp( - |x_t - sqrt(abar_t) x0|^2 / (2 (1 - abar_t)) )", "front factor: makes the volume 1, 0.3050 at t = 50", "squared distance from the centre, 0.7983", "sets the width, 2 x 0.5217", "the density at t = 50", "x1", "x2", "clean point x0 = (0, 0.5)", "centre sqrt(abar) x0 = (0, 0.3458)", "1 sd = 0.7223", "drawn point x_50 = (0.2167, -0.5210)", "d = 0.7223 eps".
+
+### Prompt 38 (Subject): The jump's density, the mechanism
+
+Navigation: ⬅️ [Prompt 37 (Subject): The jump's density, the form](#prompt-37-subject-the-jumps-density-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 39 (Subject capstone): The jump's density, the deep-dive sheet](#prompt-39-subject-capstone-the-jumps-density-the-deep-dive-sheet) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-density-the-mechanism.webp`
+
+Visual thesis: A later step widens the bell and pushes the drawn point out by the same factor, so the drawn point always sits on the contour where the exponent is -|eps|^2 / 2 = -0.765; a centre without its square root breaks that.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for both planes, every circle and arrow, and all typography; both planes share one scale and positions are drawn to scale from the numbers given. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: Two square 2D planes side by side, each from -1.2 to 1.2 on both axes with axes labelled x1 and x2. Left plane titled t = 25: a blue star at (0, 0.5) labelled x0; a blue dot at (0, 0.4571) labelled centre (0, 0.4571); one grey circle around the centre of radius 0.5015 labelled exponent -0.765; a black dot on that circle at (0.1216, -0.0295) labelled x_25; a grey arrow from the centre to it labelled d = 0.4054 eps; under the plane the line q = 0.9682 x 0.4653 = 0.4505. Right plane titled t = 50: the blue star at (0, 0.5) labelled x0; a blue dot at (0, 0.3458) labelled centre (0, 0.3458); one grey circle around it of radius 0.8935 labelled exponent -0.765; a black dot on that circle at (0.2167, -0.5210) labelled x_50; a grey arrow from the centre to it labelled d = 0.7223 eps; an orange hollow dot at (0, 0.2391) labelled wrong centre abar x0 = (0, 0.2391) with a dashed orange arrow from it to x_50 labelled exponent -0.599; under the plane the line q = 0.3050 x 0.4653 = 0.1419. Across the bottom of both planes one line: the same eps, the same exponent: -|eps|^2 / 2 = -1.53 / 2 = -0.765.
+
+Cast: two planes, two stars, two centre dots, two circles, two drawn points, two grey arrows, one orange hollow dot with one dashed arrow.
+
+Flows: the grey displacement arrows, the dashed orange arrow on the right plane only.
+
+Text in the image, spelled exactly: "t = 25", "t = 50", "x1", "x2", "x0", "centre (0, 0.4571)", "centre (0, 0.3458)", "exponent -0.765", "x_25", "x_50", "d = 0.4054 eps", "d = 0.7223 eps", "q = 0.9682 x 0.4653 = 0.4505", "q = 0.3050 x 0.4653 = 0.1419", "wrong centre abar x0 = (0, 0.2391)", "exponent -0.599", "the same eps, the same exponent: -|eps|^2 / 2 = -1.53 / 2 = -0.765".
+
+Exclusions: no third plane, no bell drawn in 3D, no reverse arrows. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: Both planes share one scale. Circle radii are 0.5015 at t = 25 and 0.8935 at t = 50 (0.4054 and 0.7223 times |eps| = 1.2369), each centred on its own centre, and each drawn point sits exactly on its circle. The wrong centre and its dashed arrow appear on the t = 50 plane only, and the dashed arrow ends at x_50. Every label in the image, exactly: "t = 25", "t = 50", "x1", "x2", "x0", "centre (0, 0.4571)", "centre (0, 0.3458)", "exponent -0.765", "x_25", "x_50", "d = 0.4054 eps", "d = 0.7223 eps", "q = 0.9682 x 0.4653 = 0.4505", "q = 0.3050 x 0.4653 = 0.1419", "wrong centre abar x0 = (0, 0.2391)", "exponent -0.599", "the same eps, the same exponent: -|eps|^2 / 2 = -1.53 / 2 = -0.765".
+
+### Prompt 39 (Subject capstone): The jump's density, the deep-dive sheet
+
+Navigation: ⬅️ [Prompt 38 (Subject): The jump's density, the mechanism](#prompt-38-subject-the-jumps-density-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: The cosine noise schedule](#subject-lane-the-cosine-noise-schedule) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-density-deep-dive-sheet.webp`
+
+Visual thesis: The density formula and the two planes, then the run's numbers showing the same exponent -0.7650 at t = 50 and t = 25 while q changes.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script. A tall sheet of exactly four panes stacked vertically, each the full width, designed for reading at 800 px wide; add height rather than shrinking text, with output and field text at least 20 px at that width. The first two panes are compact reminders of the form and the mechanism, not full copies. The run pane is the focal pane. Field cards run 1 to N in one column in the same order as the markers, each starting with its red number, and are matched to the output by number alone: no leader lines between panes.
+
+Scene: Pane 1, The form: a compact reminder of prompt 37, the formula line q(x_t | x0) = 1 / (2 pi (1 - abar_t)) * exp( - |x_t - sqrt(abar_t) x0|^2 / (2 (1 - abar_t)) ) above a small plane with the centre, one circle and the drawn point. Pane 2, The mechanism: a compact reminder of prompt 38, the two planes at t = 25 and t = 50 with their circles labelled exponent -0.765. Pane 3, The run: six lines of monospace output, exactly, one per line: $ python3 density.py || t = 50: mean (0.0000, 0.3458)  x_t (0.2167, -0.5210)  |d|^2 0.7983 ||         exponent -0.7650  prefactor 0.3050  q 0.1419 || t = 25: mean (0.0000, 0.4571)  x_t (0.1216, -0.0295)  |d|^2 0.2515 ||         exponent -0.7650  prefactor 0.9682  q 0.4505 || -|eps|^2 / 2 = -0.7650 (the || marks a new line and is not printed). Red markers: 1 over (0.0000, 0.3458); 2 over (0.2167, -0.5210); 3 over 0.7983; 4 over the first -0.7650; 5 over 0.3050; 6 over 0.1419; 7 over (0.1216, -0.0295); 8 over the second -0.7650; 9 over 0.4505; 10 over the -0.7650 on the last line. Pane 4, Reading it: ten cards in order.
+
+Cast: the two reminders, the output block, ten numbered field cards.
+
+Flows: none between panes.
+
+Text in the image, spelled exactly: "The form", "The mechanism", "The run", "Reading it", "q(x_t | x0) = 1 / (2 pi (1 - abar_t)) * exp( - |x_t - sqrt(abar_t) x0|^2 / (2 (1 - abar_t)) )", "exponent -0.765", "t = 25", "t = 50", "$ python3 density.py", "t = 50: mean (0.0000, 0.3458)  x_t (0.2167, -0.5210)  |d|^2 0.7983", "exponent -0.7650  prefactor 0.3050  q 0.1419", "t = 25: mean (0.0000, 0.4571)  x_t (0.1216, -0.0295)  |d|^2 0.2515", "exponent -0.7650  prefactor 0.9682  q 0.4505", "-|eps|^2 / 2 = -0.7650", "1 the centre, x0 shrunk by 0.6916", "2 the centre plus 0.7223 eps", "3 squared distance, 0.5217 x 1.53", "4 the variance cancels", "5 makes the volume 1", "6 0.3050 x 0.4653", "7 the same eps, scaled by 0.4054", "8 the same exponent", "9 narrower bell, larger front factor", "10 -1.53 / 2".
+
+Exclusions: no fifth pane, no leader lines between panes, no altered output text. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: The output lines match the note's captured run character for character; markers 1 to 10 sit over the same fields as the note's rendered output picture `forward-density-the-jump-density-at-two-steps.png`; four panes only. Every label in the image, exactly: "The form", "The mechanism", "The run", "Reading it", "q(x_t | x0) = 1 / (2 pi (1 - abar_t)) * exp( - |x_t - sqrt(abar_t) x0|^2 / (2 (1 - abar_t)) )", "exponent -0.765", "t = 25", "t = 50", "$ python3 density.py", "t = 50: mean (0.0000, 0.3458)  x_t (0.2167, -0.5210)  |d|^2 0.7983", "exponent -0.7650  prefactor 0.3050  q 0.1419", "t = 25: mean (0.0000, 0.4571)  x_t (0.1216, -0.0295)  |d|^2 0.2515", "exponent -0.7650  prefactor 0.9682  q 0.4505", "-|eps|^2 / 2 = -0.7650", "1 the centre, x0 shrunk by 0.6916", "2 the centre plus 0.7223 eps", "3 squared distance, 0.5217 x 1.53", "4 the variance cancels", "5 makes the volume 1", "6 0.3050 x 0.4653", "7 the same eps, scaled by 0.4054", "8 the same exponent", "9 narrower bell, larger front factor", "10 -1.53 / 2".
+
+## Subject lane: The cosine noise schedule
+
+Navigation: ⬅️ [Prompt 39 (Subject capstone): The jump's density, the deep-dive sheet](#prompt-39-subject-capstone-the-jumps-density-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 40 (Subject): The cosine boundaries, the form](#prompt-40-subject-the-cosine-boundaries-the-form) ➡️
+
+The form, the mechanism and the deep-dive sheet for [[The Cosine Noise Schedule]]. Colours as in the forward-process lane: blue is the share of the clean signal kept (each $C_k$), grey is noise (the share lost, $1 - C_k$). Orange only for the broken case with no offset, and red only for the numbered markers on the deep-dive sheet. Every number comes from the note's runs ($T = 100$, offset delta = 0.008), boundaries counted from k = 0 to k = 100.
+
+### Prompt 40 (Subject): The cosine boundaries, the form
+
+Navigation: ⬅️ [Subject lane: The cosine noise schedule](#subject-lane-the-cosine-noise-schedule) | 📋 [TOC](#table-of-contents) | [Prompt 41 (Subject): The cosine boundaries, the mechanism](#prompt-41-subject-the-cosine-boundaries-the-mechanism) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/cosine-schedule-the-form.webp`
+
+Visual thesis: One boundary value C_k is six small moves applied in order, position, shift, squeeze, quarter turn, squared cosine, rescale, and a 100-step schedule has 101 of them, like fence posts around 100 gaps.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for the cards, the arrows, the fence and all typography. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: Two stacked parts. Top: a left-to-right chain of six rounded cards joined by short arrows, worked at k = 51. Card 1 titled k / T with the value 51 / 100 = 0.51 and the line position from 0 to 1. Card 2 titled + delta with 0.51 + 0.008 = 0.518 and the line shift past 0. Card 3 titled / (1 + delta) with 0.518 / 1.008 = 0.51389 and the line last post stays at 1. Card 4 titled x 90 deg with 0.51389 x 90 = 46.25 deg and the line a quarter turn, with a small quarter-circle icon. Card 5 titled cos^2 with cos^2(46.25 deg) = 0.47819 and the line a share from 0 to 1. Card 6 titled / cos^2(theta_0) with 0.47819 / 0.99984 = 0.47826 and the line so C_0 = 1. Under card 6 a blue pill reading C_51 = 0.47826. Bottom: a horizontal fence of 101 thin posts evenly spaced, with 100 gaps between them; the first post labelled k = 0, C_0 = 1, post 51 labelled k = 51, C_51 = 0.47826 and highlighted blue, the last post labelled k = 100, C_100 = 0; each post's height is its C_k value, so the post tops trace a falling curve, tall and flat at the left, steep in the middle, flat near zero at the right; a bracket over the gaps labelled 100 gaps, one per step, and a bracket under the posts labelled 101 boundary values.
+
+Cast: six cards, five arrows, one blue pill, one fence of 101 posts with three labelled posts and two brackets.
+
+Flows: the arrows from card 1 to card 6, left to right.
+
+Text in the image, spelled exactly: "k / T", "51 / 100 = 0.51", "position from 0 to 1", "+ delta", "0.51 + 0.008 = 0.518", "shift past 0", "/ (1 + delta)", "0.518 / 1.008 = 0.51389", "last post stays at 1", "x 90 deg", "0.51389 x 90 = 46.25 deg", "a quarter turn", "cos^2", "cos^2(46.25 deg) = 0.47819", "a share from 0 to 1", "/ cos^2(theta_0)", "0.47819 / 0.99984 = 0.47826", "so C_0 = 1", "C_51 = 0.47826", "k = 0, C_0 = 1", "k = 51, C_51 = 0.47826", "k = 100, C_100 = 0", "100 gaps, one per step", "101 boundary values".
+
+Exclusions: no beta values, no noise images, no second worked k in the chain. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: Six cards in this order, each value exactly as given; the fence has exactly 101 posts, each post's height is its C_k from the cosine schedule (1 at k = 0, 0.47826 at k = 51, 0 at k = 100), and post 51 is the only blue one. Every label in the image, exactly: "k / T", "51 / 100 = 0.51", "position from 0 to 1", "+ delta", "0.51 + 0.008 = 0.518", "shift past 0", "/ (1 + delta)", "0.518 / 1.008 = 0.51389", "last post stays at 1", "x 90 deg", "0.51389 x 90 = 46.25 deg", "a quarter turn", "cos^2", "cos^2(46.25 deg) = 0.47819", "a share from 0 to 1", "/ cos^2(theta_0)", "0.47819 / 0.99984 = 0.47826", "so C_0 = 1", "C_51 = 0.47826", "k = 0, C_0 = 1", "k = 51, C_51 = 0.47826", "k = 100, C_100 = 0", "100 gaps, one per step", "101 boundary values".
+
+### Prompt 41 (Subject): The cosine boundaries, the mechanism
+
+Navigation: ⬅️ [Prompt 40 (Subject): The cosine boundaries, the form](#prompt-40-subject-the-cosine-boundaries-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 42 (Subject capstone): The cosine boundaries, the deep-dive sheet](#prompt-42-subject-capstone-the-cosine-boundaries-the-deep-dive-sheet) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/cosine-schedule-the-mechanism.webp`
+
+Visual thesis: As k runs from 0 to 100 the angle sweeps a quarter turn from 0.714 deg to 90 deg, its cosine is the horizontal reach on the unit circle, and the squared cosine, rescaled, is the share kept; without the offset the first angles start at 0 deg and the first step adds less noise.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for the quarter circle, the rays, the bars and all typography; angles and lengths are drawn to scale from the numbers given. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: Three parts. Left, the main panel: a quarter of a unit circle, centre at the bottom-left corner, horizontal axis labelled cos and vertical axis labelled sin, radius 1. Three blue rays from the centre to the arc at 0.714 deg labelled k = 0, 46.25 deg labelled k = 51, and 90 deg labelled k = 100. From the end of the k = 51 ray a dotted line drops to the horizontal axis, and a thick blue segment along the axis from 0 to 0.6915 is labelled cos = 0.6915. Right of the circle, a column of four horizontal share bars of full width 1, each split blue for the share kept and grey for the rest: k = 0 bar all blue labelled C_0 = 1; k = 1 bar labelled C_1 = 0.99937; k = 51 bar a little under half blue labelled C_51 = 0.47826; k = 100 bar all grey labelled C_100 = 0. Bottom, a zoom inset titled the first two degrees, magnified: blue rays at 0.714 deg labelled k = 0 and 1.607 deg labelled k = 1; dashed orange rays at 0 deg labelled k = 0, no offset and 0.9 deg labelled k = 1, no offset; under the inset two lines: with offset: first noise share 0.000631, sd 0.0251 in blue, and no offset: first noise share 0.000247, sd 0.0157 in orange.
+
+Cast: one quarter circle, three blue rays, one cosine segment, four share bars, one inset with two blue and two dashed orange rays.
+
+Flows: none; the rays are angles, not arrows.
+
+Text in the image, spelled exactly: "cos", "sin", "k = 0", "k = 51", "k = 100", "cos = 0.6915", "C_0 = 1", "C_1 = 0.99937", "C_51 = 0.47826", "C_100 = 0", "the first two degrees, magnified", "k = 1", "k = 0, no offset", "k = 1, no offset", "with offset: first noise share 0.000631, sd 0.0251", "no offset: first noise share 0.000247, sd 0.0157".
+
+Exclusions: no beta curve, no noise images, no full circle. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: Ray angles exactly 0.714, 46.25 and 90 deg on the main panel and 0, 0.714, 0.9 and 1.607 deg in the inset; the cosine segment is 0.6915 of the radius; the blue part of each bar is its C_k (1, 0.99937, 0.47826, 0); orange appears only in the inset on the two no-offset rays and the no-offset line. Every label in the image, exactly: "cos", "sin", "k = 0", "k = 51", "k = 100", "cos = 0.6915", "C_0 = 1", "C_1 = 0.99937", "C_51 = 0.47826", "C_100 = 0", "the first two degrees, magnified", "k = 1", "k = 0, no offset", "k = 1, no offset", "with offset: first noise share 0.000631, sd 0.0251", "no offset: first noise share 0.000247, sd 0.0157".
+
+### Prompt 42 (Subject capstone): The cosine boundaries, the deep-dive sheet
+
+Navigation: ⬅️ [Prompt 41 (Subject): The cosine boundaries, the mechanism](#prompt-41-subject-the-cosine-boundaries-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: The quarter circle under the cosine schedule](#subject-lane-the-quarter-circle-under-the-cosine-schedule) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/cosine-schedule-deep-dive-sheet.webp`
+
+Visual thesis: The six-move chain and the quarter circle, then the run's numbers showing four boundaries by hand: C_0 = 1, C_1 = 0.99937, C_51 = 0.47826, C_100 = 0.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script. A tall sheet of exactly four panes stacked vertically, each the full width, designed for reading at 800 px wide; add height rather than shrinking text, with output and field text at least 20 px at that width. The first two panes are compact reminders of the form and the mechanism, not full copies. The run pane is the focal pane. Field cards run 1 to N in one column in the same order as the markers, each starting with its red number, and are matched to the output by number alone: no leader lines between panes.
+
+Scene: Pane 1, The form: a compact reminder of prompt 40, the six-move chain k / T, + delta, / (1 + delta), x 90 deg, cos^2, / cos^2(theta_0) as six small cards in a row. Pane 2, The mechanism: a compact reminder of prompt 41, the quarter circle with rays labelled k = 0, k = 51 and k = 100. Pane 3, The run: five lines of monospace output, exactly, one per line: $ python3 by_hand.py || k =   0  theta  0.714 deg  cos 0.99992  cos^2 0.99984  C = 0.99984 / 0.99984 = 1.00000 || k =   1  theta  1.607 deg  cos 0.99961  cos^2 0.99921  C = 0.99921 / 0.99984 = 0.99937 || k =  51  theta 46.250 deg  cos 0.69151  cos^2 0.47819  C = 0.47819 / 0.99984 = 0.47826 || k = 100  theta 90.000 deg  cos 0.00000  cos^2 0.00000  C = 0.00000 / 0.99984 = 0.00000 (the || marks a new line and is not printed). Red markers: 1 over theta  0.714 deg; 2 over cos^2 0.99984 on the first line; 3 over = 1.00000; 4 over theta  1.607 deg; 5 over = 0.99937; 6 over theta 46.250 deg; 7 over cos 0.69151; 8 over = 0.47826; 9 over theta 90.000 deg; 10 over the last = 0.00000. Pane 4, Reading it: ten cards in order.
+
+Cast: the two reminders, the output block, ten numbered field cards.
+
+Flows: none between panes.
+
+Text in the image, spelled exactly: "The form", "The mechanism", "The run", "Reading it", "k / T", "+ delta", "/ (1 + delta)", "x 90 deg", "cos^2", "/ cos^2(theta_0)", "k = 0", "k = 51", "k = 100", "$ python3 by_hand.py", "k =   0  theta  0.714 deg  cos 0.99992  cos^2 0.99984  C = 0.99984 / 0.99984 = 1.00000", "k =   1  theta  1.607 deg  cos 0.99961  cos^2 0.99921  C = 0.99921 / 0.99984 = 0.99937", "k =  51  theta 46.250 deg  cos 0.69151  cos^2 0.47819  C = 0.47819 / 0.99984 = 0.47826", "k = 100  theta 90.000 deg  cos 0.00000  cos^2 0.00000  C = 0.00000 / 0.99984 = 0.00000", "1 the offset alone, 0.8 / 100.8 x 90", "2 the denominator every C_k shares", "3 nothing lost before the first step", "4 1.8 / 100.8 x 90", "5 the share kept after step 0", "6 just past halfway round", "7 the reach on the unit circle", "8 abar_50 = 0.4783", "9 exactly a quarter turn", "10 nothing kept at the last post".
+
+Exclusions: no fifth pane, no leader lines between panes, no altered output text. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: The output lines match the note's captured run character for character, double spaces included; markers 1 to 10 sit over the same fields as the note's rendered output picture `cosine-schedule-four-boundaries-by-hand.png`; four panes only. Every label in the image, exactly: "The form", "The mechanism", "The run", "Reading it", "k / T", "+ delta", "/ (1 + delta)", "x 90 deg", "cos^2", "/ cos^2(theta_0)", "k = 0", "k = 51", "k = 100", "$ python3 by_hand.py", "k =   0  theta  0.714 deg  cos 0.99992  cos^2 0.99984  C = 0.99984 / 0.99984 = 1.00000", "k =   1  theta  1.607 deg  cos 0.99961  cos^2 0.99921  C = 0.99921 / 0.99984 = 0.99937", "k =  51  theta 46.250 deg  cos 0.69151  cos^2 0.47819  C = 0.47819 / 0.99984 = 0.47826", "k = 100  theta 90.000 deg  cos 0.00000  cos^2 0.00000  C = 0.00000 / 0.99984 = 0.00000", "1 the offset alone, 0.8 / 100.8 x 90", "2 the denominator every C_k shares", "3 nothing lost before the first step", "4 1.8 / 100.8 x 90", "5 the share kept after step 0", "6 just past halfway round", "7 the reach on the unit circle", "8 abar_50 = 0.4783", "9 exactly a quarter turn", "10 nothing kept at the last post".
+
+## Subject lane: The quarter circle under the cosine schedule
+
+Navigation: ⬅️ [Prompt 42 (Subject capstone): The cosine boundaries, the deep-dive sheet](#prompt-42-subject-capstone-the-cosine-boundaries-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents) | [Prompt 43 (Subject): The quarter circle, the form](#prompt-43-subject-the-quarter-circle-the-form) ➡️
+
+The form, the mechanism and the deep-dive sheet for [[The Quarter Circle Under The Cosine Schedule]]. Colours as in the cosine-schedule lane: blue is the clean signal (the horizontal leg cos, its square x^2, the signal multiplier), grey is noise (the vertical leg sin, the noise multiplier). Purple only for the denominator bar, and red only for the numbered markers on the deep-dive sheet. Every number comes from the note's runs (T = 100, offset delta = 0.008, scale 10 cm = 1).
+
+### Prompt 43 (Subject): The quarter circle, the form
+
+Navigation: ⬅️ [Subject lane: The quarter circle under the cosine schedule](#subject-lane-the-quarter-circle-under-the-cosine-schedule) | 📋 [TOC](#table-of-contents) | [Prompt 44 (Subject): The quarter circle, the mechanism](#prompt-44-subject-the-quarter-circle-the-mechanism) ➡️
+
+[planned] 🖼️ rendered 2026-10-21 by script, not by Codex: this prompt is replaced by two matplotlib SVGs drawn to exact geometry, `s2-circle-point-is-the-multipliers.svg` (the quarter circle, the ray at 46.25°, the legs 0.6915 and 0.7224 with the two multipliers, x² + y² = 1, the string 0.8072 rad = 8.07 cm, posts 0 and 100) and `s1-position-ruler-posts.svg` (the arc as a ruler with ticks 0, 0.25, 0.5, 0.75, 1 and posts 0, 51 and 100 labelled with p and the angle). Both are embedded in [[The Quarter Circle Under The Cosine Schedule]] under the code that drew them. Labels use ° for deg and "the clean point's multiplier" for "signal multiplier"; there is no 1 cm grid.
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/s2-circle-point-is-the-multipliers.svg`
+
+Visual thesis: The schedule is drawn on paper as one quarter circle of radius 1: a ray at post 51's angle, its two legs as the signal and noise multipliers, the angle measured as a string along the arc, and the arc itself used as a ruler from 0 to 1 on which the fence posts sit.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for the grid, the quarter circle, the ray, the legs, the string and all typography; angles and lengths are drawn to scale from the numbers given. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: One panel on light graph paper with 1 cm squares, a small tag in the corner reading 10 cm = 1. An x axis to the right and a y axis up from the bottom-left origin, labelled x and y. A quarter circle of radius 1 from (1, 0) to (0, 1). A ray from the origin to the arc at 46.25 deg, labelled 1 along its length. From the ray's end a dotted vertical drops to the x axis; the horizontal leg along the x axis from 0 to 0.6915 is a thick blue segment labelled cos 46.25 deg = 0.6915 with a smaller line under it reading signal multiplier; the vertical leg from the axis up to the ray's end is a thick grey segment labelled sin 46.25 deg = 0.7224 with a smaller line reading noise multiplier. Inside the triangle, x^2 + y^2 = 1. A drawn piece of string lies along the arc from the x axis to the ray's end, labelled string 8.07 cm = 0.8072 rad. Just outside the arc, ruler ticks at positions 0, 0.25, 0.5, 0.75 and 1 (at 0, 22.5, 45, 67.5 and 90 deg), labelled 0, 0.25, 0.5, 0.75. Three post markers outside the ruler: at 0.714 deg labelled post 0, p = 0.0079, 0.714 deg; at 46.25 deg labelled post 51, p = 0.5139, 46.25 deg, in blue; at 90 deg labelled post 100, p = 1, 90 deg.
+
+Cast: the grid, two axes, one quarter circle, one ray, two legs, one string, a ruler with five ticks, three post markers.
+
+Flows: none; the ray is an angle, not an arrow.
+
+Text in the image, spelled exactly: "10 cm = 1", "x", "y", "1", "cos 46.25 deg = 0.6915", "sin 46.25 deg = 0.7224", "x^2 + y^2 = 1", "string 8.07 cm = 0.8072 rad", "0", "0.25", "0.5", "0.75", "post 0, p = 0.0079, 0.714 deg", "post 51, p = 0.5139, 46.25 deg", "post 100, p = 1, 90 deg", "signal multiplier", "noise multiplier".
+
+Exclusions: no full circle, no second ray, no beta values, no noise images. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: The ray is at exactly 46.25 deg; the blue leg is 0.6915 of the radius and the grey leg 0.7224; the string covers the arc from 0 to 46.25 deg; the ruler's tick for 1 is the 90 deg end and its 0.5 tick is at 45 deg; the post 0 marker sits at 0.714 deg, visibly off the x axis. Every label in the image, exactly: "10 cm = 1", "x", "y", "1", "cos 46.25 deg = 0.6915", "sin 46.25 deg = 0.7224", "x^2 + y^2 = 1", "string 8.07 cm = 0.8072 rad", "0", "0.25", "0.5", "0.75", "post 0, p = 0.0079, 0.714 deg", "post 51, p = 0.5139, 46.25 deg", "post 100, p = 1, 90 deg", "signal multiplier", "noise multiplier".
+
+### Prompt 44 (Subject): The quarter circle, the mechanism
+
+Navigation: ⬅️ [Prompt 43 (Subject): The quarter circle, the form](#prompt-43-subject-the-quarter-circle-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 45 (Subject capstone): The quarter circle, the deep-dive sheet](#prompt-45-subject-capstone-the-quarter-circle-the-deep-dive-sheet) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/quarter-circle-the-mechanism.webp`
+
+Visual thesis: Walking the point round the quarter turn is the forward process: the squared horizontal leg falls slowly at both ends and fastest in the middle, post 51's point is the two multipliers of the jump, and the fraction's denominator is one fixed bar that cancels out of every step.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for the circle, the rays, the bars and all typography; angles and bar lengths are drawn to scale from the numbers given. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+
+Scene: Three stacked parts. Top: a quarter circle of radius 1 with seven thin rays at 0 deg, 15 deg, 30 deg, 45 deg, 60 deg, 75 deg and 90 deg, each labelled at the arc; to its right a column of seven horizontal blue bars of full width 1, one per ray in the same order, with lengths 1, 0.933, 0.75, 0.5, 0.25, 0.067 and 0, labelled x^2 = 1, x^2 = 0.933, x^2 = 0.75, x^2 = 0.5, x^2 = 0.25, x^2 = 0.067, x^2 = 0; between neighbouring bars small grey brackets carrying the drops, labelled drop 0.067, drop 0.183, drop 0.25, drop 0.25, drop 0.183, drop 0.067; a word slow beside the first and last brackets and fastest beside the two middle ones. Middle: a small quarter circle with one blue dot on the arc at 46.25 deg labelled post 51 and two labels beside it, point (0.6915, 0.7224) and multipliers (0.6916, 0.7223). Bottom: two horizontal bars on a shared scale from 0 to 1: a blue bar of length 0.47819 labelled numerator 0.47819 above a purple bar of length 0.99984 labelled denominator 0.99984, a dividing line between them, and to their right a blue pill reading C_51 = 0.47826; under them one line reading beta_t = 1 - C_(t+1) / C_t and a second, smaller line reading the denominator cancels.
+
+Cast: one quarter circle with seven rays, seven bars, six drop brackets, one small quarter circle with one dot, two fraction bars, one pill.
+
+Flows: none.
+
+Text in the image, spelled exactly: "0 deg", "15 deg", "30 deg", "45 deg", "60 deg", "75 deg", "90 deg", "x^2 = 1", "x^2 = 0.933", "x^2 = 0.75", "x^2 = 0.5", "x^2 = 0.25", "x^2 = 0.067", "x^2 = 0", "drop 0.067", "drop 0.183", "drop 0.25", "slow", "fastest", "post 51", "point (0.6915, 0.7224)", "multipliers (0.6916, 0.7223)", "numerator 0.47819", "denominator 0.99984", "C_51 = 0.47826", "beta_t = 1 - C_(t+1) / C_t", "the denominator cancels".
+
+Exclusions: no full circle, no noise images, no offset inset. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: Ray angles exactly 0, 15, 30, 45, 60, 75 and 90 deg; bar lengths exactly 1, 0.933, 0.75, 0.5, 0.25, 0.067, 0; the two middle drops are equal at 0.25; the numerator bar is 0.47819 of the scale and the denominator bar 0.99984; purple appears only on the denominator bar. Every label in the image, exactly: "0 deg", "15 deg", "30 deg", "45 deg", "60 deg", "75 deg", "90 deg", "x^2 = 1", "x^2 = 0.933", "x^2 = 0.75", "x^2 = 0.5", "x^2 = 0.25", "x^2 = 0.067", "x^2 = 0", "drop 0.067", "drop 0.183", "drop 0.25", "slow", "fastest", "post 51", "point (0.6915, 0.7224)", "multipliers (0.6916, 0.7223)", "numerator 0.47819", "denominator 0.99984", "C_51 = 0.47826", "beta_t = 1 - C_(t+1) / C_t", "the denominator cancels".
+
+### Prompt 45 (Subject capstone): The quarter circle, the deep-dive sheet
+
+Navigation: ⬅️ [Prompt 44 (Subject): The quarter circle, the mechanism](#prompt-44-subject-the-quarter-circle-the-mechanism) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/quarter-circle-deep-dive-sheet.webp`
+
+Visual thesis: The quarter circle drawn on paper and the quarter turn's mechanism, then the run that checks post 51 in six moves: on the circle, the point, the angle in two units, the position, the two multipliers, and the fraction.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script. A tall sheet of exactly four panes stacked vertically, each the full width, designed for reading at 800 px wide; add height rather than shrinking text, with output and field text at least 20 px at that width. The first two panes are compact reminders of the form and the mechanism, not full copies. The run pane is the focal pane. Field cards run 1 to N in one column in the same order as the markers, each starting with its red number, and are matched to the output by number alone: no leader lines between panes.
+
+Scene: Pane 1, The form: a compact reminder of prompt 43, the quarter circle with the ray at 46.25 deg labelled post 51 and 46.25 deg, its blue horizontal leg and grey vertical leg. Pane 2, The mechanism: a compact reminder of prompt 44, the two fraction bars labelled numerator 0.47819 and denominator 0.99984. Pane 3, The run: seven lines of monospace output, exactly, one per line: $ python3 six_moves.py || 1 circle: x^2 + y^2 = 1.0000 || 2 point at 46.25 deg: (0.6915, 0.7224) || 3 angle: 46.25 deg = 0.8072 rad, string 8.07 cm on a 10 cm radius || 4 position: p_51 = (51 + 0.8) / 100.8 = 0.5139, so 0.5139 x 90 = 46.25 deg || 5 multipliers: sqrt(C_51) 0.6916 against x 0.6915, sqrt(1 - C_51) 0.7223 against y 0.7224 || 6 fraction: C_51 = 0.47819 / 0.99984 = 0.47826 (the || marks a new line and is not printed). Red markers: 1 over 1.0000; 2 over (0.6915, 0.7224); 3 over 0.8072 rad; 4 over 8.07 cm; 5 over the first 0.5139; 6 over 0.6916; 7 over 0.7223; 8 over 0.47819; 9 over 0.99984; 10 over 0.47826. Pane 4, Reading it: ten cards in order.
+
+Cast: the two reminders, the output block, ten numbered field cards.
+
+Flows: none between panes.
+
+Text in the image, spelled exactly: "The form", "The mechanism", "The run", "Reading it", "post 51", "46.25 deg", "numerator 0.47819", "denominator 0.99984", "$ python3 six_moves.py", "1 circle: x^2 + y^2 = 1.0000", "2 point at 46.25 deg: (0.6915, 0.7224)", "3 angle: 46.25 deg = 0.8072 rad, string 8.07 cm on a 10 cm radius", "4 position: p_51 = (51 + 0.8) / 100.8 = 0.5139, so 0.5139 x 90 = 46.25 deg", "5 multipliers: sqrt(C_51) 0.6916 against x 0.6915, sqrt(1 - C_51) 0.7223 against y 0.7224", "6 fraction: C_51 = 0.47819 / 0.99984 = 0.47826", "1 on the circle of radius 1", "2 cos and sin of 46.25 deg", "3 46.25 x pi / 180", "4 the arc, 10 x the radians", "5 51.8 / 100.8", "6 signal multiplier, sqrt(abar_50)", "7 noise multiplier", "8 numerator, x^2 at post 51", "9 denominator, x^2 at post 0", "10 abar_50 = 0.4783".
+
+Exclusions: no fifth pane, no leader lines between panes, no altered output text. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: The output lines match the note's captured run character for character; markers 1 to 10 sit over the same fields as the note's rendered output picture `quarter-circle-the-six-moves-at-post-51.png`; four panes only. Every label in the image, exactly: "The form", "The mechanism", "The run", "Reading it", "post 51", "46.25 deg", "numerator 0.47819", "denominator 0.99984", "$ python3 six_moves.py", "1 circle: x^2 + y^2 = 1.0000", "2 point at 46.25 deg: (0.6915, 0.7224)", "3 angle: 46.25 deg = 0.8072 rad, string 8.07 cm on a 10 cm radius", "4 position: p_51 = (51 + 0.8) / 100.8 = 0.5139, so 0.5139 x 90 = 46.25 deg", "5 multipliers: sqrt(C_51) 0.6916 against x 0.6915, sqrt(1 - C_51) 0.7223 against y 0.7224", "6 fraction: C_51 = 0.47819 / 0.99984 = 0.47826", "1 on the circle of radius 1", "2 cos and sin of 46.25 deg", "3 46.25 x pi / 180", "4 the arc, 10 x the radians", "5 51.8 / 100.8", "6 signal multiplier, sqrt(abar_50)", "7 noise multiplier", "8 numerator, x^2 at post 51", "9 denominator, x^2 at post 0", "10 abar_50 = 0.4783".
+
 ## Process lane
 
-Navigation: ⬅️ [Prompt 33 (Subject): The parts world, the mechanism](#prompt-33-subject-the-parts-world-the-mechanism) | 📋 [TOC](#table-of-contents)
+Navigation: ⬅️ [Prompt 45 (Subject capstone): The quarter circle, the deep-dive sheet](#prompt-45-subject-capstone-the-quarter-circle-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents)
 
 None. A vault note's section has no plan tree to draw over it.

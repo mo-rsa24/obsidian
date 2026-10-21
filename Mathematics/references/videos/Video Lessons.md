@@ -86,6 +86,36 @@ The reference shelf for the moment a derivation stalls on a word a video could t
 - [[#Multi-head attention]]
 - [[#The sinusoidal position formula]]
 - [[#Cross-attention in the encoder-decoder transformer]]
+- [[#The Gaussian density and its formula]]
+- [[#A mixture of Gaussian bumps]]
+- [[#The forward step and the noise schedule]]
+- [[#The score as the gradient of the log-density]]
+- [[#Residual networks (ResNet)]]
+- [[#The energy of an energy-based model]]
+- [[#Where the denoising loss comes from]]
+- [[#The exponential moving average]]
+- [[#The DDPM posterior and the reverse step]]
+- [[#Total variation distance as a distance]]
+- [[#The normaliser (partition function)]]
+- [[#Summed noised scores miss the product]]
+- [[#Temperature]]
+- [[#The soft minimum]]
+- [[#Negation by dividing densities]]
+- [[#The Markov chain]]
+- [[#Hamiltonian Monte Carlo]]
+- [[#The leapfrog step]]
+- [[#Adding up over a grid of cells]]
+- [[#Responsibility in a mixture]]
+- [[#Disjunction as a mixture of energies]]
+- [[#Negation as a set difference of energies]]
+- [[#The pixel]]
+- [[#An image as a vector]]
+- [[#The diagonal Gaussian]]
+- [[#Precision, one over the variance]]
+- [[#Underflow and the log-sum-exp trick]]
+- [[#The expected value as a weighted sum]]
+- [[#Pretraining]]
+- [[#Fine-tuning a pretrained model]]
 - [[#Compound interest, the annuity formula and the Rule of 72]]
 - [[#Nominal against effective interest rates]]
 - [[#Real return after inflation]]
@@ -1145,6 +1175,421 @@ Stanford CS224N on cross-attention in the encoder-decoder transformer, to watch 
 | 1 | Confirm after the sitting: the decoder's vectors supply the queries and the encoder's output supplies the keys and values, so two of the three arrows come from the encoder. Watch for "two of the arrows come from the encoder and one of the arrows comes from the decoder" | Intuition | [CS224N 2023, lecture 8, 1:10:02 to 1:12:39](https://www.youtube.com/watch?v=LWMzyfvuehA&t=4202s) |
 
 No weights matrix is worked with numbers. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## The Gaussian density and its formula
+
+<!-- video-table: gaussian-density rev=1 -->
+StatQuest, then 3Blue1Brown, on the Gaussian density and why its formula has the pieces it has, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | A curve as a distribution: probability is the area under it over an interval, not its height at a point | Intuition | [StatQuest, Main Ideas behind Probability Distributions, 2:15 to 5:14](https://www.youtube.com/watch?v=oI3hZJqXJuc&t=135s) |
+| 2 | The Gaussian formula unpacked one piece at a time | Intuition | [3Blue1Brown, But what is the Central Limit Theorem?, 15:54 to 20:47](https://www.youtube.com/watch?v=zeJD6dqJ5lo&t=954s) |
+| 3 | Stripped of its constants the bell is e^(−x²), whose area is √π, so dividing by √π makes the area 1 | Intuition | [3Blue1Brown, Why π is in the normal distribution, 2:07 to 2:59](https://www.youtube.com/watch?v=cy8r7WSuT1I&t=127s) |
+| 4 | Two demands on a density in the plane, that it depend only on distance from the centre and that x and y be independent, which make it the product g(x)·g(y) | Intuition | [3Blue1Brown, Why π is in the normal distribution, 13:15 to 15:18](https://www.youtube.com/watch?v=cy8r7WSuT1I&t=795s) |
+| 5 | Those two demands force the shape e^(c·r²) with c negative, and a constant in front then rescales the volume to 1 | Proof | [3Blue1Brown, Why π is in the normal distribution, 15:18 to 21:34](https://www.youtube.com/watch?v=cy8r7WSuT1I&t=918s) |
+
+No video found evaluates the density's height at a point, as the toy's 0.7979 and 0.4839 do, or shows a height above 1, as the bar's 1.25 is. Rows 3 to 5 are read from 3Blue1Brown's captions and good to about 30 seconds; rows 1 and 2 are chapter boundaries from each video's chapter list, so the sentence inside each is not checked.
+<!-- /video-table -->
+
+## A mixture of Gaussian bumps
+
+<!-- video-table: mixture-components-and-weights rev=1 -->
+Stanford CME296, then Luis Serrano, on a density built as a weighted sum of Gaussian bumps, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Noise every training point with the same Gaussian and the result is a mixture of Gaussians, one bump per point; a larger σ spreads every bump wider | Intuition | [CME296, lecture 2, 26:04 to 29:43](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=1564s) |
+| 2 | The Gaussian mixture model itself, after the video's clustering set-up | Intuition | [Serrano, Gaussian Mixture Models, 10:33 to 17:27](https://www.youtube.com/watch?v=q71Niz856KE&t=633s) |
+
+Neither evaluates a mixture at a point between its bumps, as the ring's centre gives 8.49e-59, and no proof was found; ritvikmath's fish in the Gaussian mixture table is the worked example. Row 1 is read from CME296's captions and good to about 30 seconds; row 2 is a chapter boundary from Serrano's chapter list, so the sentence inside it is not checked.
+<!-- /video-table -->
+
+## The forward step and the noise schedule
+
+<!-- video-table: forward-process-and-noise-schedule rev=1 -->
+Stanford CME296, then Stanford CS236, on one forward step, the noise schedule and the jump straight to step t, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The noise schedule is the set of coefficients weighting the image and the noise; one step is x_t = √(1 − β_t)·x_{t−1} + √β_t·ε, and it keeps the variance fixed | Intuition | [CME296, lecture 1, 35:19 to 37:57](https://www.youtube.com/watch?v=tr-CUpw--ck&t=2119s) |
+| 2 | Why β_t starts small and grows: little noise near the clean image teaches details, more noise near the end teaches overall shape | Intuition | [CME296, lecture 1, 38:00 to 39:06](https://www.youtube.com/watch?v=tr-CUpw--ck&t=2280s) |
+| 3 | Unroll two steps and add the independent noise variances, and x_t comes straight from x_0, with ᾱ_t the product of the α's | Proof | [CME296, lecture 1, 39:07 to 45:40](https://www.youtube.com/watch?v=tr-CUpw--ck&t=2347s) |
+| 4 | How the noise schedule is chosen | Intuition | [Stanford CS236, lecture 16, 47:58 to 51:46](https://www.youtube.com/watch?v=VsllsC2JMGY&t=2878s) |
+
+No segment was confirmed to cover the cosine schedule by name, and none works the schedule table's numbers. Rows 1 to 3 are read from CME296's captions and good to about 30 seconds; row 4 is a chapter boundary from CS236's chapter list, so the sentence inside it is not checked.
+<!-- /video-table -->
+
+## The score as the gradient of the log-density
+
+<!-- video-table: score-as-gradient-of-log-density rev=1 -->
+Stanford CME296 on the score, the gradient of the log-density, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | From a point of low density, the gradient of p(x) points toward higher density | Intuition | [CME296, lecture 2, 6:20 to 8:17](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=380s) |
+| 2 | Why the gradient of p itself is hard to use and the gradient of log p is not: the normalising constant's gradient is zero, ∇log p = ∇p / p points the same way as ∇p, and the ratio is numerically steadier | Proof | [CME296, lecture 2, 8:17 to 13:22](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=497s) |
+| 3 | That gradient is the score, taken with respect to the point x and not a model's parameters; its arrows are longest far from the data | Intuition | [CME296, lecture 2, 13:22 to 14:30](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=802s) |
+| 4 | The score of a one-dimensional Gaussian is −(x − μ)/σ², an arrow pointing at the mean | Intuition | [CME296, lecture 2, 21:28 to 24:12](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=1288s) |
+
+The lecture states the Gaussian's score without deriving it and works no numbers; the step from added noise to the score of a noised point is in the noise-prediction table. Times are read from the lecture's captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## Residual networks (ResNet)
+
+<!-- video-table: residual-network rev=1 -->
+Stanford CS231N, then Stanford CS224N and Vizuara, on residual networks, in the order to watch:
+
+| Order | What it covers | Kind | Code it writes | Watch |
+|---|---|---|---|---|
+| 1 | ResNet and residual learning | Intuition | | [Stanford CS231N, lecture 6, 29:03 to 37:07](https://www.youtube.com/watch?v=aVJy4O5TOk8&t=1743s) |
+| 2 | How the residual blocks are stacked into the full ResNet | Intuition | | [Stanford CS231N, lecture 6, 37:07 to 42:00](https://www.youtube.com/watch?v=aVJy4O5TOk8&t=2227s) |
+| 3 | A layer's output is added to its input, so the layer learns only the leftover correction, and the gradient through the skip path is 1 | Intuition | | [Stanford CS224N 2023, lecture 8, 58:51 to 59:58](https://www.youtube.com/watch?v=LWMzyfvuehA&t=3531s) |
+| 4 | The shortcut connection written out as maths | Proof | | [Vizuara, shortcut connections, 9:59 to 14:50](https://www.youtube.com/watch?v=2r0QahNdwMw&t=599s) |
+| 5 | A five-layer network's gradients printed layer by layer, without shortcuts and then with them | Code walk | the per-layer gradient printout, with and without shortcuts | [Vizuara, shortcut connections, 22:55 to 30:48](https://www.youtube.com/watch?v=2r0QahNdwMw&t=1375s) |
+
+None counts parameters or zeroes a correction branch to show the block becomes the identity, which is this section's check, and CS224N and Vizuara add the shortcut inside a transformer, not a noise predictor. Rows 3 and 5 are read from automatic captions and good to about 30 seconds; rows 1, 2 and 4 are chapter boundaries from each video's chapter list, so the sentence inside each is not checked.
+<!-- /video-table -->
+
+## The energy of an energy-based model
+
+<!-- video-table: energy-function rev=1 -->
+Stanford CS236, then Vizuara, on the energy behind an energy-based model, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The partition function, the constant that turns an energy into a density | Intuition | [Stanford CS236, lecture 11, 15:31 to 23:01](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=931s) |
+| 2 | How an energy function is defined | Intuition | [Stanford CS236, lecture 11, 29:14 to 34:29](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=1754s) |
+| 3 | The model's energy and energy in physics | Intuition | [Stanford CS236, lecture 11, 34:29 to 40:20](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=2069s) |
+| 4 | Why energy-based models are hard to train, and where the score comes in | Intuition | [Vizuara, Principles of Diffusion Models, lecture 5, 24:00 to 30:11](https://www.youtube.com/watch?v=zRyD7GQ9RHs&t=1440s) |
+
+None takes the gradient of a learned energy to get a noise prediction, as this model does, and no proof or worked example was found. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Where the denoising loss comes from
+
+<!-- video-table: denoising-loss-from-the-elbo rev=1 -->
+Stanford CME296, then Stanford CS236, on where the denoising loss comes from, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The KL divergence between two Gaussians, the true reverse step and the learned one, reduces to the squared distance between the predicted noise and the noise that was added | Proof | [CME296, lecture 1, 1:18:03 to 1:21:03](https://www.youtube.com/watch?v=tr-CUpw--ck&t=4683s) |
+| 2 | The loss read term by term: the sampled step t, the clean image x_0, the noise ε, and the network ε_θ given the noised image √ᾱ_t·x_0 + √(1 − ᾱ_t)·ε together with t | Intuition | [CME296, lecture 1, 1:21:12 to 1:24:04](https://www.youtube.com/watch?v=tr-CUpw--ck&t=4872s) |
+| 3 | The exact KL puts a weight on each step's error, and DDPM sets every weight to 1 | Intuition | [CME296, lecture 1, 1:26:17 to 1:27:03](https://www.youtube.com/watch?v=tr-CUpw--ck&t=5177s) |
+| 4 | Predicting the noise shown to be the same as denoising score matching | Proof | [Stanford CS236, lecture 16, 39:01 to 41:48](https://www.youtube.com/watch?v=VsllsC2JMGY&t=2341s) |
+
+CME296 says the KL simplifies without writing the steps out, and neither trains on numbers, so the 0.79 before training has no video. Rows 1 to 3 are read from CME296's captions and good to about 30 seconds; row 4 is a chapter boundary from CS236's chapter list, so the sentence inside it is not checked.
+<!-- /video-table -->
+
+## The exponential moving average
+
+<!-- video-table: exponential-moving-average rev=1 -->
+Andrew Ng (DeepLearning.AI, from the open web) on the exponentially weighted average, in the order to watch:
+
+| Order | What it covers | Kind | Code it writes | Watch |
+|---|---|---|---|---|
+| 1 | London's daily temperatures smoothed with v = 0.9·v + 0.1·θ, one day at a time | Worked example, open web | | [Ng, Exponentially Weighted Averages, 0:21 to 2:36](https://www.youtube.com/watch?v=lAq96T8FkTw&t=21s) |
+| 2 | The average covers roughly 1/(1 − β) recent values: β = 0.98 is smoother and lags, β = 0.5 is noisy and quick | Intuition, open web | | [Ng, Exponentially Weighted Averages, 2:36 to 5:21](https://www.youtube.com/watch?v=lAq96T8FkTw&t=156s) |
+| 3 | Unrolling the update: the value k steps back carries weight 0.1 × 0.9^k, so the weights fall exponentially with age | Proof, open web | | [Ng, Understanding Exponentially Weighted Averages, 0:41 to 4:36](https://www.youtube.com/watch?v=NxTFlzBjS-4&t=41s) |
+| 4 | 0.9 to the power 10 is about 1/e, so an entry's weight falls to about a third after 1/(1 − β) steps | Intuition, open web | | [Ng, Understanding Exponentially Weighted Averages, 4:36 to 6:50](https://www.youtube.com/watch?v=NxTFlzBjS-4&t=276s) |
+| 5 | The update as one line inside a loop, keeping a single number in memory | Code walk, open web | `v = beta * v + (1 - beta) * theta` | [Ng, Understanding Exponentially Weighted Averages, 6:50 to 9:25](https://www.youtube.com/watch?v=NxTFlzBjS-4&t=410s) |
+
+No listed creator has a video on it. Ng averages temperatures with β = 0.9, not model weights with 0.999, and he measures the fade by 1/e, not by the half-life of 692.8 steps. Times are read from automatic captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## The DDPM posterior and the reverse step
+
+<!-- video-table: ddpm-posterior-and-reverse-step rev=1 -->
+Stanford CME296 on the posterior a DDPM reverse step samples from, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | What q(x_{t−1} given x_t and x_0) asks for: the less noisy image, given the noisy one and the clean one, which training can compute because it knows x_0 | Intuition | [CME296, lecture 1, 1:08:56 to 1:10:05](https://www.youtube.com/watch?v=tr-CUpw--ck&t=4136s) |
+| 2 | Bayes' rule and the Markov property make it proportional to a product of two Gaussians, so it is a Gaussian; its mean is stated, not derived | Proof | [CME296, lecture 1, 1:10:09 to 1:16:33](https://www.youtube.com/watch?v=tr-CUpw--ck&t=4209s) |
+| 3 | The posterior is exact but uses x_0, which only training has, and the learned reverse step is assumed Gaussian too | Intuition | [CME296, lecture 1, 1:16:33 to 1:18:03](https://www.youtube.com/watch?v=tr-CUpw--ck&t=4593s) |
+| 4 | Sampling: start from noise and step from T down to 0, each step a mean built from the noisy image and the predicted noise, plus fresh noise | Intuition | [CME296, lecture 1, 1:28:10 to 1:29:19](https://www.youtube.com/watch?v=tr-CUpw--ck&t=5290s) |
+
+The lecture states the posterior's mean and variance without deriving them (the product-of-two-Gaussians table derives a product's mean), and it does not show the coefficients reaching 1 and 0 at the last step. Times are read from the lecture's captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## Total variation distance as a distance
+
+<!-- video-table: total-variation-distance-properties rev=1 -->
+Philippe Rigollet (MIT 18.650, from the open web) on total variation distance as a true distance between distributions, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | TV is the largest gap the two distributions give any one event; a TV of 0.01 puts every probability within 0.01 of the true one | Intuition, open web | [Rigollet, MIT 18.650 lecture 4, 35:35 to 40:18](https://www.youtube.com/watch?v=rLlZpnT02ZU&t=2135s) |
+| 2 | For densities, TV is half the area between the two curves, drawn for two Gaussians | Intuition, open web | [Rigollet, MIT 18.650 lecture 4, 45:54 to 48:37](https://www.youtube.com/watch?v=rLlZpnT02ZU&t=2754s) |
+| 3 | It is a distance: symmetric, never negative, zero only when the two distributions agree, and it obeys the triangle inequality | Proof, open web | [Rigollet, MIT 18.650 lecture 4, 48:41 to 51:37](https://www.youtube.com/watch?v=rLlZpnT02ZU&t=2921s) |
+| 4 | Half the summed gap equals the largest event gap, which is reached on the set where one density is above the other | Proof, open web | [Rigollet, MIT 18.650 lecture 4, 51:49 to 1:00:17](https://www.youtube.com/watch?v=rLlZpnT02ZU&t=3109s) |
+| 5 | Why TV is hard to estimate from samples: it is not an average of anything over the data, which is why maximum likelihood turns to KL instead | Intuition, open web | [Rigollet, MIT 18.650 lecture 4, 1:02:26 to 1:05:03](https://www.youtube.com/watch?v=rLlZpnT02ZU&t=3746s) |
+
+No listed creator covers it. Rigollet never bins two sample sets, so the sampling-noise baseline still has no video, and his only number is the 0.01 bound; Wootters' coin in the earlier total variation table is the worked example. Times are read from automatic captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## The normaliser (partition function)
+
+<!-- video-table: normaliser rev=1 -->
+Stanford CS236, then the Organic Chemistry Tutor, on why a density's total area must be 1, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Why a probability model must be non-negative and integrate to 1 | Intuition | [Stanford CS236, lecture 11, 6:45 to 15:31](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=405s) |
+| 2 | Checking that a function is a density by integrating it and getting 1 | Worked example | [Organic Chemistry Tutor, Probability Density Functions, 0:52 to 3:39](https://www.youtube.com/watch?v=QKA4HNEw3aY&t=52s) |
+
+Neither computes the area two multiplied Gaussians are left with, which is the toy's log Z of −2.2655. Times are chapter boundaries from each video's chapter list, so the sentence inside each is not checked.
+<!-- /video-table -->
+
+## Summed noised scores miss the product
+
+<!-- video-table: summed-noised-scores-miss-the-product rev=1 -->
+Yilun Du, from the open web, on why adding two diffusion models' noised scores does not sample their product:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | A diffusion model learns one energy for each noise level. Adding two models' denoiser outputs and running the usual reverse sampler does not draw from the composed distribution, while treating each level as an energy-based model and sampling it with MCMC does | Intuition, open web | [Yilun Du, thesis defense, 27:10 to 28:43](https://www.youtube.com/watch?v=7jvWDF6ZXPc&t=1630s) |
+
+Du states the mismatch without working it, so the toy's three means (0.9802, 0.6931 and 0.2326) have no video, and no listed creator covers it. Du is the first author of the 2023 paper this step cites. The time is read from Du's captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## Temperature
+
+<!-- video-table: temperature rev=1 -->
+Yilun Du, Vizuara and MarbleScience on temperature, the factor that sharpens or flattens a distribution built from energies, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Scaling an energy's magnitude sets how strongly that factor shapes the composed result | Intuition, open web | [Yilun Du, thesis defense, 21:54 to 22:15](https://www.youtube.com/watch?v=7jvWDF6ZXPc&t=1314s) |
+| 2 | Temperature scaling of the scores before the softmax, recapped | Intuition | [Vizuara, Top-k sampling in Large Language Models, 0:00 to 5:39](https://www.youtube.com/watch?v=EhU32O7DkA4&t=0s) |
+| 3 | Where the word comes from: the Boltzmann distribution behind the softmax, then what changing the temperature does | Intuition, open web | [MarbleScience, What is the Temperature of an AI, 3:45 to 6:09](https://www.youtube.com/watch?v=YjVuJjmgclU&t=225s) |
+
+None multiplies energies by a factor above 1 as the notebook's 3.5 does, which acts as an inverse temperature. Row 1 is read from Du's captions and good to about 30 seconds; rows 2 and 3 are chapter boundaries from each video's chapter list, so the sentence inside each is not checked.
+<!-- /video-table -->
+
+## The soft minimum
+
+<!-- video-table: soft-minimum rev=1 -->
+Yilun Du, from the open web, on the soft minimum of two energies:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Energies read as sets: adding two gives low energy only where both are low, and their soft minimum gives low energy wherever either one is | Intuition, open web | [Yilun Du, thesis defense, 22:42 to 23:21](https://www.youtube.com/watch?v=7jvWDF6ZXPc&t=1362s) |
+
+Du names the soft minimum without its formula or the correction term log(1 + e^(−3.5Δ)), and no listed creator covers it. The time is read from Du's captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## Negation by dividing densities
+
+<!-- video-table: negation-by-dividing-densities rev=1 -->
+Yilun Du, from the open web, on negation, keeping one distribution while dividing out another, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Subtracting one energy from another draws samples from p1(x) divided by p2(x) | Intuition, open web | [Yilun Du, thesis defense, 25:22 to 25:37](https://www.youtube.com/watch?v=7jvWDF6ZXPc&t=1522s) |
+| 2 | Set operations nested on images: a gray cylinder behind a yellow cube and not a gray cylinder below a brown cube | Worked example, open web | [Yilun Du, thesis defense, 24:13 to 24:41](https://www.youtube.com/watch?v=7jvWDF6ZXPc&t=1453s) |
+
+Du puts one weight on each energy, so the powers 1 + w and w, and the condition that keeps the normaliser finite, appear in no video. Times are read from Du's captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## The Markov chain
+
+<!-- video-table: markov-chain rev=1 -->
+ritvikmath on what a chain is and how a sampler runs one, in the order to watch:
+
+| Order | What it covers | Kind | Code it writes | Watch |
+|---|---|---|---|---|
+| 1 | A Markov chain by example: its state space, and the assumption that the next state depends only on the current one | Intuition | | [ritvikmath, Markov Chains, 0:37 to 2:50](https://www.youtube.com/watch?v=prZMpThbU3E&t=37s) |
+| 2 | Drawing samples by running a Markov chain whose long-run distribution is the target | Intuition | | [ritvikmath, Markov Chain Monte Carlo, 4:07 to 8:24](https://www.youtube.com/watch?v=yApmR-c_hKU&t=247s) |
+| 3 | One chain in Python, at its accept or reject step | Code walk | the accept-reject step of one chain | [ritvikmath, Coding MCMC, 2:21 to 5:50](https://www.youtube.com/watch?v=KmqTrm-bn8k&t=141s) |
+
+ritvikmath runs one chain at a time, so many chains side by side, each with its own accept decision, and a joint chain whose acceptance falls to 0 have no video. Times are chapter boundaries from each video's chapter list, so the sentence inside each is not checked.
+<!-- /video-table -->
+
+## Hamiltonian Monte Carlo
+
+<!-- video-table: hamiltonian-monte-carlo rev=1 -->
+Meerkat Statistics, then Ben Lambert, both from the open web, on the Hamiltonian that gives each sample a momentum, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The Hamiltonian physics mapped onto sampling | Intuition, open web | [Meerkat Statistics, Hamiltonian Monte Carlo, 1:26 to 2:22](https://www.youtube.com/watch?v=2zr7cMjltAI&t=86s) |
+| 2 | Sampling a momentum for the sample | Intuition, open web | [Meerkat Statistics, Hamiltonian Monte Carlo, 2:22 to 3:08](https://www.youtube.com/watch?v=2zr7cMjltAI&t=142s) |
+| 3 | The joint distribution over position and momentum | Intuition, open web | [Ben Lambert, The intuition behind Hamiltonian Monte Carlo, 10:17 to 16:58](https://www.youtube.com/watch?v=a-wydhEuAm0&t=617s) |
+
+No listed creator has a Hamiltonian Monte Carlo video, and neither works a step with numbers, as the toy's energy moving from 0.625 to 0.62749 does. Times are chapter boundaries from each video's chapter list, so the sentence inside each is not checked.
+<!-- /video-table -->
+
+## The leapfrog step
+
+<!-- video-table: leapfrog rev=1 -->
+Meerkat Statistics, from the open web, on simulating the motion in discrete steps, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Simulating the system's dynamics, position and momentum moving together | Intuition, open web | [Meerkat Statistics, Hamiltonian Monte Carlo, 3:08 to 6:38](https://www.youtube.com/watch?v=2zr7cMjltAI&t=188s) |
+| 2 | Numerical integration of that motion | Intuition, open web | [Meerkat Statistics, Hamiltonian Monte Carlo, 6:38 to 7:16](https://www.youtube.com/watch?v=2zr7cMjltAI&t=398s) |
+| 3 | The numerical error a finite step leaves, and the accept step that corrects it | Intuition, open web | [Meerkat Statistics, Hamiltonian Monte Carlo, 8:49 to 10:33](https://www.youtube.com/watch?v=2zr7cMjltAI&t=529s) |
+
+The chapter titles do not name the leapfrog scheme, so which integrator Meerkat uses is not checked, and no video reverses a step by flipping the momentum as the toy does. Times are chapter boundaries from the video's chapter list, so the sentence inside each is not checked.
+<!-- /video-table -->
+
+## Adding up over a grid of cells
+
+<!-- video-table: grid-of-cells rev=1 -->
+Professor Leonard on adding up a function over a grid of small rectangles, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | What a double integral measures, and why it is the limit of sums over small rectangles | Intuition | [Calculus 3, 14.1, 10:43 to 30:15](https://www.youtube.com/watch?v=lv_awaaT6gY&t=643s) |
+| 2 | A double integral approximated numerically by a sum over rectangles | Worked example | [Calculus 3, 14.1, 35:35 to 47:03](https://www.youtube.com/watch?v=lv_awaaT6gY&t=2135s) |
+
+Leonard sums a height times a rectangle's area to approximate a volume; he does not divide by the total to make a density, as this section's grid does with 58,081 cells of area 8.403e-05. Times are chapter boundaries from the video's chapter list, so the sentence inside each is not checked.
+<!-- /video-table -->
+
+## Responsibility in a mixture
+
+<!-- video-table: responsibility rev=1 -->
+Luis Serrano, then ritvikmath, on a mixture component's share of one point, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Hard against soft clustering: a point can belong partly to each cluster | Intuition | [Serrano, Gaussian Mixture Models, 1:56 to 3:36](https://www.youtube.com/watch?v=q71Niz856KE&t=116s) |
+| 2 | Colouring each point by its shares in the clusters | Intuition | [Serrano, Gaussian Mixture Models, 3:36 to 6:10](https://www.youtube.com/watch?v=q71Niz856KE&t=216s) |
+| 3 | γ, the probability that one fish came from class k given its measurements, written with Bayes' theorem as π_k times the class-k normal, divided by the same sum over every class | Proof | [ritvikmath, Gaussian Mixture Model, 8:47 to 10:13](https://www.youtube.com/watch?v=EWd1xRkyEog&t=527s) |
+
+Neither uses the shares to weight score arrows, as the mixture score here does, so the toy's (0.3609, −0.4392) against the plain sum's (1.3192, −0.1786) has no video. Rows 1 and 2 are chapter boundaries from Serrano's chapter list, so the sentence inside each is not checked; row 3 is read from ritvikmath's automatic captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## Disjunction as a mixture of energies
+
+<!-- video-table: disjunction-as-a-mixture rev=1 -->
+Yilun Du, from the open web, on composing two energies with the log-sum-exp:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Taking the log-sum-exp of two energies draws samples from p1(x) plus p2(x), a mixture | Intuition, open web | [Yilun Du, thesis defense, 25:11 to 25:22](https://www.youtube.com/watch?v=7jvWDF6ZXPc&t=1511s) |
+
+Du does not show that a mixture of noised experts is the noised mixture, which is why this kind alone has no gap between the two orders, and no listed creator covers it. The time is read from Du's captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## Negation as a set difference of energies
+
+<!-- video-table: negation-as-set-difference rev=1 -->
+Yilun Du, from the open web, on subtracting one energy from another:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Subtracting the second energy from the first leaves low energy on the first set and high energy everywhere else | Intuition, open web | [Yilun Du, thesis defense, 23:21 to 23:36](https://www.youtube.com/watch?v=7jvWDF6ZXPc&t=1401s) |
+
+Du does not show the mass that leaves every mode as the weight grows (0.391 at w = 0.05, 0.863 at w = 0.3), so the reason this step keeps w small has no video. The time is read from Du's captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## The pixel
+
+<!-- video-table: pixel rev=1 -->
+Stanford CME296 on what a pixel holds, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | An image is a grid of pixels, height by width, and each pixel holds three numbers, its amounts of red, green and blue | Intuition | [Stanford CME296, lecture 1, 27:09 to 27:59](https://www.youtube.com/watch?v=tr-CUpw--ck&t=1629s) |
+| 2 | Pixel values run from 0 to 255 but are rescaled to between −1 and 1 and treated as continuous | Intuition | [Stanford CME296, lecture 1, 32:58 to 33:23](https://www.youtube.com/watch?v=tr-CUpw--ck&t=1978s) |
+
+CME296's pixels carry three colour values each; this walk's carry one number, +1 for a cat and −1 for a dog. Times are read from CME296's captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## An image as a vector
+
+<!-- video-table: image-as-a-vector rev=1 -->
+Stanford CME296 on an image as one vector:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Because every pixel holds numbers, the whole image is one vector whose length is the number of pixels times 3, and x_0 and x_t in diffusion are such vectors | Intuition | [Stanford CME296, lecture 1, 28:04 to 28:52](https://www.youtube.com/watch?v=tr-CUpw--ck&t=1684s) |
+
+CME296 does not fix the order in which the grid is read into the vector, the row-by-row order that puts this walk's head in entries 0 to 7. The time is read from CME296's captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## The diagonal Gaussian
+
+<!-- video-table: diagonal-gaussian rev=1 -->
+Stanford CS229, ritvikmath, then Stanford CME296, on a Gaussian over a vector and the diagonal covariance that makes its coordinates independent, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The multivariate Gaussian density, written with a mean vector and a covariance matrix | Intuition | [Stanford CS229, Autumn 2018, lecture 5, 8:11 to 18:57](https://www.youtube.com/watch?v=nt63k3bfXS0&t=491s) |
+| 2 | What a covariance matrix holds: each coordinate's variance on the diagonal, each pair's covariance off it | Intuition | [ritvikmath, The Covariance Matrix, 2:40 to 5:23](https://www.youtube.com/watch?v=152tSYtiQbw&t=160s) |
+| 3 | A Gaussian over vectors whose covariance is simplified to a variance times the identity, a diagonal matrix | Intuition | [Stanford CME296, lecture 1, 29:30 to 30:46](https://www.youtube.com/watch?v=tr-CUpw--ck&t=1770s) |
+
+CME296's simplification gives every coordinate the same variance, where this expert gives each pixel its own (0.01 on the head, 1 on the body), and no video splits the log-density into one term per pixel. Rows 1 and 2 are chapter boundaries from each video's chapter list, so the sentence inside each is not checked; row 3 is read from CME296's captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## Precision, one over the variance
+
+<!-- video-table: precision rev=1 -->
+Machine Learning & Simulation, from the open web, on precision, one over the variance, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The normal written with a precision in place of the variance, and the precision defined | Intuition, open web | [Machine Learning & Simulation, Precision vs Variance, 1:15 to 2:04](https://www.youtube.com/watch?v=2M9VO_52NpQ&t=75s) |
+| 2 | Why use the precision at all | Intuition, open web | [Machine Learning & Simulation, Precision vs Variance, 2:17 to 2:47](https://www.youtube.com/watch?v=2M9VO_52NpQ&t=137s) |
+| 3 | Three Gaussians compared: high variance gives a wide bell, high precision a narrow one, and neither moves the mean | Worked example, open web | [Machine Learning & Simulation, Precision vs Variance, 2:47 to 4:37](https://www.youtube.com/watch?v=2M9VO_52NpQ&t=167s) |
+
+No listed creator has a video on precision, and this one does not multiply two Gaussians, where precisions add and weight the mean, which is what the 100-to-1 pull does here. Times are chapter boundaries from the video's chapter list, so the sentence inside each is not checked.
+<!-- /video-table -->
+
+## Underflow and the log-sum-exp trick
+
+<!-- video-table: underflow-and-log-sum-exp rev=1 -->
+Bert Huang, from the open web, on underflow and the log-sum-exp trick, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The numerical stability problem when very large or very negative numbers are exponentiated | Intuition, open web | [Bert Huang, Log Sum Exp Trick, 6:55 to 9:16](https://www.youtube.com/watch?v=pZbkVup7fYE&t=415s) |
+| 2 | The log-sum-exp trick | Proof, open web | [Bert Huang, Log Sum Exp Trick, 9:16 to 12:06](https://www.youtube.com/watch?v=pZbkVup7fYE&t=556s) |
+| 3 | The trick worked on numbers | Worked example, open web | [Bert Huang, Log Sum Exp Trick, 17:21 to 20:34](https://www.youtube.com/watch?v=pZbkVup7fYE&t=1041s) |
+
+No listed creator covers the trick, and Huang's numbers are not this section's log-weights of −803.2138 against −24.0897. Times are chapter boundaries from the video's chapter list, so the sentence inside each is not checked.
+<!-- /video-table -->
+
+## The expected value as a weighted sum
+
+<!-- video-table: expectation-as-a-weighted-sum rev=1 -->
+StatQuest on the expected value, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Calculating an expected value: each outcome times its probability, added up | Worked example | [StatQuest, Expected Values, Main Ideas, 5:09 to 8:02](https://www.youtube.com/watch?v=KLs_7b7SKi4&t=309s) |
+| 2 | The notation for an expected value | Intuition | [StatQuest, Expected Values, Main Ideas, 8:02 to 10:30](https://www.youtube.com/watch?v=KLs_7b7SKi4&t=482s) |
+
+StatQuest does not work the expected count of a binomial, n times p, which is this step's 800f (8 at f = 0.01, 40 at f = 0.05). Times are chapter boundaries from each video's chapter list, so the sentence inside each is not checked.
+<!-- /video-table -->
+
+## Pretraining
+
+<!-- video-table: pretraining rev=1 -->
+Stanford CME295, then Stanford CS224N, on pretraining, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | What pretraining a large language model is | Intuition | [Stanford CME295, lecture 4, 7:19 to 13:26](https://www.youtube.com/watch?v=VlA_jt_3Qc4&t=439s) |
+| 2 | Why pretrain on broad data first | Intuition | [Stanford CS224N 2023, lecture 9, 14:56 to 19:39](https://www.youtube.com/watch?v=DGfCRXuNA2w&t=896s) |
+
+Both pretrain language models on text; neither pretrains a small energy model on a square, and neither asks whether the pretrained support survives later training. Times are chapter boundaries from each video's chapter list, so the sentence inside each is not checked.
+<!-- /video-table -->
+
+## Fine-tuning a pretrained model
+
+<!-- video-table: fine-tuning rev=1 -->
+Stanford CS224N, then Stanford CME295, on fine-tuning a pretrained model, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Pretraining followed by fine-tuning on a task's own data | Intuition | [Stanford CS224N 2023, lecture 9, 29:58 to 35:53](https://www.youtube.com/watch?v=DGfCRXuNA2w&t=1798s) |
+| 2 | Supervised fine-tuning of a pretrained language model | Intuition | [Stanford CME295, lecture 4, 1:02:31 to 1:09:21](https://www.youtube.com/watch?v=VlA_jt_3Qc4&t=3751s) |
+
+Neither measures how fast fine-tuning erases what pretraining gave, which here takes about 100 steps (interior mass from 0.159 to 0.005). Times are chapter boundaries from each video's chapter list, so the sentence inside each is not checked.
 <!-- /video-table -->
 
 ## Compound interest, the annuity formula and the Rule of 72

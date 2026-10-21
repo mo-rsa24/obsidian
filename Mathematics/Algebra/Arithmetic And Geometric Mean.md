@@ -7,7 +7,7 @@ sources:
 
 # Arithmetic And Geometric Mean
 
-Up: [[Algebra]] · ⬅️ [[Logarithms]]
+Up: [[Algebra]] · ⬅️ [[Logarithms]] · [[The Binomial Theorem]] ➡️
 
 Mathematics, Algebra. Needs: squares and square roots of positive numbers, and the two inequality moves of adding the same number to both sides and dividing both sides by a positive number.
 
