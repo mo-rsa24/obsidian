@@ -7,7 +7,7 @@ sources:
 
 # Products And Quotients Of Diagonal Gaussians
 
-Up: [[Multivariate Normal Distribution]] · ⬅️ [[Sampling A Diagonal Gaussian]] · [[The Area A Product Loses]] ➡️
+Up: [[Multivariate Normal Distribution]] · ⬅️ [[Sums Of Independent Gaussians]] · [[The Area A Product Loses]] ➡️
 
 Mathematics, Statistics, Distributions, Multivariate Normal Distribution. Needs: [[Diagonal Covariance]].
 

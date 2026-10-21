@@ -9,7 +9,7 @@ sources:
 
 Up: [[Logarithms]] · ⬅️ [[The Log Of A Power And Of A Quotient]]
 
-Mathematics, Algebra, Logarithms. Needs: [[The Log Of A Power And Of A Quotient]] (the log of a power is the power times the log) and the exponent rules (textbook, below).
+Mathematics, Algebra, Logarithms. Needs: [[The Log Of A Power And Of A Quotient]] (the log of a power is the power times the log) and [[The Exponent Rules#Power of a power|the exponent rules]] (textbook, below).
 
 > [!warning] Unfinished
 > - The three drawn pictures (form, mechanism, deep-dive sheet) are not drawn, and no output picture is rendered. No picture prompts were written, as asked. `~/.vault-sandbox` is missing on this machine, so there was no plotting library; to make it: `uv venv ~/.vault-sandbox` then `uv pip install --python ~/.vault-sandbox/bin/python pandas numpy scipy matplotlib statsmodels openpyxl`.
@@ -102,6 +102,20 @@ Both logs are negative whenever $\delta$ and $1-\alpha$ are below 1, so the rati
 **Worked on $\alpha = 0.20$, $\delta = 0.10$.** $\ln 0.8 = -0.223144$. The requirement $0.8^n \le 0.1$ becomes $n \ln 0.8 \le \ln 0.1$, that is $-0.223144\,n \le -2.302585$, and dividing by $-0.223144$ flips it to $n \ge 10.319$. The next whole number is 11. At $n = 11$ the bound is $1 - 0.1^{1/11} = 1 - 0.8111 = 0.1889$, so 18.9%, below 20%. At $n = 10$ it is $1 - 0.1^{1/10} = 1 - 0.7943 = 0.2057$, so 20.6%, above 20%.
 
 **Why this matters.** Every row count in the judge-validation work, 11, 22, 32, 45, 230, comes out of this one division. Backing: derived (the steps), cited (handbook p. 125 for the method, p. 42 for the flip), shown (the run below).
+
+<!-- worked-examples-table: logs-and-exponents rev=1 -->
+Problems on the log rules and on solving for an unknown in the exponent, the move behind a moving average's half-life, from the easiest to the hardest:
+
+| Order | What it asks | Kind | Where | Difficulty | Full-steps solution | Quiz question |
+|---|---|---|---|---|---|---|
+| 1 | Rewrite $\log_4 64 = x$ and $\ln e = x$ in exponential form and solve | Worked example | [[algebra-handbook.pdf#page=113\|Algebra handbook, examples 1 and 2, PDF p. 113]] | Easy | In the book, PDF p. 113, every step: $x = 3$ and $x = 1$ | quiz 0, KA1 |
+| 2 | Condense $6 + \ln(3e^5)$ and $\log_4(1/16) - 6^{\log_6 4}$ with the product, power and quotient rules | Worked example | [[algebra-handbook.pdf#page=116\|Algebra handbook, PDF p. 116]] | Easy | In the book, PDF p. 116, every step: $11 + \ln 3$ and $-6$ | quiz 0, KA2 |
+| 3 | Solve $2 + 4 \cdot 3^{x-2} = 110$: isolate the power, take logs, solve | Worked example | [[algebra-handbook.pdf#page=125\|Algebra handbook, PDF p. 125]] | Medium | In the book, PDF p. 125, every step: $x = 5$ | quiz 0, KA3 |
+| 4 | A satellite's power is $P = 75e^{-t/125}$ watts: when does it fall to 7 watts? | Worked example | [[calculus-textbook.pdf#page=82\|Anton, Calculus, section 0.5, Example 3, PDF p. 82 (printed 58)]] | Medium | In the book, PDF p. 82, every step: $t = -125 \ln(7/75) \approx 296.4$ days | quiz 0, KA4 |
+
+The ladder's own solve, the moving average's half-life $\ln 0.5 / \ln 0.999 = 692.8$ steps, is quiz 0's written question A2 and is worked in [[Solving For The Exponent With Logarithms]] and [[The Exponent Rules]]. Not banked: Anton's exercises 0.5 #25, #27 and #49 (PDF pp. 85 to 86), whose answers at PDF p. 1240 are final values only, and Murphy's section 4.4.2.2 (PDF p. 139), which derives the moving average's weights $\beta^k(1 - \beta)$ without a numeric question.
+Read in full (by the bank search for quiz 0): algebra handbook PDF pp. 113, 115, 116, 124 and 125; Anton PDF pp. 81, 82, 85 to 87 and 1240; Murphy PDF pp. 139 to 140. Only found: algebra handbook PDF pp. 109 to 112 and 117 to 123, rule tables and further examples.
+<!-- /worked-examples-table -->
 
 ## The other route: the power one over n
 

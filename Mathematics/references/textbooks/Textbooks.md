@@ -73,6 +73,7 @@ table on this page gives PDF pages.
 | mean, expected value, variance | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=193) | 193 |
 | covariance (Definition 6.5) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=196) | 196 |
 | the Gaussian distribution | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=203) | 203 |
+| the univariate and multivariate Gaussian density formulas (6.62, 6.63) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=204) | 204 |
 | change of variables for densities | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=220) | 220 |
 | what a vector field is (Definition 15.1.1) | [calculus textbook](calculus/calculus-textbook.pdf#page=1109) | 1109 |
 | gradient fields: a field that is the gradient of a function | [calculus textbook](calculus/calculus-textbook.pdf#page=1111) | 1111 |
@@ -83,6 +84,8 @@ table on this page gives PDF pages.
 | conditional expectation: E[X] = E[E[X|Y]] with a worked two-class example | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=293) | 293 |
 | variance (continuous): the definition and the E[X²] − μ² shortcut, with proof | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=200) | 200 |
 | variance: worked example for the uniform distribution | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=201) | 201 |
+| variance (discrete): Var[X] = E[X²] − E[X]², Var[cX] = c²Var[X] and Var[X + c] = Var[X] (Theorem 3.5, with proof) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=151) | 151 |
+| the Bernoulli random variable: two states 1 and 0 with probabilities p and 1 − p (Definition 3.8) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=153) | 153 |
 | covariance: the definition, and Cov(X, Y) = E[XY] − E[X]E[Y] with proof | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=278) | 278 |
 | covariance: why joint expectation is E[XY], through the angle between two vectors (intuition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=274) | 274 |
 | conditional probability: the definition P[A|B] = P[A ∩ B] / P[B], with intuition | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=97) | 97 |
@@ -91,6 +94,7 @@ table on this page gives PDF pages.
 | Bayes' rule: worked examples (winning a match against three player types, a noisy channel) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=107) | 107 |
 | the Gaussian distribution: the density and its two parameters, mean and variance | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=227) | 227 |
 | the Gaussian distribution: plots of how μ and σ move and widen the curve (intuition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=228) | 228 |
+| the standard Gaussian's CDF Φ(x), and Φ(x) = ½(1 + erf(x/√2)) (Definition 4.15) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=230) | 230 |
 | the multivariate Gaussian: the d-dimensional density with Σ⁻¹ (definition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=306) | 306 |
 | the multivariate Gaussian: its mean vector and covariance matrix, the diagonal case | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=307) | 307 |
 | hypothesis testing: null and alternative hypotheses, the courtroom picture (intuition) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=582) | 582 |
@@ -204,6 +208,7 @@ table on this page gives PDF pages.
 | a probability density function, defined with the unity condition that it integrates to 1 (Definition 4.1) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=190) | 190 |
 | the CDF of an arbitrary Gaussian by standardising, F(x) = Φ((x − µ)/σ), with the upper tail 1 − Φ on the next page (Theorem 4.11) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=231) | 231 |
 | substitution in a definite integral: change the limits to u = g(a), u = g(b), with a worked example (section 5.9, Method 2) | [calculus textbook](calculus/calculus-textbook.pdf#page=415) | 415 |
+| iterated integrals: a double integral over a rectangle as two successive single integrals, holding one variable fixed (section 14.1, equations 6 and 7) | [calculus textbook](calculus/calculus-textbook.pdf#page=1027) | 1027 |
 | the Gaussian integral: the normaliser of exp(−x²/2σ²) is √(2πσ²), squared and changed to polar coordinates, with hints (Exercise 2.12) | [probabilistic machine learning: an introduction](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=99) | 99 |
 | the PDF of X + Y is the convolution of the two PDFs, derived from the CDF of the sum (section 5.5.2) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=298) | 298 |
 | the sum of two independent Gaussians is Gaussian with means and variances added, proved by convolution (Theorem 5.12) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=299) | 299 |
@@ -274,6 +279,10 @@ table on this page gives PDF pages.
 | the definite integral | [calculus textbook](calculus/calculus-textbook.pdf#page=377) | 377 |
 | the derivative of tanh, sech² | [calculus textbook](calculus/calculus-textbook.pdf#page=501) | 501 |
 | the Maclaurin series for eˣ | [calculus textbook](calculus/calculus-textbook.pdf#page=684) | 684 |
+| the moment generating function, M(s) = E[e^{sX}], defined (Definition 6.1) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=340) | 340 |
+| the moment generating function of a sum of independent variables is the product (Theorem 6.2) | [probability for data science](statistics/introduction-to-probability-for-data-science.pdf#page=343) | 343 |
+| the same moment generating function means the same distribution (Definition 12, property 2) | [introduction to statistics](statistics/introduction-to-statistics.pdf#page=83) | 83 |
+| sinh and cosh defined from eˣ and e⁻ˣ | [calculus handbook](calculus/calculus-handbook.pdf#page=79) | 79 |
 | the chain rule for several variables | [calculus textbook](calculus/calculus-textbook.pdf#page=973) | 973 |
 | the gradient | [calculus textbook](calculus/calculus-textbook.pdf#page=987) | 987 |
 | Minkowski loss: the conditional median for q = 1 | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=67) | 67 |

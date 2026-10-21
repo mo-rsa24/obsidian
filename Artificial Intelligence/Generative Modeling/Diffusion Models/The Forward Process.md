@@ -1,5 +1,5 @@
 ---
-aliases: [forward process, forward diffusion, noising process, noising a cloud, closed-form forward process, "q(x_t | x_0)", x_t = sqrt(abar) x_0 + sqrt(1 - abar) eps, alpha bar, abar, noise level, noise schedule level]
+aliases: [forward process, forward diffusion, noising process, noising a cloud, closed-form forward process, x_t = sqrt(abar) x_0 + sqrt(1 - abar) eps, alpha bar, abar, noise level, noise schedule level]
 sources:
   - "Ho, Jain, Abbeel, Denoising Diffusion Probabilistic Models, NeurIPS 2020: https://arxiv.org/abs/2006.11239"
   - "Bradley, Nakkiran, Berthelot, Thornton, Susskind, Mechanisms of Projective Composition of Diffusion Models, ICML 2025: https://arxiv.org/abs/2502.04549"
@@ -9,9 +9,9 @@ sources:
 
 # The Forward Process
 
-Up: [[Diffusion Models]] · [[Composition]] ➡️
+Up: [[Diffusion Models]] · [[From Many Steps To One Jump]] ➡️
 
-Artificial Intelligence, Generative Modeling, Diffusion Models. Needs: [[Sampling A Diagonal Gaussian]] for drawing a cloud, and [[Broadcasting]] for noising many levels in one line.
+Artificial Intelligence, Generative Modeling, Diffusion Models. Needs: [[Sampling A Diagonal Gaussian]] for drawing a cloud, [[Sums Of Independent Gaussians]] for why the noise variances add, [[Variance#Scaling a draw scales its variance by the square|the scaling rule for variance]] for why each weight is a square root, and [[Broadcasting]] for noising many levels in one line.
 
 > [!question] Test yourself
 > [The diffusion models quiz](https://claude.ai/artifact/MyTdAaVfZW3wiqhbLKg4wu) covers this note, with the rest of the [[Diffusion Models]] folder. Your attempts are saved on the page.
@@ -147,7 +147,7 @@ one jump:   mean 1.386 var 0.519
 closed form: mean 1.384 var 0.521
 ```
 
-Four steps and one jump land on the same distribution. Why they must is plan 09's derivation, section 3, worked there on paper.
+Four steps and one jump land on the same distribution. Why they must is plan 09's derivation, section 3, worked there on paper, and in [[From Many Steps To One Jump#How two steps become every step]].
 
 **6. Clean up, and prove it.** Keep the folder if you are going on to [[Composing Models With A Background#Try composing yourself]]. Otherwise:
 
@@ -186,7 +186,7 @@ x_t &= \sqrt{\bar\alpha}\,x_0 + \sqrt{1 - \bar\alpha}\,\varepsilon \\
 \end{aligned}
 $$
 
-The variances add<sub>[1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/textbook/09-the-forward-process-by-hand.md#91-independent-gaussian-noises-add-their-variances "PoE derivation foundations, chapter 9.1, independent Gaussian noises add their variances"), [2](../../../Mathematics/references/textbooks/linear-algebra/matrix-cookbook.pdf#page=41 "matrix cookbook p. 41")</sub> because $x_0$ and $\varepsilon$ are independent, and each is multiplied by the square of its weight. Without the square roots, step 3's weights $0.5$ and $0.5$ give $0.25\,v + 0.25$ instead: $0.5$ and $1.25$, as it printed.
+The variances add<sub>[1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/textbook/09-the-forward-process-by-hand.md#91-independent-gaussian-noises-add-their-variances "PoE derivation foundations, chapter 9.1, independent Gaussian noises add their variances"), [2](../../../Mathematics/references/textbooks/linear-algebra/matrix-cookbook.pdf#page=41 "matrix cookbook p. 41")</sub> because $x_0$ and $\varepsilon$ are independent, and each is [multiplied by the square of its weight](../../../Mathematics/references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=151), as [[Scaling And Shifting A Random Variable#Why the rule matters]] reads off for a fixed $x_0$. Without the square roots, step 3's weights $0.5$ and $0.5$ give $0.25\,v + 0.25$ instead: $0.5$ and $1.25$, as it printed.
 
 <!-- video-table: sum-of-independent-gaussians rev=1 -->
 3Blue1Brown on why adding two independent Gaussians gives a Gaussian, in the order to watch:
@@ -217,6 +217,22 @@ The narrow axis has variance 1 at every level, because noise of variance 1 repla
 ![The deep-dive sheet composing the form, the mechanism and the run|800](assets/forward-process-deep-dive-sheet.webp)
 
 *The deep-dive sheet composing the form, the mechanism and the run.*
+
+<!-- worked-examples-table: forward-draw-mean-and-variance rev=1 -->
+Problems on the mean and variance of $a X + b$ and of a sum of independent Gaussians, the rule that makes $\sqrt{\bar\alpha}\,x_0 + \sqrt{1-\bar\alpha}\,\varepsilon$ a Gaussian with mean $\sqrt{\bar\alpha}\,x_0$ and variance $1-\bar\alpha$, from the easiest to the hardest:
+
+| Order | What it asks | Kind | Where | Difficulty | Full-steps solution | Quiz question |
+|---|---|---|---|---|---|---|
+| 1 | $Y = aX + b$ for a standard Gaussian $X$: write its CDF as $\Phi((y-b)/a)$ and its density | Worked example | [[introduction-to-probability-for-data-science.pdf#page=241\|Chan, follow-up to Example 4.26, PDF pp. 241 to 242]] | Easy | In the book, PDF p. 242 | quiz 1.1, B1.1 |
+| 2 | The mean and variance of a sum of two independent variables, then the covariance matrix of a sum of two independent random vectors | Exercise without one | [[pattern-recognition-and-machine-learning.pdf#page=78\|Bishop, Exercise 1.10, PDF p. 78]] and [[pattern-recognition-and-machine-learning.pdf#page=151\|Exercise 2.27, PDF p. 151]] | Easy | [S1 in the quiz 1.1 solutions](/home-mscluster/mmolefe/PhD/reduce-reuse-recycle/artifacts/drips/simple-distributions-rebuild/.quiz-prep/quiz-1-1-solutions.md#s1-the-mean-and-variance-of-a-sum-of-independent-variables-b12-bishop-110-and-227), numbers printed by its check script | quiz 1.1, B1.2 |
+| 3 | Show that $Y = \Sigma^{1/2}X + \mu$ has mean $\mu$ and covariance $\Sigma$ for $X \sim \mathcal N(0, I)$, which is how a Gaussian sample is made | Worked example | [[introduction-to-probability-for-data-science.pdf#page=315\|Chan, Theorem 5.19, PDF p. 315]] | Medium | In the book, PDF p. 315 | quiz 1.1, B1.4 |
+| 4 | $y = Ax + b + w$ with independent Gaussian noise: write $p(y \mid x)$, then derive the mean and covariance of $p(y)$; with $A = \sqrt{\bar\alpha_{50}}\,I$ this is the forward process | Exercise without one | [[mathematics-for-machine-learning.pdf#page=229\|Mathematics for Machine Learning, Exercise 6.12 (a) and (b), PDF p. 229]] | Hard | [S2 in the quiz 1.1 solutions](/home-mscluster/mmolefe/PhD/reduce-reuse-recycle/artifacts/drips/simple-distributions-rebuild/.quiz-prep/quiz-1-1-solutions.md#s2-a-linear-map-plus-independent-noise-b16-mml-612) | quiz 1.1, B1.6 |
+| 5 | Chan states that $X_1 + X_2 \sim \mathcal N(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2)$ but proves only $\sigma_1 = \sigma_2$: prove the general case | Exercise without one | [[introduction-to-probability-for-data-science.pdf#page=299\|Chan, Theorem 5.12, PDF pp. 299 to 300]] | Hard | [S3 in the quiz 1.1 solutions](/home-mscluster/mmolefe/PhD/reduce-reuse-recycle/artifacts/drips/simple-distributions-rebuild/.quiz-prep/quiz-1-1-solutions.md#s3-two-gaussians-with-unequal-variances-b17-chan-theorem-512), by generating functions | quiz 1.1, B1.7 |
+| 6 | Noise one cloud at three levels in one tensor and print the measured mean and variance beside the closed form, first with the square roots left off | Programming exercise, Python: `noised.py` | [[The Forward Process#Try the jump yourself]], steps 3 and 4 | Medium | In the note, with the expected output (variance 0.5 and 1.25 without the roots, 1.0 and 2.5 with them) | quiz 1.1, B1.8 |
+
+The chapter's worked examples 9.1 (0.28 both ways) and 9.2a (the four-step schedule) are banked by quiz 1.2 in [[Worked Examples#The forward process, from one step to one jump]], so they are not repeated here. No book problem asks for the variance of the forward draw at a named step; rows 6 and 7 are the nearest, and the quiz's own numbers ($\bar\alpha_{50} = 0.4783$) are worked into their solutions. Chan's convolution proof of Theorem 5.12 is the reason for row 7: it is a special case printed as the general one.
+Read in full: Chan PDF pp. 241 to 243, 298 to 300 and 309 to 316, Bishop's exercise statements 1.10 and 2.27, Mathematics for Machine Learning PDF pp. 228 to 230, the chapter's sections 9.1 and 9.2, and the vault note's steps 3 and 4. Only found: Mathematics for Machine Learning's variance under an affine map (PDF p. 200), stated without an exercise.
+<!-- /worked-examples-table -->
 
 ## One small step, fifty of them, and one jump
 
@@ -256,6 +272,16 @@ product of (1 - beta_s) for s = 1..T, as equation A2's text prints it: 2.43e-07 
 Level 50 on this schedule leaves $\bar\alpha = 0.4938$, so the "half the signal left" level used in [[The Order Of Multiplying And Noising]] ($\bar\alpha = 0.5$) sits at about level 50. *Inferred* from the 0.4938, not run at exactly 0.5 here; the exact-0.5 closed form is `-0.707107`, `0.750000`.
 
 *Backing for the run:* `checks/forward_chain.py` and `checks/step5_noise_levels.out` in the journey's `sources/reduce-reuse-recycle/`, seed 0, re-run in an empty folder with the prepared environment and the same output.
+
+Why fifty small steps must equal one jump, two steps by hand and then induction on every step, is [[From Many Steps To One Jump]]. It counts steps from 0 as the rebuild's code does, so this section's level 50 is its $\bar\alpha_{49}$.
+
+![The same dog and the same noise draw at t = 0, 25, 50, 75 and 99 of a 100-level cosine schedule, with the kept share under each|900](assets/forward-process-dog-at-five-steps.png)
+
+The same chain on a photo: one dog, one noise draw, five levels of the 100-level cosine schedule. The scene counts levels from 0, so its t = 50 is this note's level 51, which is why it reads 0.4783 against the 0.4938 above. [Dissolving the Dog](https://claude.ai/artifact/X7QGLTxssbz41G7iTiRxC9) is the live version: drag t, or switch off a piece of the jump.
+
+![Three columns: all pieces on, square roots off, complement off, each a dog above its coefficient chart|900](assets/forward-process-what-each-piece-protects.png)
+
+Each piece of the jump protects the total variance. With every piece on, the two scales square to 1.0000. Without the square roots they square to 0.5009 at t = 50. With ᾱ in place of 1 − ᾱ they square to 0.2670 at t = 75.
 
 ## Other ways to noise
 

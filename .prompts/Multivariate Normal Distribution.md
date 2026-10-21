@@ -1,6 +1,6 @@
 # Multivariate Normal Distribution: illustrated map
 
-The drawn pictures for the notes in the vault's [[Multivariate Normal Distribution]] folder, sections [[Diagonal Covariance]], [[Sampling A Diagonal Gaussian]] and [[Products And Quotients Of Diagonal Gaussians]]. `12 prompts · 8 rendered · 4 stuck · 0 rendering · 0 waiting`
+The drawn pictures for the notes in the vault's [[Multivariate Normal Distribution]] folder, sections [[Diagonal Covariance]], [[Sampling A Diagonal Gaussian]], [[Sums Of Independent Gaussians]] and [[Products And Quotients Of Diagonal Gaussians]]. `15 prompts · 8 rendered · 4 stuck · 0 rendering · 3 waiting`
 
 ## Table of contents
 
@@ -27,6 +27,10 @@ The drawn pictures for the notes in the vault's [[Multivariate Normal Distributi
 - [Prompt 10 (Subject): Powers of Gaussians](#prompt-10-subject-powers-of-gaussians)
 - [Subject lane: Products of Gaussian mixtures](#subject-lane-products-of-gaussian-mixtures)
 - [Prompt 11 (Subject): Products of Gaussian mixtures](#prompt-11-subject-products-of-gaussian-mixtures)
+- [Subject lane: Sums of independent Gaussians](#subject-lane-sums-of-independent-gaussians)
+- [Prompt 12 (Subject): Sums, the form](#prompt-12-subject-sums-the-form)
+- [Prompt 13 (Subject): Sums, the mechanism](#prompt-13-subject-sums-the-mechanism)
+- [Prompt 14 (Subject capstone): Sums, the deep-dive sheet](#prompt-14-subject-capstone-sums-the-deep-dive-sheet)
 - [Process lane](#process-lane)
 
 ## Abstraction chain
@@ -520,7 +524,7 @@ One picture for [[Products And Quotients Of Diagonal Gaussians#Products of Gauss
 
 ### Prompt 11 (Subject): Products of Gaussian mixtures
 
-Navigation: ⬅️ [Subject lane: Products of Gaussian mixtures](#subject-lane-products-of-gaussian-mixtures) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
+Navigation: ⬅️ [Subject lane: Products of Gaussian mixtures](#subject-lane-products-of-gaussian-mixtures) | 📋 [TOC](#table-of-contents) | [Subject lane: Sums of independent Gaussians](#subject-lane-sums-of-independent-gaussians) ➡️
 
 [planned] 🖼️ rendered 2026-10-17 products-of-gaussian-mixtures.webp
 Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/products-of-gaussian-mixtures.webp`
@@ -554,8 +558,122 @@ Exclusions: no bells or curves, no animals drawn, no fifth cell, no red. no dupl
 
 Faithfulness note: The two diagonal cells pairing the same half (cat left with dog left, cat right with dog right) are faded with all-grey tiles at weight 0.00 and log w -803.2; the two off-diagonal cells are green-bordered with a blue half and an orange half, in opposite halves, at weight 0.50 and log w -24.1. Each header tile is coloured only on its own half. The numbers are setting (c)'s fields in `numbers.json`, rounded to one decimal. Every label in the image, exactly: "cat mixture", "dog mixture", "cat left, 0.5", "cat right, 0.5", "dog left, 0.5", "dog right, 0.5", "log w = -803.2", "log w = -24.1", "weight 0.00", "weight 0.50", "both in one half: they clash", "side by side: they agree", "w_ij is proportional to pi_i rho_j N(mu_i; nu_j, S_i + L_j)".
 
+## Subject lane: Sums of independent Gaussians
+
+Navigation: ⬅️ [Prompt 11 (Subject): Products of Gaussian mixtures](#prompt-11-subject-products-of-gaussian-mixtures) | 📋 [TOC](#table-of-contents) | [Prompt 12 (Subject): Sums, the form](#prompt-12-subject-sums-the-form) ➡️
+
+The form, the mechanism and the deep-dive sheet for [[Sums Of Independent Gaussians]]. Colours in this lane: blue the first noise term $a\,e_1$, orange the second $b\,e_2$, green the one combined draw, purple a cross term that survives, grey the route that is wrong for fresh draws. Every number is the note's worked example: $\alpha_1 = 0.9$, $\alpha_2 = 0.8$, so $a = \sqrt{0.08} = 0.282843$ and $b = \sqrt{0.2} = 0.447214$. The sheet's third pane carries these derived numbers because the note's sandbox has not run yet; when it runs, the pane is improved to show the captured output.
+
+### Prompt 12 (Subject): Sums, the form
+
+Navigation: ⬅️ [Subject lane: Sums of independent Gaussians](#subject-lane-sums-of-independent-gaussians) | 📋 [TOC](#table-of-contents) | [Prompt 13 (Subject): Sums, the mechanism](#prompt-13-subject-sums-the-mechanism) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/sums-the-form.webp`
+
+Visual thesis: Two fresh noises combine by squaring each weight and adding, so weights 0.282843 and 0.447214 give one draw of variance 0.28 and standard deviation 0.529, while adding the weights first gives 0.730056, the spread only a reused draw has.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for every bell and bar and all typography, from these exact numbers: the blue bell is a Gaussian with mean 0 and standard deviation 0.282843, the orange bell mean 0 and standard deviation 0.447214, the green bell mean 0 and standard deviation 0.529150; variance bars 0.08, 0.2 and 0.28 tall on one shared scale; the grey length 0.730056 on the same scale as the two weight lengths 0.282843 and 0.447214. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no legend.
+
+Scene: On the left, two small bells one above the other: a blue bell labelled "a e_1, a = 0.282843" and a wider orange bell labelled "b e_2, b = 0.447214". From them two routes run to the right. The upper route, titled "fresh draws: variances add", squares each weight into a vertical bar: a blue bar labelled "a² = 0.08" and an orange bar labelled "b² = 0.2", stacked one on the other into a single bar labelled "a² + b² = 0.28", which ends in a green bell, wider than the orange one, labelled "one draw: √0.28 ε, std 0.529". The lower route, in grey, titled "same draw: standard deviations add", lays the two weights end to end as horizontal lengths, blue 0.282843 then orange 0.447214, into one grey length labelled "a + b = 0.730056", with the note "std only if e_2 = e_1".
+
+Cast: two input bells, the upper route's three bars and its green bell, the lower route's two lengths and their grey total.
+
+Flows: one arrow from the bells into each route, one arrow from the stacked bar to the green bell.
+
+Text in the image, spelled exactly: "fresh draws: variances add", "same draw: standard deviations add", "a e_1, a = 0.282843", "b e_2, b = 0.447214", "a² = 0.08", "b² = 0.2", "a² + b² = 0.28", "one draw: √0.28 ε, std 0.529", "a + b = 0.730056", "std only if e_2 = e_1".
+
+Exclusions: no third route, no numbers other than those listed, no x axis ticks. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: The three variance bars are to one scale, 0.08 : 0.2 : 0.28, with the stacked bar exactly the two smaller ones on top of each other; the green bell is wider than the orange bell and narrower than the grey length; the grey length equals the blue and orange lengths laid end to end; the upper route is coloured, the lower route grey. Every label in the image, exactly: "fresh draws: variances add", "same draw: standard deviations add", "a e_1, a = 0.282843", "b e_2, b = 0.447214", "a² = 0.08", "b² = 0.2", "a² + b² = 0.28", "one draw: √0.28 ε, std 0.529", "a + b = 0.730056", "std only if e_2 = e_1".
+
+### Prompt 13 (Subject): Sums, the mechanism
+
+Navigation: ⬅️ [Prompt 12 (Subject): Sums, the form](#prompt-12-subject-sums-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 14 (Subject capstone): Sums, the deep-dive sheet](#prompt-14-subject-capstone-sums-the-deep-dive-sheet) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/sums-the-mechanism.webp`
+
+Visual thesis: Squaring the sum lays out four cells, and the two cross cells average to zero when the second noise is drawn fresh, leaving 0.08 + 0.2 = 0.28, but each stays at ab = 0.126491 when the draw is reused, giving 0.532982.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for both grids and all typography. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no legend.
+
+Scene: Two 2 by 2 grids side by side, the same size. Each grid has row headers "a e_1" and "b e_2" on its left and the same two as column headers on top. Left grid, titled "fresh e_2": the top-left cell blue, "a² E[e_1²] = 0.08"; the bottom-right cell orange, "b² E[e_2²] = 0.2"; the two off-diagonal cells faded light grey, each "ab E[e_1 e_2] = 0", with one caption across them, "cross cells average to zero". Under the grid, a green total: "sum of cells: 0.28". Right grid, titled "reused, e_2 = e_1": the same blue and orange diagonal cells with the same labels; the two off-diagonal cells purple, each "ab = 0.126491", with the caption "cross cells stay". Under it a grey total: "sum of cells: 0.532982".
+
+Cast: two grids of four cells each, two totals.
+
+Flows: none.
+
+Text in the image, spelled exactly: "fresh e_2", "reused, e_2 = e_1", "a e_1", "b e_2", "a² E[e_1²] = 0.08", "b² E[e_2²] = 0.2", "ab E[e_1 e_2] = 0", "ab = 0.126491", "sum of cells: 0.28", "sum of cells: 0.532982", "cross cells average to zero", "cross cells stay".
+
+Exclusions: no bells or curves, no numbers other than those listed, no third grid. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: In the left grid the two off-diagonal cells are faded grey and read 0; in the right grid they are purple and read 0.126491; the diagonal cells are identical in both grids; the left total is green and the right total grey. Every label in the image, exactly: "fresh e_2", "reused, e_2 = e_1", "a e_1", "b e_2", "a² E[e_1²] = 0.08", "b² E[e_2²] = 0.2", "ab E[e_1 e_2] = 0", "ab = 0.126491", "sum of cells: 0.28", "sum of cells: 0.532982", "cross cells average to zero", "cross cells stay".
+
+### Prompt 14 (Subject capstone): Sums, the deep-dive sheet
+
+Navigation: ⬅️ [Prompt 13 (Subject): Sums, the mechanism](#prompt-13-subject-sums-the-mechanism) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
+
+[planned] ⏳ not rendered
+Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/sums-deep-dive-sheet.webp`
+
+Visual thesis: One sheet carries the rule from its form to the two forward steps it licenses: square each weight and add, because independence zeroes the cross cells, and on the toy both routes give 0.28 while a reused draw gives 0.532982.
+
+```
+Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
+and never a wireframe. Every component gets an icon, an emoji or a small illustration of what it
+actually is; a real product carries its official logo only where the component is that product;
+a physical thing (a RAM stick, a building, a server rack, a phone) is drawn as the real object,
+not a labelled box. Cards and panels are rounded, with a thin coloured border, a soft drop shadow
+and a lightly tinted background that tells groups apart; grey is kept for secondary text,
+dividers and things that are off or inactive. Light background, generous spacing, a clear type
+hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. Beyond that, let
+the composition and visual treatment that best communicate this subject emerge from the context
+below, rather than from an imposed convention.
+
+Production: Use a deterministic figure script for every bar, grid and all typography, with the numbers of prompts 12 and 13. Compose for reading at 1200 px wide, four panes in a 2 by 2 layout; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no legend.
+
+Scene: Pane 1, titled "The form": the upper route of prompt 12 only, the bars "a² = 0.08" and "b² = 0.2" stacked into "a² + b² = 0.28" under the heading "fresh draws: variances add", with a small grey strip beside it reading "a + b = 0.730056". Pane 2, titled "The mechanism": the two grids of prompt 13 drawn small, titled "fresh e_2" and "reused, e_2 = e_1", with only their totals labelled, "sum of cells: 0.28" in green and "sum of cells: 0.532982" in grey. Pane 3, titled "The two-step toy": a rounded card of five lines in a monospaced font, "α_1 = 0.9, α_2 = 0.8", "a² = 0.8 × 0.1 = 0.08", "b² = 1 - 0.8 = 0.2", "long way: 0.08 + 0.2 = 0.28", "one jump: 1 - 0.72 = 0.28", and below it, in grey, "reused draw: 0.28 + 0.252982 = 0.532982". Pane 4, titled "Reading it": four small cards, one line each: "square each weight, then add", "independence zeroes the two cross cells", "both routes give 0.28 for any alphas", "a reused draw nearly doubles the variance".
+
+Cast: four panes; pane 1 three bars and one strip, pane 2 two small grids, pane 3 one card, pane 4 four cards.
+
+Flows: none.
+
+Text in the image, spelled exactly: "The form", "The mechanism", "The two-step toy", "Reading it", "fresh draws: variances add", "a² = 0.08", "b² = 0.2", "a² + b² = 0.28", "a + b = 0.730056", "fresh e_2", "reused, e_2 = e_1", "sum of cells: 0.28", "sum of cells: 0.532982", "α_1 = 0.9, α_2 = 0.8", "a² = 0.8 × 0.1 = 0.08", "b² = 1 - 0.8 = 0.2", "long way: 0.08 + 0.2 = 0.28", "one jump: 1 - 0.72 = 0.28", "reused draw: 0.28 + 0.252982 = 0.532982", "square each weight, then add", "independence zeroes the two cross cells", "both routes give 0.28 for any alphas", "a reused draw nearly doubles the variance".
+
+Exclusions: no fifth pane, no numbered markers, no terminal window, no numbers other than those listed. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+```
+
+Faithfulness note: Four panes only; pane 1's bars are to the scale 0.08 : 0.2 : 0.28; pane 2's left total is green and its right total grey; pane 3's lines are the note's worked numbers in order and are drawn as a card, not a terminal; no numbered markers, since the note has no captured output yet. Every label in the image, exactly: "The form", "The mechanism", "The two-step toy", "Reading it", "fresh draws: variances add", "a² = 0.08", "b² = 0.2", "a² + b² = 0.28", "a + b = 0.730056", "fresh e_2", "reused, e_2 = e_1", "sum of cells: 0.28", "sum of cells: 0.532982", "α_1 = 0.9, α_2 = 0.8", "a² = 0.8 × 0.1 = 0.08", "b² = 1 - 0.8 = 0.2", "long way: 0.08 + 0.2 = 0.28", "one jump: 1 - 0.72 = 0.28", "reused draw: 0.28 + 0.252982 = 0.532982", "square each weight, then add", "independence zeroes the two cross cells", "both routes give 0.28 for any alphas", "a reused draw nearly doubles the variance".
+
 ## Process lane
 
-Navigation: ⬅️ [Prompt 11 (Subject): Products of Gaussian mixtures](#prompt-11-subject-products-of-gaussian-mixtures) | 📋 [TOC](#table-of-contents)
+Navigation: ⬅️ [Prompt 14 (Subject capstone): Sums, the deep-dive sheet](#prompt-14-subject-capstone-sums-the-deep-dive-sheet) | 📋 [TOC](#table-of-contents)
 
 None. A vault note's section has no plan tree to draw over it.

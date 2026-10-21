@@ -59,6 +59,9 @@ Both sections use the learner's `toy.py` and `samples.py`. Save them from [[Samp
 Read them in this order.
 
 - [[The Forward Process]]: noising a clean point to any noise level in one step, and why that matches fifty small steps.
+- [[From Many Steps To One Jump]]: why the small steps collapse into the one jump, two steps by hand and then induction, with $\bar\alpha_t$ as the product of the $1 - \beta$ factors.
+- [[The Density Of The One Jump]]: the noise as one draw, the density $q(x_t \mid x_0)$ of the noised point for a fixed clean point, and why its exponent at the drawn point is $-|\varepsilon|^2/2$ at every step.
+- [[The Cosine Noise Schedule]]: where every $\bar\alpha_t$ comes from, the 101 boundary values $C_k$ of a 100-step timetable, each the squared cosine of an angle on a quarter turn, computed by hand.
 - [[Composition]]: combining trained models by multiplying what each believes, in notes from the rule to what each expert learns and what annealing moves.
 
 The samplers composition borrows are taught under Mathematics, in [[Markov Chain Monte Carlo]].

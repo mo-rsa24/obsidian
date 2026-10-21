@@ -9,13 +9,15 @@ sources:
 
 # Gaussian Integral
 
+Up: [[Integration]] · [[The Front Factor Of A Gaussian Density]] ➡️
+
 Mathematics, Calculus, Integration. Needs: what $e^{x}$ is, from the calculus textbook's [exponential functions](../../references/textbooks/calculus/calculus-textbook.pdf#page=76), and the idea of an integral as an area.
 
 > [!question] Test yourself
 > [The Gaussian integral quiz](https://claude.ai/artifact/X9aXtHxYmNEtTQ6dsCskpr) covers [[#The area under the bell]] in 16 questions. Your attempts are saved on the page.
 
 > [!warning] Unfinished
-> - The value $\sqrt{\pi}$ is shown numerically here and not yet derived. The derivation (square the integral into a volume, measure the plane in rings, do the ring integral) and the step from $\sqrt{\pi}$ to the normaliser $\sqrt{2\pi/A}$ wait for the walk to reach them.
+> - The value $\sqrt{\pi}$ is shown numerically here and not yet derived. The derivation (square the integral into a volume, measure the plane in rings, do the ring integral) waits for the walk to reach it.
 >
 > Stated, not checked: 0 claims.
 
@@ -49,6 +51,7 @@ uv pip install --python ~/.vault-sandbox/bin/python pandas numpy scipy matplotli
 ## Table of contents
 
 - [[#The area under the bell]]
+- [[#From the area to a density's front factor]]
 
 ## The area under the bell
 
@@ -214,7 +217,7 @@ You should see:
 
 ![The two experts' areas match the closed form for A = 2 and A = 1.25|640](assets/the-area-under-the-bell-the-journeys-normalisers.png)
 
-$Z_a = 1.772454$, the same as $I$: sliding the bell leaves its area alone. $Z_b = 2.241996$, larger, because the stretched bell is wider. Plan 05's equation 5.4 writes both through one formula, $\sqrt{2\pi/A}$, where $A$ is one over the variance: $A = 2$ for expert a and $A = 1.25$ for expert b. The rectangle sums agree with it to six decimals. The formula itself is derived in a later section.
+$Z_a = 1.772454$, the same as $I$: sliding the bell leaves its area alone. $Z_b = 2.241996$, larger, because the stretched bell is wider. Plan 05's equation 5.4 writes both through one formula, $\sqrt{2\pi/A}$, where $A$ is one over the variance: $A = 2$ for expert a and $A = 1.25$ for expert b. The rectangle sums agree with it to six decimals. The formula itself is derived in [[The Front Factor Of A Gaussian Density#How it works|the front factor note]].
 
 **6. Clean up, and prove it.**
 
@@ -315,7 +318,7 @@ Z_a &= \int_{-\infty}^{\infty} e^{-(x+1)^2}\,dx \\[4pt]
 \end{aligned}
 $$
 
-*Derived.* Stretching does change the area, which is why $Z_b$ is larger; the stretch factor is derived with the step from $\sqrt{\pi}$ to $\sqrt{2\pi/A}$.
+*Derived.* Stretching does change the area, which is why $Z_b$ is larger; the stretch factor is derived in [[The Front Factor Of A Gaussian Density#How it works|the front factor note]].
 
 ![Thirteen rectangles of width 0.5 under the bell giving 0.5 × 3.5449 = 1.7724, beside the bell slid left by 1 with the same area 1.772454|800](assets/the-area-under-the-bell-the-mechanism.webp)
 
@@ -341,6 +344,12 @@ Every normalising constant of a Gaussian is this area slid and stretched. The di
 **Applied in:** nothing yet.
 
 **Before this note:** the learner's LibreOffice note `Mathematics/Calculus/Calculus.odt` states the area problem ("given a function f, find the area between the graph of f and an interval [a, b] on the x-axis") and describes integration, chapter 5 of the same textbook, as "the process of finding the antiderivative". This section is where that route stops working.
+
+## From the area to a density's front factor
+
+Navigation: 📋 [[#Table of contents|TOC]] · ⬅️ [[#The area under the bell]]
+
+**A Gaussian density's front factor is one over its bare bell's area, and the substitution $u = (x-\mu)/\sigma$ turns this note's integral into that area, $\sigma\sqrt{2\pi}$.** The derivation, the worked numbers at $\sigma = 0.5$ and $\sigma = 2$, the two-dimensional factor $1/(2\pi\sigma^2)$ and the slip of writing $\sigma^2$ for $\sigma$ are in [[The Front Factor Of A Gaussian Density#The front factor from the bell's area]].
 
 > [!note]- How this was checked
 > Every output in [[#The area under the bell]] was run by the writer in an empty folder, `~/playground/sandbox/gaussian-integral`, on the PC: Ubuntu under WSL2, through the prepared environment `~/.vault-sandbox/bin/python` (Python 3.11.13, NumPy 2.4.6, SciPy 1.17.1, Matplotlib 3.11.2), on 2026-10-16. The folder was removed afterwards and the clean-up check returned 2. The worked numbers in the derivations were computed in the same environment.
