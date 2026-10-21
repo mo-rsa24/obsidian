@@ -9,7 +9,7 @@ sources:
 
 # Scaling And Shifting A Random Variable
 
-Up: [[Statistics]] · ⬅️ [[Variance]] · [[The Average Of A Product Of Independent Variables]] ➡️
+Up: [[Statistics]] · ⬅️ [[Running The Scaling Rule For Variance]] · [[The Average Of A Product Of Independent Variables]] ➡️
 
 Mathematics, Statistics. Needs: the mean of a random variable, its [expectation](../references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=141), read as a weighted average, and [[Variance#What variance measures|variance]], the average squared distance from the mean.
 
@@ -266,7 +266,7 @@ Navigation: ⬅️ [[#Where the rule goes wrong]] | 📋 [[#Table of contents|TO
 - **List every value** and average directly, as step 7 of the sandbox does. Always right, and only possible when the values can be listed.
 - **The moment form**, $\operatorname{Var}(Y) = \mathbb{E}[Y^2] - \mathbb{E}[Y]^2$ (Theorem 3.5 (i), [PDF p. 151](../references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=151)). On the die: $\mathbb{E}[Y^2] = (9 + 25 + 49 + 81 + 121 + 169)/6 = 454/6 = 227/3$, and $227/3 - 8^2 = 227/3 - 192/3 = 35/3$. *Derived* here.
 - **Two random quantities at once**, $aX + bY$: the means combine the same way, and the variances add as $a^2 \operatorname{Var}(X) + b^2 \operatorname{Var}(Y)$ when $X$ and $Y$ are independent. That rule has its own note, [[Sums Of Independent Gaussians#How the rule works]].
-- **A matrix in place of $a$**, $AX + b$ for a vector $X$: the covariance becomes $A \Sigma A^\top$ and $b$ still drops out, as [[Variance#Other ways to change a spread]] states with its source.
+- **A matrix in place of $a$**, $AX + b$ for a vector $X$: the covariance becomes $A \Sigma A^\top$ and $b$ still drops out, as [[The Scaling Rule For Variance#Other ways to change a spread]] states with its source.
 
 ## Why the rule matters
 

@@ -1,6 +1,6 @@
 # Variance: illustrated map
 
-The drawn pictures for the vault note [[Variance]], section [[Variance#Scaling a draw scales its variance by the square]]: its form, its mechanism, and the deep-dive sheet that composes them with step 6's run. `3 prompts · 1 rendered · 2 stuck · 0 rendering · 0 waiting`
+The drawn pictures for the vault note [[The Scaling Rule For Variance]], section [[The Scaling Rule For Variance#Scaling a draw scales its variance by the square]]: its form, its mechanism, and the deep-dive sheet that composes them with step 6's run. `3 prompts · 1 rendered · 2 replaced by code-drawn SVGs · 0 stuck · 0 rendering · 0 waiting`
 
 ## Table of contents
 
@@ -21,7 +21,7 @@ The drawn pictures for the vault note [[Variance]], section [[Variance#Scaling a
 
 Navigation: ⬅️ [Table of contents](#table-of-contents) | 📋 [TOC](#table-of-contents) | [Art direction](#art-direction) ➡️
 
-1. [[Variance]]: the scaling rule's form, mechanism and deep-dive sheet. A vault note has no scope above it, so the chain is one link.
+1. [[The Scaling Rule For Variance]]: the scaling rule's form, mechanism and deep-dive sheet. A vault note has no scope above it, so the chain is one link.
 
 ## Art direction
 
@@ -69,7 +69,7 @@ The three pictures for the scaling rule. Every number drawn comes from the note'
 
 Navigation: ⬅️ [Subject lane](#subject-lane) | 📋 [TOC](#table-of-contents) | [Prompt 2 (Subject): The scaling rule, the mechanism](#prompt-2-subject-the-scaling-rule-the-mechanism) ➡️
 
-[built] ⚠️ stuck: pixel check after 3 revisions, orange bell 0.801 of the blue bell's half-height width (needs 0.7223), blue sd bracket ends at 1.16 and orange at 0.62 (need 1 and 0.7223); last attempt ~/.cache/codex-drop/obsidian/variance-the-form.png
+[built] 🔁 replaced 2026-10-21 by the code-drawn `../Mathematics/Statistics/assets/scaling-rule-the-unit-bell-stretched-by-c.svg`, because this faithfulness note needs exact widths and bracket ends (per VAULT_NOTE_FORMAT.md, Pictures); the drain had stopped at: pixel check after 3 revisions, orange bell 0.801 of the blue bell's half-height width (needs 0.7223), blue sd bracket ends at 1.16 and orange at 0.62 (need 1 and 0.7223); last attempt ~/.cache/codex-drop/obsidian/variance-the-form.png
 Save as: `../Mathematics/Statistics/assets/variance-the-form.webp`
 
 Visual thesis: Multiplying a draw by c multiplies its standard deviation by |c| and its variance by c squared, so a wanted variance v needs c = sqrt(v).
@@ -99,7 +99,7 @@ Text in the image, spelled exactly: "Scaling a draw by c", "eps ~ N(0, 1)", "sd 
 Exclusions: no bracket labelled with a variance, no orange bell wider than the blue one, no third bell, no numbers other than those listed. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
 ```
 
-Faithfulness note: The orange bell's width at half its height is 0.7223 times the blue bell's (blue about 2.355 axis units, orange about 1.701), and its peak is 1.384 times as tall; both peak over 0 on one shared axis from -3 to 3. The blue bracket spans 0 to 1 and the orange bracket 0 to 0.7223 on that axis; brackets are labelled standard deviations, never variances. Blue is the draw before scaling, orange after. Numbers checked against the note: $0.7223^2 = 0.5217$ ([[Variance#How the scaling rule works]]). Every label in the image, exactly: the 19 strings in the Text list above.
+Faithfulness note: The orange bell's width at half its height is 0.7223 times the blue bell's (blue about 2.355 axis units, orange about 1.701), and its peak is 1.384 times as tall; both peak over 0 on one shared axis from -3 to 3. The blue bracket spans 0 to 1 and the orange bracket 0 to 0.7223 on that axis; brackets are labelled standard deviations, never variances. Blue is the draw before scaling, orange after. Numbers checked against the note: $0.7223^2 = 0.5217$ ([[The Scaling Rule For Variance#How the scaling rule works]]). Every label in the image, exactly: the 19 strings in the Text list above.
 
 ### Prompt 2 (Subject): The scaling rule, the mechanism
 
@@ -144,7 +144,7 @@ Faithfulness note: Both rows share one scale. Top squares have side 1 axis unit,
 
 Navigation: ⬅️ [Prompt 2 (Subject): The scaling rule, the mechanism](#prompt-2-subject-the-scaling-rule-the-mechanism) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
 
-[built] ⚠️ stuck: pane 1 pixel check after 3 revisions, both sd brackets end near 0.9 on the shared axis (need 1 and 0.7223) and the bells' half-height widths miss 2.355 and 1.701; panes 2 to 5 pass; last attempt ~/.cache/codex-drop/obsidian/variance-deep-dive-sheet.png
+[built] 🔁 replaced 2026-10-21 by the code-drawn `../Mathematics/Statistics/assets/scaling-rule-the-unit-bell-stretched-by-c.svg` (pane 1), `scaling-rule-one-miss-scaled-by-c.svg` (pane 2) and `scaling-rule-200000-scaled-draws.svg` beside the rendered `variance-a-scaled-standard-normal-draw.png` (panes 3 and 4), because this faithfulness note needs exact ratios (orange bell 0.7223 of the blue, square side 0.7223); pane 5's formula is in the note's text. The drain had stopped at: pane 1 pixel check after 3 revisions, both sd brackets end near 0.9 on the shared axis (need 1 and 0.7223) and the bells' half-height widths miss 2.355 and 1.701; panes 2 to 5 pass; last attempt ~/.cache/codex-drop/obsidian/variance-deep-dive-sheet.png
 Save as: `../Mathematics/Statistics/assets/variance-deep-dive-sheet.webp`
 
 Visual thesis: One sheet holds the rule's form, why it works on one miss, the run that confirms it on 200,000 draws, and where the forward process uses it.

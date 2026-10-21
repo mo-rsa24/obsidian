@@ -8,7 +8,7 @@ sources:
 
 # The Cosine Noise Schedule
 
-Up: [[Diffusion Models]] · ⬅️ [[The Density Of The One Jump]] · [[Composition]] ➡️
+Up: [[Diffusion Models]] · ⬅️ [[The Density Of The One Jump]] · [[The Quarter Circle Under The Cosine Schedule]] ➡️
 
 Artificial Intelligence, Generative Modeling, Diffusion Models. Needs: [[The Forward Process]] for $\bar\alpha_t$ as the share of the clean signal's variance kept at step $t$, and [[From Many Steps To One Jump]] for why the noise share is $1 - \bar\alpha_t$.
 
@@ -43,24 +43,91 @@ Any terminal with Python 3. The scripts use the standard library only (`math`), 
 
 Navigation: 📋 [[#Table of contents|TOC]] | [[#Try the boundary values yourself]] ➡️
 
-**A boundary value $C_k$, also the cosine boundary value or the paper's $\bar\alpha_t = f(t)/f(0)$, is the share of the clean signal's variance kept at fence post $k$ of the noise timetable, computed as $C_k = \cos^2\theta_k / \cos^2\theta_0$ with the angle $\theta_k = \frac{k/T + \delta}{1 + \delta} \cdot 90^\circ$.** With $T = 100$ steps and the offset $\delta = 0.008$ (the paper's $s$, the code's `s`), $k$ runs from 0 to 100, so there are 101 values for 100 steps.
+Textbook: [Whitney, Trigonometry handbook, the unit circle, PDF p. 10](../../../Mathematics/references/textbooks/trigonometry/trigonometry-handbook.pdf#page=10)
 
-**When to reach for it.** Whenever a diffusion model's noise levels have to be written down, or a number like $\bar\alpha_{50} = 0.4783$ has to be traced to where it came from. Without the timetable, the forward jump in [[The Forward Process]] has no $\bar\alpha_t$ to use.
+**A boundary value $C_k$**, also the cosine boundary value or the paper's $\bar\alpha_t = f(t)/f(0)$, is the share of the clean signal's variance kept at post $k$ of the noise timetable.
 
-**The form.**
+### The posts and their table
+
+<table>
+<tr><th>post k</th><th style="color:#1565c0">angle θ<sub>k</sub></th><th style="color:#2e7d32">C<sub>k</sub></th><th>kept share after step</th><th style="color:#ef6c00">noise β of the step ending at post k</th></tr>
+<tr><td>0</td><td>0.714°</td><td style="border:2px solid #212121">1</td><td>before step 0</td><td></td></tr>
+<tr><td>1</td><td>1.607°</td><td style="border:2px solid #212121">0.99937</td><td>ᾱ<sub>0</sub></td><td style="border:2px solid #212121">0.00063</td></tr>
+<tr><td>26</td><td>23.929°</td><td>0.83562</td><td>ᾱ<sub>25</sub></td><td>0.01345</td></tr>
+<tr style="background:#fff8e1"><td><b>51</b></td><td>46.25°</td><td style="border:2px solid #212121"><b>0.47826</b></td><td>ᾱ<sub>50</sub></td><td style="border:2px solid #212121">0.03155</td></tr>
+<tr><td>76</td><td>68.571°</td><td>0.13349</td><td>ᾱ<sub>75</sub></td><td>0.0747</td></tr>
+<tr><td>99</td><td>89.107°</td><td>0.00024</td><td>ᾱ<sub>98</sub></td><td>0.74994</td></tr>
+<tr><td>100</td><td>90°</td><td style="border:2px solid #212121">0</td><td>ᾱ<sub>99</sub>, clipped</td><td style="border:2px dashed #212121">0.999</td></tr>
+</table>
+
+**How to read this table.** Each row is one post of the 100-step timetable. $C_k$ is the share of the clean signal's variance still kept there; it is the kept share $\bar\alpha$ after the step that ends at that post. The last column is that step's noise, $\beta_{k-1} = 1 - C_k / C_{k-1}$.
+
+**What to look for.** The boxed column falls from 1 to 0. The highlighted row is the toy, $\bar\alpha_{50} = 0.4783$. The dashed cell is the clip: the raw last step would remove everything.
+
+### The base word: schedule
+
+A schedule is a timetable. $T = 100$ steps have 101 posts between and around them, the way 100 gaps need 101 fence posts, and the timetable lists one value per post:
 
 $$
-C_k = \frac{\cos^2\!\Big(\dfrac{k/T + \delta}{1 + \delta}\cdot\dfrac{\pi}{2}\Big)}{\cos^2\!\Big(\dfrac{\delta}{1 + \delta}\cdot\dfrac{\pi}{2}\Big)}, \qquad k = 0, 1, \dots, T
+\underbrace{C_0,\ C_1,\ \dots,\ C_{100}}_{101\text{ posts}},
+\qquad
+\underbrace{\text{step }t}_{t\,=\,0,\dots,99}\ \text{runs from post }t\text{ to post }t+1
 $$
 
-```text
-k / T                 the boundary's position from 0 to 1
-+ delta               shift it a little, so even k = 0 sits past 0
-/ (1 + delta)         keep the last boundary at exactly 1
-x 90 deg (pi/2 rad)   map the position onto a quarter turn: this is theta_k
-cos^2(theta_k)        a number from 0 to 1, read as a share
-/ cos^2(theta_0)      rescale so that C_0 = 1
-```
+**What the equation says.** A value sits on a post and a step sits between two posts. Step 50 runs from post 50 to post 51, so its kept share is $C_{51} = 0.47826$.
+
+### Then the word: noise
+
+Each step replaces a share of what is left with noise. That share is read off two neighbouring posts:
+
+$$
+\underbrace{\textcolor{#ef6c00}{\beta_t}}_{\text{noise share of step }t}
+=
+1-\underbrace{\frac{\textcolor{#2e7d32}{C_{t+1}}}{\textcolor{#2e7d32}{C_t}}}_{\text{fraction that survives the step}},
+\qquad
+\beta_{50} = 1 - \frac{0.47826}{0.49385} = 0.03155
+$$
+
+**What the equation says.** The ratio is the part of the signal that survives one step, so one minus it is the part replaced. The schedule is written in terms of the kept shares and the $\beta$s are derived from them, as the paper does (*cited*, p. 4).
+
+### Then the shape word: cosine
+
+The kept share follows a squared cosine as the post walks a quarter turn, from 0.714° to 90°. [[The Cosine Wave#The quarter turn: where the square is flat|The square is flat at both ends]], so the schedule loses little signal in its first and last steps and most in the middle: 0.00063 at step 0, 0.03155 at step 50. [[The Quarter Turn And The Fraction#Step 3: the quarter turn, squared|Step 3 of the schedule build]] draws $C_k$ at all 101 posts.
+
+### All the words together: the formula
+
+$$
+\underbrace{\textcolor{#2e7d32}{C_k}}_{\text{share kept at post }k}
+=
+\frac{
+\underbrace{
+\cos^2\!\left(
+\underbrace{\frac{k/T+\delta}{1+\delta}}_{\text{position on the arc}}
+\cdot
+\underbrace{\frac{\pi}{2}}_{\text{quarter turn}}
+\right)
+}_{\text{squared cosine at post }k}
+}{
+\underbrace{
+\textcolor{#6a1b9a}{\cos^2\!\left(\frac{\delta}{1+\delta}\cdot\frac{\pi}{2}\right)}
+}_{\text{the same at post }0\text{, }0.99984}
+},
+\qquad k = 0, 1, \dots, T
+$$
+
+**What the equation says.** Find the post's [position](../../../../PhD/reduce-reuse-recycle/artifacts/drips/simple-distributions-rebuild/01-one-expert-from-scratch.md#step4-where-the-position-goes) on a quarter arc, turn it into an angle, square its cosine, and divide by the same square at post 0. At post 51: position 0.5139, angle 46.25°, $\cos^2 = 0.47819$, divided by 0.99984 gives 0.47826.
+
+**Why $k/T$ is there.** It turns post numbers 0 to 100 into positions 0 to 1. Without it the angle at post 51 would be 51 quarter turns.
+
+**Why δ is there.** The offset 0.008 moves post 0 to 0.714°, off the flat start. Without it the first step's noise share is 0.000247 instead of 0.000631.
+
+**Why the division by 1 + δ is there.** It keeps post 100 at exactly 90°. Without it post 100 sits at 90.72° and keeps 0.000158 of the signal.
+
+**Why π/2 and the square are there.** π/2 is [[Radians#Then the conversion: degrees to radians|the quarter turn in radians]], 90°. The square turns the [[The Unit Circle#The point: from length and angle to x and y|horizontal leg]] into [[The Cosine Wave#The two shares|its share of 1]]: 0.6915 becomes 0.47819.
+
+**Why the denominator is there.** It makes $C_0 = 1$ exactly and cancels out of every $\beta_t$, [[The Quarter Turn And The Fraction#Step 4: the fraction|drawn as bars in step 4 of the schedule build]]. [[The Quarter Turn And The Fraction#The consequence: remove a piece|Removing each piece in turn]] shows that only the offset and the square change any step's noise.
+
+**When to reach for it.** Whenever a diffusion model's noise levels have to be written down, or a number like $\bar\alpha_{50} = 0.4783$ has to be [traced to where it came from](../../../../PhD/reduce-reuse-recycle/artifacts/drips/simple-distributions-rebuild/01-one-expert-from-scratch.md#step4-four-posts-by-hand). Without the timetable, the forward jump in [[The Forward Process]] has no $\bar\alpha_t$ to use.
 
 It is the rebuild's `cosine_beta_schedule` up to the line that rescales (`rebuild/model.py`, lines 13 to 17), written with the angle in degrees, which is easier by hand.
 
@@ -276,7 +343,7 @@ Navigation: ⬅️ [[#Reading the boundary-value output]] | 📋 [[#Table of con
 
 Textbook: [Whitney, Trigonometry handbook, radians and degrees, PDF p. 7](../../../Mathematics/references/textbooks/trigonometry/trigonometry-handbook.pdf#page=7)
 
-Write $p_k$ for the position and read the formula from the inside out:
+Write $p_k$ for [the position](../../../../PhD/reduce-reuse-recycle/artifacts/drips/simple-distributions-rebuild/01-one-expert-from-scratch.md#step4-where-the-position-goes) and read the formula from the inside out:
 
 $$
 \begin{aligned}
@@ -287,25 +354,11 @@ C_k &= \frac{f(k)}{f(0)}
 \end{aligned}
 $$
 
-1. $k/T$ turns the boundary number into a position from 0 to 1.
-2. Adding $\delta$ shifts every position a little, so $p_0 = 0.008/1.008 = 0.00794$ instead of 0.
-3. Dividing by $1 + \delta$ undoes the shift at the far end: $p_T = (1 + \delta)/(1 + \delta) = 1$, so the last angle is exactly a quarter turn.
-4. A quarter turn is $\pi/2$ [radians](../../../Mathematics/references/textbooks/trigonometry/trigonometry-handbook.pdf#page=7), which is $90^\circ$, since a whole turn is $2\pi$ radians or $360^\circ$. Degrees are easier by hand: $\theta_k = \frac{k + 0.8}{100.8} \cdot 90^\circ$, which is the same fraction with top and bottom multiplied by 100.
-5. On a quarter turn the [cosine](../../../Mathematics/references/textbooks/trigonometry/trigonometry-handbook.pdf#page=10), the horizontal coordinate of the angle on the unit circle, falls from 1 to 0, so $\cos^2\theta_k$ also lies between 0 and 1 and can be read as a share. The cosine alone already stays in that range here; the square is the shape the paper chose (*cited*, p. 4).
-6. Dividing by $f(0) = \cos^2\theta_0$ rescales every value so that $C_0 = 1$ exactly: before the first step, all of the clean signal is kept.
+Each line is one piece of [[#All the words together: the formula]], where every piece has its reason and its number.
 
-**The worked numbers.** By hand, at the four boundaries the walk used:
+The geometry under these six moves, built by hand from an empty sheet (the circle, the legs $\cos\theta$ and $\sin\theta$ as the signal and noise multipliers, the angle as a string along the arc, the position ruler, the quarter turn and the fraction's two bars), is [[The Quarter Circle Under The Cosine Schedule#Build the quarter circle by hand]].
 
-$$
-\begin{aligned}
-k = 0:\quad & \theta_0 = \tfrac{0.8}{100.8} \cdot 90^\circ = 0.714^\circ, \quad \cos\theta_0 = 0.99992, \quad \cos^2\theta_0 = 0.99984, \quad C_0 = \tfrac{0.99984}{0.99984} = 1 \\
-k = 1:\quad & \theta_1 = \tfrac{1.8}{100.8} \cdot 90^\circ = 1.607^\circ, \quad \cos\theta_1 = 0.99961, \quad \cos^2\theta_1 = 0.99921, \quad C_1 = \tfrac{0.99921}{0.99984} = 0.99937 \\
-k = 51:\quad & \theta_{51} = \tfrac{51.8}{100.8} \cdot 90^\circ = 46.25^\circ, \quad \cos\theta_{51} = 0.6915, \quad \cos^2\theta_{51} = 0.47819, \quad C_{51} = \tfrac{0.47819}{0.99984} = 0.47826 \\
-k = 100:\quad & \theta_{100} = \tfrac{100.8}{100.8} \cdot 90^\circ = 90^\circ, \quad \cos\theta_{100} = 0, \quad C_{100} = 0
-\end{aligned}
-$$
-
-$C_1 = 0.99937$ is the $\bar\alpha_0 = 0.9994$ in the rebuild's `walk-numbers.json`, and $C_{51} = 0.47826$ is its $\bar\alpha_{50} = 0.4783$, as step 7 printed.
+**The worked numbers** at posts 0, 1, 51 and 100 are the fields of [[#Reading the boundary-value output]]: $C_1 = 0.99937$ is the $\bar\alpha_0 = 0.9994$ in the rebuild's `walk-numbers.json`, and $C_{51} = 0.47826$ is its $\bar\alpha_{50} = 0.4783$, as step 7 printed.
 
 **The broken runs.** With $\delta = 0$ the angles start at $0^\circ$, so $\theta_1 = 0.9^\circ$ and $C_1 = \cos^2 0.9^\circ = 0.99975$. The first step's noise share is then $1 - 0.99975 = 0.000247$, with standard deviation $\sqrt{0.000247} = 0.0157$, against $0.000631$ and $0.0251$ with the offset. Nichol and Dhariwal add the offset because "having tiny amounts of noise at the beginning of the process made it hard for the network to predict ϵ accurately enough", and pick $s = 0.008$ so that $\sqrt{\beta_0}$ sits just under the pixel bin size $1/127.5 = 0.0078$ (*cited*, p. 4). With this note's $T = 100$ the first step's standard deviation is $0.0251$, about three times that bin size (*derived*: $0.0251 / 0.0078 = 3.2$). Without the denominator, $C_0$ would be $0.99984$ instead of 1.
 

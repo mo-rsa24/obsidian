@@ -42,7 +42,7 @@ The setup is in [[Multivariate Normal Distribution#Where you work]]: any termina
 
 Navigation: 📋 [[#Table of contents|TOC]] | [[#The form of the rule]] ➡️
 
-When two or more independent noises land on the same number and you want to know how spread out the total is, or want to draw it once instead of several times. The diffusion forward process is the case that matters here: each small step adds fresh noise, and collapsing two steps into one leaves $\sqrt{\alpha_2(1 - \alpha_1)}\,e_1 + \sqrt{1 - \alpha_2}\,e_2$, which this rule turns into a single draw of variance $1 - \alpha_1\alpha_2$.
+When two or more independent noises land on the same number and you want to know how spread out the total is, or want to draw it once instead of several times. [The diffusion forward process](../../../../../PhD/reduce-reuse-recycle/artifacts/drips/simple-distributions-rebuild/01-one-expert-from-scratch.md#step4-variances-add) is the case that matters here: each small step adds fresh noise, and collapsing two steps into one leaves $\sqrt{\alpha_2(1 - \alpha_1)}\,e_1 + \sqrt{1 - \alpha_2}\,e_2$, which this rule turns into a single draw of variance $1 - \alpha_1\alpha_2$.
 
 Without the rule, the natural guess is to add the coefficients, $\sqrt{0.08} + \sqrt{0.2} = 0.730056$, and call that the standard deviation. That number is right only when the two noises are the same draw. For fresh draws the standard deviation is $\sqrt{0.28} = 0.529150$, so the guess overstates the spread by 38%.
 

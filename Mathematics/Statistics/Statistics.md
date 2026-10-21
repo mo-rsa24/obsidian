@@ -2,7 +2,9 @@
 
 Mathematics, Statistics. The topics of probability and inference, one folder each, with notes that have not yet grown a folder listed beside them.
 
-- [[Variance]]: how far a draw lands from its mean, as the average squared miss, and why multiplying a draw by $c$ multiplies its variance by $c^2$ and its standard deviation by $|c|$.
+- [[Variance]]: how far a draw lands from its mean, as the average squared miss, and the standard deviation, its square root in the draw's own units.
+- [[The Scaling Rule For Variance]]: why multiplying a draw by $c$ multiplies its variance by $c^2$ and its standard deviation by $|c|$, so a wanted variance $v$ needs the multiplier $\sqrt{v}$; worked on a coin and on a 100-step cosine noise schedule.
+- [[Running The Scaling Rule For Variance]]: the scaling rule run in an empty folder: a coin, the share slip, 200,000 scaled draws, the moment form, two coordinates and all five schedule levels, each output read field by field.
 - [[Scaling And Shifting A Random Variable]]: the mean and variance of $aX + b$: the mean is scaled and shifted, the variance is scaled by $a^2$ and never feels the shift, worked on a fair die.
 - [[The Average Of A Product Of Independent Variables]]: for independent $X$ and $Y$, $\mathbb{E}[g(X)\,h(Y)] = \mathbb{E}[g(X)]\,\mathbb{E}[h(Y)]$, because the joint table of chances splits into two single tables; worked on two dice and on a die with a coin, broken by reading one die twice, and the step that removes the cross term when variances add.
 - [[Moment Generating Function]]: the fingerprint $M_Z(\lambda) = \mathbb{E}[e^{\lambda Z}]$ that fixes a distribution, the standard normal's $e^{\lambda^2/2}$ by completing the square, why the fingerprint of an independent sum is the product, and the coin-flip sum that has a bell's variance but not its shape.
