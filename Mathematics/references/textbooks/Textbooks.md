@@ -3564,6 +3564,182 @@ PDF's own outline, chapters and their sections.
 | Appendix A. The Laws of Software Design | [83](software-engineering/code-simplicity.pdf#page=83) |
 | Appendix B. Facts, Laws, Rules, and Definitions | [85](software-engineering/code-simplicity.pdf#page=85) |
 
+## database-systems/
+
+### Database systems textbook
+
+`database-systems/database-systems-textbook.pdf`, 818 pages, 58 MB. Carlos Coronel and Steven Morris,
+*Database Systems: Design, Implementation, and Management*, 12th edition, Cengage Learning, 2017. A
+published undergraduate course textbook on relational databases, built around small worked databases
+whose tables are printed in the text: data models, the relational model (keys, entity and referential
+integrity, relational algebra, relationships), entity relationship modelling, normalization from first
+normal form to Boyce-Codd and denormalization, SQL from table definition through joins, subqueries,
+views and procedural SQL, the database design life cycle, transactions and concurrency control (ACID,
+locking, time stamps, isolation levels, recovery from the transaction log), performance tuning and query
+optimization, distributed databases and the CAP theorem, data warehouses and star schemas, Hadoop and
+NoSQL, database connectivity and the cloud, and database administration and security. Each chapter ends
+with key terms, review questions and problems; a glossary precedes the index. Was `Database Systems
+Design, Implementation, and Management.pdf`, in the learning tree's `system-design/` folder.
+
+**Page numbers.** The printed page number is the PDF page minus 26 (printed page 3, the first numbered
+page of chapter 1, is PDF page 29; chapter 10's printed page 483 is PDF page 509). The front matter is
+numbered in roman. The back-of-book index runs from PDF page 809 to 818 and gives printed pages, so add
+26 to an index page to open it; the glossary runs from PDF page 795. The table is the PDF's own outline:
+parts, chapters and their numbered sections, without each chapter's opening list, preview, summary, key
+terms, review questions, problems and cases.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| Cover | [1](database-systems/database-systems-textbook.pdf#page=1) |
+| Title | [2](database-systems/database-systems-textbook.pdf#page=2) |
+| Statement | [3](database-systems/database-systems-textbook.pdf#page=3) |
+| Copyright | [4](database-systems/database-systems-textbook.pdf#page=4) |
+| Dedication | [5](database-systems/database-systems-textbook.pdf#page=5) |
+| Brief Contents | [6](database-systems/database-systems-textbook.pdf#page=6) |
+| Contents | [8](database-systems/database-systems-textbook.pdf#page=8) |
+| Preface | [16](database-systems/database-systems-textbook.pdf#page=16) |
+| Text Features | [21](database-systems/database-systems-textbook.pdf#page=21) |
+| Additional Features | [23](database-systems/database-systems-textbook.pdf#page=23) |
+| Acknowledgments | [25](database-systems/database-systems-textbook.pdf#page=25) |
+| Part 1: Database Concepts | [27](database-systems/database-systems-textbook.pdf#page=27) |
+| Ch 1: Database Systems | [28](database-systems/database-systems-textbook.pdf#page=28) |
+| 1-1: Why Databases? | [29](database-systems/database-systems-textbook.pdf#page=29) |
+| 1-2: Data versus Information | [30](database-systems/database-systems-textbook.pdf#page=30) |
+| 1-3: Introducing the Database | [32](database-systems/database-systems-textbook.pdf#page=32) |
+| 1-4: Why Database Design is Important | [37](database-systems/database-systems-textbook.pdf#page=37) |
+| 1-5: Evolution of File System Data Processing | [40](database-systems/database-systems-textbook.pdf#page=40) |
+| 1-7: Database Systems | [47](database-systems/database-systems-textbook.pdf#page=47) |
+| 1-8: Preparing for Your Database Professional Career | [54](database-systems/database-systems-textbook.pdf#page=54) |
+| Ch 2: Data Models | [61](database-systems/database-systems-textbook.pdf#page=61) |
+| 2-1: Data Modeling and Data Models | [62](database-systems/database-systems-textbook.pdf#page=62) |
+| 2-2: The Importance of Data Models | [63](database-systems/database-systems-textbook.pdf#page=63) |
+| 2-3: Data Model Basic Building Blocks | [63](database-systems/database-systems-textbook.pdf#page=63) |
+| 2-4: Business Rules | [65](database-systems/database-systems-textbook.pdf#page=65) |
+| 2-5: The Evolution of Data Models | [67](database-systems/database-systems-textbook.pdf#page=67) |
+| 2-6: Degrees of Data Abstraction | [83](database-systems/database-systems-textbook.pdf#page=83) |
+| Part 2: Design Concepts | [97](database-systems/database-systems-textbook.pdf#page=97) |
+| Ch 3: The Relational Database Model | [98](database-systems/database-systems-textbook.pdf#page=98) |
+| 3-1: A Logical View of Data | [99](database-systems/database-systems-textbook.pdf#page=99) |
+| 3-2: Keys | [102](database-systems/database-systems-textbook.pdf#page=102) |
+| 3-3: Integrity Rules | [106](database-systems/database-systems-textbook.pdf#page=106) |
+| 3-4: Relational Algebra | [108](database-systems/database-systems-textbook.pdf#page=108) |
+| 3-5: The Data Dictionary and the System Catalog | [117](database-systems/database-systems-textbook.pdf#page=117) |
+| 3-6: Relationships within the Relational Database | [119](database-systems/database-systems-textbook.pdf#page=119) |
+| 3-7: Data Redundancy Revisited | [127](database-systems/database-systems-textbook.pdf#page=127) |
+| 3-8: Indexes | [129](database-systems/database-systems-textbook.pdf#page=129) |
+| 3-9: Codd’s Relational Database Rules | [130](database-systems/database-systems-textbook.pdf#page=130) |
+| Ch 4: Entity Relationship (ER) Modeling | [143](database-systems/database-systems-textbook.pdf#page=143) |
+| 4-1: The Entity Relationship Model (ERM) | [144](database-systems/database-systems-textbook.pdf#page=144) |
+| 4-2: Developing an ER Diagram | [166](database-systems/database-systems-textbook.pdf#page=166) |
+| 4-3: Database Design Challenges: Conflicting Goals | [173](database-systems/database-systems-textbook.pdf#page=173) |
+| Ch 5: Advanced Data Modeling | [195](database-systems/database-systems-textbook.pdf#page=195) |
+| 5-1: The Extended Entity Relationship Model | [196](database-systems/database-systems-textbook.pdf#page=196) |
+| 5-2: Entity Clustering | [202](database-systems/database-systems-textbook.pdf#page=202) |
+| 5-3: Entity Integrity: Selecting Primary Keys | [203](database-systems/database-systems-textbook.pdf#page=203) |
+| Ch 6: Normalization of Database Tables | [227](database-systems/database-systems-textbook.pdf#page=227) |
+| 6-1: Database Tables and Normalization | [228](database-systems/database-systems-textbook.pdf#page=228) |
+| 6-2: The Need For Normalization | [228](database-systems/database-systems-textbook.pdf#page=228) |
+| 6-3: The Normalization Process | [232](database-systems/database-systems-textbook.pdf#page=232) |
+| 6-4: Improving the Design | [241](database-systems/database-systems-textbook.pdf#page=241) |
+| 6-5: Surrogate Key Considerations | [245](database-systems/database-systems-textbook.pdf#page=245) |
+| 6-6: Higher-Level Normal Forms | [246](database-systems/database-systems-textbook.pdf#page=246) |
+| 6-7: Normalization and Database Design | [252](database-systems/database-systems-textbook.pdf#page=252) |
+| 6-8: Denormalization | [255](database-systems/database-systems-textbook.pdf#page=255) |
+| 6-9: Data-Modeling Checklist | [258](database-systems/database-systems-textbook.pdf#page=258) |
+| Part 3: Advanced Design and Implementation | [271](database-systems/database-systems-textbook.pdf#page=271) |
+| Ch 7: Introduction to Structured Query Language (SQL) | [272](database-systems/database-systems-textbook.pdf#page=272) |
+| 7-1: Introduction to SQL | [273](database-systems/database-systems-textbook.pdf#page=273) |
+| 7-2: Data Definition Commands | [275](database-systems/database-systems-textbook.pdf#page=275) |
+| 7-3: Data Manipulation Commands | [290](database-systems/database-systems-textbook.pdf#page=290) |
+| 7-4: SELECT Queries | [297](database-systems/database-systems-textbook.pdf#page=297) |
+| 7-5: Additional Data Definition Commands | [309](database-systems/database-systems-textbook.pdf#page=309) |
+| 7-6: Additional SELECT Query Keywords | [316](database-systems/database-systems-textbook.pdf#page=316) |
+| 7-7: Joining Database Tables | [326](database-systems/database-systems-textbook.pdf#page=326) |
+| Ch 8: Advanced SQL | [366](database-systems/database-systems-textbook.pdf#page=366) |
+| 8-1: SQL Join Operators | [367](database-systems/database-systems-textbook.pdf#page=367) |
+| 8-2: Subqueries and Correlated Queries | [375](database-systems/database-systems-textbook.pdf#page=375) |
+| 8-3: SQL Functions | [387](database-systems/database-systems-textbook.pdf#page=387) |
+| 8-4: Relational Set Operators | [397](database-systems/database-systems-textbook.pdf#page=397) |
+| 8-5: Virtual Tables: Creating a View | [403](database-systems/database-systems-textbook.pdf#page=403) |
+| 8-6: Sequences | [408](database-systems/database-systems-textbook.pdf#page=408) |
+| 8-7: Procedural SQL | [413](database-systems/database-systems-textbook.pdf#page=413) |
+| 8-8: Embedded SQL | [436](database-systems/database-systems-textbook.pdf#page=436) |
+| Ch 9: Database Design | [465](database-systems/database-systems-textbook.pdf#page=465) |
+| 9-1: The Information System | [466](database-systems/database-systems-textbook.pdf#page=466) |
+| 9-2: The Systems Development Life Cycle | [468](database-systems/database-systems-textbook.pdf#page=468) |
+| 9-3: The Database Life Cycle | [471](database-systems/database-systems-textbook.pdf#page=471) |
+| 9-4: Conceptual Design | [483](database-systems/database-systems-textbook.pdf#page=483) |
+| 9-5: DBMS Software Selection | [493](database-systems/database-systems-textbook.pdf#page=493) |
+| 9-6: Logical Design | [494](database-systems/database-systems-textbook.pdf#page=494) |
+| 9-7: Physical Design | [497](database-systems/database-systems-textbook.pdf#page=497) |
+| 9-8: Database Design Strategies | [499](database-systems/database-systems-textbook.pdf#page=499) |
+| 9-9: Centralized Versus Decentralized Design | [500](database-systems/database-systems-textbook.pdf#page=500) |
+| Part 4: Advanced Database Concepts | [507](database-systems/database-systems-textbook.pdf#page=507) |
+| Ch 10: Transaction Management and Concurrency Control | [508](database-systems/database-systems-textbook.pdf#page=508) |
+| 10-1: What Is a Transaction? | [509](database-systems/database-systems-textbook.pdf#page=509) |
+| 10-2: Concurrency Control | [516](database-systems/database-systems-textbook.pdf#page=516) |
+| 10-3: Concurrency Control with Locking Methods | [521](database-systems/database-systems-textbook.pdf#page=521) |
+| 10-4: Concurrency Control with Time Stamping Methods | [528](database-systems/database-systems-textbook.pdf#page=528) |
+| 10-5: Concurrency Control with Optimistic Methods | [529](database-systems/database-systems-textbook.pdf#page=529) |
+| 10-6: ANSI Levels of Transaction Isolation | [530](database-systems/database-systems-textbook.pdf#page=530) |
+| 10-7: Database Recovery Management | [532](database-systems/database-systems-textbook.pdf#page=532) |
+| Ch 11: Database Performance Tuning and Query Optimization | [541](database-systems/database-systems-textbook.pdf#page=541) |
+| 11-1: Database Performance-Tuning Concepts | [542](database-systems/database-systems-textbook.pdf#page=542) |
+| 11-2: Query Processing | [548](database-systems/database-systems-textbook.pdf#page=548) |
+| 11-3: Indexes and Query Optimization | [552](database-systems/database-systems-textbook.pdf#page=552) |
+| 11-4: Optimizer Choices | [554](database-systems/database-systems-textbook.pdf#page=554) |
+| 11-5: SQL Performance Tuning | [557](database-systems/database-systems-textbook.pdf#page=557) |
+| 11-6: Query Formulation | [560](database-systems/database-systems-textbook.pdf#page=560) |
+| 11-7: DBMS Performance Tuning | [562](database-systems/database-systems-textbook.pdf#page=562) |
+| 11-8: Query Optimization Example | [564](database-systems/database-systems-textbook.pdf#page=564) |
+| Ch 12: Distributed Database Management Systems | [579](database-systems/database-systems-textbook.pdf#page=579) |
+| 12-1: The Evolution of Distributed Database Management Systems | [580](database-systems/database-systems-textbook.pdf#page=580) |
+| 12-2: DDBMS Advantages and Disadvantages | [582](database-systems/database-systems-textbook.pdf#page=582) |
+| 12-3: Distributed Processing and Distributed Databases | [582](database-systems/database-systems-textbook.pdf#page=582) |
+| 12-4: Characteristics of Distributed Database Management Systems | [585](database-systems/database-systems-textbook.pdf#page=585) |
+| 12-5: DDBMS Components | [586](database-systems/database-systems-textbook.pdf#page=586) |
+| 12-6: Levels of Data and Process Distribution | [587](database-systems/database-systems-textbook.pdf#page=587) |
+| 12-7: Distributed Database Transparency Features | [590](database-systems/database-systems-textbook.pdf#page=590) |
+| 12-8: Distribution Transparency | [591](database-systems/database-systems-textbook.pdf#page=591) |
+| 12-9: Transaction Transparency | [594](database-systems/database-systems-textbook.pdf#page=594) |
+| 12-10: Performance and Failure Transparency | [599](database-systems/database-systems-textbook.pdf#page=599) |
+| 12-11: Distributed Database Design | [601](database-systems/database-systems-textbook.pdf#page=601) |
+| 12-12: The CAP Theorem | [607](database-systems/database-systems-textbook.pdf#page=607) |
+| 12-13: C. J. Date’s 12 Commandments for Distributed Databases | [609](database-systems/database-systems-textbook.pdf#page=609) |
+| Ch 13: Business Intelligence and Data Warehouses | [615](database-systems/database-systems-textbook.pdf#page=615) |
+| 13-1: The Need for Data Analysis | [616](database-systems/database-systems-textbook.pdf#page=616) |
+| 13-2: Business Intelligence | [616](database-systems/database-systems-textbook.pdf#page=616) |
+| 13-3: Decision Support Data | [628](database-systems/database-systems-textbook.pdf#page=628) |
+| 13-4: The Data Warehouse | [633](database-systems/database-systems-textbook.pdf#page=633) |
+| 13-5: Star Schemas | [636](database-systems/database-systems-textbook.pdf#page=636) |
+| 13-6: Online Analytical Processing | [647](database-systems/database-systems-textbook.pdf#page=647) |
+| 13-7: SQL Extensions for OLAP | [655](database-systems/database-systems-textbook.pdf#page=655) |
+| Ch 14: Big Data Analytics and NoSQL | [674](database-systems/database-systems-textbook.pdf#page=674) |
+| 14-1: Big Data | [675](database-systems/database-systems-textbook.pdf#page=675) |
+| 14-2: Hadoop | [681](database-systems/database-systems-textbook.pdf#page=681) |
+| 14-3: NoSQL | [688](database-systems/database-systems-textbook.pdf#page=688) |
+| 14-4: Data Analytics | [696](database-systems/database-systems-textbook.pdf#page=696) |
+| Part 5: Databases and the Internet | [705](database-systems/database-systems-textbook.pdf#page=705) |
+| Ch 15: Database Connectivity and Web Technologies | [706](database-systems/database-systems-textbook.pdf#page=706) |
+| 15-1: Database Connectivity | [707](database-systems/database-systems-textbook.pdf#page=707) |
+| 15-2: Database Internet Connectivity | [718](database-systems/database-systems-textbook.pdf#page=718) |
+| 15-3: Extensible Markup Language (XML) | [728](database-systems/database-systems-textbook.pdf#page=728) |
+| 15-4: Cloud Computing Services | [735](database-systems/database-systems-textbook.pdf#page=735) |
+| Part 6: Database Administration | [747](database-systems/database-systems-textbook.pdf#page=747) |
+| Ch 16: Database Administration and Security | [748](database-systems/database-systems-textbook.pdf#page=748) |
+| 16-1: Data as a Corporate Asset | [749](database-systems/database-systems-textbook.pdf#page=749) |
+| 16-2: The Need for a Database and its Role in an Organization | [750](database-systems/database-systems-textbook.pdf#page=750) |
+| 16-3: Introduction of a Database: Special Considerations | [752](database-systems/database-systems-textbook.pdf#page=752) |
+| 16-4: The Evolution of Database Administration | [753](database-systems/database-systems-textbook.pdf#page=753) |
+| 16-5: The Database Environment’s Human Component | [757](database-systems/database-systems-textbook.pdf#page=757) |
+| 16-6: Security | [771](database-systems/database-systems-textbook.pdf#page=771) |
+| 16-7: Database Administration Tools | [775](database-systems/database-systems-textbook.pdf#page=775) |
+| 16-8: Developing a Data Administration Strategy | [781](database-systems/database-systems-textbook.pdf#page=781) |
+| 16-9: The DBA’s Role in the Cloud | [782](database-systems/database-systems-textbook.pdf#page=782) |
+| 16-10: The DBA at Work: Using Oracle for Database Administration | [783](database-systems/database-systems-textbook.pdf#page=783) |
+| Glossary | [795](database-systems/database-systems-textbook.pdf#page=795) |
+| Index | [809](database-systems/database-systems-textbook.pdf#page=809) |
+
 ## system-design/
 
 ### System design interview
