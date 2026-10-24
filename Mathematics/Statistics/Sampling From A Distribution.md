@@ -14,7 +14,6 @@ Mathematics, Statistics. Two methods already have notes: [[Inverse Transform Sam
 
 > [!warning]- Unfinished
 > - The explanation is not written yet. This note holds only its card, under Where to learn this, and the next walk that teaches sampling writes the rest around it.
-> - The placement is unsure. The two best places are `Mathematics/Statistics/` and `Mathematics/Statistics/Distributions/`, whose map already lists one sampling method.
 
 ## Where to learn this
 

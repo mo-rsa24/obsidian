@@ -15,7 +15,6 @@ Artificial Intelligence, Generative Modeling. The composition notes use the word
 
 > [!warning]- Unfinished
 > - The explanation is not written yet. This note holds only its card, under Where to learn this, and the next walk that teaches the score writes the rest around it.
-> - The placement is unsure. The two best places are `Artificial Intelligence/Generative Modeling/`, where score-based models use it, and `Mathematics/Statistics/Distributions/`, as a property of any density.
 
 ## Where to learn this
 

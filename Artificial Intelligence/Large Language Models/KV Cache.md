@@ -5,15 +5,14 @@ standard: vault-note v2
 
 # KV Cache
 
-Up: [[Artificial Intelligence]]
+Up: [[Large Language Models]]
 
-Artificial Intelligence. Needs: [[Attention]] for what a key and a value are.
+Artificial Intelligence, Large Language Models. Needs: [[Attention]] for what a key and a value are.
 
 **The KV cache stores the attention keys and values of every token already processed, so each new decoding step computes them only for the newest token.**
 
 > [!warning]- Unfinished
 > - The explanation is not written yet. This note holds only its card, under Where to learn this, and the next walk that teaches the KV cache writes the rest around it.
-> - The placement is unsure. The two best places are this top level and a Large Language Models family under `Artificial Intelligence/`, which does not exist yet.
 
 ## Where to learn this
 
@@ -21,8 +20,8 @@ Artificial Intelligence. Needs: [[Attention]] for what a key and a value are.
 
 **Textbooks**
 
-- AI engineering, chapter 9, Attention mechanism optimization: [pages 820 to 826](../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=820). Defines the KV cache as reusing earlier tokens' key and value vectors, sizes it as 2 × B × S × L × H × M with Llama 2 13B (page 823), then shrinks it with multi-query and grouped-query attention, PagedAttention and cache quantization.
-- Hands-on large language models, chapter 3, Speeding Up Generation by Caching Keys and Values: [pages 129 to 131](../Mathematics/references/textbooks/natural-language-processing/hands-on-large-language-models.pdf#page=129). Shows why only the last token's stream needs computing once earlier results are cached, then times a 100-token generation with and without `use_cache`.
+- AI engineering, chapter 9, Attention mechanism optimization: [pages 820 to 826](../../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=820). Defines the KV cache as reusing earlier tokens' key and value vectors, sizes it as 2 × B × S × L × H × M with Llama 2 13B (page 823), then shrinks it with multi-query and grouped-query attention, PagedAttention and cache quantization.
+- Hands-on large language models, chapter 3, Speeding Up Generation by Caching Keys and Values: [pages 129 to 131](../../Mathematics/references/textbooks/natural-language-processing/hands-on-large-language-models.pdf#page=129). Shows why only the last token's stream needs computing once earlier results are cached, then times a 100-token generation with and without `use_cache`.
 
 **Videos**
 

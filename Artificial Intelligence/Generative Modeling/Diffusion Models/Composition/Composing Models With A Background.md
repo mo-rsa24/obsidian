@@ -1,5 +1,5 @@
 ---
-aliases: [composing diffusion models, composition of diffusion models, composition operator, composed distribution, compositional score, Definition 5.1, product of experts with a background, dividing out the background, background distribution, p_b, co-occurrence, hybrid, shared versus split, projective composition, product of experts]
+aliases: [composing diffusion models, composition of diffusion models, composition operator, composed distribution, compositional score, Definition 5.1, product of experts with a background, dividing out the background, background distribution, p_b, co-occurrence, hybrid, shared versus split, projective composition]
 sources:
   - "Bradley, Nakkiran, Berthelot, Thornton, Susskind, Mechanisms of Projective Composition of Diffusion Models, ICML 2025: https://arxiv.org/abs/2502.04549"
   - "Du, Durkan, Strudel, Tenenbaum, Dieleman, Fergus, Sohl-Dickstein, Doucet, Grathwohl, Reduce, Reuse, Recycle: Compositional Generation with Energy-Based Diffusion Models and MCMC, ICML 2023: https://arxiv.org/abs/2302.11552"

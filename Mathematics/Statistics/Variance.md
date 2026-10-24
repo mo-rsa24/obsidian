@@ -258,6 +258,8 @@ Navigation: ⬅️ [[#Scaling a draw scales its variance by the square]] | 📋 
 - Mathematics for machine learning, section 6.4.1: [pages 196 to 198](../references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=196). Variance as the covariance of a variable with itself (Definition 6.7), then the empirical mean and variance of a data set (Definition 6.9).
 - Deep learning textbook, section 3.8: [pages 76 to 77](../references/textbooks/machine-learning/deep-learning-textbook.pdf#page=76). A short definition of variance and standard deviation beside expectation and covariance.
 - Pattern recognition and machine learning, section 1.2.2: [page 39](../references/textbooks/machine-learning/pattern-recognition-and-machine-learning.pdf#page=39). Defines var[f] and expands it to E[f²] − E[f]² (equations 1.38 to 1.40).
+- Introduction to probability for data science, section 4.2.3, Moment and variance: [page 200](../references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=200). Defines the kth moment and the variance of a continuous random variable, Var[X] = E[(X − μ)²] = ∫ (x − μ)² f_X(x) dx, as the discrete sums turned into integrals.
+- Introduction to statistics, section 2.6.3, Variance s²: [page 51](../references/textbooks/statistics/introduction-to-statistics.pdf#page=51). The sample variance as the most used measure of spread, zero when every value is equal, beside the range and the interquartile range.
 
 **Videos**
 

@@ -5,15 +5,14 @@ standard: vault-note v2
 
 # Backpropagation
 
-Up: [[Artificial Intelligence]]
+Up: [[Deep Learning]]
 
-Artificial Intelligence.
+Artificial Intelligence, Deep Learning.
 
 **Backpropagation computes the gradient of a network's loss with respect to every weight by applying the chain rule backward from the loss, one layer at a time.**
 
 > [!warning]- Unfinished
 > - The explanation is not written yet. This note holds only its card, under Where to learn this, and the next walk that teaches backpropagation writes the rest around it.
-> - The placement is unsure. The two best places are this top level and a Deep Learning family under `Artificial Intelligence/`, which does not exist yet.
 
 ## Where to learn this
 
@@ -21,11 +20,11 @@ Artificial Intelligence.
 
 **Textbooks**
 
-- Understanding deep learning, sections 7.2 to 7.4: [pages 113 to 120](../Mathematics/references/textbooks/machine-learning/understanding-deep-learning.pdf#page=113). A toy network worked through its forward pass and two backward passes, then the algorithm for a deep ReLU network and its summary on page 120.
-- Deep learning textbook, section 6.5: [pages 220 to 229](../Mathematics/references/textbooks/machine-learning/deep-learning-textbook.pdf#page=220). The chain rule over a computational graph, then the algorithm (Algorithm 6.2 on page 226) and its forward and backward passes for a fully-connected network.
-- Mathematics for machine learning, section 5.6: [pages 165 to 169](../Mathematics/references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=165). Gradients in a deep network by the chain rule, then automatic differentiation with a worked example (Example 5.14).
-- Probabilistic machine learning: an introduction, section 13.3: [pages 479 to 488](../Mathematics/references/textbooks/machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=479). Forward against reverse mode, vector-Jacobian products for common layers, and computation graphs.
-- AI engineering, chapter 7, Backpropagation and Trainable Parameters: [pages 620 to 622](../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=620). The backward pass in three plain steps and why it sets the memory a finetuning run needs.
+- Understanding deep learning, sections 7.2 to 7.4: [pages 113 to 120](../../Mathematics/references/textbooks/machine-learning/understanding-deep-learning.pdf#page=113). A toy network worked through its forward pass and two backward passes, then the algorithm for a deep ReLU network and its summary on page 120.
+- Deep learning textbook, section 6.5: [pages 220 to 229](../../Mathematics/references/textbooks/machine-learning/deep-learning-textbook.pdf#page=220). The chain rule over a computational graph, then the algorithm (Algorithm 6.2 on page 226) and its forward and backward passes for a fully-connected network.
+- Mathematics for machine learning, section 5.6: [pages 165 to 169](../../Mathematics/references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=165). Gradients in a deep network by the chain rule, then automatic differentiation with a worked example (Example 5.14).
+- Probabilistic machine learning: an introduction, section 13.3: [pages 479 to 488](../../Mathematics/references/textbooks/machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=479). Forward against reverse mode, vector-Jacobian products for common layers, and computation graphs.
+- AI engineering, chapter 7, Backpropagation and Trainable Parameters: [pages 620 to 622](../../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=620). The backward pass in three plain steps and why it sets the memory a finetuning run needs.
 
 **Videos**
 

@@ -5,15 +5,14 @@ standard: vault-note v2
 
 # Retrieval-Augmented Generation
 
-Up: [[Artificial Intelligence]]
+Up: [[Large Language Models]]
 
-Artificial Intelligence.
+Artificial Intelligence, Large Language Models.
 
 **Retrieval-augmented generation looks up passages relevant to a question in an outside store and puts them in the model's prompt, so the answer can draw on them.**
 
 > [!warning]- Unfinished
 > - The explanation is not written yet. This note holds only its card, under Where to learn this, and the next walk that teaches retrieval-augmented generation writes the rest around it.
-> - The placement is unsure. The two best places are this top level and a Large Language Models family under `Artificial Intelligence/`, which does not exist yet.
 
 ## Where to learn this
 
@@ -21,10 +20,10 @@ Artificial Intelligence.
 
 **Textbooks**
 
-- AI engineering, chapter 6, RAG: [pages 495 to 499](../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=495). Defines RAG as retrieving from external memory before generating, weighs it against long context, and splits a RAG system into a retriever and a generator.
-- AI engineering, chapter 6, retrieval algorithms and retrieval optimisation: [pages 500 to 530](../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=500). Term-based against embedding-based retrieval, how to compare and combine retrievers (reciprocal rank fusion on page 520), then chunking, reranking and contextual retrieval.
-- Hands-on large language models, chapter 8, Retrieval-Augmented Generation (RAG): [pages 349 to 358](../Mathematics/references/textbooks/natural-language-processing/hands-on-large-language-models.pdf#page=349). Turns a search pipeline into RAG in code, with grounded generation from an API model and a local model, then query rewriting, multi-hop and agentic RAG, and RAG evaluation.
-- AI engineering, chapter 7, Finetuning and RAG: [pages 611 to 617](../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=611). Chooses between RAG and finetuning by whether the model fails for lack of information or because of its behaviour.
+- AI engineering, chapter 6, RAG: [pages 495 to 499](../../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=495). Defines RAG as retrieving from external memory before generating, weighs it against long context, and splits a RAG system into a retriever and a generator.
+- AI engineering, chapter 6, retrieval algorithms and retrieval optimisation: [pages 500 to 530](../../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=500). Term-based against embedding-based retrieval, how to compare and combine retrievers (reciprocal rank fusion on page 520), then chunking, reranking and contextual retrieval.
+- Hands-on large language models, chapter 8, Retrieval-Augmented Generation (RAG): [pages 349 to 358](../../Mathematics/references/textbooks/natural-language-processing/hands-on-large-language-models.pdf#page=349). Turns a search pipeline into RAG in code, with grounded generation from an API model and a local model, then query rewriting, multi-hop and agentic RAG, and RAG evaluation.
+- AI engineering, chapter 7, Finetuning and RAG: [pages 611 to 617](../../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=611). Chooses between RAG and finetuning by whether the model fails for lack of information or because of its behaviour.
 
 **Videos**
 

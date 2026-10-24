@@ -25,6 +25,7 @@ Mathematics, Calculus. [[Gradient]] stacks the derivatives of a function of seve
 - Calculus textbook, section 2.1: [pages 155 to 166](../references/textbooks/calculus/calculus-textbook.pdf#page=155). The slope of the tangent line to a parabola (Example 1) and a particle's instantaneous velocity (Example 5), the two pictures the derivative comes from.
 - Mathematics for machine learning, section 5.1: [pages 147 to 151](../references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=147). The derivative as the limit of a secant's slope (Figure 5.3), the derivative of a polynomial (Example 5.2), Taylor series and the differentiation rules.
 - Calculus handbook, chapter 2: [page 17](../references/textbooks/calculus/calculus-handbook.pdf#page=17). The definition of a derivative and the basic rules on one page.
+- Matrix cookbook, section 2, Derivatives: [page 8](../references/textbooks/linear-algebra/matrix-cookbook.pdf#page=8). Opens the cookbook's tables of derivatives with respect to a matrix or vector, starting from the derivative of a determinant.
 
 **Videos**
 

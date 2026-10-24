@@ -24,4 +24,3 @@ Mathematics, Statistics. The topics of probability and inference, one folder eac
 - [[Hypothesis Testing]]: A hypothesis test asks whether data are surprising enough under a default claim, the null hypothesis, to reject it, and the p-value is the chance under that claim of a result at least as extreme as the one seen.
 - [[Information Theory]]: Information theory measures uncertainty and surprise in bits or nats.
 - [[Sampling From A Distribution]]: Sampling from a distribution means producing random values whose long-run frequencies follow it, usually by transforming uniform random numbers the computer already has.
-- [[Cross-Entropy]]: The cross-entropy H(p, q) = −Σ p(x) log q(x) is the average surprise of outcomes drawn from p when they are scored with the probabilities of q.

@@ -25,6 +25,7 @@ Mathematics, Statistics, Markov Chain Monte Carlo. Needs: [[Score Function]]. Th
 - Probabilistic machine learning: advanced topics, sections 12.5.6 and 12.5.7: [pages 548 to 549](../../references/textbooks/machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=548). Langevin Monte Carlo (MALA) as one-step HMC with an accept step, the Langevin diffusion SDE, the unadjusted algorithm, and the link to stochastic gradient descent.
 - Probabilistic machine learning: advanced topics, section 24.2.1: [page 875](../../references/textbooks/machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=875). Langevin MCMC on an energy-based model, where the score is −∇ₓE_θ(x) so the normaliser drops out (equation 24.18).
 - The little book of generative AI foundations, section 6.4.2: [page 130](../../references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=130). Annealed Langevin dynamics: Langevin updates at each noise level from large σ to small.
+- The little book of generative AI foundations, section 6.1: [page 118](../../references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=118). Checks that the target p is a stationary solution of the Langevin Fokker–Planck equation, using p ∇ log p = ∇p.
 
 **Videos**
 
@@ -38,6 +39,7 @@ Mathematics, Statistics, Markov Chain Monte Carlo. Needs: [[Score Function]]. Th
 - Chan 2024, Tutorial on diffusion models for imaging and vision: [pages 44 to 47](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/tutorial-on-diffusion-models-for-imaging-and-vision.pdf#page=44). Langevin sampling as gradient ascent on log p plus noise (equation 3.1), Theorem 3.1 that p is its stationary law, and a Gaussian mixture sampled with and without the noise.
 - Chan 2024, the same tutorial, section 5: [pages 66 to 72](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/tutorial-on-diffusion-models-for-imaging-and-vision.pdf#page=66). The Langevin equation from physics: a pollen grain under drag and a random force, then the Wiener process.
 - Du and others 2023, Reduce, reuse, recycle: [page 3](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/sampling-composed-models/compositional-generation-with-energy-based-diffusion-models-and-mcmc.pdf#page=3). Defines unadjusted Langevin dynamics (ULA) for energy-based models and adds the Metropolis correction that makes it MALA.
+- Chan 2024, Tutorial on diffusion models for imaging and vision, section 3.4: [page 53](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/tutorial-on-diffusion-models-for-imaging-and-vision.pdf#page=53). Score matching across several noise levels, sampled by the annealed Langevin update of NCSN.
 
 **Our plans and chapters**
 

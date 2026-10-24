@@ -23,6 +23,7 @@ Mathematics, Calculus, Differential Equations. [[Stochastic Differential Equatio
 - Calculus textbook, section 8.3: [pages 603 to 609](../../references/textbooks/calculus/calculus-textbook.pdf#page=603). Slope fields, then Euler's method worked as a table for y′ = y − x from y(0) = 2 with step 0.1 (Example 1, page 606), and its accuracy.
 - Calculus textbook, section 8.1: [pages 585 to 591](../../references/textbooks/calculus/calculus-textbook.pdf#page=585). What a differential equation is, its order and solutions, initial-value problems, and models of population growth, cooling and springs.
 - Calculus handbook, chapter 10: [pages 120 to 121](../../references/textbooks/calculus/calculus-handbook.pdf#page=120). Defines an ODE against a PDE, the order, linear ODEs and separable first-order ODEs.
+- Calculus textbook, section 8.4, First-order differential equations and applications: [page 611](../../references/textbooks/calculus/calculus-textbook.pdf#page=611). Solves a first-order linear ODE with an integrating factor, the method a variance ODE needs.
 
 **Videos**
 

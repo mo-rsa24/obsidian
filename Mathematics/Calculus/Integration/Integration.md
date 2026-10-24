@@ -22,6 +22,7 @@ Mathematics, Calculus, Integration. One note per integral or technique that earn
 - Calculus textbook, section 5.6: [pages 386 to 399](../../references/textbooks/calculus/calculus-textbook.pdf#page=386). The fundamental theorem of calculus, which evaluates a definite integral with an antiderivative and makes integration undo differentiation.
 - Calculus handbook, chapter 7: [pages 87 to 94](../../references/textbooks/calculus/calculus-handbook.pdf#page=87). Definite integrals as Riemann sums drawn on an interval, the rules of definite integration, both fundamental theorems (page 92) and the properties of definite integrals.
 - Calculus handbook, chapter 4: [page 56](../../references/textbooks/calculus/calculus-handbook.pdf#page=56). The rules of indefinite integration, power rule first, on one page.
+- Calculus textbook, section 7.8, Improper integrals: [page 571](../../references/textbooks/calculus/calculus-textbook.pdf#page=571). Where the section on integrals over an infinite range or with an infinite integrand begins, each defined as a limit.
 
 **Videos**
 

@@ -5,15 +5,14 @@ standard: vault-note v2
 
 # Cross-Entropy
 
-Up: [[Statistics]]
+Up: [[Information Theory]]
 
-Mathematics, Statistics.
+Mathematics, Statistics, Information Theory.
 
 **The cross-entropy H(p, q) = −Σ p(x) log q(x) is the average surprise of outcomes drawn from p when they are scored with the probabilities of q.**
 
 > [!warning]- Unfinished
 > - The explanation is not written yet. This note holds only its card, under Where to learn this, and the next walk that teaches cross-entropy writes the rest around it.
-> - The placement is unsure. The two best places are `Mathematics/Statistics/` and a new Information Theory branch under `Mathematics/`, which does not exist yet.
 
 ## Where to learn this
 
@@ -21,10 +20,10 @@ Mathematics, Statistics.
 
 **Textbooks**
 
-- Understanding deep learning, section 5.7, Cross-entropy loss: [pages 85 to 86](../references/textbooks/machine-learning/understanding-deep-learning.pdf#page=85). Fits a model by minimising the KL divergence to the empirical distribution, which leaves the cross-entropy, and shows it equals the negative log-likelihood.
-- Deep learning textbook, section 3.13: [page 91](../references/textbooks/machine-learning/deep-learning-textbook.pdf#page=91). Defines H(P, Q) = −E over P of log Q(x) (equation 3.51) and shows that minimising it in Q is minimising the KL divergence.
-- Probabilistic machine learning: an introduction, section 6.1.2: [page 239](../references/textbooks/machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=239). Reads cross-entropy as the expected number of bits to code samples from p with a code built for q, least when q = p.
-- AI engineering, chapter 3, Cross Entropy: [pages 244 to 245](../references/textbooks/ai-engineering/ai-engineering.pdf#page=244). A language model's cross-entropy on its data as the data's entropy plus the model's KL divergence from it, and why it is not symmetric.
+- Understanding deep learning, section 5.7, Cross-entropy loss: [pages 85 to 86](../../references/textbooks/machine-learning/understanding-deep-learning.pdf#page=85). Fits a model by minimising the KL divergence to the empirical distribution, which leaves the cross-entropy, and shows it equals the negative log-likelihood.
+- Deep learning textbook, section 3.13: [page 91](../../references/textbooks/machine-learning/deep-learning-textbook.pdf#page=91). Defines H(P, Q) = −E over P of log Q(x) (equation 3.51) and shows that minimising it in Q is minimising the KL divergence.
+- Probabilistic machine learning: an introduction, section 6.1.2: [page 239](../../references/textbooks/machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=239). Reads cross-entropy as the expected number of bits to code samples from p with a code built for q, least when q = p.
+- AI engineering, chapter 3, Cross Entropy: [pages 244 to 245](../../references/textbooks/ai-engineering/ai-engineering.pdf#page=244). A language model's cross-entropy on its data as the data's entropy plus the model's KL divergence from it, and why it is not symmetric.
 
 **Videos**
 

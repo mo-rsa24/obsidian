@@ -26,6 +26,9 @@ Mathematics, Calculus, Differential Equations. [[Ordinary Differential Equation]
 - Stochastic differential equations, section 6.5: [pages 142 to 143](../../references/textbooks/calculus/stochastic-differential-equations.pdf#page=142). Itô processes, dX = F dt + G dB, and what it means for a process to solve an SDE.
 - Stochastic differential equations, section 8.4: [pages 189 to 195](../../references/textbooks/calculus/stochastic-differential-equations.pdf#page=189). Simulating sample paths with Euler-Maruyama, its error on geometric Brownian motion, and the Milstein and Heun schemes.
 - Probabilistic machine learning: advanced topics, section 25.4: [pages 900 to 904](../../references/textbooks/machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=900). DDPM in the limit of infinitely many steps as an SDE, its reverse-time SDE, and the probability flow ODE beside it.
+- The little book of generative AI foundations, section 5.1.1, Basic language for continuous-time motion: [page 91](../../references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=91). Introduces an SDE as the ODE dX_t = f dt plus a noise term, dX_t = f dt + σ dW_t.
+- The little book of generative AI foundations, section 5.1.4, The Ornstein–Uhlenbeck process: [pages 96 to 97](../../references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=96). Works the Ornstein–Uhlenbeck SDE, a pull toward the origin plus noise, and solves it explicitly to show why it is called mean-reverting.
+- The little book of generative AI foundations, sections 6.4.3 and 6.4.4: [pages 131 to 132](../../references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=131). Writes the general forward SDE of a diffusion model with its Fokker–Planck equation, then states the reverse-time SDE and the score's place in it.
 
 **Videos**
 

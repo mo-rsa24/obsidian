@@ -75,6 +75,7 @@ Read them in this order.
 - [[Running The Quarter Turn And The Fraction]]: the fraction's scripts run in the quarter circle's folder, from the curve's first step to β with and without each piece, each output read field by field.
 - [[Composition]]: combining trained models by multiplying what each believes, in notes from the rule to what each expert learns and what annealing moves.
 - [[DDIM]]: DDIM samples a trained diffusion model through a family of non-Markovian reverse steps that keep DDPM's marginals, and with its noise set to zero the sampler is deterministic and can skip most of the steps.
+- [[Classifier-Free Guidance]]: Classifier-free guidance steers a diffusion model toward a condition by taking its unconditional prediction and adding ω times the difference between the conditional and unconditional predictions, both made by one network trained with the condition sometimes dropped.
 
 The samplers composition borrows are taught under Mathematics, in [[Markov Chain Monte Carlo]].
 

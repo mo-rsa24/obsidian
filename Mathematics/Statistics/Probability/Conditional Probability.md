@@ -24,6 +24,7 @@ Mathematics, Statistics, Probability. [[Bayes Theorem]] turns it around, [[Stati
 - Introduction to statistics (Wits lecture notes), section 3.7.6: [pages 71 to 73](../../references/textbooks/statistics/introduction-to-statistics.pdf#page=71). The definition read as "the probability of A, given B has occurred", both ways round, before probability trees.
 - Introduction to probability for data science, section 5.3: [pages 282 to 290](../../references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=282). The conditional PMF p(x | y) = p(x, y) / p(y) for two random variables (page 283), then the conditional PDF.
 - Deep learning textbook, sections 3.5 and 3.6: [page 75](../../references/textbooks/machine-learning/deep-learning-textbook.pdf#page=75). The formula for P(y | x), defined only when P(x) > 0, and the chain rule that writes a joint as a product of conditionals.
+- Mathematics for machine learning, section 6.3, Sum rule, product rule, and Bayes' theorem: [page 191](../../references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=191). The product rule p(x, y) = p(y | x) p(x), which defines the conditional distribution from the joint and the marginal.
 
 **Videos**
 

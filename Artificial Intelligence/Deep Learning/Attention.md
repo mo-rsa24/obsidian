@@ -6,15 +6,14 @@ standard: vault-note v2
 
 # Attention
 
-Up: [[Artificial Intelligence]]
+Up: [[Deep Learning]]
 
-Artificial Intelligence.
+Artificial Intelligence, Deep Learning.
 
 **Attention scores a query against every key, turns the scores into softmax weights, and returns the weighted sum of the values.**
 
 > [!warning]- Unfinished
 > - The explanation is not written yet. This note holds only its card, under Where to learn this, and the next walk that teaches attention writes the rest around it.
-> - The placement is unsure. The two best places are this top level and a Deep Learning family under `Artificial Intelligence/`, which does not exist yet.
 
 ## Where to learn this
 
@@ -22,10 +21,10 @@ Artificial Intelligence.
 
 **Textbooks**
 
-- Understanding deep learning, sections 12.2 and 12.3: [pages 222 to 229](../Mathematics/references/textbooks/machine-learning/understanding-deep-learning.pdf#page=222). Builds dot-product self-attention as routing: values, weights from query-key dot products and a softmax, the matrix form, then positional encoding, scaling and multiple heads.
-- Probabilistic machine learning: an introduction, section 15.4: [pages 566 to 574](../Mathematics/references/textbooks/machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=566). Attention as a weighted average of values with weights from comparing a query to keys, with several score functions and its use in sequence-to-sequence models.
-- Hands-on large language models, chapter 3, the attention layer: [pages 137 to 142](../Mathematics/references/textbooks/natural-language-processing/hands-on-large-language-models.pdf#page=137). Attention in two drawn steps, scoring each earlier token's relevance and combining the values, with heads in parallel and the query, key and value projections.
-- AI engineering, chapter 2, Attention mechanism: [pages 139 to 143](../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=139). Query, key and value vectors explained as looking up pages of a book, then multi-head attention inside the transformer block.
+- Understanding deep learning, sections 12.2 and 12.3: [pages 222 to 229](../../Mathematics/references/textbooks/machine-learning/understanding-deep-learning.pdf#page=222). Builds dot-product self-attention as routing: values, weights from query-key dot products and a softmax, the matrix form, then positional encoding, scaling and multiple heads.
+- Probabilistic machine learning: an introduction, section 15.4: [pages 566 to 574](../../Mathematics/references/textbooks/machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=566). Attention as a weighted average of values with weights from comparing a query to keys, with several score functions and its use in sequence-to-sequence models.
+- Hands-on large language models, chapter 3, the attention layer: [pages 137 to 142](../../Mathematics/references/textbooks/natural-language-processing/hands-on-large-language-models.pdf#page=137). Attention in two drawn steps, scoring each earlier token's relevance and combining the values, with heads in parallel and the query, key and value projections.
+- AI engineering, chapter 2, Attention mechanism: [pages 139 to 143](../../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=139). Query, key and value vectors explained as looking up pages of a book, then multi-head attention inside the transformer block.
 
 **Videos**
 

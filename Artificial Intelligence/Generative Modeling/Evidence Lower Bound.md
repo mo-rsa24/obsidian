@@ -13,7 +13,6 @@ Artificial Intelligence, Generative Modeling. A learner's note on the VAE's two 
 
 > [!warning]- Unfinished
 > - The explanation is not written yet. This note holds only its card, under Where to learn this, and the next walk that teaches the ELBO writes the rest around it.
-> - The placement is unsure. The two best places are `Artificial Intelligence/Generative Modeling/`, since both the VAE and diffusion train on it, and `Mathematics/Statistics/`, as part of variational inference.
 
 ## Where to learn this
 
@@ -26,6 +25,7 @@ Artificial Intelligence, Generative Modeling. A learner's note on the VAE's two 
 - The little book of generative AI foundations, sections 4.2.3 to 4.3.3: [pages 75 to 81](../../Mathematics/references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=75). The diffusion ELBO, with the forward process playing Q(z), expanded into prior-matching, step-wise KL and reconstruction terms.
 - Probabilistic machine learning: advanced topics, section 10.1: [pages 466 to 468](../../Mathematics/references/textbooks/machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=466). The ELBO as the objective of variational inference, read two ways: expected log joint plus entropy, and expected log-likelihood minus KL to the prior.
 - Pattern recognition and machine learning, section 10.1: [page 479](../../Mathematics/references/textbooks/machine-learning/pattern-recognition-and-machine-learning.pdf#page=479). The decomposition ln p(X) = L(q) + KL(q ‖ p) (equation 10.2), with L(q) the lower bound that variational inference maximises.
+- The little book of generative AI foundations, section 3.2.2, Three equivalent forms of the ELBO: [page 61](../../Mathematics/references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=61). Rewrites the VAE's bound in three equivalent forms, starting from the joint-density form and the exact log-likelihood minus the posterior mismatch, each showing a different side of the reconstruction and regularisation balance.
 
 **Videos**
 

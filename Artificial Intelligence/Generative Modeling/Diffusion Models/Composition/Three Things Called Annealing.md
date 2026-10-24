@@ -1,5 +1,5 @@
 ---
-aliases: [annealing, annealed, anneal, what is annealed, which axis is annealed, three things called annealing, three knobs, anneal parameter, annealing schedule, temperature, temperature annealing, inverse temperature, guidance scale, guidance weight, guidance schedule, classifier-free guidance, classifier-free guidance scale, CFG scale, guidance is not a temperature, temperature schedule from a base, inverse temperature beta, T = 1 / beta]
+aliases: [annealing, annealed, anneal, what is annealed, which axis is annealed, three things called annealing, three knobs, anneal parameter, annealing schedule, temperature annealing, inverse temperature, guidance scale, guidance weight, guidance schedule, classifier-free guidance scale, CFG scale, guidance is not a temperature, temperature schedule from a base, inverse temperature beta, T = 1 / beta]
 sources:
   - "Neal, Annealed Importance Sampling, Statistics and Computing 11, 125 to 139, 2001: https://arxiv.org/abs/physics/9803008"
   - "Song, Ermon, Generative Modeling by Estimating Gradients of the Data Distribution, NeurIPS 2019: https://arxiv.org/abs/1907.05600"
