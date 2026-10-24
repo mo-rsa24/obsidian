@@ -1443,6 +1443,211 @@ off the pages themselves, never by subtracting a fixed number. Appendix rows are
 | References | [722](machine-learning/pattern-recognition-and-machine-learning.pdf#page=722) |
 | Index | [740](machine-learning/pattern-recognition-and-machine-learning.pdf#page=740) |
 
+### Pattern classification
+
+`machine-learning/pattern-classification.pdf`, 738 pages. Richard O. Duda, Peter E. Hart and David G.
+Stork, *Pattern Classification*, second edition, Wiley (2001). A published textbook on statistical
+pattern recognition: Bayesian decision theory and the normal density, maximum-likelihood and Bayesian
+parameter estimation (with EM and hidden Markov models), nonparametric density estimation and
+nearest-neighbour rules, linear discriminants and support vector machines, multilayer networks and
+backpropagation, stochastic search and Boltzmann learning, decision trees and grammatical methods,
+bias and variance, resampling and combining classifiers, and clustering. Appendix A collects the
+linear algebra, probability, Gaussian integrals and information theory the book leans on. Was `PC2.pdf`.
+A scanned copy of the printed book with no text layer stays outside the shelf; this copy has a text
+layer and is the one to link.
+
+**How this PDF is put together.** PDF pages 1 to 12 are scans of the printed book's cover and contents
+and carry no text layer. From PDF page 13 on, the body is the authors' typeset manuscript, one file per
+chapter (the PDF's title is `Chapter1.tex`), and each chapter is numbered from 1 again, starting at its
+own contents page. Its pages therefore do not match the printed book's pages, and a page number quoted
+from the printed book (such as the printed contents on PDF pages 3 to 12) will not open the right PDF
+page.
+
+**Page numbers.** Within a chapter, the PDF page is the printed page plus the PDF page of that chapter's
+contents page, less 1: plus 12 in chapter 1, 36 in chapter 2, 104 in chapter 3, 184 in chapter 4, 258
+in chapter 5, 330 in chapter 6, 408 in chapter 7, 458 in chapter 8, 528 in chapter 9, 602 in chapter 10
+and 694 in Appendix A. Every section heading below was found on the page this predicts. Each chapter's
+own contents page gives its bibliography and index a page or two early; the rows below give the pages
+they really start on.
+
+**Its index.** There is no index for the whole book. Each chapter ends with its own short index, in
+that chapter's numbering: PDF pages 35 to 36, 102 to 104, 180 to 183, 256 to 258, 329 to 330, 405 to
+407, 456 to 457, 525 to 527, 599 to 601, 690 to 693 and 733 to 735.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| Cover and contents of the printed book (scanned) | [1](machine-learning/pattern-classification.pdf#page=1) |
+| 1 Introduction | [15](machine-learning/pattern-classification.pdf#page=15) |
+| 1.1 Machine Perception | [15](machine-learning/pattern-classification.pdf#page=15) |
+| 1.2 An Example | [15](machine-learning/pattern-classification.pdf#page=15) |
+| 1.3 The Sub-problems of Pattern Classification | [23](machine-learning/pattern-classification.pdf#page=23) |
+| 1.4 Learning and Adaptation | [28](machine-learning/pattern-classification.pdf#page=28) |
+| 1.5 Conclusion | [29](machine-learning/pattern-classification.pdf#page=29) |
+| 1 Index (PDF 35 to 36) | [35](machine-learning/pattern-classification.pdf#page=35) |
+| 2 Bayesian decision theory | [39](machine-learning/pattern-classification.pdf#page=39) |
+| 2.1 Introduction | [39](machine-learning/pattern-classification.pdf#page=39) |
+| 2.2 Bayesian Decision Theory: Continuous Features | [43](machine-learning/pattern-classification.pdf#page=43) |
+| 2.3 Minimum-Error-Rate Classification | [45](machine-learning/pattern-classification.pdf#page=45) |
+| 2.4 Classifiers, Discriminants and Decision Surfaces | [49](machine-learning/pattern-classification.pdf#page=49) |
+| 2.5 The Normal Density | [51](machine-learning/pattern-classification.pdf#page=51) |
+| 2.6 Discriminant Functions for the Normal Density | [55](machine-learning/pattern-classification.pdf#page=55) |
+| 2.7 *Error Probabilities and Integrals | [66](machine-learning/pattern-classification.pdf#page=66) |
+| 2.8 *Error Bounds for Normal Densities | [67](machine-learning/pattern-classification.pdf#page=67) |
+| 2.9 Bayes Decision Theory: Discrete Features | [72](machine-learning/pattern-classification.pdf#page=72) |
+| 2.10 *Missing and Noisy Features | [75](machine-learning/pattern-classification.pdf#page=75) |
+| 2.11 *Compound Bayes Decision Theory and Context | [77](machine-learning/pattern-classification.pdf#page=77) |
+| 2 Problems | [80](machine-learning/pattern-classification.pdf#page=80) |
+| 2 Index (PDF 102 to 104) | [102](machine-learning/pattern-classification.pdf#page=102) |
+| 3 Maximum-likelihood and Bayesian parameter estimation | [107](machine-learning/pattern-classification.pdf#page=107) |
+| 3.1 Introduction | [107](machine-learning/pattern-classification.pdf#page=107) |
+| 3.2 Maximum Likelihood Estimation | [108](machine-learning/pattern-classification.pdf#page=108) |
+| 3.3 Bayesian estimation | [113](machine-learning/pattern-classification.pdf#page=113) |
+| 3.4 Bayesian Parameter Estimation: Gaussian Case | [115](machine-learning/pattern-classification.pdf#page=115) |
+| 3.5 Bayesian Parameter Estimation: General Theory | [120](machine-learning/pattern-classification.pdf#page=120) |
+| 3.6 *Sufficient Statistics | [125](machine-learning/pattern-classification.pdf#page=125) |
+| 3.7 Problems of Dimensionality | [131](machine-learning/pattern-classification.pdf#page=131) |
+| 3.8 *Expectation-Maximization (EM) | [136](machine-learning/pattern-classification.pdf#page=136) |
+| 3.9 *Bayesian Belief Networks | [140](machine-learning/pattern-classification.pdf#page=140) |
+| 3.10 *Hidden Markov Models | [146](machine-learning/pattern-classification.pdf#page=146) |
+| 3 Problems | [158](machine-learning/pattern-classification.pdf#page=158) |
+| 3 Index (PDF 180 to 183) | [180](machine-learning/pattern-classification.pdf#page=180) |
+| 4 Nonparametric techniques | [187](machine-learning/pattern-classification.pdf#page=187) |
+| 4.1 Introduction | [187](machine-learning/pattern-classification.pdf#page=187) |
+| 4.2 Density estimation | [187](machine-learning/pattern-classification.pdf#page=187) |
+| 4.3 Parzen Windows | [190](machine-learning/pattern-classification.pdf#page=190) |
+| 4.4 k_n-Nearest-Neighbor Estimation | [202](machine-learning/pattern-classification.pdf#page=202) |
+| 4.5 The Nearest-Neighbor Rule | [205](machine-learning/pattern-classification.pdf#page=205) |
+| 4.6 *Metrics and Nearest-Neighbor Classification | [215](machine-learning/pattern-classification.pdf#page=215) |
+| 4.7 *Fuzzy Classification | [220](machine-learning/pattern-classification.pdf#page=220) |
+| 4.8 *Relaxation methods | [223](machine-learning/pattern-classification.pdf#page=223) |
+| 4.9 *Approximations by Series Expansions | [226](machine-learning/pattern-classification.pdf#page=226) |
+| 4.10 *Fisher Linear Discriminant | [228](machine-learning/pattern-classification.pdf#page=228) |
+| 4.11 *Multiple Discriminant Analysis | [231](machine-learning/pattern-classification.pdf#page=231) |
+| 4 Problems | [236](machine-learning/pattern-classification.pdf#page=236) |
+| 4 Index (PDF 256 to 258) | [256](machine-learning/pattern-classification.pdf#page=256) |
+| 5 Linear discriminant functions | [261](machine-learning/pattern-classification.pdf#page=261) |
+| 5.1 Introduction | [261](machine-learning/pattern-classification.pdf#page=261) |
+| 5.2 Linear Discriminant Functions and Decision Surfaces | [262](machine-learning/pattern-classification.pdf#page=262) |
+| 5.3 Generalized Linear Discriminant Functions | [264](machine-learning/pattern-classification.pdf#page=264) |
+| 5.4 The Two-Category Linearly-Separable Case | [269](machine-learning/pattern-classification.pdf#page=269) |
+| 5.5 Minimizing the Perceptron Criterion Function | [272](machine-learning/pattern-classification.pdf#page=272) |
+| 5.6 Relaxation Procedures | [281](machine-learning/pattern-classification.pdf#page=281) |
+| 5.7 Nonseparable Behavior | [285](machine-learning/pattern-classification.pdf#page=285) |
+| 5.8 Minimum Squared Error Procedures | [286](machine-learning/pattern-classification.pdf#page=286) |
+| 5.9 *The Ho-Kashyap Procedures | [295](machine-learning/pattern-classification.pdf#page=295) |
+| 5.10 *Linear Programming Algorithms | [302](machine-learning/pattern-classification.pdf#page=302) |
+| 5.11 *Support Vector Machines | [307](machine-learning/pattern-classification.pdf#page=307) |
+| 5.12 Multicategory Generalizations | [310](machine-learning/pattern-classification.pdf#page=310) |
+| 5 Problems | [315](machine-learning/pattern-classification.pdf#page=315) |
+| 5 Index (PDF 329 to 330) | [329](machine-learning/pattern-classification.pdf#page=329) |
+| 6 Multilayer neural networks | [333](machine-learning/pattern-classification.pdf#page=333) |
+| 6.1 Introduction | [333](machine-learning/pattern-classification.pdf#page=333) |
+| 6.2 Feedforward operation and classification | [334](machine-learning/pattern-classification.pdf#page=334) |
+| 6.3 Backpropagation algorithm | [340](machine-learning/pattern-classification.pdf#page=340) |
+| 6.4 Error surfaces | [347](machine-learning/pattern-classification.pdf#page=347) |
+| 6.5 Backpropagation as feature mapping | [351](machine-learning/pattern-classification.pdf#page=351) |
+| 6.6 Backpropagation, Bayes theory and probability | [354](machine-learning/pattern-classification.pdf#page=354) |
+| 6.7 *Related statistical techniques | [358](machine-learning/pattern-classification.pdf#page=358) |
+| 6.8 Practical techniques for backpropagation | [359](machine-learning/pattern-classification.pdf#page=359) |
+| 6.9 *Second-order methods | [371](machine-learning/pattern-classification.pdf#page=371) |
+| 6.10 *Additional networks and training methods | [376](machine-learning/pattern-classification.pdf#page=376) |
+| 6.11 Regularization and complexity adjustment | [381](machine-learning/pattern-classification.pdf#page=381) |
+| 6 Problems | [388](machine-learning/pattern-classification.pdf#page=388) |
+| 6 Index (PDF 405 to 407) | [405](machine-learning/pattern-classification.pdf#page=405) |
+| 7 Stochastic methods | [411](machine-learning/pattern-classification.pdf#page=411) |
+| 7.1 Introduction | [411](machine-learning/pattern-classification.pdf#page=411) |
+| 7.2 Stochastic search | [412](machine-learning/pattern-classification.pdf#page=412) |
+| 7.3 Boltzmann learning | [420](machine-learning/pattern-classification.pdf#page=420) |
+| 7.4 *Boltzmann networks and graphical models | [431](machine-learning/pattern-classification.pdf#page=431) |
+| 7.5 *Evolutionary methods | [433](machine-learning/pattern-classification.pdf#page=433) |
+| 7.6 *Genetic Programming | [440](machine-learning/pattern-classification.pdf#page=440) |
+| 7 Problems | [444](machine-learning/pattern-classification.pdf#page=444) |
+| 7 Index (PDF 456 to 457) | [456](machine-learning/pattern-classification.pdf#page=456) |
+| 8 Nonmetric methods | [461](machine-learning/pattern-classification.pdf#page=461) |
+| 8.1 Introduction | [461](machine-learning/pattern-classification.pdf#page=461) |
+| 8.2 Decision trees | [462](machine-learning/pattern-classification.pdf#page=462) |
+| 8.3 CART | [463](machine-learning/pattern-classification.pdf#page=463) |
+| 8.4 Other tree methods | [478](machine-learning/pattern-classification.pdf#page=478) |
+| 8.5 *Recognition with strings | [480](machine-learning/pattern-classification.pdf#page=480) |
+| 8.6 Grammatical methods | [489](machine-learning/pattern-classification.pdf#page=489) |
+| 8.7 Grammatical inference | [496](machine-learning/pattern-classification.pdf#page=496) |
+| 8.8 *Rule-based methods | [499](machine-learning/pattern-classification.pdf#page=499) |
+| 8 Problems | [504](machine-learning/pattern-classification.pdf#page=504) |
+| 8 Index (PDF 525 to 527) | [525](machine-learning/pattern-classification.pdf#page=525) |
+| 9 Algorithm-independent machine learning | [531](machine-learning/pattern-classification.pdf#page=531) |
+| 9.1 Introduction | [531](machine-learning/pattern-classification.pdf#page=531) |
+| 9.2 Lack of inherent superiority of any classifier | [532](machine-learning/pattern-classification.pdf#page=532) |
+| 9.3 Bias and variance | [543](machine-learning/pattern-classification.pdf#page=543) |
+| 9.4 *Resampling for estimating statistics | [548](machine-learning/pattern-classification.pdf#page=548) |
+| 9.5 Resampling for classifier design | [553](machine-learning/pattern-classification.pdf#page=553) |
+| 9.6 Estimating and comparing classifiers | [560](machine-learning/pattern-classification.pdf#page=560) |
+| 9.7 Combining classifiers | [573](machine-learning/pattern-classification.pdf#page=573) |
+| 9 Problems | [579](machine-learning/pattern-classification.pdf#page=579) |
+| 9 Index (PDF 599 to 601) | [599](machine-learning/pattern-classification.pdf#page=599) |
+| 10 Unsupervised learning and clustering | [605](machine-learning/pattern-classification.pdf#page=605) |
+| 10.1 Introduction | [605](machine-learning/pattern-classification.pdf#page=605) |
+| 10.2 Mixture Densities and Identifiability | [606](machine-learning/pattern-classification.pdf#page=606) |
+| 10.3 Maximum-Likelihood Estimates | [608](machine-learning/pattern-classification.pdf#page=608) |
+| 10.4 Application to Normal Mixtures | [609](machine-learning/pattern-classification.pdf#page=609) |
+| 10.5 Unsupervised Bayesian Learning | [619](machine-learning/pattern-classification.pdf#page=619) |
+| 10.6 *Data Description and Clustering | [626](machine-learning/pattern-classification.pdf#page=626) |
+| 10.7 Criterion Functions for Clustering | [631](machine-learning/pattern-classification.pdf#page=631) |
+| 10.8 *Iterative Optimization | [637](machine-learning/pattern-classification.pdf#page=637) |
+| 10.9 Hierarchical Clustering | [639](machine-learning/pattern-classification.pdf#page=639) |
+| 10 Problems | [670](machine-learning/pattern-classification.pdf#page=670) |
+| 10 Index (PDF 690 to 693) | [690](machine-learning/pattern-classification.pdf#page=690) |
+| Appendix A Mathematical foundations | [697](machine-learning/pattern-classification.pdf#page=697) |
+| A.1 Notation | [697](machine-learning/pattern-classification.pdf#page=697) |
+| A.2 Linear algebra | [700](machine-learning/pattern-classification.pdf#page=700) |
+| A.3 Lagrange optimization | [706](machine-learning/pattern-classification.pdf#page=706) |
+| A.4 Probability Theory | [706](machine-learning/pattern-classification.pdf#page=706) |
+| A.5 Gaussian derivatives and integrals | [718](machine-learning/pattern-classification.pdf#page=718) |
+| A.6 Hypothesis testing | [724](machine-learning/pattern-classification.pdf#page=724) |
+| A.7 Information theory | [726](machine-learning/pattern-classification.pdf#page=726) |
+| A.8 Computational complexity | [728](machine-learning/pattern-classification.pdf#page=728) |
+| A Index (PDF 733 to 735) | [733](machine-learning/pattern-classification.pdf#page=733) |
+
+### Pattern classification solutions
+
+`machine-learning/pattern-classification-solutions.pdf`, 446 pages. David G. Stork, *Solution Manual to
+accompany Pattern Classification (2nd ed.)* by Duda, Hart and Stork, copyright 2001, this version dated
+June 18, 2003. The instructor's solutions manual for the book above: worked solutions to every
+chapter's problems, notes on its computer exercises, sample final exams with solutions, worked
+examples by section, and the errata for the first to fifth printings. Was `Duda-problemsolutions.pdf`.
+Problem numbers follow the book's, so a problem in the book's chapter is found here by its number.
+
+**Page numbers.** The printed page number is the PDF page minus 2 (printed page 7, where chapter 2
+starts, is PDF page 9). The PDF's embedded page labels only count PDF pages and do not match what is
+printed. There is no index.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| Preface | [3](machine-learning/pattern-classification-solutions.pdf#page=3) |
+| Contents | [5](machine-learning/pattern-classification-solutions.pdf#page=5) |
+| 1 Introduction | [7](machine-learning/pattern-classification-solutions.pdf#page=7) |
+| 2 Bayesian decision theory | [9](machine-learning/pattern-classification-solutions.pdf#page=9) |
+| 2 Computer exercises | [76](machine-learning/pattern-classification-solutions.pdf#page=76) |
+| 3 Maximum likelihood and Bayesian parameter estimation | [79](machine-learning/pattern-classification-solutions.pdf#page=79) |
+| 3 Computer exercises | [132](machine-learning/pattern-classification-solutions.pdf#page=132) |
+| 4 Nonparametric techniques | [133](machine-learning/pattern-classification-solutions.pdf#page=133) |
+| 4 Computer exercises | [176](machine-learning/pattern-classification-solutions.pdf#page=176) |
+| 5 Linear discriminant functions | [179](machine-learning/pattern-classification-solutions.pdf#page=179) |
+| 5 Computer exercises | [219](machine-learning/pattern-classification-solutions.pdf#page=219) |
+| 6 Multilayer neural networks | [221](machine-learning/pattern-classification-solutions.pdf#page=221) |
+| 6 Computer exercises | [256](machine-learning/pattern-classification-solutions.pdf#page=256) |
+| 7 Stochastic methods | [257](machine-learning/pattern-classification-solutions.pdf#page=257) |
+| 7 Computer exercises | [278](machine-learning/pattern-classification-solutions.pdf#page=278) |
+| 8 Nonmetric methods | [279](machine-learning/pattern-classification-solutions.pdf#page=279) |
+| 8 Computer exercises | [296](machine-learning/pattern-classification-solutions.pdf#page=296) |
+| 9 Algorithm-independent machine learning | [297](machine-learning/pattern-classification-solutions.pdf#page=297) |
+| 9 Computer exercises | [306](machine-learning/pattern-classification-solutions.pdf#page=306) |
+| 10 Unsupervised learning and clustering | [307](machine-learning/pattern-classification-solutions.pdf#page=307) |
+| 10 Computer exercises | [357](machine-learning/pattern-classification-solutions.pdf#page=357) |
+| Sample final exams and solutions | [359](machine-learning/pattern-classification-solutions.pdf#page=359) |
+| Worked examples | [417](machine-learning/pattern-classification-solutions.pdf#page=417) |
+| Errata in the text: first and second printings | [419](machine-learning/pattern-classification-solutions.pdf#page=419) |
+| Errata in the text: fifth printing | [445](machine-learning/pattern-classification-solutions.pdf#page=445) |
+
 ### Probabilistic machine learning: an introduction
 
 `machine-learning/probabilistic-machine-learning-an-introduction.pdf`, 863 pages. Kevin P. Murphy, *Probabilistic Machine Learning: An Introduction*, MIT Press,
@@ -3296,3 +3501,440 @@ section's page.
 | Epilogue | [930](ai-engineering/ai-engineering.pdf#page=930) |
 | Index | [932](ai-engineering/ai-engineering.pdf#page=932) |
 | About the Author | [989](ai-engineering/ai-engineering.pdf#page=989) |
+
+## software-engineering/
+
+### Code simplicity
+
+`software-engineering/code-simplicity.pdf`, 90 pages. Max Kanat-Alexander, *Code Simplicity*, O'Reilly Media, first edition, March 2012. A short published book arguing for
+software design as a science with stated laws: the purpose of software, the equation of software design,
+change and the three
+flaws, defects and design, simplicity, complexity and when rewriting is justified, and testing.
+Appendix A lists the laws and appendix B every fact, law, rule and definition in the book. Was `Code
+Simplicity - Max Kanat-Alexander.pdf`; the copy carries it-ebooks.info stamps on its pages.
+
+**Page numbers.** The printed page number is the PDF page minus 10 (printed page 1, where chapter 1
+starts, is PDF page 11). The front matter is numbered in roman. There is no index; the table is the
+PDF's own outline, chapters and their sections.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| Table of Contents | [5](software-engineering/code-simplicity.pdf#page=5) |
+| Preface | [7](software-engineering/code-simplicity.pdf#page=7) |
+| Conventions Used in This Book | [8](software-engineering/code-simplicity.pdf#page=8) |
+| Attribution and Permissions | [8](software-engineering/code-simplicity.pdf#page=8) |
+| Safari® Books Online | [8](software-engineering/code-simplicity.pdf#page=8) |
+| How to Contact Us | [9](software-engineering/code-simplicity.pdf#page=9) |
+| Acknowledgments | [10](software-engineering/code-simplicity.pdf#page=10) |
+| Chapter 1. Introduction | [11](software-engineering/code-simplicity.pdf#page=11) |
+| What’s Wrong with Computers? | [11](software-engineering/code-simplicity.pdf#page=11) |
+| What Is a Program, Really? | [13](software-engineering/code-simplicity.pdf#page=13) |
+| Chapter 2. The Missing Science | [15](software-engineering/code-simplicity.pdf#page=15) |
+| Every Programmer Is a Designer | [16](software-engineering/code-simplicity.pdf#page=16) |
+| The Science of Software Design | [17](software-engineering/code-simplicity.pdf#page=17) |
+| Why Has There Been No Science of Software Design? | [19](software-engineering/code-simplicity.pdf#page=19) |
+| Chapter 3. The Driving Forces of Software Design | [23](software-engineering/code-simplicity.pdf#page=23) |
+| The Goals of Software Design | [26](software-engineering/code-simplicity.pdf#page=26) |
+| Chapter 4. The Future | [29](software-engineering/code-simplicity.pdf#page=29) |
+| The Equation of Software Design | [29](software-engineering/code-simplicity.pdf#page=29) |
+| The Quality of Design | [36](software-engineering/code-simplicity.pdf#page=36) |
+| Unforeseeable Consequences | [37](software-engineering/code-simplicity.pdf#page=37) |
+| Chapter 5. Change | [41](software-engineering/code-simplicity.pdf#page=41) |
+| Change in a Real-World Program | [41](software-engineering/code-simplicity.pdf#page=41) |
+| The Three Flaws | [44](software-engineering/code-simplicity.pdf#page=44) |
+| Incremental Development and Design | [50](software-engineering/code-simplicity.pdf#page=50) |
+| Chapter 6. Defects and Design | [53](software-engineering/code-simplicity.pdf#page=53) |
+| If It Ain’t Broken... | [54](software-engineering/code-simplicity.pdf#page=54) |
+| Don’t Repeat Yourself | [55](software-engineering/code-simplicity.pdf#page=55) |
+| Chapter 7. Simplicity | [57](software-engineering/code-simplicity.pdf#page=57) |
+| Simplicity and the Equation of Software Design | [59](software-engineering/code-simplicity.pdf#page=59) |
+| Simplicity Is Relative | [59](software-engineering/code-simplicity.pdf#page=59) |
+| How Simple Do You Have to Be? | [61](software-engineering/code-simplicity.pdf#page=61) |
+| Be Consistent | [63](software-engineering/code-simplicity.pdf#page=63) |
+| Readability | [64](software-engineering/code-simplicity.pdf#page=64) |
+| Simplicity Requires Design | [66](software-engineering/code-simplicity.pdf#page=66) |
+| Chapter 8. Complexity | [69](software-engineering/code-simplicity.pdf#page=69) |
+| Complexity and Purpose | [71](software-engineering/code-simplicity.pdf#page=71) |
+| Bad Technologies | [72](software-engineering/code-simplicity.pdf#page=72) |
+| Complexity and the Wrong Solution | [74](software-engineering/code-simplicity.pdf#page=74) |
+| Complex Problems | [75](software-engineering/code-simplicity.pdf#page=75) |
+| Handling Complexity | [76](software-engineering/code-simplicity.pdf#page=76) |
+| Rewriting | [79](software-engineering/code-simplicity.pdf#page=79) |
+| Chapter 9. Testing | [81](software-engineering/code-simplicity.pdf#page=81) |
+| Appendix A. The Laws of Software Design | [83](software-engineering/code-simplicity.pdf#page=83) |
+| Appendix B. Facts, Laws, Rules, and Definitions | [85](software-engineering/code-simplicity.pdf#page=85) |
+
+## system-design/
+
+### System design interview
+
+`system-design/system-design-interview.pdf`, 269 pages. Alex Xu, *System Design Interview: An Insider's
+Guide*, second edition according to the PDF's own title (the title page names no edition or year),
+2020. A published interview-preparation book: scaling a web service from one server to millions of
+users, back-of-the-envelope estimation, a four-step framework for the interview, then twelve worked
+designs (a rate limiter, consistent hashing, a key-value store, a unique ID generator, a URL
+shortener, a web crawler, a notification system, a news feed, a chat system, search autocomplete,
+YouTube and Google Drive), each ending with its reference list. Was `System Design Interview by Alex
+Xu.pdf`; five byte-identical copies of it were downloaded alongside.
+
+**Page numbers.** calibre made this PDF from the ebook, so its pages carry no printed page numbers and
+do not match the print edition's pages. Every number here is a PDF page. There is no index; the table
+is the PDF's own outline.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| System Design Interview: An Insider’s Guide | [2](system-design/system-design-interview.pdf#page=2) |
+| Forward | [4](system-design/system-design-interview.pdf#page=4) |
+| 1 Scale from zero to millions of users | [5](system-design/system-design-interview.pdf#page=5) |
+| 2 Back-of-the-envelope estimation | [34](system-design/system-design-interview.pdf#page=34) |
+| 3 A framework for system design interviews | [42](system-design/system-design-interview.pdf#page=42) |
+| 4 Design a rate limiter | [51](system-design/system-design-interview.pdf#page=51) |
+| 5 Design consistent hashing | [71](system-design/system-design-interview.pdf#page=71) |
+| 6 Design a key-value store | [87](system-design/system-design-interview.pdf#page=87) |
+| 7 Design a unique ID generator in distributed systems | [110](system-design/system-design-interview.pdf#page=110) |
+| 8 Design a URL shortener | [119](system-design/system-design-interview.pdf#page=119) |
+| 9 Design a web crawler | [132](system-design/system-design-interview.pdf#page=132) |
+| 10 Design a notification system | [151](system-design/system-design-interview.pdf#page=151) |
+| 11 Design a news feed system | [166](system-design/system-design-interview.pdf#page=166) |
+| 12 Design a chat system | [178](system-design/system-design-interview.pdf#page=178) |
+| 13 Design a search autocomplete system | [200](system-design/system-design-interview.pdf#page=200) |
+| 14 Design YouTube | [220](system-design/system-design-interview.pdf#page=220) |
+| 15 Design Google Drive | [244](system-design/system-design-interview.pdf#page=244) |
+| 16 The learning continues | [264](system-design/system-design-interview.pdf#page=264) |
+| Afterword | [269](system-design/system-design-interview.pdf#page=269) |
+### System design big archive
+
+`system-design/system-design-big-archive.pdf`, 442 pages, 206 MB. ByteByteGo, *Big Archive: System
+Design 2025* (the PDF's own title is "2025 Archive"), assembled in Google Docs. A collection of 213
+short ByteByteGo posts, most of them one or two pages built around a single diagram: protocols and
+networking, APIs and authentication (JWT, OAuth, SSO), databases and caches, Kubernetes, Docker and
+cloud services, messaging (RabbitMQ, SQS, SNS), how named companies built their systems, design
+patterns, and AI tooling (RAG, agents, MCP). It is a reference to look a diagram up in, not a course;
+a few posts appear more than once. Was `Bytebytego_Big_Archive_System_Design_2025.pdf`.
+
+**Page numbers.** The PDF's printed contents (PDF pages 2 to 7) give PDF pages, and the posts carry no
+page numbers of their own. There is no index; the table is the PDF's own outline, one row per post.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| The 9 Algorithms That Dominate Our World | [8](system-design/system-design-big-archive.pdf#page=8) |
+| How does gRPC work? | [12](system-design/system-design-big-archive.pdf#page=12) |
+| Docker vs. Kubernetes. Which one should we use? | [14](system-design/system-design-big-archive.pdf#page=14) |
+| What happens when you type google .com into a browser? | [18](system-design/system-design-big-archive.pdf#page=18) |
+| A Cheatsheet on Infrastructure as Code Landscape | [20](system-design/system-design-big-archive.pdf#page=20) |
+| A Crash Course on Architectural Scalability | [22](system-design/system-design-big-archive.pdf#page=22) |
+| The Open Source AI Stack | [24](system-design/system-design-big-archive.pdf#page=24) |
+| Cookies Vs Sessions Vs JWT Vs PASETO | [26](system-design/system-design-big-archive.pdf#page=26) |
+| How TikTok Manages a 200K File Frontend MonoRepo? | [28](system-design/system-design-big-archive.pdf#page=28) |
+| The Ultimate API Learning Roadmap | [30](system-design/system-design-big-archive.pdf#page=30) |
+| 30 Useful AI Apps That Can Help You in 2025 | [32](system-design/system-design-big-archive.pdf#page=32) |
+| 10 Essential Components of a Production Web Application | [34](system-design/system-design-big-archive.pdf#page=34) |
+| Session, Cookie, JWT, Token, SSO, and OAuth 2.0 Explained in One Diagram | [36](system-design/system-design-big-archive.pdf#page=36) |
+| DeepSeek 1-Pager | [38](system-design/system-design-big-archive.pdf#page=38) |
+| My Favorite 10 Books for Software Developers | [40](system-design/system-design-big-archive.pdf#page=40) |
+| What is an AI Agent? | [42](system-design/system-design-big-archive.pdf#page=42) |
+| Git vs GitHub | [44](system-design/system-design-big-archive.pdf#page=44) |
+| A Cheatsheet on Database Performance | [46](system-design/system-design-big-archive.pdf#page=46) |
+| 18 Common Ports Worth Knowing | [48](system-design/system-design-big-archive.pdf#page=48) |
+| Generative Adversarial Network (GAN) - AI by Hand ✍️ | [50](system-design/system-design-big-archive.pdf#page=50) |
+| JWT 101: Key to Stateless Authentication | [51](system-design/system-design-big-archive.pdf#page=51) |
+| A handy cheat sheet for the most popular cloud services | [53](system-design/system-design-big-archive.pdf#page=53) |
+| 0 to 1.5 Billion Guests: Airbnb’s Architectural Evolution | [57](system-design/system-design-big-archive.pdf#page=57) |
+| 12 Algorithms for System Design Interviews | [59](system-design/system-design-big-archive.pdf#page=59) |
+| How Kubernetes Works? | [61](system-design/system-design-big-archive.pdf#page=61) |
+| PostgreSQL 101: The Everything Database | [63](system-design/system-design-big-archive.pdf#page=63) |
+| Top 12 Tips for API Security | [65](system-design/system-design-big-archive.pdf#page=65) |
+| 24 Good Resources to Learn Software Architecture in 2025 | [67](system-design/system-design-big-archive.pdf#page=67) |
+| SQS vs SNS vs EventBridge vs Kinesis | [69](system-design/system-design-big-archive.pdf#page=69) |
+| Top 5 common ways to improve API performance | [71](system-design/system-design-big-archive.pdf#page=71) |
+| xAI’s Grok-3 One-Pager | [73](system-design/system-design-big-archive.pdf#page=73) |
+| 30 Free APIs for Developers | [75](system-design/system-design-big-archive.pdf#page=75) |
+| The Generative AI Learning Roadmap | [77](system-design/system-design-big-archive.pdf#page=77) |
+| HTTP/1 -> HTTP/2 -> HTTP/3 | [79](system-design/system-design-big-archive.pdf#page=79) |
+| Structure of URL | [81](system-design/system-design-big-archive.pdf#page=81) |
+| A Cheatsheet on Comparing Key-Value Stores | [83](system-design/system-design-big-archive.pdf#page=83) |
+| Which Database Should I Use on AWS? | [85](system-design/system-design-big-archive.pdf#page=85) |
+| What is MCP? | [87](system-design/system-design-big-archive.pdf#page=87) |
+| How to Design a System like Instagram | [89](system-design/system-design-big-archive.pdf#page=89) |
+| How to load your websites at lightning speed | [91](system-design/system-design-big-archive.pdf#page=91) |
+| What is SSO (Single Sign-On)? | [93](system-design/system-design-big-archive.pdf#page=93) |
+| How Java Virtual Threads Work? | [95](system-design/system-design-big-archive.pdf#page=95) |
+| Redis VS Memcached | [97](system-design/system-design-big-archive.pdf#page=97) |
+| The Shopify Tech Stack | [98](system-design/system-design-big-archive.pdf#page=98) |
+| What is Retrieval-Augmented Generation (RAG)? | [102](system-design/system-design-big-archive.pdf#page=102) |
+| How Two-factor Authentication (2FA) Works? | [104](system-design/system-design-big-archive.pdf#page=104) |
+| How Amazon S3 Works? | [106](system-design/system-design-big-archive.pdf#page=106) |
+| How to Learn Backend Development? | [108](system-design/system-design-big-archive.pdf#page=108) |
+| A Simplified Git Workflow | [110](system-design/system-design-big-archive.pdf#page=110) |
+| Virtualization vs Containerization | [112](system-design/system-design-big-archive.pdf#page=112) |
+| How Netflix Built a Distributed Counter? | [114](system-design/system-design-big-archive.pdf#page=114) |
+| How to Learn API Development? | [116](system-design/system-design-big-archive.pdf#page=116) |
+| Must-Know Network Protocol Dependencies | [118](system-design/system-design-big-archive.pdf#page=118) |
+| Top AI Coding Tools for Developers You Can Use in 2025 | [120](system-design/system-design-big-archive.pdf#page=120) |
+| 18 Key Design Patterns Every Developer Should Know | [122](system-design/system-design-big-archive.pdf#page=122) |
+| The Data Engineering Roadmap | [124](system-design/system-design-big-archive.pdf#page=124) |
+| What do version numbers mean? | [128](system-design/system-design-big-archive.pdf#page=128) |
+| Everyone talks about Transformers. How Transformers Architecture Works? | [130](system-design/system-design-big-archive.pdf#page=130) |
+| Top YouTube Channels and Blogs for AI Learning in 2025 | [132](system-design/system-design-big-archive.pdf#page=132) |
+| Top 20 System Design Concepts You Should Know | [134](system-design/system-design-big-archive.pdf#page=134) |
+| 9 OOP Design Patterns You Must Know | [139](system-design/system-design-big-archive.pdf#page=139) |
+| A Cheatsheet on REST API Design Best Practices | [143](system-design/system-design-big-archive.pdf#page=143) |
+| Top 30 AWS Services That Are Commonly Used | [145](system-design/system-design-big-archive.pdf#page=145) |
+| The Large-Language Model Glossary | [147](system-design/system-design-big-archive.pdf#page=147) |
+| 9 Clean Code Principles To Keep In Mind | [149](system-design/system-design-big-archive.pdf#page=149) |
+| The 4 Types of SQL Joins | [151](system-design/system-design-big-archive.pdf#page=151) |
+| How to Learn Cloud Computing? | [153](system-design/system-design-big-archive.pdf#page=153) |
+| Visualizing a SQL query | [155](system-design/system-design-big-archive.pdf#page=155) |
+| Explaining JSON Web Token (JWT) with simple terms | [156](system-design/system-design-big-archive.pdf#page=156) |
+| 12 MCP Servers You Can Use in 2025 | [158](system-design/system-design-big-archive.pdf#page=158) |
+| How to Deploy Services | [160](system-design/system-design-big-archive.pdf#page=160) |
+| The System Design Topic Map | [162](system-design/system-design-big-archive.pdf#page=162) |
+| How Transformers Architecture Works? | [164](system-design/system-design-big-archive.pdf#page=164) |
+| JWT Simply Explained | [166](system-design/system-design-big-archive.pdf#page=166) |
+| The 5 Pillars of API Design | [168](system-design/system-design-big-archive.pdf#page=168) |
+| How Computer Memory Works? | [170](system-design/system-design-big-archive.pdf#page=170) |
+| Top Kubernetes Scaling Strategies You Must Know | [172](system-design/system-design-big-archive.pdf#page=172) |
+| AI Agent versus MCP | [174](system-design/system-design-big-archive.pdf#page=174) |
+| How does HTTPS work? | [176](system-design/system-design-big-archive.pdf#page=176) |
+| How to Learn Kubernetes? | [178](system-design/system-design-big-archive.pdf#page=178) |
+| Top 6 most commonly used Server Types | [180](system-design/system-design-big-archive.pdf#page=180) |
+| Amazon Key Architecture with Third Party Integration | [182](system-design/system-design-big-archive.pdf#page=182) |
+| How Do Companies Ship Code to Production? | [184](system-design/system-design-big-archive.pdf#page=184) |
+| What is Event Sourcing? How is it different from normal CRUD design? | [186](system-design/system-design-big-archive.pdf#page=186) |
+| How Data Lake Architecture Works? | [188](system-design/system-design-big-archive.pdf#page=188) |
+| How Netflix Built a Distributed Counter | [190](system-design/system-design-big-archive.pdf#page=190) |
+| Top 20 AI Concepts You Should Know | [194](system-design/system-design-big-archive.pdf#page=194) |
+| The AI Application Stack for Building RAG Apps | [196](system-design/system-design-big-archive.pdf#page=196) |
+| Shopify Tech Stacks and Tools | [198](system-design/system-design-big-archive.pdf#page=198) |
+| AI Vs Machine Learning Vs Deep Learning Vs Generative AI | [200](system-design/system-design-big-archive.pdf#page=200) |
+| How SQL Query Executes In A Database? | [202](system-design/system-design-big-archive.pdf#page=202) |
+| Top 20 AI Agent Concepts You Should Know | [204](system-design/system-design-big-archive.pdf#page=204) |
+| How RabbitMQ Works? | [206](system-design/system-design-big-archive.pdf#page=206) |
+| RAG vs Agentic RAG | [208](system-design/system-design-big-archive.pdf#page=208) |
+| A Cheatsheet on Kubernetes | [210](system-design/system-design-big-archive.pdf#page=210) |
+| 6 Data Structures to Save Storage | [212](system-design/system-design-big-archive.pdf#page=212) |
+| 5 Database Normal Forms Every Developer Should Know | [214](system-design/system-design-big-archive.pdf#page=214) |
+| How CQRS Works? | [218](system-design/system-design-big-archive.pdf#page=218) |
+| How MongoDB Works? | [220](system-design/system-design-big-archive.pdf#page=220) |
+| The Generative AI Tech Stack | [222](system-design/system-design-big-archive.pdf#page=222) |
+| 24 Good Resources to Learn Software Architecture in 2025 | [224](system-design/system-design-big-archive.pdf#page=224) |
+| Database Index Types Every Developer Should Know | [226](system-design/system-design-big-archive.pdf#page=226) |
+| The Agentic AI Learning Roadmap | [228](system-design/system-design-big-archive.pdf#page=228) |
+| 12 MCP Servers You Can Use in 2025 | [230](system-design/system-design-big-archive.pdf#page=230) |
+| Top 5 common ways to improve API performance | [232](system-design/system-design-big-archive.pdf#page=232) |
+| REST API Vs. GraphQL | [234](system-design/system-design-big-archive.pdf#page=234) |
+| Tokens vs API Keys | [236](system-design/system-design-big-archive.pdf#page=236) |
+| The AWS Tech Stack | [238](system-design/system-design-big-archive.pdf#page=238) |
+| 5 Data Structures That Make DB Queries Super Fast | [240](system-design/system-design-big-archive.pdf#page=240) |
+| 12 MCP Servers You Can Use in 2025 | [242](system-design/system-design-big-archive.pdf#page=242) |
+| MCP Versus A2A Protocol | [244](system-design/system-design-big-archive.pdf#page=244) |
+| How can Cache Systems go wrong? | [246](system-design/system-design-big-archive.pdf#page=246) |
+| 8 System Design Concepts Explained in 1 Diagram | [248](system-design/system-design-big-archive.pdf#page=248) |
+| 16 Coding Patterns That Make Interviews Easy | [250](system-design/system-design-big-archive.pdf#page=250) |
+| How to Learn Databases? | [252](system-design/system-design-big-archive.pdf#page=252) |
+| What happens when you type a URL into a browser? | [254](system-design/system-design-big-archive.pdf#page=254) |
+| How HTTPS Works? | [256](system-design/system-design-big-archive.pdf#page=256) |
+| The Evolution of Scaling at Netflix | [258](system-design/system-design-big-archive.pdf#page=258) |
+| What is the SOLID Principle? | [260](system-design/system-design-big-archive.pdf#page=260) |
+| Common HTTP Status Codes | [262](system-design/system-design-big-archive.pdf#page=262) |
+| How Clean Architecture Works? | [264](system-design/system-design-big-archive.pdf#page=264) |
+| How does Docker Work? | [265](system-design/system-design-big-archive.pdf#page=265) |
+| How Large Language Models Work? | [266](system-design/system-design-big-archive.pdf#page=266) |
+| How Does SSO Work? | [268](system-design/system-design-big-archive.pdf#page=268) |
+| Best Practices in API Design | [270](system-design/system-design-big-archive.pdf#page=270) |
+| Key Terms in Domain-Driven Design | [272](system-design/system-design-big-archive.pdf#page=272) |
+| Top AI Agent Frameworks You Should Know | [274](system-design/system-design-big-archive.pdf#page=274) |
+| How OpenAI’s GPT-OSS 120B and 20B Models Work? | [276](system-design/system-design-big-archive.pdf#page=276) |
+| The Modern Software Stack | [278](system-design/system-design-big-archive.pdf#page=278) |
+| Concurrency is NOT Parallelism | [280](system-design/system-design-big-archive.pdf#page=280) |
+| JWT vs PASETO: The Two Players of Token-Based Authentication | [282](system-design/system-design-big-archive.pdf#page=282) |
+| The Linux Cron Cheatsheet | [284](system-design/system-design-big-archive.pdf#page=284) |
+| AI Agent versus MCP | [286](system-design/system-design-big-archive.pdf#page=286) |
+| The Lifecycle of a Kubernetes Pod | [288](system-design/system-design-big-archive.pdf#page=288) |
+| CI/CD Pipeline Explained | [290](system-design/system-design-big-archive.pdf#page=290) |
+| The Open Source RAG Stack | [291](system-design/system-design-big-archive.pdf#page=291) |
+| What are some of the most popular versioning strategies? | [293](system-design/system-design-big-archive.pdf#page=293) |
+| The Testing Pyramid | [294](system-design/system-design-big-archive.pdf#page=294) |
+| 9 Docker Best Practices You Should Know | [295](system-design/system-design-big-archive.pdf#page=295) |
+| Kubernetes Explained | [297](system-design/system-design-big-archive.pdf#page=297) |
+| N8N versus LangGraph | [299](system-design/system-design-big-archive.pdf#page=299) |
+| Where Do We Cache Data? | [301](system-design/system-design-big-archive.pdf#page=301) |
+| Python vs Java | [303](system-design/system-design-big-archive.pdf#page=303) |
+| Design Patterns Cheat Sheet | [305](system-design/system-design-big-archive.pdf#page=305) |
+| CI/CD Simplified Visual Guide | [308](system-design/system-design-big-archive.pdf#page=308) |
+| How Apache Kafka Works? | [310](system-design/system-design-big-archive.pdf#page=310) |
+| Load Balancers vs API Gateways vs Reverse Proxy! And how can they Work Together? | [312](system-design/system-design-big-archive.pdf#page=312) |
+| How Java Works | [314](system-design/system-design-big-archive.pdf#page=314) |
+| How Gitflow Branching Works? | [316](system-design/system-design-big-archive.pdf#page=316) |
+| The Life of a Redis Query | [318](system-design/system-design-big-archive.pdf#page=318) |
+| 6 Steps to Create a New AI Model | [320](system-design/system-design-big-archive.pdf#page=320) |
+| Cookies vs Sessions | [322](system-design/system-design-big-archive.pdf#page=322) |
+| Access Control Clearly Explained | [324](system-design/system-design-big-archive.pdf#page=324) |
+| Full Fine-Tuning vs LoRA vs RAG | [326](system-design/system-design-big-archive.pdf#page=326) |
+| How Git Reset Works? | [328](system-design/system-design-big-archive.pdf#page=328) |
+| Apache Kafka Explained (At the high level) | [330](system-design/system-design-big-archive.pdf#page=330) |
+| MCP vs API: what’s the difference? | [332](system-design/system-design-big-archive.pdf#page=332) |
+| TCP vs UDP | [334](system-design/system-design-big-archive.pdf#page=334) |
+| A piece of knowledge each day: AI and Machine Learning (ML) | [335](system-design/system-design-big-archive.pdf#page=335) |
+| How Python Works | [337](system-design/system-design-big-archive.pdf#page=337) |
+| API Vs SDK! | [339](system-design/system-design-big-archive.pdf#page=339) |
+| SQL Injection (SQLi) | [341](system-design/system-design-big-archive.pdf#page=341) |
+| Types of AI Agents | [343](system-design/system-design-big-archive.pdf#page=343) |
+| 24 Good Resources to Learn Software Architecture in 2025 | [345](system-design/system-design-big-archive.pdf#page=345) |
+| Cross-Site Scripting (XSS) Attacks | [347](system-design/system-design-big-archive.pdf#page=347) |
+| Docker vs Kubernetes | [349](system-design/system-design-big-archive.pdf#page=349) |
+| Batch vs Stream Processing | [351](system-design/system-design-big-archive.pdf#page=351) |
+| What are Modular Monoliths? | [353](system-design/system-design-big-archive.pdf#page=353) |
+| Popular interview question: What is the difference between Process and Thread? | [355](system-design/system-design-big-archive.pdf#page=355) |
+| How AI Agents Chain Tools, Memory, and Reasoning? | [356](system-design/system-design-big-archive.pdf#page=356) |
+| Latency vs. Throughput | [358](system-design/system-design-big-archive.pdf#page=358) |
+| Top 20 System Design Concepts You Should Know | [360](system-design/system-design-big-archive.pdf#page=360) |
+| How to Debug a Slow API? | [362](system-design/system-design-big-archive.pdf#page=362) |
+| How LLMs See the World | [364](system-design/system-design-big-archive.pdf#page=364) |
+| RAG vs Fine-tuning: Which one should you use? | [366](system-design/system-design-big-archive.pdf#page=366) |
+| IP Address Cheat Sheet Every Engineer Should Know | [369](system-design/system-design-big-archive.pdf#page=369) |
+| Which Protocols Run on TCP and UDP | [371](system-design/system-design-big-archive.pdf#page=371) |
+| Why is DeepSeek-OCR such a BIG DEAL? | [373](system-design/system-design-big-archive.pdf#page=373) |
+| Servers You Should Know in Modern Systems | [375](system-design/system-design-big-archive.pdf#page=375) |
+| The Building Blocks of Modern Networking | [376](system-design/system-design-big-archive.pdf#page=376) |
+| Network Services That Power Modern Connectivity | [378](system-design/system-design-big-archive.pdf#page=378) |
+| How to Design Good APIs | [380](system-design/system-design-big-archive.pdf#page=380) |
+| Big Data Pipeline Cheatsheet for AWS, Azure, and Google Cloud | [382](system-design/system-design-big-archive.pdf#page=382) |
+| How to Learn AWS? | [384](system-design/system-design-big-archive.pdf#page=384) |
+| The AI Agent Tech Stack | [386](system-design/system-design-big-archive.pdf#page=386) |
+| How to Build a Basic RAG Application on AWS? | [388](system-design/system-design-big-archive.pdf#page=388) |
+| Types of Virtualization | [390](system-design/system-design-big-archive.pdf#page=390) |
+| Cloudflare vs. AWS vs. Azure | [392](system-design/system-design-big-archive.pdf#page=392) |
+| Popular Backend Tech Stack | [394](system-design/system-design-big-archive.pdf#page=394) |
+| HTTP vs. HTTPS | [395](system-design/system-design-big-archive.pdf#page=395) |
+| Forward Proxy versus Reverse Proxy | [397](system-design/system-design-big-archive.pdf#page=397) |
+| Things Every Developer Should Know: Concurrency is NOT parallelism | [399](system-design/system-design-big-archive.pdf#page=399) |
+| Virtualization vs. Containerization | [401](system-design/system-design-big-archive.pdf#page=401) |
+| 5 REST API Authentication Methods | [403](system-design/system-design-big-archive.pdf#page=403) |
+| How do AirTags work? | [405](system-design/system-design-big-archive.pdf#page=405) |
+| What is a Firewall? | [407](system-design/system-design-big-archive.pdf#page=407) |
+| Modem vs. Router | [409](system-design/system-design-big-archive.pdf#page=409) |
+| What is a REST API? | [411](system-design/system-design-big-archive.pdf#page=411) |
+| How Java HashMaps Work? | [413](system-design/system-design-big-archive.pdf#page=413) |
+| Virtualization Explained: From Bare Metal to Hosted Hypervisors | [415](system-design/system-design-big-archive.pdf#page=415) |
+| Database Types You Should Know in 2025 | [417](system-design/system-design-big-archive.pdf#page=417) |
+| Apache Kafka vs. RabbitMQ | [419](system-design/system-design-big-archive.pdf#page=419) |
+| The HTTP Mindmap | [421](system-design/system-design-big-archive.pdf#page=421) |
+| How DNS Works | [423](system-design/system-design-big-archive.pdf#page=423) |
+| Can a web server provide real-time updates? | [425](system-design/system-design-big-archive.pdf#page=425) |
+| Evolution of HTTP | [427](system-design/system-design-big-archive.pdf#page=427) |
+| System Performance Metrics Every Engineer Should Know | [429](system-design/system-design-big-archive.pdf#page=429) |
+| Why Is Nginx So Popular? | [431](system-design/system-design-big-archive.pdf#page=431) |
+| Network Debugging Commands Every Engineer Should Know | [433](system-design/system-design-big-archive.pdf#page=433) |
+| Hub, Switch, & Router Explained | [435](system-design/system-design-big-archive.pdf#page=435) |
+| Common Network Protocols Every Engineer Should Know | [437](system-design/system-design-big-archive.pdf#page=437) |
+| 8 Popular Network Protocols | [439](system-design/system-design-big-archive.pdf#page=439) |
+| A picture is worth a thousand words: 9 best practices for developing microservices | [441](system-design/system-design-big-archive.pdf#page=441) |
+### Grokking the system design interview
+
+`system-design/grokking-the-system-design-interview.pdf`, 25 pages. Junfan Zhu's study notes on
+Educative's *Grokking the System Design Interview* course, dated 2021-04-12. This is not the course: it
+is a 25-page excerpt and summary of it, typeset in LaTeX, covering a handful of the course's design
+problems (URL shortening, Dropbox, Messenger, YouTube, typeahead, a rate limiter, a web crawler, the
+Facebook news feed, Yelp, Ticketmaster) and its glossary of system design basics (load balancing,
+caching, data partitioning, proxies, SQL and NoSQL, the CAP theorem, consistent hashing). Was `Grokking
+the System Design Interview.pdf`.
+
+**Page numbers.** The printed page number equals the PDF page number. There is no index; the table is
+the PDF's own outline, topics and their sections.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| Course Links | [1](system-design/grokking-the-system-design-interview.pdf#page=1) |
+| 1. Back-of-the-envelope estimation | [2](system-design/grokking-the-system-design-interview.pdf#page=2) |
+| 2. Shortening URL | [3](system-design/grokking-the-system-design-interview.pdf#page=3) |
+| 2.1. Encoding actual URL | [3](system-design/grokking-the-system-design-interview.pdf#page=3) |
+| 2.2. Cache | [3](system-design/grokking-the-system-design-interview.pdf#page=3) |
+| 2.3. Load Balancer (LB) | [3](system-design/grokking-the-system-design-interview.pdf#page=3) |
+| 3. DropBox | [3](system-design/grokking-the-system-design-interview.pdf#page=3) |
+| 3.1. Clarify Requirements and Goals of the System | [3](system-design/grokking-the-system-design-interview.pdf#page=3) |
+| 4. Facebook Messenger | [4](system-design/grokking-the-system-design-interview.pdf#page=4) |
+| 4.1. Message Handling | [4](system-design/grokking-the-system-design-interview.pdf#page=4) |
+| 4.2. Storing and retrieving the messages from the database | [4](system-design/grokking-the-system-design-interview.pdf#page=4) |
+| 5. YouTube | [5](system-design/grokking-the-system-design-interview.pdf#page=5) |
+| 5.1. Metadata Sharding | [5](system-design/grokking-the-system-design-interview.pdf#page=5) |
+| 5.2. Load Balancing | [6](system-design/grokking-the-system-design-interview.pdf#page=6) |
+| 6. Designing Typeahead Suggestion | [7](system-design/grokking-the-system-design-interview.pdf#page=7) |
+| 7. API Rate Limiter | [7](system-design/grokking-the-system-design-interview.pdf#page=7) |
+| 8. Web Crawler | [8](system-design/grokking-the-system-design-interview.pdf#page=8) |
+| 8.1. How to crawl? | [8](system-design/grokking-the-system-design-interview.pdf#page=8) |
+| 8.2. Component Design | [8](system-design/grokking-the-system-design-interview.pdf#page=8) |
+| 9. Facebook's Newsfeed | [9](system-design/grokking-the-system-design-interview.pdf#page=9) |
+| 9.1. Feed generation | [9](system-design/grokking-the-system-design-interview.pdf#page=9) |
+| 9.2. Feed publishing | [10](system-design/grokking-the-system-design-interview.pdf#page=10) |
+| 9.3. Data Partitioning | [11](system-design/grokking-the-system-design-interview.pdf#page=11) |
+| 10. Yelp | [11](system-design/grokking-the-system-design-interview.pdf#page=11) |
+| 10.1. Dynamic size grids | [11](system-design/grokking-the-system-design-interview.pdf#page=11) |
+| 11. Ticket Master | [12](system-design/grokking-the-system-design-interview.pdf#page=12) |
+| 11.1. Active Reservations Service | [12](system-design/grokking-the-system-design-interview.pdf#page=12) |
+| 11.2. Waiting Users Service | [12](system-design/grokking-the-system-design-interview.pdf#page=12) |
+| 11.3. Concurrency | [13](system-design/grokking-the-system-design-interview.pdf#page=13) |
+| 12. Load Balancing | [14](system-design/grokking-the-system-design-interview.pdf#page=14) |
+| 12.1. Benefits | [14](system-design/grokking-the-system-design-interview.pdf#page=14) |
+| 12.2. Algorithms | [14](system-design/grokking-the-system-design-interview.pdf#page=14) |
+| 13. Caching | [15](system-design/grokking-the-system-design-interview.pdf#page=15) |
+| 13.1. Cache Invalidation | [15](system-design/grokking-the-system-design-interview.pdf#page=15) |
+| 13.2. Cache eviction policies | [16](system-design/grokking-the-system-design-interview.pdf#page=16) |
+| 14. Data Partitioning | [16](system-design/grokking-the-system-design-interview.pdf#page=16) |
+| 14.1. Partitioning Criteria | [16](system-design/grokking-the-system-design-interview.pdf#page=16) |
+| 14.2. Common Problems of Data Partitioning | [17](system-design/grokking-the-system-design-interview.pdf#page=17) |
+| 15. Proxy Server | [18](system-design/grokking-the-system-design-interview.pdf#page=18) |
+| 15.1. Open Proxy | [18](system-design/grokking-the-system-design-interview.pdf#page=18) |
+| 15.2. Reverse Proxy | [19](system-design/grokking-the-system-design-interview.pdf#page=19) |
+| 16. SQL & NoSQL | [19](system-design/grokking-the-system-design-interview.pdf#page=19) |
+| 16.1. SQL | [19](system-design/grokking-the-system-design-interview.pdf#page=19) |
+| 16.2. NoSQL | [19](system-design/grokking-the-system-design-interview.pdf#page=19) |
+| 16.3. Differences: SQL vs. NoSQL | [19](system-design/grokking-the-system-design-interview.pdf#page=19) |
+| 16.4. Choose which? | [21](system-design/grokking-the-system-design-interview.pdf#page=21) |
+| 17. CAP Theorem | [22](system-design/grokking-the-system-design-interview.pdf#page=22) |
+| 18. Consistent Hashing | [22](system-design/grokking-the-system-design-interview.pdf#page=22) |
+| 18.1. Improve caching system | [22](system-design/grokking-the-system-design-interview.pdf#page=22) |
+| 18.2. Consistent Hashing | [24](system-design/grokking-the-system-design-interview.pdf#page=24) |
+| 18.3. Algorithm | [24](system-design/grokking-the-system-design-interview.pdf#page=24) |
+### Systems analysis and design
+
+`system-design/systems-analysis-and-design.pdf`, 594 pages. Alan Dennis, Barbara Haley Wixom and
+Roberta M. Roth, *Systems Analysis and Design*, fifth edition, John Wiley & Sons, 2012. A published
+university textbook on the systems development life cycle: planning (the systems analyst's role,
+project selection and management), analysis (requirements determination, use cases, process modelling
+with data flow diagrams, data modelling with entity relationship diagrams), design (architecture, user
+interface, program and data storage design) and implementation (testing, and converting to the new
+system), ending with object-oriented analysis and design in UML. Was
+`Systemanalysisanddesign.pdf`.
+
+**Page numbers.** The printed page number is the PDF page minus 26 (printed page 5, where chapter 1
+starts, is PDF page 31); the PDF's embedded page labels say the same. The front matter is numbered in
+roman. The table is the PDF's own outline, parts and chapters.
+
+**Its index.** PDF pages 573 to 589, with printed page numbers.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| Copyright | [6](system-design/systems-analysis-and-design.pdf#page=6) |
+| Preface | [9](system-design/systems-analysis-and-design.pdf#page=9) |
+| Brief Contents | [17](system-design/systems-analysis-and-design.pdf#page=17) |
+| Contents | [19](system-design/systems-analysis-and-design.pdf#page=19) |
+| Part One: Planning phase | [29](system-design/systems-analysis-and-design.pdf#page=29) |
+| 1 The systems analyst and information systems development | [31](system-design/systems-analysis-and-design.pdf#page=31) |
+| 2 Project selection and management | [71](system-design/systems-analysis-and-design.pdf#page=71) |
+| Part Two: Analysis phase | [125](system-design/systems-analysis-and-design.pdf#page=125) |
+| 3 Requirements determination | [127](system-design/systems-analysis-and-design.pdf#page=127) |
+| 4 Use case analysis | [173](system-design/systems-analysis-and-design.pdf#page=173) |
+| 5 Process modeling | [209](system-design/systems-analysis-and-design.pdf#page=209) |
+| 6 Data modeling | [249](system-design/systems-analysis-and-design.pdf#page=249) |
+| Part Three: Design phase | [283](system-design/systems-analysis-and-design.pdf#page=283) |
+| 7 Moving into design | [285](system-design/systems-analysis-and-design.pdf#page=285) |
+| 8 Architecture design | [307](system-design/systems-analysis-and-design.pdf#page=307) |
+| 9 User interface design | [339](system-design/systems-analysis-and-design.pdf#page=339) |
+| 10 Program design | [391](system-design/systems-analysis-and-design.pdf#page=391) |
+| 11 Data storage design | [431](system-design/systems-analysis-and-design.pdf#page=431) |
+| Part Four: Implementation phase | [469](system-design/systems-analysis-and-design.pdf#page=469) |
+| 12 Moving into implementation | [471](system-design/systems-analysis-and-design.pdf#page=471) |
+| 13 Transition to the new system | [497](system-design/systems-analysis-and-design.pdf#page=497) |
+| 14 The movement to objects | [529](system-design/systems-analysis-and-design.pdf#page=529) |
+| Index | [573](system-design/systems-analysis-and-design.pdf#page=573) |
