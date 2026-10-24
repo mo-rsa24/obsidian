@@ -1,5 +1,6 @@
 ---
 aliases: [rate limiter, rate limiting, rate limit, token bucket, leaky bucket, leaking bucket, throttling]
+link-skip: [Network conditions, set throttling, Setting throttling, throttling to, throttling dropdown]
 standard: vault-note v2
 ---
 

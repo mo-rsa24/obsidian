@@ -2,6 +2,7 @@
 aliases: [database transaction, transaction, ACID, ACID transaction, ACID transactions, commit and rollback, BEGIN and COMMIT, atomicity, atomic]
 link-only-in: [system-design, projects/attica]
 link-skip-in: [system-design/clean-architecture-in-python/]
+link-skip: [is atomic because, each is atomic, Atomic multi-step checks, made atomic with]
 standard: vault-note v2
 ---
 
