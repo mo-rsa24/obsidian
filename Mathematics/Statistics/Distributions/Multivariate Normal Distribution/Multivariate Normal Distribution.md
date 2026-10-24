@@ -1,5 +1,5 @@
 ---
-aliases: [multivariate normal, multivariate Gaussian, Gaussian, normal distribution in d dimensions]
+aliases: [multivariate normal, multivariate Gaussian, Gaussian, normal distribution in d dimensions, normal distribution, Gaussian distribution, bell curve, normal density, Gaussian density, univariate Gaussian, univariate normal, Gaussian random variable, normal random variable]
 sources:
   - "Wikipedia, Multivariate normal distribution: https://en.wikipedia.org/wiki/Multivariate_normal_distribution, read 2026-10-04, CC BY-SA 4.0"
   - "Wikipedia, Normal distribution: https://en.wikipedia.org/wiki/Normal_distribution, read 2026-10-04, CC BY-SA 4.0"
@@ -58,6 +58,31 @@ Read them in this order.
 - [[The Area A Product Loses]]: the area a product of densities loses, which is the overlap of the two Gaussians and has no slope.
 - [[Powers Of Gaussians]]: raising Gaussians to powers and combining them, and when the result still has positive precision.
 
+## Where to learn this
+
+**Gaussian**, the normal distribution, in one dimension or many. Also: normal distribution, bell curve, Gaussian density, multivariate Gaussian.
+
+**Textbooks**
+
+- Introduction to probability for data science, section 4.6: [pages 227 to 238](../../../references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=227). The one-dimensional Gaussian random variable: its density with plots of μ and σ moving and widening the curve (page 228), the standard CDF Φ (page 230), and any Gaussian's probabilities through Φ, in Python.
+- Introduction to probability for data science, section 5.6: [pages 306 to 307](../../../references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=306). The d-dimensional Gaussian density with Σ⁻¹, its mean vector and covariance, and the diagonal covariance that independent coordinates give.
+- Mathematics for machine learning, section 6.5: [pages 203 to 210](../../../references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=203). The univariate and multivariate densities (equations 6.62 and 6.63, page 204) drawn with 100 samples, then marginals and conditionals, products, sums and linear maps, and sampling.
+- Understanding deep learning, appendix C.3: [pages 470 to 471](../../../references/textbooks/machine-learning/understanding-deep-learning.pdf#page=470). The univariate density (equation C.21) and bivariate contours for spherical, diagonal and full covariance.
+- Deep learning textbook, section 3.9.3: [pages 79 to 80](../../../references/textbooks/machine-learning/deep-learning-textbook.pdf#page=79). The density with its two parameters, the bell curve drawn with its peak and inflection points, and why the normal is the default choice.
+
+**Videos**
+
+- StatQuest, The Normal Distribution, Clearly Explained, 0:00 to 3:27: [watch](https://www.youtube.com/watch?v=rzFX5NWojp0&t=0s). The bell-shaped curve and what its mean and standard deviation set, in the video's opening chapter. Chapter-timed.
+- StatQuest, The Main Ideas behind Probability Distributions, 2:15 to 5:14: [watch](https://www.youtube.com/watch?v=oI3hZJqXJuc&t=135s). A curve as a distribution, where probability is the area under it over an interval and never its height at a point. Chapter-timed, from the video lessons index.
+- CS229 lecture 3, 13:36 to 18:36: [watch](https://www.youtube.com/watch?v=uJF_gL3jhxI&t=816s). Takes the Gaussian density apart: the normalising constant, the squared distance over 2σ², σ setting the width, and 99.7% of the mass within 3σ. Caption-read.
+- CS229 lecture 5, 12:09 to 16:18: [watch](https://www.youtube.com/watch?v=zRdE8A4UZes&t=729s). Defines the multivariate Gaussian N(μ, Σ) and reads its exponent as a distance scaled by Σ⁻¹. Caption-read.
+
+**Our plans and chapters**
+
+- [Chapter 2: Read a density as area and draw a Gaussian from its covariance](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/textbook/02-densities-and-the-gaussian.md), deep-learning/diffusion-models/01-poe-derivation-foundations, chapter 02. The Gaussian formula from one dimension to many, read as area and drawn from its covariance.
+- [Densities, and the Gaussian](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/03-densities-and-the-gaussian.md), the same journey, plan 03. The sitting that teaches densities over images and the Gaussian that every noise term uses.
+- [Read a covariance as an ellipse](/home/molef/goal-setting/learning/deep-learning/generative-models/03-sampling-from-a-graph/plans/27-two-d-gaussian.md), deep-learning/generative-models/03-sampling-from-a-graph, plan 27. The 2D Gaussian's covariance drawn as an ellipse, worked on two-pixel images.
+
 > [!note]- How this was checked
 > `toy.py` is the learner's own file, copied byte for byte from the walk's playground. `clouds.py` and `overlap.py` are the walk's answer keys, copied unchanged from `checks/` in the journey's `sources/mechanisms-of-projective-composition/`; their outputs matched `checks/clouds.out` and `checks/overlap.out` exactly. `samples.py` matched `checks/samples.out` exactly, and `compose.py`, which prints more fields, agreed with every composed mean and variance in `checks/compose.out`. The learner's own `samples.py` in the playground still draws from `np.random`, so its printed numbers differ slightly from the seed-0 numbers here.
 >
@@ -68,3 +93,5 @@ Read them in this order.
 > The paper's Figure 12, left panel, is the authors' own image file `eg1.png`, copied byte for byte from the arXiv source package (`paper/source/figures/` in the journey's staged sources) into `references/`, and opened before filing. Its caption is the LaTeX caption in `src/appendix_notes.tex`, with markup removed and its cross-references written as the PDF prints them; the figure number is the one printed in `2502.04549.pdf`, version 3. Equation (17) was read in the same file, lines 105 to 111. The right panel was left out because its clean distributions flip each coordinate like a coin, equation (18), so once noised they are Gaussian mixtures rather than single Gaussians. The paper is under arXiv's non-exclusive distribution licence, which does not grant a reuse licence; the copy is here for study, with citation on the embed.
 >
 > References: [Multivariate normal distribution](https://en.wikipedia.org/wiki/Multivariate_normal_distribution), [Normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) and [Variance](https://en.wikipedia.org/wiki/Variance) on Wikipedia, CC BY-SA 4.0; [Generator.normal](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.normal.html) and [scipy.stats.multivariate_normal](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.multivariate_normal.html), BSD 3-Clause; and [the paper on arXiv](https://arxiv.org/abs/2502.04549). Each answered 200 on 2026-10-04. [Du et al. on arXiv](https://arxiv.org/abs/2302.11552) and [the Matrix Cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf) each answered 200 on 2026-10-13. No tldr-pages entry covers this. The sketchpad link is the learner's own private artifact and was not fetched.
+>
+> The card under Where to learn this was checked on 2026-10-24: every textbook page range was read with pdftotext, the two CS229 rows were read in their caption-read lecture map under `~/.claude/cache/captions/` and paraphrase the map, the StatQuest distributions row is copied from the video lessons index section "The Gaussian density and its formula", and the StatQuest normal distribution chapter list was read with `cache-video-chapters.py`, so its line describes only the video's title and chapter. Each plan and chapter was read at its title and description. Pattern recognition and machine learning section 2.3 (from PDF page 97) also teaches the Gaussian in full and has no line only to keep the list short.

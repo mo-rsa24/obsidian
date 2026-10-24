@@ -1,5 +1,5 @@
 ---
-aliases: [bootstrap, bootstrapping, resampling, resample, bootstrap resampling, bootstrap standard error, bootstrapped variance, standard error, percentile interval, bootstrap confidence interval, confidence interval from percentiles]
+aliases: [bootstrap, bootstrapping, resampling, resample, bootstrap resampling, bootstrap standard error, bootstrapped variance, standard error, percentile interval, bootstrap confidence interval, confidence interval from percentiles, standard error of the mean, non-parametric bootstrap, parametric bootstrap]
 sources:
   - Introduction to Probability for Data Science (Chan), section 9.2 Bootstrapping, PDF pages 575 to 582, and section 9.1 for the standard error of a mean, PDF page 568
   - Rao and Callison-Burch, agreement metrics for LLM judges, section 4.3, https://arxiv.org/abs/2606.00093
@@ -231,7 +231,7 @@ Navigation: ⬅️ [[#Other ways]] | 📋 [[#Table of contents]] | [[#How this w
 Navigation: ⬅️ [[#Taught in, applied in]] | 📋 [[#Table of contents]] | [[#Videos]] ➡️
 
 > [!note]- How this was checked
-> The three scripts were run on 2026-10-18 on a Mac with Python 3.12 (standard library only) using `python3 -I`, each from an empty folder that was removed afterwards. The seeds are 2024 (example one), 11 (example two) and 1, 3 and 7 (the group runs). The textbook pages were read with PyMuPDF: PDF pages 575 to 582 teach the bootstrap and page 568 the standard error of a mean; page 583 starts hypothesis testing and does not teach it, so it is not cited. The book prints no result for its ten-score example, so no number here is checked against the book; the formulas (9.7, 9.21, 9.22, 9.23) are. `~/.vault-sandbox` does not exist on this machine. The note has not been rendered in Obsidian.
+> The three scripts were run on 2026-10-18 on a Mac with Python 3.12 (standard library only) using `python3 -I`, each from an empty folder that was removed afterwards. The seeds are 2024 (example one), 11 (example two) and 1, 3 and 7 (the group runs). The textbook pages were read with PyMuPDF: PDF pages 575 to 582 teach the bootstrap and page 568 the standard error of a mean; page 583 starts hypothesis testing and does not teach it, so it is not cited. The book prints no result for its ten-score example, so no number here is checked against the book; the formulas (9.7, 9.21, 9.22, 9.23) are. `~/.vault-sandbox` does not exist on this machine. The note has not been rendered in Obsidian. The Where to learn this card at the end of the note was checked on 2026-10-24: each textbook range was read with pdftotext after finding it through the books' back-of-book indexes, the StatQuest bootstrapping row was copied from the video lessons index, the TileStats and StatQuest standard-error chapter lists were read with cache-video-chapters.py and described from their chapter titles only, and each plan and chapter was read at its title and description.
 >
 > Claims marked stated, 2: that the larger error in example two is partly from the three bad products; that resampling whole products is itself uncertain on 8 units.
 
@@ -249,3 +249,30 @@ StatQuest, then Joshua French from the open web, on the bootstrap (resampling a 
 
 StatQuest shows the eight values on screen without reading them out and gives no number for the standard error. French reaches an interval, not a standard error, and uses the percentile interval only. Neither covers when the bootstrap fails. Mahesh Huddar's channel has no video on it. Times are read from automatic captions and good to about 30 seconds.
 <!-- /video-table -->
+
+## Where to learn this
+
+**Bootstrap**, resampling one data set with replacement to see how far a statistic would move on another sample, and the standard error that spread gives. Also: bootstrapping, resampling, standard error, standard error of the mean, bootstrap confidence interval.
+
+**Textbooks**
+
+- Introduction to probability for data science, section 9.2: [pages 575 to 582](../references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=575). Why bootstrapping is needed, a brute-force approach first, the procedure and the bootstrapped distribution, its interpretation, then the bootstrap standard error in MATLAB and Python on page 581.
+- Introduction to probability for data science, section 9.1.4: [pages 567 to 568](../references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=567). The standard error of the sample mean and how it sets a confidence interval's width (Example 9.4).
+- Probabilistic machine learning: an introduction, section 4.7.3: [pages 176 to 177](../references/textbooks/machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=176). The parametric and non-parametric bootstrap as an approximation to an estimator's sampling distribution, drawn for a Bernoulli MLE with 10,000 resamples and set beside the Bayesian posterior.
+- Probabilistic machine learning: advanced topics, section 3.3.2: [page 106](../references/textbooks/machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=106). The same two bootstraps more briefly, with why a resample holds only about 0.632 N distinct points.
+- Deep learning textbook, section 5.4.3: [page 144](../references/textbooks/machine-learning/deep-learning-textbook.pdf#page=144). The standard error of the mean, σ/√m, and its use for confidence intervals when comparing models.
+
+**Videos**
+
+- TileStats, Bootstrap confidence intervals: explained, How to calculate a 95% bootstrap confidence interval, 1:40 to 5:00: [watch](https://www.youtube.com/watch?v=AA7Jtuu9TaE&t=100s). Builds a 95 percent bootstrap interval from resamples of one sample. Chapter-timed.
+- TileStats, Bootstrap confidence intervals: explained, Do bootstrap confidence intervals work?, 5:00 to 10:36: [watch](https://www.youtube.com/watch?v=AA7Jtuu9TaE&t=300s). Checks whether the bootstrap interval covers the true value as often as it claims. Chapter-timed.
+- StatQuest, Bootstrapping Main Ideas, 2:18 to 5:22: [watch](https://www.youtube.com/watch?v=Xz0x-8-cgaQ&t=138s). Draws from eight values eight times with replacement, takes the mean, and repeats thousands of times. Caption-read, from the video lessons index.
+- StatQuest, The standard error, Clearly Explained, Example, 2:43 to 5:59: [watch](https://www.youtube.com/watch?v=XNgt7F6FqDU&t=163s). The standard error of a mean shown on repeated samples. Chapter-timed.
+- StatQuest, The standard error, Clearly Explained, Bootstrapping, 8:45 to 11:12: [watch](https://www.youtube.com/watch?v=XNgt7F6FqDU&t=525s). Getting the standard error by bootstrapping when only one sample exists. Chapter-timed.
+
+**Our plans and chapters**
+
+- [The percentile bootstrap over whole products](/home/molef/goal-setting/learning/mathematics/statistics/sampling/textbook/08-the-percentile-bootstrap.md#84-why-with-replacement-and-the-bootstrap-standard-error), mathematics/statistics/sampling, chapter 08, section 8.4. Why resampling is done with replacement, and the bootstrap standard error.
+- [Resample the 105 rows by whole product, and see where the bootstrap stops](/home/molef/goal-setting/learning/mathematics/statistics/sampling/plans/14-the-product-level-bootstrap-built.md), mathematics/statistics/sampling, plan 14. Builds a 10,000-resample bootstrap over whole products, reproduces a published κ interval, and runs it to where it fails.
+- [The normal interval from a standard error](/home/molef/goal-setting/learning/mathematics/statistics/sampling/textbook/06-the-normal-interval.md#62-the-standard-error), mathematics/statistics/sampling, chapter 06, section 6.2. The standard error itself, before any interval is built from it.
+- [Say how the standard error shrinks as the draws grow](/home/molef/goal-setting/learning/mathematics/statistics/sampling/plans/21-how-the-standard-error-shrinks-with-n.md), mathematics/statistics/sampling, plan 21. Moves a standard error from one sample size to another with c/√n.

@@ -1,5 +1,5 @@
 ---
-aliases: [correlation, Pearson correlation, Pearson's r, covariance of two variables, Cov(X, Y), phi coefficient, Matthews correlation coefficient, MCC, correlation of two yes-or-no columns, binary correlation]
+aliases: [correlation, Pearson correlation, Pearson's r, covariance of two variables, Cov(X, Y), phi coefficient, Matthews correlation coefficient, MCC, correlation of two yes-or-no columns, binary correlation, Pearson correlation coefficient, correlation matrix]
 sources:
   - "Introduction to Probability for Data Science, Definitions 5.12 and 5.13 and Theorems 3.6 and 5.3: the vault's shelf copy, Mathematics/references/textbooks/statistics/introduction-to-probability-for-data-science.pdf"
   - "Rao and Callison-Burch, agreement metrics for LLM judges, section 4.1, https://arxiv.org/abs/2606.00093"
@@ -294,7 +294,7 @@ Navigation: ⬅️ [[#Other ways]] | 📋 [[#Table of contents]] | [[#How this w
 Navigation: ⬅️ [[#Taught in, applied in]] | 📋 [[#Table of contents]] | [[#Videos]] ➡️
 
 > [!note]- How this was checked
-> `corr.py` was run on 2026-10-18 on a Mac with Python 3.12.14, standard library only, from an empty folder that was removed afterwards, the listing then failing as shown. A rerun gave the same output. The prepared environment `~/.vault-sandbox` is missing on this machine and was not needed. The textbook's PDF pages 154, 274, 278 and 279 were opened and read as text: page 154 proves $\text{Var}[X] = p(1-p)$, page 278 defines covariance and proves $\text{Cov}(X,Y) = E[XY] - E[X]E[Y]$, page 279 defines the correlation coefficient, and page 274 explains why the joint expectation is the product. Rao and Callison-Burch's section 4.1 was read on PDF page 5 (Eq. 3 to 6). The page has not been rendered in Obsidian. No claim is marked stated. The reviewer and judge verdicts are invented; none of it is a measurement of any real judge.
+> `corr.py` was run on 2026-10-18 on a Mac with Python 3.12.14, standard library only, from an empty folder that was removed afterwards, the listing then failing as shown. A rerun gave the same output. The prepared environment `~/.vault-sandbox` is missing on this machine and was not needed. The textbook's PDF pages 154, 274, 278 and 279 were opened and read as text: page 154 proves $\text{Var}[X] = p(1-p)$, page 278 defines covariance and proves $\text{Cov}(X,Y) = E[XY] - E[X]E[Y]$, page 279 defines the correlation coefficient, and page 274 explains why the joint expectation is the product. Rao and Callison-Burch's section 4.1 was read on PDF page 5 (Eq. 3 to 6). The page has not been rendered in Obsidian. No claim is marked stated. The reviewer and judge verdicts are invented; none of it is a measurement of any real judge. The Where to learn this card at the end of the note was checked on 2026-10-24: each textbook range was read with pdftotext, the first StatQuest row was copied from the video lessons index, the TileStats and StatQuest covariance chapter lists were read with cache-video-chapters.py and described from their chapter titles only, and the plan was read at its title and description.
 
 ## Videos
 
@@ -322,3 +322,24 @@ Pedram Jahangiry, from the open web, on the Matthews correlation coefficient of 
 
 Nothing on Mahesh Huddar's channel covers the phi or Matthews coefficient, and no video on a listed creator does. The example skips the arithmetic of the denominator: with that table it is 0, so the coefficient is undefined and conventionally set to 0. He does not name the phi coefficient, which is the same quantity for any two yes-or-no columns. Times are read from automatic captions and good to about 30 seconds.
 <!-- /video-table -->
+
+## Where to learn this
+
+**Correlation coefficient**, covariance divided by the product of the two standard deviations, so it runs from −1 to 1. Also: correlation, Pearson correlation, Pearson's r, correlation matrix.
+
+**Textbooks**
+
+- Introduction to probability for data science, sections 5.2.2 to 5.2.3: [pages 279 to 281](../references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=279). Defines ρ as covariance over the root of the two variances (Definition 5.13), reads it as the cosine of an angle so it stays between −1 and 1, relates it to independence (Theorem 5.5), and computes it in MATLAB and Python.
+- Mathematics for machine learning, section 6.4.1: [page 197](../references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=197). Correlation as the normalised covariance (Definition 6.8), with a figure of positively and negatively correlated data.
+- Probabilistic machine learning: an introduction, section 3.1.2: [pages 102 to 103](../references/textbooks/machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=102). The Pearson correlation, a figure of point clouds with their ρ showing it measures linearity and not slope, the correlation matrix, and spurious correlation between unrelated series.
+
+**Videos**
+
+- StatQuest, Pearson's Correlation, Clearly Explained, 13:37 to 16:04: [watch](https://www.youtube.com/watch?v=xZ_z8KWkhXE&t=817s). Squeezes a covariance of 116 with variances 101.8 and 160.3 into a correlation of 0.9. Caption-read, from the video lessons index.
+- TileStats, Correlation: the basics, The Pearson correlation coefficient, 3:54 to 8:23: [watch](https://www.youtube.com/watch?v=SHlHqWYbs2w&t=234s). The Pearson correlation coefficient and its formula. Chapter-timed.
+- TileStats, Correlation: the basics, How to interpret the coefficient, 8:23 to 12:40: [watch](https://www.youtube.com/watch?v=SHlHqWYbs2w&t=503s). What a given value of r does and does not say about the data. Chapter-timed.
+- StatQuest, Covariance, Clearly Explained, Motivation for Correlation, 20:31 to 21:20: [watch](https://www.youtube.com/watch?v=qtaqvPAeEJY&t=1231s). Why covariance needs rescaling before two relationships can be compared. Chapter-timed.
+
+**Our plans and chapters**
+
+- [Compute correlation, and derive phi for two yes-or-no columns](/home/molef/goal-setting/learning/ai-engineering/agent-evaluation/validating-an-llm-judge/plans/q-times-phi-foundations/plans/02-the-correlation-coefficient.md), ai-engineering/agent-evaluation/validating-an-llm-judge, q-times-phi-foundations plan 02. Computes the correlation of a reviewer's and a judge's verdicts, then derives phi as its count formula.

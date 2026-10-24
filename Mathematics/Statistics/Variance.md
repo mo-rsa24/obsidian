@@ -1,5 +1,5 @@
 ---
-aliases: [variance, Var(X), "Var[X]", sigma squared, average squared miss from the mean, standard deviation, sd(X), deviation, root mean square deviation]
+aliases: [variance, Var(X), "Var[X]", sigma squared, average squared miss from the mean, standard deviation, sd(X), deviation, root mean square deviation, sample variance, population variance]
 sources:
   - "Introduction to Probability for Data Science, Definition 3.7 (variance and standard deviation) and Definition 4.6 (the continuous case): the vault's shelf copy, Mathematics/references/textbooks/statistics/introduction-to-probability-for-data-science.pdf, PDF pages 150 and 200"
   - "Wikipedia, Variance: https://en.wikipedia.org/wiki/Variance, read 2026-10-20, CC BY-SA 4.0"
@@ -248,5 +248,30 @@ Navigation: ⬅️ [[#Scaling a draw scales its variance by the square]] | 📋 
 - the one-expert rebuild walk in the reduce-reuse-recycle research repository, step 4, where [variance is written as the average squared miss](../../../PhD/reduce-reuse-recycle/artifacts/drips/simple-distributions-rebuild/01-one-expert-from-scratch.md#step4-the-scaling-rule) with an underbrace on the average and on the squared miss, before the scaling rule is derived from it
 - the forward-process-and-the-score walk's [kept rung on the one-shot draw and its density](../../../PhD/reduce-reuse-recycle/artifacts/drips/forward-process-and-the-score/kept/04-the-one-shot-draw-and-its-density.md), which links its standard deviation 0.7223 at step 50 here
 
+## Where to learn this
+
+**Variance**, the average squared distance of a draw from its mean, and its square root the standard deviation. Also: standard deviation, sample variance, population variance.
+
+**Textbooks**
+
+- Introduction to probability for data science, section 3.4.4: [pages 150 to 153](../references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=150). Defines variance as E[(X − µ)²] and the standard deviation as its root (Definition 3.7), proves Var[X] = E[X²] − E[X]² with the scaling and shift rules (Theorem 3.5), and works the Bernoulli variance p(1 − p); page 200 gives the continuous case.
+- Mathematics for machine learning, section 6.4.1: [pages 196 to 198](../references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=196). Variance as the covariance of a variable with itself (Definition 6.7), then the empirical mean and variance of a data set (Definition 6.9).
+- Deep learning textbook, section 3.8: [pages 76 to 77](../references/textbooks/machine-learning/deep-learning-textbook.pdf#page=76). A short definition of variance and standard deviation beside expectation and covariance.
+- Pattern recognition and machine learning, section 1.2.2: [page 39](../references/textbooks/machine-learning/pattern-recognition-and-machine-learning.pdf#page=39). Defines var[f] and expands it to E[f²] − E[f]² (equations 1.38 to 1.40).
+
+**Videos**
+
+- Professor Leonard, Statistics 3.3, A standard deviation calculated by hand, 25:51 to 36:43: [watch](https://www.youtube.com/watch?v=4-FysvtxQEU&t=1551s). Works a standard deviation on a small data set by hand. Chapter-timed, from the video lessons index.
+- StatQuest, Calculating the Mean, Variance and Standard Deviation, Calculating population variance, 3:56 to 5:54: [watch](https://www.youtube.com/watch?v=SzZ6GpcfoQY&t=236s). The population variance as the average squared difference from the mean. Chapter-timed.
+- StatQuest, Calculating the Mean, Variance and Standard Deviation, Estimating sample variance, 7:03 to 10:51: [watch](https://www.youtube.com/watch?v=SzZ6GpcfoQY&t=423s). Estimating the variance from a sample, dividing by n − 1. Chapter-timed.
+- ritvikmath, Expected Value and Variance of Continuous Random Variables, What Is Variance, 3:14 to 8:21: [watch](https://www.youtube.com/watch?v=spEMDni_2KM&t=194s). The variance of a continuous random variable as an integral. Chapter-timed.
+
+**Our plans and chapters**
+
+- [Show that variances of independent terms add](/home/molef/goal-setting/learning/deep-learning/transformers/textbook/06-show-that-variances-of-independent-terms-add.md), deep-learning/transformers, chapter 06. Predicts the spread of a dot product of random vectors by adding the variances of its independent terms.
+- [Simulate the variance of a dot product at three sizes](/home/molef/goal-setting/learning/deep-learning/transformers/plans/07-simulate-the-variance-of-a-dot-product.md), deep-learning/transformers, plan 07. Checks that prediction by simulation at three vector sizes.
+- [The tower law and total variance](/home/molef/goal-setting/learning/mathematics/statistics/conditional-expectation/plans/04-the-tower-law-and-total-variance.md), mathematics/statistics/conditional-expectation, plan 04. Splits a variance into the part within groups and the part between them.
+- [Mean, variance and what centering changes](/home/molef/goal-setting/learning/deep-learning/diffusion-models/08-spectral-structure-of-the-correction/plans/03-mean-variance-centering.md), deep-learning/diffusion-models/08-spectral-structure-of-the-correction, plan 03. Mean and variance of a pile of vectors, and why an SVD needs them centred first.
+
 > [!note]- How this was checked
-> The coin, the four-value draw and every number in the table were worked by hand and match the outputs of `coin.py` and `schedule_levels.py` in [[Running The Scaling Rule For Variance#Try the scaling rule yourself]], re-run on 2026-10-21 on mscluster (Linux) with Python 3.12.10. The two figure scripts were run on 2026-10-21 on mscluster with Python 3.12.10, matplotlib 3.10.8 and numpy 2.4.3, in an empty scratch folder, by vault-writer; each SVG was opened (through a PNG copy made by the same script) before filing. The prepared environment `~/.vault-sandbox` is missing on this machine, so the system `python3`, which has matplotlib and numpy, drew them. The textbook's PDF pages 150 and 200 were opened and read as text. [Variance](https://en.wikipedia.org/wiki/Variance) on Wikipedia (CC BY-SA 4.0) answered 200 on 2026-10-20.
+> The coin, the four-value draw and every number in the table were worked by hand and match the outputs of `coin.py` and `schedule_levels.py` in [[Running The Scaling Rule For Variance#Try the scaling rule yourself]], re-run on 2026-10-21 on mscluster (Linux) with Python 3.12.10. The two figure scripts were run on 2026-10-21 on mscluster with Python 3.12.10, matplotlib 3.10.8 and numpy 2.4.3, in an empty scratch folder, by vault-writer; each SVG was opened (through a PNG copy made by the same script) before filing. The prepared environment `~/.vault-sandbox` is missing on this machine, so the system `python3`, which has matplotlib and numpy, drew them. The textbook's PDF pages 150 and 200 were opened and read as text. [Variance](https://en.wikipedia.org/wiki/Variance) on Wikipedia (CC BY-SA 4.0) answered 200 on 2026-10-20. The Where to learn this card was checked on 2026-10-24: each textbook range was read with pdftotext, the Leonard row was copied from the video lessons index, the StatQuest and ritvikmath chapter lists were read with cache-video-chapters.py and described from their chapter titles only, and each plan was read at its title and first lines.

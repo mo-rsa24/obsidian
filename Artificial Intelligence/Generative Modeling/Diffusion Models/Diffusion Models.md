@@ -1,5 +1,5 @@
 ---
-aliases: [diffusion model, diffusion models, DDPM, denoising diffusion]
+aliases: [diffusion model, diffusion models, DDPM, denoising diffusion, denoising diffusion probabilistic model]
 sources:
   - "Ho, Jain, Abbeel, Denoising Diffusion Probabilistic Models, NeurIPS 2020: https://arxiv.org/abs/2006.11239"
   - "Bradley, Nakkiran, Berthelot, Thornton, Susskind, Mechanisms of Projective Composition of Diffusion Models, ICML 2025: https://arxiv.org/abs/2502.04549"
@@ -68,8 +68,36 @@ Read them in this order.
 - [[The Quarter Circle Under The Cosine Schedule]]: the geometry under $C_k$ on a Cartesian plane, drawn by the Python that computes it: the 101 posts on the quarter arc as a ruler, and the point at post 51 as step 50's signal and noise multipliers.
 - [[The Quarter Turn And The Fraction]]: the squared cosine walked across all 101 posts, flat at both ends, and the fraction $\cos^2\theta_k / \cos^2\theta_0$ whose denominator never changes a step's noise; then each piece removed in turn, with what it changes.
 - [[Composition]]: combining trained models by multiplying what each believes, in notes from the rule to what each expert learns and what annealing moves.
+- [[DDIM]]: DDIM samples a trained diffusion model through a family of non-Markovian reverse steps that keep DDPM's marginals, and with its noise set to zero the sampler is deterministic and can skip most of the steps.
 
 The samplers composition borrows are taught under Mathematics, in [[Markov Chain Monte Carlo]].
+
+## Where to learn this
+
+**Diffusion model**, the denoising diffusion probabilistic model. Also: DDPM, denoising diffusion, diffusion models.
+
+**Textbooks**
+
+- Understanding deep learning, sections 18.1 to 18.6: [pages 362 to 379](../../../Mathematics/references/textbooks/machine-learning/understanding-deep-learning.pdf#page=362). Works the forward process on one-dimensional data with numbers (T = 100 steps at β = 0.03, and the diffusion kernel from x = 2.0 drawn at t = 20, 40 and 80), then the decoder, the loss, its reparameterisation as noise prediction, and the training and sampling algorithms on page 377.
+- Probabilistic machine learning: advanced topics, section 25.2: [pages 890 to 896](../../../Mathematics/references/textbooks/machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=890). The DDPM as a VAE whose encoder is a fixed noising chain, illustrated on 1d data in Figure 25.2, through the training objective and a learned noise schedule.
+- The little book of generative AI foundations, chapter 4: [pages 68 to 88](../../../Mathematics/references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=68). The discrete-time DDPM derived in full: the forward chain and its closed form, the reverse process, the ELBO, the exact reverse posterior, and the noise-prediction objective with its training and sampling loop.
+
+**Videos**
+
+- CME296 lecture 1, 23:31 to 26:35: [watch](https://www.youtube.com/watch?v=tr-CUpw--ck&t=1411s). Introduces DDPM's forward process q, which corrupts a training image with noise step by step, and the learned reverse process p_θ, which removes it. Caption-read.
+- CME296 lecture 1, 38:51 to 46:03: [watch](https://www.youtube.com/watch?v=tr-CUpw--ck&t=2331s). Derives on the board the closed form x_t = √ᾱ_t x_0 + √(1 − ᾱ_t) ε by merging independent Gaussian noise terms. Caption-read.
+- CME296 lecture 1, 1:26:55 to 1:29:34: [watch](https://www.youtube.com/watch?v=tr-CUpw--ck&t=5215s). The DDPM training loop (sample x_0, ε and t, regress the noise) and the sampling loop from x_T to x_0 with fresh noise at each step. Caption-read.
+- CS231n lecture 14, 30:50 to 35:55: [watch](https://www.youtube.com/watch?v=Edr4uZFh4EE&t=1850s). The intuition: noise of the data's shape mixed in by a level t from 0 (clean) to 1 (pure noise), a network that removes a little at a time, and sampling from pure noise. Caption-read.
+
+**Papers**
+
+- Chan 2024, Tutorial on diffusion models for imaging and vision, sections 2.1 to 2.5: [pages 18 to 39](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/tutorial-on-diffusion-models-for-imaging-and-vision.pdf#page=18). DDPM built as an extension of the VAE: building blocks, the ELBO, the reverse-process distribution, training and inference, and predicting the noise.
+
+**Our plans and chapters**
+
+- [Write DDPM's forward and reverse steps again](/home/molef/goal-setting/learning/deep-learning/generative-models/03-sampling-from-a-graph/plans/30-ddpm-step-refresher.md), deep-learning/generative-models/03-sampling-from-a-graph, plan 30. Both steps worked on a single pixel x₀ = 1 with β_t = 0.02 for 50 steps.
+- [DDPM end to end on two moons](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/plans/01-ddpm-end-to-end-on-two-moons.md), deep-learning/diffusion-models/00-from-scratch-to-sdxl, plan 01. A whole DDPM trained and sampled on the two-moons toy, then the same code with 10 steps in place of 1000.
+- [The schedule and one reverse step](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/10-schedule-and-reverse-step.md), deep-learning/diffusion-models/01-poe-derivation-foundations, plan 10. The noise schedule plotted from your own configuration, and one reverse step written out with every term named.
 
 > [!note]- How this was checked
 > Every output above was run by the writer in an empty folder, `~/playground/sandbox/gaussian-clouds`, on the PC: Ubuntu under WSL2, through the prepared environment `~/.vault-sandbox/bin/python` (Python 3.11.13, NumPy 2.4.6, Matplotlib 3.11.2), on 2026-10-04. The folder was removed afterwards and the clean-up check returned 2.
@@ -85,3 +113,5 @@ The samplers composition borrows are taught under Mathematics, in [[Markov Chain
 > The re-teach in the walk described expert 2 in shared as an object in the left half only. It also narrows the right half, from variance 4 to 1, and the table and derivation here carry that.
 >
 > References, each answering 200 on 2026-10-04: [Ho et al. on arXiv](https://arxiv.org/abs/2006.11239), [Bradley et al. on arXiv](https://arxiv.org/abs/2502.04549), [Du et al. on arXiv](https://arxiv.org/abs/2302.11552) (checked 2026-10-09), [Product of experts](https://en.wikipedia.org/wiki/Product_of_experts) on Wikipedia, CC BY-SA 4.0. Definition 5.1 and Definition 5.2 were read in the walk's read-ahead, `read-ahead/05-simple-construction.md`, which quotes the paper's source `src/composition.tex` lines 33 to 46. The sketchpad link is the learner's own private artifact and was not fetched. No tldr-pages entry covers this.
+>
+> The Where to learn this card was checked on 2026-10-24: every textbook and paper page range was read in the PDF with pdftotext (Understanding deep learning and Probabilistic machine learning: advanced topics found through their back-of-book indexes), each video row was read in the caption-read CME296 and CS231n lecture maps under `~/.claude/cache/captions/`, each plan was read at its title and description, and check-cards.py opened every link.

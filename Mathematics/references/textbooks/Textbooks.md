@@ -1349,9 +1349,12 @@ heading in the text; Part II is listed down to the chapters and their first sect
 probability distributions (chapter 2 holds the Gaussian in full, with conditionals, marginals and Bayes'
 theorem for Gaussians), linear models, neural networks, kernels, graphical models, EM, variational
 inference, sampling, latent-variable models and sequential data. Was `Pattern Recogniton And Machine
-Learning.pdf`. The embedded outline has chapters only; the section rows come from the printed contents
-and each page is the printed page plus 19, so the printed page number is the PDF page minus 19. Appendix
-rows are the outline's own pages.
+Learning.pdf`. The embedded outline has chapters only; the section rows come from the printed contents, each moved to
+the PDF page that prints its contents page number. The offset between printed and PDF pages drifts through this PDF: the printed page is the PDF page minus
+19 at PDF page 100, minus 18 at page 200, minus 16 at page 500 and minus 14 at page 700, and the
+back-of-book index finds it reaching minus 11 near the end. Convert a printed page through
+`~/.claude/cache/book-indexes/pattern-recognition-and-machine-learning.json`, whose PDF pages were read
+off the pages themselves, never by subtracting a fixed number. Appendix rows are the outline's own pages.
 
 | Chapter or section | PDF page |
 | --- | --- |
@@ -1375,63 +1378,63 @@ rows are the outline's own pages.
 | 3.4 Bayesian Model Comparison | [180](machine-learning/pattern-recognition-and-machine-learning.pdf#page=180) |
 | 3.5 The Evidence Approximation | [184](machine-learning/pattern-recognition-and-machine-learning.pdf#page=184) |
 | 3.6 Limitations of Fixed Basis Functions | [191](machine-learning/pattern-recognition-and-machine-learning.pdf#page=191) |
-| 4 Linear Models for Classification | [198](machine-learning/pattern-recognition-and-machine-learning.pdf#page=198) |
-| 4.1 Discriminant Functions | [200](machine-learning/pattern-recognition-and-machine-learning.pdf#page=200) |
-| 4.2 Probabilistic Generative Models | [215](machine-learning/pattern-recognition-and-machine-learning.pdf#page=215) |
-| 4.3 Probabilistic Discriminative Models | [222](machine-learning/pattern-recognition-and-machine-learning.pdf#page=222) |
-| 4.4 The Laplace Approximation | [232](machine-learning/pattern-recognition-and-machine-learning.pdf#page=232) |
-| 4.5 Bayesian Logistic Regression | [236](machine-learning/pattern-recognition-and-machine-learning.pdf#page=236) |
-| 5 Neural Networks | [244](machine-learning/pattern-recognition-and-machine-learning.pdf#page=244) |
-| 5.1 Feed-forward Network Functions | [246](machine-learning/pattern-recognition-and-machine-learning.pdf#page=246) |
-| 5.2 Network Training | [251](machine-learning/pattern-recognition-and-machine-learning.pdf#page=251) |
-| 5.3 Error Backpropagation | [260](machine-learning/pattern-recognition-and-machine-learning.pdf#page=260) |
-| 5.4 The Hessian Matrix | [268](machine-learning/pattern-recognition-and-machine-learning.pdf#page=268) |
-| 5.5 Regularization in Neural Networks | [275](machine-learning/pattern-recognition-and-machine-learning.pdf#page=275) |
-| 5.6 Mixture Density Networks | [291](machine-learning/pattern-recognition-and-machine-learning.pdf#page=291) |
-| 5.7 Bayesian Neural Networks | [296](machine-learning/pattern-recognition-and-machine-learning.pdf#page=296) |
-| 6 Kernel Methods | [310](machine-learning/pattern-recognition-and-machine-learning.pdf#page=310) |
-| 6.1 Dual Representations | [312](machine-learning/pattern-recognition-and-machine-learning.pdf#page=312) |
-| 6.2 Constructing Kernels | [313](machine-learning/pattern-recognition-and-machine-learning.pdf#page=313) |
-| 6.3 Radial Basis Function Networks | [318](machine-learning/pattern-recognition-and-machine-learning.pdf#page=318) |
-| 6.4 Gaussian Processes | [322](machine-learning/pattern-recognition-and-machine-learning.pdf#page=322) |
-| 7 Sparse Kernel Machines | [344](machine-learning/pattern-recognition-and-machine-learning.pdf#page=344) |
-| 7.1 Maximum Margin Classifiers | [345](machine-learning/pattern-recognition-and-machine-learning.pdf#page=345) |
-| 7.2 Relevance Vector Machines | [364](machine-learning/pattern-recognition-and-machine-learning.pdf#page=364) |
-| 8 Graphical Models | [378](machine-learning/pattern-recognition-and-machine-learning.pdf#page=378) |
-| 8.1 Bayesian Networks | [379](machine-learning/pattern-recognition-and-machine-learning.pdf#page=379) |
-| 8.2 Conditional Independence | [391](machine-learning/pattern-recognition-and-machine-learning.pdf#page=391) |
-| 8.3 Markov Random Fields | [402](machine-learning/pattern-recognition-and-machine-learning.pdf#page=402) |
-| 8.4 Inference in Graphical Models | [412](machine-learning/pattern-recognition-and-machine-learning.pdf#page=412) |
-| 9 Mixture Models and EM | [442](machine-learning/pattern-recognition-and-machine-learning.pdf#page=442) |
-| 9.1 K-means Clustering | [443](machine-learning/pattern-recognition-and-machine-learning.pdf#page=443) |
-| 9.2 Mixtures of Gaussians | [449](machine-learning/pattern-recognition-and-machine-learning.pdf#page=449) |
-| 9.3 An Alternative View of EM | [458](machine-learning/pattern-recognition-and-machine-learning.pdf#page=458) |
-| 9.4 The EM Algorithm in General | [469](machine-learning/pattern-recognition-and-machine-learning.pdf#page=469) |
-| 10.1 Variational Inference | [481](machine-learning/pattern-recognition-and-machine-learning.pdf#page=481) |
-| 10.2 Illustration: Variational Mixture of Gaussians | [493](machine-learning/pattern-recognition-and-machine-learning.pdf#page=493) |
-| 10.3 Variational Linear Regression | [505](machine-learning/pattern-recognition-and-machine-learning.pdf#page=505) |
-| 10.4 Exponential Family Distributions | [509](machine-learning/pattern-recognition-and-machine-learning.pdf#page=509) |
-| 10.5 Local Variational Methods | [512](machine-learning/pattern-recognition-and-machine-learning.pdf#page=512) |
-| 10.6 Variational Logistic Regression | [517](machine-learning/pattern-recognition-and-machine-learning.pdf#page=517) |
-| 10.7 Expectation Propagation | [524](machine-learning/pattern-recognition-and-machine-learning.pdf#page=524) |
-| 11.1 Basic Sampling Algorithms | [545](machine-learning/pattern-recognition-and-machine-learning.pdf#page=545) |
-| 11.2 Markov Chain Monte Carlo | [556](machine-learning/pattern-recognition-and-machine-learning.pdf#page=556) |
-| 11.3 Gibbs Sampling | [561](machine-learning/pattern-recognition-and-machine-learning.pdf#page=561) |
-| 11.4 Slice Sampling | [565](machine-learning/pattern-recognition-and-machine-learning.pdf#page=565) |
-| 11.5 The Hybrid Monte Carlo Algorithm | [567](machine-learning/pattern-recognition-and-machine-learning.pdf#page=567) |
-| 11.6 Estimating the Partition Function | [573](machine-learning/pattern-recognition-and-machine-learning.pdf#page=573) |
-| 12.1 Principal Component Analysis | [580](machine-learning/pattern-recognition-and-machine-learning.pdf#page=580) |
-| 12.2 Probabilistic PCA | [589](machine-learning/pattern-recognition-and-machine-learning.pdf#page=589) |
-| 12.3 Kernel PCA | [605](machine-learning/pattern-recognition-and-machine-learning.pdf#page=605) |
-| 12.4 Nonlinear Latent Variable Models | [610](machine-learning/pattern-recognition-and-machine-learning.pdf#page=610) |
-| 13.1 Markov Models | [626](machine-learning/pattern-recognition-and-machine-learning.pdf#page=626) |
-| 13.2 Hidden Markov Models | [629](machine-learning/pattern-recognition-and-machine-learning.pdf#page=629) |
-| 13.3 Linear Dynamical Systems | [654](machine-learning/pattern-recognition-and-machine-learning.pdf#page=654) |
-| 14.1 Bayesian Model Averaging | [673](machine-learning/pattern-recognition-and-machine-learning.pdf#page=673) |
-| 14.2 Committees | [674](machine-learning/pattern-recognition-and-machine-learning.pdf#page=674) |
-| 14.3 Boosting | [676](machine-learning/pattern-recognition-and-machine-learning.pdf#page=676) |
-| 14.4 Tree-based Models | [682](machine-learning/pattern-recognition-and-machine-learning.pdf#page=682) |
-| 14.5 Conditional Mixture Models | [685](machine-learning/pattern-recognition-and-machine-learning.pdf#page=685) |
+| 4 Linear Models for Classification | [197](machine-learning/pattern-recognition-and-machine-learning.pdf#page=197) |
+| 4.1 Discriminant Functions | [199](machine-learning/pattern-recognition-and-machine-learning.pdf#page=199) |
+| 4.2 Probabilistic Generative Models | [214](machine-learning/pattern-recognition-and-machine-learning.pdf#page=214) |
+| 4.3 Probabilistic Discriminative Models | [221](machine-learning/pattern-recognition-and-machine-learning.pdf#page=221) |
+| 4.4 The Laplace Approximation | [231](machine-learning/pattern-recognition-and-machine-learning.pdf#page=231) |
+| 4.5 Bayesian Logistic Regression | [235](machine-learning/pattern-recognition-and-machine-learning.pdf#page=235) |
+| 5 Neural Networks | [243](machine-learning/pattern-recognition-and-machine-learning.pdf#page=243) |
+| 5.1 Feed-forward Network Functions | [245](machine-learning/pattern-recognition-and-machine-learning.pdf#page=245) |
+| 5.2 Network Training | [250](machine-learning/pattern-recognition-and-machine-learning.pdf#page=250) |
+| 5.3 Error Backpropagation | [259](machine-learning/pattern-recognition-and-machine-learning.pdf#page=259) |
+| 5.4 The Hessian Matrix | [267](machine-learning/pattern-recognition-and-machine-learning.pdf#page=267) |
+| 5.5 Regularization in Neural Networks | [274](machine-learning/pattern-recognition-and-machine-learning.pdf#page=274) |
+| 5.6 Mixture Density Networks | [290](machine-learning/pattern-recognition-and-machine-learning.pdf#page=290) |
+| 5.7 Bayesian Neural Networks | [295](machine-learning/pattern-recognition-and-machine-learning.pdf#page=295) |
+| 6 Kernel Methods | [309](machine-learning/pattern-recognition-and-machine-learning.pdf#page=309) |
+| 6.1 Dual Representations | [311](machine-learning/pattern-recognition-and-machine-learning.pdf#page=311) |
+| 6.2 Constructing Kernels | [312](machine-learning/pattern-recognition-and-machine-learning.pdf#page=312) |
+| 6.3 Radial Basis Function Networks | [317](machine-learning/pattern-recognition-and-machine-learning.pdf#page=317) |
+| 6.4 Gaussian Processes | [321](machine-learning/pattern-recognition-and-machine-learning.pdf#page=321) |
+| 7 Sparse Kernel Machines | [342](machine-learning/pattern-recognition-and-machine-learning.pdf#page=342) |
+| 7.1 Maximum Margin Classifiers | [343](machine-learning/pattern-recognition-and-machine-learning.pdf#page=343) |
+| 7.2 Relevance Vector Machines | [362](machine-learning/pattern-recognition-and-machine-learning.pdf#page=362) |
+| 8 Graphical Models | [376](machine-learning/pattern-recognition-and-machine-learning.pdf#page=376) |
+| 8.1 Bayesian Networks | [377](machine-learning/pattern-recognition-and-machine-learning.pdf#page=377) |
+| 8.2 Conditional Independence | [389](machine-learning/pattern-recognition-and-machine-learning.pdf#page=389) |
+| 8.3 Markov Random Fields | [400](machine-learning/pattern-recognition-and-machine-learning.pdf#page=400) |
+| 8.4 Inference in Graphical Models | [410](machine-learning/pattern-recognition-and-machine-learning.pdf#page=410) |
+| 9 Mixture Models and EM | [440](machine-learning/pattern-recognition-and-machine-learning.pdf#page=440) |
+| 9.1 K-means Clustering | [441](machine-learning/pattern-recognition-and-machine-learning.pdf#page=441) |
+| 9.2 Mixtures of Gaussians | [447](machine-learning/pattern-recognition-and-machine-learning.pdf#page=447) |
+| 9.3 An Alternative View of EM | [456](machine-learning/pattern-recognition-and-machine-learning.pdf#page=456) |
+| 9.4 The EM Algorithm in General | [467](machine-learning/pattern-recognition-and-machine-learning.pdf#page=467) |
+| 10.1 Variational Inference | [478](machine-learning/pattern-recognition-and-machine-learning.pdf#page=478) |
+| 10.2 Illustration: Variational Mixture of Gaussians | [490](machine-learning/pattern-recognition-and-machine-learning.pdf#page=490) |
+| 10.3 Variational Linear Regression | [502](machine-learning/pattern-recognition-and-machine-learning.pdf#page=502) |
+| 10.4 Exponential Family Distributions | [506](machine-learning/pattern-recognition-and-machine-learning.pdf#page=506) |
+| 10.5 Local Variational Methods | [509](machine-learning/pattern-recognition-and-machine-learning.pdf#page=509) |
+| 10.6 Variational Logistic Regression | [514](machine-learning/pattern-recognition-and-machine-learning.pdf#page=514) |
+| 10.7 Expectation Propagation | [521](machine-learning/pattern-recognition-and-machine-learning.pdf#page=521) |
+| 11.1 Basic Sampling Algorithms | [542](machine-learning/pattern-recognition-and-machine-learning.pdf#page=542) |
+| 11.2 Markov Chain Monte Carlo | [553](machine-learning/pattern-recognition-and-machine-learning.pdf#page=553) |
+| 11.3 Gibbs Sampling | [558](machine-learning/pattern-recognition-and-machine-learning.pdf#page=558) |
+| 11.4 Slice Sampling | [562](machine-learning/pattern-recognition-and-machine-learning.pdf#page=562) |
+| 11.5 The Hybrid Monte Carlo Algorithm | [564](machine-learning/pattern-recognition-and-machine-learning.pdf#page=564) |
+| 11.6 Estimating the Partition Function | [570](machine-learning/pattern-recognition-and-machine-learning.pdf#page=570) |
+| 12.1 Principal Component Analysis | [577](machine-learning/pattern-recognition-and-machine-learning.pdf#page=577) |
+| 12.2 Probabilistic PCA | [586](machine-learning/pattern-recognition-and-machine-learning.pdf#page=586) |
+| 12.3 Kernel PCA | [602](machine-learning/pattern-recognition-and-machine-learning.pdf#page=602) |
+| 12.4 Nonlinear Latent Variable Models | [607](machine-learning/pattern-recognition-and-machine-learning.pdf#page=607) |
+| 13.1 Markov Models | [622](machine-learning/pattern-recognition-and-machine-learning.pdf#page=622) |
+| 13.2 Hidden Markov Models | [625](machine-learning/pattern-recognition-and-machine-learning.pdf#page=625) |
+| 13.3 Linear Dynamical Systems | [650](machine-learning/pattern-recognition-and-machine-learning.pdf#page=650) |
+| 14.1 Bayesian Model Averaging | [669](machine-learning/pattern-recognition-and-machine-learning.pdf#page=669) |
+| 14.2 Committees | [670](machine-learning/pattern-recognition-and-machine-learning.pdf#page=670) |
+| 14.3 Boosting | [672](machine-learning/pattern-recognition-and-machine-learning.pdf#page=672) |
+| 14.4 Tree-based Models | [678](machine-learning/pattern-recognition-and-machine-learning.pdf#page=678) |
+| 14.5 Conditional Mixture Models | [681](machine-learning/pattern-recognition-and-machine-learning.pdf#page=681) |
 | Appendix A Data Sets | [692](machine-learning/pattern-recognition-and-machine-learning.pdf#page=692) |
 | Appendix B Probability Distributions | [699](machine-learning/pattern-recognition-and-machine-learning.pdf#page=699) |
 | Appendix C Properties of Matrices | [708](machine-learning/pattern-recognition-and-machine-learning.pdf#page=708) |
@@ -1929,8 +1932,12 @@ regularisation, optimisation, convolutional and recurrent nets), and research to
 structured probabilistic models, Monte Carlo methods, score matching, approximate inference, Boltzmann
 machines and other generative models). It predates diffusion models and does not cover them. Was
 `Deep Learning.pdf`. No embedded outline; this table is from the printed contents, and each page was
-checked against the heading printed on it. The printed page number is the PDF page minus 16, except the
-Index, which starts at PDF page 794.
+checked against the heading printed on it. The page number printed on each page is the PDF page minus 16,
+except the Index, which starts at PDF page 794. The back-of-book index cites a different printing, so
+its numbers drift against this PDF (about one page near the front, about five near the back), and
+adding 16 to an index number often misses. Convert an index entry through
+`~/.claude/cache/book-indexes/deep-learning-textbook.json`, which moved each entry to the nearby page
+that prints its term.
 
 | Chapter or section | PDF page |
 | --- | --- |
