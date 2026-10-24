@@ -1,6 +1,6 @@
 ---
 aliases: [sampling, sampling from a distribution, sample from a distribution, drawing samples, draw samples, drawing from a distribution, generating random numbers, random variate generation, sample, draw a sample, drawing a sample, random sample, sample of a population, sampling a population]
-link-skip: [sample catalogue, sample image, sample artifacts, sample output, sample files, sample code]
+link-skip: [sample catalogue, sample image, sample artifacts, sample output, sample files, sample code, sample pipeline, sample workflow]
 standard: vault-note v2
 ---
 

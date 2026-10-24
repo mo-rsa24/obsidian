@@ -1,6 +1,6 @@
 ---
 aliases: [database replication, replication, replica, read replica, primary-replica, leader-follower, primary and replica, leader and replica]
-link-skip: [useful replication, seed replication, isolates replication, GVAE replication, replication of the TC, manages replicas, manual replicas, replicas and autoscaling, rolling updates, three replicas, independent replicas, Walk deployment]
+link-skip: [useful replication, seed replication, isolates replication, GVAE replication, replication of the TC, manages replicas, manual replicas, replicas and autoscaling, rolling updates, three replicas, independent replicas, Walk deployment, smallest replica]
 standard: vault-note v2
 ---
 

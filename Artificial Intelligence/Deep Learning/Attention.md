@@ -1,6 +1,7 @@
 ---
 aliases: [attention, attention mechanism, self-attention, scaled dot-product attention, dot-product attention, dot-product self-attention, multi-head attention, softmax(QK^T/sqrt(d))V, query key value]
 link-skip: [pay attention, needs attention, need attention, more attention, attention to detail, draw attention, your attention]
+link-skip-in: [system-design/]
 standard: vault-note v2
 ---
 

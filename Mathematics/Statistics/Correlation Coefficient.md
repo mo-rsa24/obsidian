@@ -1,5 +1,6 @@
 ---
 aliases: [correlation, Pearson correlation, Pearson's r, covariance of two variables, Cov(X, Y), phi coefficient, Matthews correlation coefficient, MCC, correlation of two yes-or-no columns, binary correlation, Pearson correlation coefficient, correlation matrix]
+link-skip: [correlation ID]
 sources:
   - "Introduction to Probability for Data Science, Definitions 5.12 and 5.13 and Theorems 3.6 and 5.3: the vault's shelf copy, Mathematics/references/textbooks/statistics/introduction-to-probability-for-data-science.pdf"
   - "Rao and Callison-Burch, agreement metrics for LLM judges, section 4.1, https://arxiv.org/abs/2606.00093"

@@ -1,6 +1,6 @@
 ---
 aliases: [API gateway, gateway]
-link-skip: [payment gateway, NAT gateway, default gateway, internet gateway, transit gateway, Bad Gateway, tool gateway, model gateway, AI gateway]
+link-skip: [payment gateway, NAT gateway, default gateway, internet gateway, transit gateway, Bad Gateway, tool gateway, model gateway, AI gateway, test gateways]
 link-only-in: [system-design]
 standard: vault-note v2
 ---

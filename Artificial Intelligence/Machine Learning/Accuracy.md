@@ -1,6 +1,6 @@
 ---
 aliases: [accuracy, classification accuracy, test accuracy, top-1 accuracy, top-5 accuracy, misclassification rate]
-link-skip: [media richness, factual accuracy]
+link-skip: [media richness, factual accuracy, timestamp accuracy]
 standard: vault-note v2
 ---
 

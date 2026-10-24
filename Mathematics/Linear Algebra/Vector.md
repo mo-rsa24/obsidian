@@ -1,6 +1,6 @@
 ---
 aliases: [vector, column vector, row vector]
-link-skip: [vector search, vector database, vector store, vector-only, vector index, keyword and vector, keyword-plus-vector, hybrid search, pgvector, vector diagram]
+link-skip: [vector search, vector database, vector store, vector-only, vector index, keyword and vector, keyword-plus-vector, hybrid search, pgvector, vector diagram, attack vector]
 standard: vault-note v2
 ---
 

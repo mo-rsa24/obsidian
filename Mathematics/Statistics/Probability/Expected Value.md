@@ -1,6 +1,7 @@
 ---
 aliases: [expected value, expectation, mean of a distribution, mean of a random variable, expectation of a random variable, expected value of a random variable]
-link-skip: [data-quality expectation, Lakeflow expectations, Great Expectations, code expectation, expectation maximization]
+link-skip: [data-quality expectation, Lakeflow expectations, Great Expectations, code expectation, expectation maximization, actual and expected]
+link-skip-in: [system-design/]
 standard: vault-note v2
 ---
 

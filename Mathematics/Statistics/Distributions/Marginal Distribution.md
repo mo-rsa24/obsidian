@@ -1,6 +1,6 @@
 ---
 aliases: [marginal distribution, marginal, marginal density, marginal probability, marginal PMF, marginal PDF, marginalise, marginalize, marginalising, marginalizing, marginalised, marginalized, marginalisation, marginalization, summing out, integrating out]
-link-skip-in: [finance/]
+link-skip-in: [finance/, system-design/]
 link-skip: [marginal rate, marginal tax, marginal tax rate, marginal cost, marginal revenue]
 standard: vault-note v2
 ---

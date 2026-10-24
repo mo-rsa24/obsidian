@@ -1,7 +1,7 @@
 ---
 aliases: [statistical independence, independence, independent events, independent random variables, statistically independent, mutually independent, independent and identically distributed]
 link-skip-in: [finance/]
-link-skip: [Parametrization Independence]
+link-skip: [Parametrization Independence, independence contract]
 standard: vault-note v2
 ---
 

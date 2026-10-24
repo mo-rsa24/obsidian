@@ -1,5 +1,6 @@
 ---
 aliases: [matrix, matrices, matrix multiplication, matrix product, matrix-vector product, matrix multiply]
+link-skip-in: [system-design/]
 link-skip: [build matrix, environment matrix, test matrix, confusion matrix, traceability matrix]
 standard: vault-note v2
 ---

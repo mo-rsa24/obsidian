@@ -2,6 +2,7 @@
 aliases: [database schema, table schema, schema design, schema migration, database migration, schema, migration, DDL]
 link-only-in: [system-design, projects/attica, projects/tms-mobility, data-engineering, ai-engineering/one-business-end-to-end, ai-engineering/data-agents, ai-engineering/product-data-validation-end-to-end]
 link-skip: ["catalog, schema, table", three-level name, JSON schema, tool schema, Pydantic schema, result schema, label schema, label-schema]
+link-skip-in: [system-design/api-design-and-contracts/]
 standard: vault-note v2
 ---
 

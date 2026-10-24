@@ -1,6 +1,6 @@
 ---
 aliases: [loss function, loss, cost function, objective function, error function, training objective]
-link-skip-in: [finance/]
+link-skip-in: [finance/, system-design/]
 link-skip: [job loss, your loss is capped, behavioral loss, profit and loss]
 standard: vault-note v2
 ---

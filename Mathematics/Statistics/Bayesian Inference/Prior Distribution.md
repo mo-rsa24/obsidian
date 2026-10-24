@@ -1,7 +1,7 @@
 ---
 aliases: [prior distribution, prior, prior probability, prior density, prior belief, conjugate prior]
 link-skip-in: [finance/]
-link-skip: [prior to, prior work, prior art, prior empirical, prior resolution]
+link-skip: [prior to, prior work, prior art, prior empirical, prior resolution, prior coverage]
 standard: vault-note v2
 ---
 
