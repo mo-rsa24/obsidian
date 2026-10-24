@@ -1443,8 +1443,9 @@ rows are the outline's own pages.
 ### Probabilistic machine learning: an introduction
 
 `machine-learning/probabilistic-machine-learning-an-introduction.pdf`, 863 pages. Kevin P. Murphy, *Probabilistic Machine Learning: An Introduction*, MIT Press,
-copyright 2021, published 2022 (the first of two volumes; the second is *Probabilistic Machine Learning:
-Advanced Topics*, which is not on the shelf). The book builds machine learning from probability: Part I
+copyright 2021, published 2022 (the first of two volumes; the second, *Probabilistic Machine Learning:
+Advanced Topics*, is on the shelf as [the advanced-topics volume](machine-learning/probabilistic-machine-learning-advanced-topics.pdf),
+with its own section below). The book builds machine learning from probability: Part I
 covers probability, statistics, decision theory, information theory, linear algebra and optimisation;
 Part II linear models; Part III neural networks; Part IV nonparametric models; Part V dimensionality
 reduction, clustering and more. Sections marked with a star are optional. Was `Probabilistic Machine
@@ -1633,6 +1634,290 @@ printed page number is the PDF page minus 28. The notation appendix is listed as
 | Part: VI Appendix | [821](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=821) |
 | Notation | [823](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=823) |
 | Bibliography | [831](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=831) |
+
+### Probabilistic machine learning: advanced topics
+
+`machine-learning/probabilistic-machine-learning-advanced-topics.pdf`, 1,355 pages. Kevin P. Murphy,
+*Probabilistic Machine Learning: Advanced Topics*, MIT Press, copyright 2023. This PDF is the author's
+draft of August 2023 (its cover reads "Draft 08/2023"), released under a Creative Commons CC-BY-NC-ND
+licence. It is the second of two volumes; the first is the introduction above. A published textbook at
+research level: Part I revisits the fundamentals (probability, statistics, graphical models,
+information theory, optimisation); Part II inference (Gaussian filtering and smoothing, message
+passing, variational inference, Monte Carlo, MCMC, sequential Monte Carlo); Part III prediction
+(generalized linear models, deep and Bayesian neural networks, Gaussian processes, beyond the iid
+assumption); Part IV generation (VAEs, autoregressive models, normalizing flows, energy-based models,
+diffusion models, GANs); Part V discovery (latent factor and state-space models, graph learning,
+nonparametric Bayes, representation learning, interpretability); Part VI action (decision making,
+reinforcement learning, causality). Was `Probabalistic Machine Learning Advance Topics Kevin P
+Murphy.pdf`. The table is from the PDF's own outline: parts, chapters and sections, numbered in the
+printed order. The outline's own Index and Bibliography bookmarks point at PDF pages 1253 and 1256,
+which are wrong; the table gives the pages where each one starts. The printed page number is the PDF
+page minus 33 throughout.
+
+**Its index.** PDF pages 1256 to 1273 (printed 1223 to 1240), followed by the bibliography on PDF
+pages 1274 to 1355. Entries cite printed page numbers, so the PDF page is the printed number plus 33:
+"diffusion models, 857" opens at [890](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=890).
+Each number is also a live link inside the PDF to the right page.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| Preface | [30](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=30) |
+| 1 Introduction | [34](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=34) |
+| Part: I Fundamentals | [36](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=36) |
+| 2 Probability | [38](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=38) |
+| 2.1 Introduction | [38](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=38) |
+| 2.2 Some common probability distributions | [41](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=41) |
+| 2.3 Gaussian joint distributions | [55](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=55) |
+| 2.4 The exponential family | [66](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=66) |
+| 2.5 Transformations of random variables | [77](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=77) |
+| 2.6 Markov chains | [79](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=79) |
+| 2.7 Divergence measures between probability distributions | [88](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=88) |
+| 3 Statistics | [96](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=96) |
+| 3.1 Introduction | [96](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=96) |
+| 3.2 Bayesian statistics | [96](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=96) |
+| 3.3 Frequentist statistics | [105](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=105) |
+| 3.4 Conjugate priors | [116](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=116) |
+| 3.5 Noninformative priors | [135](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=135) |
+| 3.6 Hierarchical priors | [140](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=140) |
+| 3.7 Empirical Bayes | [147](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=147) |
+| 3.8 Model selection | [151](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=151) |
+| 3.9 Model checking | [160](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=160) |
+| 3.10 Hypothesis testing | [164](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=164) |
+| 3.11 Missing data | [174](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=174) |
+| 4 Graphical models | [176](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=176) |
+| 4.1 Introduction | [176](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=176) |
+| 4.2 Directed graphical models (Bayes nets) | [176](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=176) |
+| 4.3 Undirected graphical models (Markov random fields) | [197](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=197) |
+| 4.4 Conditional random fields (CRFs) | [218](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=218) |
+| 4.5 Comparing directed and undirected PGMs | [226](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=226) |
+| 4.6 PGM extensions | [234](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=234) |
+| 4.7 Structural causal models | [244](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=244) |
+| 5 Information theory | [250](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=250) |
+| 5.1 KL divergence | [250](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=250) |
+| 5.2 Entropy | [265](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=265) |
+| 5.3 Mutual information | [269](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=269) |
+| 5.4 Data compression (source coding) | [278](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=278) |
+| 5.5 Error-correcting codes (channel coding) | [282](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=282) |
+| 5.6 The information bottleneck | [283](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=283) |
+| 6 Optimization | [288](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=288) |
+| 6.1 Introduction | [288](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=288) |
+| 6.2 Automatic differentiation | [288](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=288) |
+| 6.3 Stochastic optimization | [298](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=298) |
+| 6.4 Natural gradient descent | [306](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=306) |
+| 6.5 Bound optimization (MM) algorithms | [314](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=314) |
+| 6.6 Bayesian optimization | [324](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=324) |
+| 6.7 Derivative-free optimization | [331](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=331) |
+| 6.8 Optimal transport | [340](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=340) |
+| 6.9 Submodular optimization | [349](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=349) |
+| Part: II Inference | [370](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=370) |
+| 7 Inference algorithms: an overview | [372](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=372) |
+| 7.1 Introduction | [372](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=372) |
+| 7.2 Common inference patterns | [373](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=373) |
+| 7.3 Exact inference algorithms | [375](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=375) |
+| 7.4 Approximate inference algorithms | [375](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=375) |
+| 7.5 Evaluating approximate inference algorithms | [383](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=383) |
+| 8 Gaussian filtering and smoothing | [386](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=386) |
+| 8.1 Introduction | [386](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=386) |
+| 8.2 Inference for linear-Gaussian SSMs | [390](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=390) |
+| 8.3 Inference based on local linearization | [402](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=402) |
+| 8.4 Inference based on the unscented transform | [406](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=406) |
+| 8.5 Other variants of the Kalman filter | [410](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=410) |
+| 8.6 Assumed density filtering | [418](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=418) |
+| 8.7 Other inference methods for SSMs | [424](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=424) |
+| 9 Message passing algorithms | [428](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=428) |
+| 9.1 Introduction | [428](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=428) |
+| 9.2 Belief propagation on chains | [428](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=428) |
+| 9.3 Belief propagation on trees | [439](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=439) |
+| 9.4 Loopy belief propagation | [444](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=444) |
+| 9.5 The variable elimination (VE) algorithm | [455](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=455) |
+| 9.6 The junction tree algorithm (JTA) | [461](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=461) |
+| 9.7 Inference as optimization | [462](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=462) |
+| 10 Variational inference | [466](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=466) |
+| 10.1 Introduction | [466](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=466) |
+| 10.2 Gradient-based VI | [472](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=472) |
+| 10.3 Coordinate ascent VI | [482](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=482) |
+| 10.4 More accurate variational posteriors | [498](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=498) |
+| 10.5 Tighter bounds | [500](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=500) |
+| 10.6 Wake-sleep algorithm | [502](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=502) |
+| 10.7 Expectation propagation (EP) | [505](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=505) |
+| 11 Monte Carlo methods | [510](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=510) |
+| 11.1 Introduction | [510](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=510) |
+| 11.2 Monte Carlo integration | [510](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=510) |
+| 11.3 Generating random samples from simple distributions | [513](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=513) |
+| 11.4 Rejection sampling | [514](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=514) |
+| 11.5 Importance sampling | [517](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=517) |
+| 11.6 Controlling Monte Carlo variance | [521](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=521) |
+| 12 Markov chain Monte Carlo | [526](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=526) |
+| 12.1 Introduction | [526](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=526) |
+| 12.2 Metropolis-Hastings algorithm | [527](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=527) |
+| 12.3 Gibbs sampling | [532](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=532) |
+| 12.4 Auxiliary variable MCMC | [540](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=540) |
+| 12.5 Hamiltonian Monte Carlo (HMC) | [543](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=543) |
+| 12.6 MCMC convergence | [551](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=551) |
+| 12.7 Stochastic gradient MCMC | [559](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=559) |
+| 12.8 Reversible jump (transdimensional) MCMC | [563](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=563) |
+| 12.9 Annealing methods | [566](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=566) |
+| 13 Sequential Monte Carlo | [570](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=570) |
+| 13.1 Introduction | [570](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=570) |
+| 13.2 Particle filtering | [572](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=572) |
+| 13.3 Proposal distributions | [580](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=580) |
+| 13.4 Rao-Blackwellized particle filtering (RBPF) | [584](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=584) |
+| 13.5 Extensions of the particle filter | [590](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=590) |
+| 13.6 SMC samplers | [590](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=590) |
+| Part: III Prediction | [600](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=600) |
+| 14 Predictive models: an overview | [602](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=602) |
+| 14.1 Introduction | [602](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=602) |
+| 14.2 Evaluating predictive models | [605](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=605) |
+| 14.3 Conformal prediction | [612](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=612) |
+| 15 Generalized linear models | [616](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=616) |
+| 15.1 Introduction | [616](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=616) |
+| 15.2 Linear regression | [621](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=621) |
+| 15.3 Logistic regression | [635](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=635) |
+| 15.4 Probit regression | [646](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=646) |
+| 15.5 Multilevel (hierarchical) GLMs | [650](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=650) |
+| 16 Deep neural networks | [656](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=656) |
+| 16.1 Introduction | [656](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=656) |
+| 16.2 Building blocks of differentiable circuits | [656](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=656) |
+| 16.3 Canonical examples of neural networks | [665](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=665) |
+| 17 Bayesian neural networks | [672](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=672) |
+| 17.1 Introduction | [672](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=672) |
+| 17.2 Priors for BNNs | [672](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=672) |
+| 17.3 Posteriors for BNNs | [676](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=676) |
+| 17.4 Generalization in Bayesian deep learning | [690](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=690) |
+| 17.5 Online inference | [697](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=697) |
+| 17.6 Hierarchical Bayesian neural networks | [702](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=702) |
+| 18 Gaussian processes | [706](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=706) |
+| 18.1 Introduction | [706](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=706) |
+| 18.2 Mercer kernels | [708](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=708) |
+| 18.3 GPs with Gaussian likelihoods | [718](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=718) |
+| 18.4 GPs with non-Gaussian likelihoods | [726](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=726) |
+| 18.5 Scaling GP inference to large datasets | [730](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=730) |
+| 18.6 Learning the kernel | [742](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=742) |
+| 18.7 GPs and DNNs | [753](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=753) |
+| 18.8 Gaussian processes for time series forecasting | [757](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=757) |
+| 19 Beyond the iid assumption | [760](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=760) |
+| 19.1 Introduction | [760](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=760) |
+| 19.2 Distribution shift | [760](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=760) |
+| 19.3 Detecting distribution shifts | [765](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=765) |
+| 19.4 Robustness to distribution shifts | [770](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=770) |
+| 19.5 Adapting to distribution shifts | [771](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=771) |
+| 19.6 Learning from multiple distributions | [776](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=776) |
+| 19.7 Continual learning | [783](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=783) |
+| 19.8 Adversarial examples | [790](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=790) |
+| Part: IV Generation | [796](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=796) |
+| 20 Generative models: an overview | [798](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=798) |
+| 20.1 Introduction | [798](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=798) |
+| 20.2 Types of generative model | [798](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=798) |
+| 20.3 Goals of generative modeling | [800](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=800) |
+| 20.4 Evaluating generative models | [807](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=807) |
+| 21 Variational autoencoders | [814](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=814) |
+| 21.1 Introduction | [814](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=814) |
+| 21.2 VAE basics | [814](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=814) |
+| 21.3 VAE generalizations | [819](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=819) |
+| 21.4 Avoiding posterior collapse | [829](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=829) |
+| 21.5 VAEs with hierarchical structure | [832](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=832) |
+| 21.6 Vector quantization VAE | [838](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=838) |
+| 22 Autoregressive models | [844](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=844) |
+| 22.1 Introduction | [844](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=844) |
+| 22.2 Neural autoregressive density estimators (NADE) | [845](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=845) |
+| 22.3 Causal CNNs | [845](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=845) |
+| 22.4 Transformers | [847](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=847) |
+| 23 Normalizing flows | [852](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=852) |
+| 23.1 Introduction | [852](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=852) |
+| 23.2 Constructing flows | [855](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=855) |
+| 23.3 Applications | [869](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=869) |
+| 24 Energy-based models | [872](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=872) |
+| 24.1 Introduction | [872](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=872) |
+| 24.2 Maximum likelihood training | [874](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=874) |
+| 24.3 Score matching (SM) | [879](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=879) |
+| 24.4 Noise contrastive estimation | [883](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=883) |
+| 24.5 Other methods | [886](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=886) |
+| 25 Diffusion models | [890](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=890) |
+| 25.1 Introduction | [890](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=890) |
+| 25.2 Denoising diffusion probabilistic models (DDPMs) | [890](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=890) |
+| 25.3 Score-based generative models (SGMs) | [897](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=897) |
+| 25.4 Continuous time models using differential equations | [900](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=900) |
+| 25.5 Speeding up diffusion models | [904](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=904) |
+| 25.6 Conditional generation | [908](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=908) |
+| 25.7 Diffusion for discrete state spaces | [910](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=910) |
+| 26 Generative adversarial networks | [916](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=916) |
+| 26.1 Introduction | [916](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=916) |
+| 26.2 Learning by comparison | [917](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=917) |
+| 26.3 Generative adversarial networks | [927](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=927) |
+| 26.4 Conditional GANs | [935](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=935) |
+| 26.5 Inference with GANs | [936](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=936) |
+| 26.6 Neural architectures in GANs | [937](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=937) |
+| 26.7 Applications | [941](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=941) |
+| Part: V Discovery | [948](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=948) |
+| 27 Discovery methods: an overview | [950](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=950) |
+| 27.1 Introduction | [950](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=950) |
+| 27.2 Overview of Part V | [951](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=951) |
+| 28 Latent factor models | [952](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=952) |
+| 28.1 Introduction | [952](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=952) |
+| 28.2 Mixture models | [952](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=952) |
+| 28.3 Factor analysis | [963](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=963) |
+| 28.4 LFMs with non-Gaussian priors | [982](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=982) |
+| 28.5 Topic models | [986](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=986) |
+| 28.6 Independent components analysis (ICA) | [994](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=994) |
+| 29 State-space models | [1002](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1002) |
+| 29.1 Introduction | [1002](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1002) |
+| 29.2 Hidden Markov models (HMMs) | [1003](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1003) |
+| 29.3 HMMs: applications | [1007](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1007) |
+| 29.4 HMMs: parameter learning | [1013](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1013) |
+| 29.5 HMMs: generalizations | [1020](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1020) |
+| 29.6 Linear dynamical systems (LDSs) | [1029](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1029) |
+| 29.7 LDS: applications | [1030](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1030) |
+| 29.8 LDS: parameter learning | [1034](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1034) |
+| 29.9 Switching linear dynamical systems (SLDSs) | [1038](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1038) |
+| 29.10 Nonlinear SSMs | [1043](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1043) |
+| 29.11 Non-Gaussian SSMs | [1044](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1044) |
+| 29.12 Structural time series models | [1046](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1046) |
+| 29.13 Deep SSMs | [1059](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1059) |
+| 30 Graph learning | [1066](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1066) |
+| 30.1 Introduction | [1066](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1066) |
+| 30.2 Latent variable models for graphs | [1066](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1066) |
+| 30.3 Graphical model structure learning | [1066](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1066) |
+| 31 Nonparametric Bayesian models | [1070](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1070) |
+| 31.1 Introduction | [1070](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1070) |
+| 32 Representation learning | [1072](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1072) |
+| 32.1 Introduction | [1072](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1072) |
+| 32.2 Evaluating and comparing learned representations | [1072](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1072) |
+| 32.3 Approaches for learning representations | [1079](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1079) |
+| 32.4 Theory of representation learning | [1092](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1092) |
+| 33 Interpretability | [1096](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1096) |
+| 33.1 Introduction | [1096](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1096) |
+| 33.2 Methods for interpretable machine learning | [1101](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1101) |
+| 33.3 Properties: the abstraction between context and method | [1109](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1109) |
+| 33.4 Evaluation of interpretable machine learning models | [1112](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1112) |
+| 33.5 Discussion: how to think about interpretable machine learning | [1121](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1121) |
+| Part: VI Action | [1126](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1126) |
+| 34 Decision making under uncertainty | [1128](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1128) |
+| 34.1 Statistical decision theory | [1128](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1128) |
+| 34.2 Decision (influence) diagrams | [1134](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1134) |
+| 34.3 A/B testing | [1138](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1138) |
+| 34.4 Contextual bandits | [1142](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1142) |
+| 34.5 Markov decision problems | [1151](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1151) |
+| 34.6 Planning in an MDP | [1155](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1155) |
+| 34.7 Active learning | [1159](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1159) |
+| 35 Reinforcement learning | [1168](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1168) |
+| 35.1 Introduction | [1168](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1168) |
+| 35.2 Value-based RL | [1173](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1173) |
+| 35.3 Policy-based RL | [1179](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1179) |
+| 35.4 Model-based RL | [1186](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1186) |
+| 35.5 Off-policy learning | [1193](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1193) |
+| 35.6 Control as inference | [1200](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1200) |
+| 36 Causality | [1206](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1206) |
+| 36.1 Introduction | [1206](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1206) |
+| 36.2 Causal formalism | [1208](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1208) |
+| 36.3 Randomized control trials | [1215](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1215) |
+| 36.4 Confounder adjustment | [1216](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1216) |
+| 36.5 Instrumental variable strategies | [1230](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1230) |
+| 36.6 Difference in differences | [1237](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1237) |
+| 36.7 Credibility checks | [1241](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1241) |
+| 36.8 The do-calculus | [1250](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1250) |
+| 36.9 Further reading | [1253](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1253) |
+| Index | [1256](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1256) |
+| Bibliography | [1274](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=1274) |
 
 ### Deep learning textbook
 
@@ -2785,3 +3070,222 @@ candidates ([446](natural-language-processing/natural-language-processing-with-p
 | Bibliography | [471](natural-language-processing/natural-language-processing-with-python.pdf#page=471) |
 | NLTK Index | [481](natural-language-processing/natural-language-processing-with-python.pdf#page=481) |
 | General Index | [485](natural-language-processing/natural-language-processing-with-python.pdf#page=485) |
+
+### Hands-on large language models
+
+`natural-language-processing/hands-on-large-language-models.pdf`, 598 pages, downloaded as
+`Hands-On_Large_Language_Models_-_Jay_Alammar.pdf`. Jay Alammar and Maarten Grootendorst, *Hands-On
+Large Language Models*, O'Reilly Media, first edition, September 2024. A published textbook that
+teaches large language models intuition first, through many illustrations and working Python code:
+tokens and embeddings, the inside of a transformer and its recent improvements, text classification,
+clustering and topic modelling, prompt engineering, LangChain chains, memory and agents, semantic
+search and retrieval-augmented generation, multimodal models, training embedding models by
+contrastive learning, fine-tuning BERT-style classifiers, and fine-tuning generation models (supervised
+fine-tuning, QLoRA, reward models, DPO). The table is from the PDF's own outline, chapters and their
+sections; the book does not number its sections. The outline puts "Book Structure" on page 9 and the
+table corrects it to 10.
+
+**Page numbers.** This PDF was converted from the ebook with calibre, and many chapters end on an
+OceanofPDF.com stamp. Its pages carry no printed page numbers and do not match the print edition's
+pages, so a page number quoted from the print book will not open the right PDF page. Every number here
+is a PDF page.
+
+**Its index.** PDF pages 537 to 595. Entries name the section they point to rather than a page
+("attention, Encoding and Decoding Context with Attention"), and each entry is a live link inside the
+PDF to that section's page.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| Preface | [8](natural-language-processing/hands-on-large-language-models.pdf#page=8) |
+| An Intuition-First Philosophy | [8](natural-language-processing/hands-on-large-language-models.pdf#page=8) |
+| Prerequisites | [9](natural-language-processing/hands-on-large-language-models.pdf#page=9) |
+| Book Structure | [10](natural-language-processing/hands-on-large-language-models.pdf#page=10) |
+| Hardware and Software Requirements | [14](natural-language-processing/hands-on-large-language-models.pdf#page=14) |
+| API Keys | [15](natural-language-processing/hands-on-large-language-models.pdf#page=15) |
+| Conventions Used in This Book | [16](natural-language-processing/hands-on-large-language-models.pdf#page=16) |
+| Using Code Examples | [17](natural-language-processing/hands-on-large-language-models.pdf#page=17) |
+| O’Reilly Online Learning | [18](natural-language-processing/hands-on-large-language-models.pdf#page=18) |
+| How to Contact Us | [18](natural-language-processing/hands-on-large-language-models.pdf#page=18) |
+| Acknowledgments | [19](natural-language-processing/hands-on-large-language-models.pdf#page=19) |
+| Part: I Understanding Language Models | [22](natural-language-processing/hands-on-large-language-models.pdf#page=22) |
+| 1 An Introduction to Large Language Models | [23](natural-language-processing/hands-on-large-language-models.pdf#page=23) |
+| What Is Language AI? | [24](natural-language-processing/hands-on-large-language-models.pdf#page=24) |
+| A Recent History of Language AI | [25](natural-language-processing/hands-on-large-language-models.pdf#page=25) |
+| The Moving Definition of a “Large Language Model” | [50](natural-language-processing/hands-on-large-language-models.pdf#page=50) |
+| The Training Paradigm of Large Language Models | [51](natural-language-processing/hands-on-large-language-models.pdf#page=51) |
+| Large Language Model Applications: What Makes Them So Useful? | [53](natural-language-processing/hands-on-large-language-models.pdf#page=53) |
+| Responsible LLM Development and Usage | [55](natural-language-processing/hands-on-large-language-models.pdf#page=55) |
+| Limited Resources Are All You Need | [56](natural-language-processing/hands-on-large-language-models.pdf#page=56) |
+| Interfacing with Large Language Models | [57](natural-language-processing/hands-on-large-language-models.pdf#page=57) |
+| Generating Your First Text | [61](natural-language-processing/hands-on-large-language-models.pdf#page=61) |
+| Summary | [64](natural-language-processing/hands-on-large-language-models.pdf#page=64) |
+| 2 Tokens and Embeddings | [67](natural-language-processing/hands-on-large-language-models.pdf#page=67) |
+| LLM Tokenization | [68](natural-language-processing/hands-on-large-language-models.pdf#page=68) |
+| Token Embeddings | [94](natural-language-processing/hands-on-large-language-models.pdf#page=94) |
+| Text Embeddings (for Sentences and Whole Documents) | [100](natural-language-processing/hands-on-large-language-models.pdf#page=100) |
+| Word Embeddings Beyond LLMs | [102](natural-language-processing/hands-on-large-language-models.pdf#page=102) |
+| Embeddings for Recommendation Systems | [108](natural-language-processing/hands-on-large-language-models.pdf#page=108) |
+| Summary | [113](natural-language-processing/hands-on-large-language-models.pdf#page=113) |
+| 3 Looking Inside Large Language Models | [116](natural-language-processing/hands-on-large-language-models.pdf#page=116) |
+| An Overview of Transformer Models | [117](natural-language-processing/hands-on-large-language-models.pdf#page=117) |
+| Recent Improvements to the Transformer Architecture | [143](natural-language-processing/hands-on-large-language-models.pdf#page=143) |
+| Summary | [157](natural-language-processing/hands-on-large-language-models.pdf#page=157) |
+| Part: II Using Pretrained Language Models | [159](natural-language-processing/hands-on-large-language-models.pdf#page=159) |
+| 4 Text Classification | [160](natural-language-processing/hands-on-large-language-models.pdf#page=160) |
+| The Sentiment of Movie Reviews | [161](natural-language-processing/hands-on-large-language-models.pdf#page=161) |
+| Text Classification with Representation Models | [163](natural-language-processing/hands-on-large-language-models.pdf#page=163) |
+| Model Selection | [164](natural-language-processing/hands-on-large-language-models.pdf#page=164) |
+| Using a Task-Specific Model | [166](natural-language-processing/hands-on-large-language-models.pdf#page=166) |
+| Classification Tasks That Leverage Embeddings | [171](natural-language-processing/hands-on-large-language-models.pdf#page=171) |
+| Text Classification with Generative Models | [180](natural-language-processing/hands-on-large-language-models.pdf#page=180) |
+| Summary | [190](natural-language-processing/hands-on-large-language-models.pdf#page=190) |
+| 5 Text Clustering and Topic Modeling | [192](natural-language-processing/hands-on-large-language-models.pdf#page=192) |
+| ArXiv’s Articles: Computation and Language | [193](natural-language-processing/hands-on-large-language-models.pdf#page=193) |
+| A Common Pipeline for Text Clustering | [194](natural-language-processing/hands-on-large-language-models.pdf#page=194) |
+| From Text Clustering to Topic Modeling | [204](natural-language-processing/hands-on-large-language-models.pdf#page=204) |
+| Summary | [233](natural-language-processing/hands-on-large-language-models.pdf#page=233) |
+| 6 Prompt Engineering | [236](natural-language-processing/hands-on-large-language-models.pdf#page=236) |
+| Using Text Generation Models | [236](natural-language-processing/hands-on-large-language-models.pdf#page=236) |
+| Intro to Prompt Engineering | [244](natural-language-processing/hands-on-large-language-models.pdf#page=244) |
+| Advanced Prompt Engineering | [250](natural-language-processing/hands-on-large-language-models.pdf#page=250) |
+| Reasoning with Generative Models | [260](natural-language-processing/hands-on-large-language-models.pdf#page=260) |
+| Output Verification | [270](natural-language-processing/hands-on-large-language-models.pdf#page=270) |
+| Summary | [278](natural-language-processing/hands-on-large-language-models.pdf#page=278) |
+| 7 Advanced Text Generation Techniques and Tools | [280](natural-language-processing/hands-on-large-language-models.pdf#page=280) |
+| Model I/O: Loading Quantized Models with LangChain | [281](natural-language-processing/hands-on-large-language-models.pdf#page=281) |
+| Chains: Extending the Capabilities of LLMs | [284](natural-language-processing/hands-on-large-language-models.pdf#page=284) |
+| Memory: Helping LLMs to Remember Conversations | [293](natural-language-processing/hands-on-large-language-models.pdf#page=293) |
+| Agents: Creating a System of LLMs | [306](natural-language-processing/hands-on-large-language-models.pdf#page=306) |
+| Summary | [314](natural-language-processing/hands-on-large-language-models.pdf#page=314) |
+| 8 Semantic Search and Retrieval-Augmented Generation | [316](natural-language-processing/hands-on-large-language-models.pdf#page=316) |
+| Overview of Semantic Search and RAG | [317](natural-language-processing/hands-on-large-language-models.pdf#page=317) |
+| Semantic Search with Language Models | [319](natural-language-processing/hands-on-large-language-models.pdf#page=319) |
+| Retrieval-Augmented Generation (RAG) | [349](natural-language-processing/hands-on-large-language-models.pdf#page=349) |
+| Summary | [358](natural-language-processing/hands-on-large-language-models.pdf#page=358) |
+| 9 Multimodal Large Language Models | [360](natural-language-processing/hands-on-large-language-models.pdf#page=360) |
+| Transformers for Vision | [361](natural-language-processing/hands-on-large-language-models.pdf#page=361) |
+| Multimodal Embedding Models | [364](natural-language-processing/hands-on-large-language-models.pdf#page=364) |
+| Making Text Generation Models Multimodal | [377](natural-language-processing/hands-on-large-language-models.pdf#page=377) |
+| Summary | [395](natural-language-processing/hands-on-large-language-models.pdf#page=395) |
+| Part: III Training and Fine-Tuning Language Models | [398](natural-language-processing/hands-on-large-language-models.pdf#page=398) |
+| 10 Creating Text Embedding Models | [399](natural-language-processing/hands-on-large-language-models.pdf#page=399) |
+| Embedding Models | [399](natural-language-processing/hands-on-large-language-models.pdf#page=399) |
+| What Is Contrastive Learning? | [402](natural-language-processing/hands-on-large-language-models.pdf#page=402) |
+| SBERT | [404](natural-language-processing/hands-on-large-language-models.pdf#page=404) |
+| Creating an Embedding Model | [408](natural-language-processing/hands-on-large-language-models.pdf#page=408) |
+| Fine-Tuning an Embedding Model | [426](natural-language-processing/hands-on-large-language-models.pdf#page=426) |
+| Unsupervised Learning | [435](natural-language-processing/hands-on-large-language-models.pdf#page=435) |
+| Summary | [443](natural-language-processing/hands-on-large-language-models.pdf#page=443) |
+| 11 Fine-Tuning Representation Models for Classification | [446](natural-language-processing/hands-on-large-language-models.pdf#page=446) |
+| Supervised Classification | [446](natural-language-processing/hands-on-large-language-models.pdf#page=446) |
+| Few-Shot Classification | [459](natural-language-processing/hands-on-large-language-models.pdf#page=459) |
+| Continued Pretraining with Masked Language Modeling | [468](natural-language-processing/hands-on-large-language-models.pdf#page=468) |
+| Named-Entity Recognition | [475](natural-language-processing/hands-on-large-language-models.pdf#page=475) |
+| Summary | [485](natural-language-processing/hands-on-large-language-models.pdf#page=485) |
+| 12 Fine-Tuning Generation Models | [487](natural-language-processing/hands-on-large-language-models.pdf#page=487) |
+| The Three LLM Training Steps: Pretraining, Supervised Fine-Tuning, and Preference Tuning | [487](natural-language-processing/hands-on-large-language-models.pdf#page=487) |
+| Supervised Fine-Tuning (SFT) | [489](natural-language-processing/hands-on-large-language-models.pdf#page=489) |
+| Instruction Tuning with QLoRA | [503](natural-language-processing/hands-on-large-language-models.pdf#page=503) |
+| Evaluating Generative Models | [511](natural-language-processing/hands-on-large-language-models.pdf#page=511) |
+| Preference-Tuning / Alignment / RLHF | [518](natural-language-processing/hands-on-large-language-models.pdf#page=518) |
+| Automating Preference Evaluation Using Reward Models | [519](natural-language-processing/hands-on-large-language-models.pdf#page=519) |
+| Preference Tuning with DPO | [528](natural-language-processing/hands-on-large-language-models.pdf#page=528) |
+| Summary | [533](natural-language-processing/hands-on-large-language-models.pdf#page=533) |
+| Afterword | [536](natural-language-processing/hands-on-large-language-models.pdf#page=536) |
+| Index | [537](natural-language-processing/hands-on-large-language-models.pdf#page=537) |
+| About the Authors | [597](natural-language-processing/hands-on-large-language-models.pdf#page=597) |
+
+## ai-engineering/
+
+### AI engineering
+
+`ai-engineering/ai-engineering.pdf`, 991 pages, downloaded as `AI Engineering by Chip Huyen (1).pdf`
+into the learning tree's `mathematics/` folder and moved onto the shelf. Chip Huyen, *AI Engineering:
+Building Applications with Foundation Models*, O'Reilly Media, first edition, December 2024 (copyright
+2025). A published textbook on building applications on top of foundation models: what AI engineering
+is and its stack, how foundation models are made (training data, modelling, post-training, sampling),
+evaluation (language-modelling metrics such as perplexity, exact evaluation, AI as a judge, ranking
+models by comparison), evaluating AI systems and choosing a model, prompt engineering and defending
+against prompt attacks, RAG and agents, finetuning (memory bottlenecks, parameter-efficient techniques, model
+merging), dataset engineering, inference optimisation, and system architecture with user feedback.
+The table is from the PDF's own outline, chapters and their sections; the book does not number its
+sections. The outline puts three preface sections a page early ("What This Book Is About", "What This
+Book Is Not", "Who This Book Is For"), and the table gives the pages they start on.
+
+**Page numbers.** The PDF's own title reads "AI Engineering (for True Epub)": it was converted from the
+ebook with calibre, and many chapters end on an OceanofPDF.com stamp. Its pages carry no printed page
+numbers and do not match the print edition's pages, so a page number quoted from the print book will
+not open the right PDF page. Every number here is a PDF page.
+
+**Its index.** PDF pages 932 to 988. Entries name the section they point to rather than a page
+("value vector (V), Attention mechanism"), and each entry is a live link inside the PDF to that
+section's page.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| Preface | [9](ai-engineering/ai-engineering.pdf#page=9) |
+| What This Book Is About | [12](ai-engineering/ai-engineering.pdf#page=12) |
+| What This Book Is Not | [16](ai-engineering/ai-engineering.pdf#page=16) |
+| Who This Book Is For | [18](ai-engineering/ai-engineering.pdf#page=18) |
+| Navigating This Book | [19](ai-engineering/ai-engineering.pdf#page=19) |
+| Conventions Used in This Book | [23](ai-engineering/ai-engineering.pdf#page=23) |
+| Using Code Examples | [24](ai-engineering/ai-engineering.pdf#page=24) |
+| O’Reilly Online Learning | [25](ai-engineering/ai-engineering.pdf#page=25) |
+| How to Contact Us | [26](ai-engineering/ai-engineering.pdf#page=26) |
+| Acknowledgments | [27](ai-engineering/ai-engineering.pdf#page=27) |
+| 1 Introduction to Building AI Applications with Foundation Models | [32](ai-engineering/ai-engineering.pdf#page=32) |
+| The Rise of AI Engineering | [34](ai-engineering/ai-engineering.pdf#page=34) |
+| Foundation Model Use Cases | [57](ai-engineering/ai-engineering.pdf#page=57) |
+| Planning AI Applications | [78](ai-engineering/ai-engineering.pdf#page=78) |
+| The AI Engineering Stack | [91](ai-engineering/ai-engineering.pdf#page=91) |
+| Summary | [113](ai-engineering/ai-engineering.pdf#page=113) |
+| 2 Understanding Foundation Models | [119](ai-engineering/ai-engineering.pdf#page=119) |
+| Training Data | [121](ai-engineering/ai-engineering.pdf#page=121) |
+| Modeling | [135](ai-engineering/ai-engineering.pdf#page=135) |
+| Post-Training | [169](ai-engineering/ai-engineering.pdf#page=169) |
+| Sampling | [187](ai-engineering/ai-engineering.pdf#page=187) |
+| Summary | [225](ai-engineering/ai-engineering.pdf#page=225) |
+| 3 Evaluation Methodology | [232](ai-engineering/ai-engineering.pdf#page=232) |
+| Challenges of Evaluating Foundation Models | [234](ai-engineering/ai-engineering.pdf#page=234) |
+| Understanding Language Modeling Metrics | [240](ai-engineering/ai-engineering.pdf#page=240) |
+| Exact Evaluation | [252](ai-engineering/ai-engineering.pdf#page=252) |
+| AI as a Judge | [271](ai-engineering/ai-engineering.pdf#page=271) |
+| Ranking Models with Comparative Evaluation | [295](ai-engineering/ai-engineering.pdf#page=295) |
+| Summary | [309](ai-engineering/ai-engineering.pdf#page=309) |
+| 4 Evaluate AI Systems | [315](ai-engineering/ai-engineering.pdf#page=315) |
+| Evaluation Criteria | [316](ai-engineering/ai-engineering.pdf#page=316) |
+| Model Selection | [355](ai-engineering/ai-engineering.pdf#page=355) |
+| Design Your Evaluation Pipeline | [393](ai-engineering/ai-engineering.pdf#page=393) |
+| Summary | [409](ai-engineering/ai-engineering.pdf#page=409) |
+| 5 Prompt Engineering | [416](ai-engineering/ai-engineering.pdf#page=416) |
+| Introduction to Prompting | [417](ai-engineering/ai-engineering.pdf#page=417) |
+| Prompt Engineering Best Practices | [431](ai-engineering/ai-engineering.pdf#page=431) |
+| Defensive Prompt Engineering | [462](ai-engineering/ai-engineering.pdf#page=462) |
+| Summary | [490](ai-engineering/ai-engineering.pdf#page=490) |
+| 6 RAG and Agents | [494](ai-engineering/ai-engineering.pdf#page=494) |
+| RAG | [495](ai-engineering/ai-engineering.pdf#page=495) |
+| Agents | [535](ai-engineering/ai-engineering.pdf#page=535) |
+| Memory | [581](ai-engineering/ai-engineering.pdf#page=581) |
+| Summary | [589](ai-engineering/ai-engineering.pdf#page=589) |
+| 7 Finetuning | [594](ai-engineering/ai-engineering.pdf#page=594) |
+| Finetuning Overview | [596](ai-engineering/ai-engineering.pdf#page=596) |
+| When to Finetune | [601](ai-engineering/ai-engineering.pdf#page=601) |
+| Memory Bottlenecks | [618](ai-engineering/ai-engineering.pdf#page=618) |
+| Finetuning Techniques | [638](ai-engineering/ai-engineering.pdf#page=638) |
+| Summary | [687](ai-engineering/ai-engineering.pdf#page=687) |
+| 8 Dataset Engineering | [694](ai-engineering/ai-engineering.pdf#page=694) |
+| Data Curation | [697](ai-engineering/ai-engineering.pdf#page=697) |
+| Data Augmentation and Synthesis | [726](ai-engineering/ai-engineering.pdf#page=726) |
+| Data Processing | [755](ai-engineering/ai-engineering.pdf#page=755) |
+| Summary | [768](ai-engineering/ai-engineering.pdf#page=768) |
+| 9 Inference Optimization | [773](ai-engineering/ai-engineering.pdf#page=773) |
+| Understanding Inference Optimization | [775](ai-engineering/ai-engineering.pdf#page=775) |
+| Inference Optimization | [808](ai-engineering/ai-engineering.pdf#page=808) |
+| Summary | [845](ai-engineering/ai-engineering.pdf#page=845) |
+| 10 AI Engineering Architecture and User Feedback | [852](ai-engineering/ai-engineering.pdf#page=852) |
+| AI Engineering Architecture | [853](ai-engineering/ai-engineering.pdf#page=853) |
+| User Feedback | [894](ai-engineering/ai-engineering.pdf#page=894) |
+| Summary | [925](ai-engineering/ai-engineering.pdf#page=925) |
+| Epilogue | [930](ai-engineering/ai-engineering.pdf#page=930) |
+| Index | [932](ai-engineering/ai-engineering.pdf#page=932) |
+| About the Author | [989](ai-engineering/ai-engineering.pdf#page=989) |
