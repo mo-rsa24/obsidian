@@ -1,38 +1,39 @@
 ---
-aliases: [unit circle, the unit circle, circle of radius 1, cosine, cos, sine, sin, cosine on a right triangle, adjacent over hypotenuse, "cos θ = adjacent / hypotenuse", SOH CAH TOA, a line from the origin, angle in standard position, initial side, terminal side, polar coordinates, polar to Cartesian, polar to rectangular, "(r, θ) to (x, y)", "x = r cos θ", "y = r sin θ", Pythagoras on the unit circle]
+aliases: [unit circle, the unit circle, circle of radius 1, cosine, cos, sine, sin, cosine on a right triangle, adjacent over hypotenuse, "cos θ = adjacent / hypotenuse", SOH CAH TOA, a line from the origin, angle in standard position, initial side, terminal side, Pythagoras on the unit circle, "x² + y² = 1", circle of radius r]
 sources:
   - "Whitney, Math Handbook of Formulas, Processes and Tricks: Trigonometry, version 2.4: angle definitions in the Cartesian plane, PDF p. 8; cos θ = x / r and the Pythagorean identities, PDF p. 9; the unit circle, PDF p. 10; polar coordinates, PDF p. 68: ../references/textbooks/trigonometry/trigonometry-handbook.pdf"
   - "Anton, Bivens, Davis, Calculus, Appendix B, trigonometric functions for right triangles, cos θ = side adjacent / hypotenuse, PDF p. 1207: ../references/textbooks/calculus/calculus-textbook.pdf#page=1207"
-  - "Whitney, Math Handbook of Formulas, Processes and Tricks: Geometry, the Pythagorean theorem, PDF p. 80: ../references/textbooks/geometry/geometry-handbook.pdf#page=80"
+  - "Whitney, Math Handbook of Formulas, Processes and Tricks: Geometry, the Pythagorean theorem, PDF p. 80; parts of circles, the centre and the radius, PDF p. 92: ../references/textbooks/geometry/geometry-handbook.pdf#page=80"
+standard: vault-note v2
 ---
 
 # The Unit Circle
 
-Up: [[Trigonometry]] · [[Radians]] ➡️
+Up: [[Trigonometry]] · [[Polar Coordinates]] ➡️
 
 Mathematics, Trigonometry. Needs: dividing two decimals, and the [theorem of Pythagoras](../references/textbooks/geometry/geometry-handbook.pdf#page=80), $a^2 + b^2 = c^2$ on a right triangle.
 
-> [!question] Test yourself
+**The cosine of an angle is how far right of the centre a point at that angle sits on a circle of radius 1.**
+
+> [!question]- Test yourself
 > No quiz page covers this note yet.
 
-> [!warning] Unfinished
+> [!warning]- Unfinished
 > - No quiz page for this note yet.
 
 Stated claims: 0.
 
-**The cosine of an angle is how far right of the centre a point at that angle sits on a circle of radius 1.** Every number here is worked at one angle, 46.25°, the angle of post 51 in [[The Quarter Circle Under The Cosine Schedule]].
+**The toy angle.** Every number here is worked at one angle, 46.25°, the angle of post 51 in [[The Quarter Circle Under The Cosine Schedule]].
 
-**Colours, the same in every equation and figure.** Green is $\cos\theta$, the horizontal leg. Orange is $\sin\theta$, the vertical leg. Blue is the line from the origin and its angle. Grey is a case drawn for comparison.
-
-## Where you work
-
-Python 3 with matplotlib, in a new empty folder; nothing here touches a real project. Every figure script below imports `plane.py`, saved in [[#Try the unit circle yourself]], step 3.
+**Colours, the same in every equation and figure.** <span style="color:#2e7d32">**Green is $\cos\theta$, the horizontal leg**</span>, <span style="color:#ef6c00">**orange is $\sin\theta$, the vertical leg**</span>, <span style="color:#1565c0">**blue is the point, the line from the origin and its angle**</span>, and <span style="color:#757575">**grey is a case drawn for comparison or a piece removed**</span>. The cosine schedule notes this one feeds use the same four.
 
 ## Table of contents
 
 - [[#The cosine on the unit circle]]
+- [[#When to reach for the unit circle]]
+- [[#The circle of radius 1]]
+- [[#Polar coordinates]]
 - [[#Try the unit circle yourself]]
-- [[#Reading the unit-circle output]]
 - [[#How the unit circle works]]
 - [[#Other ways to get a cosine]]
 - [[#Why the unit circle matters]]
@@ -40,7 +41,7 @@ Python 3 with matplotlib, in a new empty folder; nothing here touches a real pro
 
 ## The cosine on the unit circle
 
-Navigation: 📋 [[#Table of contents|TOC]] | [[#Try the unit circle yourself]] ➡️
+Navigation: 📋 [[#Table of contents|TOC]] | [[#When to reach for the unit circle]] ➡️
 
 Textbook: [Whitney, Trigonometry handbook, the unit circle, PDF p. 10](../references/textbooks/trigonometry/trigonometry-handbook.pdf#page=10)
 
@@ -65,6 +66,10 @@ Textbook: [Whitney, Trigonometry handbook, the unit circle, PDF p. 10](../refere
 ### The base word: cosine, on a right triangle
 
 The school definition, from the [ratios of a right triangle](../references/textbooks/calculus/calculus-textbook.pdf#page=1207):
+
+$$
+\cos\theta = \frac{\text{adjacent}}{\text{hypotenuse}}
+$$
 
 $$
 \underbrace{\textcolor{#2e7d32}{\cos\theta}}_{\text{cosine of the angle}}
@@ -112,12 +117,60 @@ save(fig, "t1-right-triangle-cosine.svg")
 
 **How to read this.** Both axes are lengths in units of the hypotenuse. The green segment on the x-axis is the adjacent side, 0.6915, and the dashed grey triangle is the same shape at twice the size. Look at the grey label: its ratio is still 0.6915.
 
-### The circle: every point at distance 1
+## When to reach for the unit circle
 
-Stand every hypotenuse of length 1 at its angle from the origin and the far ends trace the [unit circle](../references/textbooks/trigonometry/trigonometry-handbook.pdf#page=10), the circle of radius 1. Each point's x-coordinate is its cosine.
+Navigation: ⬅️ [[#The cosine on the unit circle]] | 📋 [[#Table of contents|TOC]] | [[#The circle of radius 1]] ➡️
+
+**You need an angle as two lengths.** Reach for it when a turn has to become a horizontal and a vertical reach, or when two numbers have squares that add to 1.
+
+**What goes wrong without it.** A side read without dividing by the hypotenuse depends on the triangle's size: 1.3830 on a triangle twice as big, which [[Running The Unit Circle#Try the unit circle yourself|step 5 of the sandbox]] prints.
+
+## The circle of radius 1
+
+Navigation: ⬅️ [[#When to reach for the unit circle]] | 📋 [[#Table of contents|TOC]] | [[#Polar coordinates]] ➡️
+
+Textbook: [Whitney, Geometry handbook, parts of circles, PDF p. 92](../references/textbooks/geometry/geometry-handbook.pdf#page=92)
+
+### The base word: circle
+
+**What the word means.** A [circle](../references/textbooks/geometry/geometry-handbook.pdf#page=92) is every point at the same distance from one centre, and that distance is its radius $r$. With the centre at the origin, Pythagoras turns "distance $r$" into an equation (*derived*):
 
 $$
-\underbrace{x^2 + y^2}_{\text{squared distance from the origin}} = \underbrace{1}_{\text{radius }1\text{, squared}}
+x^2 + y^2 = r^2
+$$
+
+$$
+\underbrace{\textcolor{#2e7d32}{x}^2 + \textcolor{#ef6c00}{y}^2}_{\text{squared distance from the centre}} = \underbrace{r^2}_{\text{radius, squared}}
+$$
+
+**What it means.** At radius 2 the point at 46.25° is $(1.3830, 1.4447)$, and $1.9128 + 2.0872 = 4 = 2^2$.
+
+### The qualifier: unit
+
+**What the word means.** Unit means the radius is one unit of length.
+
+$$
+r = 1
+$$
+
+$$
+\underbrace{r}_{\text{the radius}} = \underbrace{1}_{\text{one unit of length}} \quad\Longrightarrow\quad r^2 = 1
+$$
+
+**What it means.** The right side of the circle's equation becomes 1, and a leg needs no dividing by $r$ to be a cosine or a sine.
+
+### The circle: every point at distance 1
+
+**All the words together.** Stand every hypotenuse of length 1 at its angle from the origin and the far ends trace the [unit circle](../references/textbooks/trigonometry/trigonometry-handbook.pdf#page=10), the circle of radius 1. Each point's x-coordinate is its cosine, and the scene Dissolving the Dog draws [one point on this circle's quarter arc](https://claude.ai/artifact/X7QGLTxssbz41G7iTiRxC9#timetable-plane) for you to move.
+
+$$
+x^2 + y^2 = 1
+$$
+
+$$
+\underbrace{\underbrace{\textcolor{#2e7d32}{x}^2}_{\text{horizontal leg, squared}} + \underbrace{\textcolor{#ef6c00}{y}^2}_{\text{vertical leg, squared}}}_{\text{squared distance from the origin}} = \underbrace{1}_{\text{radius }1\text{, squared}}
+\qquad
+\textcolor{#2e7d32}{0.4782} + \textcolor{#ef6c00}{0.5218} = 1
 $$
 
 **What the equation says.** A point is on the circle exactly when its squared distance from the origin is 1. At 30° the point is $(0.866, 0.5)$, and $0.75 + 0.25 = 1$.
@@ -145,15 +198,97 @@ save(fig, "t2-unit-circle-sampled-points.svg")
 
 **How to read this.** Both axes run from −1.45 to 1.45, with the origin at the centre. Each dot is one angle, counted anticlockwise from the positive x-axis. Look at 30°: the green drop meets the x-axis at 0.866, its cosine.
 
+**Why the squares are there.** Pythagoras adds the squares of the legs, and the legs themselves do not add to the radius. At 46.25° the squares add to $0.4782 + 0.5218 = 1$, while the bare legs add to $0.6915 + 0.7224 = 1.4139$. Without the squares the equation is $x + y = 1$, a straight line that crosses the 46.25° line at distance 0.7073 from the origin, inside the circle.
+
+**Why the sum is there.** Neither square stays fixed on its own: $x^2$ is 0.4782 at 46.25° and 0.75 at 30°. Only the sum is the squared distance, so only the sum is 1 at every angle, as every row of [[Running The Unit Circle#Try the unit circle yourself|step 4 of the sandbox]] prints.
+
+```python
+import math
+import matplotlib.pyplot as plt
+from plane import save, circle, angle, rad, GREEN, ORANGE, BLUE, GREY
+
+theta = 46.25
+c, s = math.cos(rad(theta)), math.sin(rad(theta))
+print(f"radius 1: legs {c:.4f} and {s:.4f}  squares {c * c:.4f} + {s * s:.4f} = {c * c + s * s:.4f}")
+print(f"without the squares: {c:.4f} + {s:.4f} = {c + s:.4f}")
+print(f"the line x + y = 1 meets the 46.25 deg ray at distance {1 / (c + s):.4f}")
+print(f"radius 2: legs {2 * c:.4f} and {2 * s:.4f}  squares {(2 * c) ** 2:.4f} + {(2 * s) ** 2:.4f} = {(2 * c) ** 2 + (2 * s) ** 2:.4f}")
+
+fig, (left, right) = plt.subplots(1, 2, figsize=(13, 6.2))
+for ax, lim in ((left, (-0.25, 1.55)), (right, (-0.3, 2.3))):
+    ax.set_xlim(*lim); ax.set_ylim(*lim); ax.set_aspect("equal")
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.spines[["left", "bottom"]].set_position("zero")
+    ax.grid(color="#eeeeee"); ax.set_axisbelow(True)
+
+circle(left, upto=90, color="#424242", lw=1.8)
+left.text(0.05, 1.04, "x² + y² = 1", color="#424242")
+left.plot([1, 0], [0, 1], color=GREY, ls=(0, (5, 4)), lw=1.8)
+left.text(1.03, 0.1, "x + y = 1:\na straight line", color=GREY, fontsize=11)
+m = 1 / (c + s)
+left.plot([0, c], [0, s], color=BLUE, lw=2)
+left.plot(m * c, m * s, "o", mfc="white", mec=GREY, mew=2, ms=8)
+left.annotate(f"distance {m:.4f}", (m * c, m * s), (0.24, 0.08), color=GREY, fontsize=10,
+              arrowprops=dict(arrowstyle="->", color=GREY))
+left.plot([0, c], [0, 0], color=GREEN, lw=4)
+left.plot([c, c], [0, s], color=ORANGE, lw=4)
+left.plot(c, s, "o", color=BLUE, ms=8)
+angle(left, theta, r=0.18)
+left.text(c + 0.08, s + 0.08, f"{c * c:.4f} + {s * s:.4f} = 1", color=BLUE, fontsize=11)
+left.text(c + 0.08, s - 0.06, f"{c:.4f} + {s:.4f} = {c + s:.4f}", color=GREY, fontsize=11)
+left.set_title("without the squares: the point at 46.25° misses x + y = 1", fontsize=12)
+
+circle(right, upto=90, color="#424242", lw=1.2)
+ts = [rad(d / 4) for d in range(0, 361)]
+right.plot([2 * math.cos(t) for t in ts], [2 * math.sin(t) for t in ts], color=GREY, ls=(0, (5, 4)), lw=1.5)
+right.text(0.15, 2.05, "radius 2", color=GREY)
+right.plot([0, 2 * c], [0, 2 * s], color=BLUE, lw=2)
+right.plot([0, 2 * c], [0, 0], color=GREEN, lw=4)
+right.plot([2 * c, 2 * c], [0, 2 * s], color=ORANGE, lw=4)
+right.plot(2 * c, 2 * s, "o", color=BLUE, ms=8)
+right.plot(c, s, "o", color=BLUE, ms=6)
+right.text(c - 0.62, s + 0.05, f"({c:.4f}, {s:.4f})", color=BLUE, fontsize=10)
+angle(right, theta, r=0.25)
+right.text(c, -0.18, f"x = 2 cos θ = {2 * c:.4f}", color=GREEN, ha="center")
+right.text(2 * c + 0.05, s, f"y = 2 sin θ\n= {2 * s:.4f}", color=ORANGE, va="center")
+right.text(2 * c - 0.4, 2 * s + 0.12, f"{(2 * c) ** 2:.4f} + {(2 * s) ** 2:.4f} = 4", color=BLUE, fontsize=11)
+right.set_title("radius 2: the legs are 2 cos θ and 2 sin θ", fontsize=12)
+save(fig, "t9-why-the-squares-and-the-sum.svg")
+```
+
+![Left, the quarter unit circle with the grey dashed line x + y = 1 from (1, 0) to (0, 1); the blue point at 46.25 degrees has squared legs 0.4782 + 0.5218 = 1 but bare legs 0.6915 + 0.7224 = 1.4139, and the grey open point where the line crosses the 46.25 degree ray sits at distance 0.7073. Right, a dashed grey circle of radius 2 beside the unit circle, the point at 46.25 degrees on it with green leg 2 cos theta = 1.3830 and orange leg 2 sin theta = 1.4447, squares 1.9128 + 2.0872 = 4|850](assets/t9-why-the-squares-and-the-sum.svg)
+
+**How to read this.** In both panels the axes are x and y in units of length, and the blue line is the 46.25° ray. On the left the circle and the grey line $x + y = 1$ meet only at $(1, 0)$ and $(0, 1)$, and the grey open point sits 0.7073 out along the ray where the true point sits 1 out. On the right the same angle on the radius-2 circle has legs 1.3830 and 1.4447, twice the unit circle's, and their squares add to 4.
+
+### The consequence: a radius other than 1
+
+**What changes.** At radius 2 the legs are $2\cos\theta$ and $2\sin\theta$, so the x-coordinate is no longer the cosine. Reading 1.3830 as the cosine is wrong by a factor of 2; dividing by the radius gives back $1.3830 / 2 = 0.6915$.
+
+$$
+x = 2\cos\theta
+$$
+
+$$
+\underbrace{\textcolor{#2e7d32}{x}}_{1.3830} = \underbrace{2}_{\text{the radius}}\ \underbrace{\textcolor{#2e7d32}{\cos\theta}}_{0.6915}
+$$
+
+**What it means.** The right panel above draws it. The schedule notes keep $r = 1$, so their legs are the cosine and the sine themselves.
+
 ### The angle: one line from the origin
 
 An angle in [standard position](../references/textbooks/trigonometry/trigonometry-handbook.pdf#page=8) starts on the positive x-axis, its initial side, and turns anticlockwise to its terminal side. On the unit circle the terminal side is a line of length 1 from the origin.
+
+$$
+\theta = 46.25^\circ \quad\Longrightarrow\quad (\cos\theta,\ \sin\theta) = (0.6915,\ 0.7224)
+$$
 
 $$
 \underbrace{\textcolor{#1565c0}{\theta}}_{\text{turn from the initial side}} = 46.25^\circ
 \quad\Longrightarrow\quad
 \underbrace{\textcolor{#1565c0}{(0.6915,\ 0.7224)}}_{\text{where the terminal side meets the circle}}
 $$
+
+**What the equation says.** Turning the line 46.25° from the positive x-axis lands its far end at one point. That point's coordinates are the cosine and the sine of the turn.
 
 **Why anticlockwise.** The handbook counts a polar angle as positive when it turns anticlockwise. A clockwise 46.25° is −46.25°, which lands below the x-axis at $(0.6915, -0.7224)$.
 
@@ -183,182 +318,77 @@ save(fig, "t3-line-from-origin-angle.svg")
 
 **How to read this.** The light blue band is where every angle starts. The dark blue line is the same length 1 at any angle; only its turn, 46.25°, changes where it ends.
 
-### The point: from length and angle to x and y
+## Polar coordinates
 
-The same point can be named two ways: by its length and angle, its [polar coordinates](../references/textbooks/trigonometry/trigonometry-handbook.pdf#page=68) $(r, \theta)$, or by its $(x, y)$.
+Navigation: ⬅️ [[#The circle of radius 1]] | 📋 [[#Table of contents|TOC]] | [[#Try the unit circle yourself]] ➡️
 
-$$
-\underbrace{\textcolor{#2e7d32}{x}}_{\text{horizontal leg}} = \underbrace{r}_{\text{length}}\ \textcolor{#2e7d32}{\cos\theta} = 1 \cdot 0.6915,
-\qquad
-\underbrace{\textcolor{#ef6c00}{y}}_{\text{vertical leg}} = r\ \textcolor{#ef6c00}{\sin\theta} = 1 \cdot 0.7224
-$$
-
-**What the equation says.** Drop a vertical from the point to the x-axis and you have a right triangle with hypotenuse $r$. Its legs are $r\cos\theta$ and $r\sin\theta$.
-
-**Why the $r$ is there.** On the unit circle $r = 1$, so the legs are the cosine and sine themselves. A point at the same angle but twice as far out sits at $(1.3830, 1.4447)$.
-
-```python
-import math
-from plane import plane, save, circle, angle, rad, GREEN, ORANGE, BLUE
-
-r, theta = 1, 46.25
-x, y = r * math.cos(rad(theta)), r * math.sin(rad(theta))
-print(f"polar (r = {r}, theta = {theta} deg)  ->  cartesian ({x:.4f}, {y:.4f})")
-
-fig, ax = plane((-0.3, 1.35), (-0.3, 1.25))
-circle(ax, upto=90)
-ax.plot([0, x], [0, y], color=BLUE, lw=2)
-ax.plot([0, x], [0, 0], color=GREEN, lw=5)
-ax.plot([x, x], [0, y], color=ORANGE, lw=5)
-ax.plot([0, x], [y, y], ":", color=ORANGE)
-ax.plot(x, y, "o", color=BLUE, ms=8)
-angle(ax, theta, r=0.22)
-ax.text(0.25, 0.08, "θ", color=BLUE)
-ax.text(x / 2, -0.12, "x = r cos θ = 0.6915", color=GREEN, ha="center")
-ax.text(x + 0.04, y / 2, "y = r sin θ\n= 0.7224", color=ORANGE, va="center")
-ax.text(-0.04, y, "0.7224", color=ORANGE, ha="right", va="center", fontsize=10)
-ax.text(x / 2 - 0.12, y / 2 + 0.08, "r = 1", color=BLUE, rotation=theta)
-ax.text(x + 0.04, y + 0.05, "(r, θ) = (1, 46.25°)\n→ (0.6915, 0.7224)", color=BLUE, fontsize=10)
-ax.set_title("a point given by its length and angle, read as (x, y)", fontsize=12)
-save(fig, "t5-polar-to-cartesian.svg")
-```
-
-![The point (r, theta) = (1, 46.25 degrees) on the unit circle with its green horizontal leg x = r cos theta = 0.6915 and orange vertical leg y = r sin theta = 0.7224, projected onto both axes|600](assets/t5-polar-to-cartesian.svg)
-
-**How to read this.** The blue line is $r = 1$ at angle θ. The green leg along the x-axis ends at 0.6915 and the orange leg ends level with 0.7224 on the y-axis. Those two numbers are the point's $(x, y)$.
-
-### Where this goes next
-
-The two legs at 46.25° square to $0.4782 + 0.5218 = 1$. That split of 1 into two shares is [[The Cosine Wave#The two shares|the Pythagorean identity]], and the schedule reads its kept share and its noise share off it.
+**In two lines.** The same point named by its length and its turn, $(r, \theta) = (1, 46.25^\circ)$, and read as $(x, y) = (r\cos\theta, r\sin\theta) = (0.6915, 0.7224)$, is taken apart word by word in [[Polar Coordinates]]. Its formula and figure are under [[Polar Coordinates#The point: from length and angle to x and y]], and the way back to $(r, \theta)$ follows it.
 
 ## Try the unit circle yourself
 
-Navigation: ⬅️ [[#The cosine on the unit circle]] | 📋 [[#Table of contents|TOC]] | [[#Reading the unit-circle output]] ➡️
+Navigation: ⬅️ [[#Polar coordinates]] | 📋 [[#Table of contents|TOC]] | [[#How the unit circle works]] ➡️
 
-**1. What you need.** Python 3 with matplotlib:
-
-```bash
-python3 -c "import matplotlib; print(matplotlib.__version__)"
-```
-
-This run printed `3.10.8`.
-
-**2. When it is missing.** Make the prepared environment once, `uv venv ~/.vault-sandbox` then `uv pip install --python ~/.vault-sandbox/bin/python pandas numpy scipy matplotlib statsmodels openpyxl`, and run every script below with `~/.vault-sandbox/bin/python` in place of `python3`. Not run on this machine, whose `python3` already has matplotlib.
-
-**3. The setup: an empty folder and the plane.** Make the folder and confirm it is empty:
-
-```bash
-mkdir -p ~/playground/sandbox && mkdir ~/playground/sandbox/unit-circle-figures && cd ~/playground/sandbox/unit-circle-figures && ls -A | wc -l
-```
-
-You should see `0`. Copy [plane.py](sandbox/plane.py) from the `sandbox/` folder beside this note into it. It draws Cartesian axes through the origin with equal scales, so a circle looks round, holds the colours, and saves each figure as SVG with `save`; `angle` draws the arc that marks an angle and `circle` draws the unit circle up to a given degree.
-
-Save each script from [[#The cosine on the unit circle]] under the name in its last line, with `.py` for `.svg` and `_` for `-`: `t1_triangle.py`, `t2_circle.py`, `t3_ray.py`, `t5_polar.py`.
-
-**4. A look before: the circle every 15°.**
-
-```bash
-python3 t2_circle.py
-```
-
-```text
-  0 deg  point (1.000, 0.000)  x^2 + y^2 = 1.000
- 15 deg  point (0.966, 0.259)  x^2 + y^2 = 1.000
- 30 deg  point (0.866, 0.500)  x^2 + y^2 = 1.000
- 45 deg  point (0.707, 0.707)  x^2 + y^2 = 1.000
- 60 deg  point (0.500, 0.866)  x^2 + y^2 = 1.000
- 75 deg  point (0.259, 0.966)  x^2 + y^2 = 1.000
- 90 deg  point (0.000, 1.000)  x^2 + y^2 = 1.000
-saved t2-unit-circle-sampled-points.svg
-```
-
-**5. The failure: reading a side without dividing by the hypotenuse.**
-
-```bash
-python3 t1_triangle.py
-```
-
-```text
-hypotenuse 1: adjacent 0.6915  opposite 0.7224  adjacent / hypotenuse 0.6915
-hypotenuse 2: adjacent 1.3830  opposite 1.4447  adjacent / hypotenuse 0.6915
-saved t1-right-triangle-cosine.svg
-```
-
-On the triangle twice the size, the adjacent side alone reads 1.3830, which is no cosine at all. The ratio stays 0.6915.
-
-**6. The technique: polar to Cartesian.**
-
-```bash
-python3 t5_polar.py
-```
-
-```text
-polar (r = 1, theta = 46.25 deg)  ->  cartesian (0.6915, 0.7224)
-saved t5-polar-to-cartesian.svg
-```
-
-**7. Another way to the same point: turn a line of length 1.**
-
-```bash
-python3 t3_ray.py
-```
-
-```text
-ray at 46.25 deg ends at (0.6915, 0.7224), distance 1.0000 from the origin
-saved t3-line-from-origin-angle.svg
-```
-
-**8. More worked examples.** Step 4 already printed the point at seven angles, 0° to 90° every 15°, each one row of the table at the top of this note.
-
-[[Radians]] and [[The Cosine Wave]] run their scripts in this same folder.
-
-**9. Clean up, and prove it.**
-
-```bash
-cd ~ && rm -r ~/playground/sandbox/unit-circle-figures
-ls ~/playground/sandbox/unit-circle-figures; echo $?
-```
-
-You should see `ls: cannot access '/home-mscluster/mmolefe/playground/sandbox/unit-circle-figures': No such file or directory` (with your own home folder in the path), then `2`.
-
-## Reading the unit-circle output
-
-Navigation: ⬅️ [[#Try the unit circle yourself]] | 📋 [[#Table of contents|TOC]] | [[#How the unit circle works]] ➡️
-
-| Step | Field | This run | How to read it | Backing |
-|---|---|---|---|---|
-| 4 | `x^2 + y^2` | `1.000` on every row | each sampled point is at distance 1 from the origin | derived below |
-| 4 | `30 deg  point` | `(0.866, 0.500)` | the dashed cell of the table: cos 30° and sin 30° | shown |
-| 5 | `adjacent`, hypotenuse 2 | `1.3830` | a side alone depends on the triangle's size | shown |
-| 5 | `adjacent / hypotenuse` | `0.6915` for both sizes | the ratio depends on the angle only | derived below |
-| 6 | `cartesian` | `(0.6915, 0.7224)` | $x = r\cos\theta$, $y = r\sin\theta$ with $r = 1$ | cited, trigonometry handbook p. 68 |
-| 7 | `ends at` | `(0.6915, 0.7224)` | the same point as step 6, reached by turning a line | shown |
-| 7 | `distance` | `1.0000` | `math.hypot(x, y)`, the length of the line | shown |
+**In two lines.** Nine steps in an empty folder, from checking for matplotlib to running the four figure scripts above and the one in [[Polar Coordinates]] and removing the folder, each output read field by field, are in [[Running The Unit Circle#Try the unit circle yourself]]. The steps this note cites by number are step 4 (the circle every 15°) and step 5 (a side without the division).
 
 ## How the unit circle works
 
-Navigation: ⬅️ [[#Reading the unit-circle output]] | 📋 [[#Table of contents|TOC]] | [[#Other ways to get a cosine]] ➡️
+Navigation: ⬅️ [[#Try the unit circle yourself]] | 📋 [[#Table of contents|TOC]] | [[#Other ways to get a cosine]] ➡️
 
 Textbook: [Whitney, Trigonometry handbook, cos θ = x / r, PDF p. 9](../references/textbooks/trigonometry/trigonometry-handbook.pdf#page=9)
 
-1. Scaling a right triangle by a factor multiplies every side by that factor, so adjacent / hypotenuse does not change: $1.3830 / 2 = 0.6915 / 1$. The cosine is a function of the angle alone.
-2. Put the angle at the origin with its initial side on the positive x-axis. The hypotenuse runs to the point $(x, y)$ and has length $r = \sqrt{x^2 + y^2}$, so $\cos\theta = x / r$ and $\sin\theta = y / r$.
-3. Multiply both by $r$: $x = r\cos\theta$ and $y = r\sin\theta$. With $r = 1$, $x = \cos\theta$.
-4. Pythagoras on the same triangle gives $x^2 + y^2 = r^2$, which is why every row of step 4 printed 1 for $r = 1$. Dividing by $r^2$ turns it into the identity [[The Cosine Wave#How the cosine wave works|derived in The Cosine Wave]].
+**The derivation, one step per line.** Put the angle at the origin with its initial side on the positive x-axis, and let the hypotenuse run to the point $(x, y)$. A triangle scaled by $k$ has sides $ka$ and $kh$.
+
+$$
+\begin{aligned}
+\frac{\text{adjacent}}{\text{hypotenuse}} &= \frac{k\,a}{k\,h} = \frac{a}{h} \\
+r &= \sqrt{x^2 + y^2} \\
+\cos\theta &= \frac{x}{r}, \qquad \sin\theta = \frac{y}{r} \\
+x &= r\cos\theta, \qquad y = r\sin\theta \\
+x^2 + y^2 &= r^2 \\
+\cos^2\theta + \sin^2\theta &= 1
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\frac{\textcolor{#2e7d32}{\text{adjacent}}}{\textcolor{#1565c0}{\text{hypotenuse}}} &= \underbrace{\frac{k\,a}{k\,h} = \frac{a}{h}}_{\text{the scale cancels: the angle alone fixes it}} \\
+\textcolor{#1565c0}{r} &= \underbrace{\sqrt{\textcolor{#2e7d32}{x}^2 + \textcolor{#ef6c00}{y}^2}}_{\text{Pythagoras: the hypotenuse to } (x,\,y)} \\
+\textcolor{#2e7d32}{\cos\theta} &= \underbrace{\frac{\textcolor{#2e7d32}{x}}{\textcolor{#1565c0}{r}}}_{\text{adjacent is } x}, \qquad \textcolor{#ef6c00}{\sin\theta} = \underbrace{\frac{\textcolor{#ef6c00}{y}}{\textcolor{#1565c0}{r}}}_{\text{opposite is } y} \\
+\textcolor{#2e7d32}{x} &= \underbrace{\textcolor{#1565c0}{r}\,\textcolor{#2e7d32}{\cos\theta}}_{\text{multiply by } r}, \qquad \textcolor{#ef6c00}{y} = \textcolor{#1565c0}{r}\,\textcolor{#ef6c00}{\sin\theta} \\
+\textcolor{#2e7d32}{x}^2 + \textcolor{#ef6c00}{y}^2 &= \underbrace{\textcolor{#1565c0}{r}^2}_{\text{square the second line}} \\
+\textcolor{#2e7d32}{\cos^2\theta} + \textcolor{#ef6c00}{\sin^2\theta} &= \underbrace{1}_{\text{put in the fourth line, divide by } r^2}
+\end{aligned}
+$$
+
+**The worked numbers, at 46.25°.**
+
+$$
+\begin{aligned}
+\frac{\textcolor{#2e7d32}{1.3830}}{\textcolor{#1565c0}{2}} &= \frac{\textcolor{#2e7d32}{0.6915}}{\textcolor{#1565c0}{1}} = 0.6915 \\
+\textcolor{#1565c0}{r} &= \sqrt{\textcolor{#2e7d32}{0.6915}^2 + \textcolor{#ef6c00}{0.7224}^2} = \sqrt{0.4782 + 0.5218} = 1 \\
+\textcolor{#2e7d32}{x} &= 1 \times 0.6915 = 0.6915, \qquad \textcolor{#ef6c00}{y} = 1 \times 0.7224 = 0.7224 \\
+\text{at } r = 2:\quad \textcolor{#2e7d32}{1.3830}^2 + \textcolor{#ef6c00}{1.4447}^2 &= 1.9128 + 2.0872 = 4 = 2^2 \\
+\textcolor{#2e7d32}{0.4782} + \textcolor{#ef6c00}{0.5218} &= 1
+\end{aligned}
+$$
+
+**What the derivation says.** The cosine depends on the angle alone, so any right triangle gives it, and on the circle of radius 1 it is the point's x-coordinate. Pythagoras on the same triangle is why every row of [[Running The Unit Circle#Try the unit circle yourself|step 4 of the sandbox]] printed 1. Dividing by $r^2$ turns it into the identity [[How The Cosine Wave Works#The identity|derived in How The Cosine Wave Works]].
 
 ## Other ways to get a cosine
 
 Navigation: ⬅️ [[#How the unit circle works]] | 📋 [[#Table of contents|TOC]] | [[#Why the unit circle matters]] ➡️
 
-- **`math.cos` in Python**, after converting the angle: `math.cos(math.radians(46.25))` gives `0.6915`. Feeding it 46.25 itself goes wrong, as [[Radians#The consequence: degrees fed in as radians]] shows.
-- **The key angles by heart**: $\cos 30^\circ = \sqrt3/2$, $\cos 45^\circ = \sqrt2/2$, $\cos 60^\circ = 1/2$, read off the [unit circle diagram](../references/textbooks/trigonometry/trigonometry-handbook.pdf#page=10).
-- **Drag it.** The scene Dissolving the Dog, [frame "the plane"](https://claude.ai/artifact/X7QGLTxssbz41G7iTiRxC9#timetable-plane) and [frame "polar coordinates"](https://claude.ai/artifact/X7QGLTxssbz41G7iTiRxC9#timetable-polar), moves the point round the quarter circle.
+**`math.cos` in Python.** After converting the angle, `math.cos(math.radians(46.25))` gives `0.6915`. Feeding it 46.25 itself goes wrong, as [[Radians#The consequence: degrees fed in as radians]] shows. It wins whenever the angle is not one of the key angles.
+
+**The key angles by heart.** $\cos 30^\circ = \sqrt3/2$, $\cos 45^\circ = \sqrt2/2$ and $\cos 60^\circ = 1/2$ are read off the [unit circle diagram](../references/textbooks/trigonometry/trigonometry-handbook.pdf#page=10). They win on paper, where an exact root beats a rounded decimal.
+
+**Drag it.** The scene Dissolving the Dog moves the point round the quarter circle in its frames [the plane](https://claude.ai/artifact/X7QGLTxssbz41G7iTiRxC9#timetable-plane) and [polar coordinates](https://claude.ai/artifact/X7QGLTxssbz41G7iTiRxC9#timetable-polar). It wins when you want to see every angle on the quarter turn rather than one.
 
 ## Why the unit circle matters
 
 Navigation: ⬅️ [[#Other ways to get a cosine]] | 📋 [[#Table of contents|TOC]] | [[#The unit circle taught in, applied in]] ➡️
 
-Two numbers whose squares add to 1 are a point on this circle, and the forward process of a diffusion model mixes a clean image and noise with exactly such a pair. At step 50 of the cosine schedule the pair is $(0.6916, 0.7223)$, the point at 46.25° to within 0.0001, which is why [[The Quarter Circle Under The Cosine Schedule]] can draw the whole schedule on this circle.
+**Where it is used.** Two numbers whose squares add to 1 are a point on this circle, and the forward process of a diffusion model mixes a clean image and noise with exactly such a pair. At step 50 of the cosine schedule the pair is $(0.6916, 0.7223)$, the point at 46.25° to within 0.0001, which is why [[The Quarter Circle Under The Cosine Schedule]] can draw the whole schedule on this circle.
 
 ## The unit circle taught in, applied in
 
@@ -366,12 +396,16 @@ Navigation: ⬅️ [[#Why the unit circle matters]] | 📋 [[#Table of contents|
 
 **Taught in:**
 
-- the `drip --math` walk of the forward process and the score in the reduce-reuse-recycle research repository (`artifacts/drips/forward-process-and-the-score/`), piece 2, rung 1: the learner's request to see the cosine from the high-school triangle up, on Cartesian planes with sampled points and lines, before the cosine schedule
-- step 4 of the one-expert rebuild walk in the same repository (`artifacts/drips/simple-distributions-rebuild/01-one-expert-from-scratch.md`), "On paper 1" and "On paper 2": the plane, the quarter circle, polar coordinates, the two legs and Pythagoras
+- the `drip --math` walk of [the forward process and the score](../../../PhD/reduce-reuse-recycle/artifacts/drips/forward-process-and-the-score/00-INDEX.md) in the reduce-reuse-recycle research repository, piece 2, rung 1: the learner's request to see the cosine from the high-school triangle up, on Cartesian planes with sampled points and lines, before the cosine schedule
+- step 4 of the one-expert rebuild walk in the same repository, [On paper 1](../../../PhD/reduce-reuse-recycle/artifacts/drips/simple-distributions-rebuild/01-one-expert-from-scratch.md#step4-the-quarter-circle-by-hand) and [On paper 2](../../../PhD/reduce-reuse-recycle/artifacts/drips/simple-distributions-rebuild/01-one-expert-from-scratch.md#step-4-the-forward-process-and-the-cosine-schedule): the plane, the quarter circle, polar coordinates, the two legs and Pythagoras
 
-**Applied in:** [[The Quarter Circle Under The Cosine Schedule]], where the point at post 51 is step 50's two multipliers.
+**Applied in:** [[How The Quarter Circle Gives The Multipliers#Step 2: the point is the two multipliers|the quarter circle under the cosine schedule]], where the point at post 51 is step 50's two multipliers.
 
 > [!note]- How this was checked
-> The four figure scripts were run on 2026-10-21 on mscluster (Linux), with Python 3.12.10 and matplotlib 3.10.8 from the machine's `python3`, in the empty folder `~/playground/sandbox/unit-circle-figures`, by vault-writer. The prepared environment `~/.vault-sandbox` is missing on this machine. Every output above is that run's text. Each SVG was rasterised with PyMuPDF and opened, and a PNG twin drawn by matplotlib from the same figure was opened to check the dashed lines, which PyMuPDF's SVG reader does not draw. The folder was removed afterwards and the clean-up check returned 2.
+> The four figure scripts here and the one now in [[Polar Coordinates]] were run on 2026-10-21 on mscluster (Linux), with Python 3.12.10 and matplotlib 3.10.8 from the machine's `python3`, by vault-writer, in empty folders under `~/playground/sandbox/` that were removed afterwards. The four older scripts printed the same lines as when first filed and drew SVGs that differ from the embedded ones only in matplotlib's date stamp. The prepared environment `~/.vault-sandbox` is missing on this machine.
 >
-> The textbook pages were opened and read as text with PyMuPDF: the trigonometry handbook's PDF pages 8 (standard position, initial and terminal side, polar angle positive anticlockwise), 9 (cos θ = x / r, the Pythagorean identities), 10 (the unit circle, x is the cosine and y the sine) and 68 (polar coordinates, x = r cos θ, y = r sin θ); the calculus textbook's PDF page 1207 (Appendix B, cos θ = side adjacent / hypotenuse); the geometry handbook's PDF page 80 ($a^2 + b^2 = c^2$). The scene frame anchors are as the walk's `dispatch.md` records them. No tldr-pages entry covers this.
+> Each SVG was rasterised with PyMuPDF and opened. A PNG twin drawn by matplotlib from the same figure was opened to check the dashed lines, which PyMuPDF's SVG reader does not draw. The numbers in the with-and-without moves (1.4139, 0.7073, 1.9128 + 2.0872 = 4, 0.75 at 30°, $\tan^{-1} 1.0446 = 46.25°$) were printed by `t9_squares.py` or computed that day with `math`.
+>
+> The textbook pages were opened and read as text with PyMuPDF: the trigonometry handbook's PDF pages 8 (standard position, the polar axis, a polar angle positive anticlockwise), 9 (cos θ = x / r, the Pythagorean identities), 10 (the unit circle, x is the cosine and y the sine) and 68 (polar coordinates, $r = \sqrt{x^2 + y^2}$, $\theta = \tan^{-1}(y/x)$ adjusted to the quadrant, $x = r\cos\theta$, $y = r\sin\theta$). The calculus textbook's PDF page 1207 gives cos θ = side adjacent / hypotenuse, and the geometry handbook's PDF pages 80 ($a^2 + b^2 = c^2$) and 92 (every point on a circle the same distance from the centre, the radius) were read the same way.
+>
+> The scene frame anchors are as the walk's `dispatch.md` records them. No tldr-pages entry covers this. No drawn picture is wanted: every picture here needs exact lengths and positions, so the four SVGs here and the polar one carry the form and the mechanism.
