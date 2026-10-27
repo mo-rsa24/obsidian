@@ -283,6 +283,8 @@ table on this page gives PDF pages.
 | the extended power rule, worked on 1/x | [calculus textbook](calculus/calculus-textbook.pdf#page=181) | 181 |
 | first and second derivative tests for a local minimum | [calculus textbook](calculus/calculus-textbook.pdf#page=271) | 271 |
 | sigma notation | [calculus textbook](calculus/calculus-textbook.pdf#page=364) | 364 |
+| properties of sums: a constant that does not depend on the index comes outside, Σ c aₖ = c Σ aₖ (Theorem 5.4.1) | [calculus textbook](calculus/calculus-textbook.pdf#page=366) | 366 |
+| the natural exponential function: e ≈ 2.718, eˣ positive and increasing, written exp(x) (section 0.5) | [calculus textbook](calculus/calculus-textbook.pdf#page=78) | 78 |
 | the definite integral | [calculus textbook](calculus/calculus-textbook.pdf#page=377) | 377 |
 | the derivative of tanh, sech² | [calculus textbook](calculus/calculus-textbook.pdf#page=501) | 501 |
 | the Maclaurin series for eˣ | [calculus textbook](calculus/calculus-textbook.pdf#page=684) | 684 |
