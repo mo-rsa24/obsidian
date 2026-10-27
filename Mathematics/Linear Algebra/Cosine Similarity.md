@@ -25,6 +25,8 @@ Mathematics, Linear Algebra. It divides the [[Dot Product]] by both vectors' [[N
 - Linear algebra textbook, section 3.2: [pages 160 to 163](../references/textbooks/linear-algebra/linear-algebra-textbook.pdf#page=160). The cosine of the angle as u·v over the two norms, worked for a cube's diagonal and edge, and extended to Rⁿ by the Cauchy-Schwarz inequality.
 - Hands-on large language models, chapter 4: [pages 177 to 179](../references/textbooks/natural-language-processing/hands-on-large-language-models.pdf#page=177). Labels documents by the cosine similarity between document and label embeddings, drawn as an angle (Figure 4-15) and computed with scikit-learn.
 - Probabilistic machine learning: an introduction, chapter 20: [page 752](../references/textbooks/machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=752). Ranks documents by cosine similarity to a query vector, and notes it equals the inner product for unit-norm vectors (Figure 20.43).
+- Calculus textbook, section 11.6, Example 6: [page 840](../references/textbooks/calculus/calculus-textbook.pdf#page=840). The same calculation in geometry: the planes with normals ⟨2, −4, 4⟩ and ⟨6, 2, −3⟩ meet at the angle whose cosine is |−8| over the lengths 6 and 7, 4/21, about 79 degrees.
+- Computer networking: a top-down approach, section 7.2.1, CDMA: [pages 559 to 560](../references/textbooks/system-design/computer-networking-a-top-down-approach.pdf#page=559). The same match in radio: the receiver dots the 8 received chips with the sender's code and divides by 8, the code's squared length, so its own bit scores 1 and the opposite bit −1, as a cosine would.
 
 **Videos**
 

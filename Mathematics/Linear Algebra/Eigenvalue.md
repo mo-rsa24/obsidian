@@ -25,6 +25,7 @@ Mathematics, Linear Algebra. [[Singular Value Decomposition]] extends the idea t
 - Deep learning textbook, section 2.7: [pages 58 to 60](../references/textbooks/machine-learning/deep-learning-textbook.pdf#page=58). The eigendecomposition, with a matrix drawn stretching the unit circle along its two eigenvectors (Figure 2.3).
 - Probabilistic machine learning: an introduction, section 7.4: [pages 282 to 287](../references/textbooks/machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=282). The basics, diagonalisation, symmetric matrices, quadratic forms, whitening and the power method.
 - Linear algebra textbook, section 7.2, Orthogonal diagonalization: [page 425](../references/textbooks/linear-algebra/linear-algebra-textbook.pdf#page=425). Theorem 7.2.2: a symmetric matrix has real eigenvalues, and eigenvectors from different eigenspaces are orthogonal.
+- Linear algebra textbook, section 7.3, Example 3: [pages 437 to 438](../references/textbooks/linear-algebra/linear-algebra-textbook.pdf#page=437). The same 2 by 2 symmetric eigenproblem in geometry: [5, −2; −2, 8] has eigenvalues 4 and 9 with orthonormal eigenvectors (2, 1)/√5 and (−1, 2)/√5, which rotate 5x² − 4xy + 8y² = 36 onto the ellipse 4x′² + 9y′² = 36.
 
 **Videos**
 
