@@ -1,5 +1,6 @@
 ---
-aliases: [cosine similarity, cosine distance, cosine of the angle between]
+aliases: [cosine similarity, cosine distance, cosine of the angle between, cosine]
+link-only-in: [ai-engineering/]
 standard: vault-note v2
 ---
 

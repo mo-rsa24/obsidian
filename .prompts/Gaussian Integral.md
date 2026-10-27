@@ -70,10 +70,11 @@ The form, the mechanism, then the deep-dive sheet that composes them with the ru
 
 Navigation: ⬅️ [Subject lane](#subject-lane) | 📋 [TOC](#table-of-contents) | [Prompt 2 (Subject): The mechanism](#prompt-2-subject-the-mechanism) ➡️
 
-[planned] 🖼️ rendered 2026-10-16 the-area-under-the-bell-the-form.webp
+[planned] ⏳ not rendered
 Save as: `../Mathematics/Calculus/Integration/assets/the-area-under-the-bell-the-form.webp`
+The file at this path exists from an earlier render but is unchecked against this prompt, which job 20261016-150718-b86c22 rewrote after a student read.
 
-Visual thesis: Each piece of the integral names one part of the picture: the limits are the whole line, e^(-x^2) is the height, dx is a thin width, and I is the shaded area.
+Visual thesis: Follow each integral chip to one visible target: the shaded area, the extent of the number line, the strip's height, or the strip's width.
 
 ```
 Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
@@ -87,17 +88,23 @@ hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. B
 the composition and visual treatment that best communicate this subject emerge from the context
 below, rather than from an imposed convention.
 
-Production: Use a deterministic figure script for the curve. Designed for reading at 800 px wide, with every label at least 18 px at that width.
+Production: Use a deterministic figure script for every curve, strip and connector. Design for reading at 800 px wide, with every label at least 18 px at that width. The mathematical marks themselves illustrate the components; add no decorative icons. Use direct labels instead of a legend.
 
-Scene: Top: the integral written large in one line, I = ∫ from -∞ to ∞ of e^(-x^2) dx, each of its four pieces in its own soft rounded chip. Below: a number line from x = -3 to x = 3 with ticks at every whole number, and the blue bell y = e^(-x^2) over it, peak height 1 at x = 0, falling to 0.3679 at x = 1 and -1 and to nearly 0 at x = 3 and -3. The whole area under the bell is shaded light blue. One thin upright strip under the bell near x = 1 is outlined, its width marked dx and its height marked e^(-x^2). Arrows at both ends of the number line point outward, showing the line continues. Each chip in the integral has one leader line to what it names: the limits chip to the two outward arrows, the e^(-x^2) chip to the strip's height, the dx chip to the strip's width, the I chip to the shaded area.
+Scene: Place the integral in one readable row above the plot, with four soft chips for I, the integral with its limits, e^(-x²), and dx. Put their meanings directly underneath: area, the whole line, height at x, thin width. Keep the chips subordinate to the shaded bell and its single orange strip.
 
-Cast: the four chips, the number line, the blue bell, the shaded area, the one outlined strip.
+Below, draw the computed blue bell over a horizontal number line, with whole-number ticks from -3 through 3 and outward arrows showing continuation. Shade the entire visible region beneath the curve light blue. Keep the bell symmetric, peak 1 over 0, height 0.3679 at both -1 and 1, and positive tails near the baseline. Print 1 at the peak and 0.3679 beside the point at -1.
 
-Flows: four leader lines, one from each chip, none crossing.
+Outline exactly one thin orange rectangle near x = 1. Its top touches the curve at its centre. Align an orange vertical height bracket immediately beside the rectangle, from the baseline to its top. Put e^(-x²) next to this bracket. Put the orange width bracket directly above the rectangle, with its two ends aligned with the rectangle's sides; place dx beside it. Leave enough room that the height label, width label and curve do not overlap.
 
-Text in the image, spelled exactly: "I = ∫ e^(-x²) dx, from -∞ to ∞", "the whole line", "height at x", "thin width", "area", "dx", "e^(-x²)", "1", "0.3679", "x", "-3", "-2", "-1", "0", "1", "2", "3".
+Draw a shallow neutral extent bracket below the number line, spanning the visible plot and ending beneath its two outward arrows. This is the target for the whole-line chip. It must read as an annotation of the axis, never as a frame around the figure.
 
-Exclusions: no rectangles other than the one strip, no second curve, no numbers other than those listed, no normal-distribution formula, no 1/sqrt(2 pi) factor. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+Cast: four formula chips, the blue bell and shaded area, the number line, one outlined orange strip, its height and width brackets, and the axis-extent bracket.
+
+Flows: Exactly four leaders, one from each chip. The I leader ends inside the shaded area, away from the strip. The limits leader routes through the outside margin and terminates on the axis-extent bracket. The height leader terminates on the vertical height bracket. The width leader terminates on the horizontal width bracket itself. Keep all four leaders separate and uncrossed. No endpoint floats above or beside its target. Do not route a connector across the top and both sides of the figure.
+
+Text in the image, spelled exactly: "I = ∫ e^(-x²) dx, from -∞ to ∞", "the whole line", "height at x", "thin width", "area", "dx", "e^(-x²)", "1", "0.3679", "x", "-3", "-2", "-1", "0", "1", "2", "3". Typeset the integral conventionally, with its limits attached to the integral sign.
+
+Exclusions: No rectangles other than the one strip, no second curve, no additional numbers, no normal-distribution formula, no 1/sqrt(2 pi) factor, no legend, no decorative icons, no enclosing connector frame, no floating leader endpoints, no crossing leaders, no paragraphs, no watermark.
 ```
 
 Faithfulness note: The bell peaks at height 1 over x = 0 and is symmetric; at x = ±1 its height is 0.3679; it is close to 0 at x = ±3 but never drawn below the line; the whole area under it is shaded, not a slice; exactly one strip is outlined; each of the four chips has exactly one leader line to the part it names. Every label in the image, exactly: "I = ∫ e^(-x²) dx, from -∞ to ∞", "the whole line", "height at x", "thin width", "area", "dx", "e^(-x²)", "1", "0.3679", "x", "-3", "-2", "-1", "0", "1", "2", "3".
@@ -142,10 +149,11 @@ Faithfulness note: Exactly 13 orange bars of width 0.5, centred at -3 to 3 in st
 
 Navigation: ⬅️ [Prompt 2 (Subject): The mechanism](#prompt-2-subject-the-mechanism) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
 
-[planned] 🖼️ rendered 2026-10-16 the-area-under-the-bell-deep-dive-sheet.webp
+[planned] ⏳ not rendered
 Save as: `../Mathematics/Calculus/Integration/assets/the-area-under-the-bell-deep-dive-sheet.webp`
+The file at this path exists from an earlier render but is unchecked against this prompt, which job 20261016-150718-b86c22 rewrote after a student read.
 
-Visual thesis: Read the run one field at a time: the heights fall from 1 to 0.0001, 13 rectangles sum to 3.5449, the area is 1.7724, and thinner rectangles give 1.772454.
+Visual thesis: The numbered run connects sampled heights to their sum and the rectangle area; the final line gives the finer numerical estimate.
 
 ```
 Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
@@ -159,20 +167,37 @@ hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. B
 the composition and visual treatment that best communicate this subject emerge from the context
 below, rather than from an imposed convention.
 
-Production: Use a deterministic figure script. A tall sheet of exactly four panes stacked vertically, each the full width, designed for reading at 800 px wide; add height rather than shrinking text, with output and field text at least 20 px at that width. The first two panes are compact reminders of the form and the mechanism, not full copies. The run pane is the focal pane. Field cards run 1 to 7 in one column in the same order as the markers, each starting with its red number, and are matched to the output by number alone: no leader lines between panes.
+Production: Use a deterministic figure script. Exactly four full-width panes stacked vertically, designed for reading at 800 px wide. Output and explanation text must remain at least 20 px at that displayed width. Measure the longest output line together with its marker before laying out the run pane. Use a legible narrow monospace face and modest horizontal padding so the line fits without wrapping, clipping, changing spaces or shrinking below the minimum size. Add vertical space wherever explanations wrap. Use mathematical marks as the illustrations, with no decorative icons or legend.
 
-Scene: Pane 1, The form: a compact reminder of prompt 1, the blue bell with its area shaded and the integral "I = ∫ e^(-x²) dx, from -∞ to ∞" above it. Pane 2, The mechanism: a compact reminder of prompt 2's left panel, the blue bell over 13 orange bars of width 0.5, with "0.5 × 3.5449 = 1.7724" under it. Pane 3, The run: thirteen lines of monospace output, exactly: $ ~/.vault-sandbox/bin/python area.py | heights at x = 0, 0.5, ..., 3: |   x = 0.0   e^(-x^2) = 1.0000 |   x = 0.5   e^(-x^2) = 0.7788 |   x = 1.0   e^(-x^2) = 0.3679 |   x = 1.5   e^(-x^2) = 0.1054 |   x = 2.0   e^(-x^2) = 0.0183 |   x = 2.5   e^(-x^2) = 0.0019 |   x = 3.0   e^(-x^2) = 0.0001 | rectangles, width 0.5, x = -3..3: 13 of them |   sum of heights: 3.5449 |   area: 1.7724 | rectangles, width 0.001, x = -6..6: 1.772454 (the | marks a new line and is not printed; keep the leading and inner runs of spaces). Red markers: 1 after 1.0000, 2 after 0.3679, 3 after 0.0001, 4 after 13 of them, 5 after 3.5449, 6 after 1.7724, 7 after 1.772454. Pane 4, Reading it: seven cards in order.
+Hierarchy: Make The run the focal pane through its stronger border and heading. Keep The form and The mechanism as shallow reminder bands, together occupying no more than about a fifth of the sheet. Their compact plots sit beside their equations, rather than beneath them. Keep Reading it immediately below the run, with restrained card borders and no large empty gaps.
 
-Cast: the reminder bell and bars, the output block, seven numbered field cards.
+Scene: Pane 1, The form: a small computed blue bell with its area shaded, beside the integral "I = ∫ e^(-x²) dx, from -∞ to ∞", conventionally typeset with limits. Pane 2, The mechanism: a compact computed blue bell over exactly 13 orange rectangles of width 0.5, centred from -3 to 3 in steps of 0.5. Place "0.5 × 3.5449 = 1.7724" beside the plot. Keep the equations readable while reducing the plots' empty margins.
 
-Flows: none between panes.
+Pane 3, The run: print the following thirteen lines verbatim. The | separators below mark line breaks and are not printed. Preserve the two leading spaces on indented lines and the three spaces between each x value and e^(-x^2).
 
-Text in the image, spelled exactly: "The form", "The mechanism", "The run", "Reading it", "I = ∫ e^(-x²) dx, from -∞ to ∞", "0.5 × 3.5449 = 1.7724", "$ ~/.vault-sandbox/bin/python area.py", "1 the peak: e^0 = 1", "2 one step out: e^(-1), a third of the peak", "3 at x = 3: e^(-9), the tail is gone", "4 one rectangle at each of -3, -2.5, ..., 3", "5 the peak plus each side's six heights", "6 width 0.5 times the sum of heights", "7 width 0.001: the area to six decimals".
+$ ~/.vault-sandbox/bin/python area.py | heights at x = 0, 0.5, ..., 3: |   x = 0.0   e^(-x^2) = 1.0000 |   x = 0.5   e^(-x^2) = 0.7788 |   x = 1.0   e^(-x^2) = 0.3679 |   x = 1.5   e^(-x^2) = 0.1054 |   x = 2.0   e^(-x^2) = 0.0183 |   x = 2.5   e^(-x^2) = 0.0019 |   x = 3.0   e^(-x^2) = 0.0001 | rectangles, width 0.5, x = -3..3: 13 of them |   sum of heights: 3.5449 |   area: 1.7724 | rectangles, width 0.001, x = -6..6: 1.772454
 
-Exclusions: no fifth pane, no leader lines between panes, no altered output text, no wrapped output line that loses its spacing, no legend panel or colour key, no sqrt(pi) anywhere. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+Place red markers immediately after the same fields as before: 1 after 1.0000, 2 after 0.3679, 3 after 0.0001, 4 after 13 of them, 5 after 3.5449, 6 after 1.7724, 7 after 1.772454. Markers are separate drawn objects, not inserted characters. Leave a consistent small gap before each marker and clear space after marker 7. Keep command and output text dark neutral; green is reserved for the shifted bell elsewhere in the set.
+
+Pane 4, Reading it: seven compact cards in one column, in marker order. Each starts with the matching red numbered marker. Use these exact explanations, subject to approval of the two corrections identified in the review:
+1 the peak: e^0 = 1
+2 one step out: e^(-1), about a third of the peak
+3 at x = 3: e^(-9), the tail is nearly zero
+4 one rectangle at each of -3, -2.5, ..., 3
+5 the peak plus each side's six heights
+6 width 0.5 times the sum of heights
+7 width 0.001: the area to six decimals
+
+Cast: two compact reminder plots, the captured output block, and seven numbered explanations.
+
+Flows: None between panes. Match output fields to explanations by number alone.
+
+Text in the image, spelled exactly: "The form", "The mechanism", "The run", "Reading it", "I = ∫ e^(-x²) dx, from -∞ to ∞", "0.5 × 3.5449 = 1.7724", the thirteen verbatim run lines above, and the seven numbered explanations above. Typeset mathematical expressions in the explanations; retain literal code notation in the output.
+
+Exclusions: No fifth pane, no leader lines between panes, no altered output text or spacing, no wrapped output lines, no legend or colour key, no sqrt(pi), no added claims that the tail reaches zero, no decorative icons, no watermark.
 ```
 
-Faithfulness note: The thirteen output lines match the note's captured run of `area.py` character for character, runs of spaces included; markers 1 to 7 sit after the same fields as the note's rendered output picture `the-area-under-the-bell-rectangles.png`; four panes only; no legend anywhere; the bars in pane 2 are 13, of width 0.5. Every label in the image, exactly: "The form", "The mechanism", "The run", "Reading it", "I = ∫ e^(-x²) dx, from -∞ to ∞", "0.5 × 3.5449 = 1.7724", "$ ~/.vault-sandbox/bin/python area.py", "1 the peak: e^0 = 1", "2 one step out: e^(-1), a third of the peak", "3 at x = 3: e^(-9), the tail is gone", "4 one rectangle at each of -3, -2.5, ..., 3", "5 the peak plus each side's six heights", "6 width 0.5 times the sum of heights", "7 width 0.001: the area to six decimals".
+Faithfulness note: The thirteen output lines match the note's captured run of `area.py` character for character, runs of spaces included; markers 1 to 7 sit after the same fields as the note's rendered output picture `the-area-under-the-bell-rectangles.png`; four panes only; no legend anywhere; the bars in pane 2 are 13, of width 0.5. Every label in the image, exactly: "The form", "The mechanism", "The run", "Reading it", "I = ∫ e^(-x²) dx, from -∞ to ∞", "0.5 × 3.5449 = 1.7724", "$ ~/.vault-sandbox/bin/python area.py", "1 the peak: e^0 = 1", "2 one step out: e^(-1), about a third of the peak", "3 at x = 3: e^(-9), the tail is nearly zero", "4 one rectangle at each of -3, -2.5, ..., 3", "5 the peak plus each side's six heights", "6 width 0.5 times the sum of heights", "7 width 0.001: the area to six decimals".
 
 ## Process lane
 

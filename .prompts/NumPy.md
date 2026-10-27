@@ -253,10 +253,11 @@ Faithfulness note: Columns are aligned on the right in both rows; every dashed b
 
 Navigation: ⬅️ [Prompt 4 (Subject): Broadcasting, the form](#prompt-4-subject-broadcasting-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 6 (Subject capstone): Broadcasting, the deep-dive sheet](#prompt-6-subject-capstone-broadcasting-the-deep-dive-sheet) ➡️
 
-[planned] 🖼️ rendered 2026-10-04 broadcasting-the-mechanism.webp
+[planned] ⏳ not rendered
 Save as: `../Software/Python/NumPy/assets/broadcasting-the-mechanism.webp`
+The file at this path exists from an earlier render but is unchecked against this prompt, which job 20261005-001726-d15258 rewrote after a student read.
 
-Visual thesis: A (2,) row is reused for every row of a (5, 2) matrix, a (3, 1, 1) column is applied to the whole matrix once per level, and a (3,) against a (100000, 2) fails because 3 meets 2.
+Visual thesis: The same two entries act on every matrix row; each level's scalar acts on every matrix cell; an unequal trailing pair with neither length equal to 1 stops broadcasting.
 
 ```
 Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
@@ -270,17 +271,27 @@ hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. B
 the composition and visual treatment that best communicate this subject emerge from the context
 below, rather than from an imposed convention.
 
-Production: Use a deterministic figure script for any plot, curve, cloud or grid, and for all typography. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+Production: Use a deterministic figure script for every grid, connector and label. Compose for reading at 800 px wide. Add height instead of shrinking labels. Use direct labels rather than a separate legend panel. Input grids have neutral outlines; result grids have green outlines; red identifies only the failing axis pair. The arrays and shape boxes themselves supply the component illustrations.
 
-Scene: Three panels. Panel 1, titled (2,) across (5, 2): a one-row strip holding -2 and 0, and five faint copies of it stacked downward beside a 5 by 2 grid, with a plus between them and a 5 by 2 result grid. Panel 2, titled (3, 1, 1) across (5, 2): three level tiles 1.0, 0.5 and 0.0058 stacked as a column; each tile multiplies a full copy of the 5 by 2 grid; the three results stack into a small 3-deep block labelled (3, 5, 2). Panel 3, titled (3,) against (100000, 2): the two shapes lined up from the right, with the 3 above the 2 circled in red and the label 3 meets 2: ValueError.
+Scene: Three full-width panels in reading order. Give the working examples most of the space. Keep the error panel shallow, with a quiet background so its red annotation does not overpower the reuse demonstration.
 
-Cast: the row strip and its faint copies, the 5 by 2 grids, the level tiles, the stacked result block, the red error circle.
+Panel 1, titled (2,) across (5, 2): show a separate, solid two-cell source holding -2 and 0 above a five-row, two-column broadcast footprint. The footprint contains exactly five faint pairs of -2 and 0. Thin dashed paths from each source cell lead only to its corresponding column in the footprint. The source is outside the footprint, so it cannot be mistaken for a sixth matrix row. Dashed paths and faint entries depict reuse, not a memory-allocation sequence.
 
-Flows: short arrows from each input to its result inside each panel; nothing crosses panels.
+Beside the footprint, show a plus sign, a neutral five-by-two input grid, a short right arrow and a green five-by-two result grid. Align all three grids row for row. Outline the first left cell in each grid more strongly, and connect these corresponding cells with a quiet local guide through the operation. This draws attention to one matching position without adding numerical input or output values. All remaining rows remain visible and evenly spaced. Do not use an empty result grid as the only explanation of the operation: the source-to-footprint paths and corresponding-cell guide must be plainly visible.
 
-Text in the image, spelled exactly: "(2,) across (5, 2)", "-2", "0", "(3, 1, 1) across (5, 2)", "1.0", "0.5", "0.0058", "(3, 5, 2)", "(3,) against (100000, 2)", "3 meets 2: ValueError".
+Panel 2, titled (3, 1, 1) across (5, 2): use three aligned horizontal rows. Each row contains one scalar tile, a multiplication sign, a complete neutral five-by-two input grid, a short arrow and a complete green five-by-two result grid. The scalar tiles read 1.0, 0.5 and 0.0058 from top to bottom. Draw the same small corner notch and the same emphasized first left cell in every input grid to establish that the same matrix is reused at all three levels. The emphasis continues to the corresponding result cell. Keep all ten cells visible in every grid.
 
-Exclusions: no list-versus-array imagery, no shapes other than those listed, no loops drawn as code. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+Group the three result grids with one bracket labelled (3, 5, 2). These are the three planes of one result, shown separately so none is hidden. Keep each scalar, its operation and its result on the same horizontal line. Do not fill the result planes with the scalar value: each plane contains the matrix after multiplication by that scalar.
+
+Panel 3, titled (3,) against (100000, 2): typeset the two shapes one above the other, aligned from the right. Preserve the comma in the one-axis tuple (3,). Circle only the trailing 3 and 2 together in red. A short arrow from that circle ends at 3 meets 2: ValueError. Keep 100000 outside the circle.
+
+Cast: one source pair, five faint reused pairs, neutral input grids, three scalar tiles, green result grids, one grouping bracket and the red mismatch annotation.
+
+Flows: source cells connect to their own broadcast columns; each operation leads to its own result. No connectors cross panels. No extra step badges.
+
+Text in the image, spelled exactly: "(2,) across (5, 2)", "-2", "0", "(3, 1, 1) across (5, 2)", "1.0", "0.5", "0.0058", "(3, 5, 2)", "(3,) against (100000, 2)", "3 meets 2: ValueError". The mismatch drawing repeats the shapes named in its heading. Use plus and multiplication signs as operation glyphs.
+
+Exclusions: no invented matrix values, no scalar-filled result planes, no obscured grid cells, no perspective distortion, no list-versus-array imagery, no shapes other than those listed, no code loops, no extra copies beyond those required to demonstrate reuse, no decorative header icons, no standalone legend, no orphan arrows, no arrows ending in whitespace, no crossing paths, no watermark.
 ```
 
 Faithfulness note: Panel 1 shows exactly five copies; panel 2 shows exactly three levels with the listed values and a 3-deep result; panel 3 circles the 3 aligned over the 2 in red. Every label in the image, exactly: "(2,) across (5, 2)", "-2", "0", "(3, 1, 1) across (5, 2)", "1.0", "0.5", "0.0058", "(3, 5, 2)", "(3,) against (100000, 2)", "3 meets 2: ValueError".
@@ -289,10 +300,11 @@ Faithfulness note: Panel 1 shows exactly five copies; panel 2 shows exactly thre
 
 Navigation: ⬅️ [Prompt 5 (Subject): Broadcasting, the mechanism](#prompt-5-subject-broadcasting-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: Random numbers from a seeded generator](#subject-lane-random-numbers-from-a-seeded-generator) ➡️
 
-[planned] 🖼️ rendered 2026-10-04 broadcasting-deep-dive-sheet.webp
+[planned] ⏳ not rendered
 Save as: `../Software/Python/NumPy/assets/broadcasting-deep-dive-sheet.webp`
+The file at this path exists from an earlier render but is unchecked against this prompt, which job 20261005-001726-d15258 rewrote after a student read.
 
-Visual thesis: Shapes lined up from the right decide every result shape, and the run prints each one.
+Visual thesis: Read the four marked fields as the broadcast result, one computed row, two added axes and three matrix-shaped levels.
 
 ```
 Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
@@ -306,17 +318,40 @@ hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. B
 the composition and visual treatment that best communicate this subject emerge from the context
 below, rather than from an imposed convention.
 
-Production: Use a deterministic figure script. A tall sheet of exactly four panes stacked vertically, each the full width, designed for reading at 800 px wide; add height rather than shrinking text, with output and field text at least 20 px at that width. The first two panes are compact reminders of the form and the mechanism, not full copies. The run pane is the focal pane. Field cards run 1 to N in one column in the same order as the markers, each starting with its red number, and are matched to the output by number alone: no leader lines between panes.
+Production: Use a deterministic figure script for all typography and diagrams. Exactly four full-width panes stacked vertically, designed for reading at 800 px wide. Output and field-card text must be at least 20 px at that displayed width. Keep the output lines unwrapped. Add height instead of reducing text size. Give the first two panes together no more than one third of the sheet's height. The run is the focal pane, with the strongest title and clearest contrast. Use neutral input outlines, green result outlines and red only for the mismatch and numbered field markers. Label objects directly; no separate legend.
 
-Scene: Pane 1, The form: a compact reminder of prompt 4, the two aligned rows ending in (n, 2) and (3, n, 2). Pane 2, The mechanism: a compact reminder of prompt 5, the copied row, the three levels and the red 3 meets 2. Pane 3, The run: four lines of monospace output, exactly: $ ~/.vault-sandbox/bin/python shapes.py | mu (2,) eps (5, 2) x (5, 2) | row 0: eps [ 0.126 -0.132] -> x [-1.874 -0.264] | abar (3,) a (3, 1, 1) a * x (3, 5, 2) (the | marks a new line and is not printed). Red markers: 1 over x (5, 2), 2 over [-1.874 -0.264], 3 over a (3, 1, 1), 4 over (3, 5, 2). Pane 4, Reading it: four cards in order.
+Pane 1, The form: show two compact shape tables beside one another. The first has exactly two axis columns: (n, 2) above (2,), with a dashed implied 1 before the second shape's 2; its green result is (n, 2). The second has exactly three axis columns: (3, 1, 1) above (n, 2), with a dashed implied 1 before n; its green result is (3, n, 2). Keep all axis lengths vertically aligned. Use the tables themselves as illustrations, with no decorative header icon or repeated Right-aligned shapes headings.
 
-Cast: the reminder shape tables and grids, the output block, four numbered field cards.
+Pane 2, The mechanism: a compact reminder with three small motifs in a single row. First, a two-cell source holding -2 and 0 above five faint reused pairs, with dashed paths into the corresponding columns. Second, three scalar tiles 1.0, 0.5 and 0.0058, each beside a multiplication sign and the same neutral five-by-two grid; short arrows lead to three green five-by-two result planes grouped under (3, 5, 2). Leave result values unspecified. Do not fill result grids with the scalar values. Third, align (3,) above (100000, 2) and mark only the trailing 3 and 2 in red, with 3 meets 2: ValueError beneath. Keep this reminder visually quieter than the run. Do not add explanatory paragraphs, a colour legend or a full repetition of the previous figure.
 
-Flows: none between panes.
+Pane 3, The run: use the full width for the four exact monospace lines below. Preserve every space and punctuation mark. Provide generous space above each output line for the small red field markers. Place marker 1 over x (5, 2), marker 2 over [-1.874 -0.264], marker 3 over a (3, 1, 1), and marker 4 over the final (3, 5, 2). Add a thin underline beneath each marked field so its extent is clear. Markers must not obscure characters. Do not add an output caption or a sentence about the captured run.
 
-Text in the image, spelled exactly: "The form", "The mechanism", "The run", "Reading it", "$ ~/.vault-sandbox/bin/python shapes.py", "mu (2,) eps (5, 2) x (5, 2)", "row 0: eps [ 0.126 -0.132] -> x [-1.874 -0.264]", "abar (3,) a (3, 1, 1) a * x (3, 5, 2)", "1 the (2,) row reached all five rows", "2 -2 + 1 x 0.126 and 0 + 2 x (-0.132)", "3 two length-1 axes added after the 3", "4 one (5, 2) cloud per level".
+Pane 4, Reading it: four full-width cards in one vertical column, ordered 1 through 4. Each begins with its matching red number and the exact field text below. Match cards to output by number alone, with no leader lines between panes. Text is the main content; omit redundant right-hand explanations.
 
-Exclusions: no fifth pane, no leader lines between panes, no altered output text. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+Card 1: beside the text, show a small two-cell source feeding five faint pairs. Keep it compact.
+Card 2: give the supplied arithmetic text the full card width. It may break at the word and onto a second line, without changing any characters. Add no second arithmetic transcription or duplicate result box.
+Card 3: beside the text, show three adjacent shape boxes containing 3, 1, 1. Use solid borders because these axes are present in a. Put a small brace beneath only the two trailing 1 boxes. Do not illustrate this field with a single scalar tile.
+Card 4: beside the text, show exactly three small five-by-two result planes, separated enough that every row and column remains countable. Use green outlines and a grouping bracket. Do not add constant values to the planes.
+
+Cast: two shape tables, compact reuse and multiplication reminders, a mismatch pair, the output block and four numbered field cards. The teaching objects supply the illustrations. Keep shadows and panel borders quiet.
+
+Flows: local arrows only within the reminder motifs and card 1. No connectors between panes or between output and cards.
+
+Text in the image, spelled exactly:
+Pane titles: "The form", "The mechanism", "The run", "Reading it".
+Output lines exactly:
+$ ~/.vault-sandbox/bin/python shapes.py
+mu (2,) eps (5, 2) x (5, 2)
+row 0: eps [ 0.126 -0.132] -> x [-1.874 -0.264]
+abar (3,) a (3, 1, 1) a * x (3, 5, 2)
+Field cards:
+"1 the (2,) row reached all five rows"
+"2 -2 + 1 x 0.126 and 0 + 2 x (-0.132)"
+"3 two length-1 axes added after the 3"
+"4 one (5, 2) cloud per level"
+Reminder labels and cell contents: "(n, 2)", "(2,)", "(3, 1, 1)", "(3, n, 2)", "n", "2", "3", "1", "-2", "0", "1.0", "0.5", "0.0058", "(3, 5, 2)", "(3,)", "(100000, 2)", "3 meets 2: ValueError". Use multiplication signs as operation glyphs in the mechanism reminder.
+
+Exclusions: no fifth pane, no extra prose, no legend panel, no decorative header icons, no altered or wrapped output lines, no leader lines between panes, no constant-filled result grids, no single-value tile beside card 3, no obscured grid cells, no invented input values, no orphan arrows, no crossing paths, no watermark.
 ```
 
 Faithfulness note: The output lines match the note's captured run character for character; markers 1 to 4 sit over the same fields as the note's rendered output picture; four panes only. Every label in the image, exactly: "The form", "The mechanism", "The run", "Reading it", "$ ~/.vault-sandbox/bin/python shapes.py", "mu (2,) eps (5, 2) x (5, 2)", "row 0: eps [ 0.126 -0.132] -> x [-1.874 -0.264]", "abar (3,) a (3, 1, 1) a * x (3, 5, 2)", "1 the (2,) row reached all five rows", "2 -2 + 1 x 0.126 and 0 + 2 x (-0.132)", "3 two length-1 axes added after the 3", "4 one (5, 2) cloud per level".
@@ -368,10 +403,11 @@ Faithfulness note: The seeded generator connects to exactly two calls and never 
 
 Navigation: ⬅️ [Prompt 7 (Subject): Seeding, the form](#prompt-7-subject-seeding-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 9 (Subject capstone): Seeding, the deep-dive sheet](#prompt-9-subject-capstone-seeding-the-deep-dive-sheet) ➡️
 
-[planned] 🖼️ rendered 2026-10-04 seeding-the-mechanism.webp
+[planned] ⏳ not rendered
 Save as: `../Software/Python/NumPy/assets/seeding-the-mechanism.webp`
+The file at this path exists from an earlier render but is unchecked against this prompt, which job 20261005-001726-42e135 rewrote after a student read.
 
-Visual thesis: A seed sets a generator's starting state; each draw reads the next numbers and moves the state on; a second generator with the same seed replays the stream from the start.
+Visual thesis: The same generator advances to the next group of numbers; a fresh generator with the same seed starts at the first group again.
 
 ```
 Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
@@ -385,17 +421,23 @@ hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. B
 the composition and visual treatment that best communicate this subject emerge from the context
 below, rather than from an imposed convention.
 
-Production: Use a deterministic figure script for any plot, curve, cloud or grid, and for all typography. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+Production: Use a deterministic figure script for the complete diagram and all typography. Design for display at 800 px wide, with labels and cell values at least 20 px at that width. Add height rather than shrinking text. Use directly labelled teaching objects instead of a separate legend.
 
-Scene: A horizontal tape of numbers read left to right, the stream of seed 0: 0.1257, -0.1321, 0.6404, 0.1049, -0.5357, 0.3616, then an ellipsis cell. Above the tape, a teal reading head labelled rng; a bracket over the first three cells labelled first draw and over the next three labelled second draw. Below the tape, a second, identical tape with its own head at the very start, labelled fresh rng, and a bracket over its first three cells labelled same three numbers. At the far left of both tapes, a small seed tag reading seed 0, and the label PCG64 on the first tape.
+Scene: Two horizontal number tapes with identical cell widths and vertically aligned cell boundaries. Each tape contains 0.1257, -0.1321, 0.6404, 0.1049, -0.5357, 0.3616, then an ellipsis cell. Place a small seed tag reading seed 0 to the left of each tape. Keep any seed illustration small and secondary.
 
-Cast: two number tapes, two reading heads, three brackets, the seed tags.
+Upper tape: Make the movement of the rng reading head the focal element. Draw an outlined teal head pointing to the centre of the first cell and a solid teal head pointing to the centre of the fourth cell. These are two positions of the same head, not two generators. Connect the outlined position to the solid position with one horizontal teal arrow that ends on the solid head. Label this connected head-and-arrow assembly rng once, with PCG64 directly beneath the label in smaller type. Leave enough vertical separation between this movement and the grouping brackets to avoid overlaps.
 
-Flows: one short arrow showing the first head moving from the first bracket to the second.
+Place a bracket labelled first draw over exactly the first three cells: its left endpoint aligns with the tape's left boundary and its right endpoint with the boundary after 0.6404. Place a bracket labelled second draw over exactly the next three cells: its endpoints align with the boundaries before 0.1049 and after 0.3616. Give the first group a very light teal fill and the second group a slightly stronger teal fill, keeping both fully legible. The arrow's destination points to 0.1049, where the second draw starts.
 
-Text in the image, spelled exactly: "seed 0", "PCG64", "rng", "first draw", "second draw", "fresh rng", "same three numbers", "0.1257", "-0.1321", "0.6404", "0.1049", "-0.5357", "0.3616".
+Lower tape: Draw one solid teal head labelled fresh rng pointing to the centre of the first cell. A bracket labelled same three numbers spans exactly the first three cells, with endpoints aligned to the same boundaries as first draw above. Emphasise those three cells with a light teal fill; keep the remaining cells unfilled but readable. Do not draw a movement arrow on this tape.
 
-Exclusions: no global generator, no other numbers, no randomness imagery such as dice or coins. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+Cast: two number tapes, an outlined and solid position of the upper reading head, one fresh reading head, three precisely aligned brackets, two small seed tags. The tapes and heads are the component illustrations.
+
+Flows: one arrow from the upper head's initial position to its position at the fourth cell. No connector between the two generators.
+
+Text in the image, spelled exactly: "seed 0", "PCG64", "rng", "first draw", "second draw", "fresh rng", "same three numbers", "0.1257", "-0.1321", "0.6404", "0.1049", "-0.5357", "0.3616". An ellipsis ends each tape.
+
+Exclusions: no global generator, no other numbers, no dice or coins, no extra explanatory labels, no bracket beginning inside a cell, no arrow ending in whitespace, no third tape, no decorative header icons, no crossing connectors, no paragraphs, no watermark. Do not depict the upper head's two positions as independent generators.
 ```
 
 Faithfulness note: The six numbers appear in the listed order on the first tape; the second tape's first three cells repeat 0.1257, -0.1321, 0.6404. Every label in the image, exactly: "seed 0", "PCG64", "rng", "first draw", "second draw", "fresh rng", "same three numbers", "0.1257", "-0.1321", "0.6404", "0.1049", "-0.5357", "0.3616".
@@ -404,10 +446,11 @@ Faithfulness note: The six numbers appear in the listed order on the first tape;
 
 Navigation: ⬅️ [Prompt 8 (Subject): Seeding, the mechanism](#prompt-8-subject-seeding-the-mechanism) | 📋 [TOC](#table-of-contents) | [Process lane](#process-lane) ➡️
 
-[planned] 🖼️ rendered 2026-10-04 seeding-deep-dive-sheet.webp
+[planned] ⏳ not rendered
 Save as: `../Software/Python/NumPy/assets/seeding-deep-dive-sheet.webp`
+The file at this path exists from an earlier render but is unchecked against this prompt, which job 20261005-001726-42e135 rewrote after a student read.
 
-Visual thesis: A seeded generator's stream continues across draws and restarts for a fresh generator with the same seed, as the run prints.
+Visual thesis: Read the output to see the same generator continue, then a fresh generator repeat the first draw.
 
 ```
 Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
@@ -421,17 +464,37 @@ hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. B
 the composition and visual treatment that best communicate this subject emerge from the context
 below, rather than from an imposed convention.
 
-Production: Use a deterministic figure script. A tall sheet of exactly four panes stacked vertically, each the full width, designed for reading at 800 px wide; add height rather than shrinking text, with output and field text at least 20 px at that width. The first two panes are compact reminders of the form and the mechanism, not full copies. The run pane is the focal pane. Field cards run 1 to N in one column in the same order as the markers, each starting with its red number, and are matched to the output by number alone: no leader lines between panes.
+Production: Use a deterministic figure script for the complete sheet, including diagrams, output and typography. Exactly four full-width panes stacked vertically, designed for display at 800 px wide. Keep all teaching text at least 20 px at that width. Add height rather than shrinking text. The run is the visual focus through its dark background and clear monospace text. Use modest pane headings of equal size. The reminder panes should occupy about one third of the total height, with the remaining space devoted to the run and its explanations. Omit the palette legend and decorative terminal chrome.
 
-Scene: Pane 1, The form: a compact reminder of prompt 7, the seeded generator with its two calls beside the hidden global generator. Pane 2, The mechanism: a compact reminder of prompt 8, the tape with first draw and second draw, and the fresh tape. Pane 3, The run: five lines of monospace output, exactly: $ ~/.vault-sandbox/bin/python stream.py | PCG64 | first draw:  [ 0.1257 -0.1321  0.6404] | second draw: [ 0.1049 -0.5357  0.3616] | fresh rng:   [ 0.1257 -0.1321  0.6404] (the | marks a new line and is not printed; keep the spaces). Red markers: 1 over PCG64, 2 over the first draw's array, 3 over the second draw's array, 4 over the fresh rng's array. Pane 4, Reading it: four cards in order.
+Pane 1, The form: A compact reminder of the two separate generator paths. Use two full-width rows rather than narrow side-by-side panels. In the first row, a small teal generator dial accompanies rng = np.random.default_rng(0). Two short teal branches end at rng.standard_normal(shape) and rng.normal(mean, std, shape), stacked beneath it. Place repeats every run once beside the pair. In the second row, a small grey generator dial accompanies hidden global generator and connects only to np.random.standard_normal(shape). Place changes every run and rng is not used beneath that call. Preserve separation between the two paths. All call labels use the same readable type size. The grey path remains clearly visible: it is a separate generator that is used by its own call.
 
-Cast: the reminders, the output block, four numbered field cards.
+Pane 2, The mechanism: A compact reminder of continuation and restart. Draw one six-cell tape containing 0.1257, -0.1321, 0.6404, 0.1049, -0.5357, 0.3616, followed by an ellipsis. Label its seed tag seed 0 and its reading head rng. Brackets labelled first draw and second draw span exactly three whole cells each. Show the upper head's outlined position at the first cell connected by one short arrow to its solid position at the fourth cell. Below, draw a short tape with the first three values and an ellipsis, with its own seed 0 tag and fresh rng head at the first cell. Label its three-cell bracket same three numbers. Align the three repeated values vertically with the upper tape. Do not repeat large seed illustrations.
 
-Flows: none between panes.
+Pane 3, The run: Make this the strongest pane on the sheet. Typeset the five supplied lines exactly in monospace, without wrapping or changing spaces. Separate lines vertically enough to fit markers above their fields. Put red marker 1 immediately above PCG64; marker 2 above the first draw's array; marker 3 above the second draw's array; marker 4 above the fresh rng's array. Keep every character unobscured. Use a subtle underline beneath each array to show the field span. No icons inside the output and no additional terminal labels.
 
-Text in the image, spelled exactly: "The form", "The mechanism", "The run", "Reading it", "$ ~/.vault-sandbox/bin/python stream.py", "PCG64", "first draw:  [ 0.1257 -0.1321  0.6404]", "second draw: [ 0.1049 -0.5357  0.3616]", "fresh rng:   [ 0.1257 -0.1321  0.6404]", "1 the algorithm behind the stream", "2 the first three numbers of seed 0", "3 the next three: the generator moved on", "4 a new generator with seed 0 starts again: equals field 2".
+Pane 4, Reading it: Four compact cards in one vertical column, ordered 1 through 4. Each card begins at the same left edge with its red numbered marker, followed immediately by its explanation. The number and sentence form the card's focal element; omit the large gear, number tiles, arrow and seed illustrations from the existing sheet. The diagrams in the reminder panes already supply those visual connections. Match cards to output by number alone, without leader lines. Allow the fourth explanation to wrap naturally.
 
-Exclusions: no fifth pane, no leader lines between panes, no altered output text. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+Cast: small generator dials, three call labels connected to their own generators, number tapes and reading heads, one output block, four numbered explanation cards. Use the teaching objects as the component illustrations.
+
+Flows: short local connectors inside the reminder panes only. No connector between the seeded and global generators. No connectors between panes.
+
+Text in the image, spelled exactly:
+Pane titles: "The form", "The mechanism", "The run", "Reading it".
+Form reminder: "rng = np.random.default_rng(0)", "rng.standard_normal(shape)", "rng.normal(mean, std, shape)", "repeats every run", "hidden global generator", "np.random.standard_normal(shape)", "changes every run", "rng is not used".
+Mechanism reminder: "seed 0", "rng", "first draw", "second draw", "fresh rng", "same three numbers". Upper tape values: 0.1257, -0.1321, 0.6404, 0.1049, -0.5357, 0.3616. Lower tape values: 0.1257, -0.1321, 0.6404. Each tape ends with an ellipsis.
+Output lines exactly:
+$ ~/.vault-sandbox/bin/python stream.py
+PCG64
+first draw:  [ 0.1257 -0.1321  0.6404]
+second draw: [ 0.1049 -0.5357  0.3616]
+fresh rng:   [ 0.1257 -0.1321  0.6404]
+Field cards, with the initial number rendered as the red marker:
+"1 the algorithm behind the stream"
+"2 the first three numbers of seed 0"
+"3 the next three: the generator moved on"
+"4 a new generator with seed 0 starts again: equals field 2"
+
+Exclusions: no fifth pane, no legend panel, no added recommendation heading, no decorative field-card icons, no terminal window buttons, no leader lines between panes, no altered or wrapped output text, no extra labels, no orphan arrows, no arrow ending in whitespace, no crossing connectors, no watermark. Teal identifies the seeded generator; grey identifies the separate hidden global generator; red identifies output markers.
 ```
 
 Faithfulness note: The output lines match the note's captured run character for character; markers 1 to 4 sit over the same fields as the note's rendered output picture; four panes only. Every label in the image, exactly: "The form", "The mechanism", "The run", "Reading it", "$ ~/.vault-sandbox/bin/python stream.py", "PCG64", "first draw:  [ 0.1257 -0.1321  0.6404]", "second draw: [ 0.1049 -0.5357  0.3616]", "fresh rng:   [ 0.1257 -0.1321  0.6404]", "1 the algorithm behind the stream", "2 the first three numbers of seed 0", "3 the next three: the generator moved on", "4 a new generator with seed 0 starts again: equals field 2".

@@ -301,16 +301,17 @@ Navigation: ⬅️ [[#Taught in, applied in]] | 📋 [[#Table of contents]] | [[
 
 Navigation: ⬅️ [[#How this was checked]] | 📋 [[#Table of contents]]
 
-<!-- video-table: correlation-coefficient rev=1 -->
-Mahesh Huddar, then StatQuest, on Pearson's correlation (covariance over the two standard deviations), in the order to watch:
+<!-- video-table: correlation-coefficient rev=2 -->
+Mahesh Huddar, then StatQuest, then DataMListic, on Pearson's correlation (covariance over the two standard deviations), in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | Correlation runs from minus 1 to 1: perfect positive, perfect negative, and no linear relationship at 0 | Intuition | [Mahesh Huddar, How to find the coefficient of correlation, 0:31 to 2:23](https://www.youtube.com/watch?v=bXlYuKFGsZY&t=31s) |
 | 2 | Four data points: the two means, the covariance, both variances, and r = covariance over root variance times root variance, which comes out 0 | Worked example | [Mahesh Huddar, How to find the coefficient of correlation, 2:23 to 6:10](https://www.youtube.com/watch?v=bXlYuKFGsZY&t=143s) |
 | 3 | The denominator squeezes covariance into minus 1 to 1; covariance 116 with variances 101.8 and 160.3 gives 0.9 | Worked example | [StatQuest, Pearson's Correlation, Clearly Explained, 13:37 to 16:04](https://www.youtube.com/watch?v=xZ_z8KWkhXE&t=817s) |
+| 4 | Why divide at all: covariance gives only the direction of a relationship and changes when weight is measured in grams instead of kilograms, while correlation also gives its strength and does not change | Intuition | [DataMListic, Covariance vs correlation, 0:00 to 0:53](https://www.youtube.com/watch?v=PzOijddw4eg&t=0s) |
 
-Mahesh Huddar's example ends at 0, so it shows the arithmetic but not a strong relationship; StatQuest supplies the nonzero answer and assumes his variance and covariance videos. Neither proves that r stays between minus 1 and 1. Times are read from automatic captions and good to about 30 seconds.
+Mahesh Huddar's example ends at 0, so it shows the arithmetic but not a strong relationship; StatQuest supplies the nonzero answer and assumes his variance and covariance videos; DataMListic's one-minute short names the unit change without working it. None of the three proves that r stays between minus 1 and 1. Times are read from automatic captions, good to about 30 seconds for the first three rows and to a few seconds for the short.
 <!-- /video-table -->
 
 <!-- video-table: phi-matthews-correlation rev=1 -->

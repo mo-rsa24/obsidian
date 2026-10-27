@@ -14,3 +14,4 @@ Information Technology. Things with a version you install, such as [[Docker]] an
 - [[Security]]: Security is how a system knows who is calling, decides what they may do, and keeps data unreadable to anyone else.
 - [[System Design]]: System design is choosing the parts of a service and how they talk so it stays fast and correct as users grow.
 - [[DevOps]]: DevOps is the practice of building, shipping and running software as one loop.
+- [[Test Double]]: A test double is any object that stands in for a real dependency during a test: a fake really works but holds its data in memory, a stub returns fixed answers, and a mock records how it was called so the test can check the calls.

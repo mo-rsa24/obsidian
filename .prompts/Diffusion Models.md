@@ -128,10 +128,11 @@ The form, the mechanism and the deep-dive sheet for [[The Forward Process]].
 
 Navigation: ⬅️ [Subject lane: The forward process in one jump](#subject-lane-the-forward-process-in-one-jump) | 📋 [TOC](#table-of-contents) | [Prompt 2 (Subject): The jump, the mechanism](#prompt-2-subject-the-jump-the-mechanism) ➡️
 
-[planned] 🖼️ rendered 2026-10-04 forward-process-the-form.webp
+[planned] ⏳ not rendered
 Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-process-the-form.webp`
+The file at this path exists from an earlier render but is unchecked against this prompt, which job 20261005-001727-095bff rewrote after a student read.
 
-Visual thesis: The noised cloud is the clean cloud scaled by the square root of abar plus fresh noise scaled by the square root of one minus abar.
+Visual thesis: Each input is multiplied by its own square-root weight before the two contributions are added.
 
 ```
 Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
@@ -145,17 +146,21 @@ hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. B
 the composition and visual treatment that best communicate this subject emerge from the context
 below, rather than from an imposed convention.
 
-Production: Use a deterministic figure script for any plot, curve, cloud or grid, and for all typography. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+Production: Use a deterministic figure script for all clouds, dials, mathematical operators and typography. Design at a displayed width of 800 px. Add height rather than reducing label size. Use a fixed random seed, equal coordinate scales and identical plot limits from -5 to 5. Directly label each cloud; no separate legend. The plotted clouds themselves provide the illustrations for their cards.
 
-Scene: Left to right on equal-scale axes from -5 to 5. A clean cloud of blue dots centred at (-2, 0), twice as tall as wide, labelled x0, expert 1. A plus sign. A round cloud of grey dots at the origin labelled eps ~ N(0, I). Above the blue cloud a dial reading sqrt(abar) = 0.707, above the grey cloud a dial reading sqrt(1 - abar) = 0.707, and between them the tag abar = 0.5. An equals sign, then the noised cloud of purple dots centred at (-1.41, 0), as wide as the clean one and less tall, labelled x_t. Under the whole row, one line: x_t = sqrt(abar) x0 + sqrt(1 - abar) eps.
+Scene: Put abar = 0.5 at the top. Below it, arrange the two input terms side by side. Each term is one visibly bracketed group read from top to bottom: its labelled weight dial, a multiplication sign, then its input cloud. Place the plus sign between these two complete bracketed groups, not between the bare clouds alone. The blue group contains sqrt(abar) = 0.707 multiplied by the cloud labelled x0, expert 1. The grey group contains sqrt(1 - abar) = 0.707 multiplied by the cloud labelled eps ~ N(0, I). Keep each dial physically inside its own term's bracket so it cannot look like a detached status indicator.
 
-Cast: the clean cloud (blue), the noise cloud (grey), the noised cloud (purple), two dials.
+Below the two terms, centre an equals sign and the purple result plot labelled x_t. Make the result the strongest colour accent. Use the same plot dimensions and axis scales for all three clouds. The clean blue cloud has centre (-2, 0) and coordinate variances (1, 4); the independent grey noise has centre (0, 0) and coordinate variances (1, 1). Compute each purple sample by multiplying its blue sample and independent grey sample by the stated square-root weights and adding them. Its population centre is (-1.41, 0) to the shown precision, with coordinate variances (1, 2.5). It is as wide as the clean cloud and shorter.
 
-Flows: none beyond the plus and equals signs.
+Below the result, set the exact formula on one readable line: x_t = sqrt(abar) x0 + sqrt(1 - abar) eps. Add one short caption: Scale each input, then add the paired points. Keep the formula subordinate to the visible weighted terms, not in a large competing banner.
 
-Text in the image, spelled exactly: "x0, expert 1", "eps ~ N(0, I)", "abar = 0.5", "sqrt(abar) = 0.707", "sqrt(1 - abar) = 0.707", "x_t", "x_t = sqrt(abar) x0 + sqrt(1 - abar) eps".
+Cast: one clean cloud in blue, one independent noise cloud in grey, one noised cloud in purple, and two weight dials. The dials describe multipliers; they are not additional noise levels.
 
-Exclusions: no other noise levels, no reverse process, no neural network. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+Flows: the bracketed weighted terms are added, then lead downward through the equals sign to the result. No bare-cloud addition row.
+
+Text in the image, spelled exactly: "x0, expert 1", "eps ~ N(0, I)", "abar = 0.5", "sqrt(abar) = 0.707", "sqrt(1 - abar) = 0.707", "x_t", "x_t = sqrt(abar) x0 + sqrt(1 - abar) eps". Additional caption: "Scale each input, then add the paired points." Mathematical multiplication, addition and equality signs are allowed, as are coordinate ticks.
+
+Exclusions: no other noise levels, no reverse process, no neural network, no separate legend, no extra cloud copies, no detached dials, no paragraphs of text, no decorative icons, no watermark. Do not imply that adding the two unscaled clouds produces the displayed result. Do not draw a cloud as a bounded support region.
 ```
 
 Faithfulness note: The purple cloud is centred at (-1.41, 0), with variance 1 along x1 and 2.5 along x2, so it is as wide as the blue cloud and shorter; blue is clean data, grey is noise, purple is the noised result. Every label in the image, exactly: "x0, expert 1", "eps ~ N(0, I)", "abar = 0.5", "sqrt(abar) = 0.707", "sqrt(1 - abar) = 0.707", "x_t", "x_t = sqrt(abar) x0 + sqrt(1 - abar) eps".
@@ -200,10 +205,11 @@ Faithfulness note: The contours' centres and variances match the listed values; 
 
 Navigation: ⬅️ [Prompt 2 (Subject): The jump, the mechanism](#prompt-2-subject-the-jump-the-mechanism) | 📋 [TOC](#table-of-contents) | [Subject lane: Composing models with a background](#subject-lane-composing-models-with-a-background) ➡️
 
-[planned] 🖼️ rendered 2026-10-05 forward-process-deep-dive-sheet.webp
+[planned] ⏳ not rendered
 Save as: `../Artificial Intelligence/Generative Modeling/Diffusion Models/assets/forward-process-deep-dive-sheet.webp`
+The file at this path exists from an earlier render but is unchecked against this prompt, which job 20261005-001727-095bff rewrote after a student read.
 
-Visual thesis: The jump mixes clean data and noise by square-root weights, and the run's measured means and variances match the closed form at every level.
+Visual thesis: Read the output as a cloud shape, a centre and coordinate variances, then compare the sample measurements with the closed-form values.
 
 ```
 Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
@@ -217,17 +223,42 @@ hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. B
 the composition and visual treatment that best communicate this subject emerge from the context
 below, rather than from an imposed convention.
 
-Production: Use a deterministic figure script. A tall sheet of exactly four panes stacked vertically, each the full width, designed for reading at 800 px wide; add height rather than shrinking text, with output and field text at least 20 px at that width. The first two panes are compact reminders of the form and the mechanism, not full copies. The run pane is the focal pane. Field cards run 1 to N in one column in the same order as the markers, each starting with its red number, and are matched to the output by number alone: no leader lines between panes.
+Production: Use a deterministic figure script for plots and all typography. Exactly four full-width panes, stacked vertically, designed for a displayed width of 800 px. Make output and reading-card text at least 20 px at that displayed width. Add height freely. The run pane is the focal pane; the first two panes together take no more than a quarter of the sheet. No decorative terminal controls, oversized heading icons or separate legend. Use the actual clouds and contours as illustrations.
 
-Scene: Pane 1, The form: a compact reminder of prompt 1, the two clouds, the two dials and the line x_t = sqrt(abar) x0 + sqrt(1 - abar) eps. Pane 2, The mechanism: a compact reminder of prompt 2, the three contours at abar = 1.0, 0.5 and 0.0058. Pane 3, The run: five lines of monospace output, exactly: $ ~/.vault-sandbox/bin/python noised.py | (3, 100000, 2) | level 1.0 measured [-2.0, -0.0] [1.0, 4.0] | closed form [-2.0, 0.0] [1.0, 4.0] | level 0.5 measured [-1.41, 0.0] [1.0, 2.5] | closed form [-1.41, 0.0] [1.0, 2.5] | level 0.0058 measured [-0.15, -0.0] [0.99, 1.02] | closed form [-0.15, 0.0] [1.0, 1.02] (here the | between lines marks a new line, while the | inside each level line is printed; the output has exactly four lines after the command). Red markers: 1 over (3, 100000, 2); 2 over the level 0.5 measured mean [-1.41, 0.0]; 3 over its measured variance [1.0, 2.5]; 4 over its closed form [-1.41, 0.0] [1.0, 2.5]; 5 over the level 0.0058 measured variance [0.99, 1.02]. Pane 4, Reading it: five cards in order.
+Output layout: Preserve the command and four output records character for character. Use presentation-only soft wrapping for the long records, with a hanging indent and enough spacing to keep each record distinct. Prefer the wrap immediately before the printed vertical bar that introduces closed form; retain the bar and every original character. A record may occupy several visual rows. Do not shrink the font to force each record onto one visual row. Place numbered markers above their fields with reserved clearance, never over a character.
 
-Cast: the reminders, the output block, five numbered field cards.
+Scene: Pane 1, The form: a compact reminder of the weighted operation. Show one small blue clean-cloud glyph attached to its weight and one small grey noise-cloud glyph attached to its weight, with explicit multiplication signs before addition. End with a purple result glyph. Beneath them print x_t = sqrt(abar) x0 + sqrt(1 - abar) eps. Do not reproduce three full scatter plots or two large dials.
 
-Flows: none between panes.
+Pane 2, The mechanism: three small equal-scale contour plots in one row, labelled abar = 1.0, abar = 0.5 and abar = 0.0058. Use one purple contour and one purple centre dot per level, with the grey unit-circle reference faintly behind it. Keep x1 horizontal and x2 vertical. The centres are (-2, 0), (-1.41, 0) and (-0.15, 0), and the coordinate variances are (1, 4), (1, 2.5) and (1.0, 1.02). The horizontal contour width stays constant and the vertical height decreases. Omit repeated mean-and-variance footers here because the run below supplies the numbers.
 
-Text in the image, spelled exactly: "The form", "The mechanism", "The run", "Reading it", "x_t = sqrt(abar) x0 + sqrt(1 - abar) eps", "$ ~/.vault-sandbox/bin/python noised.py", "(3, 100000, 2)", "level 1.0 measured [-2.0, -0.0] [1.0, 4.0] | closed form [-2.0, 0.0] [1.0, 4.0]", "level 0.5 measured [-1.41, 0.0] [1.0, 2.5] | closed form [-1.41, 0.0] [1.0, 2.5]", "level 0.0058 measured [-0.15, -0.0] [0.99, 1.02] | closed form [-0.15, 0.0] [1.0, 1.02]", "1 three levels, each a full cloud", "2 centre moved toward 0 by sqrt(0.5)", "3 narrow axis stays 1, wide axis shrinks", "4 the closed form: equals fields 2 and 3", "5 almost pure noise: both axes near 1".
+Pane 3, The run: use a high-contrast monospace output block. Print these five logical lines exactly, applying only the visual soft wrapping described above:
+$ ~/.vault-sandbox/bin/python noised.py
+(3, 100000, 2)
+level 1.0 measured [-2.0, -0.0] [1.0, 4.0] | closed form [-2.0, 0.0] [1.0, 4.0]
+level 0.5 measured [-1.41, 0.0] [1.0, 2.5] | closed form [-1.41, 0.0] [1.0, 2.5]
+level 0.0058 measured [-0.15, -0.0] [0.99, 1.02] | closed form [-0.15, 0.0] [1.0, 1.02]
 
-Exclusions: no fifth pane, no leader lines between panes, no altered output text. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+Red markers: 1 above (3, 100000, 2); 2 above the level 0.5 measured mean [-1.41, 0.0]; 3 above its measured variance [1.0, 2.5]; 4 above its closed-form mean and variance [-1.41, 0.0] [1.0, 2.5]; 5 above the level 0.0058 measured variance [0.99, 1.02]. Use subtle field underlines if needed to delimit marker 4's two arrays. Keep measured and closed form equally readable.
+
+Pane 4, Reading it: five cards in a single column. Each starts with its red number, the required wording and a small illustration that directly explains the field. Match cards to output by number alone; no leader lines between panes.
+
+Card 1: "1 three levels, each a full cloud". Use three purple cloud glyphs, one per level, rather than blue, grey and purple. Add the short explanation "3 levels; 100000 points per level; 2 coordinates per point."
+
+Card 2: "2 centre moved toward 0 by sqrt(0.5)". Show the original centre at -2 and the noised centre at -1.41 on a shared horizontal axis with 0 marked. Use blue for the original centre and purple for the noised centre. Add "Multiply the original centre by the weight."
+
+Card 3: "3 narrow axis stays 1, wide axis shrinks". Use an upright ellipse, matching the mechanism plots, with x1 horizontal and x2 vertical. Add "These entries are variances, in x1 then x2 order." Do not depict variance as an ellipse's radius or diameter.
+
+Card 4: "4 the closed form: equals fields 2 and 3". Show the two arrays [-1.41, 0.0] and [1.0, 2.5], labelled mean and variance. Add "For this level, the displayed rounded values agree." Do not suggest every sample measurement must equal its theoretical value exactly.
+
+Card 5: "5 almost pure noise: both axes near 1". Use a purple nearly circular contour beside the faint grey unit-circle reference, with the same axis orientation as above. Add "The measured variances are 0.99 and 1.02."
+
+Cast: compact form and mechanism reminders, one readable output block, five numbered interpretation cards.
+
+Flows: none between panes. The output fields and their cards correspond by number.
+
+Required text, spelled exactly: "The form", "The mechanism", "The run", "Reading it", "x_t = sqrt(abar) x0 + sqrt(1 - abar) eps", "$ ~/.vault-sandbox/bin/python noised.py", "(3, 100000, 2)", "level 1.0 measured [-2.0, -0.0] [1.0, 4.0] | closed form [-2.0, 0.0] [1.0, 4.0]", "level 0.5 measured [-1.41, 0.0] [1.0, 2.5] | closed form [-1.41, 0.0] [1.0, 2.5]", "level 0.0058 measured [-0.15, -0.0] [0.99, 1.02] | closed form [-0.15, 0.0] [1.0, 1.02]", "1 three levels, each a full cloud", "2 centre moved toward 0 by sqrt(0.5)", "3 narrow axis stays 1, wide axis shrinks", "4 the closed form: equals fields 2 and 3", "5 almost pure noise: both axes near 1". Additional short explanations and direct plot labels are specified above.
+
+Exclusions: no fifth pane, no leader lines between panes, no altered output characters, no tiny unwrapped output, no full-size copies of the earlier figures, no separate legend, no decorative icons, no rotated spread illustration, no claim of exact agreement beyond the displayed rounded values, no watermark.
 ```
 
 Faithfulness note: The output lines match the note's captured run character for character; markers 1 to 5 sit over the same fields as the note's rendered output picture; four panes only. Every label in the image, exactly: "The form", "The mechanism", "The run", "Reading it", "x_t = sqrt(abar) x0 + sqrt(1 - abar) eps", "$ ~/.vault-sandbox/bin/python noised.py", "(3, 100000, 2)", "level 1.0 measured [-2.0, -0.0] [1.0, 4.0] | closed form [-2.0, 0.0] [1.0, 4.0]", "level 0.5 measured [-1.41, 0.0] [1.0, 2.5] | closed form [-1.41, 0.0] [1.0, 2.5]", "level 0.0058 measured [-0.15, -0.0] [0.99, 1.02] | closed form [-0.15, 0.0] [1.0, 1.02]", "1 three levels, each a full cloud", "2 centre moved toward 0 by sqrt(0.5)", "3 narrow axis stays 1, wide axis shrinks", "4 the closed form: equals fields 2 and 3", "5 almost pure noise: both axes near 1".

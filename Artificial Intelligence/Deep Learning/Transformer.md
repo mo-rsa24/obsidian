@@ -1,5 +1,6 @@
 ---
 aliases: [transformer, transformer architecture, transformer block, transformer layer, transformer model]
+link-skip: [following the transformers]
 standard: vault-note v2
 ---
 
@@ -38,6 +39,10 @@ Artificial Intelligence, Deep Learning. Its central operation has its own note, 
 - [Build two heads and a sinusoidal position and see why order matters](/home/molef/goal-setting/learning/deep-learning/transformers/plans/44-build-two-heads-and-a-sinusoidal-position.md), deep-learning/transformers, plan 44. The same block built in code from an empty file and checked against the hand numbers.
 - [Show why a residual connection keeps gradients alive](/home/molef/goal-setting/learning/deep-learning/transformers/plans/38-show-why-a-residual-connection-keeps-gradients.md), deep-learning/transformers, plan 38. The residual path every block wraps around attention and the feed-forward layer.
 - [Normalise a vector by hand with layer norm](/home/molef/goal-setting/learning/deep-learning/transformers/textbook/40-normalise-a-vector-by-hand-with-layer.md), deep-learning/transformers, chapter 40. Layer normalisation worked on [1, 2, 3, 4], the other wrapper inside each block.
+
+**Figures**
+
+- <a href="/home/molef/goal-setting/learning/deep-learning/transformers/artifacts/figures/llm-concepts-cheatsheet/jaydeepkarale-ai-llm-concepts-part1.jpg"><img src="/home/molef/goal-setting/learning/deep-learning/transformers/artifacts/figures/llm-concepts-cheatsheet/jaydeepkarale-ai-llm-concepts-part1.jpg" width="140" alt="A ten-panel cheat sheet whose middle row draws attention weights, a transformer block of self-attention, feed-forward and add and normalize repeated N times, and positional encoding added under six tokens"></a> Jaydeep Karale on X, "AI / LLM Concepts Cheat Sheet (Part 1)": [the post](https://x.com/_jaydeepkarale/status/2095815664187609355), [what it shows](/home/molef/goal-setting/learning/deep-learning/transformers/artifacts/figures/llm-concepts-cheatsheet/README.md#jaydeepkarale-ai-llm-concepts-part1jpg). Panel 5 feeds Token 1 to Token N into a block of self-attention, a feed-forward network and add-and-normalize repeated N times, and panel 6 adds a position row under each of six tokens, because without it "cat sat" and "sat cat" look the same to attention.
 
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook page range was read in the PDF with pdftotext; the AI engineering and Hands-on large language models pages were first found through their back-of-book indexes ("transformer architecture"), and the Understanding deep learning and Probabilistic machine learning pages through the chapter tables in the shelf index. The three Stanford rows were read in the caption-read lecture maps under `~/.claude/cache/captions/` and paraphrase the map, never the machine-translated captions. The Under The Hood line comes from its chapter list, read with cache-video-chapters.py, and is described from the chapter title only. CS224N 2023 lecture 8 has a chapter "Transformer architecture" at 35:11 to 41:15 and was left out to keep four videos. Each plan and chapter was read at its title and description. No paper on the shelf teaches the architecture itself, so there is no papers group.

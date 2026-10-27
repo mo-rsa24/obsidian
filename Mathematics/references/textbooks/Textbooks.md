@@ -53,6 +53,7 @@ table on this page gives PDF pages.
 | exponent rules (product, quotient, power, zero and negative exponents) | [algebra handbook](algebra/algebra-handbook.pdf#page=109) | 109 |
 | logarithm rules | [algebra handbook](algebra/algebra-handbook.pdf#page=110) | 110 |
 | e and the natural log | [algebra handbook](algebra/algebra-handbook.pdf#page=111) | 111 |
+| local linear approximation: f(x) ≈ f(x₀) + f′(x₀)(x − x₀), which at x₀ = 0 gives ln(1 − p) ≈ −p (section 3.5, definition with worked examples) | [calculus textbook](calculus/calculus-textbook.pdf#page=236) | 236 |
 | converting between exponential and log form | [algebra handbook](algebra/algebra-handbook.pdf#page=113) | 113 |
 | expanding and condensing log expressions | [algebra handbook](algebra/algebra-handbook.pdf#page=114) | 114 |
 | what exponential curves look like | [algebra handbook](algebra/algebra-handbook.pdf#page=118) | 118 |
@@ -251,6 +252,11 @@ table on this page gives PDF pages.
 | rounding rules, to a given decimal place | [pre-algebra handbook](general/pre-algebra-handbook.pdf#page=32) | 32 |
 | ratios as fractions relating two counts | [pre-algebra handbook](general/pre-algebra-handbook.pdf#page=74) | 74 |
 | the floor (greatest integer) function | [algebra handbook](algebra/algebra-handbook.pdf#page=25) | 25 |
+| x mod n as the remainder of x divided by n, and the remainder of a sum or product taken part by part (section 8.2.2, RSA) | [computer networking: a top-down approach](system-design/computer-networking-a-top-down-approach.pdf#page=636) | 636 |
+| modular arithmetic defined: a = b (mod m) when a − b is a multiple of m, and the residue as the remainder on division by m (section 10.14) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=669) | 669 |
+| a check digit as a dot product then a remainder: ISBN-10's nine digits dotted with weights 1 to 9 give 152, and 152 mod 11 = 9 is the check digit (section 3.2, application) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=165) | 165 |
+| vector addition and scalar multiplication by components, v + w = (v₁ + w₁, …) and kv = (kv₁, …), with a worked example (section 3.1, Definition 3) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=151) | 151 |
+| the nth root as a power, ⁿ√a = a^(1/n), so the exponent rules apply to roots | [algebra handbook](algebra/algebra-handbook.pdf#page=86) | 86 |
 | properties of inequalities: multiplying or dividing both sides by a negative number flips the sign | [algebra handbook](algebra/algebra-handbook.pdf#page=42) | 42 |
 | absolute value inequalities, |x − a| < c split into −c < x − a < c | [algebra handbook](algebra/algebra-handbook.pdf#page=48) | 48 |
 | multiplying binomials, the square of a difference | [algebra handbook](algebra/algebra-handbook.pdf#page=62) | 62 |
@@ -341,6 +347,7 @@ table on this page gives PDF pages.
 | the determinant of a triangular matrix is the product of its diagonal entries (Theorem 2.1.2) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=124) | 124 |
 | composition of functions: (f ∘ g)(x) = f(g(x)), the function closest to the variable acts first | [algebra handbook](algebra/algebra-handbook.pdf#page=27) | 27 |
 | the distributive property, a(b + c) = ab + ac, with the commutative and associative properties | [algebra handbook](algebra/algebra-handbook.pdf#page=16) | 16 |
+| context recall for a retriever: of all the documents relevant to the query, the share retrieved; context precision on page 513, and NDCG, MAP and MRR only named (definition) | [AI engineering](ai-engineering/ai-engineering.pdf#page=514) | 514 |
 
 ## general/
 
@@ -4114,3 +4121,111 @@ roman. The table is the PDF's own outline, parts and chapters.
 | 13 Transition to the new system | [497](system-design/systems-analysis-and-design.pdf#page=497) |
 | 14 The movement to objects | [529](system-design/systems-analysis-and-design.pdf#page=529) |
 | Index | [573](system-design/systems-analysis-and-design.pdf#page=573) |
+
+### Computer networking: a top-down approach
+
+`system-design/computer-networking-a-top-down-approach.pdf`, 867 pages. James F. Kurose and Keith W.
+Ross, *Computer Networking: A Top-Down Approach*, seventh edition, Global Edition (ISBN 9781292153605),
+Pearson, 2017. The standard networking course textbook, taught from the top of the stack down: the
+application layer (HTTP, DNS, CDNs, sockets), the transport layer (UDP, reliable transfer, TCP and
+congestion control), the network layer's data plane (routers, IPv4 addressing and subnets, NAT, DHCP,
+IPv6) and control plane (routing algorithms, OSPF, BGP, SDN, ICMP), the link layer (Ethernet, ARP,
+switches, VLANs, data center networks), wireless and mobile networks, network security (cryptography,
+TLS, IPsec and VPNs, firewalls) and multimedia networking. Each chapter ends with homework problems and
+a Wireshark lab. Section 6.7 follows one web page request through every layer.
+
+**Page numbers.** The printed page number is the PDF page minus 2 (printed page 29, where chapter 1
+starts, is PDF page 31). The back-of-book index runs from PDF page 813 to 854 and gives printed pages,
+so add 2 to an index page to open it. The table is the PDF's own outline, chapters and their sections,
+without the end-of-chapter problems, labs and interviews.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| Cover | [1](system-design/computer-networking-a-top-down-approach.pdf#page=1) |
+| Title Page | [3](system-design/computer-networking-a-top-down-approach.pdf#page=3) |
+| Copyright Page | [4](system-design/computer-networking-a-top-down-approach.pdf#page=4) |
+| About the Authors | [5](system-design/computer-networking-a-top-down-approach.pdf#page=5) |
+| Preface | [9](system-design/computer-networking-a-top-down-approach.pdf#page=9) |
+| Contents | [21](system-design/computer-networking-a-top-down-approach.pdf#page=21) |
+| Chapter 1: Computer Networks and the Internet | [31](system-design/computer-networking-a-top-down-approach.pdf#page=31) |
+| 1.1. What Is the Internet? | [32](system-design/computer-networking-a-top-down-approach.pdf#page=32) |
+| 1.2. The Network Edge | [39](system-design/computer-networking-a-top-down-approach.pdf#page=39) |
+| 1.3. The Network Core | [51](system-design/computer-networking-a-top-down-approach.pdf#page=51) |
+| 1.4. Delay, Loss, and Throughput in Packet-Switched Networks | [65](system-design/computer-networking-a-top-down-approach.pdf#page=65) |
+| 1.5. Protocol Layers and Their Service Models | [77](system-design/computer-networking-a-top-down-approach.pdf#page=77) |
+| 1.6. Networks Under Attack | [85](system-design/computer-networking-a-top-down-approach.pdf#page=85) |
+| 1.7. History of Computer Networking and the Internet | [89](system-design/computer-networking-a-top-down-approach.pdf#page=89) |
+| 1.8. Summary | [95](system-design/computer-networking-a-top-down-approach.pdf#page=95) |
+| Chapter 2: Application Layer | [113](system-design/computer-networking-a-top-down-approach.pdf#page=113) |
+| 2.1. Principles of Network Applications | [114](system-design/computer-networking-a-top-down-approach.pdf#page=114) |
+| 2.2. The Web and HTTP | [128](system-design/computer-networking-a-top-down-approach.pdf#page=128) |
+| 2.3. Electronic Mail in the Internet | [146](system-design/computer-networking-a-top-down-approach.pdf#page=146) |
+| 2.4. DNS The Internet’s Directory Service | [156](system-design/computer-networking-a-top-down-approach.pdf#page=156) |
+| 2.5. Peer-to-Peer Applications | [170](system-design/computer-networking-a-top-down-approach.pdf#page=170) |
+| 2.6. Video Streaming and Content Distribution Networks | [177](system-design/computer-networking-a-top-down-approach.pdf#page=177) |
+| 2.7. Socket Programming: Creating Network Applications | [187](system-design/computer-networking-a-top-down-approach.pdf#page=187) |
+| 2.8. Summary | [200](system-design/computer-networking-a-top-down-approach.pdf#page=200) |
+| Chapter 3: Transport Layer | [217](system-design/computer-networking-a-top-down-approach.pdf#page=217) |
+| 3.1. Introduction and Transport-Layer Services | [218](system-design/computer-networking-a-top-down-approach.pdf#page=218) |
+| 3.2. Multiplexing and Demultiplexing | [223](system-design/computer-networking-a-top-down-approach.pdf#page=223) |
+| 3.3. Connectionless Transport: UDP | [230](system-design/computer-networking-a-top-down-approach.pdf#page=230) |
+| 3.4. Principles of Reliable Data Transfer | [236](system-design/computer-networking-a-top-down-approach.pdf#page=236) |
+| 3.5. Connection-Oriented Transport: TCP | [263](system-design/computer-networking-a-top-down-approach.pdf#page=263) |
+| 3.6. Principles of Congestion Control | [291](system-design/computer-networking-a-top-down-approach.pdf#page=291) |
+| 3.7. TCP Congestion Control | [299](system-design/computer-networking-a-top-down-approach.pdf#page=299) |
+| 3.8. Summary | [314](system-design/computer-networking-a-top-down-approach.pdf#page=314) |
+| Chapter 4: The Network Layer: Data Plane | [335](system-design/computer-networking-a-top-down-approach.pdf#page=335) |
+| 4.1. Overview of Network Layer | [336](system-design/computer-networking-a-top-down-approach.pdf#page=336) |
+| 4.2. What’s Inside a Router? | [343](system-design/computer-networking-a-top-down-approach.pdf#page=343) |
+| 4.3. The Internet Protocol (IP): IPv4, Addressing, IPv6, and More | [359](system-design/computer-networking-a-top-down-approach.pdf#page=359) |
+| 4.4. Generalized Forwarding and SDN | [384](system-design/computer-networking-a-top-down-approach.pdf#page=384) |
+| 4.5. Summary | [391](system-design/computer-networking-a-top-down-approach.pdf#page=391) |
+| Chapter 5: The Network Layer: Control Plane | [403](system-design/computer-networking-a-top-down-approach.pdf#page=403) |
+| 5.1. Introduction | [404](system-design/computer-networking-a-top-down-approach.pdf#page=404) |
+| 5.2. Routing Algorithms | [406](system-design/computer-networking-a-top-down-approach.pdf#page=406) |
+| 5.3. Intra-AS Routing in the Internet: OSPF | [421](system-design/computer-networking-a-top-down-approach.pdf#page=421) |
+| 5.4. Routing Among the ISPs: BGP | [425](system-design/computer-networking-a-top-down-approach.pdf#page=425) |
+| 5.5. The SDN Control Plane | [437](system-design/computer-networking-a-top-down-approach.pdf#page=437) |
+| 5.6. ICMP: The Internet Control Message Protocol | [449](system-design/computer-networking-a-top-down-approach.pdf#page=449) |
+| 5.7. Network Management and SNMP | [451](system-design/computer-networking-a-top-down-approach.pdf#page=451) |
+| 5.8. Summary | [456](system-design/computer-networking-a-top-down-approach.pdf#page=456) |
+| Chapter 6: The Link Layer and LANs | [469](system-design/computer-networking-a-top-down-approach.pdf#page=469) |
+| 6.1. Introduction to the Link Layer | [470](system-design/computer-networking-a-top-down-approach.pdf#page=470) |
+| 6.2. Error-Detection and -Correction Techniques | [474](system-design/computer-networking-a-top-down-approach.pdf#page=474) |
+| 6.3. Multiple Access Links and Protocols | [481](system-design/computer-networking-a-top-down-approach.pdf#page=481) |
+| 6.4. Switched Local Area Networks | [497](system-design/computer-networking-a-top-down-approach.pdf#page=497) |
+| 6.5. Link Virtualization: A Network as a Link Layer | [521](system-design/computer-networking-a-top-down-approach.pdf#page=521) |
+| 6.6. Data Center Networking | [525](system-design/computer-networking-a-top-down-approach.pdf#page=525) |
+| 6.7. Retrospective: A Day in the Life of a Web Page Request | [530](system-design/computer-networking-a-top-down-approach.pdf#page=530) |
+| 6.8. Summary | [536](system-design/computer-networking-a-top-down-approach.pdf#page=536) |
+| Chapter 7: Wireless and Mobile Networks | [549](system-design/computer-networking-a-top-down-approach.pdf#page=549) |
+| 7.1. Introduction | [550](system-design/computer-networking-a-top-down-approach.pdf#page=550) |
+| 7.2. Wireless Links and Network Characteristics | [555](system-design/computer-networking-a-top-down-approach.pdf#page=555) |
+| 7.3. WiFi: 802.11 Wireless LANs | [562](system-design/computer-networking-a-top-down-approach.pdf#page=562) |
+| 7.4. Cellular Internet Access | [581](system-design/computer-networking-a-top-down-approach.pdf#page=581) |
+| 7.5. Mobility Management: Principles | [590](system-design/computer-networking-a-top-down-approach.pdf#page=590) |
+| 7.6. Mobile IP | [600](system-design/computer-networking-a-top-down-approach.pdf#page=600) |
+| 7.7. Managing Mobility in Cellular Networks | [604](system-design/computer-networking-a-top-down-approach.pdf#page=604) |
+| 7.8. Wireless and Mobility: Impact on Higher-Layer Protocols | [610](system-design/computer-networking-a-top-down-approach.pdf#page=610) |
+| 7.9. Summary | [612](system-design/computer-networking-a-top-down-approach.pdf#page=612) |
+| Chapter 8: Security in Computer Networks | [623](system-design/computer-networking-a-top-down-approach.pdf#page=623) |
+| 8.1. What Is Network Security? | [624](system-design/computer-networking-a-top-down-approach.pdf#page=624) |
+| 8.2. Principles of Cryptography | [626](system-design/computer-networking-a-top-down-approach.pdf#page=626) |
+| 8.3. Message Integrity and Digital Signatures | [640](system-design/computer-networking-a-top-down-approach.pdf#page=640) |
+| 8.4. End-Point Authentication | [651](system-design/computer-networking-a-top-down-approach.pdf#page=651) |
+| 8.5. Securing E-Mail | [656](system-design/computer-networking-a-top-down-approach.pdf#page=656) |
+| 8.6. Securing TCP Connections: SSL | [661](system-design/computer-networking-a-top-down-approach.pdf#page=661) |
+| 8.7. Network-Layer Security: IPsec and Virtual Private Networks | [667](system-design/computer-networking-a-top-down-approach.pdf#page=667) |
+| 8.8. Securing Wireless LANs | [676](system-design/computer-networking-a-top-down-approach.pdf#page=676) |
+| 8.9. Operational Security: Firewalls and Intrusion Detection Systems | [681](system-design/computer-networking-a-top-down-approach.pdf#page=681) |
+| 8.10. Summary | [692](system-design/computer-networking-a-top-down-approach.pdf#page=692) |
+| Chapter 9: Multimedia Networking | [705](system-design/computer-networking-a-top-down-approach.pdf#page=705) |
+| 9.1. Multimedia Networking Applications | [706](system-design/computer-networking-a-top-down-approach.pdf#page=706) |
+| 9.2. Streaming Stored Video | [711](system-design/computer-networking-a-top-down-approach.pdf#page=711) |
+| 9.3. Voice-over-IP | [718](system-design/computer-networking-a-top-down-approach.pdf#page=718) |
+| 9.4. Protocols for Real-Time Conversational Applications | [730](system-design/computer-networking-a-top-down-approach.pdf#page=730) |
+| 9.5. Network Support for Multimedia | [739](system-design/computer-networking-a-top-down-approach.pdf#page=739) |
+| 9.6. Summary | [756](system-design/computer-networking-a-top-down-approach.pdf#page=756) |
+| References | [771](system-design/computer-networking-a-top-down-approach.pdf#page=771) |
+| Index | [813](system-design/computer-networking-a-top-down-approach.pdf#page=813) |
+| Back Cover | [867](system-design/computer-networking-a-top-down-approach.pdf#page=867) |

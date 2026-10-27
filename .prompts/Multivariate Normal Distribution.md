@@ -376,10 +376,11 @@ Faithfulness note: Expert 1's bar is four times expert 2's; the background bar h
 
 Navigation: ⬅️ [Prompt 6 (Subject): Precisions, the form](#prompt-6-subject-precisions-the-form) | 📋 [TOC](#table-of-contents) | [Prompt 8 (Subject capstone): Precisions, the deep-dive sheet](#prompt-8-subject-capstone-precisions-the-deep-dive-sheet) ➡️
 
-[planned] 🖼️ rendered 2026-10-04 products-the-mechanism.webp
+[planned] ⏳ not rendered
 Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/products-the-mechanism.webp`
+The file at this path exists from an earlier render but is unchecked against this prompt, which job 20261005-001727-b845ec rewrote after a student read.
 
-Visual thesis: In log space, multiplying and dividing densities adds and subtracts parabolas, and the composed parabola's vertex is the composed mean while its curvature is the composed precision.
+Visual thesis: Adding the two expert log terms and subtracting the background log term produces the green curve; its maximum gives the mean and its downward bending gives the precision.
 
 ```
 Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
@@ -393,17 +394,25 @@ hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. B
 the composition and visual treatment that best communicate this subject emerge from the context
 below, rather than from an imposed convention.
 
-Production: Use a deterministic figure script for any plot, curve, cloud or grid, and for all typography. Compose for reading at 800 px wide; every label must stay legible at that width, so add height rather than shrinking text. Label each thing directly on or beside it; no separate legend panel.
+Production: Use a deterministic figure script for every curve, coordinate and label. Design for display at 800 px wide, with teaching text at least 18 px at that width. Add height when needed. Use a uniform horizontal coordinate scale. Compute the green curve by adding the displayed blue, orange and grey functions point by point. Do not reposition the green curve independently to improve the layout.
 
-Scene: Main panel: a horizontal axis x from -5 to 5 and a vertical axis log density. Three parabolas: blue, opening downward, vertex at -2, curvature 1, labelled log p1, curvature 1; orange, opening downward, vertex at +2, flatter, labelled log p2, curvature 0.25; grey, opening upward, vertex at 0, as flat as the orange one, labelled - log p_b, curvature -0.25. Their sum, a thicker green parabola opening downward with its vertex at -1.5, labelled sum: curvature 1, vertex at -1.5. A thin vertical guide drops from the green vertex to the axis at -1.5. Small inset panel at the lower right, titled narrow background: the same three, with the grey parabola much steeper, and the green sum opening upward, labelled P = -0.75: not a density.
+Scene: One large main plot, followed by a compact full-width failure panel. The main plot is the focal element. Above it, place the short reading instruction: Add the blue, orange and grey heights at the same x to get green.
 
-Cast: three component parabolas, the green sum, the vertex guide, the inset.
+Main plot: Label the horizontal axis x, from -5 to 5, and the vertical axis log density. Draw blue log p1 with mean -2 and precision 1; orange log p2 with mean 2 and precision 0.25; and grey negative log p_b with mean 0 and precision 0.25. Use the actual Gaussian log functions, including their normalization constants. The grey term opens upward because it is subtracted. Draw their pointwise sum in thicker green. Explain beside the plot: Green is the log of the unnormalized composition.
 
-Flows: none; the parabolas share one axis.
+Make the green vertex at -1.5 the strongest mark. Drop a fine dashed guide to the labelled x tick -1.5. Keep the component curves thinner than the sum, but readable. Directly label each curve in open space near its visible arc, without a separate legend. Use these exact labels: log p1, curvature 1; log p2, curvature 0.25; - log p_b, curvature -0.25; sum: curvature 1, vertex at -1.5.
 
-Text in the image, spelled exactly: "x", "log density", "log p1, curvature 1", "log p2, curvature 0.25", "- log p_b, curvature -0.25", "sum: curvature 1, vertex at -1.5", "narrow background", "P = -0.75: not a density".
+Below the main plot, state: Here, curvature means negative second derivative: positive bends downward; negative bends upward. Follow with: Green bends as strongly as blue, so their precisions are equal.
 
-Exclusions: no density curves, no second coordinate, no numbers other than those listed. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no color used without a legend entry, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+Failure panel: Title narrow background. Keep the expert means and precisions unchanged and keep the background centred at 0. Increase only the background precision enough to obtain the supplied composed precision -0.75. Compute every curve deterministically, including the green sum; do not centre the green minimum by eye. Show the green curve opening upward and label it P = -0.75: not a density. Add the explanation: Exponentiating this upward curve makes the tails grow, so their total area cannot be finite. Keep this panel secondary, but large enough to read without opening the image.
+
+Colour meanings: blue is expert 1, orange expert 2, grey the subtracted background term, green the composition. Direct labels identify all four.
+
+Required original labels, spelled exactly: "x", "log density", "log p1, curvature 1", "log p2, curvature 0.25", "- log p_b, curvature -0.25", "sum: curvature 1, vertex at -1.5", "narrow background", "P = -0.75: not a density".
+
+Additional teaching text: "Add the blue, orange and grey heights at the same x to get green."; "Green is the log of the unnormalized composition."; "Here, curvature means negative second derivative: positive bends downward; negative bends upward."; "Green bends as strongly as blue, so their precisions are equal."; "Exponentiating this upward curve makes the tails grow, so their total area cannot be finite."
+
+Exclusions: no independently shifted sum, no nonuniform x scale, no density bells, no second coordinate, no separate legend, no tiny inset, no decorative icons inside the plot, no labels crossing curves, no watermark.
 ```
 
 Faithfulness note: The green parabola's vertex is at -1.5 and its curvature equals the blue one's; the grey parabola opens upward; in the inset the sum opens upward; colours match prompt 6. Every label in the image, exactly: "x", "log density", "log p1, curvature 1", "log p2, curvature 0.25", "- log p_b, curvature -0.25", "sum: curvature 1, vertex at -1.5", "narrow background", "P = -0.75: not a density".
@@ -412,10 +421,10 @@ Faithfulness note: The green parabola's vertex is at -1.5 and its curvature equa
 
 Navigation: ⬅️ [Prompt 7 (Subject): Precisions, the mechanism](#prompt-7-subject-precisions-the-mechanism) | 📋 [TOC](#table-of-contents) | [Prompt 9 (Subject): The area a product loses](#prompt-9-subject-the-area-a-product-loses) ➡️
 
-[planned] 🖼️ rendered 2026-10-17 products-deep-dive-sheet.webp
+[planned] ⏳ not rendered
 Save as: `../Mathematics/Statistics/Distributions/Multivariate Normal Distribution/assets/products-deep-dive-sheet.webp`
 
-Visual thesis: The composed precision, the weighted sum, the mean and the variance come from adding and subtracting, and the run shows the background moving split to (-2, 2) and shared to (-1.5, 0).
+Visual thesis: Read the run field by field: adding expert precisions and subtracting the background gives P and B, which determine the composed mean and variance.
 
 ```
 Style: no named house style is imposed, but the result is a clean, welcoming UI-grade picture
@@ -429,17 +438,33 @@ hierarchy. Any colour the prompt names a meaning for keeps that meaning alone. B
 the composition and visual treatment that best communicate this subject emerge from the context
 below, rather than from an imposed convention.
 
-Production: Use a deterministic figure script. A tall sheet of exactly four panes stacked vertically, each the full width, designed for reading at 800 px wide; add height rather than shrinking text, with output and field text at least 20 px at that width. The first two panes are compact reminders of the form and the mechanism, not full copies. The run pane is the focal pane. Field cards run 1 to N in one column in the same order as the markers, each starting with its red number, and are matched to the output by number alone: no leader lines between panes.
+Production: Use a deterministic figure script for every bar, curve and label. Make a tall sheet of exactly four full-width panes stacked vertically, designed for display at 800 px wide. Add height rather than shrinking text. Output and reading-card text must be at least 20 px at that display width. The first two panes are compact reminders; The run is the focal pane. No legend or separate colour key anywhere. Direct labels identify each coloured mark.
 
-Scene: Pane 1, The form: a compact reminder of prompt 6, the four precision bars and the green dot at -1.5. Pane 2, The mechanism: a compact reminder of prompt 7, the three parabolas and the green sum with its vertex at -1.5, each labelled directly on its curve with prompt 7's words: blue "log p1, curvature 1", orange "log p2, curvature 0.25", grey, opening upward, "- log p_b, curvature -0.25", green "sum: curvature 1, vertex at -1.5". The grey curve is minus the background's log, so its curvature is negative. No legend in this pane or anywhere on the sheet: every colour is named by the label on its own curve or bar, and the form pane's bars carry their values as labels, as in prompt 6. Pane 3, The run: five lines of monospace output, exactly: $ ~/.vault-sandbox/bin/python compose.py | split  p1 p2 / p_b  P [1.0, 1.0]  B [-2.0, 2.0]  mean [-2.0, 2.0]  var [1.0, 1.0] | split  p1 p2        P [1.25, 1.25]  B [-2.0, 2.0]  mean [-1.6, 1.6]  var [0.8, 0.8] | shared p1 p2 / p_b  P [1.0, 1.0]  B [-1.5, 0.0]  mean [-1.5, 0.0]  var [1.0, 1.0] | shared p1 p2        P [1.25, 1.25]  B [-1.5, 0.0]  mean [-1.2, 0.0]  var [0.8, 0.8] (the | marks a new line and is not printed; keep the runs of spaces). Red markers: 1 over P [1.0, 1.0], 2 over B [-2.0, 2.0], 3 over mean [-2.0, 2.0], 4 over var [1.0, 1.0], all on the first output line; 5 over mean [-1.6, 1.6] on the second; 6 over mean [-1.5, 0.0] on the third. Pane 4, Reading it: six cards in order.
+Pane 1, The form: Show the four precision bars on one aligned baseline. Blue expert 1 has height 1; orange expert 2 has height 0.25; grey background extends 0.25 below the baseline; green composition has height 1. Put the numerical labels at the bar ends and the component names beside their bars. Preserve 1/1 = 1, 1/4 = 0.25, - 1/4 = -0.25, and P = 1. Beneath them, use a compact number line with a green dot at -1.5, labelled mean = B / P = -1.5. This pane recalls the shared example; do not add a second calculation or a decorative illustration.
 
-Cast: the reminder bars and parabolas, the output block, six numbered field cards.
+Pane 2, The mechanism: Use one full-width plot with a uniform horizontal scale. Draw the actual Gaussian log terms, including their normalization constants: blue expert 1 has mean -2 and precision 1; orange expert 2 has mean 2 and precision 0.25; grey is the negative log of the background with mean 0 and precision 0.25. Compute the thicker green curve by adding these three displayed functions point by point. Do not shift curves independently.
 
-Flows: none between panes.
+Place each of these four labels directly beside its own curve, in clear space without crossings: blue log p1, curvature 1; orange log p2, curvature 0.25; grey - log p_b, curvature -0.25; green sum: curvature 1, vertex at -1.5. The grey curve opens upward and its label includes the minus sign before 0.25. The green curve opens downward, has its maximum at -1.5 and bends as strongly as blue. Mark its vertex and project it to the horizontal axis. Below the plot write: Curvature here means negative second derivative. Subtracting the background makes the grey term bend upward. Keep these explanations inside this pane. Omit the failure inset from this recap.
 
-Text in the image, spelled exactly: "The form", "The mechanism", "The run", "Reading it", "P = 1", "mean = B / P = -1.5", "log p1, curvature 1", "log p2, curvature 0.25", "- log p_b, curvature -0.25", "sum: curvature 1, vertex at -1.5", "$ ~/.vault-sandbox/bin/python compose.py", "1 P: the composed precision of each coordinate", "2 B: each mean times its precision, background taken away", "3 mean = B / P: each half takes its own expert's value", "4 var = 1 / P: as narrow as the narrow expert", "5 no background: the same B over P = 1.25, pulled toward 0", "6 shared: -1.5, a value neither expert put there".
+Pane 3, The run: Give this pane the strongest typographic emphasis. Print the command followed by the four exact output records below in crisp monospace. Preserve every character, including runs of spaces.
 
-Exclusions: no fifth pane, no leader lines between panes, no altered output text, no wrapped output line that loses its spacing, no legend panel or colour key, no positive curvature written on the grey curve. no duplicated components, no orphan arrows, no arrow terminating in whitespace, no decorative circuitry or filigree, no invented or misapplied brand logos, no paragraphs of text, no illegible pseudo-code, no crossing arrows where routing could avoid it, no untitled containers, no icon without a label, no perspective distortion applied to arrows, no visual metaphor that contradicts the system's actual semantics, no watermark, no geometric pictogram, circuit symbol, or bare connector line standing in for a real-world physical object the prompt names.
+$ ~/.vault-sandbox/bin/python compose.py
+split  p1 p2 / p_b  P [1.0, 1.0]  B [-2.0, 2.0]  mean [-2.0, 2.0]  var [1.0, 1.0]
+split  p1 p2        P [1.25, 1.25]  B [-2.0, 2.0]  mean [-1.6, 1.6]  var [0.8, 0.8]
+shared p1 p2 / p_b  P [1.0, 1.0]  B [-1.5, 0.0]  mean [-1.5, 0.0]  var [1.0, 1.0]
+shared p1 p2        P [1.25, 1.25]  B [-1.5, 0.0]  mean [-1.2, 0.0]  var [0.8, 0.8]
+
+Do not squeeze an entire output record onto one physical line. Display each record as a clearly separated group, with visual continuation breaks before complete P, B, mean or var fields as needed. Preserve the original whitespace at each break rather than trimming or collapsing it. Never break inside a field, alter the source record, insert continuation characters or shrink the type. Use generous spacing between records so a continuation cannot be mistaken for a new result.
+
+Place red markers immediately above their corresponding fields, without covering characters: 1 above P [1.0, 1.0], 2 above B [-2.0, 2.0], 3 above mean [-2.0, 2.0], and 4 above var [1.0, 1.0], all in the first output record; 5 above mean [-1.6, 1.6] in the second; 6 above mean [-1.5, 0.0] in the third. The command is not an output record. Use subtle neutral underlines to identify the marked fields. Red is reserved for numbered markers.
+
+Pane 4, Reading it: Six full-width text cards in one column, ordered 1 through 6. Each starts with its matching red number. Let text wrap naturally at the readable font size. Use the exact card wording listed below. These cards explain the output; do not add miniature plots, bars, icons or competing illustrations. Match cards to fields by number alone, with no leader lines between panes.
+
+Text in the image, spelled exactly: "The form", "The mechanism", "The run", "Reading it", "expert 1", "expert 2", "background", "1/1 = 1", "1/4 = 0.25", "- 1/4 = -0.25", "P = 1", "mean = B / P = -1.5", "log p1, curvature 1", "log p2, curvature 0.25", "- log p_b, curvature -0.25", "sum: curvature 1, vertex at -1.5", "$ ~/.vault-sandbox/bin/python compose.py", "1 P: the composed precision of each coordinate", "2 B: each mean times its precision, background taken away", "3 mean = B / P: each half takes its own expert's value", "4 var = 1 / P: as narrow as the narrow expert", "5 no background: the same B over P = 1.25, pulled toward 0", "6 shared: -1.5, a value neither expert put there".
+
+Additional teaching text: "Curvature here means negative second derivative."; "Subtracting the background makes the grey term bend upward."
+
+Exclusions: no fifth pane, no leader lines between panes, no altered output text, no wrapped output line that loses its spacing, no tiny type, no legend panel or colour key, no positive curvature written on the grey curve, no independently shifted green sum, no missing component-curve labels, no competing illustrations in the reading cards, no decorative icons inside plots, no watermark.
 ```
 
 Faithfulness note: The four output lines match the note's captured run character for character, runs of spaces included; markers 1 to 6 sit over the same fields as the note's rendered output picture; four panes only; no legend anywhere; the grey curve in pane 2 opens upward and is labelled with curvature -0.25, minus sign included. Every label in the image, exactly: "The form", "The mechanism", "The run", "Reading it", "P = 1", "mean = B / P = -1.5", "log p1, curvature 1", "log p2, curvature 0.25", "- log p_b, curvature -0.25", "sum: curvature 1, vertex at -1.5", "$ ~/.vault-sandbox/bin/python compose.py", "1 P: the composed precision of each coordinate", "2 B: each mean times its precision, background taken away", "3 mean = B / P: each half takes its own expert's value", "4 var = 1 / P: as narrow as the narrow expert", "5 no background: the same B over P = 1.25, pulled toward 0", "6 shared: -1.5, a value neither expert put there".

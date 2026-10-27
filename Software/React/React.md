@@ -1,3 +1,6 @@
+---
+aliases: [React, React.js, ReactJS]
+---
 
 
 
@@ -30,3 +33,20 @@ npm create vite@latest hello-world -- --template react 2>&1
 ```
 
 **Hello World<span id="toc-fjsrz"></span>[:](#nav-e4row)** This is cool
+
+## Where to learn this
+
+**React**, the JavaScript library for building user interfaces from components. Also: React.js.
+
+**Videos**
+
+- Fireship, React in 100 Seconds, Intro, 0:00 to 1:10: [watch](https://www.youtube.com/watch?v=Tn6-PIqc4UM&t=0s). Components, JSX, state and props in one minute, the same four ideas this note's opening lists. Chapter-timed.
+
+**Our plans and chapters**
+
+- [React state basics: useReducer, context, localStorage](/home/molef/goal-setting/learning/projects/attica/event-creation/plans/02-rebuild-from-scratch/plans/01-react-state-basics.md), projects/attica/event-creation, rebuild plan 01. The three React tools Attica's wizard is built from, each as a fresh-window toy.
+- [Wizard state with save and resume](/home/molef/goal-setting/learning/projects/attica/event-creation/plans/02-rebuild-from-scratch/plans/09-wizard-state.md), projects/attica/event-creation, rebuild plan 09. Those tools combined into the wizard's state, saved and resumed.
+- [Debug both sides](/home/molef/goal-setting/learning/projects/attica/event-creation/plans/02-rebuild-from-scratch/plans/04-debug-both-sides.md), projects/attica/event-creation, rebuild plan 04. The React side of a bug traced in the browser while the Django side is traced on the server.
+
+> [!note]- How this was checked
+> Every line under Where to learn this was opened before it was written, on 2026-10-27: the video's chapter list read with cache-video-chapters.py and each plan's title and goal. The rest of this note was written by hand earlier and is unchanged.

@@ -74,17 +74,22 @@ The reference shelf for the moment a derivation stalls on a word a video could t
 - [[#DDIM as an ODE solver]]
 - [[#Flow matching]]
 - [[#Scaled dot-product self-attention]]
+- [[#Why attention scores are divided by a constant]]
 - [[#Self-attention and cross-attention side by side]]
 - [[#Attention as a soft dictionary lookup]]
+- [[#Attention as a weighted lookup, with a scale]]
 - [[#An embedding layer as a one-hot product]]
 - [[#Reading rows out of an embedding table in code]]
+- [[#Cosine similarity]]
 - [[#Word2vec's skip-gram objective]]
+- [[#The gradient through a log-softmax]]
 - [[#The residual connection]]
 - [[#Gradients with and without shortcut connections]]
 - [[#Layer normalisation in code]]
 - [[#Masking the future in self-attention]]
 - [[#Multi-head attention]]
 - [[#The sinusoidal position formula]]
+- [[#Sinusoidal position vectors and splitting into heads]]
 - [[#Cross-attention in the encoder-decoder transformer]]
 - [[#The Gaussian density and its formula]]
 - [[#A mixture of Gaussian bumps]]
@@ -165,6 +170,65 @@ The reference shelf for the moment a derivation stalls on a word a video could t
 - [[#The three financial statements]]
 - [[#Salary against dividend from a company]]
 - [[#South African VAT]]
+- [[#Requirements before a design]]
+- [[#An API contract on paper]]
+- [[#Back-of-the-envelope estimation]]
+- [[#HTTP on the wire, and status codes]]
+- [[#DNS and local names]]
+- [[#HTTPS and its round trips]]
+- [[#Caching at the edge]]
+- [[#Load balancing]]
+- [[#An API gateway and its token check]]
+- [[#Splitting a system into services]]
+- [[#A synchronous call and its failures]]
+- [[#One request from end to end]]
+- [[#Replication and the stale read]]
+- [[#Cache-aside, and a stale value]]
+- [[#Object storage]]
+- [[#The outbox, the queue and the worker]]
+- [[#Webhooks from a provider, and a retry that lands once]]
+- [[#Following one request through the logs]]
+- [[#Metrics and an alert]]
+- [[#One trace across services]]
+- [[#A GitHub Actions workflow]]
+- [[#Zones, and adding a copy]]
+- [[#Drawing the high-level design]]
+- [[#CI/CD and the path to production]]
+- [[#Git: commits, remotes and a push]]
+- [[#YAML]]
+- [[#Branching and merging]]
+- [[#Kinds of tests, cheapest first]]
+- [[#Docker from zero]]
+- [[#The Dockerfile: layers, cache and multi-stage builds]]
+- [[#A registry, tags and digests]]
+- [[#Docker Compose, and containers finding each other]]
+- [[#Nginx as a reverse proxy]]
+- [[#Terraform: plan, apply, state]]
+- [[#Kubernetes: pod, deployment, service]]
+- [[#Rolling, blue-green and canary releases]]
+- [[#Layered architecture]]
+- [[#FastAPI routes, parameters and a request body]]
+- [[#OIDC from a pipeline into Azure]]
+- [[#Changing a schema in steps (expand and contract)]]
+- [[#Protocols against abstract base classes]]
+- [[#A dataclass or a pydantic model]]
+- [[#The t-test against the z-test]]
+- [[#Least squares as maximum likelihood]]
+- [[#Ridge against lasso]]
+- [[#Designing a ride-sharing service]]
+- [[#Designing a rate limiter]]
+- [[#Designing a proximity search]]
+- [[#Designing a distributed message queue]]
+- [[#Designing a distributed cache]]
+- [[#Designing a distributed key-value store]]
+- [[#The variance of a sum of independent variables, and of a scaled variable]]
+- [[#The standard error of a mean]]
+- [[#The standard normal CDF and the z-score]]
+- [[#The variance of an indicator, p(1 − p)]]
+- [[#A logarithm undoes an exponential]]
+- [[#A maximum where the derivative is zero]]
+- [[#Importance sampling]]
+- [[#A Gaussian's mean and variance]]
 
 ## Substituting a new variable into an integral (u-substitution)
 
@@ -704,16 +768,17 @@ No listed creator proves the inequality, and no worked example with numbers was 
 
 ## The correlation coefficient
 
-<!-- video-table: correlation-coefficient rev=1 -->
-Mahesh Huddar, then StatQuest, on Pearson's correlation (covariance over the two standard deviations), in the order to watch:
+<!-- video-table: correlation-coefficient rev=2 -->
+Mahesh Huddar, then StatQuest, then DataMListic, on Pearson's correlation (covariance over the two standard deviations), in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | Correlation runs from minus 1 to 1: perfect positive, perfect negative, and no linear relationship at 0 | Intuition | [Mahesh Huddar, How to find the coefficient of correlation, 0:31 to 2:23](https://www.youtube.com/watch?v=bXlYuKFGsZY&t=31s) |
 | 2 | Four data points: the two means, the covariance, both variances, and r = covariance over root variance times root variance, which comes out 0 | Worked example | [Mahesh Huddar, How to find the coefficient of correlation, 2:23 to 6:10](https://www.youtube.com/watch?v=bXlYuKFGsZY&t=143s) |
 | 3 | The denominator squeezes covariance into minus 1 to 1; covariance 116 with variances 101.8 and 160.3 gives 0.9 | Worked example | [StatQuest, Pearson's Correlation, Clearly Explained, 13:37 to 16:04](https://www.youtube.com/watch?v=xZ_z8KWkhXE&t=817s) |
+| 4 | Why divide at all: covariance gives only the direction of a relationship and changes when weight is measured in grams instead of kilograms, while correlation also gives its strength and does not change | Intuition | [DataMListic, Covariance vs correlation, 0:00 to 0:53](https://www.youtube.com/watch?v=PzOijddw4eg&t=0s) |
 
-Mahesh Huddar's example ends at 0, so it shows the arithmetic but not a strong relationship; StatQuest supplies the nonzero answer and assumes his variance and covariance videos. Neither proves that r stays between minus 1 and 1. Times are read from automatic captions and good to about 30 seconds.
+Mahesh Huddar's example ends at 0, so it shows the arithmetic but not a strong relationship; StatQuest supplies the nonzero answer and assumes his variance and covariance videos; DataMListic's one-minute short names the unit change without working it. None of the three proves that r stays between minus 1 and 1. Times are read from automatic captions, good to about 30 seconds for the first three rows and to a few seconds for the short.
 <!-- /video-table -->
 
 ## The phi and Matthews correlation coefficient (a 2 by 2 table)
@@ -1028,6 +1093,18 @@ Stanford CS231N on the attention operator, in the order to watch:
 The lecture never names attn1 or a UNet; image tokens appear only as an example. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
+## Why attention scores are divided by a constant
+
+<!-- video-table: scaled-dot-product-attention rev=1 -->
+Stanford CS224N on why attention scores are divided by a constant, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: as the vector width grows, dot products of random vectors grow, the softmax inputs get large and its gradients small, so every score is divided by a constant set by the width. Watch for "start out with everyone's attention being very uniform" | Intuition | [CS224N 2023, lecture 8, 56:38 to 58:02](https://www.youtube.com/watch?v=LWMzyfvuehA&t=3398s) |
+
+The variance argument behind the square root is stated in words, not derived. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
 ## Self-attention and cross-attention side by side
 
 <!-- video-table: self-and-cross-attention rev=1 -->
@@ -1055,6 +1132,20 @@ Stanford CS224N on attention as a soft dictionary lookup, to watch after this si
 The lecture never keeps a top-k subset, so the hard cut itself is not shown. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
+## Attention as a weighted lookup, with a scale
+
+<!-- video-table: attention-as-a-weighted-lookup rev=1 -->
+CME295, then Vizuara in code, on attention as a weighted lookup, in the order to watch:
+
+| Order | What it covers and what to watch for | Kind | When | Code it writes | Watch |
+|---|---|---|---|---|---|
+| 1 | A query is compared with every key, the scores go through a softmax, and the weights average the values. Watch for the step your cosine scores stand in for. | Intuition | Orient, before the drip | none | [CME295 lecture 1, 1:09:00 to 1:12:00](https://www.youtube.com/watch?v=Ub3GoFaUcds&t=4140s) |
+| 2 | Why attention scores are divided by the square root of the key size before the softmax. Watch for why an unscaled softmax goes flat or spiky, which is your scale of 30. | Intuition | Confirm, after step 3 | none | [CME295 lecture 1, 1:33:40 to 1:34:40](https://www.youtube.com/watch?v=Ub3GoFaUcds&t=5620s) |
+| 3 | Attention with no trainable weights: dot-product scores normalised by a softmax, then the weights computed in Python. Watch for the same exp-then-normalise step as your `softmax(scores, scale)`, with no scale. | Code walk | Confirm, after step 3 | attention weights from dot-product scores with `torch.softmax` | [Vizuara lecture 14, attention with no trainable weights, 34:07 to 43:46](https://www.youtube.com/watch?v=eSRhpYLerw4&t=2047s) |
+
+None of the three uses cosines from a retrieval index or a scale like 30. Rows 1 and 2 are caption-read from the lecture's English captions on 2026-10-19, accurate to about 20 seconds; row 3 is chapter-timed from Vizuara's chapter list ("Softmax normalisation" to the end of "Coding attention weights in Python"), because its captions were refused with HTTP 429, so its content is judged from the chapter titles.
+<!-- /video-table -->
+
 ## An embedding layer as a one-hot product
 
 <!-- video-table: embedding-as-one-hot-product rev=1 -->
@@ -1079,6 +1170,18 @@ Vizuara on reading rows out of an embedding table in code, to watch during this 
 Direct indexing is shown; the matrix-product route is in the table under plan 33. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
+## Cosine similarity
+
+<!-- video-table: cosine-similarity rev=1 -->
+Stanford CME295 on cosine similarity, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: two token vectors compared by the angle between them, cos θ = a·b / (‖a‖‖b‖), so length drops out and only direction counts | Intuition | [CME295 Autumn 2025, lecture 1, 31:40 to 35:00](https://www.youtube.com/watch?v=Ub3GoFaUcds&t=1900s) |
+
+The ranking flip of plans 18 and 19 is not covered. Times were caption-read by the ai-engineering video pass on 2026-10-19, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
 ## Word2vec's skip-gram objective
 
 <!-- video-table: skip-gram-objective rev=1 -->
@@ -1089,6 +1192,18 @@ Stanford CS224N on word2vec's skip-gram, to watch after this sitting:
 | 1 | Confirm after the sitting: predict the words around each centre word from word vectors alone, and the objective that training maximises | Proof | [CS224N 2024, lecture 1, 47:08 to 55:57](https://www.youtube.com/watch?v=DzpHeXVSC5I&t=2828s) |
 
 No single update is worked with numbers. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## The gradient through a log-softmax
+
+<!-- video-table: gradient-through-a-softmax rev=1 -->
+Stanford CS224N on differentiating a log-softmax objective, to watch during this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Unblock during the derivation: the partial derivative of word2vec's log-softmax objective worked on the board, step by step for a learner who has not done maths in a while | Proof | [CS224N 2024, lecture 1, 1:04:31 to 1:20:07](https://www.youtube.com/watch?v=DzpHeXVSC5I&t=3871s) |
+
+The loss is word2vec's, not a classifier's cross-entropy; the shape of the result (observed minus expected) is the same. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
 ## The residual connection
@@ -1163,6 +1278,19 @@ Stanford CME295 on the sinusoidal position formula, to watch after this sitting:
 | 1 | Confirm after the sitting: one vector per position built from sines and cosines at different frequencies, matching the token embedding width, and why that choice makes sense | Proof | [CME295, lecture 2, 15:36 to 25:56](https://www.youtube.com/watch?v=yT84Y5zCnaA&t=936s) |
 
 Multi-head attention is in the other table in this file. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Sinusoidal position vectors and splitting into heads
+
+<!-- video-table: sinusoidal-position rev=1 -->
+Stanford CS224N and Vizuara on position vectors and splitting into heads, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the build: sinusoidal position vectors, one sine or cosine per dimension with a different period, then learned position vectors added to the input embeddings and why they cannot go past the longest training length | Intuition | [CS224N 2023, lecture 8, 24:23 to 26:40](https://www.youtube.com/watch?v=LWMzyfvuehA&t=1463s) |
+| 2 | Unblock during the build: reshape keys, queries and values to include the number of heads and the head width, then group them by head | Code walk | [Vizuara, LLMs from scratch lecture 18, 19:14 to 28:45](https://www.youtube.com/watch?v=K5u9eEaoxFg&t=1154s) |
+
+The sinusoid formula is shown on a slide but not evaluated for any position. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
 ## Cross-attention in the encoder-decoder transformer
@@ -2421,4 +2549,867 @@ Counttuts, Anrich Marais, SA Accounting Network and SARS on South African VAT, i
 | 6 | Completing the VAT201 on eFiling | Worked example, open web | [SARS TV, How to Submit the VAT201 on eFiling, 1:14 to 2:32](https://www.youtube.com/watch?v=OTeDE3S7wCo&t=74s) |
 
 None works output less input on a month of sales and purchases in rand. Anrich Marais is a tax practitioner. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Requirements before a design
+
+<!-- video-table: requirements-for-a-design rev=1 -->
+ByteByteGo, KodeKloud and Hello Interview on turning a loose request into requirements, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Why the first minutes go on understanding the problem, before any box is drawn | Intuition | [ByteByteGo, System Design Interview: A Step-By-Step Guide, 1:39 to 2:46](https://www.youtube.com/watch?v=i7twT3x5yv8&t=99s) |
+| 2 | What the system must do, set against how well it must do it | Intuition | [KodeKloud, System Design for Beginners (2026), 8:56 to 12:20](https://www.youtube.com/watch?v=SE2KF-vxvS0&t=536s) |
+| 3 | The questions that turn a loose request into numbers and limits | Intuition | [KodeKloud, System Design for Beginners (2026), 12:20 to 16:22](https://www.youtube.com/watch?v=SE2KF-vxvS0&t=740s) |
+| 4 | Ticketmaster's requirements written out, functional then non-functional | Worked example | [Hello Interview, Design Ticketmaster, 2:36 to 9:20](https://www.youtube.com/watch?v=fhdPyoO6aXI&t=156s) |
+| 5 | A shop's cart held for 10 minutes, then checkout and the cart marked consistent and search and notifications marked available | Worked example | [Hello Interview, Mock Interview: Design an e-commerce platform, 2:24 to 5:08](https://www.youtube.com/watch?v=RuGY_1pap74&t=144s) |
+
+None sorts an order's steps into finished before the customer is answered and done later, and none gives each table one owning service; that is this sitting's own work. Rows 1 to 4 take their times from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked. Row 5 takes its times from the automatic captions, good to about 30 seconds.
+<!-- /video-table -->
+
+## An API contract on paper
+
+<!-- video-table: rest-api-contract rev=1 -->
+Hello Interview on writing a REST API contract, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Resources as plural nouns in the URL path, taken from the core entities | Intuition | [Hello Interview, API Design in System Design Interviews, 4:14 to 6:34](https://www.youtube.com/watch?v=DQ57zYedMdQ&t=254s) |
+| 2 | GET, POST, PUT, PATCH and DELETE, and which of them is safe to repeat | Intuition | [Hello Interview, API Design in System Design Interviews, 6:34 to 8:31](https://www.youtube.com/watch?v=DQ57zYedMdQ&t=394s) |
+| 3 | Path parameters, query parameters and the request body, and when each is used | Worked example | [Hello Interview, API Design in System Design Interviews, 8:53 to 11:10](https://www.youtube.com/watch?v=DQ57zYedMdQ&t=533s) |
+| 4 | A response as a status code plus a body, with codes grouped into 2xx, 4xx and 5xx | Intuition | [Hello Interview, API Design in System Design Interviews, 11:10 to 12:43](https://www.youtube.com/watch?v=DQ57zYedMdQ&t=670s) |
+| 5 | A shop's routes (search, add to cart, checkout, subscribe) and the tables behind them, drafted live | Worked example | [Hello Interview, Mock Interview: Design an e-commerce platform, 5:08 to 9:04](https://www.youtube.com/watch?v=RuGY_1pap74&t=308s) |
+
+None writes an Idempotency-Key header or lists every status code one route can return; the mock's routes are a rough draft its interviewer moves past. Times are from the automatic captions, good to about 30 seconds.
+<!-- /video-table -->
+
+## Back-of-the-envelope estimation
+
+<!-- video-table: back-of-the-envelope-estimation rev=1 -->
+ByteByteGo and Hello Interview on turning daily counts into a rate, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Requests per second from users and actions per day | Intuition | [ByteByteGo, Back-Of-The-Envelope Estimation, 1:12 to 2:44](https://www.youtube.com/watch?v=UC5xf8FbdJc&t=72s) |
+| 2 | Rounding and the shortcuts that keep the arithmetic in your head | Intuition | [ByteByteGo, Back-Of-The-Envelope Estimation, 3:56 to 5:48](https://www.youtube.com/watch?v=UC5xf8FbdJc&t=236s) |
+| 3 | 10 million products and their daily price changes worked down to about one event per second | Worked example | [Hello Interview, Mock Interview: Design an e-commerce platform, 25:16 to 29:29](https://www.youtube.com/watch?v=RuGY_1pap74&t=1516s) |
+
+All three work at internet scale; none takes a load as small as one order every 36 hours and asks what it does not justify. Rows 1 and 2 take their times from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked. Row 3 takes its times from the automatic captions, good to about 30 seconds.
+<!-- /video-table -->
+
+## HTTP on the wire, and status codes
+
+<!-- video-table: http-on-the-wire rev=1 -->
+KodeKloud, Hello Interview and ByteByteGo on what one HTTP request carries and what its status code means, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | One HTTP request passed down the seven layers and back up | Intuition | [KodeKloud, The OSI Model Explained with HTTP Request, 0:00 to 2:33](https://www.youtube.com/watch?v=xuan1dN9bKw&t=0s) |
+| 2 | The request line, headers and body, and the response that comes back | Intuition | [Hello Interview, Networking Essentials for System Design Interviews, 12:37 to 15:01](https://www.youtube.com/watch?v=SHkbPm1Wrno&t=757s) |
+| 3 | What a port is and why each service listens on its own | Intuition | [KodeKloud, Firewall & Port Basics Every DevOps Engineer Must Know, 2:33 to 4:18](https://www.youtube.com/watch?v=w7p7pK0Kcxs&t=153s) |
+| 4 | Listing what is listening on which port with `netstat` | Worked example | [KodeKloud, Firewall & Port Basics Every DevOps Engineer Must Know, 6:19 to 7:28](https://www.youtube.com/watch?v=w7p7pK0Kcxs&t=379s) |
+| 5 | The five status code classes and the common codes in each | Intuition | [ByteByteGo, HTTP Status Codes Explained In 5 Minutes, 0:00 to 5:06](https://www.youtube.com/watch?v=qmpUfWN7hh4&t=0s) |
+
+None reads a `curl -v` transcript line by line or says which box on the path returns which code. Rows 2 to 4 take their times from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked. Rows 1 and 5 are whole videos, 0:00 to the length read from their metadata.
+<!-- /video-table -->
+
+## DNS and local names
+
+<!-- video-table: dns-and-local-names rev=1 -->
+KodeKloud and ByteByteGo on how a name becomes an address, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | A name mapped to an address in `/etc/hosts` on one machine | Worked example | [KodeKloud, DNS in Linux for the Absolute Beginners, 0:35 to 1:48](https://www.youtube.com/watch?v=9nCIjLlLVzY&t=35s) |
+| 2 | Moving those names to one DNS server every machine asks | Intuition | [KodeKloud, DNS in Linux for the Absolute Beginners, 3:54 to 5:33](https://www.youtube.com/watch?v=9nCIjLlLVzY&t=234s) |
+| 3 | Which wins when the hosts file and the DNS server disagree | Intuition | [KodeKloud, DNS in Linux for the Absolute Beginners, 5:33 to 6:48](https://www.youtube.com/watch?v=9nCIjLlLVzY&t=333s) |
+| 4 | Checking an answer with `nslookup` and `dig` | Worked example | [KodeKloud, DNS in Linux for the Absolute Beginners, 13:15 to 14:25](https://www.youtube.com/watch?v=9nCIjLlLVzY&t=795s) |
+| 5 | Root, top-level and authoritative servers | Intuition | [ByteByteGo, Everything You Need to Know About DNS, 1:16 to 2:47](https://www.youtube.com/watch?v=27r4Bzuj5NQ&t=76s) |
+
+None runs a DNS server in a container or asks it with `dig @localhost`. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## HTTPS and its round trips
+
+<!-- video-table: https-round-trips rev=1 -->
+Hello Interview and ByteByteGo on what a new HTTPS connection costs before the first byte, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | TCP's handshake and what it guarantees, against UDP | Intuition | [Hello Interview, Networking Essentials for System Design Interviews, 7:38 to 12:37](https://www.youtube.com/watch?v=SHkbPm1Wrno&t=458s) |
+| 2 | HTTP against HTTPS, and what the encryption adds | Intuition | [ByteByteGo, HTTP vs HTTPS Explained, 0:00 to 7:11](https://www.youtube.com/watch?v=WvSVSbGo0wI&t=0s) |
+| 3 | HTTP/2 over one connection, then HTTP/3 cutting the round trips | Intuition | [ByteByteGo, HTTP 1 Vs HTTP 2 Vs HTTP 3, 3:32 to 7:21](https://www.youtube.com/watch?v=UMwQjFzTQXw&t=212s) |
+
+None times the round trips with `curl -w` or uses a certificate authority that lives on the laptop. Rows 1 and 3 take their times from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked. Row 2 is the whole video, 0:00 to the length read from its metadata.
+<!-- /video-table -->
+
+## Caching at the edge
+
+<!-- video-table: caching-at-the-edge rev=1 -->
+Hello Interview and KodeKloud on where a cache can sit on the path, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | What a cache is, then the places it can sit: the client, a CDN, a proxy, the server, the database | Intuition | [Hello Interview, Caching in System Design Interviews, 0:49 to 7:57](https://www.youtube.com/watch?v=1NngTUYPdpI&t=49s) |
+| 2 | Nginx as a load balancer, a reverse proxy and a cache | Intuition | [KodeKloud, NGINX For Beginners, 14:29 to 21:38](https://www.youtube.com/watch?v=dmcZ8MuL8tA&t=869s) |
+
+Neither times a hit against a miss or reads a cache-status header. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Load balancing
+
+<!-- video-table: load-balancing rev=1 -->
+ByteByteGo, KodeKloud and Hello Interview on spreading requests over copies and dropping a dead one, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Round robin and its static relatives, then least connections and the dynamic ones | Intuition | [ByteByteGo, Top 6 Load Balancing Algorithms, 1:06 to 4:13](https://www.youtube.com/watch?v=dBmxNsS3BGE&t=66s) |
+| 2 | Health checks taking a dead server out of the rotation | Intuition | [KodeKloud, System Design for Beginners (2026), 29:44 to 35:40](https://www.youtube.com/watch?v=SE2KF-vxvS0&t=1784s) |
+| 3 | A dedicated balancer, then layer 4 against layer 7 | Intuition | [Hello Interview, Networking Essentials for System Design Interviews, 43:00 to 50:03](https://www.youtube.com/watch?v=SHkbPm1Wrno&t=2580s) |
+
+None stops one of two copies mid-run and counts the replies; the timing of a balancer giving up on a dead copy is this sitting's. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## An API gateway and its token check
+
+<!-- video-table: api-gateway-and-token-check rev=1 -->
+Hello Interview, ByteByteGo and KodeKloud on what a gateway does at the door, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Routing, authentication and rate limiting in one place at the front | Intuition | [Hello Interview, API Gateways in System Design Interviews, 2:52 to 5:10](https://www.youtube.com/watch?v=7-6F3b14baA&t=172s) |
+| 2 | An API gateway set beside a reverse proxy and a load balancer | Intuition | [ByteByteGo, Reverse Proxy vs API Gateway vs Load Balancer, 0:48 to 1:42](https://www.youtube.com/watch?v=RqfaTIWc3LQ&t=48s) |
+| 3 | The token travels in a header and is checked by its signature; the user ID never comes from the body | Intuition | [Hello Interview, API Design in System Design Interviews, 24:45 to 27:48](https://www.youtube.com/watch?v=DQ57zYedMdQ&t=1485s) |
+| 4 | An authentication system sketched end to end | Intuition | [KodeKloud, System Design: Building an Authentication System, 0:00 to 2:58](https://www.youtube.com/watch?v=Ifd31fTxzgc&t=0s) |
+
+None configures a gateway to ask another service whether a token is good before routing, which is what ForwardAuth does. Rows 1 and 2 take their times from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked. Row 3 takes its times from the automatic captions, good to about 30 seconds. Row 4 is the whole video, 0:00 to the length read from its metadata.
+<!-- /video-table -->
+
+## Splitting a system into services
+
+<!-- video-table: splitting-into-services rev=1 -->
+KodeKloud and ByteByteGo on when one application becomes several services, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | When splitting a monolith is worth its cost | Intuition | [KodeKloud, System Design for Beginners (2026), 17:30 to 21:24](https://www.youtube.com/watch?v=SE2KF-vxvS0&t=1050s) |
+| 2 | One job per service, deployed on its own, choosing its own tools | Intuition | [KodeKloud, What are Microservices?, 1:25 to 2:56](https://www.youtube.com/watch?v=RzzqT7KUtiM&t=85s) |
+| 3 | Microservices against a monolith, in two short chapters | Intuition | [ByteByteGo, Top 5 Most Used Architecture Patterns, 3:18 to 5:01](https://www.youtube.com/watch?v=f6zXyq4VPP8&t=198s) |
+
+None holds two services to separate schemas of one PostgreSQL server. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## A synchronous call and its failures
+
+<!-- video-table: a-sync-call-and-its-failures rev=1 -->
+KodeKloud, Hello Interview and ByteByteGo on what a waiting call costs when the other side is slow, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | A synchronous request against an asynchronous one | Intuition | [KodeKloud, Synchronous vs Asynchronous Requests Explained, 0:00 to 2:59](https://www.youtube.com/watch?v=GddXpLm7ta0&t=0s) |
+| 2 | One slow service dragging its callers down, and the circuit breaker that stops it | Intuition | [Hello Interview, Networking Essentials for System Design Interviews, 1:00:15 to 1:04:35](https://www.youtube.com/watch?v=SHkbPm1Wrno&t=3615s) |
+| 3 | Answering with less when a part fails, instead of failing whole | Intuition | [ByteByteGo, 8 Most Important Tips for Designing Fault-Tolerant System, 2:57 to 3:37](https://www.youtube.com/watch?v=3Lis4w4_bBc&t=177s) |
+
+None writes the timeout in code; the httpx call with its 2-second limit is the chapter's. Rows 2 and 3 take their times from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked. Row 1 is the whole video, 0:00 to the length read from its metadata.
+<!-- /video-table -->
+
+## One request from end to end
+
+<!-- video-table: one-request-end-to-end rev=1 -->
+ByteByteGo, KodeKloud and Hello Interview on everything that happens between typing a URL and seeing the page, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The URL taken apart, then the lookup, the connection and the request in order | Intuition | [ByteByteGo, What happens when you type a URL into your browser?, 0:18 to 5:20](https://www.youtube.com/watch?v=AlkDbnbv7dk&t=18s) |
+| 2 | A request walked through each box of a running design | Intuition | [KodeKloud, System Design for Beginners (2026), 25:48 to 29:44](https://www.youtube.com/watch?v=SE2KF-vxvS0&t=1548s) |
+| 3 | The layers one request passes through | Intuition | [Hello Interview, Networking Essentials for System Design Interviews, 2:47 to 4:22](https://www.youtube.com/watch?v=SHkbPm1Wrno&t=167s) |
+
+None watches the same request in Postman, the DevTools Network tab and the database at once. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Replication and the stale read
+
+<!-- video-table: replication-lag rev=1 -->
+KodeKloud and Hello Interview on a replica that answers before it has caught up, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | A primary copying to replicas, and what each one serves | Intuition | [KodeKloud, System Design for Beginners (2026), 1:13:01 to 1:19:34](https://www.youtube.com/watch?v=SE2KF-vxvS0&t=4381s) |
+| 2 | When to replicate and when to shard | Intuition | [KodeKloud, When to Shard Database vs Replicate?, 0:00 to 1:53](https://www.youtube.com/watch?v=1_xLXicErn0&t=0s) |
+| 3 | Choosing between a fresh answer and any answer | Intuition | [Hello Interview, CAP Theorem in System Design Interviews, 2:18 to 4:00](https://www.youtube.com/watch?v=VdrEq0cODu4&t=138s) |
+
+None reads a row from the replica straight after writing it to the primary, or routes that one read back to the primary. Rows 1 and 3 take their times from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked. Row 2 is the whole video, 0:00 to the length read from its metadata.
+<!-- /video-table -->
+
+## Cache-aside, and a stale value
+
+<!-- video-table: cache-aside rev=1 -->
+Hello Interview and KodeKloud on reading through a cache and keeping it honest, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Cache-aside against write-through and write-behind | Intuition | [Hello Interview, Caching in System Design Interviews, 9:59 to 14:58](https://www.youtube.com/watch?v=1NngTUYPdpI&t=599s) |
+| 2 | What the cache drops when it is full, and the TTL | Intuition | [Hello Interview, Caching in System Design Interviews, 14:58 to 17:21](https://www.youtube.com/watch?v=1NngTUYPdpI&t=898s) |
+| 3 | Stale data, a stampede of misses and hot keys | Intuition | [Hello Interview, Caching in System Design Interviews, 17:21 to 25:33](https://www.youtube.com/watch?v=1NngTUYPdpI&t=1041s) |
+| 4 | Redis used as the cache in a design | Intuition | [Hello Interview, Redis Deep Dive, 9:55 to 12:41](https://www.youtube.com/watch?v=fmT5nlEkl3U&t=595s) |
+| 5 | A cache put in front of a database in the course's running design | Worked example | [KodeKloud, System Design for Beginners (2026), 1:02:22 to 1:11:21](https://www.youtube.com/watch?v=SE2KF-vxvS0&t=3742s) |
+
+None times a hit against a miss, or changes a value behind the code that would have deleted its cached copy. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Object storage
+
+<!-- video-table: object-storage rev=1 -->
+Hello Interview on keeping files in a bucket instead of a table, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Pre-signed URLs and the other details a design is asked about | Intuition | [Hello Interview, Object Storage in System Design Interviews, 7:00 to 12:36](https://www.youtube.com/watch?v=RvaMHMxHjp4&t=420s) |
+| 2 | Dropbox's files going to blob storage and their metadata to a database | Worked example | [Hello Interview, Design Dropbox or Google Drive, 15:10 to 27:33](https://www.youtube.com/watch?v=_UZ1ngy-kOI&t=910s) |
+
+None runs MinIO or writes an object from a service's code. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## The outbox, the queue and the worker
+
+<!-- video-table: outbox-queue-and-worker rev=1 -->
+Hello Interview and KodeKloud on moving work out of the request safely, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | A request doing too much work in line, before any queue | Worked example | [Hello Interview, Message Queues in System Design Interviews, 0:48 to 4:17](https://www.youtube.com/watch?v=1ISRd0bS714&t=48s) |
+| 2 | Producers, consumers and acknowledgements | Intuition | [Hello Interview, Message Queues in System Design Interviews, 4:17 to 12:47](https://www.youtube.com/watch?v=1ISRd0bS714&t=257s) |
+| 3 | Retries, dead-letter queues and a message delivered twice | Intuition | [Hello Interview, Message Queues in System Design Interviews, 15:06 to 23:31](https://www.youtube.com/watch?v=1ISRd0bS714&t=906s) |
+| 4 | The row and its event written in one transaction, then published by a relay | Intuition | [Hello Interview, Distributed Transactions Explained: 2 Phase Commit vs Saga Pattern, 11:06 to 12:23](https://www.youtube.com/watch?v=DOFflggE_0Q&t=666s) |
+| 5 | RabbitMQ's exchanges, queues and consumers | Intuition | [Hello Interview, Kafka vs RabbitMQ, 1:15 to 2:34](https://www.youtube.com/watch?v=1HOVtQ-_fcE&t=75s) |
+| 6 | Background workers taking jobs off a queue | Intuition | [KodeKloud, System Design: Background Job-Processing Workers!, 0:00 to 2:59](https://www.youtube.com/watch?v=xc4nXaKQp7s&t=0s) |
+
+None writes the worker's done-already table that makes a redelivered message harmless. Rows 1 to 5 take their times from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked. Row 6 is the whole video, 0:00 to the length read from its metadata.
+<!-- /video-table -->
+
+## Webhooks from a provider, and a retry that lands once
+
+<!-- video-table: webhooks-and-retries rev=2 -->
+Hello Interview, ByteByteGo, KodeKloud and TechPrep on a provider calling back, and making its retries safe, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Checkout through a payment provider: a token, a redirect, then the provider calling back "paid" | Worked example | [Hello Interview, Mock Interview: Design an e-commerce platform, 43:35 to 46:57](https://www.youtube.com/watch?v=RuGY_1pap74&t=2615s) |
+| 2 | Retries, signatures and handling the same event twice | Intuition | [ByteByteGo, Top 3 Things You Should Know About Webhooks!, 2:00 to 3:11](https://www.youtube.com/watch?v=x_jjhcDrISk&t=120s) |
+| 3 | A system that receives webhooks and processes them behind a queue | Intuition | [KodeKloud, Design Webhooks Processing System, 0:00 to 2:50](https://www.youtube.com/watch?v=vdx4-z5CoBk&t=0s) |
+| 4 | Idempotency in the design of a payment system like Stripe | Worked example | [TechPrep, Design Stripe, 8:49 to 9:50](https://www.youtube.com/watch?v=djc2vfpCvso&t=529s) |
+
+None of rows 1 to 3 retries a charge against a unique key in a table you can open, and row 4's chapter title does not say whether TechPrep does. Rows 2 and 4 take their times from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked. Row 1 takes its times from the automatic captions, good to about 30 seconds. Row 3 is the whole video, 0:00 to the length read from its metadata.
+<!-- /video-table -->
+
+## Following one request through the logs
+
+<!-- video-table: one-request-in-the-logs rev=1 -->
+KodeKloud on collecting every service's lines in one place, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | A pipeline that gathers every service's logs into one store | Intuition | [KodeKloud, System Design: Logs Collection Pipeline for Microservices, 0:00 to 2:14](https://www.youtube.com/watch?v=pR0vcoh-bbY&t=0s) |
+
+It never mints a request ID or greps one order's lines out. Row 1 is the whole video, 0:00 to the length read from its metadata.
+<!-- /video-table -->
+
+## Metrics and an alert
+
+<!-- video-table: metrics-and-alerts rev=2 -->
+KodeKloud, ByteByteGo, Hello Interview and TechPrep on measuring a running system and being told when it goes wrong, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | A pipeline that collects metrics from every service | Intuition | [KodeKloud, System Design: Metric Collection Pipeline for Microservices, 0:00 to 2:25](https://www.youtube.com/watch?v=QMPCogrLTeA&t=0s) |
+| 2 | Monitoring and alerting as one of the fault-tolerance habits | Intuition | [ByteByteGo, 8 Most Important Tips for Designing Fault-Tolerant System, 3:37 to 4:03](https://www.youtube.com/watch?v=3Lis4w4_bBc&t=217s) |
+| 3 | A timestamp at every step of one flow, and queue size as the number to watch | Worked example | [Hello Interview, Mock Interview: Design an e-commerce platform, 49:19 to 51:11](https://www.youtube.com/watch?v=RuGY_1pap74&t=2959s) |
+| 4 | A real-time alerting engine inside a metrics and alerting system's design | Worked example | [TechPrep, Design Metrics Monitoring and Alerting System, 14:13 to 16:30](https://www.youtube.com/watch?v=T-8DgGQ7wUo&t=853s) |
+
+None of rows 1 to 3 writes a Prometheus rule or a Grafana panel, and row 4's chapter title does not say whether TechPrep does; KodeKloud's Prometheus install video sets it up with systemd, which this journey does not use. Rows 2 and 4 take their times from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked. Row 3 takes its times from the automatic captions, good to about 30 seconds. Row 1 is the whole video, 0:00 to the length read from its metadata.
+<!-- /video-table -->
+
+## One trace across services
+
+<!-- video-table: distributed-tracing rev=1 -->
+KodeKloud on one request's spans joined across services, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | A trace ID carried across microservices and the spans joined into one trace | Intuition | [KodeKloud, How Distributed Tracing Works Across Microservices in Kubernetes, 0:00 to 2:36](https://www.youtube.com/watch?v=nzg8KxL5ftI&t=0s) |
+
+It never opens the Jaeger UI. Row 1 is the whole video, 0:00 to the length read from its metadata.
+<!-- /video-table -->
+
+## A GitHub Actions workflow
+
+<!-- video-table: github-actions-workflow rev=1 -->
+KodeKloud on a workflow, its jobs and its runners, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Workflows, jobs, steps and runners | Intuition | [KodeKloud, What is GitHub Actions?, 2:45 to 6:40](https://www.youtube.com/watch?v=jtKrINOzQ3A&t=165s) |
+| 2 | A first workflow written and run on github.com | Worked example | [KodeKloud, GitHub Actions Tutorial: Advanced Concepts (Part 1), 13:47 to 26:31](https://www.youtube.com/watch?v=E2RRxcq_08E&t=827s) |
+| 3 | Several jobs, then one waiting on another with `needs` | Worked example | [KodeKloud, GitHub Actions Tutorial: Advanced Concepts (Part 1), 50:52 to 1:02:15](https://www.youtube.com/watch?v=E2RRxcq_08E&t=3052s) |
+
+None brings a Compose stack up inside a workflow. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Zones, and adding a copy
+
+<!-- video-table: zones-and-scaling-out rev=1 -->
+Hello Interview, KodeKloud and ByteByteGo on surviving a whole zone and adding capacity, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Serving from more than one region, and what crosses between them | Intuition | [Hello Interview, Networking Essentials for System Design Interviews, 50:03 to 55:49](https://www.youtube.com/watch?v=SHkbPm1Wrno&t=3003s) |
+| 2 | A bigger machine against more machines | Intuition | [KodeKloud, System Design for Beginners (2026), 21:24 to 24:28](https://www.youtube.com/watch?v=SE2KF-vxvS0&t=1284s) |
+| 3 | Copies in separate places, and failing over to one | Intuition | [ByteByteGo, 8 Most Important Tips for Designing Fault-Tolerant System, 0:44 to 2:27](https://www.youtube.com/watch?v=3Lis4w4_bBc&t=44s) |
+| 4 | Statelessness and the other principles that make adding a copy work | Intuition | [ByteByteGo, Scalability Simply Explained in 10 Minutes, 2:48 to 4:08](https://www.youtube.com/watch?v=EWS_CIxttVw&t=168s) |
+
+None stops a zone of containers or adds a copy on a p95 threshold. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Drawing the high-level design
+
+<!-- video-table: high-level-design-diagram rev=1 -->
+ByteByteGo, Hello Interview and KodeKloud on drawing every box and arrow of a design, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The high-level diagram drawn in two passes | Intuition | [ByteByteGo, System Design Interview: A Step-By-Step Guide, 5:12 to 6:38](https://www.youtube.com/watch?v=i7twT3x5yv8&t=312s) |
+| 2 | Ticketmaster's design drawn box by box against its requirements | Worked example | [Hello Interview, Design Ticketmaster, 17:38 to 35:18](https://www.youtube.com/watch?v=fhdPyoO6aXI&t=1058s) |
+| 3 | The course's whole design read back as one picture | Worked example | [KodeKloud, System Design for Beginners (2026), 1:24:27 to 1:25:36](https://www.youtube.com/watch?v=SE2KF-vxvS0&t=5067s) |
+
+None draws sync and async arrows apart, which is what this drawing is checked on. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## CI/CD and the path to production
+
+<!-- video-table: ci-cd-and-the-release-path rev=1 -->
+ByteByteGo and KodeKloud on how a change travels from a commit to production, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Continuous integration: every change built and tested on its own | Intuition | [ByteByteGo, CI/CD In 5 Minutes, 0:51 to 1:39](https://www.youtube.com/watch?v=42UP1fxi2SY&t=51s) |
+| 2 | Continuous delivery against continuous deployment | Intuition | [ByteByteGo, CI/CD In 5 Minutes, 2:54 to 3:30](https://www.youtube.com/watch?v=42UP1fxi2SY&t=174s) |
+| 3 | Tests, then user acceptance, then the release and watching it | Intuition | [ByteByteGo, How Big Tech Ships Code to Production, 1:54 to 3:57](https://www.youtube.com/watch?v=xSPA2yBgDgA&t=114s) |
+| 4 | Cheap tests first, slow ones later | Intuition | [KodeKloud, 5 Proven CI/CD Strategies for Faster Deployments, 1:39 to 2:38](https://www.youtube.com/watch?v=piZZ-8I7CCI&t=99s) |
+| 5 | A pipeline's stages from build to deploy | Worked example | [KodeKloud, Mastering GitHub Actions, 6:29 to 15:16](https://www.youtube.com/watch?v=FEkkwZ0iiLs&t=389s) |
+
+None names a gate per environment or counts the minutes and money a run costs. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Git: commits, remotes and a push
+
+<!-- video-table: git-remotes-and-push rev=1 -->
+ByteByteGo and KodeKloud on where code lives and how it reaches a remote, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Working directory, staging area, local repository and remote | Intuition | [ByteByteGo, How Git Works: Explained in 4 Minutes, 0:30 to 1:15](https://www.youtube.com/watch?v=e9lnsKot_SQ&t=30s) |
+| 2 | Adding a remote and pushing to it | Worked example | [KodeKloud, What is Git?, 8:54 to 15:37](https://www.youtube.com/watch?v=Lr7sYCrhxE0&t=534s) |
+| 3 | Cloning a repository and pulling changes | Worked example | [KodeKloud, What is Git?, 15:37 to 17:15](https://www.youtube.com/watch?v=Lr7sYCrhxE0&t=937s) |
+
+None pushes to two remotes or reads a push the server refused. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## YAML
+
+<!-- video-table: yaml-basics rev=1 -->
+KodeKloud on how YAML's indentation decides what a file means, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Keys, values and the spaces that decide nesting | Intuition | [KodeKloud, YAML Explained: A Beginner's Guide, 0:30 to 3:51](https://www.youtube.com/watch?v=o9pT9cWzbnI&t=30s) |
+| 2 | A dictionary, a list, and a list of dictionaries | Worked example | [KodeKloud, YAML Explained: A Beginner's Guide, 4:09 to 7:12](https://www.youtube.com/watch?v=o9pT9cWzbnI&t=249s) |
+
+It never shows a mistake that parses without an error and means something else. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Branching and merging
+
+<!-- video-table: branching-and-merging rev=1 -->
+ByteByteGo on how branches come back together, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Branches and merges in one minute | Intuition | [ByteByteGo, How Git Works: Explained in 4 Minutes, 2:54 to 3:45](https://www.youtube.com/watch?v=e9lnsKot_SQ&t=174s) |
+| 2 | Keeping a feature branch current, then the ways to merge it | Intuition | [ByteByteGo, Git MERGE vs REBASE, 0:52 to 2:31](https://www.youtube.com/watch?v=0chZFIZLR_0&t=52s) |
+| 3 | Squash commits, then merge and rebase workflows compared | Intuition | [ByteByteGo, Git MERGE vs REBASE, 2:31 to 4:34](https://www.youtube.com/watch?v=0chZFIZLR_0&t=151s) |
+
+None compares trunk-based development with long-lived branches for a team of one. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Kinds of tests, cheapest first
+
+<!-- video-table: api-test-types rev=1 -->
+ByteByteGo and KodeKloud on which test catches what, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | A smoke test, then functional tests | Intuition | [ByteByteGo, Top 9 Most Popular Types of API Testing, 0:28 to 1:12](https://www.youtube.com/watch?v=qquIJ1Ivusg&t=28s) |
+| 2 | Integration tests, then regression tests | Intuition | [ByteByteGo, Top 9 Most Popular Types of API Testing, 1:12 to 2:02](https://www.youtube.com/watch?v=qquIJ1Ivusg&t=72s) |
+| 3 | Putting tests in the pipeline so nobody runs them by hand | Intuition | [KodeKloud, 5 Proven CI/CD Strategies for Faster Deployments, 0:41 to 1:39](https://www.youtube.com/watch?v=piZZ-8I7CCI&t=41s) |
+
+None makes a branch rule wait on a red run. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Docker from zero
+
+<!-- video-table: docker-from-zero rev=1 -->
+KodeKloud on images, containers and the everyday commands, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Images, registries, and what a container is beside its image | Intuition | [KodeKloud, Docker Explained for Absolute Beginners [2026], 11:42 to 13:28](https://www.youtube.com/watch?v=ZZ10b63xnQc&t=702s) |
+| 2 | Running a container, in the foreground then in the background, and cleaning up | Worked example | [KodeKloud, Docker Explained for Absolute Beginners [2026], 28:56 to 34:52](https://www.youtube.com/watch?v=ZZ10b63xnQc&t=1736s) |
+| 3 | Publishing a container's port on the host | Worked example | [KodeKloud, Docker Explained for Absolute Beginners [2026], 42:29 to 44:30](https://www.youtube.com/watch?v=ZZ10b63xnQc&t=2549s) |
+| 4 | A volume that outlives the container | Worked example | [KodeKloud, Docker Explained for Absolute Beginners [2026], 44:30 to 46:11](https://www.youtube.com/watch?v=ZZ10b63xnQc&t=2670s) |
+| 5 | Reading a container with `docker inspect` and `docker logs` | Worked example | [KodeKloud, Docker Explained for Absolute Beginners [2026], 46:11 to 47:09](https://www.youtube.com/watch?v=ZZ10b63xnQc&t=2771s) |
+
+None looks at a running container from the host as an ordinary process. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## The Dockerfile: layers, cache and multi-stage builds
+
+<!-- video-table: dockerfile-layers-and-multi-stage rev=1 -->
+Hello Interview and KodeKloud on writing a Dockerfile that builds fast and small, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | A Dockerfile read line by line | Worked example | [Hello Interview, Docker Explained in 10 Minutes, 2:17 to 4:09](https://www.youtube.com/watch?v=DXZynfHZJYk&t=137s) |
+| 2 | Each line a layer, and when the cache reuses it | Intuition | [Hello Interview, Docker Explained in 10 Minutes, 5:05 to 7:36](https://www.youtube.com/watch?v=DXZynfHZJYk&t=305s) |
+| 3 | Ordering lines so a code change does not reinstall dependencies | Intuition | [Hello Interview, Docker Explained in 10 Minutes, 7:36 to 8:32](https://www.youtube.com/watch?v=DXZynfHZJYk&t=456s) |
+| 4 | Building in one stage and shipping only the result | Intuition | [Hello Interview, Docker Explained in 10 Minutes, 8:32 to 9:09](https://www.youtube.com/watch?v=DXZynfHZJYk&t=512s) |
+| 5 | Keeping files out of the build with `.dockerignore` | Worked example | [KodeKloud, How to Use a .dockerignore File Properly, 0:00 to 2:23](https://www.youtube.com/watch?v=IiUY9kqAyRg&t=0s) |
+| 6 | CMD against ENTRYPOINT | Worked example | [KodeKloud, Learn Docker in 2 Hours, 51:36 to 58:30](https://www.youtube.com/watch?v=zJ6WbK9zFpI&t=3096s) |
+
+None measures image size or build time before and after the change. Rows 1, 2, 3, 4 and 6 take their times from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked. Row 5 is the whole video, 0:00 to the length read from its metadata.
+<!-- /video-table -->
+
+## A registry, tags and digests
+
+<!-- video-table: image-registry-and-tags rev=1 -->
+KodeKloud on naming an image so the right one is pulled, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | What a tag is and why `latest` misleads | Intuition | [KodeKloud, Docker Explained for Absolute Beginners [2026], 37:49 to 40:05](https://www.youtube.com/watch?v=ZZ10b63xnQc&t=2269s) |
+| 2 | Pushing to and pulling from a registry, including a private one | Worked example | [KodeKloud, Learn Docker in 2 Hours, 1:34:39 to 1:39:30](https://www.youtube.com/watch?v=zJ6WbK9zFpI&t=5679s) |
+
+Neither tags by commit SHA, pulls by digest or scans the image. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Docker Compose, and containers finding each other
+
+<!-- video-table: docker-compose-networking rev=1 -->
+Hello Interview and KodeKloud on several containers started together and reaching each other by name, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Why a container exists at all | Intuition | [Hello Interview, Docker Explained in 10 Minutes, 0:00 to 1:30](https://www.youtube.com/watch?v=DXZynfHZJYk&t=0s) |
+| 2 | Several containers wired by hand with `docker run`, and what breaks | Intuition | [KodeKloud, Docker Compose Tutorial, 5:53 to 8:49](https://www.youtube.com/watch?v=iOGEBj7Ozak&t=353s) |
+| 3 | The same stack written as services in one Compose file | Worked example | [KodeKloud, Docker Compose Tutorial, 8:49 to 10:13](https://www.youtube.com/watch?v=iOGEBj7Ozak&t=529s) |
+| 4 | Start order with `depends_on`, then custom networks | Worked example | [KodeKloud, Docker Compose Tutorial, 21:00 to 24:45](https://www.youtube.com/watch?v=iOGEBj7Ozak&t=1260s) |
+| 5 | The bridge network, the virtual cable and each container's address | Intuition | [KodeKloud, How Docker Networking Actually Works, 0:22 to 4:11](https://www.youtube.com/watch?v=W7X6u2BGVRY&t=22s) |
+| 6 | Why the host cannot reach a container until a port is published | Intuition | [KodeKloud, How Docker Networking Actually Works, 6:00 to 7:52](https://www.youtube.com/watch?v=W7X6u2BGVRY&t=360s) |
+
+None reaches PostgreSQL by the service name `db` from a second container. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Nginx as a reverse proxy
+
+<!-- video-table: nginx-reverse-proxy rev=1 -->
+ByteByteGo and KodeKloud on Nginx's configuration in front of an app, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | A reverse proxy in half a minute | Intuition | [ByteByteGo, Reverse Proxy vs API Gateway vs Load Balancer, 0:18 to 0:48](https://www.youtube.com/watch?v=RqfaTIWc3LQ&t=18s) |
+| 2 | The configuration file: contexts, blocks and directives | Worked example | [KodeKloud, NGINX For Beginners, 23:02 to 29:49](https://www.youtube.com/watch?v=dmcZ8MuL8tA&t=1382s) |
+| 3 | Server blocks answering for different names | Worked example | [KodeKloud, NGINX For Beginners, 29:49 to 35:12](https://www.youtube.com/watch?v=dmcZ8MuL8tA&t=1789s) |
+
+Neither runs Nginx under Compose or mentions uvicorn binding to 127.0.0.1 inside a container. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Terraform: plan, apply, state
+
+<!-- video-table: terraform-plan-apply-state rev=1 -->
+KodeKloud on declaring infrastructure and keeping its state, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Changing and destroying what Terraform made | Worked example | [KodeKloud, Terraform Tutorial for Beginners, 38:00 to 40:20](https://www.youtube.com/watch?v=YcJ9IeukJL8&t=2280s) |
+| 2 | What the state file is for, then where it should live | Intuition | [KodeKloud, Terraform Tutorial for Beginners, 1:14:28 to 1:23:14](https://www.youtube.com/watch?v=YcJ9IeukJL8&t=4468s) |
+| 3 | validate, fmt, show, output and the other everyday commands | Worked example | [KodeKloud, Terraform Tutorial for Beginners, 1:23:14 to 1:28:34](https://www.youtube.com/watch?v=YcJ9IeukJL8&t=4994s) |
+| 4 | Replacing infrastructure against changing it in place | Intuition | [KodeKloud, Terraform Tutorial for Beginners, 1:28:42 to 1:34:38](https://www.youtube.com/watch?v=YcJ9IeukJL8&t=5322s) |
+
+It works on local files and AWS, not on Azure, and declares no Container App. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Kubernetes: pod, deployment, service
+
+<!-- video-table: kubernetes-pods-deployments-services rev=1 -->
+ByteByteGo and KodeKloud on the three objects every Kubernetes app starts with, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | A cluster: the control plane and the worker nodes | Intuition | [ByteByteGo, Kubernetes Explained in 6 Minutes, 1:01 to 1:53](https://www.youtube.com/watch?v=TlHvYWVUZyc&t=61s) |
+| 2 | The pod as the smallest thing Kubernetes runs | Intuition | [KodeKloud, Kubernetes Crash Course, 19:21 to 28:40](https://www.youtube.com/watch?v=XuSQU5Grv1g&t=1161s) |
+| 3 | A ReplicaSet keeping a number of pods alive | Intuition | [KodeKloud, Kubernetes Crash Course, 35:42 to 46:07](https://www.youtube.com/watch?v=XuSQU5Grv1g&t=2142s) |
+| 4 | A deployment owning ReplicaSets so it can roll out a new version | Intuition | [KodeKloud, Kubernetes Crash Course, 46:20 to 50:11](https://www.youtube.com/watch?v=XuSQU5Grv1g&t=2780s) |
+| 5 | A service giving pods one stable address, then NodePort | Intuition | [KodeKloud, Kubernetes Crash Course, 50:22 to 1:02:31](https://www.youtube.com/watch?v=XuSQU5Grv1g&t=3022s) |
+
+None runs on kind. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Rolling, blue-green and canary releases
+
+<!-- video-table: rolling-blue-green-and-canary rev=1 -->
+ByteByteGo and KodeKloud on replacing a running version without stopping it, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Replacing copies a few at a time | Intuition | [ByteByteGo, Top 5 Most-Used Deployment Strategies, 1:14 to 3:17](https://www.youtube.com/watch?v=AWVTKBUnoIg&t=74s) |
+| 2 | A whole second environment, then the switch | Intuition | [ByteByteGo, Top 5 Most-Used Deployment Strategies, 3:17 to 5:38](https://www.youtube.com/watch?v=AWVTKBUnoIg&t=197s) |
+| 3 | A small share of traffic on the new version first | Intuition | [ByteByteGo, Top 5 Most-Used Deployment Strategies, 5:38 to 7:49](https://www.youtube.com/watch?v=AWVTKBUnoIg&t=338s) |
+| 4 | A canary on Kubernetes | Intuition | [KodeKloud, Canary Deployment in Kubernetes Explained, 0:00 to 2:55](https://www.youtube.com/watch?v=HTe2_uIWSuY&t=0s) |
+| 5 | Moving traffic 80/20 then all the way, behind a load balancer | Worked example | [KodeKloud, Blue-Green Deployment on AWS with EC2 and a Load Balancer, 2:36 to 3:47](https://www.youtube.com/watch?v=X-NfwLUBco4&t=156s) |
+
+None rolls back on a measured error rate, or on Azure Container Apps. Rows 1, 2, 3 and 5 take their times from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked. Row 4 is the whole video, 0:00 to the length read from its metadata.
+<!-- /video-table -->
+
+## Layered architecture
+
+<!-- video-table: layered-architecture rev=1 -->
+ByteByteGo on splitting code into layers that depend in one direction, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Presentation, business and data layers, each calling only the one below | Intuition | [ByteByteGo, Top 5 Most Used Architecture Patterns, 0:34 to 1:25](https://www.youtube.com/watch?v=f6zXyq4VPP8&t=34s) |
+
+It draws layers calling downward and never inverts a dependency, which is the rule this journey builds toward. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## FastAPI routes, parameters and a request body
+
+<!-- video-table: fastapi-routes rev=1 -->
+freeCodeCamp on a FastAPI service from its first route to a POST with a body, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Installing FastAPI and serving a first route with uvicorn | Worked example | [freeCodeCamp, FastAPI Course for Beginners, 1:10 to 15:35](https://www.youtube.com/watch?v=tLKKmouUams&t=70s) |
+| 2 | Path parameters, then query parameters, with their types checked | Worked example | [freeCodeCamp, FastAPI Course for Beginners, 15:35 to 37:36](https://www.youtube.com/watch?v=tLKKmouUams&t=935s) |
+| 3 | A POST whose JSON body is a Pydantic model | Worked example | [freeCodeCamp, FastAPI Course for Beginners, 39:50 to 46:58](https://www.youtube.com/watch?v=tLKKmouUams&t=2390s) |
+
+ByteByteGo, Hello Interview and KodeKloud have no FastAPI segment, so this comes from freeCodeCamp, next on the creator list for programming gaps. It writes no async route and no pytest. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## OIDC from a pipeline into Azure
+
+<!-- video-table: oidc-from-a-pipeline rev=1 -->
+John Savill on signing a pipeline into Azure with no stored secret, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The stored secret it replaces, then what OIDC changes | Intuition, open web | [John Savill, GitHub Azure AD OIDC Authentication, 0:47 to 5:21](https://www.youtube.com/watch?v=XkhkkLBkAT4&t=47s) |
+| 2 | GitHub's identity token exchanged for an Azure access token | Intuition, open web | [John Savill, GitHub Azure AD OIDC Authentication, 5:21 to 8:08](https://www.youtube.com/watch?v=XkhkkLBkAT4&t=321s) |
+| 3 | The `azure/login` step, then the federated credential on the app registration | Worked example, open web | [John Savill, GitHub Azure AD OIDC Authentication, 13:42 to 18:20](https://www.youtube.com/watch?v=XkhkkLBkAT4&t=822s) |
+
+None of ByteByteGo, Hello Interview, KodeKloud or freeCodeCamp covers federation from a pipeline, so this is John Savill from the open search. It covers GitHub only, not an Azure DevOps service connection. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Changing a schema in steps (expand and contract)
+
+<!-- video-table: expand-and-contract-migration rev=1 -->
+Software Developer Diaries and Web Dev Cody on changing a column while two versions of the app serve, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Expand, migrate, contract: the three steps and why | Intuition, open web | [Software Developer Diaries, Expand-Contract Pattern, 1:14 to 2:20](https://www.youtube.com/watch?v=ONSCQWLD9d0&t=74s) |
+| 2 | The new column added beside the old, then writes going to both | Worked example, open web | [Software Developer Diaries, Expand-Contract Pattern, 2:20 to 4:49](https://www.youtube.com/watch?v=ONSCQWLD9d0&t=140s) |
+| 3 | Old rows copied across, then reads moved to the new column | Worked example, open web | [Software Developer Diaries, Expand-Contract Pattern, 4:49 to 5:39](https://www.youtube.com/watch?v=ONSCQWLD9d0&t=289s) |
+| 4 | Dropping the old column once nothing reads it | Worked example, open web | [Software Developer Diaries, Expand-Contract Pattern, 6:05 to 6:35](https://www.youtube.com/watch?v=ONSCQWLD9d0&t=365s) |
+| 5 | The application code changed for the in-between state | Worked example, open web | [Web Dev Cody, How do software projects achieve zero downtime database migrations?, 2:32 to 3:50](https://www.youtube.com/watch?v=cw5K2O4AHJc&t=152s) |
+
+None of ByteByteGo, Hello Interview, KodeKloud or freeCodeCamp covers it, so both are from the open search. Neither ships the change through a canary. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Protocols against abstract base classes
+
+<!-- video-table: python-protocols rev=1 -->
+ArjanCodes on structural typing with `typing.Protocol` set against an abstract base class, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | An abstract base class: the subclass must name its parent | Worked example, open web | [ArjanCodes, Protocols vs ABCs in Python, 1:53 to 5:39](https://www.youtube.com/watch?v=dryNwWvSd4M&t=113s) |
+| 2 | A Protocol: any class with the right methods fits, with no inheritance | Worked example, open web | [ArjanCodes, Protocols vs ABCs in Python, 5:39 to 9:21](https://www.youtube.com/watch?v=dryNwWvSd4M&t=339s) |
+| 3 | `runtime_checkable` and the other ways a Protocol is made stricter | Worked example, open web | [ArjanCodes, Protocols vs ABCs in Python, 9:21 to 12:45](https://www.youtube.com/watch?v=dryNwWvSd4M&t=561s) |
+
+None of ByteByteGo, Hello Interview, KodeKloud or freeCodeCamp covers it, so this is ArjanCodes from the open search, a different video from the ports-and-adapters one these plans already name. It never uses a Protocol as a port. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## A dataclass or a pydantic model
+
+<!-- video-table: dataclass-or-pydantic rev=1 -->
+ArjanCodes on choosing between a dataclass and a pydantic model, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | One class written as a dataclass, with attrs and with pydantic | Worked example, open web | [ArjanCodes, Attrs, Pydantic, or Python Data Classes?, 4:20 to 7:07](https://www.youtube.com/watch?v=zN4VCb0LbQI&t=260s) |
+| 2 | Validating fields in each of the three | Worked example, open web | [ArjanCodes, Attrs, Pydantic, or Python Data Classes?, 7:07 to 11:26](https://www.youtube.com/watch?v=zN4VCb0LbQI&t=427s) |
+| 3 | What a dataclass is good for and where it stops | Intuition, open web | [ArjanCodes, Attrs, Pydantic, or Python Data Classes?, 11:26 to 13:00](https://www.youtube.com/watch?v=zN4VCb0LbQI&t=686s) |
+| 4 | What pydantic adds and what it costs | Intuition, open web | [ArjanCodes, Attrs, Pydantic, or Python Data Classes?, 14:14 to 15:58](https://www.youtube.com/watch?v=zN4VCb0LbQI&t=854s) |
+
+None of ByteByteGo, Hello Interview, KodeKloud or freeCodeCamp covers it, so this is ArjanCodes from the open search. It predates pydantic v2 and never freezes a dataclass. Times are from chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## The t-test against the z-test
+
+<!-- video-table: t-test-against-z-test rev=1 -->
+DataMListic on choosing between a t-test and a z-test, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The rule: a known population standard deviation means a z-test on the normal curve; an unknown one means a t-test, which uses the sample standard deviation and the t distribution's heavier tails | Intuition | [DataMListic, T-Test vs Z-Test, 0:00 to 0:25](https://www.youtube.com/watch?v=1Gi4clGjPeU&t=0s) |
+| 2 | Why "large sample, so use z" is the wrong rule: with the population standard deviation unknown, the t-test applies at any sample size | Intuition | [DataMListic, T-Test vs Z-Test, 0:25 to 0:47](https://www.youtube.com/watch?v=1Gi4clGjPeU&t=25s) |
+
+The short tests a mean and works no numbers. It never covers a proportion, where the null hypothesis itself fixes the standard deviation at the square root of p(1 − p), which is why the pooled two-proportion test reads its p-value off the normal curve. Times are read from the automatic captions of a 55-second short, so each start is good to a few seconds.
+<!-- /video-table -->
+
+## Least squares as maximum likelihood
+
+<!-- video-table: least-squares-as-maximum-likelihood rev=1 -->
+DataMListic, then Stanford CS229, on why fitting by least squares is maximum likelihood under Gaussian noise, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The two pieces: least squares picks the intercept and slope that minimise the summed squared differences, and a Gaussian is set by its mean and its standard deviation | Intuition | [DataMListic, Linear Regression vs Maximum Likelihood, 0:00 to 0:36](https://www.youtube.com/watch?v=0oqWzkgfq7w&t=0s) |
+| 2 | The claim: least squares is the same as placing a Gaussian on each point of the regression line and maximising the likelihood | Intuition | [DataMListic, Linear Regression vs Maximum Likelihood, 0:36 to 0:47](https://www.youtube.com/watch?v=0oqWzkgfq7w&t=36s) |
+| 3 | The proof: the log of the Gaussian likelihood is a constant minus the summed squared errors over 2σ², so maximising it minimises the least squares cost | Proof | [Stanford CS229, Spring 2026, lecture 3, 27:13 to 30:13](https://www.youtube.com/watch?v=uJF_gL3jhxI&t=1633s) |
+
+DataMListic states the result and leaves the derivation to a longer video; CS229's row is that derivation. Neither turns a KL between two Gaussians of equal variance into a squared distance between their means, which is the same algebra applied to a second Gaussian. DataMListic's times are read from the automatic captions of a 54-second short and are good to a few seconds; CS229's are read from the lecture's automatic captions and are good to about 30 seconds.
+<!-- /video-table -->
+
+## Ridge against lasso
+
+<!-- video-table: ridge-against-lasso rev=1 -->
+DataMListic on ridge and lasso, the squared penalty against the absolute-value one, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Both add a penalty that pulls the coefficients toward zero; ridge squares them and lasso takes their absolute values | Intuition | [DataMListic, Ridge vs Lasso in 60 Seconds, 0:00 to 0:24](https://www.youtube.com/watch?v=d2SrG0q_Z0U&t=0s) |
+| 2 | On the plane of two coefficients, the loss's elliptical contours touch ridge's circle along its curve, so both coefficients shrink, and touch lasso's diamond at a corner, so one becomes exactly zero: ridge shrinks, lasso selects | Intuition | [DataMListic, Ridge vs Lasso in 60 Seconds, 0:24 to 1:27](https://www.youtube.com/watch?v=d2SrG0q_Z0U&t=24s) |
+
+The short never calls ridge's squared penalty weight decay or an L2 penalty, works no numbers, and says nothing about how strong the penalty should be. Times are read from the automatic captions of an 87-second short and are good to a few seconds.
+<!-- /video-table -->
+
+## Designing a ride-sharing service
+
+<!-- video-table: ride-sharing-service-design rev=1 -->
+TechPrep on designing a ride-sharing service like Uber, the one-minute version first, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | One ride request end to end: the rider's WebSocket through the API gateway, a Kafka topic per rider, fares from the ride service, the driver assignment queue, geohashing to find nearby drivers, offers sent one driver at a time under a lock, and the acceptance pushed back to the rider | Intuition | [TechPrep, Uber, System Design in 60 Seconds, 0:00 to 0:56](https://www.youtube.com/watch?v=xMlsVPH_SWA&t=0s) |
+| 2 | The functional and non-functional requirements | Worked example | [TechPrep, Uber System Design Interview, 0:18 to 1:26](https://www.youtube.com/watch?v=DGtalg5efCw&t=18s) |
+| 3 | The data model, then the API | Worked example | [TechPrep, Uber System Design Interview, 1:26 to 3:30](https://www.youtube.com/watch?v=DGtalg5efCw&t=86s) |
+| 4 | The flow that keeps each driver's location current | Worked example | [TechPrep, Uber System Design Interview, 3:30 to 9:15](https://www.youtube.com/watch?v=DGtalg5efCw&t=210s) |
+| 5 | The flow from a ride request to an assigned driver | Worked example | [TechPrep, Uber System Design Interview, 9:15 to 14:04](https://www.youtube.com/watch?v=DGtalg5efCw&t=555s) |
+| 6 | The whole architecture in one drawing | Worked example | [TechPrep, Uber System Design Interview, 14:04 to 14:28](https://www.youtube.com/watch?v=DGtalg5efCw&t=844s) |
+
+TechPrep designs a generic Uber: the short never mentions a panic button, coupons or an offer waiting for an offline driver, and no walkthrough chapter is named for them. Row 1 is read from the short's automatic captions and is good to a few seconds. Rows 2 to 6 are the walkthrough's chapter boundaries, read from its chapter list because caption downloads were blocked, so each is good to the chapter and what the row says comes from the chapter title.
+<!-- /video-table -->
+
+## Designing a rate limiter
+
+<!-- video-table: rate-limiter-design rev=1 -->
+TechPrep on designing a rate limiter, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Where a rate limiter can sit | Intuition | [TechPrep, Rate Limiter System Design Interview, 0:56 to 2:55](https://www.youtube.com/watch?v=dpEOhfEEoyw&t=56s) |
+| 2 | The limiter's requirements | Worked example | [TechPrep, Rate Limiter System Design Interview, 2:55 to 3:46](https://www.youtube.com/watch?v=dpEOhfEEoyw&t=175s) |
+| 3 | The token bucket algorithm | Intuition | [TechPrep, Rate Limiter System Design Interview, 3:46 to 4:28](https://www.youtube.com/watch?v=dpEOhfEEoyw&t=226s) |
+| 4 | Three alternatives: the leaky bucket, the fixed window and the sliding window | Intuition | [TechPrep, Rate Limiter System Design Interview, 4:28 to 6:44](https://www.youtube.com/watch?v=dpEOhfEEoyw&t=268s) |
+| 5 | The limiter's architecture | Worked example | [TechPrep, Rate Limiter System Design Interview, 6:44 to 8:00](https://www.youtube.com/watch?v=dpEOhfEEoyw&t=404s) |
+
+No chapter title names failing open or failing closed, so whether TechPrep says what happens when the limiter itself is down is not known from them. Times are the video's chapter boundaries, read from its chapter list because caption downloads were blocked, so each is good to the chapter and what the row says comes from the chapter title.
+<!-- /video-table -->
+
+## Designing a proximity search
+
+<!-- video-table: proximity-search-design rev=1 -->
+TechPrep on designing a proximity service, the search for places near a point, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The requirements, then the estimates that size the system | Worked example | [TechPrep, Proximity Service System Design Interview, 0:29 to 4:00](https://www.youtube.com/watch?v=nfJj7SfQtZo&t=29s) |
+| 2 | The data model and the API | Worked example | [TechPrep, Proximity Service System Design Interview, 4:00 to 6:33](https://www.youtube.com/watch?v=nfJj7SfQtZo&t=240s) |
+| 3 | The flow that searches for places near a point | Worked example | [TechPrep, Proximity Service System Design Interview, 10:47 to 13:09](https://www.youtube.com/watch?v=nfJj7SfQtZo&t=647s) |
+
+TechPrep's example is tourist attractions and their reviews, which stay put, where TMS's operators move; the chapter titles do not say whether the search uses a geohash or a quadtree. Times are the video's chapter boundaries, read from its chapter list because caption downloads were blocked, so each is good to the chapter and what the row says comes from the chapter title.
+<!-- /video-table -->
+
+## Designing a distributed message queue
+
+<!-- video-table: distributed-message-queue-design rev=1 -->
+TechPrep on designing a distributed message queue like Kafka, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The queue's requirements | Worked example | [TechPrep, Distributed Message Queue (Kafka), 1:28 to 3:09](https://www.youtube.com/watch?v=Qay43Km1NwY&t=88s) |
+| 2 | The data model and how messages move through it | Worked example | [TechPrep, Distributed Message Queue (Kafka), 5:31 to 8:09](https://www.youtube.com/watch?v=Qay43Km1NwY&t=331s) |
+| 3 | The high-level design | Worked example | [TechPrep, Distributed Message Queue (Kafka), 8:09 to 9:36](https://www.youtube.com/watch?v=Qay43Km1NwY&t=489s) |
+| 4 | Replication | Worked example | [TechPrep, Distributed Message Queue (Kafka), 12:21 to 14:10](https://www.youtube.com/watch?v=Qay43Km1NwY&t=741s) |
+| 5 | Rebalancing | Worked example | [TechPrep, Distributed Message Queue (Kafka), 14:10 to 15:40](https://www.youtube.com/watch?v=Qay43Km1NwY&t=850s) |
+
+No chapter title names at-least-once or exactly-once delivery, so whether TechPrep covers the guarantee is not known from them. A code demo follows at 17:12 to 22:41; its title does not say what it builds, so it becomes a row only once its captions are read. Times are the video's chapter boundaries, read from its chapter list because caption downloads were blocked, so each is good to the chapter and what the row says comes from the chapter title.
+<!-- /video-table -->
+
+## Designing a distributed cache
+
+<!-- video-table: distributed-cache-design rev=1 -->
+TechPrep on designing a distributed cache like Redis, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The cache's requirements | Worked example | [TechPrep, Distributed Cache (Redis), 1:12 to 2:24](https://www.youtube.com/watch?v=q7i31S4X8RU&t=72s) |
+| 2 | How the data is stored | Worked example | [TechPrep, Distributed Cache (Redis), 2:24 to 3:50](https://www.youtube.com/watch?v=q7i31S4X8RU&t=144s) |
+| 3 | The high-level design | Worked example | [TechPrep, Distributed Cache (Redis), 4:29 to 5:49](https://www.youtube.com/watch?v=q7i31S4X8RU&t=269s) |
+| 4 | Partitioning the data across nodes | Worked example | [TechPrep, Distributed Cache (Redis), 5:49 to 11:06](https://www.youtube.com/watch?v=q7i31S4X8RU&t=349s) |
+| 5 | The hot key problem | Worked example | [TechPrep, Distributed Cache (Redis), 16:34 to 17:42](https://www.youtube.com/watch?v=q7i31S4X8RU&t=994s) |
+
+No chapter title names cache-aside, time-to-live or eviction, so whether TechPrep covers them is not known from them; its deep dives on concurrency (11:06) and availability (14:12) are not rows. Times are the video's chapter boundaries, read from its chapter list because caption downloads were blocked, so each is good to the chapter and what the row says comes from the chapter title.
+<!-- /video-table -->
+
+## Designing a distributed key-value store
+
+<!-- video-table: distributed-key-value-store-design rev=1 -->
+TechPrep on designing a distributed key-value store, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The store's requirements | Worked example | [TechPrep, Distributed Key-Value Store, 1:14 to 2:28](https://www.youtube.com/watch?v=Uqk7IQFS-Eo&t=74s) |
+| 2 | Partitioning the keys and replicating them | Worked example | [TechPrep, Distributed Key-Value Store, 7:34 to 9:49](https://www.youtube.com/watch?v=Uqk7IQFS-Eo&t=454s) |
+| 3 | Quorum consensus and the consistency it buys | Worked example | [TechPrep, Distributed Key-Value Store, 9:49 to 12:47](https://www.youtube.com/watch?v=Uqk7IQFS-Eo&t=589s) |
+| 4 | Resolving conflicting writes | Worked example | [TechPrep, Distributed Key-Value Store, 12:47 to 15:48](https://www.youtube.com/watch?v=Uqk7IQFS-Eo&t=767s) |
+| 5 | Detecting a failed node | Worked example | [TechPrep, Distributed Key-Value Store, 15:48 to 18:35](https://www.youtube.com/watch?v=Uqk7IQFS-Eo&t=948s) |
+
+No chapter title says whether the partitioning uses consistent hashing or virtual nodes, so that is not known from them. Times are the video's chapter boundaries, read from its chapter list because caption downloads were blocked, so each is good to the chapter and what the row says comes from the chapter title.
+<!-- /video-table -->
+
+## The variance of a sum of independent variables, and of a scaled variable
+
+<!-- video-table: variance-of-a-sum-of-independent-variables rev=1 -->
+ritvikmath, then three lessons from the open web (MIT OpenCourseWare, Snell Bros. Math, Khan Academy), on the variance of a sum of independent variables and of a variable multiplied by a constant, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The mean of a sum always splits into a sum of means; the variance splits only when the variables are independent | Intuition | [ritvikmath, The Binomial Distribution, 9:23 to 10:09](https://www.youtube.com/watch?v=oLnmWcbYnrM&t=563s) |
+| 2 | Var(X + Y) = Var(X) + Var(Y) for independent X and Y: expand the square, and independence sends E[XY] to zero | Proof, open web | [MIT OpenCourseWare, L07.7 Independence and Variances, 0:33 to 2:43](https://www.youtube.com/watch?v=YQ26hzI4OJk&t=33s) |
+| 3 | Var(aX + b) = a² Var(X), expanded term by term | Proof, open web | [Snell Bros. Math, Var(aX + b) = a²Var(X), 0:00 to 3:31](https://www.youtube.com/watch?v=JOCOW8MQB_4&t=0s) |
+| 4 | When independence fails: X = Y gives 4 Var(X) and X = −Y gives 0; with X independent of Y, Var(X − 3Y) = Var(X) + 9 Var(Y) | Worked example, open web | [MIT OpenCourseWare, L07.7 Independence and Variances, 2:43 to 5:02](https://www.youtube.com/watch?v=YQ26hzI4OJk&t=163s) |
+| 5 | Standard deviations 0.8 and 0.6 ounces: the variances 0.64 and 0.36 add to 1, while the standard deviations do not add | Worked example, open web | [Khan Academy, Variance of sum and difference of random variables, 3:08 to 7:56](https://www.youtube.com/watch?v=3VXhi_0Mclg&t=188s) |
+
+None of them divides a sum of N draws by N to reach τ²/N; that takes rows 2 and 3 together, as equation (13.2) does. Khan argues for the rule from ranges and says it is not a proof. StatQuest and Professor Leonard have no video on this rule. Times are read from automatic captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## The standard error of a mean
+
+<!-- video-table: standard-error-of-the-mean rev=1 -->
+StatQuest, then Mutual Information from the open web, on the standard error of a mean and why it shrinks with the square root of the sample count, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Repeated samples of five mice: the sample means sit much closer together than the raw weights, and the standard deviation of those means is the standard error | Worked example | [StatQuest, The standard error, 2:41 to 5:50](https://www.youtube.com/watch?v=XNgt7F6FqDU&t=161s) |
+| 2 | The standard error is the standard deviation of means from repeated samples; for a mean it has the formula s / √n | Definition | [StatQuest, The standard error, 7:35 to 8:21](https://www.youtube.com/watch?v=XNgt7F6FqDU&t=455s) |
+| 3 | The distribution of a Monte Carlo estimate (from the chapter title) | Intuition, open web | [Mutual Information, Importance Sampling, 3:57 to 6:06](https://www.youtube.com/watch?v=C3p2wI4RAi8&t=237s) |
+
+StatQuest states s / √n without deriving it (the derivation is the variance-of-a-sum table), and no row covers correlated draws, such as a Markov chain's, which need a larger standard error. Rows 1 and 2 are read from automatic captions and good to about 30 seconds; row 3 is a chapter boundary from the video's chapter list, so what is said inside was judged from the chapter title and not read.
+<!-- /video-table -->
+
+## The standard normal CDF and the z-score
+
+<!-- video-table: standard-normal-cdf-and-z-score rev=1 -->
+Professor Leonard, then 3-Minute Data Science from the open web, on standardising a value and reading the normal CDF and its inverse, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The z-score: subtract the mean, divide by the standard deviation | Definition | [Professor Leonard, Statistics 3.4, 2:22 to 5:05](https://www.youtube.com/watch?v=lPe-rQA_afU&t=142s) |
+| 2 | Calculating z-scores | Worked example | [Professor Leonard, Statistics 3.4, 5:05 to 10:34](https://www.youtube.com/watch?v=lPe-rQA_afU&t=305s) |
+| 3 | The cumulative distribution function of a normal: the probability of landing below a value | Intuition, open web | [3-Minute Data Science, Normal Distribution (PDF, CDF, PPF), 2:56 to 4:10](https://www.youtube.com/watch?v=3VYupIsbLlY&t=176s) |
+| 4 | The inverse CDF, from a probability back to a value | Intuition, open web | [3-Minute Data Science, Normal Distribution (PDF, CDF, PPF), 4:10 to 5:26](https://www.youtube.com/watch?v=3VYupIsbLlY&t=250s) |
+
+No row reads Φ from a table or works an upper tail as 1 − Φ; Professor Leonard's standard normal lecture (Statistics 6.3) does, but it has neither captions nor a chapter list, so it is not linked. Times are chapter boundaries read from each video's chapter list, because YouTube refused the captions; what is said inside was judged from the chapter titles and not read.
+<!-- /video-table -->
+
+## The variance of an indicator, p(1 − p)
+
+<!-- video-table: variance-of-an-indicator rev=1 -->
+ritvikmath on the variance of a variable that is 1 with probability p and 0 otherwise, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | A Bernoulli variable takes 1 with probability p and 0 otherwise, so its mean is p | Definition | [ritvikmath, The Bernoulli Distribution, 2:32 to 3:20](https://www.youtube.com/watch?v=u-Yezvx33PE&t=152s) |
+| 2 | Var(X) = E[X²] − E[X]², and X² equals X for a 0-or-1 variable, so the variance is p − p² = p(1 − p) | Proof | [ritvikmath, The Bernoulli Distribution, 3:20 to 5:05](https://www.youtube.com/watch?v=u-Yezvx33PE&t=200s) |
+| 3 | n independent indicators added: n copies of p(1 − p) give the binomial variance np(1 − p) | Worked example | [ritvikmath, The Binomial Distribution, 10:09 to 10:54](https://www.youtube.com/watch?v=oLnmWcbYnrM&t=609s) |
+
+ritvikmath does not divide by n to get the variance of a proportion, p(1 − p) / n; that is the scaling rule in the variance-of-a-sum table. Times are read from automatic captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## A logarithm undoes an exponential
+
+<!-- video-table: logarithm-undoes-an-exponential rev=1 -->
+Professor Leonard on solving for an unknown in an exponent with a logarithm, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Logarithms and exponentials undo each other, so an exponential equation with no common base is solved with a logarithm | Intuition | [Professor Leonard, Precalculus 57, 1:04 to 2:05](https://www.youtube.com/watch?v=KezbqAAlOZk&t=64s) |
+| 2 | 5e^(0.2x) = 7: divide by 5 to isolate the exponential, rewrite it with ln, divide by 0.2 to reach x = 5 ln(7/5) | Worked example | [Professor Leonard, Precalculus 57, 24:39 to 28:22](https://www.youtube.com/watch?v=KezbqAAlOZk&t=1479s) |
+
+Leonard rewrites the exponential as a logarithm instead of taking the logarithm of both sides, which lands on the same line; his exponent is positive, and none of his examples has a 1 − u inside the logarithm. Times are read from automatic captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## A maximum where the derivative is zero
+
+<!-- video-table: derivative-zero-at-a-maximum rev=1 -->
+Professor Leonard on finding a maximum by setting the derivative to zero, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | The first derivative test: take the derivative, set it to zero for the critical numbers, then test its sign on each side; climbing then falling is a maximum | Definition | [Professor Leonard, Calculus 1 3.3, 3:59 to 8:52](https://www.youtube.com/watch?v=nQ6tOORDQ3I&t=239s) |
+| 2 | f(x) = x³ − 3x + 1: f′(x) = 3x² − 3 = 0 gives x = ±1, and the sign test makes x = −1 a maximum of 3 and x = 1 a minimum of −1 | Worked example | [Professor Leonard, Calculus 1 3.3, 10:44 to 16:29](https://www.youtube.com/watch?v=nQ6tOORDQ3I&t=644s) |
+
+Leonard decides maximum or minimum by the sign change of f′; a quadratic with negative curvature, as in Example 3, is his second derivative test (Calculus 1 3.4), which is not linked here. He does not cover maximising a logarithm in place of the function. Times are read from automatic captions and good to about 30 seconds.
+<!-- /video-table -->
+
+## Importance sampling
+
+<!-- video-table: importance-sampling rev=1 -->
+DataMListic, then Mutual Information from the open web, on importance sampling, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | A standard normal beyond four standard deviations happens about 3 times in 100,000, so plain draws almost never land there; draw from a q centred on the tail instead | Intuition | [DataMListic, Importance Sampling, 0:00 to 0:49](https://www.youtube.com/watch?v=WV01_ekZr7c&t=0s) |
+| 2 | Each draw carries the weight p(x) / q(x): multiplying and dividing by q turns the expectation under p into one under q | Proof | [DataMListic, Importance Sampling, 0:49 to 1:36](https://www.youtube.com/watch?v=WV01_ekZr7c&t=49s) |
+| 3 | A q that misses where f times p is large gives a few huge weights; the best q is proportional to the size of f times p; 200 plain draws hit the tail zero times where 30 weighted ones are enough | Intuition | [DataMListic, Importance Sampling, 1:36 to 2:38](https://www.youtube.com/watch?v=WV01_ekZr7c&t=96s) |
+| 4 | An importance sampling example (from the chapter title) | Worked example, open web | [Mutual Information, Importance Sampling, 9:00 to 11:40](https://www.youtube.com/watch?v=C3p2wI4RAi8&t=540s) |
+
+Neither estimates a ratio of normalising constants, which is what annealed importance sampling's weights do. The Synthetic Mind's short on importance sampling has neither readable captions nor a chapter list, so it is not linked. Rows 1 to 3 are read from automatic captions and good to about 30 seconds; row 4 is a chapter boundary from the video's chapter list, so what is said inside was judged from the chapter title and not read.
+<!-- /video-table -->
+
+## A Gaussian's mean and variance
+
+<!-- video-table: gaussian-mean-and-variance rev=1 -->
+ritvikmath on the Gaussian's two parameters, the mean that places the bump and the variance that sets its width, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | X is normal with parameters μ and σ² when its density is 1/(σ√(2π)) · e^(−(x − μ)²/(2σ²)) on the whole line, with σ² positive and μ any real number | Definition | [ritvikmath, The Normal Distribution, 0:21 to 1:42](https://www.youtube.com/watch?v=qpryHt2zBKs&t=21s) |
+| 2 | With μ = −1 and σ = 1 the bump sits at −1; changing σ² to 2 leaves it at −1 and spreads it wider | Worked example | [ritvikmath, The Normal Distribution, 9:57 to 10:59](https://www.youtube.com/watch?v=qpryHt2zBKs&t=597s) |
+| 3 | E[X] = μ: substitute u = (x − μ)/σ, the odd part integrates to 0, and the Gaussian integral squared in polar coordinates gives 2π | Proof | [ritvikmath, The Normal Distribution, 1:42 to 8:36](https://www.youtube.com/watch?v=qpryHt2zBKs&t=102s) |
+| 4 | Var(X) = E[X²] − μ² = σ², with the new integral done by parts | Proof | [ritvikmath, The Normal Distribution, 8:36 to 9:57](https://www.youtube.com/watch?v=qpryHt2zBKs&t=516s) |
+
+ritvikmath never evaluates the density's height at a point, draws the change of width only for σ² = 2, and reads the variance proof off a page he prepared rather than working it live. Times are read from the video's automatic captions and are good to about 30 seconds.
 <!-- /video-table -->
