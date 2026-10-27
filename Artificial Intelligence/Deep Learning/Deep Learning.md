@@ -8,6 +8,7 @@ Artificial Intelligence, Deep Learning. Language models are under [[Large Langua
 
 - [[Backpropagation]]: Backpropagation computes the gradient of a network's loss with respect to every weight by applying the chain rule backward from the loss, one layer at a time.
 - [[Embedding]]: An embedding is a learned vector of numbers that stands for a token, a word, a sentence, an image or any other item, placed so that items with similar meaning sit close together.
+- [[Logit]]: A logit is the raw score a model gives one class or token before the softmax, any real number; in statistics the logit of a probability p is its log-odds, log(p / (1 − p)).
 - [[Softmax]]: Softmax turns a list of real-valued scores (logits) into probabilities by exponentiating each one and dividing by the sum, so every output is positive, they add to one, and the largest score gets the largest share.
 - [[Temperature]]: Temperature is the number T that divides the logits before the softmax, so a T below 1 sharpens the distribution toward its largest logit and a T above 1 flattens it toward uniform.
 - [[Attention]]: Attention scores a query against every key, turns the scores into softmax weights, and returns the weighted sum of the values.

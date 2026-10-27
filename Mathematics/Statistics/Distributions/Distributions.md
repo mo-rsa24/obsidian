@@ -10,6 +10,7 @@ Mathematics, Statistics, Distributions. One note per family of distributions, an
 - [[Multivariate Normal Distribution]]: the Gaussian over several coordinates, set by a mean vector and a covariance matrix, in a folder: the diagonal case, sampling it, sums of independent draws and why their variances add, products and quotients (including products of Gaussian mixtures), the area a product loses, and powers.
 - [[Probability Density Function]]: A probability density function describes a continuous random variable: it is never negative, its total area is 1, and the probability of landing in an interval is the area under it there, so its height at a point can exceed 1.
 - [[Marginal Distribution]]: A marginal distribution is the distribution of one variable on its own, found from a joint distribution by summing (or, for densities, integrating) over every value of the other variables.
+- [[Binomial Distribution]]: The binomial distribution gives the chance of exactly k events in n independent trials that each succeed with chance p, C(n, k) pᵏ (1 − p)ⁿ⁻ᵏ, with mean np and variance np(1 − p).
 
 ## Where to learn this
 

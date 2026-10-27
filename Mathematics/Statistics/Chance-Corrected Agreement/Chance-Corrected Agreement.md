@@ -42,6 +42,7 @@ Mathematics, Statistics. This note is the map of its folder: the four sections a
 - [Notes in this folder](#notes-in-this-folder)
 - [Other ways](#other-ways)
 - [Taught in, applied in](#taught-in-applied-in)
+- [Where to learn this](#where-to-learn-this)
 - [How this was checked](#how-this-was-checked)
 
 ## The table and observed agreement
@@ -378,7 +379,7 @@ Navigation: ⬅️ [[#Notes in this folder]] | 📋 [[#Table of contents]] | [[#
 
 ## Taught in, applied in
 
-Navigation: ⬅️ [[#Other ways]] | 📋 [[#Table of contents]] | [[#How this was checked]] ➡️
+Navigation: ⬅️ [[#Other ways]] | 📋 [[#Table of contents]] | [[#Where to learn this]] ➡️
 
 **Taught in.**
 
@@ -391,10 +392,40 @@ Navigation: ⬅️ [[#Other ways]] | 📋 [[#Table of contents]] | [[#How this w
 
 - The v3 product-content judge in the Dis-Chem product data repo: a judge that passes nearly every approved gold page, validated against 8 gold pages plus planted defects, where raw agreement is high from the start and kappa could sit near zero. Its real yes-rates are not measured yet.
 
+## Where to learn this
+
+Navigation: ⬅️ [[#Taught in, applied in]] | 📋 [[#Table of contents]] | [[#How this was checked]] ➡️
+
+**Cohen's kappa**, agreement beyond what the two raters' own rates give by chance, κ = (pₒ − pₑ) / (1 − pₑ), with Scott's pi as the variant that pools the two rates. Also: kappa, Scott's pi, inter-rater agreement, chance-corrected agreement.
+
+**Textbooks**
+
+- Natural language processing with Python, section 11.2, Quality control: [pages 435 to 436](../../references/textbooks/natural-language-processing/natural-language-processing-with-python.pdf#page=435). Works the correction with numbers: with four equally likely codes two random annotators agree 25% of the time, so 25% maps to kappa 0 and 50% agreement to 0.333, a third of the way from 25% to 100%.
+
+No other shelf book teaches kappa: the back-of-book indexes list it only in this book, and `find-examples.py` found no other chance-corrected agreement worked on the shelf.
+
+**Videos**
+
+- CME295 lecture 8, 8:50 to 17:57: [watch](https://www.youtube.com/watch?v=8fNP4N46RRo&t=530s). Computes the agreement rate of two raters voting at random, P(A)P(B) + (1 − P(A))(1 − P(B)), already 0.5 when both rates are 0.5, then introduces Cohen's kappa to subtract it. Caption-read.
+
+**Papers**
+
+- Thakur and others 2024, Judging the judges, appendix B: [pages 13 to 14](/home/molef/goal-setting/learning/ai-engineering/prototype-product-data-validation-end-to-end/sources/judging-the-judges/paper/2406.12624.pdf#page=13). Explains why Cohen's kappa misleads when one judge passes nearly everything and uses Scott's pi instead, whose chance baseline pools the two raters' distributions.
+- Rao and Callison-Burch 2026, agreement metrics for LLM judges, section 4.2, Marginal normalization: kappa versus phi: [page 5](/home/molef/goal-setting/learning/ai-engineering/prototype-product-data-validation-end-to-end/sources/agreement-metrics-for-llm-judges/paper/2606.00093.pdf#page=5). Places kappa outside the family of correlations on binary verdicts (Pearson, phi, MCC) because it discounts the agreement the marginal rates alone predict.
+
+**Our plans and chapters**
+
+- [Scott's pi and Cohen's kappa](/home/molef/goal-setting/learning/ai-engineering/chance-corrected-agreement/textbook/03-scotts-pi-and-cohens-kappa.md), ai-engineering/chance-corrected-agreement, chapter 03. Two judges on the same 20 products both agree 85% of the time, yet the rubber stamp that passes everything gets κ = 0.000 and π = −0.081, because the baselines use each rater's own rate or one pooled rate.
+- [Kappa derived, and what 0 and 1 mean](/home/molef/goal-setting/learning/ai-engineering/agent-evaluation/validating-an-llm-judge/plans/07-kappa-derived.md), ai-engineering/agent-evaluation/validating-an-llm-judge, plan 07. Derives kappa as the share of the room above chance that was reached, on textbook 10.3's ten pairs and then the judge.
+- [Scott's pi: one pooled pass rate](/home/molef/goal-setting/learning/ai-engineering/agent-evaluation/validating-an-llm-judge/plans/08-scotts-pi.md), ai-engineering/agent-evaluation/validating-an-llm-judge, plan 08. Pools the two raters' pass rates into one and compares the result with Cohen's on a lenient judge.
+- [The kappa paradox](/home/molef/goal-setting/learning/ai-engineering/agent-evaluation/validating-an-llm-judge/plans/09-the-kappa-paradox.md), ai-engineering/agent-evaluation/validating-an-llm-judge, plan 09. Shows pₑ approaching 1 as both pass rates approach 1, so kappa falls while observed agreement stays high.
+- [Labelling 40 transactions twice and measuring the agreement](/home/molef/goal-setting/learning/data-engineering/data-for-ml/plans/02-labelling-and-agreement.md), data-engineering/data-for-ml, plan 02. Labels 40 transactions in two passes a week apart and computes kappa between them in `kappa.py`, beside raw agreement.
+
 ## How this was checked
 
-Navigation: ⬅️ [[#Taught in, applied in]] | 📋 [[#Table of contents]]
+Navigation: ⬅️ [[#Where to learn this]] | 📋 [[#Table of contents]]
 
 > [!note]- How this was checked
 > The two scripts behind the numbers, `test-jung.py` and `test-2-pass-rates.py`, were run on 2026-10-18 on a Mac with Python 3.12, and their saved outputs match every number in the four-judge table (kappa 0.318, 0.459, 0.000, 0.583; Scott pi 0.314, 0.444, −0.081, 0.570). Judge B's exact kappa is 0.4595. The identity $\kappa = q\phi$ and the scikit-learn cross-check were run in the learning tree's chapter scripts. The page claims about Thakur et al. and Rao and Callison-Burch were read from the PDFs. The child notes' scripts were rerun from empty folders the same day and match the learning tree's saved outputs. The six pictures are script-drawn from the same counts. The counts are invented, and none is a measurement of the v3 judge. The note has not been rendered in Obsidian.
 > Claims marked stated, 1: the "fair" band label, which is a convention and not derived here.
+> Every line under Where to learn this was opened before it was written, on 2026-10-27: the NLTK pages and both papers in their PDFs with pdftotext, the CME295 row in its caption-read lecture map, and each plan and chapter at its heading and toy. A script then confirmed every link's file, PDF page and video start. AI engineering reports raw inter-labeller and judge agreement (73% and 85%) on pages 173 to 183 and 271 to 281 without a chance correction, so it has no line. Scott's pi stays on this card rather than a card of its own, because every source here teaches it beside kappa as the other choice of chance baseline.

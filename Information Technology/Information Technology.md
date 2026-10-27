@@ -15,3 +15,5 @@ Information Technology. Things with a version you install, such as [[Docker]] an
 - [[System Design]]: System design is choosing the parts of a service and how they talk so it stays fast and correct as users grow.
 - [[DevOps]]: DevOps is the practice of building, shipping and running software as one loop.
 - [[Test Double]]: A test double is any object that stands in for a real dependency during a test: a fake really works but holds its data in memory, a stub returns fixed answers, and a mock records how it was called so the test can check the calls.
+- [[Check Digit]]: A check digit is one extra digit computed from the others in a code (a GS1 barcode, an ISBN) as a weighted sum mod 10 or mod 11, so a mistyped or misread digit shows up as a mismatch. Placement unsure.
+- [[Edit Distance]]: Edit distance (the Levenshtein distance) is the fewest one-character insertions, deletions and substitutions that turn one string into another, found by filling a table of prefix distances. Placement unsure.

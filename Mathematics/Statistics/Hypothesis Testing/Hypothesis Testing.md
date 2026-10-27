@@ -15,6 +15,7 @@ Mathematics, Statistics. [[Confidence Interval]] sits in this folder, and [[Boot
 > - The explanation is not written yet. This note holds only its card, under Where to learn this, and the next walk that teaches hypothesis testing writes the rest around it.
 
 - [[Confidence Interval]]: A confidence interval is a range computed from a sample by a procedure that, over many repeated samples, contains the true parameter a stated share of the time, such as 95%.
+- [[Rule Of Three]]: After zero events in n independent trials, the rule of three bounds the true rate below about 3/n with 95% confidence, an approximation to the exact bound 1 − 0.05^(1/n).
 
 ## Where to learn this
 

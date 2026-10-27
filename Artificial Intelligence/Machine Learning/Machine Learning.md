@@ -15,3 +15,4 @@ Artificial Intelligence, Machine Learning. [[Cross-Entropy]] and [[Backpropagati
 - [[Classifier]]: A classifier is a model that assigns each input one label from a fixed set of classes, such as spam or not spam, or one of three iris species, usually by first giving a probability for every class.
 - [[Accuracy]]: Accuracy is the share of predictions a classifier gets right, correct predictions divided by all predictions; one minus it is the misclassification rate.
 - [[Precision And Recall]]: Precision is the share of the items a model flagged that really are positive, TP / (TP + FP); recall is the share of the real positives it found, TP / (TP + FN); the F1 score is their harmonic mean.
+- [[Mean Reciprocal Rank]]: Mean reciprocal rank scores a ranked list by where the first relevant item lands, 1 divided by its rank, averaged over queries; MRR@k scores 0 outside the top k.
