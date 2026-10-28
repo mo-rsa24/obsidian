@@ -48,14 +48,16 @@ Navigation: 📋 [[#Table of contents|TOC]] | [[#When to reach for the three ope
 
 **Guidance as a product.** Classifier and classifier-free guidance multiply two experts: one for how likely $x$ is at all, one for how likely the label $y$ is given $x$. Their product is proportional to $p(x \mid y)$ by Bayes' rule<sub>[1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/textbook/01-joint-tables-and-independence.md#15-bayes-in-two-lines-from-the-definition "PoE derivation foundations, chapter 1.5, Bayes in two lines from the definition"), [2](../../../../Mathematics/references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=105 "introduction to probability for data science p. 105")</sub>. *Cited:* section 3, paragraph 3: "The approaches to guidance discussed in Section 2 define product models with only two experts."
 
-<!-- video-table: classifier-free-guidance rev=1 -->
-Umar Jamil on classifier-free guidance:
+<!-- video-table: classifier-free-guidance rev=2 -->
+Stanford CME296, then Umar Jamil, on guidance, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
-| 1 | Classifier-free guidance, and how it steers sampling toward the prompt | Intuition | [Umar Jamil, Coding Stable Diffusion from scratch, 22:20 to 31:00](https://www.youtube.com/watch?v=ZBKpAp_6TGI&t=1340s) |
+| 1 | Orient before the sitting: classifier guidance, a separate classifier's gradient added to each step | Intuition | [CME296, lecture 4, 1:27:42 to 1:34:34](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=5262s) |
+| 2 | Classifier-free guidance, and how it steers sampling toward the prompt | Intuition | [Umar Jamil, Coding Stable Diffusion from scratch, 22:20 to 31:00](https://www.youtube.com/watch?v=ZBKpAp_6TGI&t=1340s) |
+| 3 | Confirm after the sitting: Bayes' rule gives an implicit classifier from a conditional and an unconditional pass, so two forward passes replace the classifier | Proof | [CME296, lecture 4, 1:34:34 to 1:40:58](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=5674s) |
 
-Umar Jamil does not write guidance as a product of two experts or the guidance scale as a power. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+Neither writes guidance as a product of two experts or the guidance scale as a power, and no label-accuracy measure is shown. Rows 1 and 3 are caption-read and good to about 30 seconds; row 2 is a chapter boundary from Umar Jamil's chapter list, so the sentence inside it is not checked.
 <!-- /video-table -->
 
 ## When to reach for the three operators

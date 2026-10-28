@@ -614,14 +614,16 @@ CS236 anneals one model's score; it does not anneal a sum of two models' scores,
 
 ## Classifier-free guidance
 
-<!-- video-table: classifier-free-guidance rev=1 -->
-Umar Jamil on classifier-free guidance:
+<!-- video-table: classifier-free-guidance rev=2 -->
+Stanford CME296, then Umar Jamil, on guidance, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
-| 1 | Classifier-free guidance, and how it steers sampling toward the prompt | Intuition | [Umar Jamil, Coding Stable Diffusion from scratch, 22:20 to 31:00](https://www.youtube.com/watch?v=ZBKpAp_6TGI&t=1340s) |
+| 1 | Orient before the sitting: classifier guidance, a separate classifier's gradient added to each step | Intuition | [CME296, lecture 4, 1:27:42 to 1:34:34](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=5262s) |
+| 2 | Classifier-free guidance, and how it steers sampling toward the prompt | Intuition | [Umar Jamil, Coding Stable Diffusion from scratch, 22:20 to 31:00](https://www.youtube.com/watch?v=ZBKpAp_6TGI&t=1340s) |
+| 3 | Confirm after the sitting: Bayes' rule gives an implicit classifier from a conditional and an unconditional pass, so two forward passes replace the classifier | Proof | [CME296, lecture 4, 1:34:34 to 1:40:58](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=5674s) |
 
-Umar Jamil does not write guidance as a product of two experts or the guidance scale as a power. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+Neither writes guidance as a product of two experts or the guidance scale as a power, and no label-accuracy measure is shown. Rows 1 and 3 are caption-read and good to about 30 seconds; row 2 is a chapter boundary from Umar Jamil's chapter list, so the sentence inside it is not checked.
 <!-- /video-table -->
 
 ## Bayes' theorem
