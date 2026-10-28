@@ -41,5 +41,10 @@ Artificial Intelligence, Generative Modeling, Diffusion Models. Needs: [[Score F
 - [Classifier-free guidance as base plus omega times a difference](/home/molef/goal-setting/learning/deep-learning/diffusion-models/05-poe-composition-diffusion/plans/02-cfg-as-base-plus-omega-difference.md), deep-learning/diffusion-models/05-poe-composition-diffusion, plan 02. Rewrites the guidance update as u_base + ω(u_guided − u_unguided) by hand and names which term plays each role.
 - [1.1 Classifier-free guidance, one concept, one line](/home/molef/goal-setting/learning/deep-learning/diffusion-models/10-plurality-and-timestep-scheduling/textbook/01-the-and-operator-derived.md#11-classifier-free-guidance-one-concept-one-line), deep-learning/diffusion-models/10-plurality-and-timestep-scheduling, chapter 01. States the single-concept form ε̂ = ε_∅ + ω(ε_c − ε_∅) as the starting point for the AND of n concepts.
 
+**Scenes**
+
+- [SDXL cross-attention, PoE and LoRA notebook, Guidance inside each PoE branch](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec14). Classifier-free guidance applied to each prompt's branch before the PoE sum.
+- [SDXL cross-attention, PoE and LoRA notebook, Training LoRA against the Mono teacher](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec16). The student's guided PoE on prompts A and B trained toward a frozen teacher on the joint prompt, with gradients reaching only A and B.
+
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook and paper page was read in the PDF with pdftotext, after finding it through the book's back-of-book index or the paper shelf index. Each video row was read in its course's caption-read lecture map under `~/.claude/cache/captions/` or in the video lessons index, and its description paraphrases that row. Each plan and chapter was read at its title and opening. A script then opened every link and confirmed the file exists, the page is inside the PDF, and each video start matches a row's start.

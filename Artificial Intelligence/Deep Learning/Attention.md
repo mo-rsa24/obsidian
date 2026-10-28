@@ -1,6 +1,6 @@
 ---
 aliases: [attention, attention mechanism, self-attention, scaled dot-product attention, dot-product attention, dot-product self-attention, multi-head attention, softmax(QK^T/sqrt(d))V, query key value]
-link-skip: [pay attention, needs attention, need attention, more attention, attention to detail, draw attention, your attention]
+link-skip: [pay attention, needs attention, need attention, more attention, attention to detail, draw attention, your attention, centre of attention]
 link-skip-in: [system-design/]
 standard: vault-note v2
 ---
@@ -41,6 +41,10 @@ Artificial Intelligence, Deep Learning.
 - [Show why attention scores are divided by the square root of d](/home/molef/goal-setting/learning/deep-learning/transformers/plans/25-show-why-attention-scores-are-divided.md), deep-learning/transformers, plan 25. The [variance of a dot product](../../Mathematics/references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=199) of random vectors grows with their length d.
 - [Say how cross-attention differs from self-attention](/home/molef/goal-setting/learning/deep-learning/transformers/textbook/45-say-how-cross-attention-differs-from-self.md), deep-learning/transformers, chapter 45. A 2-word decoder reads a 3-word encoder, so the queries come from one sequence and the keys and values from the other.
 - [Self-attention, attn1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/latent-diffusion-architecture-rebuilt/plans/06-self-attention.md), deep-learning/diffusion-models/latent-diffusion-architecture-rebuilt, plan 06. Scaled dot-product attention derived by hand, then scoped to the UNet's image tokens.
+
+**Scenes**
+
+- [SDXL cross-attention, PoE and LoRA notebook, Self-attention](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec8). Self-attention among image tokens, a 4096 by 4096 map at full size.
 
 **Figures**
 

@@ -1,5 +1,6 @@
 ---
 aliases: [temperature, sampling temperature, softmax temperature, temperature scaling, temperature parameter]
+link-skip: [sequence of temperatures]
 standard: vault-note v2
 ---
 

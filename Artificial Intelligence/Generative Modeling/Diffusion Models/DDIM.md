@@ -39,5 +39,9 @@ Artificial Intelligence, Generative Modeling, Diffusion Models. It samples a net
 - [DDIM as a discretised probability flow ODE](/home/molef/goal-setting/learning/deep-learning/diffusion-models/03-score-sde/plans/03-ddim-as-a-discretised-ode.md), deep-learning/diffusion-models/03-score-sde, plan 03. Works the same derivation as a 60-minute sitting, then samples the toy in 10, 50 and 1000 steps with DDIM, the ancestral sampler and plain Euler, and compares all three.
 - [DDIM: the non-Markovian chain, and why determinism made the dial readable](/home/molef/goal-setting/learning/deep-learning/diffusion-models/02-sampler-correctors-for-composition/plans/32-ddim-non-markovian-and-deterministic-limit.md), deep-learning/diffusion-models/02-sampler-correctors-for-composition, plan 32. Derives DDIM's family of reverse steps, picks the member the project's scheduler uses, and checks that a fixed start retraces its path.
 
+**Scenes**
+
+- [SDXL cross-attention, PoE and LoRA notebook, The DDIM step](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec18). The clean latent predicted from the noise, then re-noised to the earlier step.
+
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook and paper page range was read in the PDF with pdftotext; the textbook pages were found through the books' back-of-book indexes ("DDIM" and "denoising diffusion implicit model"). Understanding deep learning's other index page, PDF page 384, is a notes paragraph and has no line. The three CME296 rows were read in its caption-read lecture map under `~/.claude/cache/captions/` and paraphrase the map. The video lessons index sections "DDIM" and "DDIM as an ODE solver" cite the same lecture from 1:29:49, a start time read separately from the captions; the map rows are used here. Each plan and chapter was read at its title and description.

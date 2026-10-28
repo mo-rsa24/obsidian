@@ -32,6 +32,10 @@ Artificial Intelligence, Large Language Models. The token IDs it produces are wh
 - Vizuara, Lecture 8: The GPT Tokenizer: Byte Pair Encoding, Implementing BPE in Python, 40:51 to 47:47: [watch](https://www.youtube.com/watch?v=fKd8s29e-l4&t=2451s). Byte-pair encoding written in Python, after the lecture's algorithm and practical demonstration. Chapter-timed.
 - Under The Hood, LLM Training Starts Here: Dataset Preparation & Tokenization Explained!, Byte Pair Encoding (BPE) Tokenization, 4:54 to 7:06: [watch](https://www.youtube.com/watch?v=bNjVxUDZQfM&t=294s). A short visual pass over byte-pair encoding. Chapter-timed.
 
+**Scenes**
+
+- [SDXL cross-attention, PoE and LoRA notebook, Tokenizing the prompt](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec4). "a cat and a dog" turned into 77 token ids, 7 words and 70 padding.
+
 **Figures**
 
 - <a href="/home/molef/goal-setting/learning/deep-learning/natural-language-processing/artifacts/figures/llm-concepts-cheatsheet/jaydeepkarale-ai-llm-concepts-part1.jpg"><img src="/home/molef/goal-setting/learning/deep-learning/natural-language-processing/artifacts/figures/llm-concepts-cheatsheet/jaydeepkarale-ai-llm-concepts-part1.jpg" width="140" alt="A ten-panel cheat sheet whose panel 1 splits I love AI! into four tokens with ids 101, 732, 4287 and 0"></a> Jaydeep Karale on X, "AI / LLM Concepts Cheat Sheet (Part 1)": [the post](https://x.com/_jaydeepkarale/status/2095815664187609355), [what it shows](/home/molef/goal-setting/learning/deep-learning/natural-language-processing/artifacts/figures/llm-concepts-cheatsheet/README.md#jaydeepkarale-ai-llm-concepts-part1jpg). Panel 1 splits "I love AI!" into "I", "love", "AI" and "!" with ids 101, 732, 4287 and 0, and says a token can be a word, a subword or a character and that the split is model-specific (BPE, SentencePiece, tiktoken).

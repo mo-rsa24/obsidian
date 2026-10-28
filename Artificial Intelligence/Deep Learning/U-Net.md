@@ -38,5 +38,9 @@ Artificial Intelligence, Deep Learning. It is an [[Encoder-Decoder]] for images,
 - [Wiring VAE, UNet and cross-attention into one forward pass](/home/molef/goal-setting/learning/deep-learning/diffusion-models/latent-diffusion-architecture-rebuilt/plans/10-wire-forward-pass.md), deep-learning/diffusion-models/latent-diffusion-architecture-rebuilt, plan 10. The UNet joined to a VAE and cross-attention in one latent diffusion forward pass.
 - [Where the LoRA touches the UNet, and what each place can change](/home/molef/goal-setting/learning/deep-learning/diffusion-models/where-the-lora-touches-the-unet-corridor/MASTER_PLAN.md), deep-learning/diffusion-models/where-the-lora-touches-the-unet-corridor. A corridor across two journeys about which UNet layers a LoRA adapts and what each can change.
 
+**Scenes**
+
+- [SDXL cross-attention, PoE and LoRA notebook, The UNet's shapes](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec6). The latent's shape through a toy UNet, down to 16 by 16 and back to 128 by 128.
+
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook page was read in the PDF with pdftotext, first found through the books' back-of-book indexes ("U-Net", "U-net"). The three lecture rows were read in their caption-read lecture maps under `~/.claude/cache/captions/`. The TileStats chapter list was read with `cache-video-chapters.py` and its line is described from chapter and video titles only. The video lessons index section "How a condition reaches a UNet through attention" covers cross-attention into a UNet rather than the UNet itself and has no line. Each plan was read at its title and position line. A script then opened every link and confirmed the file exists, the page is inside the PDF, and each video start matches a row's start in a lecture map or a cached chapter list.

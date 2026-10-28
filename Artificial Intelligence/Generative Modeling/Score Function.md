@@ -47,6 +47,10 @@ Artificial Intelligence, Generative Modeling. The composition notes use the word
 - [Noise prediction is the score](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/11-noise-prediction-is-the-score.md), deep-learning/diffusion-models/01-poe-derivation-foundations, plan 11. The identity between the predicted noise and the score, derived twice in two notations.
 - [Energy: p proportional to exp(−E)/Z, and why the score never sees Z](/home/molef/goal-setting/learning/deep-learning/diffusion-models/02-sampler-correctors-for-composition/plans/04-energy-and-the-missing-normaliser.md), deep-learning/diffusion-models/02-sampler-correctors-for-composition, plan 04. Why the normaliser vanishes from the score.
 
+**Scenes**
+
+- [SDXL cross-attention, PoE and LoRA notebook, PoE fails on cat and dog](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec13). Adding a cat expert's score to a dog expert's lands at the origin, distance 2 from both modes, while the two-mode mixture's score keeps both.
+
 **Figures**
 
 - <a href="/home/molef/goal-setting/learning/deep-learning/diffusion-models/04-schrodinger-bridges/artifacts/figures/foundations-of-schrodinger-bridges/ch4-time-reversal.jpg"><img src="/home/molef/goal-setting/learning/deep-learning/diffusion-models/04-schrodinger-bridges/artifacts/figures/foundations-of-schrodinger-bridges/ch4-time-reversal.jpg" width="200" alt="Forward SDE paths fanning out from one start point beside reverse-time paths running back from the end point, each with its Fokker-Planck equation"></a> Sophia Tang, "Foundations of Schrödinger Bridges for Generative Modeling", chapter 4 figure: [the paper](https://arxiv.org/abs/2603.18992), [what it shows](/home/molef/goal-setting/learning/deep-learning/diffusion-models/04-schrodinger-bridges/artifacts/figures/foundations-of-schrodinger-bridges/README.md#ch4-time-reversaljpg). The reverse-time SDE in the bottom-right box needs the forward drift f and one more term, σ² ∇ log p_{T−s}, so the score is the only thing a sampler must know to run the forward paths backwards.

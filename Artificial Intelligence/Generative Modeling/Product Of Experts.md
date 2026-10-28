@@ -47,6 +47,8 @@ Artificial Intelligence, Generative Modeling. Needs: [[Energy-Based Model]]. Com
 **Scenes**
 
 - [Kinds of composition notebook, Four kinds of composition](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec5). Co-occurrence, contention and interaction computed as products of two experts' densities on one grid.
+- [SDXL cross-attention, PoE and LoRA notebook, PoE fails on cat and dog](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec13). Adding a cat expert's score to a dog expert's lands at the origin, distance 2 from both modes, while the two-mode mixture's score keeps both.
+- [SDXL cross-attention, PoE and LoRA notebook, Guidance inside each PoE branch](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec14). Classifier-free guidance applied to each prompt's branch before the PoE sum.
 
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook and paper page was read in the PDF with pdftotext, after finding it through the book's back-of-book index or the paper shelf index. The video row was read in the video lessons index, and its description paraphrases that row. Each plan and chapter was read at its title and opening. A script then opened every link and confirmed the file exists, the page is inside the PDF, and each video start matches a row's start.
