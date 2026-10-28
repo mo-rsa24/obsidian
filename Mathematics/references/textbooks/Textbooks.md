@@ -64,6 +64,14 @@ table on this page gives PDF pages.
 | the area under a product of two Gaussian densities | [matrix cookbook](linear-algebra/matrix-cookbook.pdf#page=42) | 42 |
 | completing the square | [algebra handbook](algebra/algebra-handbook.pdf#page=74) | 74 |
 | matrix multiplication | [algebra handbook](algebra/algebra-handbook.pdf#page=91) | 91 |
+| summation notation (Σ) and its properties | [algebra handbook](algebra/algebra-handbook.pdf#page=165) | 165 |
+| square root and radical rules (√(a/b) = √a/√b, √a = a^½) | [algebra handbook](algebra/algebra-handbook.pdf#page=86) | 86 |
+| the transpose of a matrix (Definition 7, rows become columns) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=49) | 49 |
+| properties of the transpose, (AB)ᵀ = BᵀAᵀ (Theorem 1.4.8) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=62) | 62 |
+| the dot product, multiply components and add (Definition 4) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=161) | 161 |
+| convex combination: nonnegative weights summing to 1 | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=712) | 712 |
+| matrix times vector, yᵢ = Σⱼ Aᵢⱼxⱼ | [matrix-vector multiplication](linear-algebra/matrix-vector-multiplication.pdf#page=1) | 1 |
+| variance of a sum of random variables, V[x + y] (6.48) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=199) | 199 |
 | gradient of a quadratic form | [matrix cookbook](linear-algebra/matrix-cookbook.pdf#page=11) | 11 |
 | conditional Gaussian; a linear combination of Gaussians, so variances add | [matrix cookbook](linear-algebra/matrix-cookbook.pdf#page=41) | 41 |
 | expectation of linear forms | [matrix cookbook](linear-algebra/matrix-cookbook.pdf#page=35) | 35 |
