@@ -1,5 +1,6 @@
 ---
 aliases: [probability, probability theory, probability space, sample space, event space, axioms of probability, probability axioms, classical probability]
+link-skip: [probability textbook, Introduction to Probability for Data Science]
 standard: vault-note v2
 ---
 

@@ -368,6 +368,11 @@ table on this page gives PDF pages.
 | the translation vector of a translation in computer graphics (section 10.9) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=612) | 612 |
 | vertical translation f(x) + k, and the other graph transformations, in one table | [algebra handbook](algebra/algebra-handbook.pdf#page=33) | 33 |
 | a linear combination of functions, a₁f₁ + a₂f₂ + … + aₙfₙ | [algebra handbook](algebra/algebra-handbook.pdf#page=53) | 53 |
+| total variation distance: half the L1 distance between two densities, as an f-divergence (section 2.7.4, definition) | [probabilistic machine learning: advanced topics](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=94) | 94 |
+| importance sampling: weights as the ratio of target to proposal density (section 11.5.1, direct importance sampling) | [probabilistic machine learning: advanced topics](machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=518) | 518 |
+| loss functions for regression: squared loss is minimised by the conditional average E[t given x] (section 1.5.5) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=65) | 65 |
+| binary logistic regression: p(y = 1 given x) = σ(wᵀx + b) (section 10.2, definition) | [probabilistic machine learning: an introduction](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=377) | 377 |
+| rank of a matrix: row space and column space have the same dimension (section 4.8, Theorem 4.8.1) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=263) | 263 |
 
 ## general/
 

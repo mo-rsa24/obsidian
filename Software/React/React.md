@@ -1,5 +1,6 @@
 ---
 aliases: [React, React.js, ReactJS]
+link-skip: [reacts more strongly]
 ---
 
 
