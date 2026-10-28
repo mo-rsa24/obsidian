@@ -41,7 +41,7 @@ Artificial Intelligence, Deep Learning.
 
 **Scenes**
 
-- [Kinds of composition notebook, 1. Example: same points, different labels](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec2). The denoising loss and one gradient step, showing the gradient is identical under two labellings because no label enters the loss.
+- [Kinds of composition notebook, Same points, two labellings](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec2). The denoising loss and one gradient step, showing the gradient is identical under two labellings because no label enters the loss.
 
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-22. Each textbook page range was read in the PDF with pdftotext; the AI engineering pages were first found through the links in its back-of-book index (PDF pages 932 to 988). Pattern recognition and machine learning also derives backpropagation, in section 5.3 from PDF page 260, and has no line here only to keep the list short. Each video row was read in its course's caption-read lecture map under `~/.claude/cache/captions/`, and its description paraphrases the map, never the machine-translated captions. Each plan and chapter was read at its title and description. A script then opened every link and confirmed the file exists, the page is inside the PDF, and each video start matches a row's start.

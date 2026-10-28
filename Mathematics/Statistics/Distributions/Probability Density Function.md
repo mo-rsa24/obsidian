@@ -40,7 +40,7 @@ Mathematics, Statistics, Distributions. [[Inverse Transform Sampling]] turns a d
 
 **Scenes**
 
-- [Kinds of composition notebook, the opening and its helpers](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec1). The ideal expert's log-density on a grid, in four steps from the 2D Gaussian to its logsumexp form, then normalised so it integrates to 1.
+- [Kinds of composition notebook, Setup: the ideal expert](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec1). The ideal expert's log-density on a grid, in four steps from the 2D Gaussian to its logsumexp form, then normalised so it integrates to 1.
 
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook range was read with pdftotext, after finding it through the books' back-of-book indexes. The two Organic Chemistry Tutor rows and the StatQuest row are copied from the video lessons index, section "A density integrates to 1". The Professor Leonard chapter list was read with cache-video-chapters.py and the line is described from its chapter title only. Each plan and chapter was read at its title and opening lines. Probabilistic machine learning: an introduction defines the pdf in section 2.2.2.2 on PDF page 63 in a few lines and was left out. "PDF" is not an alias because the word names files throughout the learning tree. "Density" is an alias: in a sample of 25 learning-tree lines, all 25 meant a probability density.

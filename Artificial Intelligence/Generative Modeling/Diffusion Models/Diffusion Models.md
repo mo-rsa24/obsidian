@@ -108,7 +108,7 @@ The samplers composition borrows are taught under Mathematics, in [[Markov Chain
 
 **Scenes**
 
-- [Kinds of composition notebook, the opening and its helpers](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec1). The ideal expert's log-density on a grid, in four steps from the 2D Gaussian to its logsumexp form, then normalised so it integrates to 1.
+- [Kinds of composition notebook, Setup: the ideal expert](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec1). The ideal expert's log-density on a grid, in four steps from the 2D Gaussian to its logsumexp form, then normalised so it integrates to 1.
 
 **Figures**
 
