@@ -106,6 +106,10 @@ The samplers composition borrows are taught under Mathematics, in [[Markov Chain
 - [DDPM end to end on two moons](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/plans/01-ddpm-end-to-end-on-two-moons.md), deep-learning/diffusion-models/00-from-scratch-to-sdxl, plan 01. A whole DDPM trained and sampled on the two-moons toy, then the same code with 10 steps in place of 1000.
 - [The schedule and one reverse step](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/10-schedule-and-reverse-step.md), deep-learning/diffusion-models/01-poe-derivation-foundations, plan 10. The noise schedule plotted from your own configuration, and one reverse step written out with every term named.
 
+**Scenes**
+
+- [Kinds of composition notebook, the opening and its helpers](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec1). The ideal expert's log-density on a grid, in four steps from the 2D Gaussian to its logsumexp form, then normalised so it integrates to 1.
+
 **Figures**
 
 - <a href="/home/molef/goal-setting/learning/deep-learning/diffusion-models/04-schrodinger-bridges/artifacts/figures/foundations-of-schrodinger-bridges/hero-diffusion-against-bridge.jpg"><img src="/home/molef/goal-setting/learning/deep-learning/diffusion-models/04-schrodinger-bridges/artifacts/figures/foundations-of-schrodinger-bridges/hero-diffusion-against-bridge.jpg" width="200" alt="Top row a cat fading to noise under a diffusion model, bottom row a cat morphing into a dog under a Schrodinger bridge"></a> Sophia Tang, "Foundations of Schrödinger Bridges for Generative Modeling", cover figure: [the paper](https://arxiv.org/abs/2603.18992), [what it shows](/home/molef/goal-setting/learning/deep-learning/diffusion-models/04-schrodinger-bridges/artifacts/figures/foundations-of-schrodinger-bridges/README.md#hero-diffusion-against-bridgejpg). The top row is a diffusion model, a cat fading to a concentric Gaussian and run back with the score, and the bottom row is a Schrödinger bridge carrying the cat to a dog, so a diffusion model is the bridge whose far end is fixed to noise.

@@ -37,5 +37,9 @@ Artificial Intelligence, Machine Learning. Its outputs are scored by [[Accuracy]
 
 - [Classical ML from Scratch](/home/molef/goal-setting/learning/machine-learning/classical-ml-from-scratch/MASTER_PLAN.md), machine-learning/classical-ml-from-scratch. Goal 1 classifies a toy dataset with logistic regression written by hand, and goal 7 builds a confusion matrix and ROC curve for a fitted classifier from raw predictions.
 
+**Scenes**
+
+- [Kinds of composition notebook, 3. Break, part 2: a classifier](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec4). A classifier trained on the labels the data carries learns the hidden-B points as "not B".
+
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook page range was read in the PDF with pdftotext, first found through the shelf index's chapter tables (38 classification sections across the shelf) and the books' back-of-book indexes. The four lecture-map rows were read in their caption-read lecture maps under `~/.claude/cache/captions/`; the Serrano chapter list was read with `cache-video-chapters.py`, and that line is described from its chapter and video titles only. The plan was read at its goals and definition of done. The learning tree's other plans that say "classifier" build rule-based tools that sort failures or image actions, so they have no line. Bare "classifier" is an alias because, of 25 sampled uses, every one outside "classifier-free guidance" and "classifier guidance" means a model that assigns classes, and those phrases are in link-skip. Bare "classification" is not: about 13 of 25 sampled uses mean the machine learning task, and the rest mean filing schemes, product taxonomies or labelling a document field.

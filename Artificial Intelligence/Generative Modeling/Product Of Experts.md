@@ -44,5 +44,9 @@ Artificial Intelligence, Generative Modeling. Needs: [[Energy-Based Model]]. Com
 - [The assumption PoE rests on](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/02-the-assumption-poe-rests-on.md), deep-learning/diffusion-models/01-poe-derivation-foundations, plan 02. The conditional independence the derivation needs, and the tool that turns it into a formula.
 - [Textbook: deriving product of experts from the ground up](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/textbook/00-index.md), deep-learning/diffusion-models/01-poe-derivation-foundations, the textbook index. Every chapter of the derivation in reading order.
 
+**Scenes**
+
+- [Kinds of composition notebook, 4. The kinds of composition](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec5). Co-occurrence, contention and interaction computed as products of two experts' densities on one grid.
+
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook and paper page was read in the PDF with pdftotext, after finding it through the book's back-of-book index or the paper shelf index. The video row was read in the video lessons index, and its description paraphrases that row. Each plan and chapter was read at its title and opening. A script then opened every link and confirmed the file exists, the page is inside the PDF, and each video start matches a row's start.

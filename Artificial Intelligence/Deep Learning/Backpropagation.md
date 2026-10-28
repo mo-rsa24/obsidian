@@ -39,5 +39,9 @@ Artificial Intelligence, Deep Learning.
 - [Check a hand backprop against a numeric gradient in code](/home/molef/goal-setting/learning/deep-learning/transformers/plans/12-check-a-hand-backprop-against-a-numeric.md), deep-learning/transformers, plan 12. Rebuilds that network's forward and backward passes and perturbs each weight to check every slope.
 - [Apply the chain rule through two and three steps by hand](/home/molef/goal-setting/learning/deep-learning/transformers/textbook/09-apply-the-chain-rule-through-two.md), deep-learning/transformers, chapter 9. The chain rule that backpropagation repeats, on two and three nested functions.
 
+**Scenes**
+
+- [Kinds of composition notebook, 1. Example: same points, different labels](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec2). The denoising loss and one gradient step, showing the gradient is identical under two labellings because no label enters the loss.
+
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-22. Each textbook page range was read in the PDF with pdftotext; the AI engineering pages were first found through the links in its back-of-book index (PDF pages 932 to 988). Pattern recognition and machine learning also derives backpropagation, in section 5.3 from PDF page 260, and has no line here only to keep the list short. Each video row was read in its course's caption-read lecture map under `~/.claude/cache/captions/`, and its description paraphrases the map, never the machine-translated captions. Each plan and chapter was read at its title and description. A script then opened every link and confirmed the file exists, the page is inside the PDF, and each video start matches a row's start.
