@@ -34,7 +34,7 @@ Artificial Intelligence, Large Language Models. The token IDs it produces are wh
 
 **Scenes**
 
-- [SDXL cross-attention, PoE and LoRA notebook, Tokenizing the prompt](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec4). "a cat and a dog" turned into 77 token ids, 7 words and 70 padding.
+- [The SDXL notebook in ten parts, Tokenizing the prompt](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-text). "a cat and a dog" turned into 77 token ids, 7 words and 70 padding.
 
 **Figures**
 

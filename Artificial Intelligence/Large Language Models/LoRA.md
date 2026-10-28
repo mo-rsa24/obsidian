@@ -41,10 +41,10 @@ Artificial Intelligence, Large Language Models. It is one way of doing [[Fine-Tu
 
 **Scenes**
 
-- [SDXL cross-attention, PoE and LoRA notebook, LoRA on cross-attention](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec15). A frozen projection plus a low-rank update that starts at zero, on the query, key and value projections.
-- [SDXL cross-attention, PoE and LoRA notebook, Training LoRA against the Mono teacher](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec16). The student's guided PoE on prompts A and B trained toward a frozen teacher on the joint prompt, with gradients reaching only A and B.
-- [SDXL cross-attention, PoE and LoRA notebook, Residual injection](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec17). The frozen and adapted noise predictions blended by lambda, shown equal to linear interpolation.
-- [SDXL cross-attention, PoE and LoRA notebook, Attention shifted by training](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec20). A dog-snout query whose attention on 'dog' rises from 0.239 by real gradient steps on a LoRA.
+- [The SDXL notebook in ten parts, LoRA on cross-attention](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-lora). A frozen projection plus a low-rank update that starts at zero, on the query, key and value projections.
+- [The SDXL notebook in ten parts, Training LoRA against the Mono teacher](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-lora). The student's guided PoE on prompts A and B trained toward a frozen teacher on the joint prompt, with gradients reaching only A and B.
+- [The SDXL notebook in ten parts, Residual injection](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-infer). The frozen and adapted noise predictions blended by lambda, shown equal to linear interpolation.
+- [The SDXL notebook in ten parts, Attention shifted by training](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-see). A dog-snout query whose attention on 'dog' rises from 0.239 by real gradient steps on a LoRA.
 
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook page range was read in the PDF with pdftotext, after the books' back-of-book indexes pointed to them ("LoRA (low-rank adaptation)" and "QLoRA" in both books). The CS229, CME295 and CME296 rows were read in the caption-read lecture maps under `~/.claude/cache/captions/` and paraphrase the map, never the machine-translated captions. The Serrano line comes from the video's chapter list, read with cache-video-chapters.py, and is described from the chapter title only. CS229 lecture 12 at 1:08:24 to 1:15:36 weighs LoRA's costs and was left out to keep four videos. Each plan was read at its title and description. The paper Test-time compositional generalization via concept discovery uses LoRA as a baseline without teaching it and has no line.

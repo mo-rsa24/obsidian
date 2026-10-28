@@ -44,8 +44,8 @@ Artificial Intelligence, Deep Learning. The operation it varies is [[Attention]]
 
 **Scenes**
 
-- [SDXL cross-attention, PoE and LoRA notebook, Cross-attention](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec9). Cross-attention from 4096 image tokens to 77 text tokens, softmax over each row, scaled by one over root d.
-- [SDXL cross-attention, PoE and LoRA notebook, Attention shifted by training](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec20). A dog-snout query whose attention on 'dog' rises from 0.239 by real gradient steps on a LoRA.
+- [The SDXL notebook in ten parts, Cross-attention](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-attn). Cross-attention from 4096 image tokens to 77 text tokens, softmax over each row, scaled by one over root d.
+- [The SDXL notebook in ten parts, Attention shifted by training](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-see). A dog-snout query whose attention on 'dog' rises from 0.239 by real gradient steps on a LoRA.
 
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook and paper page range was read in the PDF with pdftotext; the Understanding deep learning page was found through its back-of-book index ("cross-attention", PDF page 241). Hands-on large language models (PDF page 149) and AI engineering (PDF pages 830 and 848) only mention the word and have no line. The CME295, CS231n and CME296 rows were read in the caption-read lecture maps under `~/.claude/cache/captions/`; the CS224N row is copied from the video lessons index, `Mathematics/references/videos/Video Lessons.md`, section "Cross-attention in the encoder-decoder transformer". CME296 lecture 5 at 30:29 lists cross-attention as one of three ways to inject a condition and was left out to keep four videos. Each plan and chapter was read at its title and description.

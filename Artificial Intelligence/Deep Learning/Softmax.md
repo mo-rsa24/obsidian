@@ -43,8 +43,8 @@ Artificial Intelligence, Deep Learning. It feeds [[Cross-Entropy]] when training
 
 **Scenes**
 
-- [SDXL cross-attention, PoE and LoRA notebook, Self-attention](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec8). Self-attention among image tokens, a 4096 by 4096 map at full size.
-- [SDXL cross-attention, PoE and LoRA notebook, Cross-attention](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec9). Cross-attention from 4096 image tokens to 77 text tokens, softmax over each row, scaled by one over root d.
+- [The SDXL notebook in ten parts, Self-attention](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-attn). Self-attention among image tokens, a 4096 by 4096 map at full size.
+- [The SDXL notebook in ten parts, Cross-attention](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-attn). Cross-attention from 4096 image tokens to 77 text tokens, softmax over each row, scaled by one over root d.
 
 **Figures**
 

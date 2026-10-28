@@ -44,7 +44,7 @@ Artificial Intelligence, Deep Learning.
 
 **Scenes**
 
-- [SDXL cross-attention, PoE and LoRA notebook, Self-attention](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec8). Self-attention among image tokens, a 4096 by 4096 map at full size.
+- [The SDXL notebook in ten parts, Self-attention](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-attn). Self-attention among image tokens, a 4096 by 4096 map at full size.
 
 **Figures**
 

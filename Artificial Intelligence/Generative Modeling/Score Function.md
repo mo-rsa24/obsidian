@@ -49,7 +49,7 @@ Artificial Intelligence, Generative Modeling. The composition notes use the word
 
 **Scenes**
 
-- [SDXL cross-attention, PoE and LoRA notebook, PoE fails on cat and dog](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec13). Adding a cat expert's score to a dog expert's lands at the origin, distance 2 from both modes, while the two-mode mixture's score keeps both.
+- [The SDXL notebook in ten parts, PoE fails on cat and dog](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-poe). Adding a cat expert's score to a dog expert's lands at the origin, distance 2 from both modes, while the two-mode mixture's score keeps both.
 
 **Figures**
 

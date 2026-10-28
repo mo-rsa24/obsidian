@@ -41,7 +41,7 @@ Artificial Intelligence, Generative Modeling, Diffusion Models. It samples a net
 
 **Scenes**
 
-- [SDXL cross-attention, PoE and LoRA notebook, The DDIM step](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec18). The clean latent predicted from the noise, then re-noised to the earlier step.
+- [The SDXL notebook in ten parts, The DDIM step](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-infer). The clean latent predicted from the noise, then re-noised to the earlier step.
 
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook and paper page range was read in the PDF with pdftotext; the textbook pages were found through the books' back-of-book indexes ("DDIM" and "denoising diffusion implicit model"). Understanding deep learning's other index page, PDF page 384, is a notes paragraph and has no line. The three CME296 rows were read in its caption-read lecture map under `~/.claude/cache/captions/` and paraphrase the map. The video lessons index sections "DDIM" and "DDIM as an ODE solver" cite the same lecture from 1:29:49, a start time read separately from the captions; the map rows are used here. Each plan and chapter was read at its title and description.

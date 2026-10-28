@@ -109,7 +109,7 @@ The samplers composition borrows are taught under Mathematics, in [[Markov Chain
 **Scenes**
 
 - [Kinds of composition notebook, Setup: the ideal expert](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec1). The ideal expert's log-density on a grid, in four steps from the 2D Gaussian to its logsumexp form, then normalised so it integrates to 1.
-- [SDXL cross-attention, PoE and LoRA notebook, Forward diffusion](https://claude.ai/artifact/RP59hpFThMPmbftvvWPpbi#nb-sec3). The clean latent and noise mixed into the noisy latent at t = 50, 500 and 950 under the cosine schedule, with alpha-bar worked to 0.992, 0.494 and 0.006.
+- [The SDXL notebook in ten parts, Forward diffusion](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-latent). The clean latent and noise mixed into the noisy latent at t = 50, 500 and 950 under the cosine schedule, with alpha-bar worked to 0.992, 0.494 and 0.006.
 
 **Figures**
 
