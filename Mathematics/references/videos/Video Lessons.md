@@ -232,6 +232,16 @@ The reference shelf for the moment a derivation stalls on a word a video could t
 - [[#A maximum where the derivative is zero]]
 - [[#Importance sampling]]
 - [[#A Gaussian's mean and variance]]
+- [[#UNet for images]]
+- [[#Timestep embedding]]
+- [[#Text encoders and tokenizers]]
+- [[#Text encoder embeddings]]
+- [[#CLIP's shared space]]
+- [[#The autoencoder latent]]
+- [[#The UNet's shape]]
+- [[#ResNet block and timestep]]
+- [[#Cross-attention against self-attention]]
+- [[#The reverse-time SDE]]
 
 ## Substituting a new variable into an integral (u-substitution)
 
@@ -3458,4 +3468,132 @@ ritvikmath on the Gaussian's two parameters, the mean that places the bump and t
 | 4 | Var(X) = E[X²] − μ² = σ², with the new integral done by parts | Proof | [ritvikmath, The Normal Distribution, 8:36 to 9:57](https://www.youtube.com/watch?v=qpryHt2zBKs&t=516s) |
 
 ritvikmath never evaluates the density's height at a point, draws the change of width only for σ² = 2, and reads the variance proof off a page he prepared rather than working it live. Times are read from the video's automatic captions and are good to about 30 seconds.
+<!-- /video-table -->
+
+## UNet for images
+
+<!-- video-table: unet-for-images rev=1 -->
+Stanford CME296 on why images get convolutions and a UNet, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient before the sitting: a filter scans one part of an image at a time, the bias toward nearby pixels that an MLP lacks | Intuition | [CME296, lecture 5, 9:58 to 14:44](https://www.youtube.com/watch?v=HpFdSlMeXzQ&t=598s) |
+| 2 | Confirm after the sitting: down-sampling widens what each activation has seen, up-sampling returns to the input size, and the skips join the two halves | Intuition | [CME296, lecture 5, 19:06 to 27:52](https://www.youtube.com/watch?v=HpFdSlMeXzQ&t=1146s) |
+
+No pixel-scrambling experiment is shown. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Timestep embedding
+
+<!-- video-table: timestep-embedding rev=1 -->
+Stanford CME296 on telling a network which noise level it is at, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: the step t becomes a vector of sinusoids at different frequencies, explained with hours, minutes and seconds on a watch | Intuition | [CME296, lecture 5, 27:52 to 30:31](https://www.youtube.com/watch?v=HpFdSlMeXzQ&t=1672s) |
+
+No run without the embedding is shown, so the blind run here has no counterpart. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Text encoders and tokenizers
+
+<!-- video-table: text-encoders-and-tokenizers rev=1 -->
+Stanford CME296 and CS336 on turning a prompt into vectors, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient before the sitting: tokenization, attention as softmax(QK^T/sqrt(d_k))V, and where in a transformer the text embeddings are taken from | Intuition | [CME296, lecture 4, 1:05:58 to 1:12:20](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=3958s) |
+| 2 | Unblock at the token rows in task 2.1: byte-pair encoding worked merge by merge, which is what merges.txt stores | Worked example | [CS336, lecture 1, 1:12:00 to 1:17:44](https://www.youtube.com/watch?v=JuoVZkPBiKk&t=4320s) |
+| 3 | Confirm after the sitting: CLIP projects image and text into one space and scores pairs by scaled dot product and a softmax, with the sentence taken from its last token | Intuition | [CME296, lecture 4, 1:18:35 to 1:27:20](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=4715s) |
+
+Neither lecture covers SDXL's two encoders side by side or why the penultimate layer is used. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Text encoder embeddings
+
+<!-- video-table: text-encoder-embeddings rev=1 -->
+Stanford CME296 on how text becomes per-token vectors, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: tokenization, attention inside a transformer, and where its per-token embeddings are taken out | Intuition | [CME296, lecture 4, 1:05:58 to 1:12:20](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=3958s) |
+
+One encoder only; concatenating two is not covered. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## CLIP's shared space
+
+<!-- video-table: clip-shared-space rev=1 -->
+Stanford CME296 on CLIP's shared space, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: the sentence vector is the last token's output projected into a space shared with images, the single vector that the pooled embedding is | Intuition | [CME296, lecture 4, 1:18:35 to 1:27:20](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=4715s) |
+
+Where SDXL routes the pooled vector (the timestep path) is not covered. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## The autoencoder latent
+
+<!-- video-table: autoencoder-latent rev=1 -->
+Stanford CME296 on the autoencoder's latent and diffusion inside it, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: an autoencoder's compress and decompress, and why its latent needs structure | Intuition | [CME296, lecture 4, 14:27 to 22:56](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=867s) |
+| 2 | Confirm after the sitting: train the VAE first, then the generative model on its latents, then decode | Intuition | [CME296, lecture 4, 57:01 to 1:00:31](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=3421s) |
+
+No toy-sized latent is worked. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## The UNet's shape
+
+<!-- video-table: unet-shape rev=1 -->
+Stanford CME296 and Vizuara on the UNet's shape, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: down-sampling widens what each activation has seen, up-sampling returns to the input size, and the two halves are joined | Intuition | [CME296, lecture 5, 19:06 to 27:52](https://www.youtube.com/watch?v=HpFdSlMeXzQ&t=1146s) |
+| 2 | Confirm after the sitting: up-sampling and the skip connections that carry each down level's features across to the matching up level | Intuition | [Vizuara, UNet, 26:12 to 30:26](https://www.youtube.com/watch?v=9KvngtchNww&t=1572s) |
+
+No toy-sized UNet with named blocks is drawn. Row 2 is timed from the video's chapter list, good to the chapter; the rest are caption-read, good to about 30 seconds.
+<!-- /video-table -->
+
+## ResNet block and timestep
+
+<!-- video-table: resnet-block-and-timestep rev=1 -->
+Stanford CME296 and Vizuara on residual blocks and how the time step enters them, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient before the sitting: why a residual connection makes features easy to learn, argued without maths | Intuition | [Vizuara, ResNet, 22:22 to 26:03](https://www.youtube.com/watch?v=OE3XNTBy0hA&t=1342s) |
+| 2 | Confirm after the sitting: the time step as a vector of sinusoids at different frequencies | Intuition | [CME296, lecture 5, 27:52 to 30:31](https://www.youtube.com/watch?v=HpFdSlMeXzQ&t=1672s) |
+| 3 | Confirm after the sitting: three ways to inject the time step and a condition into a UNet block, including adding them to the feature map | Intuition | [CME296, lecture 5, 30:31 to 33:21](https://www.youtube.com/watch?v=HpFdSlMeXzQ&t=1831s) |
+
+Neither shows the pooled text vector joining the time embedding, as SDXL does. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Cross-attention against self-attention
+
+<!-- video-table: cross-attention-against-self-attention rev=1 -->
+Stanford CS231N on cross-attention against self-attention, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: cross-attention takes queries and data from two different sources; self-attention has one set of inputs | Intuition | [CS231N, lecture 8, 45:00 to 46:30](https://www.youtube.com/watch?v=RQowiOF_FvQ&t=2700s) |
+| 2 | Confirm after the sitting: image captioning as the case with two kinds of things to compare, pieces of an image and words | Intuition | [CS231N, lecture 8, 49:45 to 50:40](https://www.youtube.com/watch?v=RQowiOF_FvQ&t=2985s) |
+
+No diffusion UNet is shown; text conditioning a picture is the reverse direction of the captioning example. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## The reverse-time SDE
+
+<!-- video-table: reverse-time-sde rev=1 -->
+Stanford CME296 on the reverse-time SDE, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: the reverse SDE driven by the score, solved step by step with Euler-Maruyama | Proof | [CME296, lecture 2, 1:25:14 to 1:30:32](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=5114s) |
+
+Composition of scores is not discussed. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
