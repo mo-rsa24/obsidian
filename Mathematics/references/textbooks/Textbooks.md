@@ -350,6 +350,16 @@ table on this page gives PDF pages.
 | composition of functions: (f ∘ g)(x) = f(g(x)), the function closest to the variable acts first | [algebra handbook](algebra/algebra-handbook.pdf#page=27) | 27 |
 | the distributive property, a(b + c) = ab + ac, with the commutative and associative properties | [algebra handbook](algebra/algebra-handbook.pdf#page=16) | 16 |
 | context recall for a retriever: of all the documents relevant to the query, the share retrieved; context precision on page 513, and NDCG, MAP and MRR only named (definition) | [AI engineering](ai-engineering/ai-engineering.pdf#page=514) | 514 |
+| a linear mapping: Φ(λx + ψy) = λΦ(x) + ψΦ(y) for all vectors and scalars (Definition 2.15) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=54) | 54 |
+| an affine subspace L = x₀ + U, a subspace shifted by its support point x₀ (Definition 2.25) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=67) | 67 |
+| an affine mapping φ(x) = a + Φ(x), a linear mapping plus the translation vector a (Definition 2.26, continued on PDF page 69) | [mathematics for machine learning](machine-learning/mathematics-for-machine-learning.pdf#page=68) | 68 |
+| matrix transformations, and every linear transformation from Rⁿ to Rᵐ is one (Theorem 1.8.3; section 1.8 opens on PDF page 91) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=93) | 93 |
+| a linear transformation between general vector spaces: T(ku) = kT(u) and T(u + v) = T(u) + T(v) (Definition 1, section 8.1) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=461) | 461 |
+| translation is not linear: a linear transformation sends 0 to 0, so T(x) = x + x₀ is not one (Example 8, section 8.1) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=464) | 464 |
+| a line or plane through x₀ is the translation by x₀ of the one through the origin (Remark after Theorem 3.4.2) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=179) | 179 |
+| the translation vector of a translation in computer graphics (section 10.9) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=612) | 612 |
+| vertical translation f(x) + k, and the other graph transformations, in one table | [algebra handbook](algebra/algebra-handbook.pdf#page=33) | 33 |
+| a linear combination of functions, a₁f₁ + a₂f₂ + … + aₙfₙ | [algebra handbook](algebra/algebra-handbook.pdf#page=53) | 53 |
 
 ## general/
 
