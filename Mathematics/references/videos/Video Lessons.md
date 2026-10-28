@@ -242,6 +242,17 @@ The reference shelf for the moment a derivation stalls on a word a video could t
 - [[#ResNet block and timestep]]
 - [[#Cross-attention against self-attention]]
 - [[#The reverse-time SDE]]
+- [[#The variance of a dot product]]
+- [[#Gradient descent]]
+- [[#The chain rule]]
+- [[#Backpropagation]]
+- [[#Stochastic gradient descent]]
+- [[#Softmax]]
+- [[#Context vectors in code]]
+- [[#Query, key and value projections]]
+- [[#Self-attention scores and weights]]
+- [[#Self-attention in matrix form]]
+- [[#Layer normalisation]]
 
 ## Substituting a new variable into an integral (u-substitution)
 
@@ -3596,4 +3607,137 @@ Stanford CME296 on the reverse-time SDE, to watch after this sitting:
 | 1 | Confirm after the sitting: the reverse SDE driven by the score, solved step by step with Euler-Maruyama | Proof | [CME296, lecture 2, 1:25:14 to 1:30:32](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=5114s) |
 
 Composition of scores is not discussed. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## The variance of a dot product
+
+<!-- video-table: dot-product-variance rev=1 -->
+Vizuara on why dot products grow with width, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: the variance of a dot product grows with the vector width, which is why attention divides by the square root of it | Intuition | [Vizuara, Q, K, V intuition, 36:55 to 39:29](https://www.youtube.com/watch?v=aL2Qr5FXxko&t=2215s) |
+
+The simulation at three sizes is not run in the video. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Gradient descent
+
+<!-- video-table: gradient-descent rev=1 -->
+Stanford CS224N on gradient descent, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: the gradient points uphill, so each step walks a little way downhill on the objective | Intuition | [CS224N 2024, lecture 2, 3:30 to 5:55](https://www.youtube.com/watch?v=nBor4jfWetQ&t=210s) |
+
+Partial derivatives are assumed, not taught. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## The chain rule
+
+<!-- video-table: chain-rule rev=1 -->
+Stanford CS229 on the chain rule, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: an input z goes through g to an intermediate u, then through f to a scalar J, and the chain rule turns the gradient with respect to u into the gradient with respect to z | Proof | [CS229 Spring 2026, lecture 8, 19:21 to 27:33](https://www.youtube.com/watch?v=ne2ngVAoMG8&t=1161s) |
+
+Worked with symbols on the board; no numbers are plugged in. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Backpropagation
+
+<!-- video-table: backpropagation rev=1 -->
+Stanford CS229 on backpropagation, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: backpropagation as chain rules composed through many modules, with a forward phase and a backward phase | Proof | [CS229 Spring 2026, lecture 8, 27:33 to 42:47](https://www.youtube.com/watch?v=ne2ngVAoMG8&t=1653s) |
+| 2 | Unblock if a module's derivative stalls you: the derivative worked out concretely for each kind of module | Proof | [CS229 Spring 2026, lecture 8, 42:47 to 1:02:07](https://www.youtube.com/watch?v=ne2ngVAoMG8&t=2567s) |
+
+No small network is worked with numbers. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Stochastic gradient descent
+
+<!-- video-table: stochastic-gradient-descent rev=1 -->
+Stanford CS224N on stochastic gradient descent, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: the objective over all the data is too slow to compute, so each step uses a small sample | Intuition | [CS224N 2024, lecture 2, 5:55 to 8:07](https://www.youtube.com/watch?v=nBor4jfWetQ&t=355s) |
+
+Learning-rate effects are not shown on a plot. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Softmax
+
+<!-- video-table: softmax rev=1 -->
+Stanford CS224N on the softmax, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: exponentiate each dot product so it comes out positive, then divide by the sum over the vocabulary so the probabilities add to 1 | Intuition | [CS224N 2024, lecture 1, 55:57 to 59:27](https://www.youtube.com/watch?v=DzpHeXVSC5I&t=3357s) |
+
+Temperature is not covered. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Context vectors in code
+
+<!-- video-table: context-vectors-in-code rev=1 -->
+Vizuara coding attention weights into a blend of values, to watch after this build:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the build: the weighted sum of the input vectors computed in Python, one context vector per query | Code walk | [Vizuara, LLMs from scratch lecture 14, 50:19 to 55:29](https://www.youtube.com/watch?v=eSRhpYLerw4&t=3019s) |
+
+Uses the inputs as values; separate value vectors come in a later lecture. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+<!-- /video-table -->
+
+## Query, key and value projections
+
+<!-- video-table: query-key-value-projections rev=1 -->
+Stanford CS224N on how one word vector becomes a query, a key and a value, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: each word is looked up in an embedding matrix, then multiplied by three learned matrices Q, K and V to give its query, key and value. Watch for "every word is doing each of these roles" | Proof | [CS224N 2023, lecture 8, 14:41 to 16:03](https://www.youtube.com/watch?v=LWMzyfvuehA&t=881s) |
+
+No numbers are worked; the projections are stated with symbols only, and no gradient step on W_Q is shown. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Self-attention scores and weights
+
+<!-- video-table: self-attention-scores-and-weights rev=1 -->
+Stanford CS224N on the self-attention scores, the softmax over them and the weighted sum, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: the score for word i looking at word j is query i dotted with key j, the softmax runs over every j for a fixed i, and the output is the weighted sum of value vectors. Watch which index the softmax normalises over, which is why each row sums to 1 | Proof | [CS224N 2023, lecture 8, 16:03 to 17:40](https://www.youtube.com/watch?v=LWMzyfvuehA&t=963s) |
+
+Symbols only; the lecture never works a 3 by 3 example with numbers. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Self-attention in matrix form
+
+<!-- video-table: self-attention-in-matrix-form rev=1 -->
+Stanford CS224N on writing self-attention for a whole sentence as matrix products, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the build: stack the word vectors into X, form XQ, XK and XV, take the n by n score matrix in one product, softmax along each row, and multiply by the values. Watch for the shapes, which are the ones your code prints | Code walk | [CS224N 2023, lecture 8, 45:17 to 47:50](https://www.youtube.com/watch?v=LWMzyfvuehA&t=2717s) |
+
+Slides of the matrix form, not typed code; no numeric check is run. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Layer normalisation
+
+<!-- video-table: layer-normalisation rev=1 -->
+Stanford CS224N on layer normalisation of one word vector, to watch after this sitting:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm after the sitting: the mean and standard deviation are taken across one word vector's own dimensions, the vector is shifted and scaled to mean 0 and spread 1 with a small epsilon, then optionally rescaled by learned gain and bias | Proof | [CS224N 2023, lecture 8, 1:00:58 to 1:03:49](https://www.youtube.com/watch?v=LWMzyfvuehA&t=3658s) |
+
+Symbols only; no vector is normalised with numbers. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
