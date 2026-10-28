@@ -91,6 +91,8 @@ The reference shelf for the moment a derivation stalls on a word a video could t
 - [[#The sinusoidal position formula]]
 - [[#Sinusoidal position vectors and splitting into heads]]
 - [[#Cross-attention in the encoder-decoder transformer]]
+
+- [[#The transformer stack]]
 - [[#The Gaussian density and its formula]]
 - [[#A mixture of Gaussian bumps]]
 - [[#The forward step and the noise schedule]]
@@ -104,6 +106,7 @@ The reference shelf for the moment a derivation stalls on a word a video could t
 - [[#The normaliser (partition function)]]
 - [[#Summed noised scores miss the product]]
 - [[#Temperature]]
+- [[#Sampling temperature]]
 - [[#The soft minimum]]
 - [[#Negation by dividing densities]]
 - [[#The Markov chain]]
@@ -1082,27 +1085,34 @@ The two-moons toy and the 10-step comparison with DDPM are not shown. Times are 
 
 ## Scaled dot-product self-attention
 
-<!-- video-table: scaled-dot-product-self-attention rev=1 -->
-Stanford CS231N on the attention operator, in the order to watch:
+<!-- video-table: scaled-dot-product-self-attention rev=2 -->
+3Blue1Brown, then Stanford CS231N, on the attention operator, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
-| 1 | Confirm after the sitting: why the dot product is scaled by the square root of the width | Intuition | [CS231N, lecture 8, 32:20 to 34:20](https://www.youtube.com/watch?v=RQowiOF_FvQ&t=1940s) |
-| 2 | Confirm after the sitting: project each input to a key and a value, compare every key with every query, softmax per query, and combine the values | Proof | [CS231N, lecture 8, 38:40 to 44:50](https://www.youtube.com/watch?v=RQowiOF_FvQ&t=2320s) |
+| 1 | Orient, before you compare vectors by angle: the same word needs a different vector in each context ("mole" in three phrases, "tower" after "Eiffel" and then "miniature"). Watch for the job a lookup with no context cannot do | Intuition | [3Blue1Brown, Deep Learning chapter 6, 0:00 to 4:29](https://www.youtube.com/watch?v=eMlx5fFNoYc&t=0s) |
+| 2 | Orient, before you compute a query, a key and a value by hand: one head of attention set up on "a fluffy blue creature", each word starting as an embedding e, with the work done as matrix-vector products of learned weights | Intuition | [3Blue1Brown, Deep Learning chapter 6, 4:29 to 6:14](https://www.youtube.com/watch?v=eMlx5fFNoYc&t=269s) |
+| 3 | Confirm, after you compute a query and step W_Q: the query is the question a word asks, made by multiplying W_Q by its embedding, one query per word. Watch for this being what a projection means | Intuition | [3Blue1Brown, Deep Learning chapter 6, 6:14 to 7:47](https://www.youtube.com/watch?v=eMlx5fFNoYc&t=374s) |
+| 4 | Confirm, after you separate keys from values: the key matrix gives each word a key, and a key answers a query when the two align | Intuition | [3Blue1Brown, Deep Learning chapter 6, 7:47 to 8:27](https://www.youtube.com/watch?v=eMlx5fFNoYc&t=467s) |
+| 5 | Confirm, after you turn scores into weights and blend: the grid of every key-query dot product, then a softmax down each column so each column sums to 1. Watch for the grid being named the attention pattern | Intuition | [3Blue1Brown, Deep Learning chapter 6, 8:27 to 10:18](https://www.youtube.com/watch?v=eMlx5fFNoYc&t=507s) |
+| 6 | Confirm, after you return the blend of the values: the value matrix gives each word the vector it would add to another, each value is scaled by its weight in the column, and the sum is added to the embedding | Intuition | [3Blue1Brown, Deep Learning chapter 6, 13:10 to 15:59](https://www.youtube.com/watch?v=eMlx5fFNoYc&t=790s) |
+| 7 | Confirm after the sitting: why the dot product is scaled by the square root of the width | Intuition | [CS231N, lecture 8, 32:20 to 34:20](https://www.youtube.com/watch?v=RQowiOF_FvQ&t=1940s) |
+| 8 | Confirm after the sitting: project each input to a key and a value, compare every key with every query, softmax per query, and combine the values | Proof | [CS231N, lecture 8, 38:40 to 44:50](https://www.youtube.com/watch?v=RQowiOF_FvQ&t=2320s) |
 
-The lecture never names attn1 or a UNet; image tokens appear only as an example. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+3Blue1Brown works no numbers, only pictures and a made-up running example, and the CS231N lecture never names attn1 or a UNet; image tokens appear only as an example. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
 ## Why attention scores are divided by a constant
 
-<!-- video-table: scaled-dot-product-attention rev=1 -->
-Stanford CS224N on why attention scores are divided by a constant, to watch after this sitting:
+<!-- video-table: scaled-dot-product-attention rev=2 -->
+Stanford CS224N, then 3Blue1Brown, on why attention scores are divided by a constant, to watch after this sitting:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | Confirm after the sitting: as the vector width grows, dot products of random vectors grow, the softmax inputs get large and its gradients small, so every score is divided by a constant set by the width. Watch for "start out with everyone's attention being very uniform" | Intuition | [CS224N 2023, lecture 8, 56:38 to 58:02](https://www.youtube.com/watch?v=LWMzyfvuehA&t=3398s) |
+| 2 | Confirm, after you measure the softmax saturating: 3Blue1Brown gives dividing by the square root of the key-query width one sentence, "for numerical stability", inside the paper's formula. Watch for how little it says; the reason is the one in row 1 | Intuition | [3Blue1Brown, Deep Learning chapter 6, 10:35 to 11:05](https://www.youtube.com/watch?v=eMlx5fFNoYc&t=635s) |
 
-The variance argument behind the square root is stated in words, not derived. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
+Neither derives the variance argument behind the square root; CS224N states it in words. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
 ## Self-attention and cross-attention side by side
@@ -1148,14 +1158,15 @@ None of the three uses cosines from a retrieval index or a scale like 30. Rows 1
 
 ## An embedding layer as a one-hot product
 
-<!-- video-table: embedding-as-one-hot-product rev=1 -->
-Vizuara on an embedding layer as a one-hot product, to watch after this sitting:
+<!-- video-table: embedding-as-one-hot-product rev=2 -->
+3Blue1Brown, then Vizuara, on an embedding layer as a one-hot product, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
-| 1 | Confirm after the sitting: an embedding lookup gives the same vectors as a linear layer applied to one-hot rows, so the table is a weight matrix | Intuition | [Vizuara, LLMs from scratch lecture 10, 48:32 to 55:09](https://www.youtube.com/watch?v=ghCSGRgVB_o&t=2912s) |
+| 1 | Orient, before you show the table is a one-hot product: the embedding matrix W_E holds one vector per vocabulary word, directions in the space carry meaning, and a plurality direction (cats minus cat) is scored against words by dot product. Watch for each first vector being plucked out of the matrix with no context | Intuition | [3Blue1Brown, Deep Learning chapter 5, 12:27 to 19:37](https://www.youtube.com/watch?v=wjZofJX0v4M&t=747s) |
+| 2 | Confirm after the sitting: an embedding lookup gives the same vectors as a linear layer applied to one-hot rows, so the table is a weight matrix | Intuition | [Vizuara, LLMs from scratch lecture 10, 48:32 to 55:09](https://www.youtube.com/watch?v=ghCSGRgVB_o&t=2912s) |
 
-No gradient on the table is computed. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+3Blue1Brown stores each word as a column of W_E rather than a row and multiplies no one-hot vector out, and no gradient on the table is computed. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
 ## Reading rows out of an embedding table in code
@@ -1244,28 +1255,30 @@ Does not stack scaling layers to compare with and without normalisation. Times a
 
 ## Masking the future in self-attention
 
-<!-- video-table: causal-masking rev=1 -->
-Stanford CS224N and Vizuara on masking the future in self-attention, in the order to watch:
+<!-- video-table: causal-masking rev=2 -->
+Stanford CS224N, Vizuara and 3Blue1Brown on masking the future in self-attention, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | Confirm after the build: the full n by n score matrix is computed, every score where j is after i is set to minus infinity, and the softmax turns those into weight 0. Watch the grid of greyed-out cells, which is your lower-triangular mask | Intuition | [CS224N 2023, lecture 8, 33:02 to 34:58](https://www.youtube.com/watch?v=LWMzyfvuehA&t=1982s) |
 | 2 | Unblock during the build: apply a lower-triangular mask to the attention weights in Python | Code walk | [Vizuara, LLMs from scratch lecture 16, 14:25 to 24:45](https://www.youtube.com/watch?v=h94TQOK7NRA&t=865s) |
 | 3 | Confirm after the build: the upper-triangular minus-infinity mask applied before one softmax, avoiding leakage | Code walk | [Vizuara, LLMs from scratch lecture 16, 26:39 to 32:33](https://www.youtube.com/watch?v=h94TQOK7NRA&t=1599s) |
+| 4 | Confirm, after the build: why the mask exists (training predicts every next word at once, so a later word must not inform an earlier one) and why the blocked scores become minus infinity before the softmax rather than 0 after it. Watch for the columns staying normalised | Intuition | [3Blue1Brown, Deep Learning chapter 6, 11:05 to 12:42](https://www.youtube.com/watch?v=eMlx5fFNoYc&t=665s) |
 
 Position is not covered here; it is in the table under plan 44. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
 ## Multi-head attention
 
-<!-- video-table: multi-head-attention rev=1 -->
-Stanford CS224N on multi-head attention, to watch after this sitting:
+<!-- video-table: multi-head-attention rev=2 -->
+3Blue1Brown, then Stanford CS224N, on multi-head attention, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
-| 1 | Confirm after the sitting: h heads, each with its own query, key and value matrices projecting to width d over h, a separate softmax per head, then the outputs concatenated and mixed by one final linear map. Watch for "look in different places for different reasons" | Proof | [CS224N 2023, lecture 8, 47:50 to 52:05](https://www.youtube.com/watch?v=LWMzyfvuehA&t=2870s) |
+| 1 | Orient, before you work two heads: different kinds of context change need different key, query and value maps, so many heads run in parallel (96 in GPT-3) and every head's proposed change is summed into the embedding. Watch for the output matrix, where papers staple the heads' value maps together | Intuition | [3Blue1Brown, Deep Learning chapter 6, 19:25 to 23:19](https://www.youtube.com/watch?v=eMlx5fFNoYc&t=1165s) |
+| 2 | Confirm after the sitting: h heads, each with its own query, key and value matrices projecting to width d over h, a separate softmax per head, then the outputs concatenated and mixed by one final linear map. Watch for "look in different places for different reasons" | Proof | [CS224N 2023, lecture 8, 47:50 to 52:05](https://www.youtube.com/watch?v=LWMzyfvuehA&t=2870s) |
 
-No toy with one-number heads; the lecture uses symbols and a picture. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
+No toy with one-number heads; both use symbols and pictures. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
 ## The sinusoidal position formula
@@ -1295,14 +1308,29 @@ The sinusoid formula is shown on a slide but not evaluated for any position. Tim
 
 ## Cross-attention in the encoder-decoder transformer
 
-<!-- video-table: cross-attention rev=1 -->
-Stanford CS224N on cross-attention in the encoder-decoder transformer, to watch after this sitting:
+<!-- video-table: cross-attention rev=2 -->
+3Blue1Brown, then Stanford CS224N, on cross-attention in the encoder-decoder transformer, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
-| 1 | Confirm after the sitting: the decoder's vectors supply the queries and the encoder's output supplies the keys and values, so two of the three arrows come from the encoder. Watch for "two of the arrows come from the encoder and one of the arrows comes from the decoder" | Intuition | [CS224N 2023, lecture 8, 1:10:02 to 1:12:39](https://www.youtube.com/watch?v=LWMzyfvuehA&t=4202s) |
+| 1 | Orient, before you say how cross-attention differs from self-attention, and confirm after you run it: a cross-attention head is a self-attention head whose key and query maps act on two different data sets, such as two languages in a translation, with no masking. Watch for why no mask is needed | Intuition | [3Blue1Brown, Deep Learning chapter 6, 18:22 to 19:17](https://www.youtube.com/watch?v=eMlx5fFNoYc&t=1102s) |
+| 2 | Confirm after the sitting: the decoder's vectors supply the queries and the encoder's output supplies the keys and values, so two of the three arrows come from the encoder. Watch for "two of the arrows come from the encoder and one of the arrows comes from the decoder" | Intuition | [CS224N 2023, lecture 8, 1:10:02 to 1:12:39](https://www.youtube.com/watch?v=LWMzyfvuehA&t=4202s) |
 
-No weights matrix is worked with numbers. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
+No weights matrix is worked with numbers. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## The transformer stack
+
+<!-- video-table: transformer-stack rev=2 -->
+3Blue1Brown, then Stanford CME295, on the whole transformer, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient before the sitting: data passes through attention and MLP blocks many times over (96 layers in GPT-3), so each word's vector takes in more abstract meaning the deeper it goes. Watch for why a stack lets context build on context | Intuition | [3Blue1Brown, Deep Learning chapter 6, 23:19 to 24:54](https://www.youtube.com/watch?v=eMlx5fFNoYc&t=1399s) |
+| 2 | Orient before the sitting: the encoder and decoder stacks and what each layer contains | Intuition | [CME295, lecture 1, 1:13:53 to 1:29:53](https://www.youtube.com/watch?v=Ub3GoFaUcds&t=4433s) |
+| 3 | Confirm after the sitting: one sentence walked through tokenization, embeddings, positions and the layers to the output | Worked example | [CME295, lecture 1, 1:29:53 to 1:41:59](https://www.youtube.com/watch?v=Ub3GoFaUcds&t=5393s) |
+
+No training runs are compared. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
 ## The Gaussian density and its formula
@@ -1494,6 +1522,22 @@ Yilun Du, Vizuara and MarbleScience on temperature, the factor that sharpens or 
 | 3 | Where the word comes from: the Boltzmann distribution behind the softmax, then what changing the temperature does | Intuition, open web | [MarbleScience, What is the Temperature of an AI, 3:45 to 6:09](https://www.youtube.com/watch?v=YjVuJjmgclU&t=225s) |
 
 None multiplies energies by a factor above 1 as the notebook's 3.5 does, which acts as an inverse temperature. Row 1 is read from Du's captions and good to about 30 seconds; rows 2 and 3 are chapter boundaries from each video's chapter list, so the sentence inside each is not checked.
+<!-- /video-table -->
+
+## Sampling temperature
+
+<!-- video-table: sampling-temperature rev=2 -->
+CME295, then Vizuara in code, then 3Blue1Brown's picture of it, on sampling temperature, in the order to watch:
+
+| Order | What it covers and what to watch for | Kind | When | Code it writes | Watch |
+|---|---|---|---|---|---|
+| 1 | Temperature divides every score before the softmax: low makes the distribution spiky, high makes it flat. Watch for which way your own setting pushes. | Intuition | Orient, before the first run | none | [CME295 lecture 3, 52:20 to 55:40](https://www.youtube.com/watch?v=Q5baLehv5So&t=3140s) |
+| 2 | The limit worked on the board: as temperature goes to 0 all probability lands on the top token, and as it grows the distribution goes uniform. | Proof | Confirm, after your counts | none | [CME295 lecture 3, 55:40 to 1:00:00](https://www.youtube.com/watch?v=Q5baLehv5So&t=3340s) |
+| 3 | Any temperature above 0 gives a different output each run, and even 0 can differ because the hardware sums numbers in a different order. Watch for why temperature 0 is near-deterministic, not deterministic. | Intuition | Confirm, after your counts | none | [CME295 lecture 3, 1:02:20 to 1:04:40](https://www.youtube.com/watch?v=Q5baLehv5So&t=3740s) |
+| 4 | The same idea in code: logits divided by the temperature, a softmax, and the next token drawn with a multinomial 1,000 times, the likeliest coming up 582 times. Watch for the count, which is your distinct-answer count in miniature. | Code walk | Unblock, if your counts look wrong | the temperature-scaled softmax and `torch.multinomial` | [Vizuara, top-k sampling, 2:00 to 5:20](https://www.youtube.com/watch?v=EhU32O7DkA4&t=120s) |
+| 5 | The same softmax drawn as bars over the next word: at temperature 0 the largest score always wins, and higher temperatures give the less likely words more weight. Watch for the bars flattening as T grows. | Intuition | Confirm, after your counts | none | [3Blue1Brown, Deep Learning Chapter 5, 23:55 to 25:33](https://www.youtube.com/watch?v=wjZofJX0v4M&t=1435s) |
+
+None of the three creators measures a served model's repeatability: counting distinct answers over repeated runs is yours, and seeds are not covered. Vizuara's own temperature video is members-only, so its top-k video's recap stands in. Times are caption-read from each video's English captions (rows 1 to 4 on 2026-10-19, row 5 on 2026-10-28), accurate to about 20 seconds.
 <!-- /video-table -->
 
 ## The soft minimum

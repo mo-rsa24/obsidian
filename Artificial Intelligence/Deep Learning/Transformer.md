@@ -12,6 +12,17 @@ Artificial Intelligence, Deep Learning. Its central operation has its own note, 
 
 **A transformer is a stack of identical blocks, each one multi-head attention followed by a small feed-forward network applied to every token, with a residual connection and layer normalisation around both.**
 
+<!-- video-table: multi-head-attention rev=2 -->
+3Blue1Brown, then Stanford CS224N, on multi-head attention, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient, before you work two heads: different kinds of context change need different key, query and value maps, so many heads run in parallel (96 in GPT-3) and every head's proposed change is summed into the embedding. Watch for the output matrix, where papers staple the heads' value maps together | Intuition | [3Blue1Brown, Deep Learning chapter 6, 19:25 to 23:19](https://www.youtube.com/watch?v=eMlx5fFNoYc&t=1165s) |
+| 2 | Confirm after the sitting: h heads, each with its own query, key and value matrices projecting to width d over h, a separate softmax per head, then the outputs concatenated and mixed by one final linear map. Watch for "look in different places for different reasons" | Proof | [CS224N 2023, lecture 8, 47:50 to 52:05](https://www.youtube.com/watch?v=LWMzyfvuehA&t=2870s) |
+
+No toy with one-number heads; both use symbols and pictures. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
 > [!warning]- Unfinished
 > - The explanation is not written yet. This note holds only its card, under Where to learn this, and the next walk that teaches the transformer writes the rest around it.
 
