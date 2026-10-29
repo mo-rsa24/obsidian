@@ -1,5 +1,5 @@
 ---
-aliases: [forward process, forward diffusion, noising process, noising a cloud, closed-form forward process, x_t = sqrt(abar) x_0 + sqrt(1 - abar) eps, alpha bar, abar, noise level, noise schedule level]
+aliases: [forward process, forward diffusion, forward diffusion process, diffusion kernel, noising process, noising a cloud, closed-form forward process, x_t = sqrt(abar) x_0 + sqrt(1 - abar) eps, alpha bar, abar, noise level, noise schedule level]
 sources:
   - "Ho, Jain, Abbeel, Denoising Diffusion Probabilistic Models, NeurIPS 2020: https://arxiv.org/abs/2006.11239"
   - "Bradley, Nakkiran, Berthelot, Thornton, Susskind, Mechanisms of Projective Composition of Diffusion Models, ICML 2025: https://arxiv.org/abs/2502.04549"
@@ -33,6 +33,7 @@ The setup is in [[Diffusion Models#Where you work]]: any terminal with Python 3,
 - [[#Other ways to noise]]
 - [[#Why the jump matters]]
 - [[#The jump taught in, applied in]]
+- [[#Where to learn this]]
 
 ## When to reach for the jump
 
@@ -298,7 +299,7 @@ Training a diffusion model needs pairs of clean and noised points at random leve
 
 ## The jump taught in, applied in
 
-Navigation: ⬅️ [[#Why the jump matters]] | 📋 [[#Table of contents|TOC]]
+Navigation: ⬅️ [[#Why the jump matters]] | 📋 [[#Table of contents|TOC]] | [[#Where to learn this]] ➡️
 
 **Taught in:**
 
@@ -310,5 +311,40 @@ Navigation: ⬅️ [[#Why the jump matters]] | 📋 [[#Table of contents|TOC]]
 
 **Before this note:** the learner's LibreOffice note `Artificial Intelligence/Machine Learning/Generative Models/Diffusion Models/Diffusion Models.odt` describes the forward process as a fixed Markov chain that adds Gaussian noise over $T = 1000$ steps and writes the single step $q(x_t \mid x_{t-1}) = \mathcal{N}(\sqrt{\alpha_t}\,x_{t-1}, (1 - \alpha_t) I)$, without the one-jump form.
 
+## Where to learn this
+
+**The forward process**, q(x_t | x_0) = N(√ᾱ_t x_0, (1 − ᾱ_t) I), the noisy latent at step t in one jump. Also: forward diffusion, noising process, diffusion kernel.
+
+**Textbooks**
+
+- Understanding deep learning, sections 18.2 and 18.2.1: [pages 363 to 366](../../../Mathematics/references/textbooks/machine-learning/understanding-deep-learning.pdf#page=363). Works it on one-dimensional data with T = 100 steps at β = 0.03 (figure 18.2), then derives the diffusion kernel q(z_t | x) by adding the first two steps' noises and draws it for x* = 2.0 at t = 20, 40 and 80 (figure 18.3).
+- The little book of generative AI foundations, section 4.1.1, Gaussian noising and the closed-form forward process: [pages 70 to 72](../../../Mathematics/references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=70). The one-step rule, the closed form x_t = √ᾱ_t x_0 + √(1 − ᾱ_t) ε, and figure 4.1 with the signal coefficient falling as the noise coefficient rises.
+
+**Videos**
+
+- CME296 lecture 1, 38:51 to 46:03: [watch](https://www.youtube.com/watch?v=tr-CUpw--ck&t=2331s). Derives x_t = √ᾱ_t x_0 + √(1 − ᾱ_t) ε on the board by merging independent Gaussian noise terms, with ᾱ_t the product of α_i = 1 − β_i. Caption-read.
+- CS229 lecture 11, 13:57 to 22:39: [watch](https://www.youtube.com/watch?v=dqUMCzWjZSI&t=837s). Unrolls the recursion with α_t = 1 − β_t to the same closed form, finding the noise coefficient from the variance. Caption-read.
+- CS229 lecture 11, 22:39 to 25:55: [watch](https://www.youtube.com/watch?v=dqUMCzWjZSI&t=1359s). Shows ᾱ_t → 0 as t grows, so x_T given x_0 tends to N(0, I). Caption-read.
+- Stanford CS236 lecture 16, 16:23 to 19:05: [watch](https://www.youtube.com/watch?v=VsllsC2JMGY&t=983s). Many small noising steps combined into one transition to any noise level. Chapter-timed, from the video lessons index.
+- Vizuara, Principles of Diffusion Models, lecture 3, 33:51 to 42:46: [watch](https://www.youtube.com/watch?v=Dx-1agEjlJs&t=2031s). Why each step scales the mean down as well as adding noise. Chapter-timed, from the video lessons index.
+
+**Papers**
+
+- Chan 2024, Tutorial on diffusion models for imaging and vision, Theorem 2.2: [pages 23 to 24](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/tutorial-on-diffusion-models-for-imaging-and-vision.pdf#page=23). States q(x_t | x_0) = N(√ᾱ_t x_0, (1 − ᾱ_t) I) (equation 2.8) and proves it by unrolling the recursion to x_t = √ᾱ_t x_0 + √(1 − ᾱ_t) ε_0 (equation 2.11).
+- Chan 2024, the same tutorial, section 2.1: [pages 20 to 21](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/tutorial-on-diffusion-models-for-imaging-and-vision.pdf#page=20). The one-step transition q(x_t | x_{t−1}) (equation 2.1), then a two-component Gaussian mixture noised step by step, each component's mean shrinking by √α_t and its variance moving toward 1 (Example 2.1, equation 2.2).
+
+**Our plans and chapters**
+
+- [Chapter 9: The forward process, the schedule, and eps = -sigma grad log p by hand](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/textbook/09-the-forward-process-by-hand.md), deep-learning/diffusion-models/01-poe-derivation-foundations, chapter 9. Why independent Gaussian noises add their variances, and the one-jump form derived from it.
+- [The forward process, derived and coded](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/09-the-forward-process.md), the same journey, plan 09. Iterates the small steps, then jumps, and compares the two before deriving the jump on paper.
+- [The forward process, derived and coded](/home/molef/goal-setting/learning/deep-learning/diffusion-models/02-sampler-correctors-for-composition/plans/06-the-forward-process.md), deep-learning/diffusion-models/02-sampler-correctors-for-composition, plan 06. The same derivation and code, as the step before one reverse step on the project's own ᾱ_t.
+- [VP and VE, one forward process, two schedules](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l4-continuous-time/05-vp-and-ve-one-forward-process-two-schedules.md), deep-learning/diffusion-models/00-from-scratch-to-sdxl, volume L4, section 5. The variance-preserving form that shrinks x_0 against the variance-exploding form that only adds noise, as two schedules of one process.
+
+**Figures**
+
+- <a href="/home/molef/goal-setting/learning/deep-learning/diffusion-models/04-schrodinger-bridges/artifacts/figures/foundations-of-schrodinger-bridges/hero-diffusion-against-bridge.jpg"><img src="/home/molef/goal-setting/learning/deep-learning/diffusion-models/04-schrodinger-bridges/artifacts/figures/foundations-of-schrodinger-bridges/hero-diffusion-against-bridge.jpg" width="200" alt="Two rows of images: a cat fading to grey noise under a diffusion model, ending at a concentric Gaussian, and a cat morphing into a dog under a Schrödinger bridge"></a> Sophia Tang, Foundations of Schrödinger Bridges for Generative Modeling, hero figure: [the paper](https://arxiv.org/abs/2603.18992), [what it shows](/home/molef/goal-setting/learning/deep-learning/diffusion-models/04-schrodinger-bridges/artifacts/figures/foundations-of-schrodinger-bridges/README.md#hero-diffusion-against-bridgejpg). The top row is the forward process: a cat fades over nine frames to grey noise, ending at a concentric isotropic Gaussian, with the forward SDE dX_t = f(X_t, t)dt + σ_t dB_t above it. The figure writes the process in continuous time, so ᾱ_t never appears on it; the closed form above is what that SDE gives at each t under the variance-preserving choice of f and σ_t ([the reading](/home/molef/goal-setting/learning/deep-learning/diffusion-models/04-schrodinger-bridges/sources/foundations-of-schrodinger-bridges/SOURCES.md#foundations-of-schrödinger-bridges-for-generative-modeling)).
+
 > [!note]- How this was checked
 > The shared setup and sources are in the box at the end of [[Diffusion Models]].
+>
+> The card under Where to learn this was built on 2026-10-28, and every line was opened before it was written. The two textbook page ranges were read with pdftotext, found through Understanding deep learning's back-of-book entry "diffusion model, forward process" and the shelf index's section titles. The CME296 and CS229 rows were read in their caption-read lecture maps under `~/.claude/cache/captions/` and paraphrase the map. The CS236 and Vizuara rows are copied from the video lessons index section "The forward process", whose times are chapter boundaries. The two Chan rows were read with pdftotext and match the paper shelf's rows for the one-step transition and the jump. Each plan and chapter was read at its title and opening lines. The figure was opened and its card and source reading read; the sentence tying its SDE to the closed form is this card's own reading, not the figure's.
