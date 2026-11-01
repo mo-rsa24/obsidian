@@ -110,6 +110,9 @@ The samplers composition borrows are taught under Mathematics, in [[Markov Chain
 
 - [Kinds of composition notebook, Setup: the ideal expert](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec1). The ideal expert's log-density on a grid, in four steps from the 2D Gaussian to its logsumexp form, then normalised so it integrates to 1.
 - [The SDXL notebook in ten parts, Forward diffusion](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-latent). The clean latent and noise mixed into the noisy latent at t = 50, 500 and 950 under the cosine schedule, with alpha-bar worked to 0.992, 0.494 and 0.006.
+- [SDXL as a latent diffusion model, The pixel space lane](https://claude.ai/artifact/KPpMEVBfkJnq3mwgGSbyPs#pixel-space). Where images become latents and back, as methods of AutoencoderKL, with the 48-fold size drop.
+- [SDXL as a latent diffusion model, The latent space lane](https://claude.ai/artifact/KPpMEVBfkJnq3mwgGSbyPs#latent-space). The sampling loop built once and called fifty times: expand, scale, call the UNet, guide, step.
+- [Why the latent is scaled, A prompt in, a megapixel out](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p1). The pixel grid and the latent grid drawn to scale by number count, 3,145,728 against 65,536, and what fifty passes over each would cost.
 
 **Figures**
 

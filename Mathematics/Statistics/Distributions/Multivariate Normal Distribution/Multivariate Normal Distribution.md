@@ -86,6 +86,10 @@ Read them in this order.
 - [Read a covariance as an ellipse](/home/molef/goal-setting/learning/deep-learning/generative-models/03-sampling-from-a-graph/plans/27-two-d-gaussian.md), deep-learning/generative-models/03-sampling-from-a-graph, plan 27. The 2D Gaussian's covariance drawn as an ellipse, worked on two-pixel images.
 - [Concentration of the norm of a high-dimensional Gaussian](/home/molef/goal-setting/learning/deep-learning/diffusion-models/05-poe-composition-diffusion/plans/11-high-dim-gaussian-norm.md), deep-learning/diffusion-models/05-poe-composition-diffusion, plan 11. Shows by hand that a standard isotropic Gaussian draw g has ‖g‖ near √D, then measures the spread narrowing at D = 10, 100 and 1000.
 
+**Scenes**
+
+- [Kinds of composition notebook, Setup: the ideal expert](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec1). The ideal expert's log-density on a grid, in four steps from the 2D Gaussian to its logsumexp form, then normalised so it integrates to 1.
+
 > [!note]- How this was checked
 > `toy.py` is the learner's own file, copied byte for byte from the walk's playground. `clouds.py` and `overlap.py` are the walk's answer keys, copied unchanged from `checks/` in the journey's `sources/mechanisms-of-projective-composition/`; their outputs matched `checks/clouds.out` and `checks/overlap.out` exactly. `samples.py` matched `checks/samples.out` exactly, and `compose.py`, which prints more fields, agreed with every composed mean and variance in `checks/compose.out`. The learner's own `samples.py` in the playground still draws from `np.random`, so its printed numbers differ slightly from the seed-0 numbers here.
 >

@@ -40,6 +40,11 @@ Mathematics, Statistics, Information Theory. [[Entropy]] and [[Cross-Entropy]] a
 - [What KL and mutual information measure](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/14-kl-and-mutual-information.md), the same journey, plan 14. Builds a KL checker in code, then derives KL from wasted bits to a closed form on paper.
 - [Girsanov: the path KL is a control cost](/home/molef/goal-setting/learning/deep-learning/diffusion-models/04-schrodinger-bridges/plans/02-girsanov-path-kl-is-a-control-cost.md), deep-learning/diffusion-models/04-schrodinger-bridges, plan 02. The KL between two diffusion processes over whole paths, read as a control cost and checked by Monte Carlo.
 
+**Scenes**
+
+- [Inside the SDXL VAE, The latent z stage](https://claude.ai/artifact/PWPgjgzaRtjZnBMnVXx3BU#x-latent). The encoder's eight channels split into a four-channel mean and a four-channel log-variance, and the latent drawn as mean plus sigma times epsilon.
+- [Why the latent is scaled, Why it is variational](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p4). Draws of the code around the encoder's centre at its predicted spread, and why nearby codes have to decode to similar images.
+
 **Figures**
 
 - <a href="/home/molef/goal-setting/learning/deep-learning/diffusion-models/04-schrodinger-bridges/artifacts/figures/foundations-of-schrodinger-bridges/ch1-kl-divergence.jpg"><img src="/home/molef/goal-setting/learning/deep-learning/diffusion-models/04-schrodinger-bridges/artifacts/figures/foundations-of-schrodinger-bridges/ch1-kl-divergence.jpg" width="200" alt="Two overlapping bell curves p and q on the left, and on the right the single curve p log(dp/dq), positive where p exceeds q and negative where q exceeds p"></a> Sophia Tang, "Foundations of Schrödinger Bridges for Generative Modeling", chapter 1 figure: [the paper](https://arxiv.org/abs/2603.18992), [what it shows](/home/molef/goal-setting/learning/deep-learning/diffusion-models/04-schrodinger-bridges/artifacts/figures/foundations-of-schrodinger-bridges/README.md#ch1-kl-divergencejpg). Two overlapping bell curves p and q turn into the one curve p log(dp/dq), which sits above zero where p is the larger density and below zero where q is, and KL(p‖q) is the area under that curve.

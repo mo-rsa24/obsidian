@@ -43,3 +43,83 @@ The teaching notebook `/home/molef/PhD/SDXL/notebooks/sdxl_crossattn_poe_lora.ip
 | [Residual injection](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-infer) | the frozen and adapted noise predictions blended by lambda, shown equal to linear interpolation | [LoRA](../../../Artificial%20Intelligence/Large%20Language%20Models/LoRA.md) |
 | [The DDIM step](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-infer) | the clean latent predicted from the noise, then re-noised to the earlier step | [DDIM](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/DDIM.md) |
 | [Attention shifted by training](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-see) | a dog-snout query whose attention on 'dog' rises from 0.239 by real gradient steps on a LoRA | [Cross-Attention](../../../Artificial%20Intelligence/Deep%20Learning/Cross-Attention.md), [LoRA](../../../Artificial%20Intelligence/Large%20Language%20Models/LoRA.md) |
+
+## SDXL as a latent diffusion model
+<!-- scene: https://claude.ai/artifact/KPpMEVBfkJnq3mwgGSbyPs -->
+<!-- kind: map -->
+<!-- home: PhD poe_repair_min, artifacts/results/how-sdxl-turns-a-prompt-into-an-image -->
+<!-- source: /home/molef/PhD/poe_repair_min/artifacts/results/how-sdxl-turns-a-prompt-into-an-image/sdxl-ldm-high-level-design-explainer.json -->
+
+The whole SDXL sampling pipeline as a system map: seventeen running parts in four lanes, every box
+opening onto the lines of pipeline code that run it. Built from a forward-hook trace of one 50-step
+generation, so every shape on it is a shape that was actually passed. Its unit is a running part, not
+a layer, which is why the VAE appears here as two boxes and has its own page below.
+
+**Also useful in**: a plan or note that needs where a piece of SDXL sits before going into it;
+the conditioning lane is the only place the size, crop and aspect-ratio vector is drawn.
+
+**Caveat**: the trace is one generation of one prompt; counts of steps and shapes are that run's.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [The pixel space lane](https://claude.ai/artifact/KPpMEVBfkJnq3mwgGSbyPs#pixel-space) | where images become latents and back, as methods of AutoencoderKL, with the 48-fold size drop | [Diffusion Models](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/Diffusion%20Models.md) |
+| [The latent space lane](https://claude.ai/artifact/KPpMEVBfkJnq3mwgGSbyPs#latent-space) | the sampling loop built once and called fifty times: expand, scale, call the UNet, guide, step | [Diffusion Models](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/Diffusion%20Models.md), [Classifier-Free Guidance](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/Classifier-Free%20Guidance.md) |
+| [The timestep embedding lane](https://claude.ai/artifact/KPpMEVBfkJnq3mwgGSbyPs#timestep) | the pooled text and the size, crop and aspect-ratio numbers turned into Fourier features, concatenated to 2816 and projected to 1280, then added to the timestep embedding | no card yet |
+| [The cross-attention lane](https://claude.ai/artifact/KPpMEVBfkJnq3mwgGSbyPs#cross-attention) | two text encoders concatenated per token into 77 by 2048, entering the UNet at every resolution | [Cross-Attention](../../../Artificial%20Intelligence/Deep%20Learning/Cross-Attention.md), [Tokenization](../../../Artificial%20Intelligence/Large%20Language%20Models/Tokenization.md), [Attention](../../../Artificial%20Intelligence/Deep%20Learning/Attention.md) |
+| [The UNet box](https://claude.ai/artifact/KPpMEVBfkJnq3mwgGSbyPs#unet) | one denoising call: the noisy latent, the step, and what the prompt said, in and a noise prediction out | [U-Net](../../../Artificial%20Intelligence/Deep%20Learning/U-Net.md) |
+
+## Inside the SDXL VAE
+<!-- scene: https://claude.ai/artifact/PWPgjgzaRtjZnBMnVXx3BU -->
+<!-- kind: scene -->
+<!-- home: PhD poe_repair_min, artifacts/results/how-the-sdxl-vae-is-built -->
+<!-- source: /home/molef/PhD/poe_repair_min/artifacts/results/how-the-sdxl-vae-is-built/build_page.py -->
+
+The SDXL autoencoder as a hierarchy, sixteen stages across encoder and decoder, each opening into its
+own modules and then into the lines of diffusers source that run them. All 242 traced modules are
+reachable, the convolution arithmetic is worked against the traced shapes rather than asserted, and
+the residual chain can be walked line by line with its equations rendered beside the code.
+
+**Also useful in**: anything that needs what an encoder-decoder actually contains at full depth, or
+the reparameterisation as real code rather than as an equation.
+
+**Caveat**: shapes and parameter counts are from one forward hook at batch 1 on a 1024 by 1024 image.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [The latent z stage](https://claude.ai/artifact/PWPgjgzaRtjZnBMnVXx3BU#x-latent) | the encoder's eight channels split into a four-channel mean and a four-channel log-variance, and the latent drawn as mean plus sigma times epsilon | [KL Divergence](../../Statistics/Information%20Theory/KL%20Divergence.md) |
+| [down 0](https://claude.ai/artifact/PWPgjgzaRtjZnBMnVXx3BU#encoder-down_blocks-0) | one encoder stage walked line by line: group norm, the activation, the 3 by 3 convolution, the second pair, then the skip | no card yet |
+| [The encoder mid block](https://claude.ai/artifact/PWPgjgzaRtjZnBMnVXx3BU#encoder-mid_block) | the narrowest point, where a self-attention block lets every position see every other before the code is formed | [Attention](../../../Artificial%20Intelligence/Deep%20Learning/Attention.md) |
+| [conv_in](https://claude.ai/artifact/PWPgjgzaRtjZnBMnVXx3BU#encoder-conv_in) | the first convolution, with the output-size arithmetic worked against the shape the hook saw | no card yet |
+| [The decoder stages](https://claude.ai/artifact/PWPgjgzaRtjZnBMnVXx3BU#decoder-mid_block) | the half that runs at sampling time, three resnets per block against the encoder's two, forced to fp32 | no card yet |
+
+## Why the latent is scaled
+<!-- scene: https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn -->
+<!-- kind: walk -->
+<!-- home: PhD poe_repair_min, artifacts/results/why-the-latent-is-scaled -->
+<!-- source: /home/molef/PhD/poe_repair_min/artifacts/results/why-the-latent-is-scaled/build_page.py -->
+
+Eleven frames on why SDXL multiplies its latent by 0.13025: what the pipeline costs in pixels, what
+the autoencoder is for, what the diffusion schedule assumes about the size of its data, and what
+happens when the factor is removed. The schedule, the signal-to-noise ratio and every curve are
+recomputed in the browser from SDXL's own scaled-linear betas, and the forward process is run on a
+real SDXL sample so the break is watchable: at the same step the calibrated square is noise and the
+uncalibrated one still holds the picture.
+
+**Also useful in**: any plan or note that meets the noise schedule, signal-to-noise over a diffusion
+run, or why a latent space needs a fixed scale; the prediction question before the reveal is a
+ready-made check.
+
+**Caveat**: the squares show a real SDXL sample standing in for the latent, which is a 4 by 128 by
+128 code and not a picture; the raw spread 7.68 is inferred from 1/0.13025, not measured.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [A prompt in, a megapixel out](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p1) | the pixel grid and the latent grid drawn to scale by number count, 3,145,728 against 65,536, and what fifty passes over each would cost | [Diffusion Models](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/Diffusion%20Models.md) |
+| [The autoencoder is a learned codec](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p2) | encode and decode around a latent drawn to scale and deliberately blank, because the latent is not a picture | no card yet |
+| [The shape of the squeeze](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p3) | the encoder narrowing and the decoder widening, with width as the spatial size and height as the channel count | no card yet |
+| [Why it is variational](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p4) | draws of the code around the encoder's centre at its predicted spread, and why nearby codes have to decode to similar images | [KL Divergence](../../Statistics/Information%20Theory/KL%20Divergence.md) |
+| [What runs 50 times](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p5) | the two routes the prompt takes into the UNet: cross-attention at every resolution, and one vector added to the timestep embedding | [Cross-Attention](../../../Artificial%20Intelligence/Deep%20Learning/Cross-Attention.md), [U-Net](../../../Artificial%20Intelligence/Deep%20Learning/U-Net.md) |
+| [The schedule mixes in a fixed ratio](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p6) | the signal and noise weights at each of the 1000 steps, to scale, with a real sample shown at that step | [The Forward Process](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/The%20Forward%20Process.md), [The Cosine Noise Schedule](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/The%20Cosine%20Noise%20Schedule.md) |
+| [The autoencoder hands over something larger](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p7) | the latent's value distribution against the unit normal the schedule assumes, at the shipped factor and at 1 | no card yet |
+| [Move the factor and watch it go wrong](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p9) | signal-to-noise over the whole schedule as the factor moves, against the unit-scale curve it is meant to sit on, with eight steps shown as pictures | [The Forward Process](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/The%20Forward%20Process.md) |
+| [Take it out entirely](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p10) | the same step and the same noise draw at two factors, where one square is noise and the other still holds the picture | [The Forward Process](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/The%20Forward%20Process.md) |

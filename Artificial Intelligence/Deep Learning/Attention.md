@@ -45,6 +45,8 @@ Artificial Intelligence, Deep Learning.
 **Scenes**
 
 - [The SDXL notebook in ten parts, Self-attention](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-attn). Self-attention among image tokens, a 4096 by 4096 map at full size.
+- [SDXL as a latent diffusion model, The cross-attention lane](https://claude.ai/artifact/KPpMEVBfkJnq3mwgGSbyPs#cross-attention). Two text encoders concatenated per token into 77 by 2048, entering the UNet at every resolution.
+- [Inside the SDXL VAE, The encoder mid block](https://claude.ai/artifact/PWPgjgzaRtjZnBMnVXx3BU#encoder-mid_block). The narrowest point, where a self-attention block lets every position see every other before the code is formed.
 
 **Figures**
 

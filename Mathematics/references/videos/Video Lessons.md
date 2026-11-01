@@ -253,6 +253,16 @@ The reference shelf for the moment a derivation stalls on a word a video could t
 - [[#Self-attention scores and weights]]
 - [[#Self-attention in matrix form]]
 - [[#Layer normalisation]]
+- [[#How words become vectors]]
+- [[#Why query, key and value are named that]]
+- [[#Temperature, top-k and top-p together]]
+- [[#Retrieval-augmented generation]]
+- [[#Superposition in embedding space]]
+- [[#The Fokker-Planck equation]]
+- [[#Optimal transport and the Sinkhorn algorithm]]
+- [[#The marginal score against the conditional score]]
+- [[#Neural entropy, and the cost of undoing noise]]
+- [[#Training an energy model by contrast]]
 
 ## Substituting a new variable into an integral (u-substitution)
 
@@ -435,38 +445,43 @@ None of these derives the KL divergence between two Gaussians, which is the clos
 
 ## The score function
 
-<!-- video-table: score-function rev=1 -->
-The score in lecture form, in the order to watch:
+<!-- video-table: score-function rev=2 -->
+Stanford CS236 for the definition, then CompuFlair for the picture, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | The score function defined, as a vector field over data space | Definition | [Stanford CS236, lecture 13, 3:52 to 11:51](https://www.youtube.com/watch?v=8G-OsDs1RLI&t=232s) |
+| 2 | Orient, before you use it: the same object read off a terrain map, an arrow at every point pointing where density climbs fastest with its length saying how steeply. Watch for it arriving as the escape from the partition function, and for the Gaussian case where the arrow points back at the mean | Intuition | [CompuFlair, a physicist's intro to diffusion models and score matching, 8:02 to 10:08](https://www.youtube.com/watch?v=lTcbXoKQdXk&t=482s) |
 
-Start and end times are chapter boundaries from each video; what is said inside was judged from the chapter titles and not read from captions.
+Row 1's start and end are chapter boundaries, so the sentence inside it is not checked; row 2 is caption-read and good to about 30 seconds. Neither computes a score on numbers.
 <!-- /video-table -->
 
 ## Langevin sampling
 
-<!-- video-table: langevin-sampling rev=1 -->
-Following the score uphill with noise added, in the order to watch:
+<!-- video-table: langevin-sampling rev=2 -->
+Stanford CS236 for the definition, then CompuFlair for the picture and the reason it is computable, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | Following the score uphill with noise added: Langevin sampling | Definition | [Stanford CS236, lecture 16, 5:30 to 9:30](https://www.youtube.com/watch?v=VsllsC2JMGY&t=330s) |
+| 2 | Orient, before you step the sampler: the same motion as a grain of dirt in water, sliding downhill while water molecules knock it sideways. Watch for the randomness being load-bearing rather than a nuisance, since pure downhill motion settles in whichever hole you started nearest and stops exploring | Intuition | [CompuFlair, every step of energy based image generation, 5:52 to 7:09](https://www.youtube.com/watch?v=Zo7Pj8cOZcE&t=352s) |
+| 3 | Confirm, after one step by hand: the update said in words, the next point being the current one minus a small downhill move plus a small random kick, and then the reason any of this is possible, that only the local slope is needed. Watch for the argument, that adding any constant to every energy leaves the slope unchanged, so the partition function never has to be evaluated | Intuition | [CompuFlair, every step of energy based image generation, 7:09 to 8:48](https://www.youtube.com/watch?v=Zo7Pj8cOZcE&t=429s) |
 
-Start and end times are chapter boundaries from each video; what is said inside was judged from the chapter titles and not read from captions.
+Row 1's start and end are chapter boundaries, so the sentence inside it is not checked; rows 2 and 3 are caption-read and good to about 30 seconds. No row steps the sampler on numbers.
 <!-- /video-table -->
 
 ## Denoising score matching
 
-<!-- video-table: denoising-score-matching rev=1 -->
-Denoising score matching itself, in the order to watch:
+<!-- video-table: denoising-score-matching rev=2 -->
+Stanford CS236 for the derivation, then CompuFlair for why it works and why the network predicts noise, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | Denoising score matching, derived | Proof | [Stanford CS236, lecture 13, 29:16 to 44:39](https://www.youtube.com/watch?v=8G-OsDs1RLI&t=1756s) |
+| 2 | Orient, before the derivation: why fitting the computable target gets you the one you cannot write down, since training against the known conditional score makes the best network learn the marginal score in expectation. Watch for the analogy, least squares under mean squared error learning a conditional average | Intuition | [CompuFlair, a physicist's intro to diffusion models and score matching, 14:13 to 16:00](https://www.youtube.com/watch?v=lTcbXoKQdXk&t=853s) |
+| 3 | Confirm, after the derivation: where the training pairs come from, a clean image and a time drawn, then a single closed-form jump straight to the noisy image rather than a simulated walk. Watch for the numerical reason the network predicts the noise instead of the score, that the score target blows up at small noise levels, and for the score being recovered by a rescaling afterwards | Intuition | [CompuFlair, a physicist's intro to diffusion models and score matching, 16:00 to 17:10](https://www.youtube.com/watch?v=lTcbXoKQdXk&t=960s) |
 
-Start and end times are chapter boundaries from each video; what is said inside was judged from the chapter titles and not read from captions.
+Row 1's start and end are chapter boundaries, so the sentence inside it is not checked; rows 2 and 3 are caption-read and good to about 30 seconds. The expectation identity in row 2 is motivated by the regression analogy, not proved.
 <!-- /video-table -->
 
 ## The noise schedule written as code
@@ -578,16 +593,20 @@ Neither segment composes diffusion models by adding their scores or divides out 
 
 ## Energy-based models and the partition function
 
-<!-- video-table: energy-based-models rev=1 -->
-Stanford CS236 on energy-based models and the normalising constant they leave out, in the order to watch:
+<!-- video-table: energy-based-models rev=2 -->
+Stanford CS236 for the definitions, then CompuFlair on how big the constant is and why it need not stop you, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | What an energy-based model is | Intuition | [Stanford CS236, lecture 11, 4:42 to 6:45](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=282s) |
 | 2 | Why a probability model must be non-negative and integrate to 1 | Intuition | [Stanford CS236, lecture 11, 6:45 to 15:31](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=405s) |
 | 3 | The partition function, the constant that makes an energy into a density | Intuition | [Stanford CS236, lecture 11, 15:31 to 23:01](https://www.youtube.com/watch?v=m61KiAMCJ5Q&t=931s) |
+| 4 | Confirm, after you meet the constant: how fast the sum explodes, counted on a sentence of 100 positions with 10 candidate words each, which gives not 1,000 possibilities but 10 to the power of 100, because every choice multiplies with every other | Worked example | [CompuFlair, the partition function in generative AI, 5:00 to 7:30](https://www.youtube.com/watch?v=lju3PoEijT0&t=300s) |
+| 5 | Confirm, after you meet the constant: the same point from the density side, that equilibrium is proportional to the exponential of minus the energy over Z, and Z asks you to integrate over every possible image. Watch for the problem staying global even when you only want the density near one point | Intuition | [CompuFlair, a physicist's intro to diffusion models and score matching, 6:41 to 8:02](https://www.youtube.com/watch?v=lTcbXoKQdXk&t=401s) |
+| 6 | Confirm, after you decide to avoid Z: the Casimir effect as the precedent, where the vacuum energy on each side of two plates is separately infinite and the difference is finite and measurably pushes the plates together. Watch for this being the same move as working with differences of energies instead of normalised probabilities | Intuition | [CompuFlair, the partition function in generative AI, 12:31 to 13:40](https://www.youtube.com/watch?v=lju3PoEijT0&t=751s) |
+| 7 | Confirm, after you build the landscape: where it comes from, a network taking 784 pixels in and one number out, a convolution because digits are made of local strokes, pixels rescaled to between -1 and 1, and a smooth activation chosen over ReLU. Watch for the reason given, that the sampler consumes slopes, so a kinked landscape gives jumpy guidance | Intuition | [CompuFlair, every step of energy based image generation, 8:48 to 10:21](https://www.youtube.com/watch?v=Zo7Pj8cOZcE&t=528s) |
 
-None of these works the area a product of two Gaussians loses. Times are chapter boundaries read from each video's chapter list, not from captions, so each is good to the chapter and the sentence inside it is not checked.
+None of these works the area a product of two Gaussians loses, and the Casimir analogy is never carried back to a specific diffusion identity. Rows 1 to 3 are chapter boundaries, so the sentence inside each is not checked; rows 4 to 7 are caption-read and good to about 30 seconds.
 <!-- /video-table -->
 
 ## Markov chain Monte Carlo
@@ -643,8 +662,10 @@ Stanford CME296, then Umar Jamil, on guidance, in the order to watch:
 | 1 | Orient before the sitting: classifier guidance, a separate classifier's gradient added to each step | Intuition | [CME296, lecture 4, 1:27:42 to 1:34:34](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=5262s) |
 | 2 | Classifier-free guidance, and how it steers sampling toward the prompt | Intuition | [Umar Jamil, Coding Stable Diffusion from scratch, 22:20 to 31:00](https://www.youtube.com/watch?v=ZBKpAp_6TGI&t=1340s) |
 | 3 | Confirm after the sitting: Bayes' rule gives an implicit classifier from a conditional and an unconditional pass, so two forward passes replace the classifier | Proof | [CME296, lecture 4, 1:34:34 to 1:40:58](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=5674s) |
+| 4 | Confirm, after you run both passes: the blend read as a contrast knob, the guided prediction being the unconditional one plus a weight times the difference between conditional and unconditional, so weight 0 ignores the request, weight 1 is ordinary conditional generation, and above 1 extrapolates away from the generic. Watch for the admission at the end, that the result is an engineered force field and its images are not fair samples from the true conditional distribution | Intuition | [CompuFlair, how to tell a diffusion model to generate a specific image, 17:06 to 19:04](https://www.youtube.com/watch?v=DoDav4r-x6E&t=1026s) |
+| 5 | Confirm, after you sweep the scale: what each end costs, with too little guidance drifting toward other digits, moderate guidance giving the right digit while keeping a range of handwriting, and high guidance giving stereotyped caricatures where different seeds converge on the same shape and strokes distort. Watch for diversity collapse being the price of obedience | Intuition | [CompuFlair, how to tell a diffusion model to generate a specific image, 20:48 to 21:29](https://www.youtube.com/watch?v=DoDav4r-x6E&t=1248s) |
 
-Neither writes guidance as a product of two experts or the guidance scale as a power, and no label-accuracy measure is shown. Rows 1 and 3 are caption-read and good to about 30 seconds; row 2 is a chapter boundary from Umar Jamil's chapter list, so the sentence inside it is not checked.
+None writes guidance as a product of two experts or the guidance scale as a power, and no label-accuracy measure is shown; row 5 describes the diversity collapse without measuring it. Rows 1, 3, 4 and 5 are caption-read and good to about 30 seconds; row 2 is a chapter boundary from Umar Jamil's chapter list, so the sentence inside it is not checked.
 <!-- /video-table -->
 
 ## Bayes' theorem
@@ -1037,8 +1058,9 @@ Stanford CME296 on the probability-flow ODE, to watch after this sitting:
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | Confirm after the sitting: the probability-flow ODE; the reverse SDE carries two sources of error (discretisation and randomness); an ODE with no random term carries one, and its derivation is sketched | Proof | [CME296, lecture 2, 1:30:32 to 1:41:24](https://www.youtube.com/watch?v=_WaR2fjZpEQ&t=5432s) |
+| 2 | Orient, before the derivation: why the randomness can be dropped at all, since once the evolution of the probability mass is known you can carry points along that field instead of injecting kicks and hoping they land right. Watch for the picture, a leaf carried by a river against a leaf shoved downstream by random gusts | Intuition | [CompuFlair, the hidden physics of generative AI random walks, 10:42 to 11:13](https://www.youtube.com/watch?v=yMaK2uMlAr8&t=642s) |
 
-Composition of two scores is not covered. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+Composition of two scores is not covered, and row 2 writes no equation. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
 ## DDIM
@@ -1127,15 +1149,17 @@ The two-moons toy and the 10-step comparison with DDPM are not shown. Times are 
 
 ## Why attention scores are divided by a constant
 
-<!-- video-table: scaled-dot-product-attention rev=2 -->
-Stanford CS224N, then 3Blue1Brown, on why attention scores are divided by a constant, to watch after this sitting:
+<!-- video-table: scaled-dot-product-attention rev=3 -->
+Stanford CS224N, then 3Blue1Brown, then two creators who show it on numbers, on why attention scores are divided by a constant, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | Confirm after the sitting: as the vector width grows, dot products of random vectors grow, the softmax inputs get large and its gradients small, so every score is divided by a constant set by the width. Watch for "start out with everyone's attention being very uniform" | Intuition | [CS224N 2023, lecture 8, 56:38 to 58:02](https://www.youtube.com/watch?v=LWMzyfvuehA&t=3398s) |
 | 2 | Confirm, after you measure the softmax saturating: 3Blue1Brown gives dividing by the square root of the key-query width one sentence, "for numerical stability", inside the paper's formula. Watch for how little it says; the reason is the one in row 1 | Intuition | [3Blue1Brown, Deep Learning chapter 6, 10:35 to 11:05](https://www.youtube.com/watch?v=eMlx5fFNoYc&t=635s) |
+| 3 | Confirm, after you measure the saturation: softmax's failure put as a range problem, a widely spread list sending nearly all its weight to the largest entry, then a healthy weight row read out as 25% to itself, 1%, 68% and 5%. Watch for what a row looks like when it has not saturated, against the near-one-hot row you measured | Intuition | [Under The Hood, how the attention mechanism works, 7:31 to 9:30](https://www.youtube.com/watch?v=KMHkbXzHn7s&t=451s) |
+| 4 | Confirm, after you measure the saturation: the division done on numbers and said outright not to fix much, since after dividing by the square root of 2 the scaled similarities still run from 5.01 to -66.2, and the step was kept because it measured better rather than because it tidied the range. Watch for that admission, which the rows above do not make | Worked example | [StatQuest, the matrix math behind transformers, 9:01 to 10:10](https://www.youtube.com/watch?v=KphmOJnLAdI&t=541s) |
 
-Neither derives the variance argument behind the square root; CS224N states it in words. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+None of the four derives the variance argument behind the square root. CS224N states it in words, and both newer rows say plainly that the reasoning is outside what they cover. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
 ## Self-attention and cross-attention side by side
@@ -1181,15 +1205,16 @@ None of the three uses cosines from a retrieval index or a scale like 30. Rows 1
 
 ## An embedding layer as a one-hot product
 
-<!-- video-table: embedding-as-one-hot-product rev=2 -->
-3Blue1Brown, then Vizuara, on an embedding layer as a one-hot product, in the order to watch:
+<!-- video-table: embedding-as-one-hot-product rev=3 -->
+3Blue1Brown, then Vizuara, then StatQuest doing it on numbers, on an embedding layer as a one-hot product, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | Orient, before you show the table is a one-hot product: the embedding matrix W_E holds one vector per vocabulary word, directions in the space carry meaning, and a plurality direction (cats minus cat) is scored against words by dot product. Watch for each first vector being plucked out of the matrix with no context | Intuition | [3Blue1Brown, Deep Learning chapter 5, 12:27 to 19:37](https://www.youtube.com/watch?v=wjZofJX0v4M&t=747s) |
 | 2 | Confirm after the sitting: an embedding lookup gives the same vectors as a linear layer applied to one-hot rows, so the table is a weight matrix | Intuition | [Vizuara, LLMs from scratch lecture 10, 48:32 to 55:09](https://www.youtube.com/watch?v=ghCSGRgVB_o&t=2912s) |
+| 3 | Confirm after the sitting: the same product on a three-token sentence with every number on screen, an input matrix whose rows are one-hot multiplied row by column into the weight matrix, then the position values added to what comes out. Watch for the one-hot row actually being multiplied out, which the two rows above only describe | Worked example | [StatQuest, the matrix math behind transformers, 1:43 to 3:37](https://www.youtube.com/watch?v=KphmOJnLAdI&t=103s) |
 
-3Blue1Brown stores each word as a column of W_E rather than a row and multiplies no one-hot vector out, and no gradient on the table is computed. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+3Blue1Brown stores each word as a column of W_E rather than a row, and none of the three computes a gradient on the table. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
 ## Reading rows out of an embedding table in code
@@ -1206,14 +1231,15 @@ Direct indexing is shown; the matrix-product route is in the table under plan 33
 
 ## Cosine similarity
 
-<!-- video-table: cosine-similarity rev=1 -->
-Stanford CME295 on cosine similarity, to watch after this sitting:
+<!-- video-table: cosine-similarity rev=2 -->
+Stanford CME295, then BrainDrain, on cosine similarity, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | Confirm after the sitting: two token vectors compared by the angle between them, cos θ = a·b / (‖a‖‖b‖), so length drops out and only direction counts | Intuition | [CME295 Autumn 2025, lecture 1, 31:40 to 35:00](https://www.youtube.com/watch?v=Ub3GoFaUcds&t=1900s) |
+| 2 | Confirm after the sitting: the dot product written as the two lengths times the cosine of the angle, so a raw score reads as alignment, 1 for the same direction, 0 for orthogonal and negative for opposed, and equal to the cosine only when both vectors have length 1. Watch for that last condition, which is the one your ranking flip turns on | Intuition | [BrainDrain, what queries, keys and values actually mean, 2:31 to 3:46](https://www.youtube.com/watch?v=VEexEpQhtpo&t=151s) |
 
-The ranking flip of plans 18 and 19 is not covered. Times were caption-read by the ai-engineering video pass on 2026-10-19, so each start and end is good to about 30 seconds.
+Neither works the ranking flip of plans 18 and 19. BrainDrain names the unit-length condition it turns on and stops there. Row 1 was caption-read by the ai-engineering video pass on 2026-10-19 and row 2 on 2026-10-31, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
 ## Word2vec's skip-gram objective
@@ -1306,14 +1332,15 @@ No toy with one-number heads; both use symbols and pictures. Times are caption-r
 
 ## The sinusoidal position formula
 
-<!-- video-table: sinusoidal-position-formula rev=1 -->
-Stanford CME295 on the sinusoidal position formula, to watch after this sitting:
+<!-- video-table: sinusoidal-position-formula rev=2 -->
+Gal Lahat on why the formula looks like that, then Stanford CME295 on the formula itself, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
-| 1 | Confirm after the sitting: one vector per position built from sines and cosines at different frequencies, matching the token embedding width, and why that choice makes sense | Proof | [CME295, lecture 2, 15:36 to 25:56](https://www.youtube.com/watch?v=yT84Y5zCnaA&t=936s) |
+| 1 | Orient, before the formula: why position needs many waves rather than one, since a single extra dimension counting 0 at the first token to 1 at the last is too smooth to separate neighbours, and one sine wave is symmetric, so the network reads a sentence and its reverse as the same thing. Watch for many frequencies at once being the fix for both faults | Intuition | [Gal Lahat, I visualised attention in transformers, 10:32 to 12:02](https://www.youtube.com/watch?v=RNF0FvRjGZk&t=632s) |
+| 2 | Confirm after the sitting: one vector per position built from sines and cosines at different frequencies, matching the token embedding width, and why that choice makes sense | Proof | [CME295, lecture 2, 15:36 to 25:56](https://www.youtube.com/watch?v=yT84Y5zCnaA&t=936s) |
 
-Multi-head attention is in the other table in this file. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+Neither says why sine and cosine in particular rather than any other periodic pair. Multi-head attention is in the other table in this file. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
 ## Sinusoidal position vectors and splitting into heads
@@ -1604,30 +1631,32 @@ ritvikmath runs one chain at a time, so many chains side by side, each with its 
 
 ## Hamiltonian Monte Carlo
 
-<!-- video-table: hamiltonian-monte-carlo rev=1 -->
-Meerkat Statistics, then Ben Lambert, both from the open web, on the Hamiltonian that gives each sample a momentum, in the order to watch:
+<!-- video-table: hamiltonian-monte-carlo rev=2 -->
+Meerkat Statistics, then Ben Lambert, then StringsandTheory on why the proposal is not blind, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | The Hamiltonian physics mapped onto sampling | Intuition, open web | [Meerkat Statistics, Hamiltonian Monte Carlo, 1:26 to 2:22](https://www.youtube.com/watch?v=2zr7cMjltAI&t=86s) |
 | 2 | Sampling a momentum for the sample | Intuition, open web | [Meerkat Statistics, Hamiltonian Monte Carlo, 2:22 to 3:08](https://www.youtube.com/watch?v=2zr7cMjltAI&t=142s) |
 | 3 | The joint distribution over position and momentum | Intuition, open web | [Ben Lambert, The intuition behind Hamiltonian Monte Carlo, 10:17 to 16:58](https://www.youtube.com/watch?v=a-wydhEuAm0&t=617s) |
+| 4 | Confirm, after you take a step: what the method buys over a random walk, since the momentum is redrawn freely and then Hamilton's equations are simulated forward from the current state, so the curvature of the potential chooses where the sampler goes. Watch for the phrase that names it, the geometry doing the work, and for the accept step existing only to correct the integrator's discretisation error | Intuition | [StringsandTheory, sampling is secretly a physics problem, 4:11 to 6:44](https://www.youtube.com/watch?v=Wjmgq7AW_l8&t=251s) |
 
-No listed creator has a Hamiltonian Monte Carlo video, and neither works a step with numbers, as the toy's energy moving from 0.625 to 0.62749 does. Times are chapter boundaries from each video's chapter list, so the sentence inside each is not checked.
+None of the four works a step with numbers, as the toy's energy moving from 0.625 to 0.62749 does. Rows 1 to 3 are chapter boundaries, so the sentence inside each is not checked; row 4 is caption-read and good to about 30 seconds. Avoid its last minute, from 11:37, which is promotional.
 <!-- /video-table -->
 
 ## The leapfrog step
 
-<!-- video-table: leapfrog rev=1 -->
-Meerkat Statistics, from the open web, on simulating the motion in discrete steps, in the order to watch:
+<!-- video-table: leapfrog rev=2 -->
+Meerkat Statistics, then StringsandTheory on why the scheme is staggered, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | Simulating the system's dynamics, position and momentum moving together | Intuition, open web | [Meerkat Statistics, Hamiltonian Monte Carlo, 3:08 to 6:38](https://www.youtube.com/watch?v=2zr7cMjltAI&t=188s) |
 | 2 | Numerical integration of that motion | Intuition, open web | [Meerkat Statistics, Hamiltonian Monte Carlo, 6:38 to 7:16](https://www.youtube.com/watch?v=2zr7cMjltAI&t=398s) |
 | 3 | The numerical error a finite step leaves, and the accept step that corrects it | Intuition, open web | [Meerkat Statistics, Hamiltonian Monte Carlo, 8:49 to 10:33](https://www.youtube.com/watch?v=2zr7cMjltAI&t=529s) |
+| 4 | Confirm, after you take a step by hand: why the integrator is the whole game, since Euler's method makes the simulated orbit gain energy and spiral outward instead of closing. The leapfrog staggers a half step of momentum, a full step of position and another half step of momentum, which preserves volume, because each half step moves one variable by an amount set only by the other, and reads the same backwards, which is the reversibility the accept step needs. Watch for the two knobs, L steps of size epsilon, too few and too small being a random walk again and too many and too large diverging from the energy-conserving path | Proof | [StringsandTheory, sampling is secretly a physics problem, 6:44 to 9:26](https://www.youtube.com/watch?v=Wjmgq7AW_l8&t=404s) |
 
-The chapter titles do not name the leapfrog scheme, so which integrator Meerkat uses is not checked, and no video reverses a step by flipping the momentum as the toy does. Times are chapter boundaries from the video's chapter list, so the sentence inside each is not checked.
+No video reverses a step by flipping the momentum as the toy does, and row 4 simulates no trajectory on numbers. Rows 1 to 3 are chapter boundaries, so the sentence inside each is not checked, and row 4 is caption-read and good to about 30 seconds; it names the leapfrog scheme explicitly, which rows 1 to 3 never do.
 <!-- /video-table -->
 
 ## Adding up over a grid of cells
@@ -3696,26 +3725,29 @@ Uses the inputs as values; separate value vectors come in a later lecture. Times
 
 ## Query, key and value projections
 
-<!-- video-table: query-key-value-projections rev=1 -->
-Stanford CS224N on how one word vector becomes a query, a key and a value, to watch after this sitting:
+<!-- video-table: query-key-value-projections rev=2 -->
+Stanford CS224N, then StatQuest doing it on numbers, on how one word vector becomes a query, a key and a value, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | Confirm after the sitting: each word is looked up in an embedding matrix, then multiplied by three learned matrices Q, K and V to give its query, key and value. Watch for "every word is doing each of these roles" | Proof | [CS224N 2023, lecture 8, 14:41 to 16:03](https://www.youtube.com/watch?v=LWMzyfvuehA&t=881s) |
+| 2 | Confirm, after you say what a projection computes: the same projection on numbers, one token's encoded values 1.16 and 0.23 against query weights 2.22 and 0.17 giving 2.61, the second weight column giving 0.36, then every token at once as a single matrix product. Watch for the transpose on the weight matrix, which is there only because PyTorch prints the weights the other way round | Worked example | [StatQuest, the matrix math behind transformers, 4:28 to 6:30](https://www.youtube.com/watch?v=KphmOJnLAdI&t=268s) |
 
-No numbers are worked; the projections are stated with symbols only, and no gradient step on W_Q is shown. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
+Neither shows a gradient step on W_Q, and StatQuest's weights are given rather than trained. Times are caption-read from each video's automatic captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
 ## Self-attention scores and weights
 
-<!-- video-table: self-attention-scores-and-weights rev=1 -->
-Stanford CS224N on the self-attention scores, the softmax over them and the weighted sum, to watch after this sitting:
+<!-- video-table: self-attention-scores-and-weights rev=2 -->
+Stanford CS224N, then BrainDrain and StatQuest on the same two steps with numbers, on the self-attention scores, the softmax over them and the weighted sum, in the order to watch:
 
 | Order | What it covers | Kind | Watch |
 |---|---|---|---|
 | 1 | Confirm after the sitting: the score for word i looking at word j is query i dotted with key j, the softmax runs over every j for a fixed i, and the output is the weighted sum of value vectors. Watch which index the softmax normalises over, which is why each row sums to 1 | Proof | [CS224N 2023, lecture 8, 16:03 to 17:40](https://www.youtube.com/watch?v=LWMzyfvuehA&t=963s) |
+| 2 | Confirm, after the toy: one row of the score matrix times V expanded by hand, each line of the expansion turning out to be one value vector scaled by one query-key score, so the whole row is a weighted sum of values. Watch for the score matrix being redrawn in white once its entries stop being vectors | Proof | [BrainDrain, what queries, keys and values actually mean, 3:46 to 5:01](https://www.youtube.com/watch?v=VEexEpQhtpo&t=226s) |
+| 3 | Confirm, after the toy: both steps on numbers, a softmax per row giving 1% to itself, 99% to the next token and 0% to the third, then those percentages carried through V one column at a time to the first attention score, 1.54. Watch for the row summing to 1 before anything is multiplied | Worked example | [StatQuest, the matrix math behind transformers, 10:00 to 12:02](https://www.youtube.com/watch?v=KphmOJnLAdI&t=600s) |
 
-Symbols only; the lecture never works a 3 by 3 example with numbers. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
+CS224N works symbols only. StatQuest's worked sentence is three tokens, so no larger case is shown anywhere here, and no gradient is taken through either step. Times are caption-read from each video's automatic captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
 
 ## Self-attention in matrix form
@@ -3740,4 +3772,141 @@ Stanford CS224N on layer normalisation of one word vector, to watch after this s
 | 1 | Confirm after the sitting: the mean and standard deviation are taken across one word vector's own dimensions, the vector is shifted and scaled to mean 0 and spread 1 with a small epsilon, then optionally rescaled by learned gain and bias | Proof | [CS224N 2023, lecture 8, 1:00:58 to 1:03:49](https://www.youtube.com/watch?v=LWMzyfvuehA&t=3658s) |
 
 Symbols only; no vector is normalised with numbers. Times are caption-read from the lecture's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## How words become vectors
+
+<!-- video-table: how-words-become-vectors rev=1 -->
+Under The Hood on how a word becomes a vector at all, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient, before you choose where your word vectors come from: a token id cannot be the feature, because with good as 6, bad as 22 and great as 21 the model reads bad and great as near neighbours. Watch for one-hot encoding removing that false ranking and paying for it in 50,000 sparse dimensions per word | Intuition | [Under The Hood, What Are Word Embeddings, 0:54 to 3:40](https://www.youtube.com/watch?v=hVM8qGRTaOA&t=54s) |
+| 2 | Orient, before you choose: dense vectors instead, with age and royalty drawn as the two axes, then king minus man plus woman landing near queen, and Beijing plus Japan minus China landing on Tokyo. Watch for the admission that no single dimension has a name you can state | Intuition | [Under The Hood, What Are Word Embeddings, 6:28 to 9:44](https://www.youtube.com/watch?v=hVM8qGRTaOA&t=388s) |
+| 3 | Confirm, after you choose: where the table itself comes from, a one-hidden-layer network trained to predict a centre word from its context, after which the hidden weight matrix is the embedding table, 8 by 3 on an eight-word vocabulary. Watch for skip-gram being the same network with input and target swapped | Intuition | [Under The Hood, What Are Word Embeddings, 10:30 to 14:46](https://www.youtube.com/watch?v=hVM8qGRTaOA&t=630s) |
+
+No code is typed and no embedding is trained on screen. Times are caption-read from the video's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Why query, key and value are named that
+
+<!-- video-table: why-query-key-and-value-are-named-that rev=1 -->
+BrainDrain, Gal Lahat and Learn With Jay on where the three names come from, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient, before you say why a key and a value are separate: the library with no computers, where you arrive with a query, read index cards whose descriptions are the keys, and receive the books, which are the values. Watch for the match happening against the description and never against the book | Intuition | [BrainDrain, What Queries, Keys and Values actually mean, 0:06 to 1:18](https://www.youtube.com/watch?v=VEexEpQhtpo&t=6s) |
+| 2 | Confirm, after the toy: each name earning itself in one pass, the query searching, the key being matched against it, and the value being what gets added in proportion to the match. Watch for vector similarity drawn as colour similarity, so a strong match is two squares of the same colour | Intuition | [Gal Lahat, I Visualised Attention in Transformers, 4:32 to 6:01](https://www.youtube.com/watch?v=RNF0FvRjGZk&t=272s) |
+| 3 | Confirm, after the toy: why the third one is called a value, since the new vector for a word is made of varying percentages of the other words' value vectors. Watch for the value being the information passed along rather than the thing matched against | Intuition | [Learn With Jay, Why the name Query, Key and Value, 1:41 to 3:20](https://www.youtube.com/watch?v=viCl2T7vx64&t=101s) |
+
+The first half of the Learn With Jay video repeats the Python-dictionary analogy already held in [[#Attention as a soft dictionary lookup]], so only its second half is here. Times are caption-read from each video's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Temperature, top-k and top-p together
+
+<!-- video-table: temperature-top-k-and-top-p-together rev=1 -->
+Under The Hood on the three sampling controls used together, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient, before you set any of them: greedy sampling as the baseline the others depart from, always taking the top token, so the same prompt returns the same answer and the answers come out repetitive | Intuition | [Under The Hood, What is Temperature in LLM, 0:55 to 1:55](https://www.youtube.com/watch?v=jnikMver_CE&t=55s) |
+| 2 | Confirm, after you have set temperature alone: all three applied in order to one distribution of 10 tokens, logits scaled by 0.8 first, then softmax, then top-k keeping 5, renormalise, then top-p at 0.9 cutting those 5 to 4, renormalise again, then draw. Watch for the renormalisation happening twice, and for temperature acting before either filter | Intuition | [Under The Hood, What is Temperature in LLM, 7:42 to 9:45](https://www.youtube.com/watch?v=jnikMver_CE&t=462s) |
+
+No code is typed, and the output is never generated repeatedly to count how often it changes. Times are caption-read from the video's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Retrieval-augmented generation
+
+<!-- video-table: retrieval-augmented-generation rev=1 -->
+Under The Hood on retrieval-augmented generation, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient, before any retrieval is built: the three things a pretrained model cannot do, namely hold a conversation longer than its context window, know anything after its training cut-off, or answer about private documents. Watch for the first attempt, pasting the whole document into the prompt, and why it stops scaling | Intuition | [Under The Hood, RAG Explained for Beginners, 3:30 to 5:25](https://www.youtube.com/watch?v=1j__7fVv9Ew&t=210s) |
+| 2 | Confirm, after the first attempt fails: the pipeline on a dental clinic's document, split into chunks by paragraph, each chunk embedded and stored with its metadata in a vector store, then the user's question embedded by the same model and the nearest chunk retrieved and put in the prompt. Watch for the question and the chunks having to go through one embedding model, not two | Intuition | [Under The Hood, RAG Explained for Beginners, 5:25 to 8:15](https://www.youtube.com/watch?v=1j__7fVv9Ew&t=325s) |
+| 3 | Confirm, after the pipeline runs: where it breaks, since the highest-similarity chunk is not always the right chunk, and a wrong retrieval makes the model answer confidently from it. Watch for retrieving several chunks as the blunt fix, and for chunking strategy being named as having no single answer | Intuition | [Under The Hood, RAG Explained for Beginners, 8:15 to 9:59](https://www.youtube.com/watch?v=1j__7fVv9Ew&t=495s) |
+
+Nothing is built: no chunking strategy is compared against another and no retrieval is scored. HNSW is named as the search algorithm and not explained. Times are caption-read from the video's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Superposition in embedding space
+
+<!-- video-table: superposition-in-embedding-space rev=1 -->
+Grant Sanderson, answering a question after a talk, on how many directions fit in an embedding space:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Confirm, after you have seen two word vectors move: the number of directions that are almost but not exactly orthogonal grows exponentially with the width of the space, so a model can carry far more distinct features than it has dimensions. Watch for the name, the superposition hypothesis, and for this being why reading a feature off a single coordinate does not work | Intuition | [Grant Sanderson, TNG Big Tech Day talk, Q&A, 50:01 to 51:30](https://www.youtube.com/watch?v=KJtZARuO3JY&t=3001s) |
+
+The exponential claim is asserted rather than derived, and no count is given for any real width. Times are caption-read from the talk's automatic captions, so the start and end are good to about 30 seconds.
+<!-- /video-table -->
+
+## The Fokker-Planck equation
+
+<!-- video-table: the-fokker-planck-equation rev=1 -->
+CompuFlair on the equation that follows the whole cloud instead of one particle, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient, before any density is propagated: the move from one trajectory to the population, and why it is worth making, since every individual path stays rough and erratic while the spread as a whole obeys a well-behaved law. Read as a forecast for probability, one term carrying probability through the space as drift and the other spreading it as diffusion. Watch for Itô's lemma being named as the translator between the two views, and not derived | Intuition | [CompuFlair, the hidden physics of generative AI random walks, 7:00 to 10:42](https://www.youtube.com/watch?v=yMaK2uMlAr8&t=420s) |
+| 2 | Confirm, after you have the density's evolution: why the randomness can then be dropped, since once you know how the mass must move you can carry points along that evolving field instead of injecting kicks and hoping they land right. Watch for the picture, a leaf carried by a river against a leaf shoved downstream by random gusts | Intuition | [CompuFlair, the hidden physics of generative AI random walks, 10:42 to 11:13](https://www.youtube.com/watch?v=yMaK2uMlAr8&t=642s) |
+
+No equation is written out in either segment and no density is propagated on numbers. Times are caption-read from the video's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Optimal transport and the Sinkhorn algorithm
+
+<!-- video-table: optimal-transport-and-the-sinkhorn-algorithm rev=1 -->
+CompuFlair on comparing two distributions by what it costs to move one onto the other, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient, before any transport plan: the earth-mover picture, a pile of dirt and a hole to fill, many ways to do it, and the cost being amount moved times distance moved. Watch for two distributions being compared by the work of relocating mass rather than by subtracting them point by point | Intuition | [CompuFlair, can optimal transport unify physics and machine learning, 0:00 to 1:43](https://www.youtube.com/watch?v=-O9tG60MK6g&t=0s) |
+| 2 | Orient, before you interpolate anything: the shortest path between two distributions, so the in-between ones move mass along optimal paths. Watch for why averaging pixel values instead gives ghostly blends | Intuition | [CompuFlair, can optimal transport unify physics and machine learning, 5:09 to 6:41](https://www.youtube.com/watch?v=-O9tG60MK6g&t=309s) |
+| 3 | Confirm, after the geodesic picture: the dynamic form, where the squared distance is the least kinetic energy needed to flow one distribution into the other, under a conservation law so mass cannot teleport. Watch for why this reads as least action, which is the framing a bridge problem inherits | Intuition | [CompuFlair, can optimal transport unify physics and machine learning, 6:41 to 7:45](https://www.youtube.com/watch?v=-O9tG60MK6g&t=401s) |
+| 4 | Unblock, before you iterate Sinkhorn by hand: why exact transport was unusable, being an n by m assignment problem, then entropic regularisation as the fix, with epsilon trading smoothness against exactness and the solve reducing to alternately making the rows sum right and the columns sum right. Watch for that alternation, which is the loop you are about to write | Intuition | [CompuFlair, can optimal transport unify physics and machine learning, 7:45 to 10:02](https://www.youtube.com/watch?v=-O9tG60MK6g&t=465s) |
+| 5 | Confirm, after your iteration converges: what the regularisation cost you, since entropic transport is no longer the original distance and can report a distribution as not quite distance zero from itself. Watch for the correction, subtracting the self-similarity terms, which is what makes it behave like a distance again | Intuition | [CompuFlair, can optimal transport unify physics and machine learning, 10:02 to 11:15](https://www.youtube.com/watch?v=-O9tG60MK6g&t=602s) |
+
+No transport plan is computed on numbers anywhere, and the Sinkhorn iteration is described as alternating rescaling without being written down, so working it by hand is yours. Avoid 1:43 to 2:04, which is a plug for the channel's courses. Times are caption-read from the video's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## The marginal score against the conditional score
+
+<!-- video-table: the-marginal-score-against-the-conditional-score rev=1 -->
+CompuFlair on the distinction the whole method turns on, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient, before you write any loss: a score conditioned on one clean image is a homing beacon back to that image and can only ever return it, while the marginal score, taken over all noised versions of every plausible image, is a navigation field across the whole manifold. Watch for the obstacle this creates, since the marginal score is the one with no closed form | Intuition | [CompuFlair, a physicist's intro to diffusion models and score matching, 13:03 to 14:13](https://www.youtube.com/watch?v=lTcbXoKQdXk&t=783s) |
+| 2 | Confirm, after you see the obstacle: why training against the computable target still gets you the one you need, because fitting the network to the known conditional score makes the best network learn the marginal score in expectation. Watch for the analogy that carries it, least squares under mean squared error learning a conditional average | Intuition | [CompuFlair, a physicist's intro to diffusion models and score matching, 14:13 to 16:00](https://www.youtube.com/watch?v=lTcbXoKQdXk&t=853s) |
+
+The expectation identity is stated and motivated by the regression analogy, never proved. Times are caption-read from the video's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Neural entropy, and the cost of undoing noise
+
+<!-- video-table: neural-entropy-and-the-cost-of-undoing-noise rev=1 -->
+CompuFlair on what a noising schedule destroys and what it therefore costs to reverse, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient, before you reason about any schedule: what noising actually deletes, watched on one 16 by 16 patch holding a black edge. Contrast drops, the boundary becomes ambiguous, many different sharp edges would explain what is left, and in the end the claim that there is an edge at all dissolves into speckle. Watch for the loss being of the clues that anchored structure, not just of pixel values | Intuition | [CompuFlair, what is neural entropy in physics-based diffusion models, 2:20 to 3:30](https://www.youtube.com/watch?v=CJGVsZAMtyI&t=140s) |
+| 2 | Confirm, after you have watched the patch go: why reversing it is hard, and the reason is not that the microscopic laws forbid it. Smearing is many-to-one at the level you care about, so many starting patterns reach the same finish and the finish no longer identifies its own start. Watch for entropy read as the information you would need to infer backwards, rather than as disorder | Intuition | [CompuFlair, what is neural entropy in physics-based diffusion models, 3:30 to 4:41](https://www.youtube.com/watch?v=CJGVsZAMtyI&t=210s) |
+| 3 | Confirm, after you compare two schedules: what the schedule costs, since a gentle one keeps nearby images distinguishable for many steps so the reverse process keeps footholds, while an aggressive one collapses different images into near-identical noise sooner. Watch for the consequence, that whatever is erased earlier has to be supplied later as stronger guidance | Intuition | [CompuFlair, what is neural entropy in physics-based diffusion models, 7:24 to 8:51](https://www.youtube.com/watch?v=CJGVsZAMtyI&t=444s) |
+
+No entropy is computed for any schedule and no two schedules are compared on numbers, so the measurement is yours. Avoid 0:26 to 1:07, which is a plug for the channel's courses. Times are caption-read from the video's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Training an energy model by contrast
+
+<!-- video-table: training-an-energy-model-by-contrast rev=1 -->
+CompuFlair on how an energy landscape is actually fitted, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Orient, before the training loop: the whole objective in two moves, lower the average energy of real digits and raise the average energy of whatever the model's own sampler currently produces. Watch for this being learning from contrast rather than from labels, so no classification is happening | Intuition | [CompuFlair, every step of energy based image generation, 10:21 to 11:36](https://www.youtube.com/watch?v=Zo7Pj8cOZcE&t=621s) |
+| 2 | Unblock, when your own samples look wrong: why both obvious ways of getting them fail, restarting from pure noise every step being far too slow to reach anything digit-like, and starting from real data leaving the sample glued to the data. Watch for the second failure being the dangerous one, since the model then never learns to price junk far from the data and looks successful anyway | Intuition | [CompuFlair, every step of energy based image generation, 11:36 to 12:50](https://www.youtube.com/watch?v=Zo7Pj8cOZcE&t=696s) |
+| 3 | Confirm, after you see why both fail: the persistent replay buffer as the fix, a pool of sampler states continued across training steps instead of restarted, so each image accumulates many steps cheaply. Watch for the three numbers, a pool of about 8,192, roughly 60 steps per iteration, and about 5% of the pool reset to noise so the model keeps meeting ugly inputs | Intuition | [CompuFlair, every step of energy based image generation, 12:50 to 14:16](https://www.youtube.com/watch?v=Zo7Pj8cOZcE&t=770s) |
+
+No gradient is derived, and the three numbers are given as what people use rather than measured against alternatives. Times are caption-read from the video's automatic captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->
