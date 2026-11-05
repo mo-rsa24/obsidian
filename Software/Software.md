@@ -5,6 +5,8 @@ Things with a version number you install or import, grouped by the family their 
 - [[Python]]: the Python language and its libraries.
 - [[React]]: the JavaScript library for building user interfaces.
 - [[Django]]: Django is a Python web framework that answers each request by matching its URL to a view, which reads and writes models through its ORM and returns what a template or a serializer builds: the model-view-template pattern.
+- [[Databricks]]: the Databricks platform, its CLI and its serverless compute, with bundles that deploy jobs as code and the environment versions serverless jobs run on.
+- [[Google ADK]]: Google's Agent Development Kit, a Python library for building an LLM agent as a folder of code and running it through a dev UI, the command line, an HTTP server, or inside your own program.
 - [[Docker]]: Docker packages an application and its dependencies into an image, built from a Dockerfile, and runs that image as a container: an isolated process sharing the host's kernel, with Docker Compose starting several of them together.
 - [[Kubernetes]]: Kubernetes runs containers across a cluster of machines and keeps the cluster at the state its manifests declare: a control plane schedules pods, the smallest unit of one or more containers, onto worker nodes and replaces them when they fail.
 - [[Redis]]: Redis is an in-memory key-value data store, used as a cache, a counter store, a message broker and sometimes a database, fast because its data lives in RAM.

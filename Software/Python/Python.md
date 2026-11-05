@@ -8,4 +8,7 @@ Software, Python. The language itself, and the Python libraries the walks use, o
 - [[Pydantic]]: Pydantic is a Python library whose models check and convert data as it is built, so a request body, a settings file or an API response with a wrong or missing field is refused with a message naming the field instead of travelling on into the program.
 - [[Dataclass]]: A dataclass is a Python class whose `__init__`, `__repr__` and equality are written for you from its typed fields by the standard library's `@dataclass` decorator; with `frozen=True` its fields cannot change after it is built.
 - [[import-linter]]: import-linter is a Python tool that reads contracts from a config file (layers that may import only downward, modules that must never import each other) and makes its command, `lint-imports`, fail with the offending import line when the code breaks one.
+- [[Python Wheel]]: a built package in one `.whl` file, a zip archive an installer unpacks straight into an environment without running a build step; `uv build` makes one.
+- [[Entry Point]]: a name under `[project.scripts]` in `pyproject.toml` that points at one function in the package and becomes a command once the package is installed.
+- [[Optional Dependencies]]: packages listed under a named extra in `[project.optional-dependencies]`, left out of a plain install and brought in by naming the extra.
 - [[ASGI]]: the Python standard between a web server and an application for asynchronous traffic, which carries WebSockets where WSGI cannot; Daphne and Uvicorn are ASGI servers.

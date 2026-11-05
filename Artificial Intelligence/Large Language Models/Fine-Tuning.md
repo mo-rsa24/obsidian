@@ -25,6 +25,7 @@ Artificial Intelligence, Large Language Models. A cheap way to do it, training o
 - AI engineering, chapter 2, Supervised finetuning: [pages 173 to 179](../../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=173). Why a pre-trained model completes "How to make pizza" instead of answering it, and the demonstration data (InstructGPT's task mix) that SFT trains on.
 - AI engineering, chapter 7, Finetuning overview: [pages 596 to 601](../../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=596). Fine-tuning as transfer learning, why it needs a few hundred examples where training from scratch needs millions, and who fine-tunes what (the Code Llama variants in Figure 7-1).
 - Understanding deep learning, section 9.3.6: [pages 165 to 166](../../Mathematics/references/textbooks/machine-learning/understanding-deep-learning.pdf#page=165). Transfer learning in general: replace the last layer, then train only the new layers or fine-tune the entire model.
+- The big book of MLOps, chapter 6, Fine-tuning LLMs: [pages 62 to 63](../../Mathematics/references/textbooks/ai-engineering/big-book-of-mlops.pdf#page=62). Supervised instruction fine-tuning against continued pre-training, when to fine-tune, and in practice a blend with RAG, sharded training (FSDP, DeepSpeed ZeRO) and PEFT methods such as LoRA.
 
 **Videos**
 

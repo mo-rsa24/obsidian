@@ -1,7 +1,7 @@
 ---
 aliases: [Docker, Docker image, Dockerfile, Docker container, Docker Compose, containerization, container, multi-stage build, container registry]
 link-only-in: [system-design, data-engineering/many-sources-one-lakehouse, ai-engineering/one-business-end-to-end, projects/attica, ai-engineering/llm-applications, ai-engineering/tooling-deployment-route]
-link-skip: [Container App, containers diagram, container diagram, containers drawing, container level, containers-level, "context, container", containers and components, container and component, components inside, Containers (milestone, Components (milestone, rounded-outline containers, container titled]
+link-skip: [Container App, containers diagram, container diagram, containers drawing, container level, containers-level, "context, container", containers and components, container and component, components inside, Containers (milestone, Components (milestone, rounded-outline containers, container titled, container fills, pale container, container drawing, under one container]
 standard: vault-note v2
 ---
 

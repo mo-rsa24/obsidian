@@ -25,6 +25,7 @@ Information Technology, DevOps. A pipeline usually builds a [[Docker]] image, an
 - System design big archive, CI/CD Pipeline Explained: [page 290](../../Mathematics/references/textbooks/system-design/system-design-big-archive.pdf#page=290). The pipeline as one workflow that builds, tests and deploys, with the tools used at each stage.
 - System design interview, chapter 1, Logging, metrics, automation: [page 26](../../Mathematics/references/textbooks/system-design/system-design-interview.pdf#page=26). Continuous integration as the automation a growing site needs: each check-in verified automatically so problems surface early.
 - System design big archive, How to Deploy Services: [pages 160 to 161](../../Mathematics/references/textbooks/system-design/system-design-big-archive.pdf#page=160). The release step's options: all services at once, blue-green, canary and A/B tests, each with its rollback cost.
+- The big book of MLOps, chapter 5, Staging: [pages 39 to 41](../../Mathematics/references/textbooks/ai-engineering/big-book-of-mlops.pdf#page=39). CI/CD for an ML project on Databricks: a pull request against main triggers unit tests on the CI runner, then integration tests that run every pipeline in a staging workspace with its own staging catalog, then a merge and a release branch that promotes the code to production.
 
 **Videos**
 

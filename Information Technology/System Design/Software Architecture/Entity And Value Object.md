@@ -1,6 +1,6 @@
 ---
 aliases: [value object, entity, entities, domain entity]
-link-skip: [Unprocessable Entity]
+link-skip: [Unprocessable Entity, boxes for entities]
 link-only-in: [system-design/clean-architecture-in-python]
 standard: vault-note v2
 ---

@@ -3534,6 +3534,108 @@ section's page.
 | Index | [932](ai-engineering/ai-engineering.pdf#page=932) |
 | About the Author | [989](ai-engineering/ai-engineering.pdf#page=989) |
 
+### The big book of MLOps
+
+`ai-engineering/big-book-of-mlops.pdf`, 78 pages, downloaded as `2023-10-EB-Big-Book-of-MLOps-2nd-Edition.pdf`
+into the shelf's root and moved into `ai-engineering/`. Joseph Bradley, Rafi Kurlansik, Matt Thomson and
+Niall Turbitt, *The Big Book of MLOps*, Databricks eBook, second edition, October 2023. Databricks' own
+account of taking a model from a notebook to production on its platform: the case for MLOps and its
+guiding principles, what development, staging and production mean for code, data and models, the two
+deployment patterns (deploy code or deploy models), Unity Catalog as the registry for data and models
+with aliases in place of stages, Model Serving and Lakehouse Monitoring, how to lay out catalogs and
+schemas per environment, a reference architecture that walks one project through development,
+staging with integration tests on a CI runner, a release branch, and production training, validation,
+deployment, inference, monitoring and retraining, and a chapter on LLMOps (prompt engineering, RAG and
+vector databases, fine-tuning, pre-training, evaluation with LLM judges and human feedback, inference
+cost). The table is from the contents pages (PDF pages 2 to 4); the PDF has no outline.
+
+**Page numbers.** The printed page number equals the PDF page number throughout, so a page quoted from
+the contents opens the right page. The pages are landscape slides at 1024 by 768 points.
+
+**Its age.** Written against the October 2023 platform. Asset bundles get one paragraph, on
+[page 50](ai-engineering/big-book-of-mlops.pdf#page=50), as the way the MLOps Stacks template deploys
+its CI/CD and ML pipelines. Products renamed since carry their 2023 names: Delta Live Tables (now
+Lakeflow Declarative Pipelines) and Databricks Asset Bundles (now Declarative Automation Bundles).
+
+| Chapter or section | PDF page |
+| --- | --- |
+| 1 Introduction | [5](ai-engineering/big-book-of-mlops.pdf#page=5) |
+| 2 Big Book of MLOps V1 Recap | [6](ai-engineering/big-book-of-mlops.pdf#page=6) |
+| Why should I care about MLOps? | [6](ai-engineering/big-book-of-mlops.pdf#page=6) |
+| Guiding principles | [6](ai-engineering/big-book-of-mlops.pdf#page=6) |
+| Semantics of development, staging and production | [7](ai-engineering/big-book-of-mlops.pdf#page=7) |
+| ML deployment patterns | [8](ai-engineering/big-book-of-mlops.pdf#page=8) |
+| 3 What's New? | [10](ai-engineering/big-book-of-mlops.pdf#page=10) |
+| Unity Catalog | [10](ai-engineering/big-book-of-mlops.pdf#page=10) |
+| Benefits and architecture implications (Unity Catalog) | [11](ai-engineering/big-book-of-mlops.pdf#page=11) |
+| Model Serving | [13](ai-engineering/big-book-of-mlops.pdf#page=13) |
+| Benefits and architecture implications (Model Serving) | [13](ai-engineering/big-book-of-mlops.pdf#page=13) |
+| Lakehouse Monitoring | [15](ai-engineering/big-book-of-mlops.pdf#page=15) |
+| Benefits and architecture implications (Lakehouse Monitoring) | [15](ai-engineering/big-book-of-mlops.pdf#page=15) |
+| 4 Design Decisions | [17](ai-engineering/big-book-of-mlops.pdf#page=17) |
+| Unity Catalog | [17](ai-engineering/big-book-of-mlops.pdf#page=17) |
+| Organizing data and AI assets | [17](ai-engineering/big-book-of-mlops.pdf#page=17) |
+| Concepts | [18](ai-engineering/big-book-of-mlops.pdf#page=18) |
+| Considerations | [21](ai-engineering/big-book-of-mlops.pdf#page=21) |
+| Recommended organization | [23](ai-engineering/big-book-of-mlops.pdf#page=23) |
+| Model Serving | [27](ai-engineering/big-book-of-mlops.pdf#page=27) |
+| Pre-deployment testing | [28](ai-engineering/big-book-of-mlops.pdf#page=28) |
+| Real-time model deployment | [29](ai-engineering/big-book-of-mlops.pdf#page=29) |
+| Implementing in Databricks | [30](ai-engineering/big-book-of-mlops.pdf#page=30) |
+| 5 Reference Architecture | [31](ai-engineering/big-book-of-mlops.pdf#page=31) |
+| Multi-environment view | [32](ai-engineering/big-book-of-mlops.pdf#page=32) |
+| Development | [34](ai-engineering/big-book-of-mlops.pdf#page=34) |
+| Data (development) | [35](ai-engineering/big-book-of-mlops.pdf#page=35) |
+| Exploratory data analysis (EDA) | [35](ai-engineering/big-book-of-mlops.pdf#page=35) |
+| Project code | [36](ai-engineering/big-book-of-mlops.pdf#page=36) |
+| Model training development | [36](ai-engineering/big-book-of-mlops.pdf#page=36) |
+| Model validation and deployment development | [37](ai-engineering/big-book-of-mlops.pdf#page=37) |
+| Commit code | [38](ai-engineering/big-book-of-mlops.pdf#page=38) |
+| Staging | [39](ai-engineering/big-book-of-mlops.pdf#page=39) |
+| Data (staging) | [40](ai-engineering/big-book-of-mlops.pdf#page=40) |
+| Merge code | [40](ai-engineering/big-book-of-mlops.pdf#page=40) |
+| Integration tests (CI) | [40](ai-engineering/big-book-of-mlops.pdf#page=40) |
+| Merge | [41](ai-engineering/big-book-of-mlops.pdf#page=41) |
+| Cut release branch | [41](ai-engineering/big-book-of-mlops.pdf#page=41) |
+| Production | [42](ai-engineering/big-book-of-mlops.pdf#page=42) |
+| Model training | [44](ai-engineering/big-book-of-mlops.pdf#page=44) |
+| Model validation | [45](ai-engineering/big-book-of-mlops.pdf#page=45) |
+| Model deployment | [46](ai-engineering/big-book-of-mlops.pdf#page=46) |
+| Model Serving (production) | [48](ai-engineering/big-book-of-mlops.pdf#page=48) |
+| Inference: batch or streaming | [48](ai-engineering/big-book-of-mlops.pdf#page=48) |
+| Lakehouse Monitoring (production) | [49](ai-engineering/big-book-of-mlops.pdf#page=49) |
+| Retraining | [49](ai-engineering/big-book-of-mlops.pdf#page=49) |
+| Implementing MLOps on Databricks | [50](ai-engineering/big-book-of-mlops.pdf#page=50) |
+| 6 LLMOps | [51](ai-engineering/big-book-of-mlops.pdf#page=51) |
+| What changes with LLMs? | [51](ai-engineering/big-book-of-mlops.pdf#page=51) |
+| Key components of LLM-powered applications | [54](ai-engineering/big-book-of-mlops.pdf#page=54) |
+| Prompt engineering | [54](ai-engineering/big-book-of-mlops.pdf#page=54) |
+| Leveraging your own data | [56](ai-engineering/big-book-of-mlops.pdf#page=56) |
+| Retrieval augmented generation (RAG) | [58](ai-engineering/big-book-of-mlops.pdf#page=58) |
+| Typical RAG workflow | [59](ai-engineering/big-book-of-mlops.pdf#page=59) |
+| Vector database | [60](ai-engineering/big-book-of-mlops.pdf#page=60) |
+| Benefits of vector databases in a RAG workflow | [61](ai-engineering/big-book-of-mlops.pdf#page=61) |
+| Fine-tuning LLMs | [62](ai-engineering/big-book-of-mlops.pdf#page=62) |
+| When to use fine-tuning? | [63](ai-engineering/big-book-of-mlops.pdf#page=63) |
+| Fine-tuning in practice | [63](ai-engineering/big-book-of-mlops.pdf#page=63) |
+| Pre-training | [64](ai-engineering/big-book-of-mlops.pdf#page=64) |
+| When to use pre-training? | [64](ai-engineering/big-book-of-mlops.pdf#page=64) |
+| Pre-training in practice | [65](ai-engineering/big-book-of-mlops.pdf#page=65) |
+| Third-party APIs vs. self-hosted models | [66](ai-engineering/big-book-of-mlops.pdf#page=66) |
+| Model evaluation | [67](ai-engineering/big-book-of-mlops.pdf#page=67) |
+| LLMs as evaluators | [69](ai-engineering/big-book-of-mlops.pdf#page=69) |
+| Human feedback in evaluation | [69](ai-engineering/big-book-of-mlops.pdf#page=69) |
+| Packaging models or pipelines for deployment | [70](ai-engineering/big-book-of-mlops.pdf#page=70) |
+| LLM Inference | [71](ai-engineering/big-book-of-mlops.pdf#page=71) |
+| Real-time inference | [71](ai-engineering/big-book-of-mlops.pdf#page=71) |
+| Batch inference | [71](ai-engineering/big-book-of-mlops.pdf#page=71) |
+| Inference with large models | [72](ai-engineering/big-book-of-mlops.pdf#page=72) |
+| Managing cost/performance trade-offs | [72](ai-engineering/big-book-of-mlops.pdf#page=72) |
+| Methods for reducing costs of inference | [73](ai-engineering/big-book-of-mlops.pdf#page=73) |
+| Reference architecture (LLMOps) | [74](ai-engineering/big-book-of-mlops.pdf#page=74) |
+| RAG with a fine-tuned OSS model | [75](ai-engineering/big-book-of-mlops.pdf#page=75) |
+| 7 Conclusion | [78](ai-engineering/big-book-of-mlops.pdf#page=78) |
+
 ## software-engineering/
 
 ### Code simplicity

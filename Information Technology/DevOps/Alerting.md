@@ -1,6 +1,6 @@
 ---
 aliases: [alerting, alert, alert rule, alerting rule, Alertmanager, alert fatigue]
-link-skip: [GitHub alert]
+link-skip: [GitHub alert, alerts and her other variables, alert list]
 standard: vault-note v2
 ---
 

@@ -23,6 +23,7 @@ Artificial Intelligence. The statistics of checking a judge against people are i
 
 - AI engineering, chapter 3, AI as a Judge: [pages 271 to 281](../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=271). Defines the AI judge, says why teams use one, and gives naive prompts for its three uses: score a response alone, against a reference, or against another response, with a judge being the model plus its prompt.
 - AI engineering, chapter 3, limitations and biases of AI as a judge: [pages 281 to 295](../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=281). Inconsistency, ambiguous criteria, cost and latency, then self, position and verbosity bias (page 289), and which models can act as judges.
+- The big book of MLOps, chapter 6, LLMs as evaluators: [page 69](../Mathematics/references/textbooks/ai-engineering/big-book-of-mlops.pdf#page=69). Recommends a larger, more capable model as the judge and lists speed, cost and, in some cases, accuracy comparable to human raters as the reasons, beside building thumbs-up and hand-off-to-a-human feedback into the application.
 
 **Videos**
 

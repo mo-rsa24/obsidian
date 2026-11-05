@@ -24,6 +24,7 @@ Artificial Intelligence, Large Language Models.
 - AI engineering, chapter 6, retrieval algorithms and retrieval optimisation: [pages 500 to 530](../../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=500). Term-based against embedding-based retrieval, how to compare and combine retrievers (reciprocal rank fusion on page 520), then chunking, reranking and contextual retrieval.
 - Hands-on large language models, chapter 8, Retrieval-Augmented Generation (RAG): [pages 349 to 358](../../Mathematics/references/textbooks/natural-language-processing/hands-on-large-language-models.pdf#page=349). Turns a search pipeline into RAG in code, with grounded generation from an API model and a local model, then query rewriting, multi-hop and agentic RAG, and RAG evaluation.
 - AI engineering, chapter 7, Finetuning and RAG: [pages 611 to 617](../../Mathematics/references/textbooks/ai-engineering/ai-engineering.pdf#page=611). Chooses between RAG and finetuning by whether the model fails for lack of information or because of its behaviour.
+- The big book of MLOps, chapter 6, Retrieval augmented generation (RAG): [pages 58 to 61](../../Mathematics/references/textbooks/ai-engineering/big-book-of-mlops.pdf#page=58). RAG as the answer to a model's training cut-off, its four benefits, then one typical workflow drawn and walked: the prompt embedded, a semantic search in a vector database, the retrieved documents added to the prompt.
 
 **Videos**
 
