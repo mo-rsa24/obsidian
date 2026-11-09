@@ -260,6 +260,7 @@ Navigation: ⬅️ [[#Scaling a draw scales its variance by the square]] | 📋 
 - Pattern recognition and machine learning, section 1.2.2: [page 39](../references/textbooks/machine-learning/pattern-recognition-and-machine-learning.pdf#page=39). Defines var[f] and expands it to E[f²] − E[f]² (equations 1.38 to 1.40).
 - Introduction to probability for data science, section 4.2.3, Moment and variance: [page 200](../references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=200). Defines the kth moment and the variance of a continuous random variable, Var[X] = E[(X − μ)²] = ∫ (x − μ)² f_X(x) dx, as the discrete sums turned into integrals.
 - Introduction to statistics, section 2.6.3, Variance s²: [page 51](../references/textbooks/statistics/introduction-to-statistics.pdf#page=51). The sample variance as the most used measure of spread, zero when every value is equal, beside the range and the interquartile range.
+- Introduction to statistics, section 4.2.4, Variance of a Discrete Random Variable: [page 82](../references/textbooks/statistics/introduction-to-statistics.pdf#page=82). Defines Var[X] as the probability-weighted squared distance from E[X], gives the E[X²] − E[X]² form and the standard deviation as its root, then works both on a four-outcome example (Example 4.2).
 
 **Videos**
 

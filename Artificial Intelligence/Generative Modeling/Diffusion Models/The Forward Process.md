@@ -319,6 +319,8 @@ Navigation: ⬅️ [[#Why the jump matters]] | 📋 [[#Table of contents|TOC]] |
 
 - Understanding deep learning, sections 18.2 and 18.2.1: [pages 363 to 366](../../../Mathematics/references/textbooks/machine-learning/understanding-deep-learning.pdf#page=363). Works it on one-dimensional data with T = 100 steps at β = 0.03 (figure 18.2), then derives the diffusion kernel q(z_t | x) by adding the first two steps' noises and draws it for x* = 2.0 at t = 20, 40 and 80 (figure 18.3).
 - The little book of generative AI foundations, section 4.1.1, Gaussian noising and the closed-form forward process: [pages 70 to 72](../../../Mathematics/references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=70). The one-step rule, the closed form x_t = √ᾱ_t x_0 + √(1 − ᾱ_t) ε, and figure 4.1 with the signal coefficient falling as the noise coefficient rises.
+- Principles and practice of deep representation learning, section 3.2.1, Diffusion processes: [pages 121 to 123](../../../Mathematics/references/textbooks/machine-learning/deep-representation-learning.pdf#page=121). Adds noise as x_t = x + t·g, shows a Gaussian mixture stays a mixture with each covariance grown to Σ_k + t²I, and differentiates the noised Gaussian's entropy to show it rises with t.
+- Principles and practice of deep representation learning, section 3.2.2, Different noise models: [page 136](../../../Mathematics/references/textbooks/machine-learning/deep-representation-learning.pdf#page=136). Writes the general x_t = α_t x + σ_t g, names α_t = 1, σ_t = t the variance-exploding process and α_t = √(1 − t²), σ_t = t the variance-preserving one, whose end point x_1 is exactly N(0, I).
 
 **Videos**
 

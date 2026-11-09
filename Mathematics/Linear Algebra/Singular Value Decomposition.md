@@ -24,6 +24,7 @@ Mathematics, Linear Algebra. [[Eigenvalue]] covers the eigendecomposition the SV
 - Linear algebra textbook, section 9.4: [pages 528 to 534](../references/textbooks/linear-algebra/linear-algebra-textbook.pdf#page=528). Singular values, then the SVD in brief and expanded form, with Example 2 for a matrix that is not square.
 - Linear algebra textbook, section 9.5: [pages 535 to 538](../references/textbooks/linear-algebra/linear-algebra-textbook.pdf#page=535). The reduced SVD, and compressing an image by keeping only the largest singular values.
 - Probabilistic machine learning: an introduction, section 7.5: [pages 287 to 291](../references/textbooks/machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=287). The basics, the link to the eigendecomposition, the pseudo-inverse and the truncated SVD.
+- A tutorial on principal component analysis, section VI, A more general solution using SVD: [pages 7 to 9](../references/textbooks/linear-algebra/principal-component-analysis-tutorial.pdf#page=7). Builds the SVD from the eigenvectors of XᵀX, first in scalar form Xv̂ᵢ = σᵢûᵢ and then as X = UΣVᵀ (Figure 4), and shows the columns of V are the principal components of the data.
 
 **Videos**
 

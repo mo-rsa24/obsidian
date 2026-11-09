@@ -263,6 +263,11 @@ The reference shelf for the moment a derivation stalls on a word a video could t
 - [[#The marginal score against the conditional score]]
 - [[#Neural entropy, and the cost of undoing noise]]
 - [[#Training an energy model by contrast]]
+- [[#How CLIP is trained, and what it hands Stable Diffusion]]
+- [[#Stable Diffusion's architecture, end to end]]
+- [[#Guidance as a difference of noise predictions, in code]]
+- [[#Products of experts against mixtures]]
+- [[#Composing diffusion models by prompt]]
 
 ## Substituting a new variable into an integral (u-substitution)
 
@@ -3909,4 +3914,80 @@ CompuFlair on how an energy landscape is actually fitted, in the order to watch:
 | 3 | Confirm, after you see why both fail: the persistent replay buffer as the fix, a pool of sampler states continued across training steps instead of restarted, so each image accumulates many steps cheaply. Watch for the three numbers, a pool of about 8,192, roughly 60 steps per iteration, and about 5% of the pool reset to noise so the model keeps meeting ugly inputs | Intuition | [CompuFlair, every step of energy based image generation, 12:50 to 14:16](https://www.youtube.com/watch?v=Zo7Pj8cOZcE&t=770s) |
 
 No gradient is derived, and the three numbers are given as what people use rather than measured against alternatives. Times are caption-read from the video's automatic captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## How CLIP is trained, and what it hands Stable Diffusion
+
+<!-- video-table: clip-contrastive-pretraining rev=1 -->
+CodeEmporium, Stanford, Umar Jamil, 3Blue1Brown and Yannic Kilcher on how CLIP is trained and what its text encoder hands Stable Diffusion, in the order to watch:
+
+| Order | What it covers | Kind | Code it writes | Watch |
+|---|---|---|---|---|
+| 1 | Orient before the sitting: an image encoder and a text encoder each give a 512-wide vector, a batch of N pairs gives an N by N matrix of cosine similarities scaled by a learned temperature, and a softmax along every row and every column, scored by cross-entropy against the diagonal, is the loss | Intuition | none | [CodeEmporium, CLIP explained, 0:51 to 4:23](https://www.youtube.com/watch?v=FCDKn-vpn_o&t=51s) |
+| 2 | Why contrast at all: on the paper's zero-shot ImageNet plot, predicting the caption word by word learns slowly, predicting only which words occur learns faster, and the contrastive objective faster again | Intuition, open web | none | [Yannic Kilcher, OpenAI CLIP paper explained, 7:20 to 9:00](https://www.youtube.com/watch?v=T9XSU0pKX2E&t=440s) |
+| 3 | The loss read as InfoNCE: a softmax over one positive and N minus 1 negatives is a cross-entropy with the positive as the right class, and its negative bounds the mutual information from below, a bound that tightens with more negatives, which is why the batches are large | Intuition | none | [CS231N, lecture 13, 1:00:23 to 1:06:12](https://www.youtube.com/watch?v=4howBU7THbM&t=3623s) |
+| 4 | Unblock when you write the loss: the paper's pseudocode line by line, labels as arange(n), cross-entropy over the rows and over the columns, the two averaged | Code walk | the symmetric contrastive loss | [Umar Jamil, CLIP paper explanation, 5:36 to 8:04](https://www.youtube.com/watch?v=L3BTG8ETY_Y&t=336s) |
+| 5 | Confirm after the sitting: a photo with a hat minus the same photo without, scored against a few hundred words, ranks hat first at cosine 0.165, then cap and helmet. Watch for a difference of two vectors landing on a concept | Worked example | none | [3Blue1Brown, how AI images and videos work, 6:16 to 7:20](https://www.youtube.com/watch?v=iv-5mZ_9CPY&t=376s) |
+| 6 | Unblock when you meet Stable Diffusion's text encoder: CLIP's text half coded as a transformer encoder with a 49,408-token vocabulary, 768-wide embeddings and 77 positions, then loaded with pretrained weights | Code walk | the CLIP text encoder | [Umar Jamil, Coding Stable Diffusion from scratch, 1:54:50 to 2:09:10](https://www.youtube.com/watch?v=ZBKpAp_6TGI&t=6890s) |
+| 7 | Confirm, before you trust a CLIP-based score on a composed prompt: swapping "teddy bear" and "book" barely changes the CLIP score, because each side is one pooled vector and in-batch negatives never reward word order | Intuition | none | [CME296, lecture 7, 1:17:16 to 1:19:52](https://www.youtube.com/watch?v=iNaRBp4T57Q&t=4636s) |
+
+None proves the mutual-information bound line by line, and none shows SDXL's two concatenated encoders or the second-to-last layer it reads. Row 6 runs from Umar Jamil's chapter list, its start checked against the captions, so its end is good to the chapter; every other row is caption-read and good to about 30 seconds.
+<!-- /video-table -->
+
+## Stable Diffusion's architecture, end to end
+
+<!-- video-table: stable-diffusion-architecture rev=1 -->
+Umar Jamil, Stanford CS231N and CME296 on how Stable Diffusion's parts make one text-to-image loop, in the order to watch:
+
+| Order | What it covers | Kind | Code it writes | Watch |
+|---|---|---|---|---|
+| 1 | Orient before the sitting: the whole loop, a prompt through CLIP, a latent of noise, the UNet given the latent, the time step and the prompt predicting the noise, the scheduler removing it, repeated, then the VAE decoder turning the last latent into pixels | Intuition | none | [Umar Jamil, Coding Stable Diffusion from scratch, 37:26 to 39:54](https://www.youtube.com/watch?v=ZBKpAp_6TGI&t=2246s) |
+| 2 | Why a latent: the encoder shrinks the image 8 times in each direction, it is frozen while diffusion trains on its outputs, a decoder maps the clean latent back, and the pair is a VAE trained with a GAN discriminator to stay sharp | Intuition | none | [CS231N, lecture 14, 52:31 to 55:51](https://www.youtube.com/watch?v=Edr4uZFh4EE&t=3151s) |
+| 3 | Why the split works: the encoder keeps the semantics so the latent space is easy to learn, and a larger decoder restores the perceptual detail | Intuition | none | [CME296, lecture 4, 1:00:16 to 1:05:58](https://www.youtube.com/watch?v=WUUq6TVAu8U&t=3616s) |
+| 4 | Where each input enters: the time step through a predicted scale and shift, the text through cross-attention or joint attention from a frozen T5 or CLIP encoder, with FLUX.1 dev's numbers (12 billion parameters, 8 times downsampling, 1,024 image tokens) | Intuition | none | [CS231N, lecture 14, 55:51 to 58:52](https://www.youtube.com/watch?v=Edr4uZFh4EE&t=3351s) |
+| 5 | Confirm when you wire your own: the UNet coded block by block, a 320-wide time embedding into the residual blocks and cross-attention to the prompt in the attention blocks | Code walk | the UNet | [Umar Jamil, Coding Stable Diffusion from scratch, 2:09:10 to 3:04:40](https://www.youtube.com/watch?v=ZBKpAp_6TGI&t=7750s) |
+| 6 | Confirm when you wire your own: the pipeline end to end, the prompt padded to 77 tokens, CLIP giving 77 by 768, a 64 by 64 latent for a 512 by 512 image, the denoising loop and the decoder | Code walk | the generate function | [Umar Jamil, Coding Stable Diffusion from scratch, 3:04:40 to 3:53:00](https://www.youtube.com/watch?v=ZBKpAp_6TGI&t=11080s) |
+
+Rows 2 and 4 describe current models (16 latent channels, a diffusion transformer); Stable Diffusion 1.x has 4 latent channels and a UNet, and SDXL's two concatenated text encoders appear in no row. In row 1 the starting noise is passed through the VAE encoder; for text to image the noise is drawn in the latent directly. Rows 5 and 6 are chapters from Umar Jamil's chapter list, their content checked against the captions, so each is good to the chapter; the rest are caption-read and good to about 30 seconds.
+<!-- /video-table -->
+
+## Guidance as a difference of noise predictions, in code
+
+<!-- video-table: guidance-as-a-difference-in-code rev=1 -->
+3Blue1Brown, then Outlier and Umar Jamil, on guidance as the difference of two noise predictions and on writing it as code, in the order to watch:
+
+| Order | What it covers | Kind | Code it writes | Watch |
+|---|---|---|---|---|
+| 1 | Orient before the sitting: the conditional and the unconditional vector fields drawn on a spiral, nearly equal far from the data and parting as time nears zero; their difference, amplified by alpha, pulls points onto the class, and Stable Diffusion's missing tree appears from alpha about 2 | Intuition | none | [3Blue1Brown, how AI images and videos work, 30:00 to 33:39](https://www.youtube.com/watch?v=iv-5mZ_9CPY&t=1800s) |
+| 2 | Unblock when you train for both: the class label dropped 10% of the time in the training loop, and in the sampler torch.lerp from the unconditional prediction toward the conditional one | Code walk | label dropout and the guided sampling step | [Outlier, Diffusion Models PyTorch implementation, 17:55 to 19:16](https://www.youtube.com/watch?v=TBCRlnwJtZU&t=1075s) |
+| 3 | Unblock when you batch the two passes: the prompt and the negative prompt through CLIP, stacked into a batch of two so one UNet call returns both predictions, the negative prompt standing in for the empty unconditional one | Code walk | the conditional and unconditional contexts | [Umar Jamil, Coding Stable Diffusion from scratch, 3:14:56 to 3:22:41](https://www.youtube.com/watch?v=ZBKpAp_6TGI&t=11696s) |
+| 4 | Confirm after you combine them: the output split with chunk, then scale times (conditional minus unconditional) plus unconditional | Code walk | the guidance combination | [Umar Jamil, Coding Stable Diffusion from scratch, 3:40:31 to 3:42:00](https://www.youtube.com/watch?v=ZBKpAp_6TGI&t=13231s) |
+
+Every row combines one conditional prediction with one unconditional one; none sums two conditional predictions for two prompts, which is the product-of-experts step, and none says that torch.lerp with a weight above 1 extrapolates. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
+<!-- /video-table -->
+
+## Products of experts against mixtures
+
+<!-- video-table: product-of-experts-against-a-mixture rev=1 -->
+Geoffrey Hinton, from the open web, on why a product of experts is sharper than a mixture and what it costs:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | A mixture averages densities, so it is never sharper than its parts; a product multiplies them point by point, which is averaging their logarithms, then renormalises. The product is exponentially more powerful, the renormaliser (the partition function) is what makes it hard to learn, and a restricted Boltzmann machine is his example | Intuition, open web | [Hinton, deep learning tutorial, 36:01 to 37:46](https://www.youtube.com/watch?v=CGY-KtuiWEY&t=2161s) |
+
+Hinton never differentiates the product, so the step to added scores with the normaliser gone has no segment here, and no listed creator covers it. The video is another channel's re-upload of Hinton's tutorial and its captions read as machine-translated, so take the wording from the slides. The time is caption-read and good to about 30 seconds.
+<!-- /video-table -->
+
+## Composing diffusion models by prompt
+
+<!-- video-table: composing-diffusion-models-by-prompt rev=1 -->
+Yilun Du, from the open web, and 3Blue1Brown on composing models by prompt, in the order to watch:
+
+| Order | What it covers | Kind | Watch |
+|---|---|---|---|
+| 1 | Composing "a sky" with "a dog" gives clouds shaped like a dog, which is a different composition from writing the sentence into one prompt. Watch for the composed sample sharing one region between both concepts | Intuition, open web | [Yilun Du, ASU talk, 53:01 to 53:40](https://www.youtube.com/watch?v=0ACcDrWJs8I&t=3181s) |
+| 2 | Negation in practice: WAN subtracts the output for a written negative prompt in place of the unconditional one, then amplifies the difference | Intuition | [3Blue1Brown, how AI images and videos work, 33:39 to 34:26](https://www.youtube.com/watch?v=iv-5mZ_9CPY&t=2019s) |
+| 3 | Composition as a sum of energies on a problem no model saw whole: one energy per edge colours a graph, and a one-queen energy summed over every row, column and diagonal solves eight queens 97% of the time | Worked example, open web | [Yilun Du, Simons Institute, 35:06 to 37:41](https://www.youtube.com/watch?v=6t8tLVSIxyQ&t=2106s) |
+
+No talk by the authors of Composable Diffusion or of Reduce, Reuse, Recycle was found, no listed creator teaches conjunction or negation of prompts, and none of these derives an operator or runs the Metropolis-corrected sampler. Times are caption-read from each video's captions, so each start and end is good to about 30 seconds.
 <!-- /video-table -->

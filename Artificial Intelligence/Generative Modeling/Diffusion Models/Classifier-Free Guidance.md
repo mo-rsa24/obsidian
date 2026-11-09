@@ -23,6 +23,7 @@ Artificial Intelligence, Generative Modeling, Diffusion Models. Needs: [[Score F
 
 - Probabilistic machine learning: advanced topics, section 25.6.3, Classifier-free guidance: [page 909](../../../Mathematics/references/textbooks/machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=909). Derives the implicit classifier from Bayes' rule, log p(c|x) = log p(x|c) + log p(c) − log p(x), with one network that sets c = ∅ for the unconditional case, then writes the guided score.
 - Understanding deep learning, section 18.6.3, Conditional generation: [page 379](../../../Mathematics/references/textbooks/machine-learning/understanding-deep-learning.pdf#page=379). Feeds the class into the U-Net the way the time step is added and trains on conditional and unconditional objectives by randomly dropping the class.
+- Principles and practice of deep representation learning, section 7.4.1, Deriving classifier-free guidance: [page 314](../../../Mathematics/references/textbooks/machine-learning/deep-representation-learning.pdf#page=314). Starts from the classifier-guided denoiser with weight γ, uses Bayes' rule and Tweedie's formula to rewrite it as (1 − γ)E[x | x_t] + γE[x | x_t, y] (eq. 7.4.14), and trains one network for both by swapping the label for a null label ∅ with probability p_uncond.
 
 **Videos**
 

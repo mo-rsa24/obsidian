@@ -334,6 +334,7 @@ Nothing on Mahesh Huddar's channel covers the phi or Matthews coefficient, and n
 - Introduction to probability for data science, sections 5.2.2 to 5.2.3: [pages 279 to 281](../references/textbooks/statistics/introduction-to-probability-for-data-science.pdf#page=279). Defines ρ as covariance over the root of the two variances (Definition 5.13), reads it as the cosine of an angle so it stays between −1 and 1, relates it to independence (Theorem 5.5), and computes it in MATLAB and Python.
 - Mathematics for machine learning, section 6.4.1: [page 197](../references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=197). Correlation as the normalised covariance (Definition 6.8), with a figure of positively and negatively correlated data.
 - Probabilistic machine learning: an introduction, section 3.1.2: [pages 102 to 103](../references/textbooks/machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=102). The Pearson correlation, a figure of point clouds with their ρ showing it measures linearity and not slope, the correlation matrix, and spurious correlation between unrelated series.
+- Introduction to statistics, section 6.3.1, Correlation Coefficient: [page 117](../references/textbooks/statistics/introduction-to-statistics.pdf#page=117). Defines the population correlation ρxy as cov(X, Y) over the root of var(X)var(Y), after reading correlation as the strength of a linear relationship, 0 for unrelated variables and 1 for an exact one.
 
 **Videos**
 

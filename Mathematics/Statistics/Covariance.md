@@ -25,6 +25,7 @@ Mathematics, Statistics. [[Correlation Coefficient]] divides covariance by the t
 - Mathematics for machine learning, sections 6.4.1 to 6.4.2: [pages 196 to 198](../references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=196). Univariate and multivariate covariance (Definitions 6.5 and 6.6), the covariance matrix with the variances on its diagonal, then the empirical covariance of a data set (Definition 6.9).
 - Deep learning textbook, section 3.8: [pages 77 to 78](../references/textbooks/machine-learning/deep-learning-textbook.pdf#page=77). Covariance as a measure of linear relation, why zero covariance is weaker than independence, and the covariance matrix (equation 3.14).
 - Pattern recognition and machine learning, section 1.2.2: [page 39](../references/textbooks/machine-learning/pattern-recognition-and-machine-learning.pdf#page=39). The covariance of two variables and of two vectors (equations 1.41 and 1.42).
+- A tutorial on principal component analysis, section IV.C, Covariance matrix: [pages 4 to 5](../references/textbooks/linear-algebra/principal-component-analysis-tutorial.pdf#page=4). Builds the covariance matrix C_X = (1/n) X Xᵀ from zero-mean data with one row per measurement type, with each measurement's variance on the diagonal and each pair's covariance off it, read as redundancy between measurements.
 
 **Videos**
 

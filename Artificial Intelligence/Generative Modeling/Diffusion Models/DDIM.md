@@ -22,6 +22,7 @@ Artificial Intelligence, Generative Modeling, Diffusion Models. It samples a net
 
 - Understanding deep learning, section 18.6: [pages 378 to 379](../../../Mathematics/references/textbooks/machine-learning/understanding-deep-learning.pdf#page=378). Shows on one-dimensional data that the same trained model serves a family of processes: five DDPM trajectories, five deterministic DDIM trajectories and an accelerated sampler that skips steps, each with its histogram against the true density (Figure 18.10).
 - Probabilistic machine learning: advanced topics, section 25.5.1: [page 905](../../../Mathematics/references/textbooks/machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=905). The non-Markovian forward step q(x_{t−1} ∣ x_t, x_0) and its reverse with the predicted x̂_0, which becomes fully deterministic when σ̃_t² = 0.
+- Principles and practice of deep representation learning, section 3.2.2, Sampling a distribution via iterative denoising: [pages 137 to 138](../../../Mathematics/references/textbooks/machine-learning/deep-representation-learning.pdf#page=137). Writes the step x̂_{t_{ℓ−1}} = (σ_{t_{ℓ−1}}/σ_{t_ℓ})x̂_{t_ℓ} + (α_{t_{ℓ−1}} − (σ_{t_{ℓ−1}}/σ_{t_ℓ})α_{t_ℓ})x̄(t_ℓ, x̂_{t_ℓ}) in denoiser form (eq. 3.2.87), names it the DDIM sampler and sets it out as Algorithm 3.1.
 
 **Videos**
 

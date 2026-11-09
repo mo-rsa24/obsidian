@@ -26,6 +26,7 @@ Artificial Intelligence, Generative Modeling. The composition notes use the word
 - Deep learning textbook, section 18.4: [pages 633 to 635](../../Mathematics/references/textbooks/machine-learning/deep-learning-textbook.pdf#page=633). Names the score and the score-matching loss that compares model and data scores without ever estimating the normalising constant Z.
 - Probabilistic machine learning: advanced topics, section 24.3: [pages 879 to 882](../../Mathematics/references/textbooks/machine-learning/probabilistic-machine-learning-advanced-topics.pdf#page=879). Separates the Stein score ∇ₓ log p from the Fisher score ∇_θ log p, shows an energy model's score is −∇ₓE_θ(x), and builds score matching on it.
 - The little book of generative AI foundations, section 8.4: [pages 177 to 180](../../Mathematics/references/textbooks/machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=177). Why the score ignores the partition function, since ∇ₓ log Z_θ = 0, and score matching as learning an energy's gradient.
+- Principles and practice of deep representation learning, section 3.2.1, Tweedie's formula: [pages 126 to 127](../../Mathematics/references/textbooks/machine-learning/deep-representation-learning.pdf#page=126). Proves E[x | x_t] = x_t + t²∇log p_t(x_t) by differentiating the noised density under the integral, so the score is the denoiser's residual divided by t², and figure 3.4 draws that residual pointing at the modes of a Gaussian mixture.
 
 **Videos**
 

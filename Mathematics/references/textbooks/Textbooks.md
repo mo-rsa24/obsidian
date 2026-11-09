@@ -373,6 +373,17 @@ table on this page gives PDF pages.
 | loss functions for regression: squared loss is minimised by the conditional average E[t given x] (section 1.5.5) | [pattern recognition and machine learning](machine-learning/pattern-recognition-and-machine-learning.pdf#page=65) | 65 |
 | binary logistic regression: p(y = 1 given x) = σ(wᵀx + b) (section 10.2, definition) | [probabilistic machine learning: an introduction](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=377) | 377 |
 | rank of a matrix: row space and column space have the same dimension (section 4.8, Theorem 4.8.1) | [linear algebra textbook](linear-algebra/linear-algebra-textbook.pdf#page=263) | 263 |
+| present value: a future cash flow divided by (1 + rate of return)ⁿ, worked on $100 in 3 years at 10% giving $75.13 (Discounted Cash Flow Technique, chapter 1) | [systems analysis and design](system-design/systems-analysis-and-design.pdf#page=53) | 53 |
+| the variance of a weighted sum: V[aᵀx + b] = aᵀΣa, and for two variables V[x₁ + x₂] = V[x₁] + V[x₂] + 2Cov[x₁, x₂] (section 2.8, equations 2.159 to 2.161) | [probabilistic machine learning: an introduction](machine-learning/probabilistic-machine-learning-an-introduction.pdf#page=93) | 93 |
+| the tangent space of an embedded submanifold: velocities of curves through x, equal to ker Dh(x) (Definition 3.14, Theorem 3.15) | [an introduction to optimization on smooth manifolds](geometry/optimization-on-smooth-manifolds.pdf#page=45) | 45 |
+| a Riemannian metric: a smoothly varying inner product on each tangent space (Definitions 3.51 to 3.53) | [an introduction to optimization on smooth manifolds](geometry/optimization-on-smooth-manifolds.pdf#page=57) | 57 |
+| the Riemannian metric as a tensor field of order two, G(x)(u, v) = ⟨u, v⟩ₓ (section 10.7) | [an introduction to optimization on smooth manifolds](geometry/optimization-on-smooth-manifolds.pdf#page=312) | 312 |
+| the tangent space of the sphere, ⟨x, v⟩ = 0, and the orthogonal projector Proj_x(u) = u − ⟨x, u⟩x that splits a vector into tangent and normal parts (section 7.2) | [an introduction to optimization on smooth manifolds](geometry/optimization-on-smooth-manifolds.pdf#page=173) | 173 |
+| a geodesic: a curve with zero (Riemannian) acceleration, so on a submanifold its extrinsic acceleration is normal (Definition 5.38) | [an introduction to optimization on smooth manifolds](geometry/optimization-on-smooth-manifolds.pdf#page=122) | 122 |
+| the logarithmic map Log_x(y), the shortest tangent vector whose exponential reaches y (Definition 10.20) | [an introduction to optimization on smooth manifolds](geometry/optimization-on-smooth-manifolds.pdf#page=282) | 282 |
+| the reparameterization trick for a Gaussian: ε ∼ N(0, I), z = µ + σ ⊙ ε (section 2.5, equations 2.38 to 2.40) | [an introduction to variational autoencoders](machine-learning/introduction-to-variational-autoencoders.pdf#page=28) | 28 |
+| the reparameterization trick in general: z = g(ε, φ, x) with ε independent of φ, so the gradient moves inside the expectation (section 2.4) | [an introduction to variational autoencoders](machine-learning/introduction-to-variational-autoencoders.pdf#page=23) | 23 |
+| PCA defined: pick orthonormal directions of greatest variance one at a time, so the covariance matrix becomes diagonal; the ordered directions are the principal components (section IV.D) | [a tutorial on principal component analysis](linear-algebra/principal-component-analysis-tutorial.pdf#page=5) | 5 |
 
 ## general/
 
@@ -471,6 +482,154 @@ Tricks: Geometry*. Was `GeometryHandbook.pdf`.
 | 10 Circles | [92](geometry/geometry-handbook.pdf#page=92) |
 | 11 Perimeter and Area | [98](geometry/geometry-handbook.pdf#page=98) |
 | 12 Surface Area and Volume | [111](geometry/geometry-handbook.pdf#page=111) |
+
+### Optimization on smooth manifolds
+
+`geometry/optimization-on-smooth-manifolds.pdf`, 367 pages. Nicolas Boumal, *An Introduction to
+Optimization on Smooth Manifolds*, Cambridge University Press 2023, the author's free pre-publication
+copy (compiled with corrections up to 8 October 2026). Its first page says sections, theorems and
+equations are numbered as in the published book while page numbers differ, so cite it by section number.
+It teaches differential geometry in the order optimization needs it, starting with manifolds embedded in
+a linear space: the tangent space as the velocities of curves through a point and as the kernel of the
+defining function's differential (3.2), the differential of a smooth map (3.4), retractions as the way
+to move along a manifold (3.6), Riemannian metrics (3.7) and the Riemannian gradient as the projected
+Euclidean gradient (3.8). Chapter 4 runs Riemannian gradient descent on that, chapter 5 adds
+connections, the Riemannian Hessian, covariant derivatives along curves and geodesics (5.8), and chapter
+7 works the sphere (with its tangent space and the orthogonal projector onto it, 7.2), the Stiefel
+manifold and fixed-rank matrices in full. Charts and atlases arrive only in chapter 8, which redoes
+tangent spaces and metrics for general manifolds; chapter 10 holds Riemannian distance, the exponential
+and logarithmic maps (10.2) and parallel transport (10.3), and chapter 11 geodesic convexity. Section
+2.4 frames PCA as optimization over the Stiefel and Grassmann manifolds. The book never names
+Christoffel symbols: it defines connections and geodesics without coordinates (5.3, 5.4, 5.8). A metric
+written as a matrix G(x) that varies with the point, which is the metric tensor g_ij of a coordinate
+treatment, appears in Exercise 7.1 (PDF page 173). The table is from the embedded outline, checked by
+opening the pages. The page number printed in each page's running head is the PDF page minus 16 from
+chapter 1 on, and the front matter is numbered in roman. The book's own printed contents list does not
+match those running heads after section 3.9 (it puts 10.2 at 261, which is PDF page 277, where 10.1 is
+still running), so look a section up here or in the outline, never from the printed contents.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| Preface | [9](geometry/optimization-on-smooth-manifolds.pdf#page=9) |
+| Notation | [14](geometry/optimization-on-smooth-manifolds.pdf#page=14) |
+| 1 Introduction | [17](geometry/optimization-on-smooth-manifolds.pdf#page=17) |
+| 2 Simple examples | [20](geometry/optimization-on-smooth-manifolds.pdf#page=20) |
+| 2.1 Sensor network localization from directions: an affine subspace | [20](geometry/optimization-on-smooth-manifolds.pdf#page=20) |
+| 2.2 Single extreme eigenvalue or singular value: spheres | [21](geometry/optimization-on-smooth-manifolds.pdf#page=21) |
+| 2.3 Dictionary learning: products of spheres | [22](geometry/optimization-on-smooth-manifolds.pdf#page=22) |
+| 2.4 Principal component analysis: Stiefel and Grassmann | [24](geometry/optimization-on-smooth-manifolds.pdf#page=24) |
+| 2.5 Synchronization of rotations: special orthogonal group | [27](geometry/optimization-on-smooth-manifolds.pdf#page=27) |
+| 2.6 Low-rank matrix completion: fixed-rank manifold | [28](geometry/optimization-on-smooth-manifolds.pdf#page=28) |
+| 2.7 Gaussian mixture models: positive definite matrices | [30](geometry/optimization-on-smooth-manifolds.pdf#page=30) |
+| 2.8 Smooth semidefinite programs | [30](geometry/optimization-on-smooth-manifolds.pdf#page=30) |
+| 3 Embedded geometry: first order | [33](geometry/optimization-on-smooth-manifolds.pdf#page=33) |
+| 3.1 Reminders of Euclidean space | [37](geometry/optimization-on-smooth-manifolds.pdf#page=37) |
+| 3.2 Embedded submanifolds of a linear space | [41](geometry/optimization-on-smooth-manifolds.pdf#page=41) |
+| 3.3 Smooth maps on embedded submanifolds | [49](geometry/optimization-on-smooth-manifolds.pdf#page=49) |
+| 3.4 The differential of a smooth map | [50](geometry/optimization-on-smooth-manifolds.pdf#page=50) |
+| 3.5 Vector fields and the tangent bundle | [53](geometry/optimization-on-smooth-manifolds.pdf#page=53) |
+| 3.6 Moving on a manifold: retractions | [55](geometry/optimization-on-smooth-manifolds.pdf#page=55) |
+| 3.7 Riemannian manifolds and submanifolds | [57](geometry/optimization-on-smooth-manifolds.pdf#page=57) |
+| 3.8 Riemannian gradients | [58](geometry/optimization-on-smooth-manifolds.pdf#page=58) |
+| 3.9 Local frames* | [62](geometry/optimization-on-smooth-manifolds.pdf#page=62) |
+| 3.10 Notes and references | [66](geometry/optimization-on-smooth-manifolds.pdf#page=66) |
+| 4 First-order optimization algorithms | [69](geometry/optimization-on-smooth-manifolds.pdf#page=69) |
+| 4.1 A first-order Taylor expansion on curves | [70](geometry/optimization-on-smooth-manifolds.pdf#page=70) |
+| 4.2 First-order optimality conditions | [71](geometry/optimization-on-smooth-manifolds.pdf#page=71) |
+| 4.3 Riemannian gradient descent | [72](geometry/optimization-on-smooth-manifolds.pdf#page=72) |
+| 4.4 Regularity conditions and iteration complexity | [75](geometry/optimization-on-smooth-manifolds.pdf#page=75) |
+| 4.5 Backtracking line-search | [77](geometry/optimization-on-smooth-manifolds.pdf#page=77) |
+| 4.6 Local convergence* | [80](geometry/optimization-on-smooth-manifolds.pdf#page=80) |
+| 4.7 Computing gradients* | [87](geometry/optimization-on-smooth-manifolds.pdf#page=87) |
+| 4.8 Numerically checking a gradient* | [95](geometry/optimization-on-smooth-manifolds.pdf#page=95) |
+| 4.9 Notes and references | [96](geometry/optimization-on-smooth-manifolds.pdf#page=96) |
+| 5 Embedded geometry: second order | [99](geometry/optimization-on-smooth-manifolds.pdf#page=99) |
+| 5.1 The case for another derivative of vector fields | [101](geometry/optimization-on-smooth-manifolds.pdf#page=101) |
+| 5.2 Another look at differentials of vector fields in linear spaces | [101](geometry/optimization-on-smooth-manifolds.pdf#page=101) |
+| 5.3 Differentiating vector fields on manifolds: connections | [102](geometry/optimization-on-smooth-manifolds.pdf#page=102) |
+| 5.4 Riemannian connections | [105](geometry/optimization-on-smooth-manifolds.pdf#page=105) |
+| 5.5 Riemannian Hessians | [110](geometry/optimization-on-smooth-manifolds.pdf#page=110) |
+| 5.6 Connections as pointwise derivatives* | [113](geometry/optimization-on-smooth-manifolds.pdf#page=113) |
+| 5.7 Differentiating vector fields on curves | [116](geometry/optimization-on-smooth-manifolds.pdf#page=116) |
+| 5.8 Acceleration and geodesics | [121](geometry/optimization-on-smooth-manifolds.pdf#page=121) |
+| 5.9 A second-order Taylor expansion on curves | [123](geometry/optimization-on-smooth-manifolds.pdf#page=123) |
+| 5.10 Second-order retractions | [124](geometry/optimization-on-smooth-manifolds.pdf#page=124) |
+| 5.11 Special case: Riemannian submanifolds* | [126](geometry/optimization-on-smooth-manifolds.pdf#page=126) |
+| 5.12 Special case: metric projection retractions* | [130](geometry/optimization-on-smooth-manifolds.pdf#page=130) |
+| 5.13 Notes and references | [132](geometry/optimization-on-smooth-manifolds.pdf#page=132) |
+| 6 Second-order optimization algorithms | [135](geometry/optimization-on-smooth-manifolds.pdf#page=135) |
+| 6.1 Second-order optimality conditions | [135](geometry/optimization-on-smooth-manifolds.pdf#page=135) |
+| 6.2 Riemannian Newton's method | [137](geometry/optimization-on-smooth-manifolds.pdf#page=137) |
+| 6.3 Computing Newton steps: conjugate gradients | [140](geometry/optimization-on-smooth-manifolds.pdf#page=140) |
+| 6.4 Riemannian trust regions | [147](geometry/optimization-on-smooth-manifolds.pdf#page=147) |
+| 6.5 The trust-region subproblem: truncated CG | [160](geometry/optimization-on-smooth-manifolds.pdf#page=160) |
+| 6.6 Local convergence of RTR with tCG* | [163](geometry/optimization-on-smooth-manifolds.pdf#page=163) |
+| 6.7 Simplified assumptions for RTR with tCG* | [164](geometry/optimization-on-smooth-manifolds.pdf#page=164) |
+| 6.8 Numerically checking a Hessian* | [166](geometry/optimization-on-smooth-manifolds.pdf#page=166) |
+| 6.9 Notes and references | [167](geometry/optimization-on-smooth-manifolds.pdf#page=167) |
+| 7 Embedded submanifolds: examples | [170](geometry/optimization-on-smooth-manifolds.pdf#page=170) |
+| 7.1 Euclidean spaces as manifolds | [170](geometry/optimization-on-smooth-manifolds.pdf#page=170) |
+| 7.2 The unit sphere in a Euclidean space | [173](geometry/optimization-on-smooth-manifolds.pdf#page=173) |
+| 7.3 The Stiefel manifold: orthonormal matrices | [175](geometry/optimization-on-smooth-manifolds.pdf#page=175) |
+| 7.4 The orthogonal group and rotation matrices | [179](geometry/optimization-on-smooth-manifolds.pdf#page=179) |
+| 7.5 Fixed-rank matrices | [181](geometry/optimization-on-smooth-manifolds.pdf#page=181) |
+| 7.6 The hyperboloid model | [189](geometry/optimization-on-smooth-manifolds.pdf#page=189) |
+| 7.7 Manifolds defined by h(x) = 0 | [193](geometry/optimization-on-smooth-manifolds.pdf#page=193) |
+| 7.8 Notes and references | [196](geometry/optimization-on-smooth-manifolds.pdf#page=196) |
+| 8 General manifolds | [198](geometry/optimization-on-smooth-manifolds.pdf#page=198) |
+| 8.1 A permissive definition | [198](geometry/optimization-on-smooth-manifolds.pdf#page=198) |
+| 8.2 The atlas topology, and a final definition | [204](geometry/optimization-on-smooth-manifolds.pdf#page=204) |
+| 8.3 Embedded submanifolds are manifolds | [208](geometry/optimization-on-smooth-manifolds.pdf#page=208) |
+| 8.4 Tangent vectors and tangent spaces | [210](geometry/optimization-on-smooth-manifolds.pdf#page=210) |
+| 8.5 Differentials of smooth maps | [212](geometry/optimization-on-smooth-manifolds.pdf#page=212) |
+| 8.6 Tangent bundles and vector fields | [213](geometry/optimization-on-smooth-manifolds.pdf#page=213) |
+| 8.7 Retractions and velocity of a curve | [215](geometry/optimization-on-smooth-manifolds.pdf#page=215) |
+| 8.8 Coordinate vector fields as local frames | [216](geometry/optimization-on-smooth-manifolds.pdf#page=216) |
+| 8.9 Riemannian metrics and gradients | [217](geometry/optimization-on-smooth-manifolds.pdf#page=217) |
+| 8.10 Lie brackets as vector fields | [217](geometry/optimization-on-smooth-manifolds.pdf#page=217) |
+| 8.11 Riemannian connections and Hessians | [219](geometry/optimization-on-smooth-manifolds.pdf#page=219) |
+| 8.12 Covariant derivatives and geodesics | [221](geometry/optimization-on-smooth-manifolds.pdf#page=221) |
+| 8.13 Taylor expansions and second-order retractions | [221](geometry/optimization-on-smooth-manifolds.pdf#page=221) |
+| 8.14 Submanifolds embedded in manifolds | [222](geometry/optimization-on-smooth-manifolds.pdf#page=222) |
+| 8.15 Notes and references | [226](geometry/optimization-on-smooth-manifolds.pdf#page=226) |
+| 9 Quotient manifolds | [228](geometry/optimization-on-smooth-manifolds.pdf#page=228) |
+| 9.1 A definition and a few facts | [232](geometry/optimization-on-smooth-manifolds.pdf#page=232) |
+| 9.2 Quotient manifolds through group actions | [235](geometry/optimization-on-smooth-manifolds.pdf#page=235) |
+| 9.3 Smooth maps to and from quotient manifolds | [239](geometry/optimization-on-smooth-manifolds.pdf#page=239) |
+| 9.4 Tangent, vertical and horizontal spaces | [240](geometry/optimization-on-smooth-manifolds.pdf#page=240) |
+| 9.5 Vector fields | [242](geometry/optimization-on-smooth-manifolds.pdf#page=242) |
+| 9.6 Retractions | [247](geometry/optimization-on-smooth-manifolds.pdf#page=247) |
+| 9.7 Riemannian quotient manifolds | [248](geometry/optimization-on-smooth-manifolds.pdf#page=248) |
+| 9.8 Gradients | [250](geometry/optimization-on-smooth-manifolds.pdf#page=250) |
+| 9.9 A word about Riemannian gradient descent | [252](geometry/optimization-on-smooth-manifolds.pdf#page=252) |
+| 9.10 Connections | [254](geometry/optimization-on-smooth-manifolds.pdf#page=254) |
+| 9.11 Hessians | [255](geometry/optimization-on-smooth-manifolds.pdf#page=255) |
+| 9.12 A word about Riemannian Newton's method | [256](geometry/optimization-on-smooth-manifolds.pdf#page=256) |
+| 9.13 Total space embedded in a linear space | [259](geometry/optimization-on-smooth-manifolds.pdf#page=259) |
+| 9.14 Horizontal curves and covariant derivatives | [262](geometry/optimization-on-smooth-manifolds.pdf#page=262) |
+| 9.15 Acceleration, geodesics and second-order retractions | [263](geometry/optimization-on-smooth-manifolds.pdf#page=263) |
+| 9.16 Grassmann manifold: summary* | [266](geometry/optimization-on-smooth-manifolds.pdf#page=266) |
+| 9.17 Notes and references | [270](geometry/optimization-on-smooth-manifolds.pdf#page=270) |
+| 10 Additional tools | [276](geometry/optimization-on-smooth-manifolds.pdf#page=276) |
+| 10.1 Distance, geodesics and completeness | [276](geometry/optimization-on-smooth-manifolds.pdf#page=276) |
+| 10.2 Exponential and logarithmic maps | [280](geometry/optimization-on-smooth-manifolds.pdf#page=280) |
+| 10.3 Parallel transport | [286](geometry/optimization-on-smooth-manifolds.pdf#page=286) |
+| 10.4 Lipschitz conditions and Taylor expansions | [290](geometry/optimization-on-smooth-manifolds.pdf#page=290) |
+| 10.5 Transporters | [301](geometry/optimization-on-smooth-manifolds.pdf#page=301) |
+| 10.6 Finite difference approximation of the Hessian | [308](geometry/optimization-on-smooth-manifolds.pdf#page=308) |
+| 10.7 Tensor fields and their covariant differentiation | [310](geometry/optimization-on-smooth-manifolds.pdf#page=310) |
+| 10.8 Notes and references | [318](geometry/optimization-on-smooth-manifolds.pdf#page=318) |
+| 11 Geodesic convexity | [323](geometry/optimization-on-smooth-manifolds.pdf#page=323) |
+| 11.1 Convex sets and functions in linear spaces | [324](geometry/optimization-on-smooth-manifolds.pdf#page=324) |
+| 11.2 Geodesically convex sets and functions | [326](geometry/optimization-on-smooth-manifolds.pdf#page=326) |
+| 11.3 Alternative definitions of geodesically convex sets* | [330](geometry/optimization-on-smooth-manifolds.pdf#page=330) |
+| 11.4 Differentiable geodesically convex functions | [332](geometry/optimization-on-smooth-manifolds.pdf#page=332) |
+| 11.5 Geodesic strong convexity and Lipschitz continuous gradients | [335](geometry/optimization-on-smooth-manifolds.pdf#page=335) |
+| 11.6 Example: positive reals and geometric programming | [339](geometry/optimization-on-smooth-manifolds.pdf#page=339) |
+| 11.7 Example: positive definite matrices | [342](geometry/optimization-on-smooth-manifolds.pdf#page=342) |
+| 11.8 Notes and references | [345](geometry/optimization-on-smooth-manifolds.pdf#page=345) |
+| References | [347](geometry/optimization-on-smooth-manifolds.pdf#page=347) |
+| Index | [363](geometry/optimization-on-smooth-manifolds.pdf#page=363) |
 
 ## trigonometry/
 
@@ -637,6 +796,43 @@ series, 5 December 2022. Was `Euclidean Vector Spaces.pdf`.
 `linear-algebra/spectral-normalization.pdf`, 5 pages. Own notes from the Matrix Decompositions series,
 23 January 2022: the spectral norm, then spectral normalization for GANs. Was
 `Spectral Normalization.pdf`.
+
+### A tutorial on principal component analysis
+
+`linear-algebra/principal-component-analysis-tutorial.pdf`, 12 pages. Jonathon Shlens, *A Tutorial on
+Principal Component Analysis*, arXiv 1404.1100v1, version 3.02 of 7 April 2014, the author's free
+arXiv copy. It builds PCA from a toy spring experiment: a change of basis (III), variance as signal and
+redundancy as covariance (IV.A to IV.C), the goal of diagonalizing the covariance matrix (IV.D), the
+solution by eigendecomposition of that matrix (V), and the more general route through the singular
+value decomposition, with what each singular vector means (VI). Appendix A proves the linear-algebra
+facts it uses, such as a symmetric matrix being diagonalized by its orthonormal eigenvectors, and
+appendix B gives Matlab code. It is the elementary entry to PCA before the matrix-factorization
+treatment in the representation-learning book's section 2.1. The table is from the embedded outline.
+The printed page number is the PDF page.
+
+| Section | PDF page |
+| --- | --- |
+| I Introduction | [1](linear-algebra/principal-component-analysis-tutorial.pdf#page=1) |
+| II Motivation: A Toy Example | [1](linear-algebra/principal-component-analysis-tutorial.pdf#page=1) |
+| III Framework: Change of Basis | [2](linear-algebra/principal-component-analysis-tutorial.pdf#page=2) |
+| III.A A Naive Basis | [2](linear-algebra/principal-component-analysis-tutorial.pdf#page=2) |
+| III.B Change of Basis | [3](linear-algebra/principal-component-analysis-tutorial.pdf#page=3) |
+| III.C Questions Remaining | [3](linear-algebra/principal-component-analysis-tutorial.pdf#page=3) |
+| IV Variance and the Goal | [3](linear-algebra/principal-component-analysis-tutorial.pdf#page=3) |
+| IV.A Noise and Rotation | [3](linear-algebra/principal-component-analysis-tutorial.pdf#page=3) |
+| IV.B Redundancy | [4](linear-algebra/principal-component-analysis-tutorial.pdf#page=4) |
+| IV.C Covariance Matrix | [4](linear-algebra/principal-component-analysis-tutorial.pdf#page=4) |
+| IV.D Diagonalize the Covariance Matrix | [5](linear-algebra/principal-component-analysis-tutorial.pdf#page=5) |
+| IV.E Summary of Assumptions | [6](linear-algebra/principal-component-analysis-tutorial.pdf#page=6) |
+| V Solving PCA Using Eigenvector Decomposition | [6](linear-algebra/principal-component-analysis-tutorial.pdf#page=6) |
+| VI A More General Solution Using SVD | [7](linear-algebra/principal-component-analysis-tutorial.pdf#page=7) |
+| VI.A Singular Value Decomposition | [7](linear-algebra/principal-component-analysis-tutorial.pdf#page=7) |
+| VI.B Interpreting SVD | [7](linear-algebra/principal-component-analysis-tutorial.pdf#page=7) |
+| VI.C SVD and PCA | [8](linear-algebra/principal-component-analysis-tutorial.pdf#page=8) |
+| VII Discussion | [9](linear-algebra/principal-component-analysis-tutorial.pdf#page=9) |
+| VII.A Limits and Statistics of Dimensional Reduction | [9](linear-algebra/principal-component-analysis-tutorial.pdf#page=9) |
+| Appendix A Linear Algebra | [10](linear-algebra/principal-component-analysis-tutorial.pdf#page=10) |
+| Appendix B Code | [11](linear-algebra/principal-component-analysis-tutorial.pdf#page=11) |
 
 ## calculus/
 
@@ -2723,6 +2919,296 @@ preface is numbered in roman, with i on PDF page 2.
 | Appendix A: Gaussian Algebra and Completing the Square | [185](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=185) |
 | Appendix B: Diffusion Reverse-Posterior Derivations | [189](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=189) |
 | References | [193](machine-learning/the-little-book-of-generative-ai-foundations.pdf#page=193) |
+
+### Principles and practice of deep representation learning
+
+`machine-learning/deep-representation-learning.pdf`, 578 pages, 137 MB. Sam Buchanan, Druv Pai, Peng
+Wang and Yi Ma, *Principles and Practice of Deep Representation Learning, or A Mathematical Theory of
+Memory*, version 2.0, 1 March 2026, the authors' free pre-publication copy (the first version was
+titled *Learning Deep Representations of Data Distributions*). It treats all of representation
+learning as one problem: data sits on a low-dimensional distribution inside a high-dimensional space,
+and a representation is a compressed, structured map of that distribution. It starts from PCA,
+probabilistic PCA, ICA and dictionary learning (chapter 2), derives diffusion and denoising as
+compression and shows the score as the denoiser (chapter 3), measures representations by coding rate
+(chapter 4), reads deep networks as unrolled optimization (chapter 5), covers autoencoders and the VAE
+as consistent representations (chapter 6), and treats conditional generation, guidance and
+measurement matching as Bayesian inference with a learned prior (chapter 7), which is the frame for
+adding the scores of several diffusion models. Chapter 8 builds DINO, CLIP, MAE, latent diffusion with
+a U-Net and with a diffusion transformer, and text-to-image conditioning. Appendix B holds the proofs
+for diffusion raising entropy and denoising lowering it. Was `book-main.pdf`. Over GitHub's 100 MB
+limit, so the vault's `.gitignore` keeps it local and it is copied between machines by hand. The table
+is from the printed contents, at section and subsection depth. The printed page number is the PDF page
+minus 25 from chapter 1 on; the front matter is numbered in roman.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| 1 An Informal Introduction to Intelligence | [26](machine-learning/deep-representation-learning.pdf#page=26) |
+| 1.1 Intelligence, Cybernetics, and Artificial Intelligence | [26](machine-learning/deep-representation-learning.pdf#page=26) |
+| 1.2 What to Learn? | [34](machine-learning/deep-representation-learning.pdf#page=34) |
+| 1.2.1 Predictability | [34](machine-learning/deep-representation-learning.pdf#page=34) |
+| 1.2.2 Low Dimensionality | [37](machine-learning/deep-representation-learning.pdf#page=37) |
+| 1.3 How to Learn? | [43](machine-learning/deep-representation-learning.pdf#page=43) |
+| 1.3.1 Analytical Model-Based Approaches | [43](machine-learning/deep-representation-learning.pdf#page=43) |
+| 1.3.2 Empirical Data-Driven Approaches | [52](machine-learning/deep-representation-learning.pdf#page=52) |
+| 1.4 A Unifying Approach | [62](machine-learning/deep-representation-learning.pdf#page=62) |
+| 1.4.1 Learning Parsimonious Representations | [63](machine-learning/deep-representation-learning.pdf#page=63) |
+| 1.4.2 Learning Informative Representations | [67](machine-learning/deep-representation-learning.pdf#page=67) |
+| 1.4.3 Learning Consistent Representations | [68](machine-learning/deep-representation-learning.pdf#page=68) |
+| 1.4.4 Learning Self-Consistent Representations | [71](machine-learning/deep-representation-learning.pdf#page=71) |
+| 1.5 Bridging Theory and Practice for Machine Intelligence | [72](machine-learning/deep-representation-learning.pdf#page=72) |
+| 2 Learning Linear and Independent Structures | [76](machine-learning/deep-representation-learning.pdf#page=76) |
+| 2.1 A Low-Dimensional Subspace | [78](machine-learning/deep-representation-learning.pdf#page=78) |
+| 2.1.1 Principal Components Analysis (PCA) | [78](machine-learning/deep-representation-learning.pdf#page=78) |
+| 2.1.2 Pursuing Low-Rank Structure via Power Iteration | [83](machine-learning/deep-representation-learning.pdf#page=83) |
+| 2.1.3 Local and Incremental Learning via Online PCA | [84](machine-learning/deep-representation-learning.pdf#page=84) |
+| 2.1.4 The Statistical View: Probabilistic PCA | [85](machine-learning/deep-representation-learning.pdf#page=85) |
+| 2.1.5 Masked Low-Rank Matrix Completion | [87](machine-learning/deep-representation-learning.pdf#page=87) |
+| 2.2 A Mixture of Complete Low-Dimensional Subspaces | [89](machine-learning/deep-representation-learning.pdf#page=89) |
+| 2.2.1 Mixtures of Subspaces and Sparsely-Used Dictionaries | [90](machine-learning/deep-representation-learning.pdf#page=90) |
+| 2.2.2 Complete Dictionary Learning | [92](machine-learning/deep-representation-learning.pdf#page=92) |
+| 2.2.3 Connection to ICA and Kurtosis | [95](machine-learning/deep-representation-learning.pdf#page=95) |
+| 2.3 A Mixture of Overcomplete Low-Dimensional Subspaces | [98](machine-learning/deep-representation-learning.pdf#page=98) |
+| 2.3.1 Sparse Coding with an Overcomplete Dictionary | [99](machine-learning/deep-representation-learning.pdf#page=99) |
+| 2.3.2 Overcomplete Dictionary Learning | [101](machine-learning/deep-representation-learning.pdf#page=101) |
+| 2.3.3 Learned Deep Sparse Coding | [103](machine-learning/deep-representation-learning.pdf#page=103) |
+| 2.4 Summary and Notes | [106](machine-learning/deep-representation-learning.pdf#page=106) |
+| 2.5 Exercises and Extensions | [108](machine-learning/deep-representation-learning.pdf#page=108) |
+| 3 Pursuing Low-Dimensional Distributions via Denoising | [116](machine-learning/deep-representation-learning.pdf#page=116) |
+| 3.1 Entropy Minimization and Compression | [118](machine-learning/deep-representation-learning.pdf#page=118) |
+| 3.1.1 Entropy and Coding Rate | [118](machine-learning/deep-representation-learning.pdf#page=118) |
+| 3.1.2 Differential Entropy | [118](machine-learning/deep-representation-learning.pdf#page=118) |
+| 3.1.3 Minimizing Coding Rate | [119](machine-learning/deep-representation-learning.pdf#page=119) |
+| 3.2 Compression via Denoising | [121](machine-learning/deep-representation-learning.pdf#page=121) |
+| 3.2.1 Diffusion and Denoising Processes | [121](machine-learning/deep-representation-learning.pdf#page=121) |
+| 3.2.2 Sampling a Distribution via Iterative Denoising | [134](machine-learning/deep-representation-learning.pdf#page=134) |
+| 3.3 Memorization, Generalization, and Coding Rates | [143](machine-learning/deep-representation-learning.pdf#page=143) |
+| 3.4 Summary and Notes | [149](machine-learning/deep-representation-learning.pdf#page=149) |
+| 3.5 Exercises and Extensions | [150](machine-learning/deep-representation-learning.pdf#page=150) |
+| 4 Representation Learning via Lossy Compression | [154](machine-learning/deep-representation-learning.pdf#page=154) |
+| 4.1 Compression via Lossy Coding | [156](machine-learning/deep-representation-learning.pdf#page=156) |
+| 4.1.1 Necessity of Lossy Coding | [156](machine-learning/deep-representation-learning.pdf#page=156) |
+| 4.1.2 Rate Distortion and Data Geometry | [158](machine-learning/deep-representation-learning.pdf#page=158) |
+| 4.1.3 Lossy Coding Rate for a Low-Dimensional Gaussian | [164](machine-learning/deep-representation-learning.pdf#page=164) |
+| 4.1.4 Clustering a Mixture of Low-Dimensional Gaussians | [167](machine-learning/deep-representation-learning.pdf#page=167) |
+| 4.2 Transformation via Maximizing Information Gain | [175](machine-learning/deep-representation-learning.pdf#page=175) |
+| 4.2.1 Representation Learning from Classified Data | [176](machine-learning/deep-representation-learning.pdf#page=176) |
+| 4.2.2 Linear Discriminative Representations | [179](machine-learning/deep-representation-learning.pdf#page=179) |
+| 4.2.3 The Principle of Maximal Coding Rate Reduction | [182](machine-learning/deep-representation-learning.pdf#page=182) |
+| 4.2.4 Optimization Properties of Coding Rate Reduction | [187](machine-learning/deep-representation-learning.pdf#page=187) |
+| 4.3 Learning Representations for Imagery Data | [190](machine-learning/deep-representation-learning.pdf#page=190) |
+| 4.3.1 Supervised Representation Learning | [190](machine-learning/deep-representation-learning.pdf#page=190) |
+| 4.3.2 Unsupervised Representation Learning | [191](machine-learning/deep-representation-learning.pdf#page=191) |
+| 4.4 Summary and Notes | [196](machine-learning/deep-representation-learning.pdf#page=196) |
+| 4.5 Exercises and Extensions | [197](machine-learning/deep-representation-learning.pdf#page=197) |
+| 5 Deep Representations as Unrolled Optimization | [200](machine-learning/deep-representation-learning.pdf#page=200) |
+| 5.1 White-Box Deep Networks via Unrolled Optimization | [202](machine-learning/deep-representation-learning.pdf#page=202) |
+| 5.1.1 Deep Networks from Unrolled Gradient Descent | [203](machine-learning/deep-representation-learning.pdf#page=203) |
+| 5.1.2 Convolutional Networks from Invariant Rate Reduction | [209](machine-learning/deep-representation-learning.pdf#page=209) |
+| 5.2 White-Box Transformers from Unrolled Optimization | [219](machine-learning/deep-representation-learning.pdf#page=219) |
+| 5.2.1 Unrolled Optimization for Sparse Rate Reduction | [220](machine-learning/deep-representation-learning.pdf#page=220) |
+| 5.2.2 Overall White-Box Transformer Architecture: CRATE | [226](machine-learning/deep-representation-learning.pdf#page=226) |
+| 5.3 Variants of Deep Architectures by Design | [229](machine-learning/deep-representation-learning.pdf#page=229) |
+| 5.3.1 Attention-Only Transformer Architecture | [230](machine-learning/deep-representation-learning.pdf#page=230) |
+| 5.3.2 Linear-Time Attention: Token Statistics Transformer | [233](machine-learning/deep-representation-learning.pdf#page=233) |
+| 5.3.3 Causal CRATE | [238](machine-learning/deep-representation-learning.pdf#page=238) |
+| 5.4 Summary and Notes | [243](machine-learning/deep-representation-learning.pdf#page=243) |
+| 5.5 Exercises and Extensions | [244](machine-learning/deep-representation-learning.pdf#page=244) |
+| 6 Consistent and Self-Consistent Representations | [248](machine-learning/deep-representation-learning.pdf#page=248) |
+| 6.1 Learning Consistent Representations | [250](machine-learning/deep-representation-learning.pdf#page=250) |
+| 6.1.1 Linear Autoencoding via PCA | [252](machine-learning/deep-representation-learning.pdf#page=252) |
+| 6.1.2 Nonlinear PCA and Autoencoding | [253](machine-learning/deep-representation-learning.pdf#page=253) |
+| 6.1.3 Sparse Autoencoding | [255](machine-learning/deep-representation-learning.pdf#page=255) |
+| 6.1.4 Variational Autoencoding | [256](machine-learning/deep-representation-learning.pdf#page=256) |
+| 6.1.5 Joint Representation and Distribution Learning | [259](machine-learning/deep-representation-learning.pdf#page=259) |
+| 6.2 Learning Self-Consistent Representations | [261](machine-learning/deep-representation-learning.pdf#page=261) |
+| 6.2.1 Closed-Loop Transcription via Stackelberg Games | [264](machine-learning/deep-representation-learning.pdf#page=264) |
+| 6.2.2 A Mixture of Low-Dimensional Gaussians | [269](machine-learning/deep-representation-learning.pdf#page=269) |
+| 6.3 Continuous Learning Self-Consistent Representations | [272](machine-learning/deep-representation-learning.pdf#page=272) |
+| 6.3.1 Class-wise Incremental Learning | [272](machine-learning/deep-representation-learning.pdf#page=272) |
+| 6.3.2 Sample-wise Continuous Unsupervised Learning | [277](machine-learning/deep-representation-learning.pdf#page=277) |
+| 6.4 Summary and Notes | [281](machine-learning/deep-representation-learning.pdf#page=281) |
+| 6.5 Exercises and Extensions | [283](machine-learning/deep-representation-learning.pdf#page=283) |
+| 7 Inference with Low-Dimensional Distributions | [284](machine-learning/deep-representation-learning.pdf#page=284) |
+| 7.1 Bayesian Inference and Constrained Optimization | [285](machine-learning/deep-representation-learning.pdf#page=285) |
+| 7.1.1 Bayesian Inference with Low-Dimensional Distributions | [285](machine-learning/deep-representation-learning.pdf#page=285) |
+| 7.1.2 Constrained Optimization with Submanifolds | [287](machine-learning/deep-representation-learning.pdf#page=287) |
+| 7.1.3 Representative Practical Settings for Inference | [290](machine-learning/deep-representation-learning.pdf#page=290) |
+| 7.2 Conditional Inference with a Known Data Distribution | [291](machine-learning/deep-representation-learning.pdf#page=291) |
+| 7.3 Conditional Inference with a Learned Data Representation | [294](machine-learning/deep-representation-learning.pdf#page=294) |
+| 7.3.1 Image Completion with Masked Auto-Encoding | [294](machine-learning/deep-representation-learning.pdf#page=294) |
+| 7.3.2 Conditional Sampling with Measurement Matching | [295](machine-learning/deep-representation-learning.pdf#page=295) |
+| 7.4 Conditional Inference with Paired Data and Measurements | [308](machine-learning/deep-representation-learning.pdf#page=308) |
+| 7.4.1 Class-Conditioned Image Generation | [310](machine-learning/deep-representation-learning.pdf#page=310) |
+| 7.4.2 Caption-Conditioned Image Generation | [321](machine-learning/deep-representation-learning.pdf#page=321) |
+| 7.5 Conditional Inference with Measurement Self-Consistency | [327](machine-learning/deep-representation-learning.pdf#page=327) |
+| 7.5.1 Linear Measurement Models | [328](machine-learning/deep-representation-learning.pdf#page=328) |
+| 7.5.2 Learning 3D World Model from 2D Images | [328](machine-learning/deep-representation-learning.pdf#page=328) |
+| 7.6 Summary and Notes | [333](machine-learning/deep-representation-learning.pdf#page=333) |
+| 7.7 Exercises and Extensions | [334](machine-learning/deep-representation-learning.pdf#page=334) |
+| 8 Learning Representations for Real-World Data and Tasks | [336](machine-learning/deep-representation-learning.pdf#page=336) |
+| 8.1 Introduction | [336](machine-learning/deep-representation-learning.pdf#page=336) |
+| 8.1.1 Outline of the Chapter | [337](machine-learning/deep-representation-learning.pdf#page=337) |
+| 8.1.2 Overall Technical Setup | [338](machine-learning/deep-representation-learning.pdf#page=338) |
+| 8.2 Unsupervised Learning of Image Representations | [340](machine-learning/deep-representation-learning.pdf#page=340) |
+| 8.2.1 Data | [340](machine-learning/deep-representation-learning.pdf#page=340) |
+| 8.2.2 The Simplified DINO Task and Objective | [342](machine-learning/deep-representation-learning.pdf#page=342) |
+| 8.2.3 Architecture: Vision Transformer | [345](machine-learning/deep-representation-learning.pdf#page=345) |
+| 8.2.4 Optimization Strategy | [349](machine-learning/deep-representation-learning.pdf#page=349) |
+| 8.2.5 Evaluation Methodology | [353](machine-learning/deep-representation-learning.pdf#page=353) |
+| 8.2.6 Experimental Setup and Results | [355](machine-learning/deep-representation-learning.pdf#page=355) |
+| 8.3 Weakly Supervised Image Representation via Text Binding | [358](machine-learning/deep-representation-learning.pdf#page=358) |
+| 8.3.1 Data | [358](machine-learning/deep-representation-learning.pdf#page=358) |
+| 8.3.2 The CLIP Task and Objective | [359](machine-learning/deep-representation-learning.pdf#page=359) |
+| 8.3.3 Architecture: Vision Tower | [360](machine-learning/deep-representation-learning.pdf#page=360) |
+| 8.3.4 Architecture: Text Tower | [360](machine-learning/deep-representation-learning.pdf#page=360) |
+| 8.3.5 Optimization Strategy | [361](machine-learning/deep-representation-learning.pdf#page=361) |
+| 8.3.6 Evaluation Methodology | [362](machine-learning/deep-representation-learning.pdf#page=362) |
+| 8.3.7 Experimental Setup and Results | [363](machine-learning/deep-representation-learning.pdf#page=363) |
+| 8.3.8 Simplified Extension: LIFT | [365](machine-learning/deep-representation-learning.pdf#page=365) |
+| 8.4 Supervised Image Representation via Classification | [366](machine-learning/deep-representation-learning.pdf#page=366) |
+| 8.4.1 Task and Objective | [367](machine-learning/deep-representation-learning.pdf#page=367) |
+| 8.4.2 The CRATE Architecture | [367](machine-learning/deep-representation-learning.pdf#page=367) |
+| 8.4.3 Optimization | [368](machine-learning/deep-representation-learning.pdf#page=368) |
+| 8.4.4 Evaluation Methodology | [369](machine-learning/deep-representation-learning.pdf#page=369) |
+| 8.4.5 Experimental Setup and Results | [369](machine-learning/deep-representation-learning.pdf#page=369) |
+| 8.5 Image Representation via Masked Autoencoding | [371](machine-learning/deep-representation-learning.pdf#page=371) |
+| 8.5.1 The MAE Task and Objective | [372](machine-learning/deep-representation-learning.pdf#page=372) |
+| 8.5.2 CRATE-Based MAE Architecture | [372](machine-learning/deep-representation-learning.pdf#page=372) |
+| 8.5.3 Optimization | [374](machine-learning/deep-representation-learning.pdf#page=374) |
+| 8.5.4 Evaluation | [374](machine-learning/deep-representation-learning.pdf#page=374) |
+| 8.5.5 Experiments | [375](machine-learning/deep-representation-learning.pdf#page=375) |
+| 8.6 Image Generation via Auto-Encoding and Sampling | [377](machine-learning/deep-representation-learning.pdf#page=377) |
+| 8.6.1 Variational Auto-Encoding of Imagery Data | [377](machine-learning/deep-representation-learning.pdf#page=377) |
+| 8.6.2 Representation Auto-Encoding of Imagery Data | [379](machine-learning/deep-representation-learning.pdf#page=379) |
+| 8.6.3 Sampling from Learned Representations via Denoising | [382](machine-learning/deep-representation-learning.pdf#page=382) |
+| 8.6.4 Realizing Denoising with a U-Net | [383](machine-learning/deep-representation-learning.pdf#page=383) |
+| 8.6.5 Realizing Denoising with a Diffusion Transformer | [386](machine-learning/deep-representation-learning.pdf#page=386) |
+| 8.7 Conditioned Image Representation and Generation | [390](machine-learning/deep-representation-learning.pdf#page=390) |
+| 8.7.1 Task Formulation | [390](machine-learning/deep-representation-learning.pdf#page=390) |
+| 8.7.2 The Basic Realization: Text-to-Image Generation | [391](machine-learning/deep-representation-learning.pdf#page=391) |
+| 8.7.3 Advanced Conditioning Mechanisms | [395](machine-learning/deep-representation-learning.pdf#page=395) |
+| 8.7.4 Extension to Video Generation | [399](machine-learning/deep-representation-learning.pdf#page=399) |
+| 8.8 Image and Text Conditioned 3D Object Generation | [401](machine-learning/deep-representation-learning.pdf#page=401) |
+| 8.8.2 Task | [406](machine-learning/deep-representation-learning.pdf#page=406) |
+| 8.8.3 Architecture and Objective | [407](machine-learning/deep-representation-learning.pdf#page=407) |
+| 8.8.4 Experiments and Analysis | [410](machine-learning/deep-representation-learning.pdf#page=410) |
+| 8.9 Generation-Based 3D Shape and Pose Reconstruction | [416](machine-learning/deep-representation-learning.pdf#page=416) |
+| 8.9.1 Task and Objective | [417](machine-learning/deep-representation-learning.pdf#page=417) |
+| 8.9.3 Architecture and Implementation | [420](machine-learning/deep-representation-learning.pdf#page=420) |
+| 8.9.4 Cascaded Flow Modeling | [421](machine-learning/deep-representation-learning.pdf#page=421) |
+| 8.9.5 Experiments | [423](machine-learning/deep-representation-learning.pdf#page=423) |
+| 8.9.6 Conclusion | [429](machine-learning/deep-representation-learning.pdf#page=429) |
+| 8.10 Conditioned Human Body Motion Generation | [430](machine-learning/deep-representation-learning.pdf#page=430) |
+| 8.10.1 Representing Human Bodies | [430](machine-learning/deep-representation-learning.pdf#page=430) |
+| 8.10.2 Task and Setup | [432](machine-learning/deep-representation-learning.pdf#page=432) |
+| 8.10.3 Designing the Conditioning Representation | [433](machine-learning/deep-representation-learning.pdf#page=433) |
+| 8.10.4 The Conditional Prior | [434](machine-learning/deep-representation-learning.pdf#page=434) |
+| 8.10.5 Incorporating Measurements via Guidance | [436](machine-learning/deep-representation-learning.pdf#page=436) |
+| 8.10.6 Conditional Sampling Algorithm | [437](machine-learning/deep-representation-learning.pdf#page=437) |
+| 8.10.7 Insights from Experiments | [438](machine-learning/deep-representation-learning.pdf#page=438) |
+| 8.10.8 Discussion | [441](machine-learning/deep-representation-learning.pdf#page=441) |
+| 8.11 Natural Language Representation and Generation | [443](machine-learning/deep-representation-learning.pdf#page=443) |
+| 8.11.1 Data | [443](machine-learning/deep-representation-learning.pdf#page=443) |
+| 8.11.2 Task and Objective | [444](machine-learning/deep-representation-learning.pdf#page=444) |
+| 8.11.3 Architecture: Causal CRATE | [447](machine-learning/deep-representation-learning.pdf#page=447) |
+| 8.11.4 Optimization Strategy | [449](machine-learning/deep-representation-learning.pdf#page=449) |
+| 8.11.5 Evaluation Methodology | [450](machine-learning/deep-representation-learning.pdf#page=450) |
+| 8.11.6 Experimental Setup and Results | [450](machine-learning/deep-representation-learning.pdf#page=450) |
+| 8.12 Scaling and Improving White-Box Transformers | [452](machine-learning/deep-representation-learning.pdf#page=452) |
+| 8.12.1 Increasing Network Width: CRATE-α | [452](machine-learning/deep-representation-learning.pdf#page=452) |
+| 8.12.2 Linear Time Complexity Transformers | [455](machine-learning/deep-representation-learning.pdf#page=455) |
+| 8.12.3 Attention-Only Transformers | [456](machine-learning/deep-representation-learning.pdf#page=456) |
+| 8.13 Summary and Notes | [458](machine-learning/deep-representation-learning.pdf#page=458) |
+| 8.14 Exercises and Extensions | [459](machine-learning/deep-representation-learning.pdf#page=459) |
+| 9 Open Problems and Directions about Intelligence | [462](machine-learning/deep-representation-learning.pdf#page=462) |
+| 9.1 Towards Autonomous Intelligence: Close the Loop? | [463](machine-learning/deep-representation-learning.pdf#page=463) |
+| 9.2 Towards Natural Intelligence: Beyond Back Propagation? | [465](machine-learning/deep-representation-learning.pdf#page=465) |
+| 9.3 Towards Scientific Intelligence: Beyond the Turing Test? | [467](machine-learning/deep-representation-learning.pdf#page=467) |
+| 9.3.1 The Evolution of Intelligence in Nature | [467](machine-learning/deep-representation-learning.pdf#page=467) |
+| 9.3.2 From Inductive to Deductive Intelligence | [468](machine-learning/deep-representation-learning.pdf#page=468) |
+| 9.3.3 Scientific Tests of Intelligence | [470](machine-learning/deep-representation-learning.pdf#page=470) |
+| 9.3.4 From Compression to Abstraction | [471](machine-learning/deep-representation-learning.pdf#page=471) |
+| A Optimization Methods | [476](machine-learning/deep-representation-learning.pdf#page=476) |
+| A.1 Steepest Descent | [476](machine-learning/deep-representation-learning.pdf#page=476) |
+| A.1.1 Vanilla Gradient Descent for Smooth Problems | [477](machine-learning/deep-representation-learning.pdf#page=477) |
+| A.1.2 Preconditioned Gradient Descent for Badly-Conditioned Problems | [482](machine-learning/deep-representation-learning.pdf#page=482) |
+| A.1.3 Proximal Gradient Descent for Non-Smooth Problems | [484](machine-learning/deep-representation-learning.pdf#page=484) |
+| A.1.4 Stochastic Gradient Descent for Large-Scale Problems | [486](machine-learning/deep-representation-learning.pdf#page=486) |
+| A.1.5 Putting Everything Together: Adam | [487](machine-learning/deep-representation-learning.pdf#page=487) |
+| A.2 Computing Gradients via Automatic Differentiation | [489](machine-learning/deep-representation-learning.pdf#page=489) |
+| A.2.1 Differentials | [490](machine-learning/deep-representation-learning.pdf#page=490) |
+| A.2.2 Automatic Differentiation | [493](machine-learning/deep-representation-learning.pdf#page=493) |
+| A.2.3 Back Propagation | [494](machine-learning/deep-representation-learning.pdf#page=494) |
+| A.3 Game Theory and Minimax Optimization | [498](machine-learning/deep-representation-learning.pdf#page=498) |
+| A.3.1 Learning Stackelberg Equilibria | [501](machine-learning/deep-representation-learning.pdf#page=501) |
+| A.3.2 Practical Considerations when Learning Stackelberg Equilibria | [505](machine-learning/deep-representation-learning.pdf#page=505) |
+| A.4 Exercises | [505](machine-learning/deep-representation-learning.pdf#page=505) |
+| B Entropy, Diffusion, Denoising, and Lossy Coding | [508](machine-learning/deep-representation-learning.pdf#page=508) |
+| B.1 Differential Entropy of Low-Dimensional Distributions | [509](machine-learning/deep-representation-learning.pdf#page=509) |
+| B.2 Diffusion and Denoising Processes | [510](machine-learning/deep-representation-learning.pdf#page=510) |
+| B.2.1 Diffusion Process Increases Entropy Over Time | [511](machine-learning/deep-representation-learning.pdf#page=511) |
+| B.2.2 Denoising Process Reduces Entropy Over Time | [513](machine-learning/deep-representation-learning.pdf#page=513) |
+| B.2.3 Technical Lemmas and Intermediate Results | [517](machine-learning/deep-representation-learning.pdf#page=517) |
+| B.3 Lossy Coding and Sphere Packing | [527](machine-learning/deep-representation-learning.pdf#page=527) |
+| B.3.1 Proof of Relationship Between Rate Distortion and Covering | [528](machine-learning/deep-representation-learning.pdf#page=528) |
+| B.3.2 Proof of Lemma B.6 | [531](machine-learning/deep-representation-learning.pdf#page=531) |
+| Bibliography | [534](machine-learning/deep-representation-learning.pdf#page=534) |
+
+
+### An introduction to variational autoencoders
+
+`machine-learning/introduction-to-variational-autoencoders.pdf`, 89 pages. Diederik P. Kingma and Max
+Welling, *An Introduction to Variational Autoencoders*, Foundations and Trends in Machine Learning,
+arXiv 1906.02691v3, 11 December 2019, the authors' free arXiv copy. It is the VAE from the people who
+introduced it: deep latent-variable models and why their marginal likelihood is intractable (1.7, 1.8),
+the encoder as an approximate posterior (2.1), the evidence lower bound derived from the log marginal
+likelihood with the KL gap made explicit (2.2), the reparameterization trick and its gradient
+estimator (2.4), the factorized and full-covariance Gaussian posteriors with their log-densities
+worked out (2.5), and the ELBO and marginal likelihood read as KL divergences between joint
+distributions (2.7). Chapter 3 goes past Gaussian posteriors with normalizing and inverse
+autoregressive flows, and chapter 4 to hierarchical latents. The table is from the embedded outline.
+The printed page number is the PDF page minus 3; PDF pages 1 to 4 are the title and contents.
+
+| Chapter or section | PDF page |
+| --- | --- |
+| 1 Introduction | [5](machine-learning/introduction-to-variational-autoencoders.pdf#page=5) |
+| 1.1 Motivation | [5](machine-learning/introduction-to-variational-autoencoders.pdf#page=5) |
+| 1.2 Aim | [9](machine-learning/introduction-to-variational-autoencoders.pdf#page=9) |
+| 1.3 Probabilistic Models and Variational Inference | [9](machine-learning/introduction-to-variational-autoencoders.pdf#page=9) |
+| 1.4 Parameterizing Conditional Distributions with Neural Networks | [11](machine-learning/introduction-to-variational-autoencoders.pdf#page=11) |
+| 1.5 Directed Graphical Models and Neural Networks | [12](machine-learning/introduction-to-variational-autoencoders.pdf#page=12) |
+| 1.6 Learning in Fully Observed Models with Neural Nets | [13](machine-learning/introduction-to-variational-autoencoders.pdf#page=13) |
+| 1.7 Learning and Inference in Deep Latent Variable Models | [15](machine-learning/introduction-to-variational-autoencoders.pdf#page=15) |
+| 1.8 Intractabilities | [16](machine-learning/introduction-to-variational-autoencoders.pdf#page=16) |
+| 2 Variational Autoencoders | [18](machine-learning/introduction-to-variational-autoencoders.pdf#page=18) |
+| 2.1 Encoder or Approximate Posterior | [18](machine-learning/introduction-to-variational-autoencoders.pdf#page=18) |
+| 2.2 Evidence Lower Bound (ELBO) | [19](machine-learning/introduction-to-variational-autoencoders.pdf#page=19) |
+| 2.3 Stochastic Gradient-Based Optimization of the ELBO | [22](machine-learning/introduction-to-variational-autoencoders.pdf#page=22) |
+| 2.4 Reparameterization Trick | [23](machine-learning/introduction-to-variational-autoencoders.pdf#page=23) |
+| 2.5 Factorized Gaussian posteriors | [27](machine-learning/introduction-to-variational-autoencoders.pdf#page=27) |
+| 2.6 Estimation of the Marginal Likelihood | [31](machine-learning/introduction-to-variational-autoencoders.pdf#page=31) |
+| 2.7 Marginal Likelihood and ELBO as KL Divergences | [31](machine-learning/introduction-to-variational-autoencoders.pdf#page=31) |
+| 2.8 Challenges | [33](machine-learning/introduction-to-variational-autoencoders.pdf#page=33) |
+| 2.9 Related prior and concurrent work | [35](machine-learning/introduction-to-variational-autoencoders.pdf#page=35) |
+| 3 Beyond Gaussian Posteriors | [40](machine-learning/introduction-to-variational-autoencoders.pdf#page=40) |
+| 3.1 Requirements for Computational Tractability | [40](machine-learning/introduction-to-variational-autoencoders.pdf#page=40) |
+| 3.2 Improving the Flexibility of Inference Models | [41](machine-learning/introduction-to-variational-autoencoders.pdf#page=41) |
+| 3.3 Inverse Autoregressive Transformations | [44](machine-learning/introduction-to-variational-autoencoders.pdf#page=44) |
+| 3.4 Inverse Autoregressive Flow (IAF) | [45](machine-learning/introduction-to-variational-autoencoders.pdf#page=45) |
+| 3.5 Related work | [49](machine-learning/introduction-to-variational-autoencoders.pdf#page=49) |
+| 4 Deeper Generative Models | [51](machine-learning/introduction-to-variational-autoencoders.pdf#page=51) |
+| 4.1 Inference and Learning with Multiple Latent Variables | [51](machine-learning/introduction-to-variational-autoencoders.pdf#page=51) |
+| 4.2 Alternative methods for increasing expressivity | [54](machine-learning/introduction-to-variational-autoencoders.pdf#page=54) |
+| 4.3 Autoregressive Models | [55](machine-learning/introduction-to-variational-autoencoders.pdf#page=55) |
+| 4.4 Invertible transformations with tractable Jacobian determinant | [56](machine-learning/introduction-to-variational-autoencoders.pdf#page=56) |
+| 4.5 Follow-Up Work | [57](machine-learning/introduction-to-variational-autoencoders.pdf#page=57) |
+| 5 Conclusion | [66](machine-learning/introduction-to-variational-autoencoders.pdf#page=66) |
+| Acknowledgements | [68](machine-learning/introduction-to-variational-autoencoders.pdf#page=68) |
+| A Appendix | [70](machine-learning/introduction-to-variational-autoencoders.pdf#page=70) |
+| A.1 Notation and definitions | [70](machine-learning/introduction-to-variational-autoencoders.pdf#page=70) |
+| A.2 Alternative methods for learning in DLVMs | [73](machine-learning/introduction-to-variational-autoencoders.pdf#page=73) |
+| A.3 Stochastic Gradient Descent | [75](machine-learning/introduction-to-variational-autoencoders.pdf#page=75) |
+| References | [77](machine-learning/introduction-to-variational-autoencoders.pdf#page=77) |
 
 ## computer-vision/
 
