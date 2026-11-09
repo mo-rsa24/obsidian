@@ -43,5 +43,10 @@ Mathematics, Linear Algebra. It divides the [[Dot Product]] by both vectors' [[N
 - [Show when the dot product and cosine rank differently](/home/molef/goal-setting/learning/deep-learning/transformers/plans/18-show-when-the-dot-product-and-cosine.md), deep-learning/transformers, plan 18. Tripling a key's length moves its dot product from 0.7 to 2.1 while its cosine stays 0.7071.
 - [Cosine: compare word-count directions](/home/molef/goal-setting/learning/ai-engineering/string-similarity-measures/textbook/19-cosine.md), ai-engineering/string-similarity-measures, chapter 19. Cosine on word-count vectors, and how one inserted space changes them.
 
+**Scenes**
+
+- [HR policy assistant on local Postgres, The MCP tool server](https://claude.ai/artifact/Gsj44q2Vehu8RNjgJyWwpb#mcp). The search tool that embeds the question and returns the three closest policy chunks by cosine distance.
+- [HR policy assistant on local Postgres, The semantic cache](https://claude.ai/artifact/Gsj44q2Vehu8RNjgJyWwpb#cache). A past answer reused when a new question's embedding scores at least 0.70 against a stored one, which skips the agent run.
+
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook page range was read in the PDF with pdftotext, after finding it through the back-of-book tables in `~/.claude/cache/book-indexes/` and the chapter tables in `Textbooks.md`. The Organic Chemistry Tutor chapter list was read with cache-video-chapters.py, and that line describes only the chapter title. The CME295 and CS229 rows were read in their caption-read lecture maps under `~/.claude/cache/captions/`. Each plan and chapter was read at its title and description. Bare "cosine" also names the cosine noise schedule and the trigonometric function, which have their own notes, so only multi-word aliases are used. gather-concept-sources.py stopped at its time limit, so its sources were searched by hand. A script then opened every link.

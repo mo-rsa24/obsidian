@@ -18,7 +18,8 @@ Mathematics, Statistics. This note is the map of its folder: the four sections a
 > [!warning] Unfinished
 > - The three drawn pictures per section (form, mechanism, deep-dive sheet) are not drawn. Six script-drawn pictures in `assets/` stand in for them.
 > - No quiz page yet, and no nine-part sandbox: the scripts and their outputs are inline instead. The child notes carry the same gaps: no drawn pictures, no output pictures, no quiz page. No plotting library was available because the prepared environment `~/.vault-sandbox` is missing on this machine. To make it: `uv venv ~/.vault-sandbox` then `uv pip install --python ~/.vault-sandbox/bin/python pandas numpy scipy matplotlib statsmodels openpyxl`.
-> - 1 claim is marked stated and keeps nothing unfinished: it is counted in the closing box.
+> - The emails toy has no output picture yet (the run printed one line) and no drawn picture; the quiz page does not yet cover it.
+> - 2 claims are marked stated and keep nothing unfinished: they are counted in the closing box.
 
 **Chance-corrected agreement** is how far two raters agree beyond what their own yes-rates would give by luck. This note takes one judge and one reviewer on 20 products and builds, one number at a time, percent agreement, Cohen's kappa, Scott's pi, phi, the factor that links kappa to phi, and the kappa paradox, all from the same 2 by 2 table.
 
@@ -50,6 +51,61 @@ Mathematics, Statistics. This note is the map of its folder: the four sections a
 Navigation: 📋 [[#Table of contents]] | [[#Expected agreement]] ➡️
 
 **Observed agreement** is the share of products where the two raters give the same verdict, also called percent agreement.
+
+### The toy: two friends and 20 emails
+
+**Two friends sort the same 20 emails, and the table counts how the two sortings line up.** Ade is the side of the table (the reviewer) and Bea is the top (the model). Each of them answers "pass" or "fail" for every email. "Pass" and "fail" are the answers each friend gives; "agree" only means the two answers match, so the table has two layers: what each friend said, and whether the two said the same.
+
+**The convention, fixed once.** The first column is the emails Bea passed, the first row is the emails Ade passed, and the diagonal is where they agree. Every cell is said in words first:
+
+| | Bea passed | Bea failed | Ade's total |
+|---|---:|---:|---:|
+| Ade passed | <b>16</b> (both pass) | 2 (Ade passed it, Bea failed it) | 18 |
+| Ade failed | 0 (Ade failed it, Bea passed it) | <b>2</b> (both fail) | 2 |
+| Bea's total | 16 | 4 | 20 |
+
+**How to read this table.** The bold cells are the diagonal, the two places the friends gave the same answer. The off-diagonal cells are the disagreements, 2 and 0.
+
+**What to look for.** Every email sits in exactly one cell, so the four cells add to 20. The row totals are Ade's own counts, the column totals are Bea's.
+
+$$
+\begin{aligned}
+p_o &= \frac{16 + 2}{20} \\[4pt]
+&= 0.9
+\end{aligned}
+$$
+
+**Textbook names go on afterward.** Take "pass" as the thing being looked for. Both pass is a true positive (TP, 16). Ade passes and Bea fails is a false negative (FN, 2), since Bea missed it. Ade fails and Bea passes is a false positive (FP, 0). Both fail is a true negative (TN, 2). These are the stickers the [[Precision And Recall]] note and the phi section below use.
+
+**Three readings come off the same table.**
+
+- **A row reads as recall.** Of the 18 emails Ade passed, Bea passed 16: $16/18 \approx 0.889$.
+- **A column reads as precision.** Of the 16 emails Bea passed, Ade had passed 16: $16/16 = 1$.
+- **The bottom row is where specificity lives.** Of the 2 emails Ade failed, Bea failed 2: $2/2 = 1$.
+
+Backing: shown (the table and the run below), derived (the arithmetic above). The names recall, precision and specificity are stated here and taught in [[Precision And Recall]].
+
+**Coming in the pieces that follow:** the chance arithmetic behind kappa and pi on these same 20 emails, the same table when Bea passes all 20, and the words "chance-corrected agreement" taken apart one at a time.
+
+Try it yourself, in `toy.py`, run from the code repository of the project below (it needs that repository's environment, since `agreement.py` imports pandas):
+
+```python
+from product_validation.evaluation.agreement import numbers
+
+pairs = [(True, True)] * 16 + [(True, False)] * 2 + [(False, False)] * 2
+n = numbers(pairs)
+print(f"raw {n['raw_agreement']:.4f} kappa {n['cohens_kappa']:.4f} pi {n['scotts_pi']:.4f}")
+```
+
+You should see:
+
+```text
+raw 0.9000 kappa 0.6154 pi 0.6078
+```
+
+**Reading the output.** `numbers` takes pairs of (reviewer passes, tool passes): 16 of (True, True), 2 of (True, False), none of (False, True), 2 of (False, False). The first value, `raw 0.9000`, is the diagonal over 20 and matches $p_o$ above. The other two are taught in later pieces; the code that computes them is `kappa_chance` and `pi_chance` in `agreement.py`.
+
+### The scenario with products
 
 The scenario: a judge reads each enriched product record and says pass or fail, and a reviewer applies the same rulebook. A pass publishes automatically, so the costly mistake is a product the judge passes and the reviewer would have stopped. The reviewer would pass 17 of 20 and fail 3.
 
@@ -390,6 +446,7 @@ Navigation: ⬅️ [[#Other ways]] | 📋 [[#Table of contents]] | [[#Where to l
 
 **Applied in.**
 
+- The product-publish validation in the digital product data enrichment repository: `numbers(pairs)` in `src/product_validation/evaluation/agreement.py` takes (reviewer publishes, tool publishes) pairs and returns the agreement numbers. The toy of two friends sorting 20 emails was used to read its 2 by 2 table before the repository's own products. Where the reviewer is a proposed expected decision rather than a person's label, the section will say so.
 - The v3 product-content judge in the Dis-Chem product data repo: a judge that passes nearly every approved gold page, validated against 8 gold pages plus planted defects, where raw agreement is high from the start and kappa could sit near zero. Its real yes-rates are not measured yet.
 
 ## Where to learn this
@@ -427,5 +484,6 @@ Navigation: ⬅️ [[#Where to learn this]] | 📋 [[#Table of contents]]
 
 > [!note]- How this was checked
 > The two scripts behind the numbers, `test-jung.py` and `test-2-pass-rates.py`, were run on 2026-10-18 on a Mac with Python 3.12, and their saved outputs match every number in the four-judge table (kappa 0.318, 0.459, 0.000, 0.583; Scott pi 0.314, 0.444, −0.081, 0.570). Judge B's exact kappa is 0.4595. The identity $\kappa = q\phi$ and the scikit-learn cross-check were run in the learning tree's chapter scripts. The page claims about Thakur et al. and Rao and Callison-Burch were read from the PDFs. The child notes' scripts were rerun from empty folders the same day and match the learning tree's saved outputs. The six pictures are script-drawn from the same counts. The counts are invented, and none is a measurement of the v3 judge. The note has not been rendered in Obsidian.
-> Claims marked stated, 1: the "fair" band label, which is a convention and not derived here.
+> The emails toy was run on 2026-11-09 on the Mac with `uv run --offline python` from the project's code repository, `toy.py` kept in a temporary folder outside the repository and removed afterwards: raw 0.9000, kappa 0.6154, pi 0.6078. The prepared environment `~/.vault-sandbox` is still missing, so this run used the repository's own environment. Recall 16/18, precision 16/16 and specificity 2/2 were computed by hand from the table, not run.
+> Claims marked stated, 2: the "fair" band label, which is a convention and not derived here, and the names recall, precision and specificity on the toy.
 > Every line under Where to learn this was opened before it was written, on 2026-10-27: the NLTK pages and both papers in their PDFs with pdftotext, the CME295 row in its caption-read lecture map, and each plan and chapter at its heading and toy. A script then confirmed every link's file, PDF page and video start. AI engineering reports raw inter-labeller and judge agreement (73% and 85%) on pages 173 to 183 and 271 to 281 without a chance correction, so it has no line. Scott's pi stays on this card rather than a card of its own, because every source here teaches it beside kappa as the other choice of chance baseline.

@@ -123,3 +123,22 @@ ready-made check.
 | [The autoencoder hands over something larger](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p7) | the latent's value distribution against the unit normal the schedule assumes, at the shipped factor and at 1 | no card yet |
 | [Move the factor and watch it go wrong](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p9) | signal-to-noise over the whole schedule as the factor moves, against the unit-scale curve it is meant to sit on, with eight steps shown as pictures | [The Forward Process](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/The%20Forward%20Process.md) |
 | [Take it out entirely](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p10) | the same step and the same noise draw at two factors, where one square is noise and the other still holds the picture | [The Forward Process](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/The%20Forward%20Process.md) |
+
+## HR policy assistant on local Postgres
+<!-- scene: https://claude.ai/artifact/Gsj44q2Vehu8RNjgJyWwpb -->
+<!-- kind: map -->
+<!-- home: xbigly internal-policies-rag, artifacts/results/how-the-hr-policy-assistant-works -->
+<!-- source: /Users/molefemolefe/xbigly/internal-policies-rag/artifacts/results/how-the-hr-policy-assistant-works/hr-policy-assistant-local-pg-high-level-design-explainer.json -->
+
+The running parts of an HR policy question-answering assistant (branch dev_local_pg) as one system map: twelve boxes, from the browser through a Gradio chat page, a Google ADK agent, a semantic answer cache and an MCP search tool, to two Postgres databases with pgvector and two Databricks serving endpoints. Every box opens a panel saying what the part is, whether it has been run, and the commands that check it. It is drawn from the code at commit 91b719a; the database, the loader, the embedding endpoint and the PDFs were run and checked on 2026-11-08.
+
+**Also useful in**: a plan or note that needs a small, real retrieval-augmented generation system to point at, with the retrieval and the answer cache as separate parts that both call the same embedding endpoint.
+
+**Caveat**: the search tool, the agent, the cache and the chat endpoint are drawn from the code and not yet run; the 0.70 cache threshold is the code's default, not measured behaviour.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [The MCP tool server](https://claude.ai/artifact/Gsj44q2Vehu8RNjgJyWwpb#mcp) | the search tool that embeds the question and returns the three closest policy chunks by cosine distance | [Retrieval-Augmented Generation](../../../Artificial%20Intelligence/Large%20Language%20Models/Retrieval-Augmented%20Generation.md), [Cosine Similarity](../../Linear%20Algebra/Cosine%20Similarity.md) |
+| [The semantic cache](https://claude.ai/artifact/Gsj44q2Vehu8RNjgJyWwpb#cache) | a past answer reused when a new question's embedding scores at least 0.70 against a stored one, which skips the agent run | [Cosine Similarity](../../Linear%20Algebra/Cosine%20Similarity.md), [Embedding](../../../Artificial%20Intelligence/Deep%20Learning/Embedding.md) |
+| [The embedding endpoint](https://claude.ai/artifact/Gsj44q2Vehu8RNjgJyWwpb#embed) | one endpoint turning chunks and questions into 1024 numbers each, called by the loader, the search tool and the cache | [Embedding](../../../Artificial%20Intelligence/Deep%20Learning/Embedding.md) |
+| [The hr_policies database](https://claude.ai/artifact/Gsj44q2Vehu8RNjgJyWwpb#hrpol) | policy chunks stored with their vectors and an HNSW cosine index in Postgres with pgvector | no card yet |

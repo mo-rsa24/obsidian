@@ -39,6 +39,11 @@ Artificial Intelligence, Deep Learning. Embeddings are what [[Attention]] mixes 
 - [Watch two word vectors move together in one hand-run update](/home/molef/goal-setting/learning/deep-learning/transformers/plans/37-watch-two-word-vectors-move-together.md), the same journey, plan 37. One training update run by hand that pulls two co-occurring words' vectors closer.
 - [Chunking and embeddings: the shop's documents chunked, embedded, and ranked against a question](/home/molef/goal-setting/learning/ai-engineering/one-business-end-to-end/plans/51-chunking-and-embeddings.md), ai-engineering/one-business-end-to-end, plan 51. Real documents chunked, embedded with an embedding model and ranked against a question.
 
+**Scenes**
+
+- [HR policy assistant on local Postgres, The semantic cache](https://claude.ai/artifact/Gsj44q2Vehu8RNjgJyWwpb#cache). A past answer reused when a new question's embedding scores at least 0.70 against a stored one, which skips the agent run.
+- [HR policy assistant on local Postgres, The embedding endpoint](https://claude.ai/artifact/Gsj44q2Vehu8RNjgJyWwpb#embed). One endpoint turning chunks and questions into 1024 numbers each, called by the loader, the search tool and the cache.
+
 **Figures**
 
 - <a href="/home/molef/goal-setting/learning/deep-learning/natural-language-processing/artifacts/figures/llm-concepts-cheatsheet/jaydeepkarale-ai-llm-concepts-part1.jpg"><img src="/home/molef/goal-setting/learning/deep-learning/natural-language-processing/artifacts/figures/llm-concepts-cheatsheet/jaydeepkarale-ai-llm-concepts-part1.jpg" width="140" alt="A ten-panel cheat sheet whose panel 2 maps king, queen, man and woman to small coloured vectors with similar meaning drawn as similar vectors"></a> Jaydeep Karale on X, "AI / LLM Concepts Cheat Sheet (Part 1)": [the post](https://x.com/_jaydeepkarale/status/2095815664187609355), [what it shows](/home/molef/goal-setting/learning/deep-learning/natural-language-processing/artifacts/figures/llm-concepts-cheatsheet/README.md#jaydeepkarale-ai-llm-concepts-part1jpg). Panel 2 maps "king", "queen", "man" and "woman" to four-cell coloured vectors and draws similar meaning as similar vectors, naming 768 and 1536 as typical widths.
