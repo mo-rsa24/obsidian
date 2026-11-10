@@ -1,5 +1,6 @@
 ---
 aliases: [NAT, NAT gateway, NAT table, NAT translation table, SNAT, DNAT]
+link-skip: [nats]
 standard: vault-note v2
 ---
 

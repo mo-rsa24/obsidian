@@ -8,4 +8,5 @@ Mathematics, Calculus. The topics of change and accumulation, one folder each.
 - [[Gradient]]: The gradient of a function of several inputs is the vector of its partial derivatives, and it points in the direction the function increases fastest.
 - [[Chain Rule]]: The chain rule differentiates a composition: the derivative of f(g(x)) is f′(g(x)) times g′(x), so rates of change multiply along the chain.
 - [[Jacobian]]: The Jacobian of a function from n inputs to m outputs is the m by n matrix of all its partial derivatives, and its determinant measures how much the function scales area or volume.
+- [[Contour]]: A contour is a line along which a function has one height, the way a map's contour line follows a hillside at one elevation; for a density, every point on it has the same density.
 - [[Differential Equations]]: A differential equation says how a quantity changes rather than what it is, and solving one means finding the path that obeys that rule from a starting value.

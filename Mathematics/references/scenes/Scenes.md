@@ -142,3 +142,44 @@ The running parts of an HR policy question-answering assistant (branch dev_local
 | [The semantic cache](https://claude.ai/artifact/Gsj44q2Vehu8RNjgJyWwpb#cache) | a past answer reused when a new question's embedding scores at least 0.70 against a stored one, which skips the agent run | [Cosine Similarity](../../Linear%20Algebra/Cosine%20Similarity.md), [Embedding](../../../Artificial%20Intelligence/Deep%20Learning/Embedding.md) |
 | [The embedding endpoint](https://claude.ai/artifact/Gsj44q2Vehu8RNjgJyWwpb#embed) | one endpoint turning chunks and questions into 1024 numbers each, called by the loader, the search tool and the cache | [Embedding](../../../Artificial%20Intelligence/Deep%20Learning/Embedding.md) |
 | [The hr_policies database](https://claude.ai/artifact/Gsj44q2Vehu8RNjgJyWwpb#hrpol) | policy chunks stored with their vectors and an HNSW cosine index in Postgres with pgvector | no card yet |
+
+## Gaussian bowl sketchpad
+<!-- scene: https://claude.ai/artifact/2TarMifiFoFyoB23eQFR64 -->
+
+Seven frames that go from one bell in 1D to two cuts through a 2D density, with every number computed live from the formula beside it and the shaded numbers inside a formula draggable (`/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/artifacts/scenes/gaussian-bowl-sketchpad/`, drawn for chapter 2 of that journey's textbook).
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [One hump, three handles](https://claude.ai/artifact/2TarMifiFoFyoB23eQFR64#bell-1d) | the peak 1/√(2πσ²) with the same σ² under the root and inside the exponent, the root drawn in blue as the normaliser, so making σ² four times bigger halves the peak from 0.3989 to 0.1995 | [Normaliser](../../Statistics/Distributions/Normaliser.md) |
+| [The 1D bowl you can widen](https://claude.ai/artifact/2TarMifiFoFyoB23eQFR64#bowl-1d) | the log of the bell split into a blue constant, which is the log of the normaliser, and an orange quadratic bowl; going from σ² = 1 to 4 drops the constant by 0.6931 while the bowl term shrinks from −2 to −0.5 | [Normaliser](../../Statistics/Distributions/Normaliser.md) |
+| [The same density as rings](https://claude.ai/artifact/2TarMifiFoFyoB23eQFR64#rings-2d) | the 2D density seen from above as rings, one ring for each whole value of the cost uᵀΣ⁻¹u from 1 outwards, which tilt and stretch as Σ and ρ are dragged | [Contour](../../Calculus/Contour.md) |
+| [A surface you can turn](https://claude.ai/artifact/2TarMifiFoFyoB23eQFR64#surface-2d) | the density as a surface with the normaliser included, the determinant of Σ and the normaliser printed live, the rings on the floor as level sets, and the height at the centre dropping by a factor of √2, from 0.0796 to 0.0563, when the determinant doubles | [Contour](../../Calculus/Contour.md), [Normaliser](../../Statistics/Distributions/Normaliser.md), [Determinant](../../Linear%20Algebra/Determinant.md) |
+
+## The height-and-area walk
+<!-- scene: https://claude.ai/code/artifact/72caec6e-b6a2-495e-86d3-b6e23c2d29c7 -->
+
+Four frames on a density's height and area, with a predict-before-reveal slot, drawn for sitting 3 and chapter 2 of the diffusion-models foundations journey (`/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/artifacts/scenes/densities-and-the-gaussian/`).
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [Narrower means taller](https://claude.ai/code/artifact/72caec6e-b6a2-495e-86d3-b6e23c2d29c7) | frame 3: dragging σ in the formula while the peak 1/(σ√2π) passes 1 below σ = 0.3989 and the area stays 1 | [Normaliser](../../Statistics/Distributions/Normaliser.md) |
+| [Covariance sets the shape](https://claude.ai/code/artifact/72caec6e-b6a2-495e-86d3-b6e23c2d29c7) | frame 4: contours at 0.6, 0.3 and 0.1 of the peak, ellipses that turn to Σ's eigenvectors and stretch by √(kλ) as the entries of Σ are dragged | [Contour](../../Calculus/Contour.md) |
+
+## The wasted-bits walk
+<!-- scene: https://claude.ai/code/artifact/7aff7fa0-ee51-411d-8d97-a7233baa8519 -->
+
+Five frames on what KL divergence and mutual information measure, drawn for sitting 14 and chapter 11 of the diffusion-models foundations journey (`/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/artifacts/scenes/kl-and-mutual-information/`).
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [The wrong code costs extra](https://claude.ai/code/artifact/7aff7fa0-ee51-411d-8d97-a7233baa8519) | frame 1: the stacked bar H(p) plus the KL waste, with a switch from bits (1.5, 0.25 and 1.75) to nats (1.039721, 0.173287 and 1.213008) | [Nat](../../Statistics/Information%20Theory/Nat.md) |
+
+## The two-bump gradient walk
+<!-- scene: https://claude.ai/code/artifact/4bb4eef7-4d8f-4cca-b4ef-0b5259338648 -->
+
+Six frames on the gradient of a two-bump function, with predictions locked before the arrows appear, drawn for sitting 6 of the diffusion-models foundations journey (`/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/artifacts/scenes/the-gradient-field-drawn/`).
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [Every arrow leaves its line square](https://claude.ai/code/artifact/4bb4eef7-4d8f-4cca-b4ef-0b5259338648) | frame 2: the contour through a draggable dot with its tangent and its gradient, showing the gradient meets the contour line at a right angle | [Contour](../../Calculus/Contour.md) |
+| [A log turns slope into ratio](https://claude.ai/code/artifact/4bb4eef7-4d8f-4cca-b4ef-0b5259338648) | frame 5: the standard normal at (3, 4) with a constant multiplier c, which is what a missing normaliser is, dragged from 0.001 to 1e6 while the log-slope stays (−3, −4) | [Normaliser](../../Statistics/Distributions/Normaliser.md) |

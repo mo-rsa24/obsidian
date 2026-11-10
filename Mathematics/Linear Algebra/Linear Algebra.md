@@ -17,3 +17,4 @@ Mathematics, Linear Algebra.
 - [[Affine Map]]: An affine map is a linear map plus a fixed offset, so it passes a weighted sum through only when the weights add up to 1; also the affine combination and the support point of an affine subspace.
 - [[Eigenvalue]]: An eigenvector of a square matrix is a direction the matrix only stretches, Av = λv, and the eigenvalue λ is the stretch factor.
 - [[Singular Value Decomposition]]: The singular value decomposition writes any matrix as A = UΣVᵀ: a rotation, a stretch along perpendicular axes by the singular values, and another rotation.
+- [[Determinant]]: The determinant of a square matrix is the factor by which it scales area (in 2D) or volume (in 3D): 3 means it triples them, a negative sign means it flips orientation, and 0 means it flattens space and has no inverse.
