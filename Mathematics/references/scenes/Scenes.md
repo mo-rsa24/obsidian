@@ -47,8 +47,8 @@ The teaching notebook `/home/molef/PhD/SDXL/notebooks/sdxl_crossattn_poe_lora.ip
 ## SDXL as a latent diffusion model
 <!-- scene: https://claude.ai/artifact/KPpMEVBfkJnq3mwgGSbyPs -->
 <!-- kind: map -->
-<!-- home: PhD poe_repair_min, artifacts/results/how-sdxl-turns-a-prompt-into-an-image -->
-<!-- source: /home/molef/PhD/poe_repair_min/artifacts/results/how-sdxl-turns-a-prompt-into-an-image/sdxl-ldm-high-level-design-explainer.json -->
+<!-- home: PhD concept-composition, artifacts/results/how-sdxl-turns-a-prompt-into-an-image -->
+<!-- source: /home/molef/PhD/concept-composition/artifacts/results/how-sdxl-turns-a-prompt-into-an-image/sdxl-ldm-high-level-design-explainer.json -->
 
 The whole SDXL sampling pipeline as a system map: seventeen running parts in four lanes, every box
 opening onto the lines of pipeline code that run it. Built from a forward-hook trace of one 50-step
@@ -71,8 +71,8 @@ the conditioning lane is the only place the size, crop and aspect-ratio vector i
 ## Inside the SDXL VAE
 <!-- scene: https://claude.ai/artifact/PWPgjgzaRtjZnBMnVXx3BU -->
 <!-- kind: scene -->
-<!-- home: PhD poe_repair_min, artifacts/results/how-the-sdxl-vae-is-built -->
-<!-- source: /home/molef/PhD/poe_repair_min/artifacts/results/how-the-sdxl-vae-is-built/build_page.py -->
+<!-- home: PhD concept-composition, artifacts/results/how-the-sdxl-vae-is-built -->
+<!-- source: /home/molef/PhD/concept-composition/artifacts/results/how-the-sdxl-vae-is-built/build_page.py -->
 
 The SDXL autoencoder as a hierarchy, sixteen stages across encoder and decoder, each opening into its
 own modules and then into the lines of diffusers source that run them. All 242 traced modules are
@@ -95,8 +95,8 @@ the reparameterisation as real code rather than as an equation.
 ## Why the latent is scaled
 <!-- scene: https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn -->
 <!-- kind: walk -->
-<!-- home: PhD poe_repair_min, artifacts/results/why-the-latent-is-scaled -->
-<!-- source: /home/molef/PhD/poe_repair_min/artifacts/results/why-the-latent-is-scaled/build_page.py -->
+<!-- home: PhD concept-composition, artifacts/results/why-the-latent-is-scaled -->
+<!-- source: /home/molef/PhD/concept-composition/artifacts/results/why-the-latent-is-scaled/build_page.py -->
 
 Eleven frames on why SDXL multiplies its latent by 0.13025: what the pipeline costs in pixels, what
 the autoencoder is for, what the diffusion schedule assumes about the size of its data, and what
