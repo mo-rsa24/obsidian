@@ -16,3 +16,8 @@ Artificial Intelligence, Deep Learning. Language models are under [[Large Langua
 - [[Transformer]]: A transformer is a stack of identical blocks, each one multi-head attention followed by a small feed-forward network applied to every token, with a residual connection and layer normalisation around both.
 - [[Cross-Attention]]: Cross-attention is attention whose queries come from one sequence and whose keys and values come from another, so a decoder can read its encoder or an image can read its text prompt.
 - [[U-Net]]: A U-Net is a convolutional network that downsamples an image through an encoder, upsamples it back through a decoder to the input's size, and copies each encoder level's feature maps across to the matching decoder level, so the output keeps fine spatial detail.
+- [[Contrastive Image-Text Training]]: CLIP is trained on image and caption pairs so a picture and its caption land close together, giving an image encoder and a text encoder.
+- [[Vision Transformer]]: a ViT is a transformer used as an image encoder; the CLIP and BLIP models in the scoring notes use one.
+- [[Multilayer Perceptron]]: an MLP is a small stack of layers that turns a vector into another vector, such as ImageReward's final number.
+- [[Visual Question Answering]]: a VQA model is given an image and a question in words and answers it; BLIP-VQA keeps the chance of yes.
+- [[Object Detector]]: an object detector lists the objects in an image, each with a class, a box and a confidence; Mask2Former is the one GenEval uses.

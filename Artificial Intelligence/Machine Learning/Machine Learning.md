@@ -16,3 +16,6 @@ Artificial Intelligence, Machine Learning. [[Cross-Entropy]] and [[Backpropagati
 - [[Accuracy]]: Accuracy is the share of predictions a classifier gets right, correct predictions divided by all predictions; one minus it is the misclassification rate.
 - [[Precision And Recall]]: Precision is the share of the items a model flagged that really are positive, TP / (TP + FP); recall is the share of the real positives it found, TP / (TP + FN); the F1 score is their harmonic mean.
 - [[Mean Reciprocal Rank]]: Mean reciprocal rank scores a ranked list by where the first relevant item lands, 1 divided by its rank, averaged over queries; MRR@k scores 0 outside the top k.
+- [[Preference Ranking]]: preference ranking trains a model from people putting outputs in order, with the ranked-pairs loss that pushes the preferred output's number above the other's.
+- [[Benchmark]]: a benchmark is a fixed set of inputs with the scorer for each, so methods are measured on the same thing.
+- [[Zero-Shot]]: zero-shot means using a trained model on a task with no training on that task, as CLIP is evaluated.

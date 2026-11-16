@@ -2,6 +2,7 @@
 aliases: [score function, score, Stein score, Stein score function, Hyvärinen score, grad log p, gradient of the log density, gradient of the log-density, s(x)]
 link-skip: [relevance score, retrieval score, reward score, BM25 score, similarity score, CLIP score, attention score]
 link-only-in: [deep-learning/diffusion-models, deep-learning/generative-models]
+link-skip-in: [diffusion-models/12-scoring-and-rival-methods]
 standard: vault-note v2
 ---
 

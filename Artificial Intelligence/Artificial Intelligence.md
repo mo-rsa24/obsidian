@@ -11,3 +11,4 @@ The practices and concepts of the field: data science, machine learning and deep
 - [[Deep Learning]]: Deep learning stacks many learned layers into one network.
 - [[Large Language Models]]: A large language model is a transformer trained to predict the next token of text.
 - [[LLM As A Judge]]: LLM-as-a-judge uses one language model to grade another model's answers against written criteria, in place of a human grader.
+- [[Noun Phrase]]: a noun with the words that go with it, which spaCy cuts a prompt into so BLIP-VQA can ask one question per phrase.

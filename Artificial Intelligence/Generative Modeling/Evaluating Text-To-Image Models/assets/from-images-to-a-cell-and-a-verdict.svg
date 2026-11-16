@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900" role="img" aria-label="From 264 images per method to a table cell and a paired-difference verdict with three intervals above zero" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif">
+<rect width="1400" height="900" fill="#ffffff"/>
+<text x="30.0" y="34.0" font-size="17" fill="#1c2b29" font-weight="700" text-anchor="start">How a scorer's numbers become a table cell and a verdict: BLIP-VQA on the benchmark, animals set</text>
+<rect x="30.0" y="70.0" width="300.0" height="120.0" rx="10" fill="#efe9fb" stroke="#6b46c1" stroke-width="1.8"/>
+<text x="44.0" y="96.0" font-size="13.5" fill="#6b46c1" font-weight="700" text-anchor="start">1  images</text>
+<text x="44.0" y="124.0" font-size="13" fill="#1c2b29" font-weight="600" text-anchor="start">66 prompts times 4 seeds</text>
+<text x="44.0" y="146.0" font-size="13" fill="#1c2b29" font-weight="600" text-anchor="start">= 264 images per method</text>
+<text x="44.0" y="168.0" font-size="13" fill="#1c2b29" font-weight="600" text-anchor="start">(seeds 9 to 12)</text>
+<rect x="360.0" y="70.0" width="300.0" height="120.0" rx="10" fill="#e6f4ea" stroke="#1d7a3e" stroke-width="1.8"/>
+<text x="374.0" y="96.0" font-size="13.5" fill="#1d7a3e" font-weight="700" text-anchor="start">2  scorer</text>
+<text x="374.0" y="124.0" font-size="13" fill="#1c2b29" font-weight="600" text-anchor="start">one BLIP-VQA number</text>
+<text x="374.0" y="146.0" font-size="13" fill="#1c2b29" font-weight="600" text-anchor="start">for each image</text>
+<text x="374.0" y="168.0" font-size="13" fill="#1c2b29" font-weight="600" text-anchor="start">264 per method</text>
+<rect x="690.0" y="70.0" width="300.0" height="120.0" rx="10" fill="#fbf0dc" stroke="#b7740c" stroke-width="1.8"/>
+<text x="704.0" y="96.0" font-size="13.5" fill="#b7740c" font-weight="700" text-anchor="start">3  table cell</text>
+<text x="704.0" y="124.0" font-size="13" fill="#1c2b29" font-weight="600" text-anchor="start">the mean of those 264</text>
+<text x="704.0" y="146.0" font-size="13" fill="#1c2b29" font-weight="600" text-anchor="start">PoE 0.2251</text>
+<text x="704.0" y="168.0" font-size="13" fill="#1c2b29" font-weight="600" text-anchor="start">ours 0.5031</text>
+<rect x="1020.0" y="70.0" width="300.0" height="120.0" rx="10" fill="#fff" stroke="#1c2b29" stroke-width="1.8"/>
+<text x="1034.0" y="96.0" font-size="13.5" fill="#1c2b29" font-weight="700" text-anchor="start">4  verdict (not a table cell)</text>
+<text x="1034.0" y="124.0" font-size="13" fill="#1c2b29" font-weight="600" text-anchor="start">ours minus PoE, image by image</text>
+<text x="1034.0" y="146.0" font-size="13" fill="#1c2b29" font-weight="600" text-anchor="start">average per prompt, then per set</text>
+<text x="1034.0" y="168.0" font-size="13" fill="#1c2b29" font-weight="600" text-anchor="start">95% interval, 10,000 resamples</text>
+<line x1="334.0" y1="130.0" x2="375.0" y2="130.0" stroke="#6b7a88" stroke-width="1.6"/><polygon points="384.0,130.0 375.0,126.4 375.0,133.6" fill="#6b7a88"/>
+<line x1="664.0" y1="130.0" x2="705.0" y2="130.0" stroke="#6b7a88" stroke-width="1.6"/><polygon points="714.0,130.0 705.0,126.4 705.0,133.6" fill="#6b7a88"/>
+<line x1="994.0" y1="130.0" x2="1035.0" y2="130.0" stroke="#6b7a88" stroke-width="1.6"/><polygon points="1044.0,130.0 1035.0,126.4 1035.0,133.6" fill="#6b7a88"/>
+<text x="30.0" y="232.0" font-size="13" fill="#1c2b29" font-weight="600" text-anchor="start">The table cell is a mean. The verdict is a different calculation on the same images: it pairs ours with PoE on the same prompt and seed, so the starting noise is shared.</text>
+<text x="30.0" y="262.0" font-size="14" fill="#1c2b29" font-weight="700" text-anchor="start">Paired differences by set: ours minus PoE in BLIP-VQA (a point is the mean, a bar is the 95% interval)</text>
+<line x1="330.0" y1="560.0" x2="1200.0" y2="560.0" stroke="#1c2b29" stroke-width="1.4"/>
+<line x1="426.7" y1="560.0" x2="426.7" y2="566.0" stroke="#1c2b29" stroke-width="1.2"/>
+<text x="426.7" y="584.0" font-size="12" fill="#6b7a88" font-weight="600" text-anchor="middle">0.0</text>
+<line x1="620.0" y1="560.0" x2="620.0" y2="566.0" stroke="#1c2b29" stroke-width="1.2"/>
+<text x="620.0" y="584.0" font-size="12" fill="#6b7a88" font-weight="600" text-anchor="middle">0.1</text>
+<line x1="813.3" y1="560.0" x2="813.3" y2="566.0" stroke="#1c2b29" stroke-width="1.2"/>
+<text x="813.3" y="584.0" font-size="12" fill="#6b7a88" font-weight="600" text-anchor="middle">0.2</text>
+<line x1="1006.7" y1="560.0" x2="1006.7" y2="566.0" stroke="#1c2b29" stroke-width="1.2"/>
+<text x="1006.7" y="584.0" font-size="12" fill="#6b7a88" font-weight="600" text-anchor="middle">0.3</text>
+<line x1="1200.0" y1="560.0" x2="1200.0" y2="566.0" stroke="#1c2b29" stroke-width="1.2"/>
+<text x="1200.0" y="584.0" font-size="12" fill="#6b7a88" font-weight="600" text-anchor="middle">0.4</text>
+<line x1="426.7" y1="290.0" x2="426.7" y2="560.0" stroke="#b91c1c" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="434.7" y="300.0" font-size="12" fill="#b91c1c" font-weight="700" text-anchor="start">no difference (0)</text>
+<text x="765.0" y="612.0" font-size="12.5" fill="#6b7a88" font-weight="700" text-anchor="middle">ours minus PoE in BLIP-VQA (higher means ours scores higher)</text>
+<text x="30.0" y="355.0" font-size="14" fill="#1c2b29" font-weight="700" text-anchor="start">animals (66 prompts)</text>
+<line x1="814.3" y1="350.0" x2="1107.2" y2="350.0" stroke="#1d7a3e" stroke-width="5"/>
+<line x1="814.3" y1="342.0" x2="814.3" y2="358.0" stroke="#1d7a3e" stroke-width="3"/>
+<line x1="1107.2" y1="342.0" x2="1107.2" y2="358.0" stroke="#1d7a3e" stroke-width="3"/>
+<rect x="958.1" y="344.0" width="12.0" height="12.0" rx="6" fill="#1c2b29" stroke="#1c2b29" stroke-width="0"/>
+<text x="1123.2" y="355.0" font-size="12.5" fill="#1c2b29" font-weight="700" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace">+0.2780  [0.2005, 0.3520]</text>
+<text x="30.0" y="417.0" font-size="14" fill="#1c2b29" font-weight="700" text-anchor="start">animals with objects (144)</text>
+<line x1="563.7" y1="412.0" x2="788.0" y2="412.0" stroke="#1d7a3e" stroke-width="5"/>
+<line x1="563.7" y1="404.0" x2="563.7" y2="420.0" stroke="#1d7a3e" stroke-width="3"/>
+<line x1="788.0" y1="404.0" x2="788.0" y2="420.0" stroke="#1d7a3e" stroke-width="3"/>
+<rect x="671.8" y="406.0" width="12.0" height="12.0" rx="6" fill="#1c2b29" stroke="#1c2b29" stroke-width="0"/>
+<text x="804.0" y="417.0" font-size="12.5" fill="#1c2b29" font-weight="700" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace">+0.1299  [0.0709, 0.1869]</text>
+<text x="804.0" y="434.0" font-size="11.5" fill="#b7740c" font-weight="700" text-anchor="start">572 of 576 pairs scored</text>
+<text x="30.0" y="479.0" font-size="14" fill="#1c2b29" font-weight="700" text-anchor="start">objects (66)</text>
+<line x1="479.4" y1="474.0" x2="731.9" y2="474.0" stroke="#1d7a3e" stroke-width="5"/>
+<line x1="479.4" y1="466.0" x2="479.4" y2="482.0" stroke="#1d7a3e" stroke-width="3"/>
+<line x1="731.9" y1="466.0" x2="731.9" y2="482.0" stroke="#1d7a3e" stroke-width="3"/>
+<rect x="599.9" y="468.0" width="12.0" height="12.0" rx="6" fill="#1c2b29" stroke="#1c2b29" stroke-width="0"/>
+<text x="747.9" y="479.0" font-size="12.5" fill="#1c2b29" font-weight="700" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace">+0.0927  [0.0273, 0.1579]</text>
+<rect x="24.0" y="640.0" width="1350.0" height="120.0" rx="10" fill="#efe9fb" stroke="#6b46c1" stroke-width="1.6"/>
+<text x="40.0" y="668.0" font-size="14" fill="#1c2b29" font-weight="700" text-anchor="start">The rule, fixed before any evaluation score: SUPPORTS if the interval sits above 0 in all three sets. Here the file says: SUPPORTS.</text>
+<text x="40.0" y="694.0" font-size="13" fill="#1c2b29" font-weight="600" text-anchor="start">Check by hand for the animals set: the cell difference 0.5031 minus 0.2251 = 0.2780, and the file's paired mean is +0.2780.</text>
+<text x="40.0" y="718.0" font-size="13" fill="#1c2b29" font-weight="600" text-anchor="start">The verdict is written to a separate file, never into a table cell. A cell is marked partial when fewer images were scored than the design has; nothing is filled in.</text>
+<text x="40.0" y="742.0" font-size="13" fill="#1c2b29" font-weight="600" text-anchor="start">Intervals resample prompts first and then seeds within each prompt, so they reflect both sources of spread.</text>
+<text x="30.0" y="800.0" font-size="11.5" fill="#6b7a88" font-weight="500" text-anchor="start">Numbers: sources/metric-answer-sheets/r1-snapshot/ (a copy taken 2026-11-12 of report/paper-review/tables-1-and-2-sidecar.json and table-1-r1-benchmark.csv). The review session owns these results and they may change.</text>
+<text x="30.0" y="818.0" font-size="11.5" fill="#6b7a88" font-weight="500" text-anchor="start">Procedure from the docstring of scripts/review_build_tables.py and the protocol section "The bar for R1". This figure shows how the numbers are made; it is not a new claim.</text>
+</svg>

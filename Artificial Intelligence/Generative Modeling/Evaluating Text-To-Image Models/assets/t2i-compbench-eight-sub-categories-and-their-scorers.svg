@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 640" width="1300" height="640" role="img" aria-label="The eight T2I-CompBench++ sub-categories and the scorer for each, with colour and shape highlighted" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif">
+<rect width="1300" height="640" fill="#ffffff"/>
+<text x="30.0" y="34.0" font-size="17" fill="#1c2b29" font-weight="700" text-anchor="start">T2I-CompBench++: eight sub-categories, 1,000 prompts each, and the scorer behind each</text>
+<text x="30.0" y="76.0" font-size="13" fill="#6b7a88" font-weight="700" text-anchor="start">group</text>
+<text x="270.0" y="76.0" font-size="13" fill="#6b7a88" font-weight="700" text-anchor="start">sub-category</text>
+<text x="470.0" y="76.0" font-size="13" fill="#6b7a88" font-weight="700" text-anchor="start">scorer</text>
+<text x="800.0" y="76.0" font-size="13" fill="#6b7a88" font-weight="700" text-anchor="start">where the paper says it</text>
+<line x1="30.0" y1="86.0" x2="1270.0" y2="86.0" stroke="#e3e8ee" stroke-width="1.2"/>
+<rect x="22.0" y="102.0" width="1250.0" height="44.0" rx="8" fill="#fbf0dc" stroke="#b7740c" stroke-width="2"/>
+<text x="30.0" y="130.0" font-size="14" fill="#1c2b29" font-weight="500" text-anchor="start">attribute binding</text>
+<text x="270.0" y="130.0" font-size="15" fill="#1c2b29" font-weight="700" text-anchor="start">colour</text>
+<text x="470.0" y="130.0" font-size="15" fill="#6b46c1" font-weight="700" text-anchor="start">BLIP-VQA</text>
+<text x="800.0" y="130.0" font-size="13" fill="#6b7a88" font-weight="600" text-anchor="start">page 6</text>
+<rect x="22.0" y="154.0" width="1250.0" height="44.0" rx="8" fill="#fbf0dc" stroke="#b7740c" stroke-width="2"/>
+<text x="30.0" y="182.0" font-size="14" fill="#1c2b29" font-weight="500" text-anchor="start">attribute binding</text>
+<text x="270.0" y="182.0" font-size="15" fill="#1c2b29" font-weight="700" text-anchor="start">shape</text>
+<text x="470.0" y="182.0" font-size="15" fill="#6b46c1" font-weight="700" text-anchor="start">BLIP-VQA</text>
+<text x="800.0" y="182.0" font-size="13" fill="#6b7a88" font-weight="600" text-anchor="start">page 6</text>
+<text x="30.0" y="234.0" font-size="14" fill="#1c2b29" font-weight="500" text-anchor="start">attribute binding</text>
+<text x="270.0" y="234.0" font-size="15" fill="#1c2b29" font-weight="700" text-anchor="start">texture</text>
+<text x="470.0" y="234.0" font-size="15" fill="#6b46c1" font-weight="700" text-anchor="start">BLIP-VQA</text>
+<text x="800.0" y="234.0" font-size="13" fill="#6b7a88" font-weight="600" text-anchor="start">page 6</text>
+<text x="30.0" y="286.0" font-size="14" fill="#1c2b29" font-weight="500" text-anchor="start">object relationships</text>
+<text x="270.0" y="286.0" font-size="15" fill="#1c2b29" font-weight="700" text-anchor="start">2D spatial</text>
+<text x="470.0" y="286.0" font-size="15" fill="#1c2b29" font-weight="700" text-anchor="start">UniDet (a detector)</text>
+<text x="800.0" y="286.0" font-size="13" fill="#6b7a88" font-weight="600" text-anchor="start">page 6</text>
+<text x="30.0" y="338.0" font-size="14" fill="#1c2b29" font-weight="500" text-anchor="start">object relationships</text>
+<text x="270.0" y="338.0" font-size="15" fill="#1c2b29" font-weight="700" text-anchor="start">3D spatial</text>
+<text x="470.0" y="338.0" font-size="15" fill="#1c2b29" font-weight="700" text-anchor="start">UniDet plus depth</text>
+<text x="800.0" y="338.0" font-size="13" fill="#6b7a88" font-weight="600" text-anchor="start">pages 6 and 7</text>
+<text x="30.0" y="390.0" font-size="14" fill="#1c2b29" font-weight="500" text-anchor="start">object relationships</text>
+<text x="270.0" y="390.0" font-size="15" fill="#1c2b29" font-weight="700" text-anchor="start">non-spatial</text>
+<text x="470.0" y="390.0" font-size="15" fill="#1c2b29" font-weight="700" text-anchor="start">CLIPScore</text>
+<text x="800.0" y="390.0" font-size="13" fill="#6b7a88" font-weight="600" text-anchor="start">page 7</text>
+<text x="30.0" y="442.0" font-size="14" fill="#1c2b29" font-weight="500" text-anchor="start">numeracy</text>
+<text x="270.0" y="442.0" font-size="15" fill="#1c2b29" font-weight="700" text-anchor="start">numeracy</text>
+<text x="470.0" y="442.0" font-size="15" fill="#1c2b29" font-weight="700" text-anchor="start">UniDet</text>
+<text x="800.0" y="442.0" font-size="13" fill="#6b7a88" font-weight="600" text-anchor="start">page 6</text>
+<text x="30.0" y="494.0" font-size="14" fill="#1c2b29" font-weight="500" text-anchor="start">complex compositions</text>
+<text x="270.0" y="494.0" font-size="15" fill="#1c2b29" font-weight="700" text-anchor="start">complex</text>
+<text x="470.0" y="494.0" font-size="15" fill="#1c2b29" font-weight="700" text-anchor="start">3-in-1 metric</text>
+<text x="800.0" y="494.0" font-size="13" fill="#6b7a88" font-weight="600" text-anchor="start">page 7</text>
+<text x="30.0" y="568.0" font-size="13" fill="#b7740c" font-weight="700" text-anchor="start">Highlighted: the two rows you named, colour and shape. Both use the same BLIP-VQA scorer as the protocol's verdict column; only the prompts differ.</text>
+<text x="30.0" y="592.0" font-size="11.5" fill="#6b7a88" font-weight="500" text-anchor="start">In R14 as filed, the T2I-CompBench columns are spatial and complex, which are not BLIP-VQA. Eight sub-categories times 1,000 prompts (700 for training, 300 for testing) is 8,000 (page 3).</text>
+<text x="30.0" y="610.0" font-size="11.5" fill="#6b7a88" font-weight="500" text-anchor="start">The paper states that BLIP-VQA is applied to colour, shape and texture (page 6) and that CLIPScore works best for non-spatial relationships with the 3-in-1 metric designed for complex ones (page 7).</text>
+</svg>

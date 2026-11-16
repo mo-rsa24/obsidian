@@ -1,0 +1,13 @@
+[
+ {"table":"SDXL","method":"plain PoE (fused)","model":"SDXL","prompt":"a cat and a dog","seed":9,"resolution":1024,"clip":0.2482,"imagereward":-1.0717,"blip_dog":0.0140,"geneval":"pass (false: one animal boxed as cat and dog)","source":"clip-score/table.md, imagereward/table.md, blip-vqa/table.md, geneval/table.md"},
+ {"table":"SDXL","method":"our adapter (clear)","model":"SDXL","prompt":"a cat and a dog","seed":9,"resolution":1024,"clip":0.3025,"imagereward":1.0691,"blip_dog":0.6149,"geneval":"pass","source":"same four table files"},
+ {"table":"SDXL","method":"joint prompt (reference)","model":"SDXL","prompt":"a cat and a dog","seed":9,"resolution":1024,"clip":0.3021,"imagereward":0.8993,"blip_dog":0.6335,"geneval":"pass","source":"same four table files"},
+ {"table":"SDXL","method":"CO3","model":"SDXL","prompt":"a cat and a dog","seed":9,"resolution":1024,"clip":null,"imagereward":null,"blip_dog":null,"geneval":null,"source":"not rendered yet: route step 8"},
+ {"table":"SDXL","method":"ToMe","model":"SDXL","prompt":"a cat and a dog","seed":9,"resolution":1024,"clip":null,"imagereward":null,"blip_dog":null,"geneval":null,"source":"not run: laptop too slow"},
+ {"table":"SD 1.5","method":"plain SD 1.5","model":"SD 1.5","prompt":"a cat and a dog","seed":9,"resolution":512,"clip":0.2380,"imagereward":-0.2715,"blip_dog":0.0568,"geneval":"fail","source":"attend-and-excite/table.md"},
+ {"table":"SD 1.5","method":"Attend-and-Excite","model":"SD 1.5","prompt":"a cat and a dog","seed":9,"resolution":512,"clip":0.2884,"imagereward":0.8530,"blip_dog":0.4243,"geneval":"pass","source":"attend-and-excite/table.md"},
+ {"table":"SD 1.5","method":"CONFORM","model":"SD 1.5","prompt":"a cat and a dog","seed":9,"resolution":512,"clip":0.2844,"imagereward":0.9187,"blip_dog":0.6589,"geneval":"pass","source":"conform/table.md"},
+ {"table":"SD 1.5","method":"Divide and Bind","model":"SD 1.5","prompt":"a cat and a dog","seed":9,"resolution":512,"clip":0.2788,"imagereward":0.5514,"blip_dog":0.8294,"geneval":"pass","source":"divide-and-bind/table.md"},
+ {"table":"SD 1.5","method":"InitNO","model":"SD 1.5","prompt":"a cat and a dog","seed":9,"resolution":512,"clip":0.2666,"imagereward":0.3624,"blip_dog":0.7595,"geneval":"pass","source":"initno/table.md"},
+ {"table":"SD 1.5","method":"SynGen","model":"SD 1.5","prompt":"a black cat and a white dog","seed":9,"resolution":512,"clip":0.3433,"imagereward":1.4295,"blip_dog":0.9891,"geneval":"pass","source":"syngen/table.md (BLIP asks about a white dog)"}
+]

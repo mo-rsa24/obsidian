@@ -10,3 +10,4 @@ Artificial Intelligence, Generative Modeling. Models that learn a data distribut
 - [[Variational Autoencoders]]: A variational autoencoder is an autoencoder whose encoder outputs a Gaussian over the latent code instead of a single code, trained on the evidence lower bound so that decoding a draw from the prior N(0, I) produces new data.
 - [[Evidence Lower Bound]]: The evidence lower bound is a quantity that sits below log p(x) for every choice of approximate posterior q(z), so maximising it pushes the likelihood up when log p(x) itself cannot be computed.
 - [[Score Function]]: The score of a density p is the gradient of its log, s(x) = ∇ₓ log p(x), an arrow at every point aimed where the density rises fastest.
+- [[Evaluating Text-To-Image Models]]: how a render becomes a number or a pass (CLIP score, ImageReward, BLIP-VQA, GenEval, T2I-CompBench) and how two methods are compared fairly, in a folder.
