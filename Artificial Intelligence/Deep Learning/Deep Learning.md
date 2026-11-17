@@ -16,6 +16,11 @@ Artificial Intelligence, Deep Learning. Language models are under [[Large Langua
 - [[Transformer]]: A transformer is a stack of identical blocks, each one multi-head attention followed by a small feed-forward network applied to every token, with a residual connection and layer normalisation around both.
 - [[Cross-Attention]]: Cross-attention is attention whose queries come from one sequence and whose keys and values come from another, so a decoder can read its encoder or an image can read its text prompt.
 - [[U-Net]]: A U-Net is a convolutional network that downsamples an image through an encoder, upsamples it back through a decoder to the input's size, and copies each encoder level's feature maps across to the matching decoder level, so the output keeps fine spatial detail.
+- [[Layer Normalization]]: layer norm rescales one position's vector to mean 0 and spread 1 by its own numbers, then moves it by a learned scale and shift.
+- [[QuickGELU]]: QuickGELU is x times sigmoid(1.702 x), the fast form of GELU inside every CLIP block's MLP.
+- [[Linear Projection]]: a linear projection multiplies a vector by a learned matrix, as CLIP does to bring its two towers into one 512-number space.
+- [[Causal Attention Mask]]: the causal mask adds −∞ to every later position's attention score, so each position reads only itself and what came before.
+- [[End-of-Text Pooling]]: end-of-text pooling keeps the end token's vector as the whole caption's, the first position to have read every word.
 - [[Contrastive Image-Text Training]]: CLIP is trained on image and caption pairs so a picture and its caption land close together, giving an image encoder and a text encoder.
 - [[Vision Transformer]]: a ViT is a transformer used as an image encoder; the CLIP and BLIP models in the scoring notes use one.
 - [[Multilayer Perceptron]]: an MLP is a small stack of layers that turns a vector into another vector, such as ImageReward's final number.
