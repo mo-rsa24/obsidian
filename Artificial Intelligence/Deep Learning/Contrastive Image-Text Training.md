@@ -40,3 +40,11 @@ Artificial Intelligence, Deep Learning. Needs: [[Embedding]] for the arrows and 
 
 - [Journey chapter 1, how the number is made](/home/molef/goal-setting/learning/deep-learning/diffusion-models/12-scoring-and-rival-methods/textbook/01-clip-score.md#how-the-number-is-made): the two encoders, the cosine and the checkpoint.
 - [Journey paper reading, CLIP](/home/molef/goal-setting/learning/deep-learning/diffusion-models/12-scoring-and-rival-methods/sources/paper-readings/clip.md): what the paper says about its own limits and the toy run against them.
+- [The CLIP rebuild, rung 22: a batch of pairs is N classification questions with known answers](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers/rebuild-clip-from-fundamentals.md#rung-22-a-batch-of-pairs-is-n-classification-questions-with-known-answers), papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers, beside the CLIP paper. Picture i was paired with caption i, so each question's answer is i and the other captions in the batch are the wrong answers; the rig's labels are 0, 1, 2, 3.
+- [CLIP, read through a small network, section 6: a symmetric cross-entropy over the table](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers/clip-read-through-a-small-network.md#6-a-symmetric-cross-entropy-over-the-table), papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers, beside the CLIP paper. Each picture is asked which caption is its own, each caption which picture is its own, and the loss is the mean of the two answers' surprise.
+
+**Scenes**
+
+- [CLIP module tree, Loss](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#loss). The symmetric loss on the 4 × 4 batch: image-to-caption and caption-to-image averaged.
+- [CLIP code walk, Contrastive: the right answer for row i is column i](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). The labels 0 to N − 1, each picture's right caption on the diagonal.
+- [CLIP code walk, Contrastive: the symmetric cross-entropy](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). Open_clip's ClipLoss: cross-entropy over captions and over pictures, averaged, 0.1698 on the rig.

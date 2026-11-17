@@ -36,6 +36,8 @@ Artificial Intelligence, Large Language Models. The token IDs it produces are wh
 
 - [The SDXL notebook in ten parts, Tokenizing the prompt](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-text). "a cat and a dog" turned into 77 token ids, 7 words and 70 padding.
 - [SDXL as a latent diffusion model, The cross-attention lane](https://claude.ai/artifact/KPpMEVBfkJnq3mwgGSbyPs#cross-attention). Two text encoders concatenated per token into 77 by 2048, entering the UNet at every resolution.
+- [CLIP module tree, Caption to ids](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#caption-to-ids). The caption "a cat and a dog" as 7 real tokens and 70 padding, 77 ids.
+- [CLIP code walk, Text path: each token id becomes its row, plus its position's row](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). Token_embedding plus positional_embedding for each of the 77 slots.
 
 **Figures**
 

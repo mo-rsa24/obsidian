@@ -36,6 +36,13 @@ Mathematics, Statistics, Information Theory.
 
 - [Cross-entropy is entropy plus KL](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/textbook/11-kl-cross-entropy-and-cmi.md#112-cross-entropy-is-entropy-plus-kl), deep-learning/diffusion-models/01-poe-derivation-foundations, section 11.2. The identity H(p, q) = H(p) + KL(p ‖ q), worked.
 - [Find the gradient of the cross-entropy loss through a softmax](/home/molef/goal-setting/learning/deep-learning/transformers/plans/10-find-the-gradient-of-the-cross-entropy.md), deep-learning/transformers, plan 10. The gradient of softmax followed by cross-entropy, which comes out as the predicted probabilities minus the one-hot target.
+- [The CLIP rebuild, rung 23: cross-entropy with one right answer is minus the log of its probability](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers/rebuild-clip-from-fundamentals.md#rung-23-cross-entropy-with-one-right-answer-is-minus-the-log-of-its-probability), papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers, beside the CLIP paper. The cat picture's softmax gives its own caption 0.7695, so its term is −log 0.7695 = 0.262.
+- [CLIP, read through a small network, section 6: a symmetric cross-entropy over the table](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers/clip-read-through-a-small-network.md#6-a-symmetric-cross-entropy-over-the-table), papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers, beside the CLIP paper. Each picture is asked which caption is its own, each caption which picture is its own, and the loss is the mean of the two answers' surprise.
+
+**Scenes**
+
+- [CLIP module tree, Loss](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#loss). The symmetric loss on the 4 × 4 batch: image-to-caption and caption-to-image averaged.
+- [CLIP code walk, Contrastive: the symmetric cross-entropy](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). Open_clip's ClipLoss: cross-entropy over captions and over pictures, averaged, 0.1698 on the rig.
 
 **Figures**
 

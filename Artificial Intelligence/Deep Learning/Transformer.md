@@ -51,6 +51,12 @@ No toy with one-number heads; both use symbols and pictures. Times are caption-r
 - [Show why a residual connection keeps gradients alive](/home/molef/goal-setting/learning/deep-learning/transformers/plans/38-show-why-a-residual-connection-keeps-gradients.md), deep-learning/transformers, plan 38. The residual path every block wraps around attention and the feed-forward layer.
 - [Normalise a vector by hand with layer norm](/home/molef/goal-setting/learning/deep-learning/transformers/textbook/40-normalise-a-vector-by-hand-with-layer.md), deep-learning/transformers, chapter 40. Layer normalisation worked on [1, 2, 3, 4], the other wrapper inside each block.
 
+**Scenes**
+
+- [CLIP module tree, Text encoder](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#text-encoder). Twelve pre-norm transformer blocks under the causal mask, 8 heads × 64 = 512.
+- [CLIP module tree, Image encoder](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#image-encoder). Twelve pre-norm transformer blocks with no mask, 12 heads × 64 = 768.
+- [CLIP code walk, Hidden: one block, masked attention then an MLP](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). One residual attention block: layer norm, attention with the mask added to the scores, add back, then the MLP.
+
 **Figures**
 
 - <a href="/home/molef/goal-setting/learning/deep-learning/transformers/artifacts/figures/llm-concepts-cheatsheet/jaydeepkarale-ai-llm-concepts-part1.jpg"><img src="/home/molef/goal-setting/learning/deep-learning/transformers/artifacts/figures/llm-concepts-cheatsheet/jaydeepkarale-ai-llm-concepts-part1.jpg" width="140" alt="A ten-panel cheat sheet whose middle row draws attention weights, a transformer block of self-attention, feed-forward and add and normalize repeated N times, and positional encoding added under six tokens"></a> Jaydeep Karale on X, "AI / LLM Concepts Cheat Sheet (Part 1)": [the post](https://x.com/_jaydeepkarale/status/2095815664187609355), [what it shows](/home/molef/goal-setting/learning/deep-learning/transformers/artifacts/figures/llm-concepts-cheatsheet/README.md#jaydeepkarale-ai-llm-concepts-part1jpg). Panel 5 feeds Token 1 to Token N into a block of self-attention, a feed-forward network and add-and-normalize repeated N times, and panel 6 adds a position row under each of six tokens, because without it "cat sat" and "sat cat" look the same to attention.

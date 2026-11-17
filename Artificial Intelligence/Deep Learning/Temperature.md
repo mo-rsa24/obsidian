@@ -40,6 +40,13 @@ Artificial Intelligence, Deep Learning. Needs: [[Softmax]]. How the composition 
 - [The same prompt, five different answers](/home/molef/goal-setting/learning/ai-engineering/data-agents/plans/10-the-same-prompt-five-different-answers.md), ai-engineering/data-agents, plan 10. Asks one question repeatedly and watches the answer change while the price per call holds.
 - [Distil a small student from a teacher's softened outputs](/home/molef/goal-setting/learning/deep-learning/model-compression/plans/03-distillation-with-soft-targets.md), deep-learning/model-compression, plan 03. Softens a teacher's outputs with a temperature, computes them by hand at T = 1 and T = 4, and writes the distillation loss with its T² factor.
 - [The Metropolis corrector by hand: step size, temperature and method](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l3-stochastic-processes/12-the-metropolis-corrector-by-hand.md), deep-learning/diffusion-models/00-from-scratch-to-sdxl, chapter 12. Runs a tempered chain aimed at p^β, where β < 1 makes the valleys shallower so the chain crosses them more often.
+- [The CLIP rebuild, rung 15: dividing the scores by the temperature before the softmax sharpens it](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers/rebuild-clip-from-fundamentals.md#rung-15-dividing-the-scores-by-the-temperature-before-the-softmax-sharpens-it), papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers, beside the CLIP paper. The cat picture's own caption gets a share of 0.257 at 1/τ = 1, 0.358 at the starting 14.29 and 0.770 at the trained 100, from the same four cosines.
+- [CLIP, read through a small network, section 5: every picture against every caption, scaled by a learned temperature](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers/clip-read-through-a-small-network.md#5-every-picture-against-every-caption-scaled-by-a-learned-temperature), papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers, beside the CLIP paper. Every picture's unit vector is dotted with every caption's, and the table of cosines is multiplied by a learned number so a softmax over it can be sharp.
+
+**Scenes**
+
+- [CLIP module tree, Similarity](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#similarity). The cosine times e to the logit_scale gives the logit.
+- [CLIP code walk, Contrastive: the temperature, stored as its log](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). Logit_scale stored as the log of 1/τ, e^t = 100 on the trained weights.
 
 **Figures**
 

@@ -37,5 +37,10 @@ Artificial Intelligence, Deep Learning. [[Softmax]] turns logits into probabilit
 - [Find the gradient of the cross-entropy loss through a softmax](/home/molef/goal-setting/learning/deep-learning/transformers/textbook/10-find-the-gradient-of-the-cross-entropy.md), deep-learning/transformers, chapter 10. Defines a logit as a score before the softmax, takes three cosines as the logits z = [0.9939, 0.1104, 0.7071], and finds the loss's gradient on each logit, including the competing ones.
 - [Find the gradient of the cross-entropy loss through a softmax](/home/molef/goal-setting/learning/deep-learning/transformers/plans/10-find-the-gradient-of-the-cross-entropy.md), deep-learning/transformers, plan 10. The plan for that chapter: the gradient on the logits drawn as bars, and a broken run that treats each probability as depending only on its own logit.
 
+**Scenes**
+
+- [CLIP module tree, Similarity](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#similarity). The cosine times e to the logit_scale gives the logit.
+- [CLIP code walk, Contrastive: every picture against every caption, times e^t](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). Every unit picture vector against every unit caption vector, times e^t = 100, the 4 × 4 logits.
+
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-27. Each textbook page was read in the PDF with pdftotext, first found through the books' back-of-book indexes ("logit", "logits", "log odds", "logit function"). Probabilistic machine learning: advanced topics, section 15.3 (page 636, logits in logistic regression) and section 15.3.3 (page 637, logit adjustment for class imbalance) teach narrower uses and have no line. The three lecture rows were read in their caption-read lecture maps under `~/.claude/cache/captions/`. The two figures `find-figures.py` returned matched only the hover text of temperature marks and show no logit, so the card has no Figures group. A script then opened every link and confirmed the file exists, the page is inside the PDF, and each video start matches a row's start in a lecture map.

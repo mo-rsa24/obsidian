@@ -38,11 +38,16 @@ Artificial Intelligence, Deep Learning. Embeddings are what [[Attention]] mixes 
 - [Show an embedding table is a one-hot vector times a matrix](/home/molef/goal-setting/learning/deep-learning/transformers/textbook/33-show-an-embedding-table-is-a-one.md), deep-learning/transformers, chapter 33. A lookup in an embedding table shown to be a one-hot vector times a matrix, worked by hand.
 - [Watch two word vectors move together in one hand-run update](/home/molef/goal-setting/learning/deep-learning/transformers/plans/37-watch-two-word-vectors-move-together.md), the same journey, plan 37. One training update run by hand that pulls two co-occurring words' vectors closer.
 - [Chunking and embeddings: the shop's documents chunked, embedded, and ranked against a question](/home/molef/goal-setting/learning/ai-engineering/one-business-end-to-end/plans/51-chunking-and-embeddings.md), ai-engineering/one-business-end-to-end, plan 51. Real documents chunked, embedded with an embedding model and ranked against a question.
+- [The CLIP rebuild, rung 16: looking up a row is a one-hot vector times the table](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers/rebuild-clip-from-fundamentals.md#rung-16-looking-up-a-row-is-a-one-hot-vector-times-the-table), papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers, beside the CLIP paper. A one-hot vector of 49,408 entries times CLIP's token table picks out the token's row.
+- [CLIP, read through a small network, section 4: a linear projection into one space, then unit length](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers/clip-read-through-a-small-network.md#4-a-linear-projection-into-one-space-then-unit-length), papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers, beside the CLIP paper. One matrix per tower carries its vector into a shared space, and dividing each by its length puts them all on the circle of radius 1, so only their directions count.
 
 **Scenes**
 
 - [HR policy assistant on local Postgres, The semantic cache](https://claude.ai/artifact/Gsj44q2Vehu8RNjgJyWwpb#cache). A past answer reused when a new question's embedding scores at least 0.70 against a stored one, which skips the agent run.
 - [HR policy assistant on local Postgres, The embedding endpoint](https://claude.ai/artifact/Gsj44q2Vehu8RNjgJyWwpb#embed). One endpoint turning chunks and questions into 1024 numbers each, called by the loader, the search tool and the cache.
+- [CLIP module tree, Text embeddings](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#text-embeddings). Each id looked up as a row of the token table, 77 × 512 into the text encoder.
+- [CLIP code walk, Image path: a class row in front, a position row added](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). The class row put in front of the patches and a position row added to each.
+- [CLIP code walk, Text path: each token id becomes its row, plus its position's row](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). Token_embedding plus positional_embedding for each of the 77 slots.
 
 **Figures**
 

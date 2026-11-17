@@ -31,3 +31,13 @@ Artificial Intelligence, Deep Learning. Needs: [[Transformer]]. Used inside the 
 
 - [Journey chapter 1, what goes in](/home/molef/goal-setting/learning/deep-learning/diffusion-models/12-scoring-and-rival-methods/textbook/01-clip-score.md#what-goes-in-and-how-to-read-the-number): the CLIP checkpoint, with the input size marked unknown.
 - [The facts table, section 2](/home/molef/goal-setting/learning/deep-learning/diffusion-models/12-scoring-and-rival-methods/sources/metric-answer-sheets/facts.md): the BLIP backbone with a ViT-L image encoder.
+- [The CLIP rebuild, rung 11: a stride-32, size-32 convolution is one matrix product per patch](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers/rebuild-clip-from-fundamentals.md#rung-11-a-stride-32-size-32-convolution-is-one-matrix-product-per-patch), papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers, beside the CLIP paper. Flattening each 32 × 32 tile and multiplying by the 768 filters matches conv1's output on patch 0 of the cat picture to 4.3 × 10⁻⁶.
+- [CLIP, read through a small network, section 3: a picture becomes a vector through patches and a summary token](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers/clip-read-through-a-small-network.md#3-a-picture-becomes-a-vector-through-patches-and-a-summary-token), papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers, beside the CLIP paper. The picture is cut into patches, each patch becomes a short vector, and a summary token that reads every patch is read out as the picture's vector.
+
+**Scenes**
+
+- [CLIP module tree, Image patches](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#image-patches). A stride-32 convolution cutting the 224-pixel picture into 7 × 7 patches, plus one class token, 50 tokens.
+- [CLIP module tree, Image encoder](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#image-encoder). Twelve pre-norm transformer blocks with no mask, 12 heads × 64 = 768.
+- [CLIP module tree, Image pool](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#image-pool). Token 0 taken, then layer norm, 768 out.
+- [CLIP code walk, Image path: conv1 cuts the picture into patches](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). Conv1 cutting the picture into 49 patches of 32 × 32.
+- [CLIP code walk, Image path: a class row in front, a position row added](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). The class row put in front of the patches and a position row added to each.

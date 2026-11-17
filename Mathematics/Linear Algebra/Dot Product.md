@@ -40,6 +40,11 @@ Mathematics, Linear Algebra. [[Cosine Similarity]] divides the dot product by bo
 - [Simulate the variance of a dot product at three sizes](/home/molef/goal-setting/learning/deep-learning/transformers/plans/07-simulate-the-variance-of-a-dot-product.md), deep-learning/transformers, plan 07. How the spread of a dot product grows with the number of coordinates, measured.
 - [Compute vectors, the dot product, length and the angle between them](/home/molef/goal-setting/learning/ai-engineering/string-similarity-measures/foundations/plans/06-vectors-dot-product-and-length.md), ai-engineering/string-similarity-measures/foundations, plan 06. The dot product of two word-count vectors.
 - [Dot, norm and cosine refresher, page 3](/home/molef/goal-setting/learning/deep-learning/diffusion-models/08-spectral-structure-of-the-correction/textbook/refresher-dot-norm-cosine.pdf#page=3), deep-learning/diffusion-models/08-spectral-structure-of-the-correction, textbook refresher. Reads the dot product as an agreement score between two vectors, then a matrix-vector product as stacked dot products.
+- [The CLIP rebuild, rung 21: all N × N cosines at once are one matrix product](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers/rebuild-clip-from-fundamentals.md#rung-21-all-n--n-cosines-at-once-are-one-matrix-product), papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers, beside the CLIP paper. Unit picture vectors as rows times unit caption vectors as columns give every pair at once; times e^t = 100 the cat picture and its caption give 29.22.
+
+**Scenes**
+
+- [CLIP code walk, Contrastive: every picture against every caption, times e^t](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). Every unit picture vector against every unit caption vector, times e^t = 100, the 4 × 4 logits.
 
 **Figures**
 

@@ -41,12 +41,17 @@ Artificial Intelligence, Deep Learning.
 - [Show why attention scores are divided by the square root of d](/home/molef/goal-setting/learning/deep-learning/transformers/plans/25-show-why-attention-scores-are-divided.md), deep-learning/transformers, plan 25. The [variance of a dot product](../../Mathematics/references/textbooks/machine-learning/mathematics-for-machine-learning.pdf#page=199) of random vectors grows with their length d.
 - [Say how cross-attention differs from self-attention](/home/molef/goal-setting/learning/deep-learning/transformers/textbook/45-say-how-cross-attention-differs-from-self.md), deep-learning/transformers, chapter 45. A 2-word decoder reads a 3-word encoder, so the queries come from one sequence and the keys and values from the other.
 - [Self-attention, attn1](/home/molef/goal-setting/learning/deep-learning/diffusion-models/latent-diffusion-architecture-rebuilt/plans/06-self-attention.md), deep-learning/diffusion-models/latent-diffusion-architecture-rebuilt, plan 06. Scaled dot-product attention derived by hand, then scoped to the UNet's image tokens.
+- [The CLIP rebuild, rung 9: several heads run side by side and are joined](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers/rebuild-clip-from-fundamentals.md#rung-9-several-heads-run-side-by-side-and-are-joined), papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers, beside the CLIP paper. CLIP's 512 numbers split into 8 heads of 64, and the last block's attention repeated by hand matches the module's output to 2.4 × 10⁻⁷.
+- [CLIP, read through a small network, section 1: a caption becomes a vector, each word reading only backward](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers/clip-read-through-a-small-network.md#1-a-caption-becomes-a-vector-each-word-reading-only-backward), papers/deep-learning/diffusion-models/compositional-diffusion-models/scorers, beside the CLIP paper. Each word's vector takes a mean of itself and the words before it, never the words after, and keeps its own vector on top.
 
 **Scenes**
 
 - [The SDXL notebook in ten parts, Self-attention](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-attn). Self-attention among image tokens, a 4096 by 4096 map at full size.
 - [SDXL as a latent diffusion model, The cross-attention lane](https://claude.ai/artifact/KPpMEVBfkJnq3mwgGSbyPs#cross-attention). Two text encoders concatenated per token into 77 by 2048, entering the UNet at every resolution.
 - [Inside the SDXL VAE, The encoder mid block](https://claude.ai/artifact/PWPgjgzaRtjZnBMnVXx3BU#encoder-mid_block). The narrowest point, where a self-attention block lets every position see every other before the code is formed.
+- [CLIP module tree, Text encoder](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#text-encoder). Twelve pre-norm transformer blocks under the causal mask, 8 heads × 64 = 512.
+- [CLIP module tree, Image encoder](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#image-encoder). Twelve pre-norm transformer blocks with no mask, 12 heads × 64 = 768.
+- [CLIP code walk, Hidden: one block, masked attention then an MLP](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). One residual attention block: layer norm, attention with the mask added to the scores, add back, then the MLP.
 
 **Figures**
 

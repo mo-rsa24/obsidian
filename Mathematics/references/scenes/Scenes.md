@@ -183,3 +183,59 @@ Six frames on the gradient of a two-bump function, with predictions locked befor
 |---|---|---|
 | [Every arrow leaves its line square](https://claude.ai/code/artifact/4bb4eef7-4d8f-4cca-b4ef-0b5259338648) | frame 2: the contour through a draggable dot with its tangent and its gradient, showing the gradient meets the contour line at a right angle | [Contour](../../Calculus/Contour.md) |
 | [A log turns slope into ratio](https://claude.ai/code/artifact/4bb4eef7-4d8f-4cca-b4ef-0b5259338648) | frame 5: the standard normal at (3, 4) with a constant multiplier c, which is what a missing normaliser is, dragged from 0.001 to 1e6 while the log-slope stays (−3, −4) | [Normaliser](../../Statistics/Distributions/Normaliser.md) |
+
+## CLIP module tree
+<!-- scene: https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ -->
+<!-- kind: map -->
+<!-- home: learning tree, deep-learning/generative-models/02-stable-diffusion-and-clip/artifacts/scenes/clip-module-tree -->
+<!-- source: /home/molef/goal-setting/learning/deep-learning/generative-models/02-stable-diffusion-and-clip/artifacts/scenes/clip-module-tree/build_page.py -->
+
+CLIP ViT-B/32 as one system, rung 0 of journey 02's CLIP ladder. The text tower runs along the top (77 tokens, 512 wide, causal mask), the image tower along the bottom (7 × 7 patches of 32 × 32 plus one summary token, 768 wide), and both meet in the 512-number shared space through their projections, the normalisation and logit_scale. Each of the 12 boxes opens onto its real code and its traced shapes. Every shape comes from a CPU forward-hook trace of all 306 modules on the caption "a cat and a dog" and journey 13's cat-and-dog-apart render at seed 42; the batch numbers (the 4 × 4 logits, the loss, the causal-mask comparison) come from the journey's `clip_numbers.json`.
+
+**Also useful in**: journey 12's CLIP score chapter, journey 13's network view where SDXL's two CLIP text encoders appear, and the CLIP rebuild and closing page beside the CLIP paper on the shelf.
+
+**Caveat**: one forward pass on one caption and one render; what happens inside each transformer block is left to the network view and the code walk.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [Caption to ids](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#caption-to-ids) | the caption "a cat and a dog" as 7 real tokens and 70 padding, 77 ids | [Tokenization](../../../Artificial%20Intelligence/Large%20Language%20Models/Tokenization.md) |
+| [Text embeddings](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#text-embeddings) | each id looked up as a row of the token table, 77 × 512 into the text encoder | [Embedding](../../../Artificial%20Intelligence/Deep%20Learning/Embedding.md) |
+| [Text encoder](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#text-encoder) | twelve pre-norm transformer blocks under the causal mask, 8 heads × 64 = 512 | [Transformer](../../../Artificial%20Intelligence/Deep%20Learning/Transformer.md), [Attention](../../../Artificial%20Intelligence/Deep%20Learning/Attention.md), [Softmax](../../../Artificial%20Intelligence/Deep%20Learning/Softmax.md) |
+| [Text pool](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#text-pool) | the end-of-text row picked as the caption's vector, token id 49407 at the picked row | no card yet |
+| [Text projection](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#text-projection) | a linear layer, 512 in and 512 out, into the shared space | no card yet |
+| [Image patches](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#image-patches) | a stride-32 convolution cutting the 224-pixel picture into 7 × 7 patches, plus one class token, 50 tokens | [Vision Transformer](../../../Artificial%20Intelligence/Deep%20Learning/Vision%20Transformer.md) |
+| [Image encoder](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#image-encoder) | twelve pre-norm transformer blocks with no mask, 12 heads × 64 = 768 | [Vision Transformer](../../../Artificial%20Intelligence/Deep%20Learning/Vision%20Transformer.md), [Transformer](../../../Artificial%20Intelligence/Deep%20Learning/Transformer.md), [Attention](../../../Artificial%20Intelligence/Deep%20Learning/Attention.md) |
+| [Image pool](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#image-pool) | token 0 taken, then layer norm, 768 out | [Vision Transformer](../../../Artificial%20Intelligence/Deep%20Learning/Vision%20Transformer.md) |
+| [Image projection](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#image-projection) | a linear layer, 768 in and 512 out, into the shared space | no card yet |
+| [Normalise](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#normalise) | each vector divided by its length, length 1.0 after for both | [Norm](../../Linear%20Algebra/Norm.md) |
+| [Similarity](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#similarity) | the cosine times e to the logit_scale gives the logit | [Cosine Similarity](../../Linear%20Algebra/Cosine%20Similarity.md), [Temperature](../../../Artificial%20Intelligence/Deep%20Learning/Temperature.md), [Logit](../../../Artificial%20Intelligence/Deep%20Learning/Logit.md) |
+| [Loss](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#loss) | the symmetric loss on the 4 × 4 batch: image-to-caption and caption-to-image averaged | [Contrastive Image-Text Training](../../../Artificial%20Intelligence/Deep%20Learning/Contrastive%20Image-Text%20Training.md), [Cross-Entropy](../../Statistics/Information%20Theory/Cross-Entropy.md) |
+
+## CLIP code walk
+<!-- scene: https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6 -->
+<!-- kind: walk -->
+<!-- home: learning tree, deep-learning/generative-models/02-stable-diffusion-and-clip/artifacts/code-walk/what-each-line-of-clip-computes -->
+<!-- source: /home/molef/goal-setting/learning/deep-learning/generative-models/02-stable-diffusion-and-clip/artifacts/code-walk/what-each-line-of-clip-computes/gen_codewalk.py -->
+
+openai/CLIP's `clip/model.py` walked line by line in 24 sections, with the loss the file leaves out taken from the paper's Figure 3 and open_clip's `ClipLoss`; rung 3 of journey 02's CLIP ladder. Each section gives its role, the breakpoint and the shapes to read, the equation with the paper's page, every symbol named, and for 14 of them a figure computed from the rig's own tensors. `rig.py` runs `model.py` unchanged on the original ViT-B/32 weights on journey 13's four renders and four captions, and matches the journey's `clip_numbers.json` at every stored digit.
+
+**Also useful in**: the CLIP rebuild beside the CLIP paper, which follows the walk's 24 sections in order; journey 02's chapter 1 and its by-hand plan, whose instruction 7 finds the places in the real code; journey 12's CLIP score chapter.
+
+**Caveat**: every number is one batch of four renders and four captions on CPU in float32, the loss's slope is with respect to the 16 similarities rather than the weights, and no training was run. The page opens at its top whatever the link's fragment, so each row below opens the whole walk and the section is picked on the page.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [Hidden: LayerNorm](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6) | layer norm run in float32, before the attention and before the MLP in every block, after the text transformer, and before and after the vision transformer | no card yet |
+| [Hidden: QuickGELU](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6) | x times sigmoid(1.702 x), the activation inside every block's MLP | no card yet |
+| [Hidden: one block, masked attention then an MLP](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6) | one residual attention block: layer norm, attention with the mask added to the scores, add back, then the MLP | [Attention](../../../Artificial%20Intelligence/Deep%20Learning/Attention.md), [Softmax](../../../Artificial%20Intelligence/Deep%20Learning/Softmax.md), [Transformer](../../../Artificial%20Intelligence/Deep%20Learning/Transformer.md) |
+| [Image path: conv1 cuts the picture into patches](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6) | conv1 cutting the picture into 49 patches of 32 × 32 | [Vision Transformer](../../../Artificial%20Intelligence/Deep%20Learning/Vision%20Transformer.md) |
+| [Image path: a class row in front, a position row added](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6) | the class row put in front of the patches and a position row added to each | [Vision Transformer](../../../Artificial%20Intelligence/Deep%20Learning/Vision%20Transformer.md), [Embedding](../../../Artificial%20Intelligence/Deep%20Learning/Embedding.md) |
+| [Output: the class position times W_i](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6) | the class position after layer norm times W_i, the picture's vector | no card yet |
+| [Contrastive: the temperature, stored as its log](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6) | logit_scale stored as the log of 1/τ, e^t = 100 on the trained weights | [Temperature](../../../Artificial%20Intelligence/Deep%20Learning/Temperature.md) |
+| [Masked: build_attention_mask](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6) | build_attention_mask filling the upper triangle with minus infinity so no word reads ahead | no card yet |
+| [Text path: each token id becomes its row, plus its position's row](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6) | token_embedding plus positional_embedding for each of the 77 slots | [Embedding](../../../Artificial%20Intelligence/Deep%20Learning/Embedding.md), [Tokenization](../../../Artificial%20Intelligence/Large%20Language%20Models/Tokenization.md) |
+| [Output: the end-of-text position times W_t](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6) | the end-of-text position, found by text.argmax, after layer norm times W_t, the caption's vector | no card yet |
+| [Contrastive: divide each vector by its own length](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6) | each picture and caption vector divided by its own length | [Norm](../../Linear%20Algebra/Norm.md) |
+| [Contrastive: every picture against every caption, times e^t](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6) | every unit picture vector against every unit caption vector, times e^t = 100, the 4 × 4 logits | [Cosine Similarity](../../Linear%20Algebra/Cosine%20Similarity.md), [Dot Product](../../Linear%20Algebra/Dot%20Product.md), [Logit](../../../Artificial%20Intelligence/Deep%20Learning/Logit.md) |
+| [Contrastive: the right answer for row i is column i](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6) | the labels 0 to N − 1, each picture's right caption on the diagonal | [Contrastive Image-Text Training](../../../Artificial%20Intelligence/Deep%20Learning/Contrastive%20Image-Text%20Training.md) |
+| [Contrastive: the symmetric cross-entropy](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6) | open_clip's ClipLoss: cross-entropy over captions and over pictures, averaged, 0.1698 on the rig | [Cross-Entropy](../../Statistics/Information%20Theory/Cross-Entropy.md), [Loss Function](../../../Artificial%20Intelligence/Machine%20Learning/Loss%20Function.md), [Contrastive Image-Text Training](../../../Artificial%20Intelligence/Deep%20Learning/Contrastive%20Image-Text%20Training.md) |
