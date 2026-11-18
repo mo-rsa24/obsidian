@@ -39,5 +39,5 @@ Artificial Intelligence, Deep Learning. Needs: [[Transformer]]. Used inside the 
 - [CLIP module tree, Image patches](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#image-patches). A stride-32 convolution cutting the 224-pixel picture into 7 × 7 patches, plus one class token, 50 tokens.
 - [CLIP module tree, Image encoder](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#image-encoder). Twelve pre-norm transformer blocks with no mask, 12 heads × 64 = 768.
 - [CLIP module tree, Image pool](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#image-pool). Token 0 taken, then layer norm, 768 out.
-- [CLIP code walk, Image path: conv1 cuts the picture into patches](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). Conv1 cutting the picture into 49 patches of 32 × 32.
-- [CLIP code walk, Image path: a class row in front, a position row added](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). The class row put in front of the patches and a position row added to each.
+- [CLIP code walk, Image path: conv1 cuts the picture into patches](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#patch). Conv1 cutting the picture into 49 patches of 32 × 32.
+- [CLIP code walk, Image path: a class row in front, a position row added](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#cls_pos). The class row put in front of the patches and a position row added to each.

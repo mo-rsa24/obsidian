@@ -43,6 +43,8 @@ Mathematics, Calculus. [[Derivative]] is the one-input case, and [[Score Functio
 **Scenes**
 
 - [Kinds of composition notebook, Same points, two labellings](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec2). The denoising loss and one gradient step, showing the gradient is identical under two labellings because no label enters the loss.
+- [Readout Guidance loop walk, The push: the loss on one half of the batch](https://claude.ai/artifact/SHnMMo46yDvhj2GaXuEs7H#o_guidance). 0.3551 on the unconditional half and 0.3830 on the conditional half; the gradient reaches rows 1 and 3 only.
+- [Readout Guidance loop walk, The method: one fresh AdamW step on the latent itself](https://claude.ai/artifact/SHnMMo46yDvhj2GaXuEs7H#p_push). A new optimizer on every guided step with learning rate 0.02, one step moving the latent.
 
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook page range was read in the PDF with pdftotext, after finding it through the chapter tables in `Textbooks.md` and the back-of-book tables in `~/.claude/cache/book-indexes/`. The Organic Chemistry Tutor, Leonard and Professor Dave lines are copied from the video lessons index, section "The gradient". The CS231n row was read in its caption-read lecture map under `~/.claude/cache/captions/`. Each plan and chapter was read at its title and description. "gradient" alone was sampled in the learning tree (25 lines, all this idea), so it is an alias; "gradient of the log density" stays with [[Score Function]], whose longer alias wins. gather-concept-sources.py stopped at its time limit, so its sources were searched by hand. A script then opened every link.

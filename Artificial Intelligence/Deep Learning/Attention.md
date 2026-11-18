@@ -51,7 +51,11 @@ Artificial Intelligence, Deep Learning.
 - [Inside the SDXL VAE, The encoder mid block](https://claude.ai/artifact/PWPgjgzaRtjZnBMnVXx3BU#encoder-mid_block). The narrowest point, where a self-attention block lets every position see every other before the code is formed.
 - [CLIP module tree, Text encoder](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#text-encoder). Twelve pre-norm transformer blocks under the causal mask, 8 heads × 64 = 512.
 - [CLIP module tree, Image encoder](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#image-encoder). Twelve pre-norm transformer blocks with no mask, 12 heads × 64 = 768.
-- [CLIP code walk, Hidden: one block, masked attention then an MLP](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). One residual attention block: layer norm, attention with the mask added to the scores, add back, then the MLP.
+- [CLIP code walk, Hidden: one block, masked attention then an MLP](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#block). One residual attention block: layer norm, attention with the mask added to the scores, add back, then the MLP.
+- [SDXL pipeline map, Down block 1](https://claude.ai/artifact/96WQEXeRKy357BEFe8iYEf#down-1). ResBlocks paired with transformer blocks whose cross-attention reads C, softmax(QKᵀ/√64)V, at 64 × 64.
+- [SDXL code walk, Hidden: one transformer block, self-attention, cross-attention, feed-forward](https://claude.ai/artifact/HAq4Qwm2HwHcF3E8Ad325i#transformer_block). 4096 positions of 640, each part reading a layer-normed copy and adding its answer back.
+- [SDXL code walk, The caption acts: one patch's weights over the 77 words](https://claude.ai/artifact/HAq4Qwm2HwHcF3E8Ad325i#scores). Q times Kᵀ times 1/√64, softmax per row; at the cat's head "cat" 0.1614 and "dog" 0.1586.
+- [SDXL code walk, The caption acts: queries from the picture, keys and values from the words](https://claude.ai/artifact/HAq4Qwm2HwHcF3E8Ad325i#attn_processor). Keys and values with 77 rows from C in cross-attention, 20 heads of 64.
 
 **Figures**
 

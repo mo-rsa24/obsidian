@@ -39,6 +39,13 @@ Artificial Intelligence, Machine Learning. It minimises a [[Loss Function]], its
 - [Take one gradient step on W_Q and watch the query move toward the right key](/home/molef/goal-setting/learning/deep-learning/transformers/plans/24-take-one-gradient-step-on-w-q.md), the same journey, plan 24. One gradient step on an attention projection, checked by where the query moves.
 - [Choose the optimiser yourself: plain gradient descent or Adam](/home/molef/goal-setting/learning/deep-learning/transformers/plans/15-choose-the-optimiser-yourself-plain-gradient-descent.md), the same journey, plan 15. You choose between plain gradient descent and Adam before the journey's own answer opens.
 - [Classical ML from Scratch](/home/molef/goal-setting/learning/machine-learning/classical-ml-from-scratch/MASTER_PLAN.md), machine-learning/classical-ml-from-scratch. Goal 1 fits linear and logistic regression with a hand-written gradient descent.
+- [The Readout Guidance rebuild, rung 19: on a fresh Adam's first step every element moves by the learning rate, in the slope's sign](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/guided-sampling/rebuild-readout-guidance-from-fundamentals.md#rung-19-on-a-fresh-adams-first-step-every-element-moves-by-the-learning-rate-in-the-slopes-sign), papers/deep-learning/diffusion-models/compositional-diffusion-models/guided-sampling, beside the Readout Guidance paper. Plain gradient descent's step grows with the slope; one fresh Adam step moved every element of SDXL's latent by 0.020000 at gradient scales 1 and 1000.
+- [Readout Guidance, read through a small network, section 7: the step whose size ignores the gradient's size](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/guided-sampling/readout-guidance-read-through-a-small-network.md#7-the-step-whose-size-ignores-the-gradients-size), papers/deep-learning/diffusion-models/compositional-diffusion-models/guided-sampling, beside the Readout Guidance paper. A fresh Adam optimizer's first step moves every cell with a nonzero gradient by the learning rate, in the gradient's sign, however small the gradient is.
+
+**Scenes**
+
+- [Readout Guidance loop walk, Training the head: 8-bit AdamW on the mixing weights, bottlenecks and output head](https://claude.ai/artifact/SHnMMo46yDvhj2GaXuEs7H#th_opt). Three parameter groups at learning rate 1e-3, weight decay 0.
+- [Readout Guidance loop walk, The method: one fresh AdamW step on the latent itself](https://claude.ai/artifact/SHnMMo46yDvhj2GaXuEs7H#p_push). A new optimizer on every guided step with learning rate 0.02, one step moving the latent.
 
 **Figures**
 

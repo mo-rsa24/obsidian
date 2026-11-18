@@ -40,7 +40,7 @@ Artificial Intelligence, Deep Learning. [[Softmax]] turns logits into probabilit
 **Scenes**
 
 - [CLIP module tree, Similarity](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#similarity). The cosine times e to the logit_scale gives the logit.
-- [CLIP code walk, Contrastive: every picture against every caption, times e^t](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). Every unit picture vector against every unit caption vector, times e^t = 100, the 4 × 4 logits.
+- [CLIP code walk, Contrastive: every picture against every caption, times e^t](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#logits). Every unit picture vector against every unit caption vector, times e^t = 100, the 4 × 4 logits.
 
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-27. Each textbook page was read in the PDF with pdftotext, first found through the books' back-of-book indexes ("logit", "logits", "log odds", "logit function"). Probabilistic machine learning: advanced topics, section 15.3 (page 636, logits in logistic regression) and section 15.3.3 (page 637, logit adjustment for class imbalance) teach narrower uses and have no line. The three lecture rows were read in their caption-read lecture maps under `~/.claude/cache/captions/`. The two figures `find-figures.py` returned matched only the hover text of temperature marks and show no logit, so the card has no Figures group. A script then opened every link and confirmed the file exists, the page is inside the PDF, and each video start matches a row's start in a lecture map.

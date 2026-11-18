@@ -42,7 +42,7 @@ Mathematics, Linear Algebra. [[Dot Product]] gives the Euclidean norm as the squ
 **Scenes**
 
 - [CLIP module tree, Normalise](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#normalise). Each vector divided by its length, length 1.0 after for both.
-- [CLIP code walk, Contrastive: divide each vector by its own length](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). Each picture and caption vector divided by its own length.
+- [CLIP code walk, Contrastive: divide each vector by its own length](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#normalise). Each picture and caption vector divided by its own length.
 
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook page range was read in the PDF with pdftotext, after finding it through the back-of-book tables in `~/.claude/cache/book-indexes/` and the chapter tables in `Textbooks.md`. The Organic Chemistry Tutor and Leonard chapter lists were read with cache-video-chapters.py, and those lines describe only the chapter and video titles; no 3Blue1Brown chapter is about the norm. Each plan and chapter was read at its title and description. "norm" alone was sampled in the learning tree (25 lines, 18 meaning a vector's norm; the other 7 were layer norm and SciPy's `norm` distribution), so it is an alias with those phrases in `link-skip`. gather-concept-sources.py stopped at its time limit, so its sources were searched by hand. A script then opened every link.

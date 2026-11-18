@@ -57,6 +57,8 @@ Left, the end token's attention row over the seven tokens of "a cat and a dog", 
 
 - [CLIP module tree, Text pool](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#text-pool). The end-of-text row picked as the caption's vector, token id 49407 at the picked row.
 - [CLIP code walk, Output: the end-of-text position times W_t](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#text_head). The end-of-text position, found by text.argmax, after layer norm times W_t, the caption's vector.
+- [SDXL pipeline map, Text encoder 2](https://claude.ai/artifact/96WQEXeRKy357BEFe8iYEf#text-encoder-2). OpenCLIP bigG's text tower, its second-to-last layer kept and its end-token vector projected into the pooled vector p.
+- [SDXL code walk, Hidden: each encoder's second-to-last layer, and the second's pooled vector](https://claude.ai/artifact/HAq4Qwm2HwHcF3E8Ad325i#encoders). Hidden_states[-2] kept from each encoder, and the second encoder's projected end-token vector as p.
 
 **Figures**
 

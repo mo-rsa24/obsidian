@@ -42,7 +42,7 @@ Mathematics, Statistics, Information Theory.
 **Scenes**
 
 - [CLIP module tree, Loss](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#loss). The symmetric loss on the 4 × 4 batch: image-to-caption and caption-to-image averaged.
-- [CLIP code walk, Contrastive: the symmetric cross-entropy](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). Open_clip's ClipLoss: cross-entropy over captions and over pictures, averaged, 0.1698 on the rig.
+- [CLIP code walk, Contrastive: the symmetric cross-entropy](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#loss). Open_clip's ClipLoss: cross-entropy over captions and over pictures, averaged, 0.1698 on the rig.
 
 **Figures**
 

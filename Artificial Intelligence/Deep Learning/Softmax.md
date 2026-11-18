@@ -48,7 +48,10 @@ Artificial Intelligence, Deep Learning. It feeds [[Cross-Entropy]] when training
 - [The SDXL notebook in ten parts, Self-attention](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-attn). Self-attention among image tokens, a 4096 by 4096 map at full size.
 - [The SDXL notebook in ten parts, Cross-attention](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-attn). Cross-attention from 4096 image tokens to 77 text tokens, softmax over each row, scaled by one over root d.
 - [CLIP module tree, Text encoder](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#text-encoder). Twelve pre-norm transformer blocks under the causal mask, 8 heads × 64 = 512.
-- [CLIP code walk, Hidden: one block, masked attention then an MLP](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). One residual attention block: layer norm, attention with the mask added to the scores, add back, then the MLP.
+- [CLIP code walk, Hidden: one block, masked attention then an MLP](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#block). One residual attention block: layer norm, attention with the mask added to the scores, add back, then the MLP.
+- [SDXL pipeline map, Down block 1](https://claude.ai/artifact/96WQEXeRKy357BEFe8iYEf#down-1). ResBlocks paired with transformer blocks whose cross-attention reads C, softmax(QKᵀ/√64)V, at 64 × 64.
+- [SDXL code walk, The caption acts: one patch's weights over the 77 words](https://claude.ai/artifact/HAq4Qwm2HwHcF3E8Ad325i#scores). Q times Kᵀ times 1/√64, softmax per row; at the cat's head "cat" 0.1614 and "dog" 0.1586.
+- [Readout Guidance loop walk, The head: split the stack, run each bottleneck, mix, read out](https://claude.ai/artifact/SHnMMo46yDvhj2GaXuEs7H#a_forward). Nine learnt weights turned into shares summing to 1, each layer's bottleneck output scaled and summed, read out inside ±1.
 
 **Figures**
 

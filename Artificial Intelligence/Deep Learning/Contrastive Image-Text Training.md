@@ -46,5 +46,6 @@ Artificial Intelligence, Deep Learning. Needs: [[Embedding]] for the arrows and 
 **Scenes**
 
 - [CLIP module tree, Loss](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#loss). The symmetric loss on the 4 × 4 batch: image-to-caption and caption-to-image averaged.
-- [CLIP code walk, Contrastive: the right answer for row i is column i](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). The labels 0 to N − 1, each picture's right caption on the diagonal.
-- [CLIP code walk, Contrastive: the symmetric cross-entropy](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). Open_clip's ClipLoss: cross-entropy over captions and over pictures, averaged, 0.1698 on the rig.
+- [CLIP code walk, Contrastive: the right answer for row i is column i](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#labels). The labels 0 to N − 1, each picture's right caption on the diagonal.
+- [CLIP code walk, Contrastive: the symmetric cross-entropy](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#loss). Open_clip's ClipLoss: cross-entropy over captions and over pictures, averaged, 0.1698 on the rig.
+- [SDXL pipeline map, Text encoder 1](https://claude.ai/artifact/96WQEXeRKy357BEFe8iYEf#text-encoder-1). CLIP ViT-L's text tower, its second-to-last layer kept.

@@ -44,7 +44,7 @@ Mathematics, Linear Algebra. [[Cosine Similarity]] divides the dot product by bo
 
 **Scenes**
 
-- [CLIP code walk, Contrastive: every picture against every caption, times e^t](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). Every unit picture vector against every unit caption vector, times e^t = 100, the 4 × 4 logits.
+- [CLIP code walk, Contrastive: every picture against every caption, times e^t](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#logits). Every unit picture vector against every unit caption vector, times e^t = 100, the 4 × 4 logits.
 
 **Figures**
 

@@ -55,7 +55,11 @@ No toy with one-number heads; both use symbols and pictures. Times are caption-r
 
 - [CLIP module tree, Text encoder](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#text-encoder). Twelve pre-norm transformer blocks under the causal mask, 8 heads × 64 = 512.
 - [CLIP module tree, Image encoder](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#image-encoder). Twelve pre-norm transformer blocks with no mask, 12 heads × 64 = 768.
-- [CLIP code walk, Hidden: one block, masked attention then an MLP](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). One residual attention block: layer norm, attention with the mask added to the scores, add back, then the MLP.
+- [CLIP code walk, Hidden: one block, masked attention then an MLP](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#block). One residual attention block: layer norm, attention with the mask added to the scores, add back, then the MLP.
+- [SDXL pipeline map, Text encoder 1](https://claude.ai/artifact/96WQEXeRKy357BEFe8iYEf#text-encoder-1). CLIP ViT-L's text tower, its second-to-last layer kept.
+- [SDXL pipeline map, Text encoder 2](https://claude.ai/artifact/96WQEXeRKy357BEFe8iYEf#text-encoder-2). OpenCLIP bigG's text tower, its second-to-last layer kept and its end-token vector projected into the pooled vector p.
+- [SDXL code walk, Hidden: each encoder's second-to-last layer, and the second's pooled vector](https://claude.ai/artifact/HAq4Qwm2HwHcF3E8Ad325i#encoders). Hidden_states[-2] kept from each encoder, and the second encoder's projected end-token vector as p.
+- [SDXL code walk, Hidden: one transformer block, self-attention, cross-attention, feed-forward](https://claude.ai/artifact/HAq4Qwm2HwHcF3E8Ad325i#transformer_block). 4096 positions of 640, each part reading a layer-normed copy and adding its answer back.
 
 **Figures**
 

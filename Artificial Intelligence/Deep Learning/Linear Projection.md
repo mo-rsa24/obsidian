@@ -61,6 +61,8 @@ Left, the miniature: two caption read-outs times $W_t$ and two picture summaries
 - [CLIP module tree, Image projection](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#image-projection). A linear layer, 768 in and 512 out, into the shared space.
 - [CLIP code walk, Output: the class position times W_i](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#image_head). The class position after layer norm times W_i, the picture's vector.
 - [CLIP code walk, Output: the end-of-text position times W_t](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#text_head). The end-of-text position, found by text.argmax, after layer norm times W_t, the caption's vector.
+- [Readout Guidance loop walk, The head: one bottleneck's layers, with its time projection](https://claude.ai/artifact/SHnMMo46yDvhj2GaXuEs7H#a_block_init). 1 × 1 down to 96 channels, 3 × 3, 1 × 1 up to 384, and a linear map from the time vector to the 96 inner channels.
+- [Count head walk, Ours: pool each block to 32 × 32, project, sum, and read out a density](https://claude.ai/artifact/2VgqMaBHqrXNoHdTWjxro1#c_head). Each block pooled to 32 × 32 and projected to 128 channels, the three summed, one positive channel out.
 
 **Figures**
 

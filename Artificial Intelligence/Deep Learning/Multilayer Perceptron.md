@@ -35,3 +35,12 @@ Artificial Intelligence, Deep Learning. Needs: [[Embedding]] for the vector it r
 **Our plans and chapters**
 
 - [Journey chapter 2, how the number is made](/home/molef/goal-setting/learning/deep-learning/diffusion-models/12-scoring-and-rival-methods/textbook/02-imagereward.md#how-the-number-is-made): the MLP at the end of the picture.
+
+**Scenes**
+
+- [SDXL pipeline map, Add embedding](https://claude.ai/artifact/96WQEXeRKy357BEFe8iYEf#add-embedding). P and the size numbers' waves mapped to 1280 and added to the time vector.
+- [SDXL pipeline map, Time embedding](https://claude.ai/artifact/96WQEXeRKy357BEFe8iYEf#time-embedding). The step number as cosine and sine waves, then two linear layers with SiLU to the 1280 time vector.
+- [SDXL code walk, The caption acts: p and the size numbers become a second time vector](https://claude.ai/artifact/HAq4Qwm2HwHcF3E8Ad325i#aug_embed). Six size numbers as 256 waves each, joined to p into 2816 and mapped to 1280.
+- [SDXL code walk, Hidden: the time vector e_t is the two added](https://claude.ai/artifact/HAq4Qwm2HwHcF3E8Ad325i#emb_sum). The 320 waves mapped to 1280 plus the caption-and-size vector, read by all 17 ResBlocks.
+- [SDXL code walk, Hidden: two linear layers with SiLU between](https://claude.ai/artifact/HAq4Qwm2HwHcF3E8Ad325i#timestep_mlp). The one TimestepEmbedding class used for time_embedding (320 → 1280) and add_embedding (2816 → 1280).
+- [Readout Guidance loop walk, The head's time input: the U-Net's own time vector](https://claude.ai/artifact/SHnMMo46yDvhj2GaXuEs7H#h_time). The U-Net's sinusoid and two-layer embedding giving the head a 1280-number time vector, from different step numbers in training and at guidance.

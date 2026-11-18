@@ -45,5 +45,11 @@ Artificial Intelligence, Generative Modeling. Its training objective is the [[Ev
 - [A VAE on MNIST, from the ELBO](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/plans/05-a-vae-on-mnist-from-the-elbo.md), deep-learning/diffusion-models/00-from-scratch-to-sdxl, plan 05. Times how convolution cost grows with image size, derives the VAE's ELBO and the reparameterisation trick, then builds the network on MNIST.
 - [The VAE encoder, decoder, and the latent](/home/molef/goal-setting/learning/deep-learning/diffusion-models/latent-diffusion-architecture-rebuilt/plans/03-vae-latent.md), deep-learning/diffusion-models/latent-diffusion-architecture-rebuilt, plan 03. A toy VAE from 8 × 8 × 3 down to a 2 × 2 × 4 latent and back, the latent every later step of that model works on.
 
+**Scenes**
+
+- [SDXL pipeline map, VAE decoder](https://claude.ai/artifact/96WQEXeRKy357BEFe8iYEf#vae-decoder). The clean guess divided by 0.13025 and decoded to the picture.
+- [SDXL code walk, Output: unscale the latent and decode it](https://claude.ai/artifact/HAq4Qwm2HwHcF3E8Ad325i#decode_call). The latent divided by the scaling factor 0.13025, then the VAE once.
+- [SDXL code walk, Output: post_quant_conv, then the decoder](https://claude.ai/artifact/HAq4Qwm2HwHcF3E8Ad325i#vae_decode). A 1 × 1 convolution, then three doublings of the side, 128 → 1024.
+
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook and paper page range was read in the PDF with pdftotext, after the back-of-book indexes and the shelf index's chapter tables pointed to them ("variational autoencoder" and "VAE"). The CME296 and CS231n rows were read in their caption-read lecture maps under `~/.claude/cache/captions/` and paraphrase the map, never the machine-translated captions. The video lessons index section "The VAE and its ELBO" cites the same CME296 stretch from 22:56 and 31:19, read separately from the captions; the map rows are used here. Luis Serrano's "Denoising and Variational Autoencoders" has a chapter "Training a variational auto encoder" at 27:11 to 30:05 and was left out to keep four videos. Each plan was read at its title and description.

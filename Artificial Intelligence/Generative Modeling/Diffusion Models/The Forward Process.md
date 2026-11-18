@@ -341,6 +341,8 @@ Navigation: ⬅️ [[#Why the jump matters]] | 📋 [[#Table of contents|TOC]] |
 - [The forward process, derived and coded](/home/molef/goal-setting/learning/deep-learning/diffusion-models/01-poe-derivation-foundations/plans/09-the-forward-process.md), the same journey, plan 09. Iterates the small steps, then jumps, and compares the two before deriving the jump on paper.
 - [The forward process, derived and coded](/home/molef/goal-setting/learning/deep-learning/diffusion-models/02-sampler-correctors-for-composition/plans/06-the-forward-process.md), deep-learning/diffusion-models/02-sampler-correctors-for-composition, plan 06. The same derivation and code, as the step before one reverse step on the project's own ᾱ_t.
 - [VP and VE, one forward process, two schedules](/home/molef/goal-setting/learning/deep-learning/diffusion-models/00-from-scratch-to-sdxl/textbook/l4-continuous-time/05-vp-and-ve-one-forward-process-two-schedules.md), deep-learning/diffusion-models/00-from-scratch-to-sdxl, volume L4, section 5. The variance-preserving form that shrinks x_0 against the variance-exploding form that only adds noise, as two schedules of one process.
+- [The Stable Diffusion rebuild, section 1: forward noising: x_t from a clean latent in one jump](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/rebuild-stable-diffusion-from-fundamentals.md#1-forward-noising-x_t-from-a-clean-latent-in-one-jump), papers/deep-learning/diffusion-models/compositional-diffusion-models, on the paper shelf. The two weights' squares add to 1 (0.3023 + 0.6977 on SDXL at t = 481), so x_t keeps the spread of 1, which is what the VAE's scaling factor 0.13025 is for.
+- [Stable Diffusion, read through a small network, section 1: noise is mixed in by a scaled-linear schedule](/home/molef/goal-setting/learning/papers/deep-learning/diffusion-models/compositional-diffusion-models/stable-diffusion-read-through-a-small-network.md#1-noise-is-mixed-in-by-a-scaled-linear-schedule), papers/deep-learning/diffusion-models/compositional-diffusion-models, on the paper shelf. At step 2 the latent is 0.6 of the clean picture plus 0.8 of fresh noise, and 0.6² + 0.8² = 1 keeps the spread.
 
 **Scenes**
 
@@ -348,6 +350,10 @@ Navigation: ⬅️ [[#Why the jump matters]] | 📋 [[#Table of contents|TOC]] |
 - [Why the latent is scaled, The schedule mixes in a fixed ratio](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p6). The signal and noise weights at each of the 1000 steps, to scale, with a real sample shown at that step.
 - [Why the latent is scaled, Move the factor and watch it go wrong](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p9). Signal-to-noise over the whole schedule as the factor moves, against the unit-scale curve it is meant to sit on, with eight steps shown as pictures.
 - [Why the latent is scaled, Take it out entirely](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p10). The same step and the same noise draw at two factors, where one square is noise and the other still holds the picture.
+- [SDXL pipeline map, Latent](https://claude.ai/artifact/96WQEXeRKy357BEFe8iYEf#latent). The U-Net's input x_t, and the Euler sampler's scaled latent x̃_t = √(σ² + 1) x_t.
+- [SDXL pipeline map, Training](https://claude.ai/artifact/96WQEXeRKy357BEFe8iYEf#training). X_t = √ᾱ x₀ + √(1 − ᾱ) ε and the loss ‖ε − ε_θ‖².
+- [Readout Guidance loop walk, Training the head: a clean picture noised forward to one random step](https://claude.ai/artifact/SHnMMo46yDvhj2GaXuEs7H#de_forward). One generation step drawn uniformly and the latent noised forward to it, the same step for the whole batch.
+- [Count head walk, Ours: noise each tile forward, read its count, score balanced accuracy](https://claude.ai/artifact/2VgqMaBHqrXNoHdTWjxro1#c_check). Each held-out tile noised forward four times, its counts averaged, plural at 1.5 or more.
 
 **Figures**
 

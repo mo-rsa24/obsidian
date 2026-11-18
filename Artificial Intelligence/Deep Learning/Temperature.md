@@ -46,7 +46,7 @@ Artificial Intelligence, Deep Learning. Needs: [[Softmax]]. How the composition 
 **Scenes**
 
 - [CLIP module tree, Similarity](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#similarity). The cosine times e to the logit_scale gives the logit.
-- [CLIP code walk, Contrastive: the temperature, stored as its log](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). Logit_scale stored as the log of 1/τ, e^t = 100 on the trained weights.
+- [CLIP code walk, Contrastive: the temperature, stored as its log](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#scale_init). Logit_scale stored as the log of 1/τ, e^t = 100 on the trained weights.
 
 **Figures**
 

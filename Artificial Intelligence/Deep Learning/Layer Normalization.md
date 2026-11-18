@@ -60,6 +60,7 @@ Left, one of CLIP's 12 text blocks: a layer norm box sits before the attention a
 
 - [CLIP code walk, Hidden: LayerNorm](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#ln). Layer norm run in float32, before the attention and before the MLP in every block, after the text transformer, and before and after the vision transformer.
 - [CLIP code walk, Output: the class position times W_i](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#image_head). The class position after layer norm times W_i, the picture's vector.
+- [SDXL code walk, Hidden: one transformer block, self-attention, cross-attention, feed-forward](https://claude.ai/artifact/HAq4Qwm2HwHcF3E8Ad325i#transformer_block). 4096 positions of 640, each part reading a layer-normed copy and adding its answer back.
 
 **Figures**
 

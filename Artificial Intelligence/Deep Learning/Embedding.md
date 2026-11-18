@@ -46,8 +46,9 @@ Artificial Intelligence, Deep Learning. Embeddings are what [[Attention]] mixes 
 - [HR policy assistant on local Postgres, The semantic cache](https://claude.ai/artifact/Gsj44q2Vehu8RNjgJyWwpb#cache). A past answer reused when a new question's embedding scores at least 0.70 against a stored one, which skips the agent run.
 - [HR policy assistant on local Postgres, The embedding endpoint](https://claude.ai/artifact/Gsj44q2Vehu8RNjgJyWwpb#embed). One endpoint turning chunks and questions into 1024 numbers each, called by the loader, the search tool and the cache.
 - [CLIP module tree, Text embeddings](https://claude.ai/artifact/4mePVaMV9NuxENRkJphieQ#text-embeddings). Each id looked up as a row of the token table, 77 × 512 into the text encoder.
-- [CLIP code walk, Image path: a class row in front, a position row added](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). The class row put in front of the patches and a position row added to each.
-- [CLIP code walk, Text path: each token id becomes its row, plus its position's row](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6). Token_embedding plus positional_embedding for each of the 77 slots.
+- [CLIP code walk, Image path: a class row in front, a position row added](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#cls_pos). The class row put in front of the patches and a position row added to each.
+- [CLIP code walk, Text path: each token id becomes its row, plus its position's row](https://claude.ai/artifact/4yYMLJMJZUdLM2vKzrjMn6#embed). Token_embedding plus positional_embedding for each of the 77 slots.
+- [SDXL pipeline map, Word vectors](https://claude.ai/artifact/96WQEXeRKy357BEFe8iYEf#word-vectors). The two encoders' rows joined end to end, C = 77 × 2048.
 
 **Figures**
 
