@@ -1,5 +1,6 @@
 ---
 aliases: [diffusion model, diffusion models, DDPM, denoising diffusion, denoising diffusion probabilistic model]
+link-skip: [Denoising Diffusion Implicit Models]
 sources:
   - "Ho, Jain, Abbeel, Denoising Diffusion Probabilistic Models, NeurIPS 2020: https://arxiv.org/abs/2006.11239"
   - "Bradley, Nakkiran, Berthelot, Thornton, Susskind, Mechanisms of Projective Composition of Diffusion Models, ICML 2025: https://arxiv.org/abs/2502.04549"

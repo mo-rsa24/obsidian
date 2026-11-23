@@ -43,5 +43,9 @@ Mathematics, Linear Algebra. [[Singular Value Decomposition]] extends the idea t
 - [The generalised eigenvalue problem](/home/molef/goal-setting/learning/deep-learning/diffusion-models/05-poe-composition-diffusion/plans/15-generalised-eigenvalue-problem.md), deep-learning/diffusion-models/05-poe-composition-diffusion, plan 15. S_W⁻¹S_B w = λw solved by hand for two classes in two dimensions.
 - [Mathematics: Linear Algebra](/home/molef/goal-setting/learning/mathematics/linear-algebra/MASTER_PLAN.md), mathematics/linear-algebra. Its third objective is eigen-structure, with a goal of eigenvalues by hand for 2 by 2 and 3 by 3 matrices and power iteration; no plan files exist under it yet.
 
+**Scenes**
+
+- [The Commitment Time, Spread](https://claude.ai/artifact/KMf73EpZmTtaFBp268sbMh#spread). The largest eigenvalue of a covariance as the variance along the widest line through a 2D cloud, 1 + 19 = 20.
+
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook page range was read in the PDF with pdftotext, after finding it through the back-of-book tables in `~/.claude/cache/book-indexes/` and the chapter tables in `Textbooks.md`. The tilestats and 3Blue1Brown chapter lists were read with cache-video-chapters.py, and those lines describe only the chapter and video titles. The CS229 row was read in its caption-read lecture map under `~/.claude/cache/captions/`. Each plan and chapter was read at its title and description. gather-concept-sources.py stopped at its time limit, so its sources were searched by hand. A script then opened every link.

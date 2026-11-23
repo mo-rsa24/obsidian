@@ -53,6 +53,8 @@ Artificial Intelligence, Generative Modeling. Needs: [[Energy-Based Model]]. Com
 - [The Dropped Term, What was dropped?](https://claude.ai/artifact/QHSBgCTcrRVxhWa42j4ywq#dropped). The dropped log term on the fused animal, and how it vanishes when the scores agree.
 - [Four-Picture Product, Push harder](https://claude.ai/artifact/P91CWE6nz9F9RTp3MnWY3P#strength). The fused animal stays first at every strength on the product base.
 - [Four-Picture Product, Raise the pair's scores](https://claude.ai/artifact/P91CWE6nz9F9RTp3MnWY3P#scores). The pair and the fused animal tie once their classifier scores match.
+- [Sampler or Score, The target reaches past the data](https://claude.ai/artifact/GRMF1EVkXeB82XNP5CFK8Q#f1). Two stretched Gaussian experts composed into a wide target, with 16.9% of its samples outside every training cloud's 99% region.
+- [Sampler or Score, Error one: the sampler](https://claude.ai/artifact/GRMF1EVkXeB82XNP5CFK8Q#f2). Exact scores on a base of variance 1.25 still finishing at variance 7.04 against a target of 3.33.
 
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook and paper page was read in the PDF with pdftotext, after finding it through the book's back-of-book index or the paper shelf index. The video row was read in the video lessons index, and its description paraphrases that row. Each plan and chapter was read at its title and opening. A script then opened every link and confirmed the file exists, the page is inside the PDF, and each video start matches a row's start.

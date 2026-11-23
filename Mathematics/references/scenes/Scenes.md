@@ -381,6 +381,26 @@ The concept-composition count head script, `scripts/rung2/train_count_head.py` a
 | [Ours: a training batch from the product's own trajectory](https://claude.ai/artifact/2VgqMaBHqrXNoHdTWjxro1#c_batch) | eight drawings, one saved state of each paired with its finished drawing's target | no card yet |
 | [Ours: the loss, the map term and the count term](https://claude.ai/artifact/2VgqMaBHqrXNoHdTWjxro1#c_loss) | the map's MSE times 1000 plus 0.1 times the squared error of the total, one AdamW step | [Mean Squared Error](../../../Artificial%20Intelligence/Machine%20Learning/Mean%20Squared%20Error.md), [Loss Function](../../../Artificial%20Intelligence/Machine%20Learning/Loss%20Function.md) |
 
+## CO3 Corrector Round
+<!-- scene: https://claude.ai/artifact/9hHS8hf9vtTWHikPVcm52x -->
+<!-- kind: walk -->
+<!-- home: PhD concept-composition, artifacts/scenes/how-co3-corrects-a-step -->
+<!-- source: /home/molef/PhD/concept-composition/artifacts/scenes/how-co3-corrects-a-step/index.html -->
+
+One round of the CO3 corrector on SDXL, taken apart one symbol per press on an invented two-entry latent. The reader follows four noise predictions into three Tweedie estimates, sets the concept weights from each concept's distance to the joint prediction, and sees the weighted sum land at the concept centre mirrored through the joint estimate. The page then marks where the released code at commit 35ea972 departs from Algorithm 3. Every number comes from the released `co3_corrector`, run on CPU with a stub U-Net.
+
+**Also useful in**: the `sampler-correctors-for-composition` journey, and the CO3 reproduction under `artifacts/notes/progress/reproductions/CO3/` in concept-composition.
+
+**Caveat**: the vectors are invented and no SDXL model ran, so the gap between the two rescales here says nothing about its size on a real latent. The page takes no side on the guidance setting, which is the owner's open board question 16.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [Three estimates](https://claude.ai/artifact/9hHS8hf9vtTWHikPVcm52x#estimates) | guidance moving each noise prediction along a line, and the Tweedie estimate as √ᾱ times the clean-latent guess | [Classifier-Free Guidance](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/Classifier-Free%20Guidance.md), [DDIM](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/DDIM.md) |
+| [Weights](https://claude.ai/artifact/9hHS8hf9vtTWHikPVcm52x#weights) | distance to the joint prediction turned into negative concept weights through exp(−β d), with β as a slider | none yet: exponential-kernel weights |
+| [The sum](https://claude.ai/artifact/9hHS8hf9vtTWHikPVcm52x#sum) | a weighted sum with weights adding to 1, drawn as the concept centre mirrored through the joint estimate | none yet: Tweedie's formula, affine combination |
+| [Back to noise](https://claude.ai/artifact/9hHS8hf9vtTWHikPVcm52x#rescale) | rescaling by a ratio of L2 norms against a ratio of largest entries, then matching the length of x on a circle | [Norm](../../Linear%20Algebra/Norm.md) |
+| [Paper and script](https://claude.ai/artifact/9hHS8hf9vtTWHikPVcm52x#disagree) | guidance 5.0 in section 4.1, 0.8 and 0.9 in appendix A.8, and CFG++ at 0.8 in the released script | [Classifier-Free Guidance](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/Classifier-Free%20Guidance.md) |
+
 ## The Line Toy
 <!-- scene: https://claude.ai/artifact/MsbtS4cNQaMSSyEQs3X7mv -->
 <!-- kind: scene -->
@@ -449,6 +469,97 @@ Shows how a product of two classifiers shares weight across four pictures, and w
 |---|---|---|
 | [Push harder](https://claude.ai/artifact/P91CWE6nz9F9RTp3MnWY3P#strength) | the fused animal stays first at every strength on the product base | [Product Of Experts](../../../Artificial%20Intelligence/Generative%20Modeling/Product%20Of%20Experts.md), [Classifier](../../../Artificial%20Intelligence/Machine%20Learning/Classifier.md) |
 | [Raise the pair's scores](https://claude.ai/artifact/P91CWE6nz9F9RTp3MnWY3P#scores) | the pair and the fused animal tie once their classifier scores match | [Product Of Experts](../../../Artificial%20Intelligence/Generative%20Modeling/Product%20Of%20Experts.md) |
+
+## The Commitment Time
+<!-- scene: https://claude.ai/artifact/KMf73EpZmTtaFBp268sbMh -->
+<!-- kind: walk -->
+<!-- home: learning deep-learning/diffusion-models/05-poe-composition-diffusion, plans 46 and 47 -->
+<!-- source: /home/molef/PhD/concept-composition/artifacts/scenes/the-commitment-time/index.html -->
+
+The formula T_s = ½ ln λ_max taken apart one piece per press on a 2D toy: two equal Gaussian classes at +m and −m with variance 1 and |m|² = 19, so λ_max = 20 and T_s ≈ 1.498. The reader turns a line to find the widest spread, watches the forward process shrink it, solves the crossing one algebra move at a time, and copies a backward trajectory at different times as Biroli's cloning test does. The agreement curve is simulated from 40,000 cloned pairs per time and drawn beside Biroli's Equation 6.
+
+**Also useful in**: the `06-diffusion-speciation-dynamics` journey, whose speciation plan 07 derives the same closed form.
+
+**Caveat**: the 2D toy shows the mechanism and its agreement curve is gradual (76.7% at T_s). The sharp transition needs high dimension. The same-mean frame states only Achilli's ¼ log N scaling and gives no verdict on which data the formula covers.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [Spread](https://claude.ai/artifact/KMf73EpZmTtaFBp268sbMh#spread) | the largest eigenvalue of a covariance as the variance along the widest line through a 2D cloud, 1 + 19 = 20 | [Eigenvalue](../../Linear%20Algebra/Eigenvalue.md), [Covariance](../../Statistics/Covariance.md) |
+| [Shrink](https://claude.ai/artifact/KMf73EpZmTtaFBp268sbMh#shrink) | the forward process multiplying coordinates by e^(−t) and variance by e^(−2t), with a square whose side and area show the square | [The Forward Process](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/The%20Forward%20Process.md) |
+| [Crossing](https://claude.ai/artifact/KMf73EpZmTtaFBp268sbMh#crossing) | signal variance λ_max e^(−2t) falling to the noise variance's limit of 1 at t ≈ 1.498 | [The Forward Process](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/The%20Forward%20Process.md) |
+| [Solve](https://claude.ai/artifact/KMf73EpZmTtaFBp268sbMh#solve) | solving λ_max e^(−2t) = 1 for t, one log move per press, on a line that starts at ln 20 and falls at speed 2 | none yet: speciation time |
+| [Clones](https://claude.ai/artifact/KMf73EpZmTtaFBp268sbMh#clones) | copying a backward trajectory early and late, and the chance two copies end in the same class | none yet: cloning test, speciation time |
+| [Slider](https://claude.ai/artifact/KMf73EpZmTtaFBp268sbMh#slider) | the commitment time growing with the log of the spread, each doubling adding 0.347 | none yet: speciation time |
+| [Stops](https://claude.ai/artifact/KMf73EpZmTtaFBp268sbMh#stops) | two classes with one mean and different variances, and Achilli's ¼ log N beside ½ log N | none yet: speciation time |
+| [Letters](https://claude.ai/artifact/KMf73EpZmTtaFBp268sbMh#letters) | T_s and λ_max rewritten as Biroli's t_S and Λ in Equation 4 | none yet: speciation time |
+
+## Sampler or Score
+<!-- scene: https://claude.ai/artifact/GRMF1EVkXeB82XNP5CFK8Q -->
+<!-- kind: walk -->
+<!-- home: PhD concept-composition, artifacts/scenes/sampler-or-score -->
+<!-- source: /home/molef/PhD/concept-composition/artifacts/scenes/sampler-or-score/index.html -->
+
+Five frames that separate the two ways a composition of two Gaussian experts can miss its target, for reading 6. Switches turn the sampler error, the score error and a 16-particle Feynman-Kac corrector on and off across 8 runs, measured by the sliced Wasserstein-2 distance to fresh target samples. The experts come from Catastrophic Compositional Generation, and the last frame shows the object counts from Bradley's Local Mechanisms paper.
+
+**Also useful in**: plan 23 of the `01-poe-derivation-foundations` journey, on what r_t costs the samples, and plan 26 of `02-sampler-correctors-for-composition`, on Feynman-Kac correctors.
+
+**Caveat**: the base variance of 1.25, the trained networks and every distance are this page's illustrative toy, and none reproduces a number in the paper. A second trained network moves the same way with different sizes, so read the trained-score distances as directions.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [The target reaches past the data](https://claude.ai/artifact/GRMF1EVkXeB82XNP5CFK8Q#f1) | two stretched Gaussian experts composed into a wide target, with 16.9% of its samples outside every training cloud's 99% region | [Product Of Experts](../../../Artificial%20Intelligence/Generative%20Modeling/Product%20Of%20Experts.md), [Multivariate Normal Distribution](../../Statistics/Distributions/Multivariate%20Normal%20Distribution/Multivariate%20Normal%20Distribution.md) |
+| [Error one: the sampler](https://claude.ai/artifact/GRMF1EVkXeB82XNP5CFK8Q#f2) | exact scores on a base of variance 1.25 still finishing at variance 7.04 against a target of 3.33 | [Product Of Experts](../../../Artificial%20Intelligence/Generative%20Modeling/Product%20Of%20Experts.md); none yet: inference-time approximation error |
+| [Error two: the score](https://claude.ai/artifact/GRMF1EVkXeB82XNP5CFK8Q#f3) | a heat map of the trained composed score's error, 2.8 times larger outside the data than inside at noise 0.1 | [Score Function](../../../Artificial%20Intelligence/Generative%20Modeling/Score%20Function.md); none yet: score estimation error |
+| [What the corrector can repair](https://claude.ai/artifact/GRMF1EVkXeB82XNP5CFK8Q#f4) | a 16-particle corrector that cuts the distance to the target when only the sampler is wrong and raises it when only the score is wrong, on this toy | none yet: Feynman-Kac corrector |
+| [The local model reaches furthest](https://claude.ai/artifact/GRMF1EVkXeB82XNP5CFK8Q#f5) | which pixels and labels one pixel's score reads, beside the most objects reached by three models trained on 1 to 3 objects | [Score Function](../../../Artificial%20Intelligence/Generative%20Modeling/Score%20Function.md); none yet: conditional locality |
+
+## Composing by Regions
+<!-- scene: https://claude.ai/artifact/6qY8W3eiRtmoL48yNxUVpx -->
+<!-- kind: walk -->
+<!-- home: PhD concept-composition, artifacts/scenes/composing-by-regions -->
+<!-- source: /home/molef/PhD/concept-composition/artifacts/scenes/composing-by-regions/index.html -->
+
+Six frames on how region-based methods reconcile overlapping windows, for reading 7. Two windows denoise overlapping parts of an invented canvas of 8 positions, MultiDiffusion's step keeps their weighted average at every noise level, and Domain Expansion adds a trained network before that average. The last frame compares what each base model saw with Paper 1's setting.
+
+**Also useful in**: none found. A search of the learning tree finds MultiDiffusion only on the paper shelf and in the words-to-learn list, and no journey plan teaches composing by regions.
+
+**Caveat**: every position and value is invented, and no model ran, so the toy's falling gap says nothing about a real model. The page trains no coordinator and gives no verdict on it against Domain Expansion's Table 2 baselines.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [Each window denoises its own part](https://claude.ai/artifact/6qY8W3eiRtmoL48yNxUVpx#f1) | one noisy canvas going into two overlapping windows, each pulled toward its own target | none yet: MultiDiffusion |
+| [Where they overlap, they disagree](https://claude.ai/artifact/6qY8W3eiRtmoL48yNxUVpx#f2) | two proposed values at each shared position, 2.4 brightness units apart on this toy | none yet: MultiDiffusion |
+| [Reconcile: the value closest to both](https://claude.ai/artifact/6qY8W3eiRtmoL48yNxUVpx#f3) | a weighted squared miss solved at zero slope into a weighted average, with Equations 4 and 5 compared at unequal weights | [Loss Function](../../../Artificial%20Intelligence/Machine%20Learning/Loss%20Function.md), [Derivative](../../Calculus/Derivative.md); none yet: weighted least squares |
+| [Repeat at every noise level](https://claude.ai/artifact/6qY8W3eiRtmoL48yNxUVpx#f4) | the toy's gap at position 3 falling from 2.40 to 0.09 with reconciling on and growing to 3.68 with it off | none yet: MultiDiffusion |
+| [A trained step before the average](https://claude.ai/artifact/6qY8W3eiRtmoL48yNxUVpx#f5) | Domain Expansion's trained network between the window outputs and the overlap average | none yet: Domain Expansion coordinator |
+| [What each base model saw](https://claude.ai/artifact/6qY8W3eiRtmoL48yNxUVpx#f6) | what the pages state about MultiDiffusion's and Domain Expansion's data, beside Paper 1's exclusion of real joint images | none yet: CLEVR |
+
+## Outside Planners and Critics
+<!-- scene: https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME -->
+<!-- kind: walk -->
+<!-- home: PhD concept-composition, artifacts/scenes/outside-planners-and-critics -->
+<!-- source: /home/molef/PhD/concept-composition/artifacts/scenes/outside-planners-and-critics/index.html -->
+
+Fourteen presses on what an outside model adds to text-to-image, for reading 10. RPG's language model rewrites the prompt and plans regions, CountLoop's vision models plan, critique and repair an image in a loop, and Revisiting CFG tests guidance rules under one fixed protocol. Prompts, ratios, weights and table values come from the papers, with page numbers in the page's sources panel.
+
+**Also useful in**: plan 12 of the `12-scoring-and-rival-methods` journey, which builds one runner and fills the results table.
+
+**Caveat**: the scene drawings, graph, layout and colour tiles are illustrative and are not model outputs. The papers print no calls, time or money per image, and the page gives no verdict on whether the second CountLoop row of Table 1 is scored by its own critic.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [A language model rewrites the prompt](https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME#p2) | RPG pulling key phrases from a prompt and expanding each into a subprompt | none yet: recaptioning |
+| [The plan splits the canvas](https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME#p3) | a split ratio read as rows and columns of image regions | none yet: region planning |
+| [Each region gets its own subprompt](https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME#p4) | each region denoised with its own subprompt, then resized and concatenated into one latent | none yet: regional diffusion |
+| [The whole prompt blends back in](https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME#p5) | the whole-prompt latent mixed with the regional latent at weights 0.2 and 0.8 | none yet: regional diffusion |
+| [A vision model plans the layout](https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME#p6) | CountLoop's design model turning a prompt into a planning graph and a layout | none yet: vision-language model |
+| [A second vision model critiques it](https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME#p8) | a critic checking count with GroundingDINO and appearance with Q-Align | [Object Detector](../../../Artificial%20Intelligence/Deep%20Learning/Object%20Detector.md); none yet: vision-language model |
+| [The critique repairs the plan](https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME#p9) | the critic's feedback updating the plan until the objectives are met | none yet: critic loop |
+| [Which critic parts cut the error](https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME#p10) | counting error of 29.59 with the vision model alone and 7.59 with the detector and scorer together | [Mean Absolute Error](../../../Artificial%20Intelligence/Machine%20Learning/Mean%20Absolute%20Error.md) |
+| [RPG's cost: one outside model](https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME#p11) | the language-model dependency RPG adds before sampling | none yet: outside language model |
+| [CountLoop's cost: four outside parts](https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME#p12) | the planner, critic, detector and scorer CountLoop needs, with the critic run again every repair round | [Object Detector](../../../Artificial%20Intelligence/Deep%20Learning/Object%20Detector.md) |
+| [Fix everything except the guidance rule](https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME#p13) | holding the rest constant within each model so only the guidance rule and its settings change | [Classifier-Free Guidance](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/Classifier-Free%20Guidance.md), [Benchmark](../../../Artificial%20Intelligence/Machine%20Learning/Benchmark.md) |
+| [A gain can vanish on another model](https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME#p14) | SAG's GenEval gain over CFG on SD3.5 and its result on FLUX.2, each against a printed 95% margin | [Classifier-Free Guidance](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/Classifier-Free%20Guidance.md), [Confidence Interval](../../Statistics/Hypothesis%20Testing/Confidence%20Interval.md) |
 
 ## Join and Batch
 <!-- scene: https://claude.ai/artifact/FCNt5NPT8UrQE8ND8YFLec -->

@@ -1,6 +1,6 @@
 ---
 aliases: [contour, contours, contour line, level set]
-link-skip: [active contour, contour integral, contour detection, contour tracing, contour of the]
+link-skip: [active contour, contour integral, contour detection, contour tracing, contour of the, noise level sets]
 standard: vault-note v2
 ---
 

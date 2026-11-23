@@ -1,6 +1,6 @@
 ---
 aliases: [score function, score, Stein score, Stein score function, Hyvärinen score, grad log p, gradient of the log density, gradient of the log-density, s(x)]
-link-skip: [relevance score, retrieval score, reward score, BM25 score, similarity score, CLIP score, attention score]
+link-skip: [relevance score, retrieval score, reward score, BM25 score, similarity score, CLIP score, attention score, visual-quality score, pair scores]
 link-only-in: [deep-learning/diffusion-models, deep-learning/generative-models]
 link-skip-in: [diffusion-models/12-scoring-and-rival-methods]
 standard: vault-note v2
@@ -57,6 +57,8 @@ Artificial Intelligence, Generative Modeling. The composition notes use the word
 - [The Line Toy, Noise the line toy](https://claude.ai/artifact/MsbtS4cNQaMSSyEQs3X7mv#noising). The centres move inward, the signal narrows, and independent noise restores variance 1.
 - [The Line Toy, Change guidance](https://claude.ai/artifact/MsbtS4cNQaMSSyEQs3X7mv#guidance). The guided noise prediction at strengths 0, 1 and 3 on the unconditional base, against the cat-only line.
 - [The Line Toy, Leave out the noise level](https://claude.ai/artifact/MsbtS4cNQaMSSyEQs3X7mv#no-sigma). The correction keeps its direction but is too long when the noise-level factor is missing.
+- [Sampler or Score, Error two: the score](https://claude.ai/artifact/GRMF1EVkXeB82XNP5CFK8Q#f3). A heat map of the trained composed score's error, 2.8 times larger outside the data than inside at noise 0.1.
+- [Sampler or Score, The local model reaches furthest](https://claude.ai/artifact/GRMF1EVkXeB82XNP5CFK8Q#f5). Which pixels and labels one pixel's score reads, beside the most objects reached by three models trained on 1 to 3 objects.
 
 **Figures**
 

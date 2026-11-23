@@ -91,6 +91,7 @@ Read them in this order.
 
 - [Kinds of composition notebook, Setup: the ideal expert](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec1). The ideal expert's log-density on a grid, in four steps from the 2D Gaussian to its logsumexp form, then normalised so it integrates to 1.
 - [Count head walk, Ours: one Gaussian blob per detector box, each summing to 1](https://claude.ai/artifact/2VgqMaBHqrXNoHdTWjxro1#c_target). One blob per box, each divided by its own total, so the map sums to the number of boxes.
+- [Sampler or Score, The target reaches past the data](https://claude.ai/artifact/GRMF1EVkXeB82XNP5CFK8Q#f1). Two stretched Gaussian experts composed into a wide target, with 16.9% of its samples outside every training cloud's 99% region.
 
 > [!note]- How this was checked
 > `toy.py` is the learner's own file, copied byte for byte from the walk's playground. `clouds.py` and `overlap.py` are the walk's answer keys, copied unchanged from `checks/` in the journey's `sources/mechanisms-of-projective-composition/`; their outputs matched `checks/clouds.out` and `checks/overlap.out` exactly. `samples.py` matched `checks/samples.out` exactly, and `compose.py`, which prints more fields, agreed with every composed mean and variance in `checks/compose.out`. The learner's own `samples.py` in the playground still draws from `np.random`, so its printed numbers differ slightly from the seed-0 numbers here.

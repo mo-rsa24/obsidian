@@ -37,5 +37,9 @@ Mathematics, Statistics, Hypothesis Testing. [[Bootstrap]] already holds the per
 - [The normal interval from a standard error](/home/molef/goal-setting/learning/mathematics/statistics/sampling/textbook/06-the-normal-interval.md), the same journey, chapter 06. The interval p̂ ± z·se worked on 3 wrong passes in 97 planted defects at 95%.
 - [Find both ends of the exact interval from two one-sided bounds](/home/molef/goal-setting/learning/mathematics/statistics/sampling/plans/11-the-exact-interval-derived.md), the same journey, plan 11. The exact interval for a proportion, built from two one-sided bounds.
 
+**Scenes**
+
+- [Outside Planners and Critics, A gain can vanish on another model](https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME#p14). SAG's GenEval gain over CFG on SD3.5 and its result on FLUX.2, each against a printed 95% margin.
+
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook page range was read in the PDF with pdftotext; the probability for data science pages were first found through its back-of-book index. The three video chapter lists were read with `cache-video-chapters.py`, so each line describes only the video's title and chapter titles. Each chapter and plan was read at its title and opening lines. The bootstrap confidence interval is left to [[Bootstrap]], which owns that name; the sampling journey's plans 08 and 10 cover the same ground as chapters 05 and 06 and have no line.

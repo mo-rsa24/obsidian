@@ -1,6 +1,6 @@
 ---
 aliases: [gradient, gradient vector]
-link-skip: [linear-gradient, colour gradient, color gradient, gradient fill]
+link-skip: [linear-gradient, colour gradient, color gradient, gradient fill, gradient descent]
 standard: vault-note v2
 ---
 

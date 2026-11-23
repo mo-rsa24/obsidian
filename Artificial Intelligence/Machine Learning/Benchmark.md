@@ -38,3 +38,7 @@ Artificial Intelligence, Machine Learning. Used by [[T2I-CompBench]] and [[GenEv
 **Our plans and chapters**
 
 - [Journey chapter 5, from a score to a table cell](/home/molef/goal-setting/learning/deep-learning/diffusion-models/12-scoring-and-rival-methods/textbook/05-the-four-side-by-side.md#from-a-score-to-a-table-cell): the prompt set, the images and the cell.
+
+**Scenes**
+
+- [Outside Planners and Critics, Fix everything except the guidance rule](https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME#p13). Holding the rest constant within each model so only the guidance rule and its settings change.

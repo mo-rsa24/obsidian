@@ -354,6 +354,8 @@ Navigation: ⬅️ [[#Why the jump matters]] | 📋 [[#Table of contents|TOC]] |
 - [SDXL pipeline map, Training](https://claude.ai/artifact/96WQEXeRKy357BEFe8iYEf#training). X_t = √ᾱ x₀ + √(1 − ᾱ) ε and the loss ‖ε − ε_θ‖².
 - [Readout Guidance loop walk, Training the head: a clean picture noised forward to one random step](https://claude.ai/artifact/SHnMMo46yDvhj2GaXuEs7H#de_forward). One generation step drawn uniformly and the latent noised forward to it, the same step for the whole batch.
 - [Count head walk, Ours: noise each tile forward, read its count, score balanced accuracy](https://claude.ai/artifact/2VgqMaBHqrXNoHdTWjxro1#c_check). Each held-out tile noised forward four times, its counts averaged, plural at 1.5 or more.
+- [The Commitment Time, Shrink](https://claude.ai/artifact/KMf73EpZmTtaFBp268sbMh#shrink). The forward process multiplying coordinates by e^(−t) and variance by e^(−2t), with a square whose side and area show the square.
+- [The Commitment Time, Crossing](https://claude.ai/artifact/KMf73EpZmTtaFBp268sbMh#crossing). Signal variance λ_max e^(−2t) falling to the noise variance's limit of 1 at t ≈ 1.498.
 
 **Figures**
 

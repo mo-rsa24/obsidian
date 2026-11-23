@@ -44,3 +44,8 @@ The detector only knows the classes of MS-COCO, a limited set at one level of de
 
 - [Journey chapter 4, how a pass is decided](/home/molef/goal-setting/learning/deep-learning/diffusion-models/12-scoring-and-rival-methods/textbook/04-geneval.md#how-a-pass-is-decided): the boxes and the rule.
 - [Journey paper reading, GenEval](/home/molef/goal-setting/learning/deep-learning/diffusion-models/12-scoring-and-rival-methods/sources/paper-readings/geneval.md): the failure modes against our runs.
+
+**Scenes**
+
+- [Outside Planners and Critics, A second vision model critiques it](https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME#p8). A critic checking count with GroundingDINO and appearance with Q-Align.
+- [Outside Planners and Critics, CountLoop's cost: four outside parts](https://claude.ai/artifact/HJYL5qt4kpdn4D4g4dVZME#p12). The planner, critic, detector and scorer CountLoop needs, with the critic run again every repair round.
