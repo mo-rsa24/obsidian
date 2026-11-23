@@ -40,6 +40,11 @@ Artificial Intelligence, Machine Learning. Its outputs are scored by [[Accuracy]
 **Scenes**
 
 - [Kinds of composition notebook, A classifier learns "not B"](https://claude.ai/artifact/DBmJtn6xy75sPtQwPEvQZU#nb-sec4). A classifier trained on the labels the data carries learns the hidden-B points as "not B".
+- [The Line Toy, Change guidance](https://claude.ai/artifact/MsbtS4cNQaMSSyEQs3X7mv#guidance). The guided noise prediction at strengths 0, 1 and 3 on the unconditional base, against the cat-only line.
+- [Learned Log-Odds Line, Training checkpoints](https://claude.ai/artifact/TBhyvLikicJutLVhURJxZH). The learned slope rising from 0 toward the exact target as training proceeds.
+- [The Dropped Term, How much push?](https://claude.ai/artifact/QHSBgCTcrRVxhWa42j4ywq#weight). The four picture shares against the joint-caption target as the discriminator weight changes.
+- [The Dropped Term, Which negatives?](https://claude.ai/artifact/QHSBgCTcrRVxhWa42j4ywq#negatives). Raw-prior negatives leave an extra product preference, while product negatives recover the target.
+- [Four-Picture Product, Push harder](https://claude.ai/artifact/P91CWE6nz9F9RTp3MnWY3P#strength). The fused animal stays first at every strength on the product base.
 
 > [!note]- How this was checked
 > Every line under Where to learn this was opened before it was written, on 2026-10-24. Each textbook page range was read in the PDF with pdftotext, first found through the shelf index's chapter tables (38 classification sections across the shelf) and the books' back-of-book indexes. The four lecture-map rows were read in their caption-read lecture maps under `~/.claude/cache/captions/`; the Serrano chapter list was read with `cache-video-chapters.py`, and that line is described from its chapter and video titles only. The plan was read at its goals and definition of done. The learning tree's other plans that say "classifier" build rule-based tools that sort failures or image actions, so they have no line. Bare "classifier" is an alias because, of 25 sampled uses, every one outside "classifier-free guidance" and "classifier guidance" means a model that assigns classes, and those phrases are in link-skip. Bare "classification" is not: about 13 of 25 sampled uses mean the machine learning task, and the rest mean filing schemes, product taxonomies or labelling a document field.

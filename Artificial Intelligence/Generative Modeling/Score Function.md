@@ -54,6 +54,9 @@ Artificial Intelligence, Generative Modeling. The composition notes use the word
 **Scenes**
 
 - [The SDXL notebook in ten parts, PoE fails on cat and dog](https://claude.ai/artifact/1GayZthQkRL4FmukdCV9WW#nb-poe). Adding a cat expert's score to a dog expert's lands at the origin, distance 2 from both modes, while the two-mode mixture's score keeps both.
+- [The Line Toy, Noise the line toy](https://claude.ai/artifact/MsbtS4cNQaMSSyEQs3X7mv#noising). The centres move inward, the signal narrows, and independent noise restores variance 1.
+- [The Line Toy, Change guidance](https://claude.ai/artifact/MsbtS4cNQaMSSyEQs3X7mv#guidance). The guided noise prediction at strengths 0, 1 and 3 on the unconditional base, against the cat-only line.
+- [The Line Toy, Leave out the noise level](https://claude.ai/artifact/MsbtS4cNQaMSSyEQs3X7mv#no-sigma). The correction keeps its direction but is too long when the noise-level factor is missing.
 
 **Figures**
 

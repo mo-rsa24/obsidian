@@ -380,3 +380,147 @@ The concept-composition count head script, `scripts/rung2/train_count_head.py` a
 | [Ours: noise each tile forward, read its count, score balanced accuracy](https://claude.ai/artifact/2VgqMaBHqrXNoHdTWjxro1#c_check) | each held-out tile noised forward four times, its counts averaged, plural at 1.5 or more | [The Forward Process](../../../Artificial%20Intelligence/Generative%20Modeling/Diffusion%20Models/The%20Forward%20Process.md), [Accuracy](../../../Artificial%20Intelligence/Machine%20Learning/Accuracy.md) |
 | [Ours: a training batch from the product's own trajectory](https://claude.ai/artifact/2VgqMaBHqrXNoHdTWjxro1#c_batch) | eight drawings, one saved state of each paired with its finished drawing's target | no card yet |
 | [Ours: the loss, the map term and the count term](https://claude.ai/artifact/2VgqMaBHqrXNoHdTWjxro1#c_loss) | the map's MSE times 1000 plus 0.1 times the squared error of the total, one AdamW step | [Mean Squared Error](../../../Artificial%20Intelligence/Machine%20Learning/Mean%20Squared%20Error.md), [Loss Function](../../../Artificial%20Intelligence/Machine%20Learning/Loss%20Function.md) |
+
+## The Line Toy
+<!-- scene: https://claude.ai/artifact/MsbtS4cNQaMSSyEQs3X7mv -->
+<!-- kind: scene -->
+<!-- home: learning journey deep-learning/diffusion-models/13-classifier-guidance-by-hand, textbook/scenes/line-toy -->
+<!-- source: /home/molef/goal-setting/learning/deep-learning/diffusion-models/13-classifier-guidance-by-hand/textbook/scenes/line-toy/index.html -->
+
+Plays the noising of a one-dimensional cat and dog toy, then applies classifier guidance to its noise prediction at three strengths. It is built from the journey's toy answer key, and its curves are recomputed in the browser.
+
+**Also useful in**: plans 00, 01 and 02 of the classifier guidance journey.
+
+**Caveat**: it shows one noise level and does not simulate the reverse sampler.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [Noise the line toy](https://claude.ai/artifact/MsbtS4cNQaMSSyEQs3X7mv#noising) | the centres move inward, the signal narrows, and independent noise restores variance 1 | [Score Function](../../../Artificial%20Intelligence/Generative%20Modeling/Score%20Function.md) |
+| [Change guidance](https://claude.ai/artifact/MsbtS4cNQaMSSyEQs3X7mv#guidance) | the guided noise prediction at strengths 0, 1 and 3 on the unconditional base, against the cat-only line | [Score Function](../../../Artificial%20Intelligence/Generative%20Modeling/Score%20Function.md), [Classifier](../../../Artificial%20Intelligence/Machine%20Learning/Classifier.md) |
+| [Leave out the noise level](https://claude.ai/artifact/MsbtS4cNQaMSSyEQs3X7mv#no-sigma) | the correction keeps its direction but is too long when the noise-level factor is missing | [Score Function](../../../Artificial%20Intelligence/Generative%20Modeling/Score%20Function.md) |
+
+## Learned Log-Odds Line
+<!-- scene: https://claude.ai/artifact/TBhyvLikicJutLVhURJxZH -->
+<!-- kind: scene -->
+<!-- home: learning journey deep-learning/diffusion-models/13-classifier-guidance-by-hand, textbook/scenes/discriminator-training -->
+<!-- source: /home/molef/goal-setting/learning/deep-learning/diffusion-models/13-classifier-guidance-by-hand/textbook/scenes/discriminator-training/index.html -->
+
+Steps through recorded checkpoints of a logistic discriminator as its log-odds line approaches the exact target of slope 1.6. It is built from the recorded trajectory in the journey's toy answer key.
+
+**Also useful in**: plan 06 and chapter 3 of the classifier guidance journey.
+
+**Caveat**: it shows stored checkpoints only, with no samples or individual gradient calculations.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [Training checkpoints](https://claude.ai/artifact/TBhyvLikicJutLVhURJxZH) | the learned slope rising from 0 toward the exact target as training proceeds | [Logit](../../../Artificial%20Intelligence/Deep%20Learning/Logit.md), [Classifier](../../../Artificial%20Intelligence/Machine%20Learning/Classifier.md) |
+
+## The Dropped Term
+<!-- scene: https://claude.ai/artifact/QHSBgCTcrRVxhWa42j4ywq -->
+<!-- kind: scene -->
+<!-- home: learning journey deep-learning/diffusion-models/13-classifier-guidance-by-hand, textbook/scenes/dropped-term -->
+<!-- source: /home/molef/goal-setting/learning/deep-learning/diffusion-models/13-classifier-guidance-by-hand/textbook/scenes/dropped-term/index.html -->
+
+Changes one choice at a time on a four-picture toy to show what a discriminator push repairs on a product of two classifiers. Shares are recomputed in the browser from hand-set probabilities.
+
+**Also useful in**: plans 04 and 08 and chapter 4 of the classifier guidance journey.
+
+**Caveat**: it uses hand-set probabilities and shows no diffusion trajectory or measured image scores.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [How much push?](https://claude.ai/artifact/QHSBgCTcrRVxhWa42j4ywq#weight) | the four picture shares against the joint-caption target as the discriminator weight changes | [Product Of Experts](../../../Artificial%20Intelligence/Generative%20Modeling/Product%20Of%20Experts.md), [Classifier](../../../Artificial%20Intelligence/Machine%20Learning/Classifier.md) |
+| [Which negatives?](https://claude.ai/artifact/QHSBgCTcrRVxhWa42j4ywq#negatives) | raw-prior negatives leave an extra product preference, while product negatives recover the target | [Classifier](../../../Artificial%20Intelligence/Machine%20Learning/Classifier.md) |
+| [What was dropped?](https://claude.ai/artifact/QHSBgCTcrRVxhWa42j4ywq#dropped) | the dropped log term on the fused animal, and how it vanishes when the scores agree | [Product Of Experts](../../../Artificial%20Intelligence/Generative%20Modeling/Product%20Of%20Experts.md) |
+
+## Four-Picture Product
+<!-- scene: https://claude.ai/artifact/P91CWE6nz9F9RTp3MnWY3P -->
+<!-- kind: scene -->
+<!-- home: learning journey deep-learning/diffusion-models/13-classifier-guidance-by-hand, textbook/scenes/product-as-two-classifiers -->
+<!-- source: /home/molef/goal-setting/learning/deep-learning/diffusion-models/13-classifier-guidance-by-hand/textbook/scenes/product-as-two-classifiers/index.html -->
+
+Shows how a product of two classifiers shares weight across four pictures, and why a stronger push cannot put the pair first. Shares are recomputed in the browser from the chapter's hand-set toy.
+
+**Also useful in**: chapter 2 of the classifier guidance journey.
+
+**Caveat**: these are toy numbers, with no trained classifier or measured images.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [Push harder](https://claude.ai/artifact/P91CWE6nz9F9RTp3MnWY3P#strength) | the fused animal stays first at every strength on the product base | [Product Of Experts](../../../Artificial%20Intelligence/Generative%20Modeling/Product%20Of%20Experts.md), [Classifier](../../../Artificial%20Intelligence/Machine%20Learning/Classifier.md) |
+| [Raise the pair's scores](https://claude.ai/artifact/P91CWE6nz9F9RTp3MnWY3P#scores) | the pair and the fused animal tie once their classifier scores match | [Product Of Experts](../../../Artificial%20Intelligence/Generative%20Modeling/Product%20Of%20Experts.md) |
+
+## Join and Batch
+<!-- scene: https://claude.ai/artifact/FCNt5NPT8UrQE8ND8YFLec -->
+<!-- kind: scene -->
+<!-- home: learning journey ai-engineering/prototype-product-data-validation-end-to-end, textbook/scenes/05-the-join-and-the-batch -->
+<!-- source: /home/molef/goal-setting/learning/ai-engineering/prototype-product-data-validation-end-to-end/textbook/scenes/05-the-join-and-the-batch/index.html -->
+
+This page follows a made-up CSV catalogue to show which rows survive an outer join on SKU, which become errors, and what one results-table row represents. It is built from the chapter's supplied outcomes for its 15-SKU sample.
+
+**Also useful in**: ai-engineering/prototype-product-data-validation-end-to-end.
+
+**Caveat**: All judge verdicts are fake, and the page fetches no images and runs no model. It uses the chapter's SKU-layout sample, so its 16 joined rows differ from the 17 in the separate GTIN-layout exercise.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [Join](https://claude.ai/artifact/FCNt5NPT8UrQE8ND8YFLec) | outer merge on SKU with a duplicate-record fault: deduplicating removes the blank S10 copy and keeps both S13 image rows |  |
+| [Batch errors](https://claude.ai/artifact/FCNt5NPT8UrQE8ND8YFLec) | silent skips against reported errors: S09, S11 and S12 vanish or appear as 3 errors among 16 results |  |
+| [S08's image type](https://claude.ai/artifact/FCNt5NPT8UrQE8ND8YFLec) | how the A+ image type and the 2000 KB or 200 KB file-size limit change the Section 4 pass count out of 14 rows |  |
+| [Table grain](https://claude.ai/artifact/FCNt5NPT8UrQE8ND8YFLec) | one row per result against one row per SKU, with S13's two URLs and all three errors kept |  |
+
+## Model and Agent
+<!-- scene: https://claude.ai/artifact/BiM9CqGRjXx2i1KGm7hErG -->
+<!-- kind: scene -->
+<!-- home: learning journey ai-engineering/prototype-product-data-validation-end-to-end, textbook/scenes/06-the-model-and-the-agent -->
+<!-- source: /home/molef/goal-setting/learning/ai-engineering/prototype-product-data-validation-end-to-end/textbook/scenes/06-the-model-and-the-agent/index.html -->
+
+This page lets you change one part of a crafted product check and follow what reaches the next boundary, from the model request to the final verdict. It is built from the chapter's made-up SUNVITA fixtures and expected behavior, and it makes no network calls.
+
+**Also useful in**: ai-engineering/prototype-product-data-validation-end-to-end.
+
+**Caveat**: HTTP replies and server states are expected behavior from a local teaching model, so record what your own workspace returns. The severity rule is a prototype decision policy and says nothing about calibrated model accuracy.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [Request](https://claude.ai/artifact/BiM9CqGRjXx2i1KGm7hErG#request) | How a missing bearer header gives HTTP 401 and the older prompt body gives HTTP 400 on the chat endpoint |  |
+| [Event filter](https://claude.ai/artifact/BiM9CqGRjXx2i1KGm7hErG#events) | Why keeping every event's text breaks the JSON parser and keeping only the model's event parses |  |
+| [Missing level](https://claude.ai/artifact/BiM9CqGRjXx2i1KGm7hErG#levels) | How Python's all() skips a missing level, so an incomplete reply still comes out as a pass |  |
+| [Severity](https://claude.ai/artifact/BiM9CqGRjXx2i1KGm7hErG#severity) | The all() rule beside a severity rule that sends minor failures and missing levels to review |  |
+
+## Round Trip Review
+<!-- scene: https://claude.ai/artifact/T8nraQzWaSaPfHR3ZJft3f -->
+<!-- kind: scene -->
+<!-- home: learning journey ai-engineering/prototype-product-data-validation-end-to-end, textbook/scenes/08-the-round-trip-and-the-review -->
+<!-- source: /home/molef/goal-setting/learning/ai-engineering/prototype-product-data-validation-end-to-end/textbook/scenes/08-the-round-trip-and-the-review/index.html -->
+
+This page holds three exercises: following the calls behind one results CSV, checking a file-size decision against its evidence, and placing 22 design-review records by build stage. It is built from the made-up sample catalogue and supplied example counts.
+
+**Also useful in**: ai-engineering/prototype-product-data-validation-end-to-end.
+
+**Caveat**: No server is contacted and no model verdict is measured, so model values stay prediction slots until an endpoint run. The suggested record grouping is a teaching arrangement and not a finding about the repository.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [Follow the calls](https://claude.ai/artifact/T8nraQzWaSaPfHR3ZJft3f) | step through image GETs, ADK sessions, POST /run calls and events for S14 or the full batch, against what the CSV alone reveals |  |
+| [Inspect the evidence](https://claude.ai/artifact/T8nraQzWaSaPfHR3ZJft3f) | decision record DR-01: S04 at 383.8 KB against the 200 KB and 2000 KB limits, with 8 or 9 of 14 images passing all four rules |  |
+| [Check review coverage](https://claude.ai/artifact/T8nraQzWaSaPfHR3ZJft3f) | recall the 12 differences and 10 overlaps, then drag each record card onto build bands L1 to L10 |  |
+
+## Python Pieces
+<!-- scene: https://claude.ai/artifact/GSwF6su3rUhc9S2LEW9ggZ -->
+<!-- kind: scene -->
+<!-- home: learning journey ai-engineering/prototype-product-data-validation-end-to-end, textbook/scenes/python-pieces -->
+<!-- source: /home/molef/goal-setting/learning/ai-engineering/prototype-product-data-validation-end-to-end/textbook/scenes/python-pieces/index.html -->
+
+Change one Python decision at a time and follow the failure it causes or prevents. The page is built from the chapter's made-up catalogue and recorded outputs.
+
+**Also useful in**: the prototype product data validation journey.
+
+**Caveat**: the page runs no Python, fetches no images and contacts no agent, so its results are recorded or modelled.
+
+| Where | What it shows | Cards |
+|---|---|---|
+| [Enum](https://claude.ai/artifact/GSwF6su3rUhc9S2LEW9ggZ) | where a misspelled image type stops once the value is validated at the boundary |  |
+| [JPEG budget](https://claude.ai/artifact/GSwF6su3rUhc9S2LEW9ggZ) | three measured JPEG qualities against a fixed 200 KB limit |  |
+| [Join](https://claude.ai/artifact/GSwF6su3rUhc9S2LEW9ggZ) | which rows survive when multi-barcode cells, duplicates and merge type change |  |
+| [Timeout](https://claude.ai/artifact/GSwF6su3rUhc9S2LEW9ggZ) | a silent server, with and without a one-second request timeout |  |
