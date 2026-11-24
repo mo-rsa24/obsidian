@@ -117,6 +117,7 @@ The samplers composition borrows are taught under Mathematics, in [[Markov Chain
 - [SDXL as a latent diffusion model, The latent space lane](https://claude.ai/artifact/KPpMEVBfkJnq3mwgGSbyPs#latent-space). The sampling loop built once and called fifty times: expand, scale, call the UNet, guide, step.
 - [Why the latent is scaled, A prompt in, a megapixel out](https://claude.ai/artifact/7yTQUKjEawymqWRnk9gvjn#p1). The pixel grid and the latent grid drawn to scale by number count, 3,145,728 against 65,536, and what fifty passes over each would cost.
 - [SDXL pipeline map, The whole system](https://claude.ai/artifact/96WQEXeRKy357BEFe8iYEf#overview). The pipeline in five lanes: text, time, U-Net, the step, pixels.
+- [Digit-map checkers by hand, How the push makes two digits](https://claude.ai/artifact/MX2hKBUWBXSzPQSbaxysKC#two-digits). One seed sampled twice over 50 sampler steps, plain against pushed: the clean-canvas guess, the two maps pulled apart while the push acts, the logit, and the means over 320 canvases.
 
 **Figures**
 

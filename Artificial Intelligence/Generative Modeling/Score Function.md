@@ -59,6 +59,7 @@ Artificial Intelligence, Generative Modeling. The composition notes use the word
 - [The Line Toy, Leave out the noise level](https://claude.ai/artifact/MsbtS4cNQaMSSyEQs3X7mv#no-sigma). The correction keeps its direction but is too long when the noise-level factor is missing.
 - [Sampler or Score, Error two: the score](https://claude.ai/artifact/GRMF1EVkXeB82XNP5CFK8Q#f3). A heat map of the trained composed score's error, 2.8 times larger outside the data than inside at noise 0.1.
 - [Sampler or Score, The local model reaches furthest](https://claude.ai/artifact/GRMF1EVkXeB82XNP5CFK8Q#f5). Which pixels and labels one pixel's score reads, beside the most objects reached by three models trained on 1 to 3 objects.
+- [Digit-map checkers by hand, The push](https://claude.ai/artifact/MX2hKBUWBXSzPQSbaxysKC#push). The logit's gradient into the pixels read as classifier guidance: the (1 − p) factor drops out of a normalised push, and subtracting along g adds to the score.
 
 **Figures**
 

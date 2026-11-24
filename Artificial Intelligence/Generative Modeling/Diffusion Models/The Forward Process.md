@@ -356,6 +356,7 @@ Navigation: ⬅️ [[#Why the jump matters]] | 📋 [[#Table of contents|TOC]] |
 - [Count head walk, Ours: noise each tile forward, read its count, score balanced accuracy](https://claude.ai/artifact/2VgqMaBHqrXNoHdTWjxro1#c_check). Each held-out tile noised forward four times, its counts averaged, plural at 1.5 or more.
 - [The Commitment Time, Shrink](https://claude.ai/artifact/KMf73EpZmTtaFBp268sbMh#shrink). The forward process multiplying coordinates by e^(−t) and variance by e^(−2t), with a square whose side and area show the square.
 - [The Commitment Time, Crossing](https://claude.ai/artifact/KMf73EpZmTtaFBp268sbMh#crossing). Signal variance λ_max e^(−2t) falling to the noise variance's limit of 1 at t ≈ 1.498.
+- [Digit-map checkers by hand, What the noise leaves](https://claude.ai/artifact/MX2hKBUWBXSzPQSbaxysKC#noise). Real canvases at 16 noise levels and the saved checker's balanced accuracy at each, on unseen and on trained digits.
 
 **Figures**
 

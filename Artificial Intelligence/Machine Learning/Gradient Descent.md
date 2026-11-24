@@ -46,6 +46,7 @@ Artificial Intelligence, Machine Learning. It minimises a [[Loss Function]], its
 
 - [Readout Guidance loop walk, Training the head: 8-bit AdamW on the mixing weights, bottlenecks and output head](https://claude.ai/artifact/SHnMMo46yDvhj2GaXuEs7H#th_opt). Three parameter groups at learning rate 1e-3, weight decay 0.
 - [Readout Guidance loop walk, The method: one fresh AdamW step on the latent itself](https://claude.ai/artifact/SHnMMo46yDvhj2GaXuEs7H#p_push). A new optimizer on every guided step with learning rate 0.02, one step moving the latent.
+- [Digit-map checkers by hand, Training](https://claude.ai/artifact/MX2hKBUWBXSzPQSbaxysKC#training). The loss's gradient run back into the kernel by the chain rule, stopping at the maps, then one step.
 
 **Figures**
 
